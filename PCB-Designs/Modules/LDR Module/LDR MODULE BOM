@@ -1,0 +1,14 @@
+Partlist exported from D:/egle project/ldr module/LDR MODULE.sch at 11/26/2014 4:52:06 PM
+
+Part Value   Device      Package Description                   MF                MPN    OC_FARNELL OC_NEWARK
+C1   .001uf  C2.5/4      C2.5-4  CAPACITOR                                                                  
+C2   0.01uf  C2.5/4      C2.5-4  CAPACITOR                                                                  
+C3   0.001uf C2.5/4      C2.5-4  CAPACITOR                                                                  
+CONN 3 PIN   M03         03P     AMP QUICK CONNECTOR                                    unknown    unknown  
+IC1  NE555   NE555       DIL-08  General purpose bipolar Timer Arrow Electronics NE555N 1467742    89K1486  
+IC2  7805T   7805T       TO220H  Positive VOLTAGE REGULATOR                                                 
+LED1 3MM     LED3MM      LED3MM  LED                                                                        
+R1   10K     R-EU_0204/7 0204/7  RESISTOR, European symbol                                                  
+R2   100K    R-EU_0204/7 0204/7  RESISTOR, European symbol                                                  
+R3   330E    R-EU_0204/7 0204/7  RESISTOR, European symbol                                                  
+SL1  LDR     M02         02P     AMP QUICK CONNECTOR                                    unknown    unknown  

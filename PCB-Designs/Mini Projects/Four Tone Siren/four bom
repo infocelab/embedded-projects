@@ -1,0 +1,14 @@
+                   COMPONENT
+
+NAME   						 Value         
+BATTERY                                      AB9V           
+IC1                                       UM3561        
+IC2                                        7805       
+P1                                       push switch1   
+P2                                       push swich2    
+P3                                       push switch3   
+R1                                         10k            
+R2                                         150k                 
+SPEAKER                                    8ohms          
+SW1                                        on/off  switch 
+T1                                          BC547                                                                                                        

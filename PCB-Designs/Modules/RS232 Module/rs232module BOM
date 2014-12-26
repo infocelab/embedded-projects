@@ -1,0 +1,10 @@
+Partlist exported from D:/egle project/rs232module/rs232module.sch at 12/14/2014 12:06:41 PM
+
+Part      Value       Device         Package Description                           MF MPN        OC_FARNELL OC_NEWARK
+C1        0.1uf       C2,5-3         C2.5-3  CAPACITOR                                                               
+C2        0.1uf       C2,5-3         C2.5-3  CAPACITOR                                                               
+C3        0.1uf       C2,5-3         C2.5-3  CAPACITOR                                                               
+C4        0.1uf       C2,5-3         C2.5-3  CAPACITOR                                                               
+CONNECTOR 4 pin       M04            04P     AMP QUICK CONNECTOR                                 unknown    unknown  
+IC1       MAX232      MAX313EPE      DIL16   10?, Quad, SPST, CMOS Analog Switches    MAX313EPE+ unknown    99K3220  
+X1        DB 9 FEMALE D-SUB9-H2M09ST H2M09ST D-Subminiatur Connector                             unknown    unknown  

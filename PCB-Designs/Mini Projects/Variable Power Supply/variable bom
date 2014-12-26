@@ -1,0 +1,19 @@
+
+		COMPONENT
+
+Part			            Value       
+C1   					2200uf      
+C2  					 0.1uf       
+D1  					 1N4007      
+D2   				       1N4007     
+D3                            1N4007
+D4                            1N4007      
+IC1                           LM317       
+LED1                           5mm         
+LED2                           5mm         
+R1                              1K          
+R2                             180E        
+R3                             220E        
+SL1                          transformer 
+SL2                           output      
+VR                             4.7K        
