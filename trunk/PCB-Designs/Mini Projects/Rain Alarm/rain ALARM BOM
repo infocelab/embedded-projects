@@ -1,0 +1,11 @@
+Partlist exported from D:/egle project/rain sensor/rain ALARM.sch at 11/27/2014 2:48:54 PM
+
+Part    Value       Device  Package Description                   MF                MPN    OC_FARNELL OC_NEWARK SPICEMODEL SPICEPREFIX
+BATTERY 9V          AB9V    AB9V    9-V BATTERY CLIP                                                                                  
+BUZZER  F/CM12P     F/CM12P F/CM12P BUZZER Source: Buerklin                                unknown    unknown                         
+C1      0.01uf      C2.5/5  C2.5-5  CAPACITOR                                                                                         
+C2      0.01uf      C2.5/5  C2.5-5  CAPACITOR                                                                                         
+IC1     NE555       NE555   DIL-08  General purpose bipolar Timer Arrow Electronics NE555N 1467742    89K1486                         
+R1      1k          R0204/7 0204/7  RESISTOR, European symbol                                                   NONE       R          
+R2      47k         R0204/7 0204/7  RESISTOR, European symbol                                                   NONE       R          
+SL1     RAIN SENSOR M02     02P     AMP QUICK CONNECTOR                                    unknown    unknown                         

@@ -1,0 +1,25 @@
+Partlist exported from D:/egle project/Wireless Power Transmission Project/Wireless Power Transmission Project.sch at 12/10/2014 6:05:24 PM
+
+Part Value       Device      Package Description                                                MF                MPN    OC_FARNELL OC_NEWARK
+C1   1000uf      C2.5/5      C2.5-5  CAPACITOR                                                                                               
+C2   0.1uf       C2.5/5      C2.5-5  CAPACITOR                                                                                               
+C3   0.1uf       C2.5/5      C2.5-5  CAPACITOR                                                                                               
+C4   0.1uf       C2.5/5      C2.5-5  CAPACITOR                                                                                               
+C5   0.1uf       C5/7.2      C5B7.2  CAPACITOR                                                                                               
+D1   1N4007      1N4004      DO41-10 DIODE                                                                                                   
+D2   1N4007      1N4004      DO41-10 DIODE                                                                                                   
+D3   1N4007      1N4004      DO41-10 DIODE                                                                                                   
+D4   1N4007      1N4004      DO41-10 DIODE                                                                                                   
+IC1  7812        78XXL       78XXL   VOLTAGE REGULATOR                                                                                       
+IC2  NE555       NE555       DIL-08  General purpose bipolar Timer                              Arrow Electronics NE555N 1467742    89K1486  
+JP1  transformer JP1E        JP1     JUMPER                                                                                                  
+JP2  2 pin       JP1E        JP1     JUMPER                                                                                                  
+JP3  2 pin       JP1E        JP1     JUMPER                                                                                                  
+Q1   IRF540      IRF540      TO220   N-Channel Enhancement MOSFET (HEXFET); 100V; 28A; 0,077Ohm                                              
+Q2   IRF540      IRF540      TO220   N-Channel Enhancement MOSFET (HEXFET); 100V; 28A; 0,077Ohm                                              
+R1   1 k         R-EU_0204/7 0204/7  RESISTOR, European symbol                                                                               
+R2   4.7E        R-EU_0204/7 0204/7  RESISTOR, European symbol                                                                               
+R3   5.6k        R-EU_0204/7 0204/7  RESISTOR, European symbol                                                                               
+R4   1k          R-EU_0204/7 0204/7  RESISTOR, European symbol                                                                               
+R5   1k          R-EU_0204/7 0204/7  RESISTOR, European symbol                                                                               
+T1   BC547       BC547       TO92    NPN TRANSISTOR                                                                                          

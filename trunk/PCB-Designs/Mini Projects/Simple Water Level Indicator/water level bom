@@ -1,0 +1,20 @@
+Partlist exported from D:/egle project/water level egle design/water level.sch at 11/20/2014 5:35:17 PM
+
+Part      Value  Device  Package Description               MF MPN OC_FARNELL OC_NEWARK SPICEMODEL SPICEPREFIX
+BUZZER    B/C11S B/C11S  B/C11S  BUZZER Source: Buerklin          unknown    unknown                         
+CONNECTOR        M05     05P     AMP QUICK CONNECTOR              unknown    unknown                         
+G1        AB9V   AB9V    AB9V    9-V BATTERY CLIP                                                            
+LED1      5mm    LED5MM  LED5MM  LED                                                                         
+LED2      5mm    LED5MM  LED5MM  LED                                                                         
+LED3      5mm    LED5MM  LED5MM  LED                                                                         
+Q1        BC557  BC557   TO92    PNP Transistor                                                              
+Q2        BC557  BC557   TO92    PNP Transistor                                                              
+Q3        BC557  BC557   TO92    PNP Transistor                                                              
+Q4        BC557  BC557   TO92    PNP Transistor                                                              
+R1        470E   R0204/7 0204/7  RESISTOR, European symbol                             NONE       R          
+R2        470E   R0204/7 0204/7  RESISTOR, European symbol                             NONE       R          
+R3        470E   R0204/7 0204/7  RESISTOR, European symbol                             NONE       R          
+R4        470E   R0204/7 0204/7  RESISTOR, European symbol                             NONE       R          
+R5        470E   R0204/7 0204/7  RESISTOR, European symbol                             NONE       R          
+R6        470E   R0204/7 0204/7  RESISTOR, European symbol                             NONE       R          
+R7        470E   R0204/7 0204/7  RESISTOR, European symbol                             NONE       R          

@@ -1,0 +1,12 @@
+Partlist exported from D:/egle project/DC Motor Direction Control/DC Motor Direction Control.sch at 11/25/2014 2:02:40 PM
+
+Part    Value       Device      Package Description                MF MPN   OC_FARNELL OC_NEWARK
+BATTERY 9V          AB9V        AB9V    9-V BATTERY CLIP                                        
+IC1     L293D       L293D       DIL16   PUSH-PULL 4 CHANNEL DRIVER    L293D 9589619    56P8249  
+JP1     motor       JP1E        JP1     JUMPER                                                  
+LED1    5mm         LED5MM      LED5MM  LED                                                     
+LED2    5mm         LED5MM      LED5MM  LED                                                     
+R1      330E        R-EU_0204/7 0204/7  RESISTOR, European symbol                               
+R2      330E        R-EU_0204/7 0204/7  RESISTOR, European symbol                               
+S1      push switch DS02        DS-02   DIL/CODE SWITCH                     9472126    unknown  
+S2      push switch DS02        DS-02   DIL/CODE SWITCH                     9472126    unknown  

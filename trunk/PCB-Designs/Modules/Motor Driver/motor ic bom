@@ -1,0 +1,13 @@
+			COMPONENT
+
+ NAME     						 Value    
+ CONN3     					       2 pin       
+ CONN4                                    2 pin                                           
+CONNECTOR                                4 pin      
+CONNECTOR1                               4 pin       
+CONNECTOR2                               3 pin      
+ IC1                                      L293D 
+ LED1                                      5mm   
+ LED2                                      5mm   
+ R1                                        330E  
+ R2                                        330E  

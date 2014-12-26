@@ -1,0 +1,11 @@
+          COMPONENT
+
+NAME                          Value      
+C1                            0.1UF  
+CONN                          2 PIN         
+G1                            AB9V          
+Q1                            BC557      
+R1                              10k    
+R2                              10k    
+SG1                          BUZZER 
+T1                           BC547        
