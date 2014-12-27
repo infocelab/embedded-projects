@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : E:/celabcode/PCB-Designs/Modules/8051 with lcd and keypad/8051 with lcd.brd
+Job           : E:/celabcode/Embedded-Projects/PCB-Designs/Modules/8051 with lcd and keypad/8051 with lcd.brd
 
-Start at      : 17:46:22 (12/18/2014)
-End at        : 17:46:22 (12/18/2014)
-Elapsed time  : 00:00:00
+Start at      : 12:15:04 (12/26/2014)
+End at        : 12:15:08 (12/26/2014)
+Elapsed time  : 00:00:04
 
 Signals       :    44   RoutingGrid: 50 mil  Layers: 1
-Connections   :   134   predefined:  130 ( 0 Vias )
+Connections   :   134   predefined:  9 ( 0 Vias )
 
-Router memory :   20416
+Router memory :   36068
 
-Passname          :     Route Optimize1 Optimize2 Optimize3 Optimize4
+Passname          :    Busses     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:00  00:00:00  00:00:00  00:00:00  00:00:00
-Number of Ripups  :         0         0         0         0         0
-max. Level        :         0         0         0         0         0
-max. Total        :         0         0         0         0         0
+Time per pass     :  00:00:00  00:00:03  00:00:00  00:00:01  00:00:00  00:00:00
+Number of Ripups  :         0        71         0         0         0         0
+max. Level        :         0         4         0         0         0         0
+max. Total        :         0        30         0         0         0         0
 
-Routed            :         4         4         4         4         4
-Vias              :         0         0         0         0         0
-Resolution        :   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
+Routed            :         6       125       125       125       125       125
+Vias              :         0         0         0         0         0         0
+Resolution        :    11.2 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
 
 Final             : 100.0% finished
