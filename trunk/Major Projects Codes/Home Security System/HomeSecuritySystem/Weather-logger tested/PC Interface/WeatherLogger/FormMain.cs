@@ -53,7 +53,7 @@ namespace WeatherLogger
             }
             while (!((ArrayComPortsNames[index] == ComPortName) ||
                                 (index == ArrayComPortsNames.GetUpperBound(0))));
-            cbxPorts.SelectedIndex = 0;
+            cbxPorts.SelectedIndex = 3;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -203,315 +203,416 @@ namespace WeatherLogger
 
         private void btn_lab1_cfl_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                        "<homecode>" + tbx_home_code.Text +	"</homecode> " +
-                        "<destinationUnitID>" + tbx_lab1_unit_code.Text + "</destinationUnitID>" +
-                        "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                        "<command>" +
-                        "<Relay>" +	1 + "</Relay>" +
-                        "<task>" + "on" + "</task>" +
-                        "</command>" +
-                        "</root>";
-
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text  + "," + "1,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
+      
         }
 
         private void btn_lab1_cfl_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-            "<homecode>" + tbx_home_code.Text + "</homecode> " +
-            "<destinationUnitID>" + tbx_lab1_unit_code.Text + "</destinationUnitID>" +
-            "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-            "<command>" +
-            "<Relay>" + 1 + "</Relay>" +
-            "<task>" + "off" + "</task>" +
-            "</command>" +
-            "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "1,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab1_tube_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                       "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                       "<destinationUnitID>" + tbx_lab1_unit_code.Text + "</destinationUnitID>" +
-                       "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                       "<command>" +
-                       "<Relay>" + 2 + "</Relay>" +
-                       "<task>" + "on" + "</task>" +
-                       "</command>" +
-                       "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "2,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab1_tube_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                       "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                       "<destinationUnitID>" + tbx_lab1_unit_code.Text + "</destinationUnitID>" +
-                       "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                       "<command>" +
-                       "<Relay>" + 2 + "</Relay>" +
-                       "<task>" + "off" + "</task>" +
-                       "</command>" +
-                       "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "2,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab1_fan_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                       "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                       "<destinationUnitID>" + tbx_lab1_unit_code.Text + "</destinationUnitID>" +
-                       "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                       "<command>" +
-                       "<Relay>" + 3 + "</Relay>" +
-                       "<task>" + "on" + "</task>" +
-                       "</command>" +
-                       "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "3,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab1_fan_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                     "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                     "<destinationUnitID>" + tbx_lab1_unit_code.Text + "</destinationUnitID>" +
-                     "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                     "<command>" +
-                     "<Relay>" + 3 + "</Relay>" +
-                     "<task>" + "off" + "</task>" +
-                     "</command>" +
-                     "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "3,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab1_plug_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                       "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                       "<destinationUnitID>" + tbx_lab1_unit_code.Text + "</destinationUnitID>" +
-                       "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                       "<command>" +
-                       "<Relay>" + 4 + "</Relay>" +
-                       "<task>" + "on" + "</task>" +
-                       "</command>" +
-                       "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "4,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab1_plug_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                   "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                   "<destinationUnitID>" + tbx_lab1_unit_code.Text + "</destinationUnitID>" +
-                   "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                   "<command>" +
-                   "<Relay>" + 4 + "</Relay>" +
-                   "<task>" + "off" + "</task>" +
-                   "</command>" +
-                   "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "4,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab2_cfl_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                      "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                      "<destinationUnitID>" + tbx_lab2_unit_code.Text + "</destinationUnitID>" +
-                      "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                      "<command>" +
-                      "<Relay>" + 1 + "</Relay>" +
-                      "<task>" + "on" + "</task>" +
-                      "</command>" +
-                      "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "1,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab2_cfl_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                  "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                  "<destinationUnitID>" + tbx_lab2_unit_code.Text + "</destinationUnitID>" +
-                  "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                  "<command>" +
-                  "<Relay>" + 1 + "</Relay>" +
-                  "<task>" + "off" + "</task>" +
-                  "</command>" +
-                  "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "1,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab2_tube_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                     "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                     "<destinationUnitID>" + tbx_lab2_unit_code.Text + "</destinationUnitID>" +
-                     "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                     "<command>" +
-                     "<Relay>" + 2 + "</Relay>" +
-                     "<task>" + "on" + "</task>" +
-                     "</command>" +
-                     "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "2,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab2_tube_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                "<destinationUnitID>" + tbx_lab2_unit_code.Text + "</destinationUnitID>" +
-                "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                "<command>" +
-                "<Relay>" + 2 + "</Relay>" +
-                "<task>" + "off" + "</task>" +
-                "</command>" +
-                "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "2,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab2_fan_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                    "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                    "<destinationUnitID>" + tbx_lab2_unit_code.Text + "</destinationUnitID>" +
-                    "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                    "<command>" +
-                    "<Relay>" + 3 + "</Relay>" +
-                    "<task>" + "on" + "</task>" +
-                    "</command>" +
-                    "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "3,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab2_fan_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-               "<homecode>" + tbx_home_code.Text + "</homecode> " +
-               "<destinationUnitID>" + tbx_lab2_unit_code.Text + "</destinationUnitID>" +
-               "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-               "<command>" +
-               "<Relay>" + 3 + "</Relay>" +
-               "<task>" + "off" + "</task>" +
-               "</command>" +
-               "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "3,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab2_plug_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                   "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                   "<destinationUnitID>" + tbx_lab2_unit_code.Text + "</destinationUnitID>" +
-                   "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                   "<command>" +
-                   "<Relay>" + 4 + "</Relay>" +
-                   "<task>" + "on" + "</task>" +
-                   "</command>" +
-                   "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "4,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab2_plug_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-              "<homecode>" + tbx_home_code.Text + "</homecode> " +
-              "<destinationUnitID>" + tbx_lab2_unit_code.Text + "</destinationUnitID>" +
-              "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-              "<command>" +
-              "<Relay>" + 4 + "</Relay>" +
-              "<task>" + "off" + "</task>" +
-              "</command>" +
-              "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "4,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab3_cfl_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-                  "<homecode>" + tbx_home_code.Text + "</homecode> " +
-                  "<destinationUnitID>" + tbx_lab3_unit_code.Text + "</destinationUnitID>" +
-                  "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-                  "<command>" +
-                  "<Relay>" + 1 + "</Relay>" +
-                  "<task>" + "on" + "</task>" +
-                  "</command>" +
-                  "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "1,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab3_cfl_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-              "<homecode>" + tbx_home_code.Text + "</homecode> " +
-              "<destinationUnitID>" + tbx_lab3_unit_code.Text + "</destinationUnitID>" +
-              "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-              "<command>" +
-              "<Relay>" + 1 + "</Relay>" +
-              "<task>" + "off" + "</task>" +
-              "</command>" +
-              "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "1,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab3_tube_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-               "<homecode>" + tbx_home_code.Text + "</homecode> " +
-               "<destinationUnitID>" + tbx_lab3_unit_code.Text + "</destinationUnitID>" +
-               "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-               "<command>" +
-               "<Relay>" + 2 + "</Relay>" +
-               "<task>" + "on" + "</task>" +
-               "</command>" +
-               "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "2,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab3_tube_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-            "<homecode>" + tbx_home_code.Text + "</homecode> " +
-            "<destinationUnitID>" + tbx_lab3_unit_code.Text + "</destinationUnitID>" +
-            "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-            "<command>" +
-            "<Relay>" + 2 + "</Relay>" +
-            "<task>" + "off" + "</task>" +
-            "</command>" +
-            "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "2,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab3_fan_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-              "<homecode>" + tbx_home_code.Text + "</homecode> " +
-              "<destinationUnitID>" + tbx_lab3_unit_code.Text + "</destinationUnitID>" +
-              "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-              "<command>" +
-              "<Relay>" + 3 + "</Relay>" +
-              "<task>" + "on" + "</task>" +
-              "</command>" +
-              "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "3,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab3_fan_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-           "<homecode>" + tbx_home_code.Text + "</homecode> " +
-           "<destinationUnitID>" + tbx_lab3_unit_code.Text + "</destinationUnitID>" +
-           "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-           "<command>" +
-           "<Relay>" + 3 + "</Relay>" +
-           "<task>" + "off" + "</task>" +
-           "</command>" +
-           "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "3,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab3_plug_on_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-            "<homecode>" + tbx_home_code.Text + "</homecode> " +
-            "<destinationUnitID>" + tbx_lab3_unit_code.Text + "</destinationUnitID>" +
-            "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-            "<command>" +
-            "<Relay>" + 4 + "</Relay>" +
-            "<task>" + "on" + "</task>" +
-            "</command>" +
-            "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "4,1,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
         }
 
         private void btn_lab3_plug_off_Click(object sender, EventArgs e)
         {
-            string xml = "<root>" +
-         "<homecode>" + tbx_home_code.Text + "</homecode> " +
-         "<destinationUnitID>" + tbx_lab3_unit_code.Text + "</destinationUnitID>" +
-         "<sourceUnitID>" + tbx_unit_code + "</sourceUnitID>" +
-         "<command>" +
-         "<Relay>" + 4 + "</Relay>" +
-         "<task>" + "off" + "</task>" +
-         "</command>" +
-         "</root>";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "4,0,";
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            myPort.WriteLine(xml);
+            myPort.Close();
+        }
+
+        private void tbx_home_code_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
