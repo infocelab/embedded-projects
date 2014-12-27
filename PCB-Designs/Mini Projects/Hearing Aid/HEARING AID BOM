@@ -1,0 +1,29 @@
+Partlist exported from E:/celabcode/Embedded-Projects/PCB-Designs/Mini Projects/Hearing Aid/HEARING AID.sch at 12/27/2014 12:53:11 PM
+
+Part    Value         Device      Package  Description               MF MPN OC_FARNELL OC_NEWARK
+BATTERY 9V            AB9V        AB9V     9-V BATTERY CLIP                                     
+C1      0.1uf         C2.5/6      C2.5-6   CAPACITOR                                            
+C2      0.1uf         C2.5/6      C2.5-6   CAPACITOR                                            
+C3      1uf           C2.5/6      C2.5-6   CAPACITOR                                            
+C4      10uf          C2.5/6      C2.5-6   CAPACITOR                                            
+C5      100uf         C2.5/6      C2.5-6   CAPACITOR                                            
+C6      1uf           C2.5/6      C2.5-6   CAPACITOR                                            
+D1      1N4007        1N4004      DO41-10  DIODE                                                
+IC1     7805          78XXL       78XXL    VOLTAGE REGULATOR                                    
+R1      10K           R-EU_0204/7 0204/7   RESISTOR, European symbol                            
+R2      100k          R-EU_0204/7 0204/7   RESISTOR, European symbol                            
+R3      1M            R-EU_0204/7 0204/7   RESISTOR, European symbol                            
+R4      4.7K          R-EU_0204/7 0204/7   RESISTOR, European symbol                            
+R5      3.9K          R-EU_0204/7 0204/7   RESISTOR, European symbol                            
+R6      22K           R-TRIMM64P  RTRIM64P Trimm resistor                                       
+R7      1.5K          R-EU_0204/7 0204/7   RESISTOR, European symbol                            
+R8      10K           R-EU_0204/7 0204/7   RESISTOR, European symbol                            
+R9      100E          R-EU_0204/7 0204/7   RESISTOR, European symbol                            
+R10     100k          R-EU_0204/7 0204/7   RESISTOR, European symbol                            
+SL1     electret mic  M02         02P      AMP QUICK CONNECTOR              unknown    unknown  
+SL2     ear phone     M02         02P      AMP QUICK CONNECTOR              unknown    unknown  
+SW1     on/off switch SW_DIP-3    EDG-03   DIP SWITCH                                           
+T1      BC547         BC547       TO92     NPN TRANSISTOR                                       
+T2      BC547         BC547       TO92     NPN TRANSISTOR                                       
+T3      BC547         BC547       TO92     NPN TRANSISTOR                                       
+T4      BC547         BC547       TO92     NPN TRANSISTOR                                       
