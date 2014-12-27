@@ -288,6 +288,7 @@
             this.tbx_lab1_unit_code.Name = "tbx_lab1_unit_code";
             this.tbx_lab1_unit_code.Size = new System.Drawing.Size(100, 20);
             this.tbx_lab1_unit_code.TabIndex = 12;
+            this.tbx_lab1_unit_code.Text = "3333";
             // 
             // btn_lab1_plug_off
             // 
@@ -734,6 +735,7 @@
             this.tbx_unit_code.Name = "tbx_unit_code";
             this.tbx_unit_code.Size = new System.Drawing.Size(100, 20);
             this.tbx_unit_code.TabIndex = 3;
+            this.tbx_unit_code.Text = "2222";
             // 
             // label14
             // 
@@ -750,6 +752,8 @@
             this.tbx_home_code.Name = "tbx_home_code";
             this.tbx_home_code.Size = new System.Drawing.Size(100, 20);
             this.tbx_home_code.TabIndex = 1;
+            this.tbx_home_code.Text = "1111";
+            this.tbx_home_code.TextChanged += new System.EventHandler(this.tbx_home_code_TextChanged);
             // 
             // label13
             // 
