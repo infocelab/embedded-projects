@@ -1,8 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        10/06/2014  13:04:39  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/28/2014  17:00:31  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-G:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE STARTUP.obj, cals.obj TO cals RAMSIZE (256)
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, cals.obj TO cals RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
@@ -11,13 +11,13 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   STARTUP.obj (?C_STARTUP)
   cals.obj (CALS)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CSTOPTR)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (STRLEN)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CSTOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (STRLEN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
 
 
 LINK MAP OF MODULE:  cals (?C_STARTUP)
@@ -56,19 +56,19 @@ LINK MAP OF MODULE:  cals (?C_STARTUP)
             CODE    0F38H     001BH     UNIT         ?PR?_LCD8_SET_CURSOR?CALS
             CODE    0F53H     0015H     UNIT         ?PR?_STRLEN?STRLEN
             CODE    0F68H     0012H     UNIT         ?PR?_LCD4_CMD?CALS
-            CODE    0F7AH     0010H     UNIT         ?CO?CALS
-            CODE    0F8AH     000FH     UNIT         ?PR?_LCD8_CMD?CALS
-            CODE    0F99H     000CH     UNIT         ?C_C51STARTUP
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 2
+            CODE    0F7AH     000FH     UNIT         ?PR?_LCD8_CMD?CALS
+            CODE    0F89H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0F95H     000BH     UNIT         ?CO?CALS
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 2
 
 
-            CODE    0FA5H     000AH     UNIT         ?PR?LCD4_CLEAR?CALS
-            CODE    0FAFH     000AH     UNIT         ?PR?LCD4_SHIFT_RIGHT?CALS
-            CODE    0FB9H     000AH     UNIT         ?PR?LCD4_SHIFT_LEFT?CALS
-            CODE    0FC3H     0008H     UNIT         ?PR?_LCD8_WRITE_CHAR?CALS
-            CODE    0FCBH     0005H     UNIT         ?PR?LCD8_CLEAR?CALS
-            CODE    0FD0H     0005H     UNIT         ?PR?LCD8_SHIFT_RIGHT?CALS
-            CODE    0FD5H     0005H     UNIT         ?PR?LCD8_SHIFT_LEFT?CALS
+            CODE    0FA0H     000AH     UNIT         ?PR?LCD4_CLEAR?CALS
+            CODE    0FAAH     000AH     UNIT         ?PR?LCD4_SHIFT_RIGHT?CALS
+            CODE    0FB4H     000AH     UNIT         ?PR?LCD4_SHIFT_LEFT?CALS
+            CODE    0FBEH     0008H     UNIT         ?PR?_LCD8_WRITE_CHAR?CALS
+            CODE    0FC6H     0005H     UNIT         ?PR?LCD8_CLEAR?CALS
+            CODE    0FCBH     0005H     UNIT         ?PR?LCD8_SHIFT_RIGHT?CALS
+            CODE    0FD0H     0005H     UNIT         ?PR?LCD8_SHIFT_LEFT?CALS
 
 
 
@@ -119,7 +119,7 @@ SEGMENT                               DATA_GROUP
   +--> ?PR?_LCD8_CMD?CALS
 
 ?PR?_CONVERT?CALS                   0039H    000DH
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 3
 
 
   +--> ?PR?_STRLEN?STRLEN
@@ -137,7 +137,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:0F99H         SEGMENT       ?C_C51STARTUP
+  C:0F89H         SEGMENT       ?C_C51STARTUP
   I:0053H         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
@@ -147,7 +147,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:0F9CH         SYMBOL        IDATALOOP
+  C:0F8CH         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -156,18 +156,18 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:0F99H         SYMBOL        STARTUP1
+  C:0F89H         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:0F99H         LINE#         133
-  C:0F9BH         LINE#         134
-  C:0F9CH         LINE#         135
-  C:0F9DH         LINE#         136
-  C:0F9FH         LINE#         185
-  C:0FA2H         LINE#         196
+  C:0F89H         LINE#         133
+  C:0F8BH         LINE#         134
+  C:0F8CH         LINE#         135
+  C:0F8DH         LINE#         136
+  C:0F8FH         LINE#         185
+  C:0F92H         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        CALS
@@ -179,24 +179,24 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   B:0090H.0       PUBLIC        R1
   D:00B0H         PUBLIC        P3
   B:0090H.1       PUBLIC        R2
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 4
 
 
   B:0090H.2       PUBLIC        R3
   B:0090H.3       PUBLIC        R4
-  C:0FAFH         PUBLIC        Lcd4_Shift_Right
+  C:0FAAH         PUBLIC        Lcd4_Shift_Right
   D:00A8H         PUBLIC        IE
-  C:0FD0H         PUBLIC        Lcd8_Shift_Right
+  C:0FCBH         PUBLIC        Lcd8_Shift_Right
   C:0E91H         PUBLIC        _Lcd4_Write_String
-  C:0FA5H         PUBLIC        Lcd4_Clear
+  C:0FA0H         PUBLIC        Lcd4_Clear
   B:0080H.1       PUBLIC        EN
   C:0E3BH         PUBLIC        _Lcd8_Write_String
-  C:0FCBH         PUBLIC        Lcd8_Clear
-  C:0FB9H         PUBLIC        Lcd4_Shift_Left
+  C:0FC6H         PUBLIC        Lcd8_Clear
+  C:0FB4H         PUBLIC        Lcd4_Shift_Left
   C:0E66H         PUBLIC        _Lcd4_Write_Char
   D:00B8H         PUBLIC        IP
-  C:0FD5H         PUBLIC        Lcd8_Shift_Left
-  C:0FC3H         PUBLIC        _Lcd8_Write_Char
+  C:0FD0H         PUBLIC        Lcd8_Shift_Left
+  C:0FBEH         PUBLIC        _Lcd8_Write_Char
   C:0CC2H         PUBLIC        _lookup
   B:0080H.0       PUBLIC        RS
   C:0800H         PUBLIC        main
@@ -208,7 +208,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:0F6FH         PUBLIC        _Lcd4_Cmd
   C:0DA9H         PUBLIC        Lcd4_Init
   C:0AB8H         PUBLIC        Read_Keypad
-  C:0F91H         PUBLIC        _Lcd8_Cmd
+  C:0F81H         PUBLIC        _Lcd8_Cmd
   C:0EBCH         PUBLIC        Lcd8_Init
   C:0F10H         PUBLIC        _Lcd4_Port
   C:0D19H         PUBLIC        _Lcd8_Port
@@ -239,7 +239,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   D:0002H         SYMBOL        j
   D:0004H         SYMBOL        i
   -------         ENDDO         
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 5
 
 
   C:0DE9H         LINE#         17
@@ -282,28 +282,28 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:0D66H         LINE#         70
   C:0D68H         LINE#         71
   -------         ENDPROC       _LCD8_PORT
-  C:0F8AH         SYMBOL        L?0202
+  C:0F7AH         SYMBOL        L?0202
   -------         PROC          L?0201
   -------         ENDPROC       L?0201
-  C:0F8AH         SYMBOL        L?0202
+  C:0F7AH         SYMBOL        L?0202
   -------         PROC          _LCD8_CMD
   D:0007H         SYMBOL        a
-  C:0F91H         LINE#         72
-  C:0F91H         LINE#         73
-  C:0F91H         LINE#         74
-  C:0F93H         LINE#         75
-  C:0F93H         LINE#         76
-  C:0F93H         LINE#         77
-  C:0F96H         LINE#         78
-  C:0F98H         LINE#         79
+  C:0F81H         LINE#         72
+  C:0F81H         LINE#         73
+  C:0F81H         LINE#         74
+  C:0F83H         LINE#         75
+  C:0F83H         LINE#         76
+  C:0F83H         LINE#         77
+  C:0F86H         LINE#         78
+  C:0F88H         LINE#         79
   -------         ENDPROC       _LCD8_CMD
   -------         PROC          LCD8_CLEAR
-  C:0FCBH         LINE#         81
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 6
+  C:0FC6H         LINE#         81
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 6
 
 
-  C:0FCBH         LINE#         82
-  C:0FCBH         LINE#         83
+  C:0FC6H         LINE#         82
+  C:0FC6H         LINE#         83
   -------         ENDPROC       LCD8_CLEAR
   -------         PROC          _LCD8_SET_CURSOR
   D:0039H         SYMBOL        a
@@ -334,14 +334,14 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   -------         ENDPROC       LCD8_INIT
   -------         PROC          _LCD8_WRITE_CHAR
   D:0007H         SYMBOL        a
-  C:0FC3H         LINE#         112
-  C:0FC3H         LINE#         113
-  C:0FC3H         LINE#         114
-  C:0FC5H         LINE#         115
-  C:0FC5H         LINE#         116
-  C:0FC5H         LINE#         117
-  C:0FC8H         LINE#         118
-  C:0FCAH         LINE#         119
+  C:0FBEH         LINE#         112
+  C:0FBEH         LINE#         113
+  C:0FBEH         LINE#         114
+  C:0FC0H         LINE#         115
+  C:0FC0H         LINE#         116
+  C:0FC0H         LINE#         117
+  C:0FC3H         LINE#         118
+  C:0FC5H         LINE#         119
   -------         ENDPROC       _LCD8_WRITE_CHAR
   -------         PROC          _LCD8_WRITE_STRING
   D:0039H         SYMBOL        a
@@ -355,17 +355,17 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:0E65H         LINE#         126
   -------         ENDPROC       _LCD8_WRITE_STRING
   -------         PROC          LCD8_SHIFT_RIGHT
-  C:0FD0H         LINE#         128
-  C:0FD0H         LINE#         129
-  C:0FD0H         LINE#         130
+  C:0FCBH         LINE#         128
+  C:0FCBH         LINE#         129
+  C:0FCBH         LINE#         130
   -------         ENDPROC       LCD8_SHIFT_RIGHT
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 7
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 7
 
 
   -------         PROC          LCD8_SHIFT_LEFT
-  C:0FD5H         LINE#         133
-  C:0FD5H         LINE#         134
-  C:0FD5H         LINE#         135
+  C:0FD0H         LINE#         133
+  C:0FD0H         LINE#         134
+  C:0FD0H         LINE#         135
   -------         ENDPROC       LCD8_SHIFT_LEFT
   -------         PROC          _LCD4_PORT
   D:0007H         SYMBOL        a
@@ -401,10 +401,10 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:0F79H         LINE#         170
   -------         ENDPROC       _LCD4_CMD
   -------         PROC          LCD4_CLEAR
-  C:0FA5H         LINE#         172
-  C:0FA5H         LINE#         173
-  C:0FA5H         LINE#         174
-  C:0FAAH         LINE#         175
+  C:0FA0H         LINE#         172
+  C:0FA0H         LINE#         173
+  C:0FA0H         LINE#         174
+  C:0FA5H         LINE#         175
   -------         ENDPROC       LCD4_CLEAR
   -------         PROC          _LCD4_SET_CURSOR
   D:004FH         SYMBOL        a
@@ -419,7 +419,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:0D6DH         LINE#         181
   C:0D72H         LINE#         182
   C:0D72H         LINE#         183
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 8
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 8
 
 
   C:0D78H         LINE#         184
@@ -479,7 +479,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   -------         PROC          _LCD4_WRITE_STRING
   D:004AH         SYMBOL        a
   -------         DO            
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 9
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 9
 
 
   D:004DH         SYMBOL        i
@@ -491,16 +491,16 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:0EBBH         LINE#         240
   -------         ENDPROC       _LCD4_WRITE_STRING
   -------         PROC          LCD4_SHIFT_RIGHT
-  C:0FAFH         LINE#         242
-  C:0FAFH         LINE#         243
-  C:0FAFH         LINE#         244
-  C:0FB4H         LINE#         245
+  C:0FAAH         LINE#         242
+  C:0FAAH         LINE#         243
+  C:0FAAH         LINE#         244
+  C:0FAFH         LINE#         245
   -------         ENDPROC       LCD4_SHIFT_RIGHT
   -------         PROC          LCD4_SHIFT_LEFT
-  C:0FB9H         LINE#         248
-  C:0FB9H         LINE#         249
-  C:0FB9H         LINE#         250
-  C:0FBEH         LINE#         251
+  C:0FB4H         LINE#         248
+  C:0FB4H         LINE#         249
+  C:0FB4H         LINE#         250
+  C:0FB9H         LINE#         251
   -------         ENDPROC       LCD4_SHIFT_LEFT
   C:0EE6H         SYMBOL        L?0198
   -------         PROC          L?0197
@@ -539,7 +539,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:0AECH         LINE#         57
   C:0AF8H         LINE#         58
   C:0AFAH         LINE#         59
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 10
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 10
 
 
   C:0AFCH         LINE#         60
@@ -599,7 +599,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:0C54H         LINE#         140
   C:0C5BH         LINE#         142
   C:0C77H         LINE#         143
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 11
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 11
 
 
   C:0C77H         LINE#         144
@@ -659,7 +659,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:0837H         LINE#         179
   C:0837H         LINE#         180
   C:0837H         LINE#         181
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 12
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 12
 
 
   C:083FH         LINE#         182
@@ -719,7 +719,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:093BH         LINE#         243
   C:093BH         LINE#         244
   C:093DH         LINE#         245
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 13
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 13
 
 
   C:093DH         LINE#         246
@@ -779,7 +779,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
   C:0D04H         LINE#         301
   C:0D06H         LINE#         302
   C:0D08H         LINE#         303
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 14
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 14
 
 
   C:0D08H         LINE#         304
@@ -839,7 +839,7 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_LCD4_SET_CURSOR?CALS
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      10/06/2014  13:04:39  PAGE 15
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/28/2014  17:00:31  PAGE 15
 
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
@@ -858,8 +858,8 @@ SYMBOL TABLE OF MODULE:  cals (?C_STARTUP)
     SEGMENT: ?PR?_LOOKUP?CALS
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 06C3H BYTE (84%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 06BEH BYTE (84%) *
 ******************************************************************************
 
-Program Size: data=84.0 xdata=0 code=2013
+Program Size: data=84.0 xdata=0 code=2008
 LINK/LOCATE RUN COMPLETE.  9 WARNING(S),  0 ERROR(S)

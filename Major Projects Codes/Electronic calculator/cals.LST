@@ -1,9 +1,9 @@
-C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 1   
+C51 COMPILER V9.52.0.0   CALS                                                              12/28/2014 17:00:30 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE CALS
 OBJECT MODULE PLACED IN cals.OBJ
-COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE cals.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE cals.c BROWSE DEBUG OBJECTEXTEND TABS(2)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   53   1        R4=1;
   54   1        if(C1==0){Delay(100);while(C1==0);return '0';}
   55   1        if(C2==0){Delay(100);while(C2==0);return '1';}
-C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 2   
+C51 COMPILER V9.52.0.0   CALS                                                              12/28/2014 17:00:30 PAGE 2   
 
   56   1        if(C3==0){Delay(100);while(C3==0);return '2';}
   57   1        if(C4==0){Delay(100);while(C4==0);return '3';}
@@ -126,7 +126,7 @@ line level    source
  115            if(C4==0){Delay(100);while(C4==0);return '*';}
  116            R1=1;
  117            R2=1;
-C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 3   
+C51 COMPILER V9.52.0.0   CALS                                                              12/28/2014 17:00:30 PAGE 3   
 
  118            R3=1;
  119            R4=0;
@@ -187,10 +187,10 @@ line level    source
  174   1        Lcd8_init();
 *** WARNING C206 IN LINE 174 OF cals.c: 'Lcd8_init': missing function-prototype
  175   1        Lcd8_Set_Cursor(1,1);
- 176   1        Lcd8_Write_String("Made Calculator");
+ 176   1        Lcd8_Write_String("Calculator");
  177   1        Delay(2000);
  178   1       
-C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 4   
+C51 COMPILER V9.52.0.0   CALS                                                              12/28/2014 17:00:30 PAGE 4   
 
  179   1        while(1)
  180   1        {
@@ -254,7 +254,7 @@ line level    source
  238   3              switch(oper)
  239   3              {
  240   4                case 1:
-C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 5   
+C51 COMPILER V9.52.0.0   CALS                                                              12/28/2014 17:00:30 PAGE 5   
 
  241   4                  ans =v1+v2;
  242   4                oper=0;
@@ -318,7 +318,7 @@ line level    source
  300   2      case 5:
  301   2      cha='5';
  302   2      break;
-C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 6   
+C51 COMPILER V9.52.0.0   CALS                                                              12/28/2014 17:00:30 PAGE 6   
 
  303   2      case 6:
  304   2      cha='6';
@@ -341,7 +341,7 @@ line level    source
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =   1700    ----
-   CONSTANT SIZE    =     16    ----
+   CONSTANT SIZE    =     11    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----      92
