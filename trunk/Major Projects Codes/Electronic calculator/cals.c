@@ -173,7 +173,7 @@ void main()
   char c;
   Lcd8_init();
 	Lcd8_Set_Cursor(1,1);
-	Lcd8_Write_String("Made Calculator");
+	Lcd8_Write_String("Calculator");
 	Delay(2000);
  
 	while(1)
