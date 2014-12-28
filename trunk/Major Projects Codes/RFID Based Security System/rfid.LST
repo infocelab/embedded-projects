@@ -1,0 +1,801 @@
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE EFY_SEC
+OBJECT MODULE PLACED IN efy_sec.OBJ
+COMPILER INVOKED BY: D:\Software-Tool\Atmel\C-Compiler\New uVision Keil\C51\BIN\C51.EXE efy_sec.c BROWSE DEBUG OBJECTEXT
+                    -END CODE
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          sbit RS=P3^7;
+   4          sbit EN=P3^6;
+   5          sbit R=P3^2;
+   6          sbit bz=P1^7;
+   7          
+   8          void Rxmsg(void);
+   9          void lcdinit(void);
+  10          void lcdData(unsigned char l);
+  11          void lcdcmd(unsigned char k);
+  12          void DelayMs(unsigned int count); 
+  13          void sucessRx(void);
+  14          void unknown(void);
+  15          void display(unsigned char s, t);
+  16          
+  17          void welcome(void);
+  18           
+  19          void main()
+  20          {
+  21   1      unsigned char i=0;
+  22   1      unsigned int j=0;
+  23   1      unsigned char c[15];
+  24   1      
+  25   1      TMOD=0x20;                // Configure the serial port to 9600 baud rate
+  26   1      TH1=0xFD;
+  27   1      SCON=0X50;
+  28   1      TR1=1;
+  29   1      R=0;
+  30   1      lcdinit();
+  31   1      welcome();
+  32   1      bz=1;
+  33   1      
+  34   1      while(1)
+  35   1      {
+  36   2      back:
+  37   2      
+  38   2      for(i=0;i<15;i++)                         //command to recv data
+  39   2      {
+  40   3      c[i]=0xFF;
+  41   3      }
+  42   2                                                                                                                                          
+  43   2      while(RI==0);
+  44   2      
+  45   2      for(i=0;i<15;i++)                         //command to recv data
+  46   2      {
+  47   3      j=0;
+  48   3      while(RI==0)
+  49   3      {
+  50   4      if(j>=1000)
+  51   4      goto timeout;
+  52   4      j++;
+  53   4      }
+  54   3      c[i]=SBUF;
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 2   
+
+  55   3      RI=0;
+  56   3      }
+  57   2      
+  58   2      timeout:
+  59   2      for(i=0;i<15;i++)
+  60   2      {
+  61   3      if(c[i]=='1' && c[i+1]=='E' && c[i+2]=='0' && c[i+3]=='0' && c[i+4]=='7' && c[i+5]=='C' && c[i+6]=='A' && 
+             -c[i+7]=='0' && c[i+8]=='3' && c[i+9]=='C')
+  62   3      {
+  63   4      sucessRx();
+  64   4      DelayMs(1000); 
+  65   4      R=1;
+  66   4      bz=0;
+  67   4      DelayMs(1000);
+  68   4      R=0;
+  69   4      bz=1;
+  70   4      DelayMs(1000);
+  71   4      lcdinit();
+  72   4      DelayMs(100);
+  73   4      welcome();
+  74   4      
+  75   4      goto back;
+  76   4      }
+  77   3      }
+  78   2      unknown();
+  79   2      DelayMs(2000); 
+  80   2      bz=0;
+  81   2      DelayMs(2000);
+  82   2      bz=1;
+  83   2      DelayMs(1000);
+  84   2      lcdinit();
+  85   2      DelayMs(100);
+  86   2      welcome();
+  87   2      }
+  88   1      }
+  89          
+  90          void sucessRx()
+  91          {
+  92   1      unsigned int i=0;
+  93   1      unsigned char c[]="ACCESS GRANTED  ";
+  94   1      
+  95   1      lcdcmd(0x01);
+  96   1      DelayMs(10);
+  97   1      lcdcmd(0x80);
+  98   1      DelayMs(10);
+  99   1      
+ 100   1      while(c[i]!='\0')
+ 101   1      {
+ 102   2      lcdData(c[i]);
+ 103   2      i++;
+ 104   2      }
+ 105   1      }
+ 106          
+ 107          void unknown(void)
+ 108          {
+ 109   1      unsigned int i=0;
+ 110   1      unsigned char c[]="ACCESS DENIED";
+ 111   1      
+ 112   1      lcdcmd(0x01);
+ 113   1      DelayMs(10);
+ 114   1      lcdcmd(0x80);
+ 115   1      DelayMs(10);
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 3   
+
+ 116   1      
+ 117   1      while(c[i]!='\0')
+ 118   1      {
+ 119   2      lcdData(c[i]);
+ 120   2      i++;
+ 121   2      }
+ 122   1      }
+ 123          
+ 124          //---------------------------------------
+ 125          // Lcd initialization subroutine
+ 126          //---------------------------------------
+ 127          void lcdinit(void)
+ 128          {
+ 129   1      lcdcmd(0x38);
+ 130   1      DelayMs(250);
+ 131   1      lcdcmd(0x0E);
+ 132   1      DelayMs(250);
+ 133   1      lcdcmd(0x01);
+ 134   1      DelayMs(250);
+ 135   1      lcdcmd(0x06);
+ 136   1      DelayMs(250);
+ 137   1      lcdcmd(0x80);
+ 138   1      DelayMs(250);
+ 139   1      }
+ 140          
+ 141          //---------------------------------------
+ 142          // Lcd data display
+ 143          //---------------------------------------
+ 144          void lcdData(unsigned char l)
+ 145          {
+ 146   1      P2=l;
+ 147   1      RS=1;
+ 148   1      EN=1;
+ 149   1      DelayMs(1);
+ 150   1      EN=0;
+ 151   1      return;
+ 152   1      }
+ 153          
+ 154          //---------------------------------------
+ 155          // Lcd command
+ 156          //---------------------------------------
+ 157          void lcdcmd(unsigned char k)
+ 158          {
+ 159   1      P2=k;
+ 160   1      RS=0;
+ 161   1      EN=1;
+ 162   1      DelayMs(1);
+ 163   1      EN=0;
+ 164   1      return;
+ 165   1      }                          
+ 166          
+ 167          //---------------------------------------
+ 168          // Delay mS function
+ 169          //---------------------------------------
+ 170          void DelayMs(unsigned int count) 
+ 171          {  // mSec Delay 11.0592 Mhz 
+ 172   1          unsigned int i;                   // Keil v7.5a 
+ 173   1          while(count) {
+ 174   2              i = 115;                         // 115 exact value
+ 175   2                      while(i>0) 
+ 176   2                      i--;
+ 177   2              count--;
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 4   
+
+ 178   2          }
+ 179   1      }
+ 180          
+ 181          void welcome(void)
+ 182          {
+ 183   1      unsigned int i=0;
+ 184   1      unsigned char c[]="WELCOME TO RFID";     
+ 185   1      unsigned char d[]="SECURITY SYSTEM";
+ 186   1      
+ 187   1      lcdcmd(0x01);
+ 188   1      DelayMs(10);
+ 189   1      lcdcmd(0x80);
+ 190   1      DelayMs(10);
+ 191   1      
+ 192   1      while(c[i]!='\0')
+ 193   1      {
+ 194   2      lcdData(c[i]);
+ 195   2      i++;
+ 196   2      }
+ 197   1      
+ 198   1      lcdcmd(0xc0);
+ 199   1      
+ 200   1      i=0;
+ 201   1      while(d[i]!='\0')
+ 202   1      {
+ 203   2      lcdData(d[i]);
+ 204   2      i++;
+ 205   2      }
+ 206   1      }       
+ 207          
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 5   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 19
+                                           ; SOURCE LINE # 20
+                                           ; SOURCE LINE # 21
+0000 E4                CLR     A
+0001 F500        R     MOV     i,A
+                                           ; SOURCE LINE # 22
+0003 F500        R     MOV     j,A
+0005 F500        R     MOV     j+01H,A
+                                           ; SOURCE LINE # 25
+0007 758920            MOV     TMOD,#020H
+                                           ; SOURCE LINE # 26
+000A 758DFD            MOV     TH1,#0FDH
+                                           ; SOURCE LINE # 27
+000D 759850            MOV     SCON,#050H
+                                           ; SOURCE LINE # 28
+0010 D28E              SETB    TR1
+                                           ; SOURCE LINE # 29
+0012 C2B2              CLR     R
+                                           ; SOURCE LINE # 30
+0014 120000      R     LCALL   lcdinit
+                                           ; SOURCE LINE # 31
+0017 120000      R     LCALL   welcome
+                                           ; SOURCE LINE # 32
+001A D297              SETB    bz
+                                           ; SOURCE LINE # 34
+                                           ; SOURCE LINE # 35
+                                           ; SOURCE LINE # 36
+001C         back:
+                                           ; SOURCE LINE # 38
+001C E4                CLR     A
+001D F500        R     MOV     i,A
+001F         ?C0004:
+                                           ; SOURCE LINE # 39
+                                           ; SOURCE LINE # 40
+001F 7400        R     MOV     A,#LOW c
+0021 2500        R     ADD     A,i
+0023 F8                MOV     R0,A
+0024 76FF              MOV     @R0,#0FFH
+                                           ; SOURCE LINE # 41
+0026 0500        R     INC     i
+0028 E500        R     MOV     A,i
+002A B40FF2            CJNE    A,#0FH,?C0004
+002D         ?C0007:
+                                           ; SOURCE LINE # 43
+002D 3098FD            JNB     RI,?C0007
+0030         ?C0008:
+                                           ; SOURCE LINE # 45
+0030 E4                CLR     A
+0031 F500        R     MOV     i,A
+0033         ?C0009:
+                                           ; SOURCE LINE # 46
+                                           ; SOURCE LINE # 47
+0033 E4                CLR     A
+0034 F500        R     MOV     j,A
+0036 F500        R     MOV     j+01H,A
+0038         ?C0012:
+                                           ; SOURCE LINE # 48
+0038 209815            JB      RI,?C0013
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 6   
+
+                                           ; SOURCE LINE # 49
+                                           ; SOURCE LINE # 50
+003B C3                CLR     C
+003C E500        R     MOV     A,j+01H
+003E 94E8              SUBB    A,#0E8H
+0040 E500        R     MOV     A,j
+0042 9403              SUBB    A,#03H
+0044 501A              JNC     timeout
+                                           ; SOURCE LINE # 51
+0046         ?C0014:
+                                           ; SOURCE LINE # 52
+0046 0500        R     INC     j+01H
+0048 E500        R     MOV     A,j+01H
+004A 70EC              JNZ     ?C0012
+004C 0500        R     INC     j
+004E         ?C0040:
+                                           ; SOURCE LINE # 53
+004E 80E8              SJMP    ?C0012
+0050         ?C0013:
+                                           ; SOURCE LINE # 54
+0050 7400        R     MOV     A,#LOW c
+0052 2500        R     ADD     A,i
+0054 F8                MOV     R0,A
+0055 A699              MOV     @R0,SBUF
+                                           ; SOURCE LINE # 55
+0057 C298              CLR     RI
+                                           ; SOURCE LINE # 56
+0059 0500        R     INC     i
+005B E500        R     MOV     A,i
+005D B40FD3            CJNE    A,#0FH,?C0009
+                                           ; SOURCE LINE # 58
+0060         timeout:
+                                           ; SOURCE LINE # 59
+0060 E4                CLR     A
+0061 F500        R     MOV     i,A
+0063         ?C0016:
+0063 E500        R     MOV     A,i
+0065 C3                CLR     C
+0066 940F              SUBB    A,#0FH
+0068 4003              JC      $ + 5H
+006A 020000      R     LJMP    ?C0017
+                                           ; SOURCE LINE # 60
+                                           ; SOURCE LINE # 61
+006D 7400        R     MOV     A,#LOW c
+006F 2500        R     ADD     A,i
+0071 F8                MOV     R0,A
+0072 E6                MOV     A,@R0
+0073 6431              XRL     A,#031H
+0075 6003              JZ      $ + 5H
+0077 020000      R     LJMP    ?C0018
+007A 7400        R     MOV     A,#LOW c+01H
+007C 2500        R     ADD     A,i
+007E F8                MOV     R0,A
+007F E6                MOV     A,@R0
+0080 6445              XRL     A,#045H
+0082 6003              JZ      $ + 5H
+0084 020000      R     LJMP    ?C0018
+0087 7400        R     MOV     A,#LOW c+02H
+0089 2500        R     ADD     A,i
+008B F8                MOV     R0,A
+008C E6                MOV     A,@R0
+008D 6430              XRL     A,#030H
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 7   
+
+008F 7076              JNZ     ?C0018
+0091 7400        R     MOV     A,#LOW c+03H
+0093 2500        R     ADD     A,i
+0095 F8                MOV     R0,A
+0096 E6                MOV     A,@R0
+0097 6430              XRL     A,#030H
+0099 706C              JNZ     ?C0018
+009B 7400        R     MOV     A,#LOW c+04H
+009D 2500        R     ADD     A,i
+009F F8                MOV     R0,A
+00A0 E6                MOV     A,@R0
+00A1 6437              XRL     A,#037H
+00A3 7062              JNZ     ?C0018
+00A5 7400        R     MOV     A,#LOW c+05H
+00A7 2500        R     ADD     A,i
+00A9 F8                MOV     R0,A
+00AA E6                MOV     A,@R0
+00AB 6443              XRL     A,#043H
+00AD 7058              JNZ     ?C0018
+00AF 7400        R     MOV     A,#LOW c+06H
+00B1 2500        R     ADD     A,i
+00B3 F8                MOV     R0,A
+00B4 E6                MOV     A,@R0
+00B5 6441              XRL     A,#041H
+00B7 704E              JNZ     ?C0018
+00B9 7400        R     MOV     A,#LOW c+07H
+00BB 2500        R     ADD     A,i
+00BD F8                MOV     R0,A
+00BE E6                MOV     A,@R0
+00BF 6430              XRL     A,#030H
+00C1 7044              JNZ     ?C0018
+00C3 7400        R     MOV     A,#LOW c+08H
+00C5 2500        R     ADD     A,i
+00C7 F8                MOV     R0,A
+00C8 E6                MOV     A,@R0
+00C9 6433              XRL     A,#033H
+00CB 703A              JNZ     ?C0018
+00CD 7400        R     MOV     A,#LOW c+09H
+00CF 2500        R     ADD     A,i
+00D1 F8                MOV     R0,A
+00D2 E6                MOV     A,@R0
+00D3 6443              XRL     A,#043H
+00D5 7030              JNZ     ?C0018
+                                           ; SOURCE LINE # 62
+                                           ; SOURCE LINE # 63
+00D7 120000      R     LCALL   sucessRx
+                                           ; SOURCE LINE # 64
+00DA 7FE8              MOV     R7,#0E8H
+00DC 7E03              MOV     R6,#03H
+00DE 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 65
+00E1 D2B2              SETB    R
+                                           ; SOURCE LINE # 66
+00E3 C297              CLR     bz
+                                           ; SOURCE LINE # 67
+00E5 7FE8              MOV     R7,#0E8H
+00E7 7E03              MOV     R6,#03H
+00E9 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 68
+00EC C2B2              CLR     R
+                                           ; SOURCE LINE # 69
+00EE D297              SETB    bz
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 8   
+
+                                           ; SOURCE LINE # 70
+00F0 7FE8              MOV     R7,#0E8H
+00F2 7E03              MOV     R6,#03H
+00F4 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 71
+00F7 120000      R     LCALL   lcdinit
+                                           ; SOURCE LINE # 72
+00FA 7F64              MOV     R7,#064H
+00FC 7E00              MOV     R6,#00H
+00FE 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 73
+0101 120000      R     LCALL   welcome
+                                           ; SOURCE LINE # 75
+0104 020000      R     LJMP    back
+                                           ; SOURCE LINE # 76
+                                           ; SOURCE LINE # 77
+0107         ?C0018:
+0107 0500        R     INC     i
+0109 020000      R     LJMP    ?C0016
+010C         ?C0017:
+                                           ; SOURCE LINE # 78
+010C 120000      R     LCALL   unknown
+                                           ; SOURCE LINE # 79
+010F 7FD0              MOV     R7,#0D0H
+0111 7E07              MOV     R6,#07H
+0113 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 80
+0116 C297              CLR     bz
+                                           ; SOURCE LINE # 81
+0118 7FD0              MOV     R7,#0D0H
+011A 7E07              MOV     R6,#07H
+011C 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 82
+011F D297              SETB    bz
+                                           ; SOURCE LINE # 83
+0121 7FE8              MOV     R7,#0E8H
+0123 7E03              MOV     R6,#03H
+0125 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 84
+0128 120000      R     LCALL   lcdinit
+                                           ; SOURCE LINE # 85
+012B 7F64              MOV     R7,#064H
+012D 7E00              MOV     R6,#00H
+012F 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 86
+0132 120000      R     LCALL   welcome
+                                           ; SOURCE LINE # 87
+0135 020000      R     LJMP    back
+             ; FUNCTION main (END)
+
+             ; FUNCTION sucessRx (BEGIN)
+                                           ; SOURCE LINE # 90
+                                           ; SOURCE LINE # 91
+                                           ; SOURCE LINE # 92
+0000 E4                CLR     A
+0001 F500        R     MOV     i,A
+0003 F500        R     MOV     i+01H,A
+                                           ; SOURCE LINE # 93
+0005 7800        R     MOV     R0,#LOW c
+0007 7C00        R     MOV     R4,#HIGH c
+0009 7A00        R     MOV     R2,#HIGH _?ix1000
+000B 7900        R     MOV     R1,#LOW _?ix1000
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 9   
+
+000D 7F11              MOV     R7,#011H
+                                           ; SOURCE LINE # 95
+000F 120000      R     LCALL   L?0049
+                                           ; SOURCE LINE # 96
+0012 120000      R     LCALL   L?0047
+                                           ; SOURCE LINE # 97
+0015 7F80              MOV     R7,#080H
+0017 120000      R     LCALL   _lcdcmd
+                                           ; SOURCE LINE # 98
+001A 120000      R     LCALL   L?0047
+001D         ?C0021:
+                                           ; SOURCE LINE # 100
+001D 7400        R     MOV     A,#LOW c
+001F 2500        R     ADD     A,i+01H
+0021 F8                MOV     R0,A
+0022 E6                MOV     A,@R0
+0023 FF                MOV     R7,A
+0024 600D              JZ      ?C0023
+                                           ; SOURCE LINE # 101
+                                           ; SOURCE LINE # 102
+0026 120000      R     LCALL   _lcdData
+                                           ; SOURCE LINE # 103
+0029 0500        R     INC     i+01H
+002B E500        R     MOV     A,i+01H
+002D 70EE              JNZ     ?C0021
+002F 0500        R     INC     i
+0031         ?C0041:
+                                           ; SOURCE LINE # 104
+0031 80EA              SJMP    ?C0021
+                                           ; SOURCE LINE # 105
+0033         ?C0023:
+0033 22                RET     
+             ; FUNCTION sucessRx (END)
+
+             ; FUNCTION unknown (BEGIN)
+                                           ; SOURCE LINE # 107
+                                           ; SOURCE LINE # 108
+                                           ; SOURCE LINE # 109
+0000 E4                CLR     A
+0001 F500        R     MOV     i,A
+0003 F500        R     MOV     i+01H,A
+                                           ; SOURCE LINE # 110
+0005 7800        R     MOV     R0,#LOW c
+0007 7C00        R     MOV     R4,#HIGH c
+0009 7A00        R     MOV     R2,#HIGH _?ix1001
+000B 7900        R     MOV     R1,#LOW _?ix1001
+000D 7F0E              MOV     R7,#0EH
+                                           ; SOURCE LINE # 112
+000F 120000      R     LCALL   L?0049
+                                           ; SOURCE LINE # 113
+0012 120000      R     LCALL   L?0048
+                                           ; SOURCE LINE # 114
+0015 7F80              MOV     R7,#080H
+0017 120000      R     LCALL   _lcdcmd
+                                           ; SOURCE LINE # 115
+001A 120000      R     LCALL   L?0048
+001D         ?C0024:
+                                           ; SOURCE LINE # 117
+001D 7400        R     MOV     A,#LOW c
+001F 2500        R     ADD     A,i+01H
+0021 F8                MOV     R0,A
+0022 E6                MOV     A,@R0
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 10  
+
+0023 FF                MOV     R7,A
+0024 600D              JZ      ?C0026
+                                           ; SOURCE LINE # 118
+                                           ; SOURCE LINE # 119
+0026 120000      R     LCALL   _lcdData
+                                           ; SOURCE LINE # 120
+0029 0500        R     INC     i+01H
+002B E500        R     MOV     A,i+01H
+002D 70EE              JNZ     ?C0024
+002F 0500        R     INC     i
+0031         ?C0042:
+                                           ; SOURCE LINE # 121
+0031 80EA              SJMP    ?C0024
+                                           ; SOURCE LINE # 122
+0033         ?C0026:
+0033 22                RET     
+             ; FUNCTION unknown (END)
+
+             ; FUNCTION lcdinit (BEGIN)
+                                           ; SOURCE LINE # 127
+                                           ; SOURCE LINE # 128
+                                           ; SOURCE LINE # 129
+0000 7F38              MOV     R7,#038H
+0002 120000      R     LCALL   _lcdcmd
+                                           ; SOURCE LINE # 130
+0005 7FFA              MOV     R7,#0FAH
+0007 7E00              MOV     R6,#00H
+0009 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 131
+000C 7F0E              MOV     R7,#0EH
+000E 120000      R     LCALL   _lcdcmd
+                                           ; SOURCE LINE # 132
+0011 7FFA              MOV     R7,#0FAH
+0013 7E00              MOV     R6,#00H
+0015 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 133
+0018 7F01              MOV     R7,#01H
+001A 120000      R     LCALL   _lcdcmd
+                                           ; SOURCE LINE # 134
+001D 7FFA              MOV     R7,#0FAH
+001F 7E00              MOV     R6,#00H
+0021 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 135
+0024 7F06              MOV     R7,#06H
+0026 120000      R     LCALL   _lcdcmd
+                                           ; SOURCE LINE # 136
+0029 7FFA              MOV     R7,#0FAH
+002B 7E00              MOV     R6,#00H
+002D 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 137
+0030 7F80              MOV     R7,#080H
+0032 120000      R     LCALL   _lcdcmd
+                                           ; SOURCE LINE # 138
+0035 7FFA              MOV     R7,#0FAH
+0037 7E00              MOV     R6,#00H
+0039 020000      R     LJMP    _DelayMs
+             ; FUNCTION lcdinit (END)
+
+             ; FUNCTION _lcdData (BEGIN)
+                                           ; SOURCE LINE # 144
+;---- Variable 'l' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 145
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 11  
+
+                                           ; SOURCE LINE # 146
+0000 8FA0              MOV     P2,R7
+                                           ; SOURCE LINE # 147
+0002 D2B7              SETB    RS
+                                           ; SOURCE LINE # 148
+0004 D2B6              SETB    EN
+                                           ; SOURCE LINE # 149
+0006 7F01              MOV     R7,#01H
+0008 7E00              MOV     R6,#00H
+000A 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 150
+000D C2B6              CLR     EN
+                                           ; SOURCE LINE # 152
+000F         ?C0028:
+000F 22                RET     
+             ; FUNCTION _lcdData (END)
+
+             ; FUNCTION L?0049 (BEGIN)
+0000 FD                MOV     R5,A
+0001 7BFF              MOV     R3,#0FFH
+0003 FE                MOV     R6,A
+0004         L?0050:
+0004 120000      E     LCALL   ?C?COPY
+0007 7F01              MOV     R7,#01H
+             ; FUNCTION _lcdcmd (BEGIN)
+                                           ; SOURCE LINE # 157
+;---- Variable 'k' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 158
+                                           ; SOURCE LINE # 159
+0009 8FA0              MOV     P2,R7
+                                           ; SOURCE LINE # 160
+000B C2B7              CLR     RS
+                                           ; SOURCE LINE # 161
+000D D2B6              SETB    EN
+                                           ; SOURCE LINE # 162
+000F 7F01              MOV     R7,#01H
+0011 7E00              MOV     R6,#00H
+0013 120000      R     LCALL   _DelayMs
+                                           ; SOURCE LINE # 163
+0016 C2B6              CLR     EN
+                                           ; SOURCE LINE # 165
+0018         ?C0029:
+0018 22                RET     
+             ; FUNCTION _lcdcmd (END)
+
+             ; FUNCTION L?0047 (BEGIN)
+0000         L?0048:
+0000 7F0A              MOV     R7,#0AH
+0002 7E00              MOV     R6,#00H
+             ; FUNCTION _DelayMs (BEGIN)
+                                           ; SOURCE LINE # 170
+;---- Variable 'count' assigned to Register 'R6/R7' ----
+                                           ; SOURCE LINE # 171
+0004         ?C0030:
+                                           ; SOURCE LINE # 173
+0004 EF                MOV     A,R7
+0005 4E                ORL     A,R6
+0006 6014              JZ      ?C0034
+                                           ; SOURCE LINE # 174
+;---- Variable 'i' assigned to Register 'R4/R5' ----
+0008 7D73              MOV     R5,#073H
+000A 7C00              MOV     R4,#00H
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 12  
+
+000C         ?C0032:
+                                           ; SOURCE LINE # 175
+                                           ; SOURCE LINE # 176
+000C ED                MOV     A,R5
+000D 1D                DEC     R5
+000E 7001              JNZ     ?C0043
+0010 1C                DEC     R4
+0011         ?C0043:
+0011 ED                MOV     A,R5
+0012 4C                ORL     A,R4
+0013 70F7              JNZ     ?C0032
+0015         ?C0033:
+                                           ; SOURCE LINE # 177
+0015 EF                MOV     A,R7
+0016 1F                DEC     R7
+0017 70EB              JNZ     ?C0030
+0019 1E                DEC     R6
+001A         ?C0044:
+                                           ; SOURCE LINE # 178
+001A 80E8              SJMP    ?C0030
+                                           ; SOURCE LINE # 179
+001C         ?C0034:
+001C 22                RET     
+             ; FUNCTION _DelayMs (END)
+
+             ; FUNCTION welcome (BEGIN)
+                                           ; SOURCE LINE # 181
+                                           ; SOURCE LINE # 182
+                                           ; SOURCE LINE # 183
+0000 E4                CLR     A
+0001 F500        R     MOV     i,A
+0003 F500        R     MOV     i+01H,A
+                                           ; SOURCE LINE # 184
+0005 7800        R     MOV     R0,#LOW c
+0007 7C00        R     MOV     R4,#HIGH c
+0009 FD                MOV     R5,A
+000A 7BFF              MOV     R3,#0FFH
+000C 7A00        R     MOV     R2,#HIGH _?ix1002
+000E 7900        R     MOV     R1,#LOW _?ix1002
+0010 FE                MOV     R6,A
+0011 7F10              MOV     R7,#010H
+0013 120000      E     LCALL   ?C?COPY
+                                           ; SOURCE LINE # 185
+0016 7800        R     MOV     R0,#LOW d
+0018 7C00        R     MOV     R4,#HIGH d
+001A 7D00              MOV     R5,#00H
+001C 7BFF              MOV     R3,#0FFH
+001E 7A00        R     MOV     R2,#HIGH _?ix1003
+0020 7900        R     MOV     R1,#LOW _?ix1003
+0022 7E00              MOV     R6,#00H
+0024 7F10              MOV     R7,#010H
+                                           ; SOURCE LINE # 187
+0026 120000      R     LCALL   L?0050
+                                           ; SOURCE LINE # 188
+0029 120000      R     LCALL   L?0048
+                                           ; SOURCE LINE # 189
+002C 7F80              MOV     R7,#080H
+002E 120000      R     LCALL   _lcdcmd
+                                           ; SOURCE LINE # 190
+0031 120000      R     LCALL   L?0048
+0034         ?C0035:
+                                           ; SOURCE LINE # 192
+C51 COMPILER V9.02   EFY_SEC                                                               10/27/2010 15:16:45 PAGE 13  
+
+0034 7400        R     MOV     A,#LOW c
+0036 2500        R     ADD     A,i+01H
+0038 F8                MOV     R0,A
+0039 E6                MOV     A,@R0
+003A FF                MOV     R7,A
+003B 600D              JZ      ?C0036
+                                           ; SOURCE LINE # 193
+                                           ; SOURCE LINE # 194
+003D 120000      R     LCALL   _lcdData
+                                           ; SOURCE LINE # 195
+0040 0500        R     INC     i+01H
+0042 E500        R     MOV     A,i+01H
+0044 70EE              JNZ     ?C0035
+0046 0500        R     INC     i
+0048         ?C0045:
+                                           ; SOURCE LINE # 196
+0048 80EA              SJMP    ?C0035
+004A         ?C0036:
+                                           ; SOURCE LINE # 198
+004A 7FC0              MOV     R7,#0C0H
+004C 120000      R     LCALL   _lcdcmd
+                                           ; SOURCE LINE # 200
+004F E4                CLR     A
+0050 F500        R     MOV     i,A
+0052 F500        R     MOV     i+01H,A
+0054         ?C0037:
+                                           ; SOURCE LINE # 201
+0054 7400        R     MOV     A,#LOW d
+0056 2500        R     ADD     A,i+01H
+0058 F8                MOV     R0,A
+0059 E6                MOV     A,@R0
+005A FF                MOV     R7,A
+005B 600D              JZ      ?C0039
+                                           ; SOURCE LINE # 202
+                                           ; SOURCE LINE # 203
+005D 120000      R     LCALL   _lcdData
+                                           ; SOURCE LINE # 204
+0060 0500        R     INC     i+01H
+0062 E500        R     MOV     A,i+01H
+0064 70EE              JNZ     ?C0037
+0066 0500        R     INC     i
+0068         ?C0046:
+                                           ; SOURCE LINE # 205
+0068 80EA              SJMP    ?C0037
+                                           ; SOURCE LINE # 206
+006A         ?C0039:
+006A 22                RET     
+             ; FUNCTION welcome (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    653    ----
+   CONSTANT SIZE    =     63    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      87
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
