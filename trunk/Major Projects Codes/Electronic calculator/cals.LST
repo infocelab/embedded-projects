@@ -1,0 +1,353 @@
+C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE CALS
+OBJECT MODULE PLACED IN cals.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE cals.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg52.h> //including sfr registers for ports of the controller
+   2          #include<lcd.h>
+   3          #include <stdio.h>
+   4          #include <string.h>
+   5          #include <math.h>
+   6          char lookup(int);  //prototype declaration of a function to find ASCII code for digits
+   7          
+   8          //LCD Module Connections
+   9          sbit RS = P0^0;
+  10          sbit EN = P0^1;
+  11          sbit D0 = P2^0;
+  12          sbit D1 = P2^1;
+  13          sbit D2 = P2^2;
+  14          sbit D3 = P2^3;
+  15          sbit D4 = P2^4;
+  16          sbit D5 = P2^5;
+  17          sbit D6 = P2^6;
+  18          sbit D7 = P2^7;
+  19          //End LCD Module Connections
+  20          
+  21          //Keypad Connections
+  22          sbit R1 = P1^0;
+  23          sbit R2 = P1^1;
+  24          sbit R3 = P1^2;
+  25          sbit R4 = P1^3;
+  26          sbit C1 = P1^4;
+  27          sbit C2 = P1^5;
+  28          sbit C3 = P1^6;
+  29          sbit C4 = P1^7;
+  30          //End Keypad Connections
+  31          
+  32          void Delay(int a)
+  33          {
+  34   1        int j;
+  35   1        int i;
+  36   1        for(i=0;i<a;i++)
+  37   1        {
+  38   2          for(j=0;j<100;j++)
+  39   2          {
+  40   3          }
+  41   2        }
+  42   1      }
+  43          // For Development Board
+  44          char Read_Keypad()
+  45          {
+  46   1        C1=1;
+  47   1        C2=1;
+  48   1        C3=1;
+  49   1        C4=1;
+  50   1        R1=0;
+  51   1        R2=1;
+  52   1        R3=1;
+  53   1        R4=1;
+  54   1        if(C1==0){Delay(100);while(C1==0);return '0';}
+  55   1        if(C2==0){Delay(100);while(C2==0);return '1';}
+C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 2   
+
+  56   1        if(C3==0){Delay(100);while(C3==0);return '2';}
+  57   1        if(C4==0){Delay(100);while(C4==0);return '3';}
+  58   1        R1=1;
+  59   1        R2=0;
+  60   1        R3=1;
+  61   1        R4=1;
+  62   1        if(C1==0){Delay(100);while(C1==0);return '4';}
+  63   1        if(C2==0){Delay(100);while(C2==0);return '5';}
+  64   1        if(C3==0){Delay(100);while(C3==0);return '6';}
+  65   1        if(C4==0){Delay(100);while(C4==0);return '7';}
+  66   1        R1=1;
+  67   1        R2=1;
+  68   1        R3=0;
+  69   1        R4=1;
+  70   1        if(C1==0){Delay(100);while(C1==0);return '8';}
+  71   1        if(C2==0){Delay(100);while(C2==0);return '9';}
+  72   1        if(C3==0){Delay(100);while(C3==0);return '.';}
+  73   1        if(C4==0){Delay(100);while(C4==0);return '*';}
+  74   1        R1=1;
+  75   1        R2=1;
+  76   1        R3=1;
+  77   1        R4=0;
+  78   1        if(C1==0){Delay(100);while(C1==0);return '+';}
+  79   1        if(C2==0){Delay(100);while(C2==0);return '-';}
+  80   1        if(C3==0){Delay(100);while(C3==0);return '/';}
+  81   1        if(C4==0){Delay(100);while(C4==0);return '=';}
+  82   1        return 0;
+  83   1      }
+  84          
+  85          //For Made Circuit Project
+  86          /* char Read_Keypad()
+  87          {
+  88            C1=1;
+  89            C2=1;
+  90            C3=1;
+  91            C4=1;
+  92            R1=0;
+  93            R2=1;
+  94            R3=1;
+  95            R4=1;
+  96            if(C1==0){Delay(100);while(C1==0);return '1';}
+  97            if(C2==0){Delay(100);while(C2==0);return '2';}
+  98            if(C3==0){Delay(100);while(C3==0);return '3';}
+  99            if(C4==0){Delay(100);while(C4==0);return '+';}
+ 100            R1=1;
+ 101            R2=0;
+ 102            R3=1;
+ 103            R4=1;
+ 104            if(C1==0){Delay(100);while(C1==0);return '4';}
+ 105            if(C2==0){Delay(100);while(C2==0);return '5';}
+ 106            if(C3==0){Delay(100);while(C3==0);return '6';}
+ 107            if(C4==0){Delay(100);while(C4==0);return '_';}
+ 108            R1=1;
+ 109            R2=1;
+ 110            R3=0;
+ 111            R4=1;
+ 112            if(C1==0){Delay(100);while(C1==0);return '7';}
+ 113            if(C2==0){Delay(100);while(C2==0);return '8';}
+ 114            if(C3==0){Delay(100);while(C3==0);return '9';}
+ 115            if(C4==0){Delay(100);while(C4==0);return '*';}
+ 116            R1=1;
+ 117            R2=1;
+C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 3   
+
+ 118            R3=1;
+ 119            R4=0;
+ 120            if(C1==0){Delay(100);while(C1==0);return '=';}
+ 121            if(C2==0){Delay(100);while(C2==0);return '0';}
+ 122            if(C3==0){Delay(100);while(C3==0);return '.';}
+ 123            if(C4==0){Delay(100);while(C4==0);return '/';}
+ 124            return 0;
+ 125          } */
+ 126          
+ 127          int power(int p, int d)
+ 128          {
+ 129   1        int i=0, result=1;
+ 130   1        for(i=0;i<d;i++)
+ 131   1        {
+ 132   2          result *= p;
+ 133   2        }
+ 134   1        return result;
+ 135   1      }
+ 136          
+ 137          int Convert(char str[9])
+ 138          {
+ 139   1          unsigned int result =0,i=0,j=0,k=0;
+ 140   1          int len=strlen(str);
+ 141   1      
+ 142   1          for(i=0,j=len-1;i<len;i++,j--)
+ 143   1          {
+ 144   2            result += ((int)str[i] - 48) * power(10,j);
+ 145   2          }
+ 146   1         return result;
+ 147   1      }
+ 148          
+ 149          void tostring(char str[],int num)
+ 150          {
+ 151   1          int i, rem, len=0, n;
+ 152   1       
+ 153   1          n = num;
+ 154   1          while (n!=0)
+ 155   1          {
+ 156   2              len++;
+ 157   2              n/=10;
+ 158   2          }
+ 159   1          for (i=0;i<len;i++)
+ 160   1          {
+ 161   2              rem=num%10;
+ 162   2              num=num/10;
+ 163   2              str[len - (i + 1)] = rem + '0';
+ 164   2          }
+ 165   1          str[len] = '\0';
+ 166   1      }
+ 167          
+ 168          void main()
+ 169          {
+ 170   1        char input[16],val1[9],val2[9],ch1;
+ 171   1        unsigned int v1=0,v2=0, ans=0;
+ 172   1        int i=0,j=0,k=0, oper=0;
+ 173   1        char c;
+ 174   1        Lcd8_init();
+*** WARNING C206 IN LINE 174 OF cals.c: 'Lcd8_init': missing function-prototype
+ 175   1        Lcd8_Set_Cursor(1,1);
+ 176   1        Lcd8_Write_String("Made Calculator");
+ 177   1        Delay(2000);
+ 178   1       
+C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 4   
+
+ 179   1        while(1)
+ 180   1        {
+ 181   2          while(!(c = Read_Keypad()));
+ 182   2          if(i == 0)
+ 183   2          {
+ 184   3                Lcd8_Clear();
+ 185   3          }
+ 186   2          input[i]=c;
+ 187   2          Lcd8_Set_Cursor(1,i++);
+ 188   2          Lcd8_Write_Char(c);
+ 189   2          if(c == '=')
+ 190   2          {
+ 191   3              j=0;
+ 192   3              k=0;
+ 193   3              
+ 194   3              while(input[j])
+ 195   3              {
+ 196   4                if(input[j] == '+')
+ 197   4                {           
+ 198   5                  oper=1;
+ 199   5                  break;
+ 200   5                }
+ 201   4                else if(input[j] == '-')
+ 202   4                {           
+ 203   5                  oper=2;
+ 204   5                  break;
+ 205   5                }
+ 206   4                else if(input[j] == '*')
+ 207   4                {           
+ 208   5                  oper=3;
+ 209   5                  break;
+ 210   5                }
+ 211   4                else if(input[j] == '/')
+ 212   4                {           
+ 213   5                  oper=4;
+ 214   5                  break;
+ 215   5                }
+ 216   4                val1[k]=input[j];
+ 217   4                j++;
+ 218   4                k++;
+ 219   4                
+ 220   4              }
+ 221   3              val1[k]='\0';
+ 222   3              
+ 223   3              
+ 224   3              j++;
+ 225   3              k=0;
+ 226   3              while(input[j] != '=')
+ 227   3              {
+ 228   4                val2[k]=input[j];
+ 229   4                j++;
+ 230   4                k++;
+ 231   4              }
+ 232   3              val2[k]='\0';
+ 233   3           
+ 234   3              v1=Convert(val1);
+ 235   3              
+ 236   3              v2=Convert(val2);
+ 237   3              
+ 238   3              switch(oper)
+ 239   3              {
+ 240   4                case 1:
+C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 5   
+
+ 241   4                  ans =v1+v2;
+ 242   4                oper=0;
+ 243   4                i=0;
+ 244   4                  break;
+ 245   4                case 2:
+ 246   4                  ans =v1-v2;
+ 247   4                oper=0;
+ 248   4                i=0;
+ 249   4                  break;
+ 250   4                case 3:
+ 251   4                  ans =v1*v2;
+ 252   4                oper=0;
+ 253   4                i=0;
+ 254   4                  break;
+ 255   4                case 4:
+ 256   4                  ans =v1/v2;
+ 257   4                oper=0;
+ 258   4                i=0;
+ 259   4                  break;
+ 260   4              }
+ 261   3              tostring(input,ans);
+ 262   3              j=0;
+ 263   3              while(input[j] != '\0')
+ 264   3              {
+ 265   4                Lcd8_Set_Cursor(2,j);
+ 266   4                ch1=input[j];
+ 267   4                Lcd8_Write_Char(ch1);
+ 268   4                Delay(100);
+ 269   4                j++;
+ 270   4              }
+ 271   3              
+ 272   3              
+ 273   3          }
+ 274   2      
+ 275   2          Delay(100);
+ 276   2          
+ 277   2        }
+ 278   1      }
+ 279          
+ 280          char lookup(int no)
+ 281          {
+ 282   1      char cha;
+ 283   1      switch(no)
+ 284   1      {
+ 285   2      case 0:
+ 286   2      cha='0';
+ 287   2      break;
+ 288   2      case 1:
+ 289   2      cha='1';
+ 290   2      break;
+ 291   2      case 2:
+ 292   2      cha='2';
+ 293   2      break;
+ 294   2      case 3:
+ 295   2      cha='3';
+ 296   2      break;
+ 297   2      case 4:
+ 298   2      cha='4';
+ 299   2      break;
+ 300   2      case 5:
+ 301   2      cha='5';
+ 302   2      break;
+C51 COMPILER V9.52.0.0   CALS                                                              10/06/2014 13:04:39 PAGE 6   
+
+ 303   2      case 6:
+ 304   2      cha='6';
+ 305   2      break;
+ 306   2      case 7:
+ 307   2      cha='7';
+ 308   2      break;
+ 309   2      case 8:
+ 310   2      cha='8';
+ 311   2      break;
+ 312   2      case 9:
+ 313   2      cha='9';
+ 314   2      break;
+ 315   2      }
+ 316   1      return cha;
+ 317   1      }
+*** WARNING C290 IN LINE 84 OF cals.c: missing return value
+*** WARNING C290 IN LINE 176 OF cals.c: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1700    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      92
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  3 WARNING(S),  0 ERROR(S)
