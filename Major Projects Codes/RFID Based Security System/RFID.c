@@ -3,8 +3,8 @@
 sbit Relay = P3^2;
 sbit Buz = P3^4;
 //LCD Module Connections
-sbit RS = P3^7;                                                                   
-sbit EN = P3^6;                            
+sbit RS = P0^0;                                                                   
+sbit EN = P0^1;                            
 sbit D0 = P2^0;
 sbit D1 = P2^1;
 sbit D2 = P2^2;
