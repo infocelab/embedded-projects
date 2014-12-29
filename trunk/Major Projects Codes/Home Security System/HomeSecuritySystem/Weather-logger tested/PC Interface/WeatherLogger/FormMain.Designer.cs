@@ -97,6 +97,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tbx_home_code = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tbx_room_temp = new System.Windows.Forms.TextBox();
+            this.btn_get_room_temp = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.gb_lab1.SuspendLayout();
             this.gb_lab2.SuspendLayout();
@@ -114,7 +117,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(792, 24);
+            this.menuStrip.Size = new System.Drawing.Size(971, 24);
             this.menuStrip.TabIndex = 12;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -230,14 +233,14 @@
             // 
             // tmrData
             // 
-            this.tmrData.Interval = 15000;
+            this.tmrData.Interval = 1000;
             this.tmrData.Tick += new System.EventHandler(this.tmrData_Tick);
             // 
             // statusStrip1
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 478);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(792, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(971, 22);
             this.statusStrip1.TabIndex = 13;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -252,8 +255,11 @@
             // 
             // gb_lab1
             // 
+            this.gb_lab1.Controls.Add(this.btn_get_room_temp);
             this.gb_lab1.Controls.Add(this.label15);
+            this.gb_lab1.Controls.Add(this.tbx_room_temp);
             this.gb_lab1.Controls.Add(this.tbx_lab1_unit_code);
+            this.gb_lab1.Controls.Add(this.label18);
             this.gb_lab1.Controls.Add(this.btn_lab1_plug_off);
             this.gb_lab1.Controls.Add(this.btn_lab1_plug_on);
             this.gb_lab1.Controls.Add(this.btn_lab1_fan_off);
@@ -268,7 +274,7 @@
             this.gb_lab1.Controls.Add(this.label1);
             this.gb_lab1.Location = new System.Drawing.Point(27, 46);
             this.gb_lab1.Name = "gb_lab1";
-            this.gb_lab1.Size = new System.Drawing.Size(312, 190);
+            this.gb_lab1.Size = new System.Drawing.Size(312, 246);
             this.gb_lab1.TabIndex = 21;
             this.gb_lab1.TabStop = false;
             this.gb_lab1.Text = "LAB-1";
@@ -577,7 +583,7 @@
             this.gb_lab3.Controls.Add(this.label10);
             this.gb_lab3.Controls.Add(this.label11);
             this.gb_lab3.Controls.Add(this.label12);
-            this.gb_lab3.Location = new System.Drawing.Point(27, 263);
+            this.gb_lab3.Location = new System.Drawing.Point(708, 46);
             this.gb_lab3.Name = "gb_lab3";
             this.gb_lab3.Size = new System.Drawing.Size(312, 190);
             this.gb_lab3.TabIndex = 22;
@@ -764,11 +770,37 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Home Code";
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(19, 200);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(98, 13);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Room Temperature";
+            // 
+            // tbx_room_temp
+            // 
+            this.tbx_room_temp.Location = new System.Drawing.Point(141, 200);
+            this.tbx_room_temp.Name = "tbx_room_temp";
+            this.tbx_room_temp.Size = new System.Drawing.Size(100, 20);
+            this.tbx_room_temp.TabIndex = 5;
+            // 
+            // btn_get_room_temp
+            // 
+            this.btn_get_room_temp.Location = new System.Drawing.Point(255, 198);
+            this.btn_get_room_temp.Name = "btn_get_room_temp";
+            this.btn_get_room_temp.Size = new System.Drawing.Size(51, 23);
+            this.btn_get_room_temp.TabIndex = 6;
+            this.btn_get_room_temp.Text = "Get";
+            this.btn_get_room_temp.UseVisualStyleBackColor = true;
+            this.btn_get_room_temp.Click += new System.EventHandler(this.btn_get_room_temp_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 500);
+            this.ClientSize = new System.Drawing.Size(971, 500);
             this.Controls.Add(this.gb_controls);
             this.Controls.Add(this.gb_lab3);
             this.Controls.Add(this.gb_lab2);
@@ -868,6 +900,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btn_get_room_temp;
+        private System.Windows.Forms.TextBox tbx_room_temp;
+        private System.Windows.Forms.Label label18;
 
     }
 }
