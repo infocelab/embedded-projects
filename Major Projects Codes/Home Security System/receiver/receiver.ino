@@ -11,13 +11,15 @@
 #include <VirtualWire.h>
 
 const int led_pin = 13;
-const int transmit_pin = 12;
+const int transmit_pin = 3;
 const int receive_pin = 2;
 const int transmit_en_pin = 4;
 const int relay1 = 8;
 const int relay2 = 9;
 const int relay3 = 10;
 const int relay4 = 11;
+float temp;
+int tempPin = 0;
 
 void setup()
 {
@@ -38,7 +40,7 @@ void setup()
 }
 int count=1;
 char * home_code="1111";
-char * unit_code="4444";
+char * unit_code="3333";
 char * source;
 int relay=0;
 int loopAgain=1;
@@ -117,6 +119,10 @@ void loop()
             {              
               relay=4;
             }
+            else if(strcmp(token,"5")==0)
+            {              
+              relay=5;
+            }
             break;
             case 5: // task
             if(strcmp(token,"1")==0)
@@ -156,6 +162,16 @@ void loop()
               {
                 digitalWrite(relay4,LOW);
               }
+            }
+            else if(strcmp(token,"2")==0) // temprature
+            {
+              temp = analogRead(tempPin);
+              temp = temp * 0.48828125;
+              // vw_send((uint8_t *)msg, strlen(msg));
+              // vw_wait_tx(); 
+              char msg[128]="#,1111,3333,2222,5,37";
+              vw_send((uint8_t *)msg, strlen(msg));
+              vw_wait_tx();
             }
             break;    
          } // end of switch
