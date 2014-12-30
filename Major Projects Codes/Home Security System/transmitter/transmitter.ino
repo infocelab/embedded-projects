@@ -27,7 +27,8 @@ void setup()
     vw_set_ptt_inverted(true); // Required for DR3100
     vw_setup(2000);       // Bits per sec
     pinMode(led_pin, OUTPUT);
-digitalWrite(led_pin, LOW);
+    digitalWrite(led_pin, LOW);
+    vw_rx_start();       // Start the receiver PLL running
 }
 
 byte count = 0;
@@ -36,6 +37,8 @@ int flag=0;
 //char msg[7] = {'H','E','L','L','O','O','K'};
 char msg[128];
 char incomingByte = 0;   // for incoming serial data
+uint8_t buf[VW_MAX_MESSAGE_LEN];
+uint8_t buflen = VW_MAX_MESSAGE_LEN;
 
 void loop()
 {
@@ -44,23 +47,23 @@ void loop()
                 incomingByte = Serial.read();
                msg[count++]=incomingByte;
                flag=1;
+               
         }
         
+        if (vw_get_message(buf, &buflen)) // Non-blocking
+        {
+          buf[buflen] = '\n';
+          Serial.println((char *)buf);
+        }
+
         msg[count]='\0';
-        //strcpy(msg,"kkk");
-        //flag=1;
-  if(flag == 1)
-  {
-  //Sending the string
-  vw_send((uint8_t *)msg, strlen(msg));
-  vw_wait_tx(); 
-    //msg.StringToCharArray(xml,7);
-//    vw_send((uint8_t *)msg, 7);
-    //vw_send((uint8_t *)msg, 7);
-//    vw_wait_tx(); // Wait until the whole message is gone
-   count=0;
-   flag=0;
-    // delay(500);
-  }
-  //count = count + 1;
+        if(flag == 1)
+        {
+          Serial.println(msg);
+          //Sending the string
+          vw_send((uint8_t *)msg, strlen(msg));
+          vw_wait_tx(); 
+          count=0;
+          flag=0;
+        }
 }
