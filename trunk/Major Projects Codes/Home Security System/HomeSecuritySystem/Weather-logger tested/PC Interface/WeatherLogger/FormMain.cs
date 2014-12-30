@@ -22,7 +22,7 @@ namespace WeatherLogger
         public FormMain()
         {
             InitializeComponent();
-            tmrData.Enabled = true;
+           // tmrData.Enabled = true;
         }
         private void SetColor()
         {
@@ -104,16 +104,19 @@ namespace WeatherLogger
             string port = cbxPorts.SelectedItem.ToString();
             if (port == "")
                 return;
-            //System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
-            //if (myPort.IsOpen == false) //if not open, open the port
-            //    myPort.Open();
-            ////do your work here
-            //if (myPort.IsOpen == false) //if not open, open the port
-            //    return;
-            //String data;
-            //data = myPort.ReadLine();
-            //myPort.Close();
-            tbx_room_temp.Text = "35";
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            String data;
+            data = myPort.ReadLine();
+            myPort.Close();
+            tbx_room_temp.Text = data;
+            tmrData.Enabled = false;
+   
         }
         #endregion 
         #region Menu Items
@@ -360,9 +363,23 @@ namespace WeatherLogger
 
         private void btn_get_room_temp_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "5,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "5,2,";
+            //tmrData.Enabled = true;
             sendData(xml);
-            tmrData.Enabled = true;
+            string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            myPort.BaudRate = 9600;
+            if (myPort.IsOpen == false) //if not open, open the port
+                myPort.Open();
+            //do your work here
+            if (myPort.IsOpen == false) //if not open, open the port
+                return;
+            String data;
+            data = myPort.ReadLine();
+            myPort.Close();
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

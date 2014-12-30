@@ -48,8 +48,11 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.cbxPorts = new System.Windows.Forms.ComboBox();
             this.gb_lab1 = new System.Windows.Forms.GroupBox();
+            this.btn_get_room_temp = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
+            this.tbx_room_temp = new System.Windows.Forms.TextBox();
             this.tbx_lab1_unit_code = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.btn_lab1_plug_off = new System.Windows.Forms.Button();
             this.btn_lab1_plug_on = new System.Windows.Forms.Button();
             this.btn_lab1_fan_off = new System.Windows.Forms.Button();
@@ -97,9 +100,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tbx_home_code = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tbx_room_temp = new System.Windows.Forms.TextBox();
-            this.btn_get_room_temp = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.gb_lab1.SuspendLayout();
             this.gb_lab2.SuspendLayout();
@@ -279,6 +279,16 @@
             this.gb_lab1.TabStop = false;
             this.gb_lab1.Text = "LAB-1";
             // 
+            // btn_get_room_temp
+            // 
+            this.btn_get_room_temp.Location = new System.Drawing.Point(255, 198);
+            this.btn_get_room_temp.Name = "btn_get_room_temp";
+            this.btn_get_room_temp.Size = new System.Drawing.Size(51, 23);
+            this.btn_get_room_temp.TabIndex = 6;
+            this.btn_get_room_temp.Text = "Get";
+            this.btn_get_room_temp.UseVisualStyleBackColor = true;
+            this.btn_get_room_temp.Click += new System.EventHandler(this.btn_get_room_temp_Click);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -288,6 +298,13 @@
             this.label15.TabIndex = 13;
             this.label15.Text = "Unit Code";
             // 
+            // tbx_room_temp
+            // 
+            this.tbx_room_temp.Location = new System.Drawing.Point(141, 200);
+            this.tbx_room_temp.Name = "tbx_room_temp";
+            this.tbx_room_temp.Size = new System.Drawing.Size(100, 20);
+            this.tbx_room_temp.TabIndex = 5;
+            // 
             // tbx_lab1_unit_code
             // 
             this.tbx_lab1_unit_code.Location = new System.Drawing.Point(107, 12);
@@ -295,6 +312,15 @@
             this.tbx_lab1_unit_code.Size = new System.Drawing.Size(100, 20);
             this.tbx_lab1_unit_code.TabIndex = 12;
             this.tbx_lab1_unit_code.Text = "3333";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(19, 200);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(98, 13);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Room Temperature";
             // 
             // btn_lab1_plug_off
             // 
@@ -450,6 +476,7 @@
             this.tbx_lab2_unit_code.Name = "tbx_lab2_unit_code";
             this.tbx_lab2_unit_code.Size = new System.Drawing.Size(100, 20);
             this.tbx_lab2_unit_code.TabIndex = 13;
+            this.tbx_lab2_unit_code.Text = "4444";
             // 
             // btn_lab2_plug_off
             // 
@@ -769,32 +796,6 @@
             this.label13.Size = new System.Drawing.Size(63, 13);
             this.label13.TabIndex = 0;
             this.label13.Text = "Home Code";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(19, 200);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(98, 13);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Room Temperature";
-            // 
-            // tbx_room_temp
-            // 
-            this.tbx_room_temp.Location = new System.Drawing.Point(141, 200);
-            this.tbx_room_temp.Name = "tbx_room_temp";
-            this.tbx_room_temp.Size = new System.Drawing.Size(100, 20);
-            this.tbx_room_temp.TabIndex = 5;
-            // 
-            // btn_get_room_temp
-            // 
-            this.btn_get_room_temp.Location = new System.Drawing.Point(255, 198);
-            this.btn_get_room_temp.Name = "btn_get_room_temp";
-            this.btn_get_room_temp.Size = new System.Drawing.Size(51, 23);
-            this.btn_get_room_temp.TabIndex = 6;
-            this.btn_get_room_temp.Text = "Get";
-            this.btn_get_room_temp.UseVisualStyleBackColor = true;
-            this.btn_get_room_temp.Click += new System.EventHandler(this.btn_get_room_temp_Click);
             // 
             // FormMain
             // 
