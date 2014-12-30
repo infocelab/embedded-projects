@@ -38,9 +38,10 @@ void setup()
 }
 int count=1;
 char * home_code="1111";
-char * unit_code="3333";
+char * unit_code="4444";
 char * source;
 int relay=0;
+int loopAgain=1;
 
 void loop()
 {
@@ -60,8 +61,11 @@ void loop()
         token = strtok((char *)buf, s);
         //token = strtok(NULL, s);
         /* walk through other tokens */
+        loopAgain=1;
         while( token != NULL ) 
         {
+           if(loopAgain == 0 )
+               break;
            if(strcmp((char *)token,"#")==0)
            break;
            Serial.print(count);
@@ -74,6 +78,7 @@ void loop()
                if(strcmp((char *)home_code , (char *)token) != 0)
                {
                   Serial.println("Home Code not matched");
+                  loopAgain=0;     
                }
                else
                {
@@ -88,7 +93,7 @@ void loop()
               if(strcmp(unit_code , token) != 0)
               {
                 Serial.println("Unit Code not matched");
-                break;
+                loopAgain=0;     
               }
               else
               {
