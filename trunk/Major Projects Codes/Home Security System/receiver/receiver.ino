@@ -44,12 +44,23 @@ char * unit_code="3333";
 char * source;
 int relay=0;
 int loopAgain=1;
-
+char deg[5]; 
+   
 void loop()
 {
+    char msg[128]="#,1111,3333,2222,5,";
     uint8_t buf[VW_MAX_MESSAGE_LEN];
     uint8_t buflen = VW_MAX_MESSAGE_LEN;
-
+    Serial.print("Sending");
+    temp = analogRead(tempPin);
+    temp = temp * 0.48828125;
+    dtostrf(temp, 3, 3, deg);
+    
+    strcat(msg, deg);
+    Serial.println(msg);
+    vw_send((uint8_t *)msg, strlen(msg));
+    vw_wait_tx();
+    delay(2000);
     if (vw_get_message(buf, &buflen)) // Non-blocking
     {
         buf[buflen] = '\0';
@@ -169,7 +180,7 @@ void loop()
               temp = temp * 0.48828125;
               // vw_send((uint8_t *)msg, strlen(msg));
               // vw_wait_tx(); 
-              char msg[128]="#,1111,3333,2222,5,37";
+              char msg[128]="#,1111,3333,2222,5,37,";
               vw_send((uint8_t *)msg, strlen(msg));
               vw_wait_tx();
             }
