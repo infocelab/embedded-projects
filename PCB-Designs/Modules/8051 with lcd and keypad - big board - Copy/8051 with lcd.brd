@@ -23,7 +23,7 @@
 <layer number="13" name="Route13" color="4" fill="5" visible="yes" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="yes" active="yes"/>
 <layer number="15" name="Route15" color="4" fill="6" visible="yes" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -4110,15 +4110,15 @@ Packages changed/corrected 22.02.2006 librarian@cadsoft.de&lt;br&gt;
 <wire x1="-15.2908" y1="4.6228" x2="-14.7828" y2="5.1308" width="0.254" layer="21" curve="-90"/>
 <wire x1="-15.2908" y1="-4.6228" x2="-14.7828" y2="-5.1308" width="0.254" layer="21" curve="90"/>
 <wire x1="14.7828" y1="-5.1308" x2="15.2908" y2="-4.6228" width="0.254" layer="21" curve="90"/>
-<pad name="1" x="-5.5372" y="1.4224" drill="1.0922"/>
-<pad name="2" x="-2.7686" y="1.4224" drill="1.0922"/>
-<pad name="3" x="0" y="1.4224" drill="1.0922"/>
-<pad name="4" x="2.7686" y="1.4224" drill="1.0922"/>
-<pad name="5" x="5.5372" y="1.4224" drill="1.0922"/>
-<pad name="6" x="-4.1529" y="-1.4224" drill="1.0922"/>
-<pad name="7" x="-1.3843" y="-1.4224" drill="1.0922"/>
-<pad name="8" x="1.3843" y="-1.4224" drill="1.0922"/>
-<pad name="9" x="4.1529" y="-1.4224" drill="1.0922"/>
+<pad name="1" x="-5.5372" y="1.4224" drill="0.8" diameter="2.1844"/>
+<pad name="2" x="-2.7686" y="1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="3" x="0" y="1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="4" x="2.7686" y="1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="5" x="5.5372" y="1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="6" x="-4.1529" y="-1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="7" x="-1.3843" y="-1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="8" x="1.3843" y="-1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="9" x="4.1529" y="-1.4224" drill="0.7" diameter="2.1844"/>
 <text x="-13.97" y="5.715" size="1.27" layer="25">&gt;NAME</text>
 <text x="-5.715" y="5.715" size="1.27" layer="27">&gt;VALUE</text>
 <hole x="-12.4968" y="0" drill="3.048"/>
@@ -5832,10 +5832,10 @@ design rules under a new name.</description>
 <wire x1="-7.62" y1="-22.86" x2="-7.62" y2="-24.13" width="0.8128" layer="16"/>
 <wire x1="-11.43" y1="-15.24" x2="-11.43" y2="-20.32" width="0.8128" layer="16"/>
 <wire x1="-31.75" y1="-15.24" x2="-11.43" y2="-15.24" width="0.8128" layer="16"/>
-<wire x1="-34.29" y1="-17.78" x2="-34.29" y2="-15.24" width="0.8128" layer="16"/>
+<wire x1="-34.29" y1="-17.78" x2="-34.29" y2="-15.24" width="0.3048" layer="16"/>
 <wire x1="-34.29" y1="-15.24" x2="-31.75" y2="-15.24" width="0.8128" layer="16"/>
-<wire x1="-34.29" y1="-27.94" x2="-34.29" y2="-17.78" width="0.8128" layer="16"/>
-<wire x1="-33.02" y1="-27.94" x2="-34.29" y2="-27.94" width="0.8128" layer="16"/>
+<wire x1="-34.29" y1="-27.94" x2="-34.29" y2="-17.78" width="0.3048" layer="16"/>
+<wire x1="-33.02" y1="-27.94" x2="-34.29" y2="-27.94" width="0.3048" layer="16"/>
 <wire x1="-33.02" y1="-27.94" x2="-32.8676" y2="-28.1686" width="0.508" layer="16"/>
 </signal>
 <signal name="N$77">

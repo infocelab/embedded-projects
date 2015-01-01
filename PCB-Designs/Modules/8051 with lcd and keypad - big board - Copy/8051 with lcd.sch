@@ -12224,15 +12224,15 @@ Packages changed/corrected 22.02.2006 librarian@cadsoft.de&lt;br&gt;
 <wire x1="-15.2908" y1="4.6228" x2="-14.7828" y2="5.1308" width="0.254" layer="21" curve="-90"/>
 <wire x1="-15.2908" y1="-4.6228" x2="-14.7828" y2="-5.1308" width="0.254" layer="21" curve="90"/>
 <wire x1="14.7828" y1="-5.1308" x2="15.2908" y2="-4.6228" width="0.254" layer="21" curve="90"/>
-<pad name="1" x="-5.5372" y="1.4224" drill="1.0922"/>
-<pad name="2" x="-2.7686" y="1.4224" drill="1.0922"/>
-<pad name="3" x="0" y="1.4224" drill="1.0922"/>
-<pad name="4" x="2.7686" y="1.4224" drill="1.0922"/>
-<pad name="5" x="5.5372" y="1.4224" drill="1.0922"/>
-<pad name="6" x="-4.1529" y="-1.4224" drill="1.0922"/>
-<pad name="7" x="-1.3843" y="-1.4224" drill="1.0922"/>
-<pad name="8" x="1.3843" y="-1.4224" drill="1.0922"/>
-<pad name="9" x="4.1529" y="-1.4224" drill="1.0922"/>
+<pad name="1" x="-5.5372" y="1.4224" drill="0.8" diameter="2.1844"/>
+<pad name="2" x="-2.7686" y="1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="3" x="0" y="1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="4" x="2.7686" y="1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="5" x="5.5372" y="1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="6" x="-4.1529" y="-1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="7" x="-1.3843" y="-1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="8" x="1.3843" y="-1.4224" drill="0.7" diameter="2.1844"/>
+<pad name="9" x="4.1529" y="-1.4224" drill="0.7" diameter="2.1844"/>
 <text x="-13.97" y="5.715" size="1.27" layer="25">&gt;NAME</text>
 <text x="-5.715" y="5.715" size="1.27" layer="27">&gt;VALUE</text>
 <hole x="-12.4968" y="0" drill="3.048"/>
