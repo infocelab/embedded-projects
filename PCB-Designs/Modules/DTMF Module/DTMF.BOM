@@ -1,0 +1,21 @@
+Partlist exported from E:/celabcode/Embedded-Projects/PCB-Designs/Modules/DTMF Module/DTMF.sch at 1/2/2015 6:45:29 PM
+
+Part    Value    Device      Package Description                   MF MPN OC_FARNELL OC_NEWARK
+C1      0.47uf   C2.5/2      C2.5-2  CAPACITOR                                                
+C2      22PF     C2.5/2      C2.5-2  CAPACITOR                                                
+C3      22PF     C2.5/2      C2.5-2  CAPACITOR                                                
+C4      0.1UF    C2.5/2      C2.5-2  CAPACITOR                                                
+IC1     CM8870CP CM8870CP    DIL18   CMOS Integrated DTMF Receiver        unknown    unknown  
+INPUT            M02         02P     AMP QUICK CONNECTOR                  unknown    unknown  
+LED1    3mm      LED3MM      LED3MM  LED                                                      
+LED2    3mm      LED3MM      LED3MM  LED                                                      
+LED3    3mm      LED3MM      LED3MM  LED                                                      
+LED4    3mm      LED3MM      LED3MM  LED                                                      
+OSC     3.57     XTAL/S      QS      CRYSTAL                                                  
+OUTPUT1          JP1E        JP1     JUMPER                                                   
+OUTPUT2          JP1E        JP1     JUMPER                                                   
+POWER            M02         02P     AMP QUICK CONNECTOR                  unknown    unknown  
+R1      10K      R-EU_0204/7 0204/7  RESISTOR, European symbol                                
+R2      100K     R-EU_0204/7 0204/7  RESISTOR, European symbol                                
+R3      100K     R-EU_0204/7 0204/7  RESISTOR, European symbol                                
+R4      330E     R-EU_0204/7 0204/7  RESISTOR, European symbol                                
