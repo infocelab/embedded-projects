@@ -45,23 +45,32 @@ char * source;
 int relay=0;
 int loopAgain=1;
 char deg[5]; 
-   
+int sendtemp=0;
+
 void loop()
 {
-    char msg[128]="#,1111,3333,2222,5,";
     uint8_t buf[VW_MAX_MESSAGE_LEN];
-    uint8_t buflen = VW_MAX_MESSAGE_LEN;
-    Serial.print("Sending");
-    temp = analogRead(tempPin);
-    temp = temp * 0.48828125;
-    dtostrf(temp, 3, 3, deg);
-    
-    strcat(msg, deg);
-    Serial.println(msg);
-    vw_send((uint8_t *)msg, strlen(msg));
-    vw_wait_tx();
-    delay(2000);
-    if (vw_get_message(buf, &buflen)) // Non-blocking
+    uint8_t buflen = VW_MAX_MESSAGE_LEN; 
+  
+  if(sendtemp == 1)
+  {
+    for(int i=0;i<5;i++)
+  {
+     Serial.print("Yes Sending Temperature:");
+              char datamsg[128]="#,1111,3333,2222,5,";
+              temp = analogRead(tempPin);
+              temp = temp * 0.48828125;
+              dtostrf(temp, 3, 3, deg);
+              strcat(datamsg, deg);
+              Serial.println(datamsg);
+              datamsg[strlen(datamsg)]='\n';
+              vw_send((uint8_t *)datamsg, strlen(datamsg));
+              vw_wait_tx();
+            delay(3000);
+  }       
+  sendtemp=0;
+  }
+  if (vw_get_message(buf, &buflen)) // Non-blocking
     {
         buf[buflen] = '\0';
         Serial.println((char *)buf);
@@ -155,7 +164,7 @@ void loop()
                 digitalWrite(relay4,HIGH);
               }
             }
-            else if(strcmp(token,"0")==0) // task to off
+            else if(strcmp(token,"2")==0) // task to off
             {
               if(relay == 1)
               {
@@ -174,15 +183,19 @@ void loop()
                 digitalWrite(relay4,LOW);
               }
             }
-            else if(strcmp(token,"2")==0) // temprature
+            else if(strcmp(token,"3")==0) // temprature
             {
+              sendtemp=1;
+            /* Serial.print("Sending Temperature");
+              char datamsg[128]="#,1111,3333,2222,5,";
               temp = analogRead(tempPin);
               temp = temp * 0.48828125;
-              // vw_send((uint8_t *)msg, strlen(msg));
-              // vw_wait_tx(); 
-              char msg[128]="#,1111,3333,2222,5,37,";
-              vw_send((uint8_t *)msg, strlen(msg));
+              dtostrf(temp, 3, 3, deg);
+              strcat(datamsg, deg);
+              Serial.println(datamsg);
+              vw_send((uint8_t *)datamsg, strlen(datamsg));
               vw_wait_tx();
+            delay(1000);*/ 
             }
             break;    
          } // end of switch
