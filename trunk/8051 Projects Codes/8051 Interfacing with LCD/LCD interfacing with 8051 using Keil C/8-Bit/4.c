@@ -31,7 +31,7 @@ void main()
   while(1)
   {                                   
     Lcd8_Set_Cursor(1,1);
-	  Lcd8_Write_String("Rohit singh ");
+	  Lcd8_Write_String("celab ");
 		for(i=0;i<15;i++)
 		{
 		  Delay(1000);
