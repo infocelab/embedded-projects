@@ -1,51 +1,59 @@
-Partlist exported from E:/celabcode/Embedded-Projects/PCB-Designs/Modules/8051 with lcd and keypad - big board/8051 with lcd.sch at 12/27/2014 5:56:13 PM
+Partlist exported from E:/celabcode/Embedded-Projects/PCB-Designs/Modules/8051 with lcd and keypad - big board - Copy/8051 with lcd.sch at 12/27/2014 5:59:32 PM
 
-Part         Value          Device          Package      Description                               MF MPN    OC_FARNELL OC_NEWARK SPICEMODEL SPICEPREFIX
-AVRCONNECTOR                M05             05P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-BRIDGE                      LM399H          TO39/4       Precision Z DIODE                                                                              
-C1           33pf           C-EU025-024X044 C025-024X044 CAPACITOR, European symbol                                                                     
-C2           33pf           C-EU025-024X044 C025-024X044 CAPACITOR, European symbol                                                                     
-C3           470uf          C5/7.2          C5B7.2       CAPACITOR                                                                                      
-C4           .01uf          C2,5-3          C2.5-3       CAPACITOR                                                                                      
-C5           4.7uf          C2,5-3          C2.5-3       CAPACITOR                                                                                      
-C6           0.1uf          C2.5/6          C2.5-6       CAPACITOR                                                                                      
-CONN-6       3 pin          M03             03P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-CONN-7       3 pin          M03             03P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-CONNECTOR    LCD            M16             16P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-CONNECTOR-2  8 pin          M08             08P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-CONNECTOR-4  8 pin          M08             08P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-CONNECTOR-5  4 pin          M04             04P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-CRYSTAL      11.0592 mhz    XTAL/S          QS           CRYSTAL                                                                                        
-IC1          AT89S51        AT89C51-12PC    DIL40        8-bit Microcontroller with 4K Bytes Flash           unknown    unknown                         
-IC2          7805TV         7805TV          TO220V       Positive VOLTAGE REGULATOR                                                                     
-IC3          L293D          L293D           DIL16        PUSH-PULL 4 CHANNEL DRIVER                   L293D  9589619    56P8249                         
-J1                          JACK-PLUG0      SPC4077      DC POWER JACK                                       unknown    unknown                         
-JP1          TRANSFORMER    JP1Q            JP1          JUMPER                                                                                         
-JP2          TRANSFORMER    JP1Q            JP1          JUMPER                                                                                         
-JP3          TRANSFORMER    JP1Q            JP1          JUMPER                                                                                         
-LED2         5mm            LED5MM          LED5MM       LED                                                                                            
-R1           10k            R0204/7         0204/7       RESISTOR, European symbol                                                NONE       R          
-R2           560E           R0204/7         0204/7       RESISTOR, European symbol                                                NONE       R          
-RN           10K            M09             09P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-RN10         10 k           M09             09P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-S1           ON/ OFF SWITCH DA03            DA-03        DIL/CODE SWITCH                              MCDA03 1521999    74M2972                         
-S2           push switch    DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S3           push switch    DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S4           push switch    DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S5                          DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S6                          DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S7                          DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S8                          DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S9                          DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S10                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S11                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S12                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S13                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S14                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S15                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S16                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S17                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-S18                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02 1255233    26M1095                         
-SL1                         M04             04P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-SL8                         M05             05P          AMP QUICK CONNECTOR                                 unknown    unknown                         
-VR           10k            R-TRIMM64P      RTRIM64P     Trimm resistor                                                                                 
+Part         Value          Device          Package      Description                               MF MPN        OC_FARNELL OC_NEWARK SPICEMODEL SPICEPREFIX
+ACCONNECTOR1 motor          JP1Q            JP1          JUMPER                                                                                             
+ACCONNECTOR2 motor          JP1Q            JP1          JUMPER                                                                                             
+AVRCONNECTOR                M05             05P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+BRIDGE                      LM399H          TO39/4       Precision Z DIODE                                                                                  
+C1           33pf           C-EU025-024X044 C025-024X044 CAPACITOR, European symbol                                                                         
+C2           33pf           C-EU025-024X044 C025-024X044 CAPACITOR, European symbol                                                                         
+C3           470uf          C5/7.2          C5B7.2       CAPACITOR                                                                                          
+C4           .01uf          C2,5-3          C2.5-3       CAPACITOR                                                                                          
+C5           4.7uf          C2,5-3          C2.5-3       CAPACITOR                                                                                          
+C6           0.1uf          C2.5/6          C2.5-6       CAPACITOR                                                                                          
+C7           0.1uf          C2,5-3          C2.5-3       CAPACITOR                                                                                          
+C8           0.1uf          C2,5-3          C2.5-3       CAPACITOR                                                                                          
+C9           0.1uf          C2,5-3          C2.5-3       CAPACITOR                                                                                          
+C10          0.1uf          C2,5-3          C2.5-3       CAPACITOR                                                                                          
+CONN-6       3 pin          M03             03P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+CONN-7       3 pin          M03             03P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+CONNECTOR    LCD            M16             16P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+CONNECTOR-2  8 pin          M08             08P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+CONNECTOR-4  8 pin          M08             08P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+CONNECTOR-5  4 pin          M04             04P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+CRYSTAL      11.0592 mhz    XTAL/S          QS           CRYSTAL                                                                                            
+IC1          AT89S51        AT89C51-12PC    DIL40        8-bit Microcontroller with 4K Bytes Flash               unknown    unknown                         
+IC2          7805TV         7805TV          TO220V       Positive VOLTAGE REGULATOR                                                                         
+IC3          L293D          L293D           DIL16        PUSH-PULL 4 CHANNEL DRIVER                   L293D      9589619    56P8249                         
+IC4          MAX232         MAX313EPE       DIL16        10?, Quad, SPST, CMOS Analog Switches        MAX313EPE+ unknown    99K3220                         
+J1                          JACK-PLUG0      SPC4077      DC POWER JACK                                           unknown    unknown                         
+JP1          TRANSFORMER    JP1Q            JP1          JUMPER                                                                                             
+LED2         5mm            LED5MM          LED5MM       LED                                                                                                
+R1           10k            R0204/7         0204/7       RESISTOR, European symbol                                                    NONE       R          
+R2           560E           R0204/7         0204/7       RESISTOR, European symbol                                                    NONE       R          
+RN           10K            M09             09P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+RN10         10 k           M09             09P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+S1           ON/ OFF SWITCH DA03            DA-03        DIL/CODE SWITCH                              MCDA03     1521999    74M2972                         
+S2           push switch    DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S3           push switch    DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S4           push switch    DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S5                          DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S6                          DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S7                          DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S8                          DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S9                          DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S10                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S11                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S12                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S13                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S14                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S15                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S16                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S17                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+S18                         DP02            DP-02        DIL/CODE SWITCH                              MCDP02     1255233    26M1095                         
+SL1          4 pin          M04             04P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+SL2          2 pin          M02             02P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+SL3          jumper         M02             02P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+SL8                         M05             05P          AMP QUICK CONNECTOR                                     unknown    unknown                         
+VR           10k            R-TRIMM64P      RTRIM64P     Trimm resistor                                                                                     
+X1           DB 9 FEMALE    D-SUB9-H2M09ST  H2M09ST      D-Subminiatur Connector                                 unknown    unknown                         
