@@ -3,8 +3,8 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-D:\ROHIT\LCD interfacing with AT89S52\LCD interfacing with 8051 using Keil C\8-Bit\8051 Keil C LCD Intrfacing.uvproj
-Project File Date:  07/13/2014
+E:\celabcode\Embedded-Projects\8051 Projects Codes\8051 Interfacing with LCD\LCD interfacing with 8051 using Keil C\8-Bit\8051 Keil C LCD Intrfacing.uvproj
+Project File Date:  12/27/2014
 
 <h2>Output:</h2>
 Rebuild target 'Target 1'
@@ -25,6 +25,6 @@ linking...
     SEGMENT: ?PR?LCD4_SHIFT_RIGHT?4
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?LCD4_SHIFT_LEFT?4
-Program Size: data=23.0 xdata=0 code=805
+Program Size: data=23.0 xdata=0 code=799
 creating hex file from "8051 Keil C LCD Intrfacing"...
 "8051 Keil C LCD Intrfacing" - 0 Error(s), 9 Warning(s).
