@@ -12,6 +12,7 @@ using System.IO.Ports;
 using Microsoft.Office.Core;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
+using System.Threading;
 
 
 namespace WeatherLogger
@@ -19,17 +20,21 @@ namespace WeatherLogger
     public partial class FormMain : Form
     {
         private const Int32 WM_DEVICECHANGE = 0x219;
+        static SerialPort _serialPort;// = new SerialPort("COM1", 19200, Parity.None, 8, StopBits.One);
+        static bool _continue=true;
+        Thread readThread = new Thread(Read);
+           
         public FormMain()
         {
             InitializeComponent();
-           // tmrData.Enabled = true;
+            //tmrData.Enabled = true;
         }
         private void SetColor()
         {
         }
         private void EnableButtons()
         {
-            tmrData.Enabled = true;
+            //tmrData.Enabled = true;
         }
         protected override void WndProc(ref Message m)
         {
@@ -57,9 +62,46 @@ namespace WeatherLogger
             cbxPorts.SelectedIndex = 3;
         }
 
+        static void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort _serialPort = (SerialPort)sender;
+            //Console.WriteLine(_serialPort.ReadExisting());
+        }
+
+
+        public static void Read()
+        {
+            while (true)
+            {
+                try
+                {
+                    string message = _serialPort.ReadLine();
+                    string[] fff = message.Split(',');
+                    //tbx_room_temp.Text = fff[5];
+           
+                    //Console.WriteLine(message);
+                }
+                catch (TimeoutException) { }
+            }
+        }
+
         private void FormMain_Load(object sender, EventArgs e)
         {
             GetSerialPorts();
+            // "sp_DataReceived" is a custom method that I have created
+            //_serialPort.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
+           string port = cbxPorts.SelectedItem.ToString();
+            if (port == "")
+                return;
+            
+           _serialPort = new SerialPort(port, 9600, Parity.None, 8, StopBits.One);
+           _serialPort.ReadTimeout = 500;
+            _serialPort.WriteTimeout = 500;
+            _serialPort.Handshake = Handshake.None;
+  
+            _serialPort.Open();
+            readThread.Start();
+            _serialPort.DataReceived += new SerialDataReceivedEventHandler(_serialPort_DataReceived);
         }
         #region Private Initialise Graph
         /**
@@ -96,7 +138,8 @@ namespace WeatherLogger
         }
         #endregion
 
-       
+
+
 
         #region Timer 1
         private void tmrData_Tick(object sender, EventArgs e)
@@ -112,11 +155,10 @@ namespace WeatherLogger
             if (myPort.IsOpen == false) //if not open, open the port
                 return;
             String data;
-            data = myPort.ReadLine();
+            //data = myPort.ReadExisting();
+            data = myPort.ReadLine() ;
             myPort.Close();
-            tbx_room_temp.Text = data;
-            tmrData.Enabled = false;
-   
+            //tmrData.Enabled = true;
         }
         #endregion 
         #region Menu Items
@@ -194,18 +236,19 @@ namespace WeatherLogger
         }
         private void sendData(string xml)
         {
-            string port = cbxPorts.SelectedItem.ToString();
-            if (port == "")
-                return;
-            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
-            myPort.BaudRate = 9600;
-            if (myPort.IsOpen == false) //if not open, open the port
-                myPort.Open();
-            //do your work here
-            if (myPort.IsOpen == false) //if not open, open the port
-                return;
-            myPort.WriteLine(xml);
-            myPort.Close();
+            //string port = cbxPorts.SelectedItem.ToString();
+            //if (port == "")
+            //    return;
+            //System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            //myPort.BaudRate = 9600;
+            //if (myPort.IsOpen == false) //if not open, open the port
+            //    myPort.Open();
+            ////do your work here
+            //if (myPort.IsOpen == false) //if not open, open the port
+            //    return;
+            //myPort.WriteLine(xml);
+            //myPort.Close();
+            _serialPort.WriteLine(xml);
         }
         private void cbxPorts_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -220,7 +263,7 @@ namespace WeatherLogger
 
         private void btn_lab1_cfl_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "1,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "1,2,";
             sendData(xml);
         }
 
@@ -232,7 +275,7 @@ namespace WeatherLogger
 
         private void btn_lab1_tube_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "2,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "2,2,";
             sendData(xml);
         }
 
@@ -244,7 +287,7 @@ namespace WeatherLogger
 
         private void btn_lab1_fan_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "3,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "3,2,";
             sendData(xml);
         }
 
@@ -256,7 +299,7 @@ namespace WeatherLogger
 
         private void btn_lab1_plug_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "4,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "4,2,";
             sendData(xml);
         }
 
@@ -268,7 +311,7 @@ namespace WeatherLogger
 
         private void btn_lab2_cfl_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "1,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "1,2,";
             sendData(xml);
         }
 
@@ -280,7 +323,7 @@ namespace WeatherLogger
 
         private void btn_lab2_tube_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "2,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "2,2,";
             sendData(xml);
         }
 
@@ -292,7 +335,7 @@ namespace WeatherLogger
 
         private void btn_lab2_fan_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "3,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "3,2";
             sendData(xml);
         }
 
@@ -304,7 +347,7 @@ namespace WeatherLogger
 
         private void btn_lab2_plug_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "4,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab2_unit_code.Text + "," + "4,2,";
             sendData(xml);
         }
 
@@ -316,7 +359,7 @@ namespace WeatherLogger
 
         private void btn_lab3_cfl_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "1,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "1,2,";
             sendData(xml);
         }
 
@@ -328,7 +371,7 @@ namespace WeatherLogger
 
         private void btn_lab3_tube_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "2,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "2,2,";
             sendData(xml);
         }
 
@@ -340,7 +383,7 @@ namespace WeatherLogger
 
         private void btn_lab3_fan_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "3,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "3,2,";
             sendData(xml);
         }
 
@@ -352,7 +395,7 @@ namespace WeatherLogger
 
         private void btn_lab3_plug_off_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "4,0,";
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab3_unit_code.Text + "," + "4,2,";
             sendData(xml);
         }
 
@@ -361,24 +404,81 @@ namespace WeatherLogger
 
         }
 
+ 
+        //Handler as indicatted above will be run when the event is triggered.
+        private void ProcessReceivedData(object sender, SerialDataReceivedEventArgs e)
+        {
+            //Byte [2048] ReceiveBuffer;
+            //int offset = 0;
+            //int toRead = sp.BytesToRead;
+            //sp.Read(ReceiveBuffer, offset, toRead);
+            //offset += toRead;
+
+        //Received data will be in placed into ReceiveBuffer at location offset.
+        //You will have to handle buffer overflow conditions and clean up the 
+        //buffer when the data when you are finished recovering the data.
+        }
+
+
         private void btn_get_room_temp_Click(object sender, EventArgs e)
         {
-            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "5,2,";
+           
+            string xml = "#," + tbx_home_code.Text + "," + tbx_unit_code.Text + "," + tbx_lab1_unit_code.Text + "," + "5,3,";
             //tmrData.Enabled = true;
-            sendData(xml);
-            string port = cbxPorts.SelectedItem.ToString();
-            if (port == "")
-                return;
-            System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
-            myPort.BaudRate = 9600;
-            if (myPort.IsOpen == false) //if not open, open the port
-                myPort.Open();
+            //sendData(xml);
+            //sp.DataReceived += new SerialDataReceivedEventHandler(ProcessReceivedData);
+
+            _serialPort.WriteLine(xml);
+
+            //string port = cbxPorts.SelectedItem.ToString();
+            //if (port == "")
+            //    return;
+            //System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            //myPort.BaudRate = 9600;
+            //if (myPort.IsOpen == false) //if not open, open the port
+            //    myPort.Open();
+            ////do your work here
+            //if (myPort.IsOpen == false) //if not open, open the port
+            //    return;
+            //myPort.WriteLine(xml);
+            //myPort.Close();
+            ////myPort.ReadTimeout = 500;
+
+
+            //string port = cbxPorts.SelectedItem.ToString();
+            //if (port == "")
+            //    return;
+            //System.IO.Ports.SerialPort myPort = new System.IO.Ports.SerialPort(port);
+            //myPort.BaudRate = 9600;
+            //if (myPort.IsOpen == false) //if not open, open the port
+            //    myPort.Open();
             //do your work here
-            if (myPort.IsOpen == false) //if not open, open the port
-                return;
-            String data;
-            data = myPort.ReadLine();
-            myPort.Close();
+            //if (myPort.IsOpen == false) //if not open, open the port
+            //    return;
+            //try
+            //{
+            //    String data = "" ;
+            //    data = myPort.ReadLine();
+            //    myPort.Close();
+            //    string[] fff = data.Split(',');
+            //    tbx_room_temp.Text = fff[5];
+            //}
+            //catch (TimeoutException)
+            //{
+            //    myPort.Close();
+            //}
+            //catch (InvalidOperationException)
+            //{
+            //    myPort.Close();
+            //}
+            //catch
+            //{
+            //    myPort.Close();
+            //}
+            //finally
+            //{
+            //    myPort.Close();
+            //}
             
         }
 
