@@ -9,15 +9,15 @@ void Delay(int); //Function prototype declaration
 void main (void) 
 {
    switch_pin = 0; // Making Switch PIN input
-   LED_pin = 0;    //Making LED pin output
+   LED_pin = 1;    //Making LED pin output
 
    while(1)     //infinite loop 
    {
       if(switch_pin == 1) //If switch pressed
       {
-	 LED_pin = 1; //LED ON
+	 LED_pin = 0; //LED ON
 	 Delay(1000); //Delay
-	 LED_pin = 0; //LED OFF	
+	 LED_pin = 1; //LED OFF	
       }
    }
 }
