@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   LCD                                                               12/28/2014 14:03:53 PAGE 1   
+C51 COMPILER V9.52.0.0   LCD                                                               01/08/2015 13:32:14 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LCD
@@ -62,7 +62,7 @@ line level    source
   53   1        if(C3==0){Delay(100);while(C3==0);return '3';}
   54   1        if(C4==0){Delay(100);while(C4==0);return 'A';}
   55   1        R1=1;
-C51 COMPILER V9.52.0.0   LCD                                                               12/28/2014 14:03:53 PAGE 2   
+C51 COMPILER V9.52.0.0   LCD                                                               01/08/2015 13:32:14 PAGE 2   
 
   56   1        R2=0;
   57   1        R3=1;
@@ -126,7 +126,7 @@ line level    source
  115   3        Lcd8_Set_Cursor(2,i);
  116   3        Lcd8_Write_String("*");
  117   3        if( i == 4)
-C51 COMPILER V9.52.0.0   LCD                                                               12/28/2014 14:03:53 PAGE 3   
+C51 COMPILER V9.52.0.0   LCD                                                               01/08/2015 13:32:14 PAGE 3   
 
  118   3        {
  119   4          Lcd8_Set_Cursor(1,1);
@@ -190,7 +190,7 @@ line level    source
  177   3      }
  178   2      }
  179   1      }
-C51 COMPILER V9.52.0.0   LCD                                                               12/28/2014 14:03:53 PAGE 4   
+C51 COMPILER V9.52.0.0   LCD                                                               01/08/2015 13:32:14 PAGE 4   
 
 *** WARNING C280 IN LINE 85 OF LCD.c: 'p': unreferenced local variable
 *** WARNING C290 IN LINE 84 OF LCD.c: missing return value

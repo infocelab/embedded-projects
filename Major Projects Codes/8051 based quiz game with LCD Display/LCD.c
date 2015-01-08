@@ -86,30 +86,31 @@ ask_question(int q)
 	{
 		 case 1:
 				Lcd8_Set_Cursor(1,1);
-				Lcd8_Write_String("question 1");   
+				Lcd8_Write_String("Q.1)Energy is defined as the ability to");  	
 				Lcd8_Set_Cursor(2,1);
-				Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
-		    ans[0]='2';
+				Lcd8_Write_String("ANS.1) produce heat 2)produce light 3)produce sound 4)All of the above"); 
+		    ans[0]='4';
 		 break;
 		 case 2:
 				Lcd8_Set_Cursor(1,1);
-				Lcd8_Write_String("question 2");   
+				Lcd8_Write_String("Q.2)Ionization within a P-N junction causes a layer on each side of the barrier called the:");   	
 				Lcd8_Set_Cursor(2,1);
-				Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
-		    ans[0]='1';
+				Lcd8_Write_String("ANS.1) junction 2)depletion region 3)barrier voltage 4)forward voltage");
+ 
+		    ans[0]='2';
 		 break;
 		case 3:
 				Lcd8_Set_Cursor(1,1);
-				Lcd8_Write_String("question 3");   
+				Lcd8_Write_String("Q3)What causes the depletion region?");   
 				Lcd8_Set_Cursor(2,1);
-				Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
-		    ans[0]='4';
+				Lcd8_Write_String("ANS.1) doping 2)diffusion 3)barrier potential 4)ions"); 
+		    ans[0]='2';
 		break;
 			case 4:
 				Lcd8_Set_Cursor(1,1);
-				Lcd8_Write_String("question 4");   
+				Lcd8_Write_String("Q4)In N type material, majority carriers would be:");   
 				Lcd8_Set_Cursor(2,1);
-				Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
+				Lcd8_Write_String("ANS.1) holes 2)dopants 3)slower 4)electrons"); 
 		    ans[0]='4';
 		break;
 	}

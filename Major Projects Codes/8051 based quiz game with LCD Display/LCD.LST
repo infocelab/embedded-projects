@@ -1,9 +1,9 @@
-C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:10:58 PAGE 1   
+C51 COMPILER V9.52.0.0   LCD                                                               01/08/2015 13:59:43 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LCD
 OBJECT MODULE PLACED IN LCD.OBJ
-COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE LCD.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE LCD.c BROWSE DEBUG OBJECTEXTEND TABS(2)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   53   1        if(C2==0){Delay(100);while(C2==0);return '2';}
   54   1        if(C3==0){Delay(100);while(C3==0);return '3';}
   55   1        if(C4==0){Delay(100);while(C4==0);return 'A';}
-C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:10:58 PAGE 2   
+C51 COMPILER V9.52.0.0   LCD                                                               01/08/2015 13:59:43 PAGE 2   
 
   56   1        R1=1;
   57   1        R2=0;
@@ -97,111 +97,113 @@ line level    source
   86   1        {
   87   2           case 1:
   88   2              Lcd8_Set_Cursor(1,1);
-  89   2              Lcd8_Write_String("question 1");   
+  89   2              Lcd8_Write_String("Q.1)Energy is defined as the ability to");   
   90   2              Lcd8_Set_Cursor(2,1);
-  91   2              Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
-  92   2              ans[0]='2';
+  91   2              Lcd8_Write_String("ANS.1) produce heat 2)produce light 3)produce sound 4)All of the above"); 
+  92   2              ans[0]='4';
   93   2           break;
   94   2           case 2:
   95   2              Lcd8_Set_Cursor(1,1);
-  96   2              Lcd8_Write_String("question 2");   
+  96   2              Lcd8_Write_String("Q.2)Ionization within a P-N junction causes a layer on each side of the barrier cal
+             -led the:");     
   97   2              Lcd8_Set_Cursor(2,1);
-  98   2              Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
-  99   2              ans[0]='1';
- 100   2           break;
- 101   2          case 3:
- 102   2              Lcd8_Set_Cursor(1,1);
- 103   2              Lcd8_Write_String("question 3");   
- 104   2              Lcd8_Set_Cursor(2,1);
- 105   2              Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
- 106   2              ans[0]='4';
- 107   2          break;
- 108   2            case 4:
- 109   2              Lcd8_Set_Cursor(1,1);
- 110   2              Lcd8_Write_String("question 4");   
- 111   2              Lcd8_Set_Cursor(2,1);
- 112   2              Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
- 113   2              ans[0]='4';
- 114   2          break;
- 115   2        }
- 116   1      
- 117   1      for(j=0;j<15;j++)
-C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:10:58 PAGE 3   
+  98   2              Lcd8_Write_String("ANS.1) junction 2)depletion region 3)barrier voltage 4)forward voltage");
+  99   2       
+ 100   2              ans[0]='2';
+ 101   2           break;
+ 102   2          case 3:
+ 103   2              Lcd8_Set_Cursor(1,1);
+ 104   2              Lcd8_Write_String("Q3)What causes the depletion region?");   
+ 105   2              Lcd8_Set_Cursor(2,1);
+ 106   2              Lcd8_Write_String("ANS.1) doping 2)diffusion 3)barrier potential 4)ions"); 
+ 107   2              ans[0]='2';
+ 108   2          break;
+ 109   2            case 4:
+ 110   2              Lcd8_Set_Cursor(1,1);
+ 111   2              Lcd8_Write_String("Q4)In N type material, majority carriers would be:");   
+ 112   2              Lcd8_Set_Cursor(2,1);
+ 113   2              Lcd8_Write_String("ANS.1) holes 2)dopants 3)slower 4)electrons"); 
+ 114   2              ans[0]='4';
+ 115   2          break;
+ 116   2        }
+C51 COMPILER V9.52.0.0   LCD                                                               01/08/2015 13:59:43 PAGE 3   
 
- 118   1      {
- 119   2            Delay(1000);
- 120   2            Lcd8_Shift_Left();
- 121   2      }
- 122   1      
- 123   1      }
- 124          
- 125          void main()
- 126          {
- 127   1       int flag=0, i=0, qno=1;
- 128   1       char c,p;
- 129   1       char key[2];
- 130   1      
- 131   1        
- 132   1       Lcd8_Init();
- 133   1      
- 134   1      Lcd8_Set_Cursor(1,1);
- 135   1      Lcd8_Write_String("welcome to quiz game");
- 136   1      Lcd8_Set_Cursor(2,1);
- 137   1      Lcd8_Write_String("Press #");
- 138   1      while(1)
- 139   1      {
- 140   2      Delay(100);
- 141   2      while(!(c = Read_Keypad()));
- 142   2      if (c == '#')
- 143   2      {
- 144   3      Lcd8_Clear();
- 145   3      ask_question(qno);
- 146   3      flag = 1;
- 147   3      i=0;
- 148   3      }
- 149   2      else if (flag == 1)
- 150   2      {
- 151   3      key[i] = c;
- 152   3      i++;
- 153   3      
- 154   3      if( i == 1)
- 155   3      {
- 156   4      Delay(200);
- 157   4      if(key[0] == ans[0])
- 158   4      {
- 159   5      Lcd8_Clear();
- 160   5      Lcd8_Set_Cursor(1,1);
- 161   5      Lcd8_Write_String("Correct Answer");
- 162   5        qno++;
- 163   5        if(qno == 5)
- 164   5          qno=1;
- 165   5      }
- 166   4      else
- 167   4      {
- 168   5      Lcd8_Clear();
- 169   5      Lcd8_Set_Cursor(1,1);
- 170   5      Lcd8_Write_String("Wrong Answer");  
- 171   5      }
- 172   4      Delay(1000);
- 173   4      flag =0;
- 174   4      Lcd8_Set_Cursor(2,1);
- 175   4      Lcd8_Write_String("Press #");
- 176   4      i=0;
- 177   4      }
- 178   3      }
- 179   2      }
-C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:10:58 PAGE 4   
+ 117   1      
+ 118   1      for(j=0;j<15;j++)
+ 119   1      {
+ 120   2            Delay(1000);
+ 121   2            Lcd8_Shift_Left();
+ 122   2      }
+ 123   1      
+ 124   1      }
+ 125          
+ 126          void main()
+ 127          {
+ 128   1       int flag=0, i=0, qno=1;
+ 129   1       char c,p;
+ 130   1       char key[2];
+ 131   1      
+ 132   1        
+ 133   1       Lcd8_Init();
+ 134   1      
+ 135   1      Lcd8_Set_Cursor(1,1);
+ 136   1      Lcd8_Write_String("welcome to quiz game");
+ 137   1      Lcd8_Set_Cursor(2,1);
+ 138   1      Lcd8_Write_String("Press #");
+ 139   1      while(1)
+ 140   1      {
+ 141   2      Delay(100);
+ 142   2      while(!(c = Read_Keypad()));
+ 143   2      if (c == '#')
+ 144   2      {
+ 145   3      Lcd8_Clear();
+ 146   3      ask_question(qno);
+ 147   3      flag = 1;
+ 148   3      i=0;
+ 149   3      }
+ 150   2      else if (flag == 1)
+ 151   2      {
+ 152   3      key[i] = c;
+ 153   3      i++;
+ 154   3      
+ 155   3      if( i == 1)
+ 156   3      {
+ 157   4      Delay(200);
+ 158   4      if(key[0] == ans[0])
+ 159   4      {
+ 160   5      Lcd8_Clear();
+ 161   5      Lcd8_Set_Cursor(1,1);
+ 162   5      Lcd8_Write_String("Correct Answer");
+ 163   5        qno++;
+ 164   5        if(qno == 5)
+ 165   5          qno=1;
+ 166   5      }
+ 167   4      else
+ 168   4      {
+ 169   5      Lcd8_Clear();
+ 170   5      Lcd8_Set_Cursor(1,1);
+ 171   5      Lcd8_Write_String("Wrong Answer");  
+ 172   5      }
+ 173   4      Delay(1000);
+ 174   4      flag =0;
+ 175   4      Lcd8_Set_Cursor(2,1);
+ 176   4      Lcd8_Write_String("Press #");
+ 177   4      i=0;
+ 178   4      }
+C51 COMPILER V9.52.0.0   LCD                                                               01/08/2015 13:59:43 PAGE 4   
 
- 180   1      }
-*** WARNING C280 IN LINE 128 OF LCD.c: 'p': unreferenced local variable
+ 179   3      }
+ 180   2      }
+ 181   1      }
+*** WARNING C280 IN LINE 129 OF LCD.c: 'p': unreferenced local variable
 *** WARNING C290 IN LINE 84 OF LCD.c: missing return value
 *** WARNING C290 IN LINE 176 OF LCD.c: missing return value
-*** WARNING C290 IN LINE 123 OF LCD.c: missing return value
+*** WARNING C290 IN LINE 124 OF LCD.c: missing return value
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   1213    ----
-   CONSTANT SIZE    =    130    ----
+   CODE SIZE        =   1232    ----
+   CONSTANT SIZE    =    516    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      2      27
