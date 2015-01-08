@@ -105,6 +105,13 @@ ask_question(int q)
 				Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
 		    ans[0]='4';
 		break;
+			case 4:
+				Lcd8_Set_Cursor(1,1);
+				Lcd8_Write_String("question 4");   
+				Lcd8_Set_Cursor(2,1);
+				Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
+		    ans[0]='4';
+		break;
 	}
 
 for(j=0;j<15;j++)
@@ -153,7 +160,7 @@ Lcd8_Clear();
 Lcd8_Set_Cursor(1,1);
 Lcd8_Write_String("Correct Answer");
 	qno++;
-	if(qno == 4)
+	if(qno == 5)
 		qno=1;
 }
 else

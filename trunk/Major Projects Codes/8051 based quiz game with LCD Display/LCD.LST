@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:01:17 PAGE 1   
+C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:10:58 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LCD
@@ -62,7 +62,7 @@ line level    source
   53   1        if(C2==0){Delay(100);while(C2==0);return '2';}
   54   1        if(C3==0){Delay(100);while(C3==0);return '3';}
   55   1        if(C4==0){Delay(100);while(C4==0);return 'A';}
-C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:01:17 PAGE 2   
+C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:10:58 PAGE 2   
 
   56   1        R1=1;
   57   1        R2=0;
@@ -116,85 +116,92 @@ line level    source
  105   2              Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
  106   2              ans[0]='4';
  107   2          break;
- 108   2        }
- 109   1      
- 110   1      for(j=0;j<15;j++)
- 111   1      {
- 112   2            Delay(1000);
- 113   2            Lcd8_Shift_Left();
- 114   2      }
- 115   1      
- 116   1      }
- 117          
-C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:01:17 PAGE 3   
+ 108   2            case 4:
+ 109   2              Lcd8_Set_Cursor(1,1);
+ 110   2              Lcd8_Write_String("question 4");   
+ 111   2              Lcd8_Set_Cursor(2,1);
+ 112   2              Lcd8_Write_String("1) sds 2)dfg 3)xdgdf 4)xdvxd"); 
+ 113   2              ans[0]='4';
+ 114   2          break;
+ 115   2        }
+ 116   1      
+ 117   1      for(j=0;j<15;j++)
+C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:10:58 PAGE 3   
 
- 118          void main()
- 119          {
- 120   1       int flag=0, i=0, qno=1;
- 121   1       char c,p;
- 122   1       char key[2];
- 123   1      
- 124   1        
- 125   1       Lcd8_Init();
- 126   1      
- 127   1      Lcd8_Set_Cursor(1,1);
- 128   1      Lcd8_Write_String("welcome to quiz game");
- 129   1      Lcd8_Set_Cursor(2,1);
- 130   1      Lcd8_Write_String("Press #");
- 131   1      while(1)
- 132   1      {
- 133   2      Delay(100);
- 134   2      while(!(c = Read_Keypad()));
- 135   2      if (c == '#')
- 136   2      {
- 137   3      Lcd8_Clear();
- 138   3      ask_question(qno);
- 139   3      flag = 1;
- 140   3      i=0;
- 141   3      }
- 142   2      else if (flag == 1)
+ 118   1      {
+ 119   2            Delay(1000);
+ 120   2            Lcd8_Shift_Left();
+ 121   2      }
+ 122   1      
+ 123   1      }
+ 124          
+ 125          void main()
+ 126          {
+ 127   1       int flag=0, i=0, qno=1;
+ 128   1       char c,p;
+ 129   1       char key[2];
+ 130   1      
+ 131   1        
+ 132   1       Lcd8_Init();
+ 133   1      
+ 134   1      Lcd8_Set_Cursor(1,1);
+ 135   1      Lcd8_Write_String("welcome to quiz game");
+ 136   1      Lcd8_Set_Cursor(2,1);
+ 137   1      Lcd8_Write_String("Press #");
+ 138   1      while(1)
+ 139   1      {
+ 140   2      Delay(100);
+ 141   2      while(!(c = Read_Keypad()));
+ 142   2      if (c == '#')
  143   2      {
- 144   3      key[i] = c;
- 145   3      i++;
- 146   3      
- 147   3      if( i == 1)
- 148   3      {
- 149   4      Delay(200);
- 150   4      if(key[0] == ans[0])
- 151   4      {
- 152   5      Lcd8_Clear();
- 153   5      Lcd8_Set_Cursor(1,1);
- 154   5      Lcd8_Write_String("Correct Answer");
- 155   5        qno++;
- 156   5        if(qno == 4)
- 157   5          qno=1;
- 158   5      }
- 159   4      else
- 160   4      {
- 161   5      Lcd8_Clear();
- 162   5      Lcd8_Set_Cursor(1,1);
- 163   5      Lcd8_Write_String("Wrong Answer");  
- 164   5      }
- 165   4      Delay(1000);
- 166   4      flag =0;
- 167   4      Lcd8_Set_Cursor(2,1);
- 168   4      Lcd8_Write_String("Press #");
- 169   4      i=0;
- 170   4      }
- 171   3      }
- 172   2      }
- 173   1      }
-*** WARNING C280 IN LINE 121 OF LCD.c: 'p': unreferenced local variable
+ 144   3      Lcd8_Clear();
+ 145   3      ask_question(qno);
+ 146   3      flag = 1;
+ 147   3      i=0;
+ 148   3      }
+ 149   2      else if (flag == 1)
+ 150   2      {
+ 151   3      key[i] = c;
+ 152   3      i++;
+ 153   3      
+ 154   3      if( i == 1)
+ 155   3      {
+ 156   4      Delay(200);
+ 157   4      if(key[0] == ans[0])
+ 158   4      {
+ 159   5      Lcd8_Clear();
+ 160   5      Lcd8_Set_Cursor(1,1);
+ 161   5      Lcd8_Write_String("Correct Answer");
+ 162   5        qno++;
+ 163   5        if(qno == 5)
+ 164   5          qno=1;
+ 165   5      }
+ 166   4      else
+ 167   4      {
+ 168   5      Lcd8_Clear();
+ 169   5      Lcd8_Set_Cursor(1,1);
+ 170   5      Lcd8_Write_String("Wrong Answer");  
+ 171   5      }
+ 172   4      Delay(1000);
+ 173   4      flag =0;
+ 174   4      Lcd8_Set_Cursor(2,1);
+ 175   4      Lcd8_Write_String("Press #");
+ 176   4      i=0;
+ 177   4      }
+ 178   3      }
+ 179   2      }
+C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:10:58 PAGE 4   
+
+ 180   1      }
+*** WARNING C280 IN LINE 128 OF LCD.c: 'p': unreferenced local variable
 *** WARNING C290 IN LINE 84 OF LCD.c: missing return value
 *** WARNING C290 IN LINE 176 OF LCD.c: missing return value
-*** WARNING C290 IN LINE 116 OF LCD.c: missing return value
+*** WARNING C290 IN LINE 123 OF LCD.c: missing return value
 
-
-C51 COMPILER V9.52.0.0   LCD                                                               12/26/2014 07:01:17 PAGE 4   
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   1199    ----
-   CONSTANT SIZE    =    119    ----
+   CODE SIZE        =   1213    ----
+   CONSTANT SIZE    =    130    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      2      27
