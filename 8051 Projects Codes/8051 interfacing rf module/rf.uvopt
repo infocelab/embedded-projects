@@ -80,7 +80,7 @@
         <Book>
           <Number>0</Number>
           <Title>Data Sheet</Title>
-          <Path>DATASHTS\ATMEL\AT89S52_DS.PDF</Path>
+          <Path>DATASHTS\ATMEL\AT89LS52_DS.PDF</Path>
         </Book>
         <Book>
           <Number>1</Number>
@@ -194,13 +194,13 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>15</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>7</TopLine>
-      <CurrentLine>20</CurrentLine>
+      <TopLine>16</TopLine>
+      <CurrentLine>41</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\push switch.c</PathWithFileName>
-      <FilenameWithoutPath>push switch.c</FilenameWithoutPath>
+      <PathWithFileName>.\rf.c</PathWithFileName>
+      <FilenameWithoutPath>rf.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
