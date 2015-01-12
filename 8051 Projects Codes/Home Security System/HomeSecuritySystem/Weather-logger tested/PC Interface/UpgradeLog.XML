@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="WeatherLogger">
+</Property><Property Name="Solution File" Value="F:\weather\Source\PC\WeatherLogger\WeatherLogger.sln">
+</Property><Property Name="User Options File" Value="F:\weather\Source\PC\WeatherLogger\WeatherLogger.suo">
+</Property><Property Name="Date" Value="01 October 2013">
+</Property><Property Name="Time" Value="22:14">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="WeatherLogger.sln" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger.sln">
+</Event><Event ErrorLevel="0" Project="" Source="WeatherLogger.suo" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger.suo">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\WeatherLogger.csproj" Description="Project file successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\WeatherLogger.csproj">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\WeatherLogger.csproj.user" Description="Project user file successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\WeatherLogger.csproj.user">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\AboutBox.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\AboutBox.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\AboutBox.Designer.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\AboutBox.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\DateSelector.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\DateSelector.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\DateSelector.Designer.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\DateSelector.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\fileHandler.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\fileHandler.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\FormMain.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\FormMain.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\FormMain.Designer.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\FormMain.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\Preferences.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\Preferences.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\Preferences.Designer.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\Preferences.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\Program.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\Program.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\Properties\AssemblyInfo.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\Properties\Resources.Designer.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\Properties\Settings.Designer.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\usbInterface.cs" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\usbInterface.cs">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\app.config" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\app.config">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\Properties\Settings.settings" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\WIcon.ico" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\WIcon.ico">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\AboutBox.resx" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\AboutBox.resx">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\DateSelector.resx" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\DateSelector.resx">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\FormMain.resx" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\FormMain.resx">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\Preferences.resx" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\Preferences.resx">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\Properties\Resources.resx" Description="File successfully backed up as F:\weather\Source\PC\WeatherLogger\Backup\WeatherLogger\Properties\Resources.resx">
+</Event><Event ErrorLevel="1" Project="WeatherLogger" Source="WeatherLogger\WeatherLogger.csproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\WeatherLogger.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="WeatherLogger" Source="WeatherLogger\WeatherLogger.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="WeatherLogger.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="WeatherLogger.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="WeatherLogger" Source="WeatherLogger\WeatherLogger.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

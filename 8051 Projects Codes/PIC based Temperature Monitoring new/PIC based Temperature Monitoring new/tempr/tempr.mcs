@@ -1,0 +1,458 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\tempr.obj
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File001]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\tempr.sdb
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File002]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\tempr.rlf
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File003]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\tempr.lst
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File004]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\lcd.sdb
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File005]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\lcd.rlf
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File006]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\lcd.lst
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File007]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\delay.obj
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|lcd.c|delay.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File008]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\delay.sdb
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|lcd.c|delay.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File009]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\delay.rlf
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|lcd.c|delay.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File010]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\delay.lst
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|lcd.c|delay.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File011]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\lcd.obj
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File012]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\tempr.p1
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File013]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\delay.p1
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File014]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\lcd.p1
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File015]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\tempr.cof
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File016]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\tempr.hex
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File017]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\tempr.sym
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File018]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\tempr.map
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File019]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\tempr.hxl
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File020]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\startup.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File021]
+Location=D:\kits\PIC based Temperature Monitoring new\tempr\startup.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\bin\picl.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File022]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\tempr.cof
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File023]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\tempr.hex
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File024]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\tempr.sym
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File025]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\tempr.map
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File026]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\tempr.hxl
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File027]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\startup.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File028]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\startup.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File029]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\doprnt.p1
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File030]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\doprnt.pre
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File031]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\tempr.obj
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File032]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\tempr.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File033]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\tempr.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
+[File034]
+Location=G:\Robot Projects\PIC based Temperature Monitoring new\PIC based Temperature Monitoring new\tempr\tempr.sdb
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=G:\Program Files\HI-TECH Software\PICC\PRO\9.60\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|tempr.c|delay.c|lcd.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=TWA;*.p1;*.hex C9=2,1
+TraceCmdString=
+DebugOptions=
