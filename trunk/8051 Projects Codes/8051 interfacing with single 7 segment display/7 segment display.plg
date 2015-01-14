@@ -3,15 +3,7 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-D:\8051 interfacing 7 segment display\7 segment display.uvproj
+G:\Celabcode\projects\8051 Projects Codes\8051 interfacing with single 7 segment display\7 segment display.uvproj
 Project File Date:  01/10/2015
 
 <h2>Output:</h2>
-Rebuild target 'Target 1'
-assembling STARTUP.A51...
-compiling 7 segment display.c...
-7 segment display.c(11): warning C290: missing return value
-linking...
-Program Size: data=19.0 xdata=0 code=358
-creating hex file from "7 segment display"...
-"7 segment display" - 0 Error(s), 1 Warning(s).

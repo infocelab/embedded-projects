@@ -9,6 +9,7 @@ for(j=0;j<675;j++);
 }
 
 
+
 void make_A()
 {
 	P1 = 0x02;
