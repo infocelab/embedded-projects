@@ -59,7 +59,7 @@ namespace WeatherLogger
             }
             while (!((ArrayComPortsNames[index] == ComPortName) ||
                                 (index == ArrayComPortsNames.GetUpperBound(0))));
-            //cbxPorts.SelectedIndex = 3;
+            cbxPorts.SelectedIndex = 0;
         }
 
         static void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
