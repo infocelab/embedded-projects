@@ -429,18 +429,7 @@ namespace WeatherLogger
             //sp.DataReceived += new SerialDataReceivedEventHandler(ProcessReceivedData);
 
             _serialPort.WriteLine(xml);
-             try
-                {
-                    string message = _serialPort.ReadLine();
-                    string[] fff = message.Split(',');
-                    tbx_room_temp.Text = fff[5];
-           
-                    //Console.WriteLine(message);
-                }
-            catch (TimeoutException)
-            {
-            //myPort.Close();
-            }
+      
             
   
             //string port = cbxPorts.SelectedItem.ToString();
