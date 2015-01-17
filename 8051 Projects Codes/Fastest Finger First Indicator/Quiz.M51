@@ -1,8 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        01/11/2015  04:57:57  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/17/2015  18:00:45  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-G:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE STARTUP.obj, quiz.obj TO Quiz
+C:\C51\BIN\BL51.EXE STARTUP.obj, quiz.obj TO Quiz
 
 
 MEMORY MODEL: SMALL
@@ -11,7 +11,7 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   STARTUP.obj (?C_STARTUP)
   quiz.obj (QUIZ)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?COPY)
+  C:\C51\LIB\C51S.LIB (?C?COPY)
 
 
 LINK MAP OF MODULE:  Quiz (?C_STARTUP)
@@ -29,10 +29,10 @@ LINK MAP OF MODULE:  Quiz (?C_STARTUP)
             CODE    0000H     0003H     ABSOLUTE     
                     0003H     07FDH                  *** GAP ***
             CODE    0800H     00F6H     UNIT         ?C?LIB_CODE
-            CODE    08F6H     0047H     UNIT         ?PR?MAIN?QUIZ
-            CODE    093DH     0035H     UNIT         ?PR?_DELAY_MS?QUIZ
-            CODE    0972H     000CH     UNIT         ?C_C51STARTUP
-            CODE    097EH     000AH     UNIT         ?CO?QUIZ
+            CODE    08F6H     00BCH     UNIT         ?PR?MAIN?QUIZ
+            CODE    09B2H     002AH     UNIT         ?PR?_DELAY_MS?QUIZ
+            CODE    09DCH     000CH     UNIT         ?C_C51STARTUP
+            CODE    09E8H     000AH     UNIT         ?CO?QUIZ
 
 
 
@@ -57,9 +57,9 @@ SYMBOL TABLE OF MODULE:  Quiz (?C_STARTUP)
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:0972H         SEGMENT       ?C_C51STARTUP
+  C:09DCH         SEGMENT       ?C_C51STARTUP
   I:0012H         SEGMENT       ?STACK
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/11/2015  04:57:57  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/17/2015  18:00:45  PAGE 2
 
 
   C:0000H         PUBLIC        ?C_STARTUP
@@ -70,7 +70,7 @@ SYMBOL TABLE OF MODULE:  Quiz (?C_STARTUP)
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:0975H         SYMBOL        IDATALOOP
+  C:09DFH         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -79,23 +79,24 @@ SYMBOL TABLE OF MODULE:  Quiz (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:0972H         SYMBOL        STARTUP1
+  C:09DCH         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:0972H         LINE#         133
-  C:0974H         LINE#         134
-  C:0975H         LINE#         135
-  C:0976H         LINE#         136
-  C:0978H         LINE#         185
-  C:097BH         LINE#         196
+  C:09DCH         LINE#         133
+  C:09DEH         LINE#         134
+  C:09DFH         LINE#         135
+  C:09E0H         LINE#         136
+  C:09E2H         LINE#         185
+  C:09E5H         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        QUIZ
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   B:0080H.1       PUBLIC        buzzer
@@ -105,100 +106,238 @@ SYMBOL TABLE OF MODULE:  Quiz (?C_STARTUP)
   B:00B0H.2       PUBLIC        switch_3
   B:00B0H.3       PUBLIC        switch_4
   B:00B0H.4       PUBLIC        switch_5
-  C:097EH         SYMBOL        _?ix1000
-  C:094CH         PUBLIC        _delay_ms
-  -------         PROC          L?0025
-  -------         ENDPROC       L?0025
+  B:00B0H.5       PUBLIC        switch_6
+  B:00B0H.6       PUBLIC        switch_7
+  B:00B0H.7       PUBLIC        switch_8
+  B:0090H.0       PUBLIC        switch_9
+  C:09E8H         SYMBOL        _?ix1000
+  C:09B6H         PUBLIC        _delay_ms
+  B:0090H.1       PUBLIC        switch_10
+  C:09B2H         SYMBOL        L?0041
+  -------         PROC          L?0040
+  -------         ENDPROC       L?0040
+  C:09B2H         SYMBOL        L?0041
   -------         PROC          _DELAY_MS
   D:0006H         SYMBOL        time
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/17/2015  18:00:45  PAGE 3
+
+
   -------         DO            
   D:0004H         SYMBOL        i
   D:0002H         SYMBOL        j
   -------         ENDDO         
-  C:094CH         LINE#         11
-  C:094CH         LINE#         12
-  C:094CH         LINE#         14
-  C:095CH         LINE#         15
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/11/2015  04:57:57  PAGE 3
-
-
-  C:0971H         LINE#         16
+  C:09B6H         LINE#         16
+  C:09B6H         LINE#         17
+  C:09B6H         LINE#         19
+  C:09C6H         LINE#         20
+  C:09DBH         LINE#         21
   -------         ENDPROC       _DELAY_MS
   -------         PROC          MAIN
   -------         DO            
   D:0008H         SYMBOL        num
   -------         ENDDO         
-  C:08F6H         LINE#         18
-  C:08F6H         LINE#         19
-  C:08F6H         LINE#         21
-  C:0909H         LINE#         22
-  C:090CH         LINE#         23
-  C:090FH         LINE#         25
-  C:090FH         LINE#         26
-  C:090FH         LINE#         27
-  C:0912H         LINE#         28
-  C:0912H         LINE#         29
-  C:0915H         LINE#         30
-  C:0915H         LINE#         31
-  C:0915H         LINE#         32
-  C:0915H         LINE#         33
-  C:0915H         LINE#         34
-  C:0915H         LINE#         35
-  C:0915H         LINE#         36
-  C:0915H         LINE#         37
-  C:0915H         LINE#         38
-  C:0917H         LINE#         39
-  C:091AH         LINE#         40
-  C:091AH         LINE#         41
-  C:091DH         LINE#         42
-  C:091DH         LINE#         43
-  C:091DH         LINE#         44
-  C:091DH         LINE#         45
-  C:091DH         LINE#         46
-  C:091DH         LINE#         47
-  C:091DH         LINE#         48
-  C:091DH         LINE#         49
-  C:091DH         LINE#         50
-  C:091FH         LINE#         51
-  C:0922H         LINE#         52
-  C:0922H         LINE#         53
-  C:0925H         LINE#         54
-  C:0925H         LINE#         55
-  C:0925H         LINE#         56
-  C:0925H         LINE#         57
-  C:0925H         LINE#         58
-  C:0925H         LINE#         59
-  C:0925H         LINE#         60
-  C:0925H         LINE#         61
-  C:0925H         LINE#         62
-  C:0927H         LINE#         63
-  C:092AH         LINE#         64
-  C:092AH         LINE#         65
-  C:092DH         LINE#         66
-  C:092DH         LINE#         67
-  C:092DH         LINE#         68
-  C:092DH         LINE#         69
-  C:092DH         LINE#         70
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/11/2015  04:57:57  PAGE 4
+  C:08F6H         LINE#         23
+  C:08F6H         LINE#         24
+  C:08F6H         LINE#         26
+  C:0909H         LINE#         27
+  C:090CH         LINE#         28
+  C:090FH         LINE#         29
+  C:0912H         LINE#         30
+  C:0918H         LINE#         31
+  C:091BH         LINE#         32
+  C:091EH         LINE#         33
+  C:0920H         LINE#         35
+  C:0920H         LINE#         36
+  C:0920H         LINE#         37
+  C:0923H         LINE#         38
+  C:0923H         LINE#         39
+  C:0926H         LINE#         40
+  C:0929H         LINE#         41
+  C:0929H         LINE#         42
+  C:0929H         LINE#         43
+  C:0929H         LINE#         44
+  C:0929H         LINE#         45
+  C:0929H         LINE#         46
+  C:0929H         LINE#         47
+  C:0929H         LINE#         48
+  C:0929H         LINE#         49
+  C:0929H         LINE#         50
+  C:0929H         LINE#         51
+  C:0929H         LINE#         52
+  C:0929H         LINE#         53
+  C:0929H         LINE#         54
+  C:092BH         LINE#         55
+  C:092EH         LINE#         56
+  C:092EH         LINE#         57
+  C:0931H         LINE#         58
+  C:0934H         LINE#         59
+  C:0934H         LINE#         60
+  C:0934H         LINE#         61
+  C:0934H         LINE#         62
+  C:0934H         LINE#         63
+  C:0934H         LINE#         64
+  C:0934H         LINE#         65
+  C:0934H         LINE#         66
+  C:0934H         LINE#         67
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/17/2015  18:00:45  PAGE 4
 
 
-  C:092DH         LINE#         71
-  C:092DH         LINE#         72
-  C:092DH         LINE#         73
-  C:0930H         LINE#         74
-  C:0932H         LINE#         75
-  C:0935H         LINE#         76
-  C:0935H         LINE#         77
-  C:0938H         LINE#         78
-  C:0938H         LINE#         79
-  C:0938H         LINE#         80
-  C:0938H         LINE#         81
-  C:0938H         LINE#         82
-  C:0938H         LINE#         83
-  C:0938H         LINE#         84
-  C:0938H         LINE#         85
-  C:093BH         LINE#         86
-  C:093BH         LINE#         88
+  C:0934H         LINE#         68
+  C:0934H         LINE#         69
+  C:0934H         LINE#         70
+  C:0934H         LINE#         71
+  C:0934H         LINE#         72
+  C:0936H         LINE#         73
+  C:0939H         LINE#         74
+  C:0939H         LINE#         75
+  C:093CH         LINE#         76
+  C:093FH         LINE#         77
+  C:093FH         LINE#         78
+  C:093FH         LINE#         79
+  C:093FH         LINE#         80
+  C:093FH         LINE#         81
+  C:093FH         LINE#         82
+  C:093FH         LINE#         83
+  C:093FH         LINE#         84
+  C:093FH         LINE#         85
+  C:093FH         LINE#         86
+  C:093FH         LINE#         87
+  C:093FH         LINE#         88
+  C:093FH         LINE#         89
+  C:093FH         LINE#         90
+  C:0941H         LINE#         91
+  C:0944H         LINE#         92
+  C:0944H         LINE#         93
+  C:0947H         LINE#         94
+  C:094AH         LINE#         95
+  C:094AH         LINE#         96
+  C:094AH         LINE#         97
+  C:094AH         LINE#         98
+  C:094AH         LINE#         99
+  C:094AH         LINE#         100
+  C:094AH         LINE#         101
+  C:094AH         LINE#         102
+  C:094AH         LINE#         103
+  C:094AH         LINE#         104
+  C:094AH         LINE#         105
+  C:094AH         LINE#         106
+  C:094AH         LINE#         107
+  C:094AH         LINE#         108
+  C:094CH         LINE#         109
+  C:094FH         LINE#         110
+  C:094FH         LINE#         111
+  C:0952H         LINE#         112
+  C:0955H         LINE#         113
+  C:0955H         LINE#         114
+  C:0955H         LINE#         115
+  C:0955H         LINE#         116
+  C:0955H         LINE#         117
+  C:0955H         LINE#         118
+  C:0955H         LINE#         119
+  C:0955H         LINE#         120
+  C:0955H         LINE#         121
+  C:0955H         LINE#         122
+  C:0955H         LINE#         123
+  C:0955H         LINE#         124
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/17/2015  18:00:45  PAGE 5
+
+
+  C:0955H         LINE#         125
+  C:0955H         LINE#         126
+  C:0957H         LINE#         127
+  C:095AH         LINE#         128
+  C:095AH         LINE#         129
+  C:095DH         LINE#         130
+  C:0960H         LINE#         131
+  C:0960H         LINE#         132
+  C:0960H         LINE#         133
+  C:0960H         LINE#         134
+  C:0960H         LINE#         135
+  C:0960H         LINE#         136
+  C:0960H         LINE#         137
+  C:0960H         LINE#         138
+  C:0960H         LINE#         139
+  C:0960H         LINE#         140
+  C:0960H         LINE#         141
+  C:0960H         LINE#         142
+  C:0960H         LINE#         143
+  C:0960H         LINE#         144
+  C:0962H         LINE#         145
+  C:0965H         LINE#         146
+  C:0965H         LINE#         147
+  C:0968H         LINE#         148
+  C:096BH         LINE#         149
+  C:096BH         LINE#         150
+  C:096BH         LINE#         151
+  C:096BH         LINE#         152
+  C:096BH         LINE#         153
+  C:096BH         LINE#         154
+  C:096BH         LINE#         155
+  C:096BH         LINE#         156
+  C:096BH         LINE#         157
+  C:096BH         LINE#         158
+  C:096BH         LINE#         159
+  C:096BH         LINE#         160
+  C:096BH         LINE#         161
+  C:096BH         LINE#         162
+  C:096DH         LINE#         163
+  C:0970H         LINE#         164
+  C:0970H         LINE#         165
+  C:0973H         LINE#         166
+  C:0976H         LINE#         167
+  C:0976H         LINE#         168
+  C:0976H         LINE#         169
+  C:0976H         LINE#         170
+  C:0976H         LINE#         171
+  C:0976H         LINE#         172
+  C:0976H         LINE#         173
+  C:0976H         LINE#         174
+  C:0976H         LINE#         175
+  C:0976H         LINE#         176
+  C:0976H         LINE#         177
+  C:0976H         LINE#         178
+  C:0976H         LINE#         179
+  C:0976H         LINE#         180
+  C:0978H         LINE#         181
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/17/2015  18:00:45  PAGE 6
+
+
+  C:097BH         LINE#         182
+  C:097BH         LINE#         183
+  C:097EH         LINE#         184
+  C:0981H         LINE#         185
+  C:0981H         LINE#         186
+  C:0981H         LINE#         187
+  C:0981H         LINE#         188
+  C:0981H         LINE#         189
+  C:0981H         LINE#         190
+  C:0981H         LINE#         191
+  C:0981H         LINE#         192
+  C:0981H         LINE#         193
+  C:0981H         LINE#         194
+  C:0983H         LINE#         195
+  C:0989H         LINE#         196
+  C:098BH         LINE#         197
+  C:0992H         LINE#         198
+  C:0995H         LINE#         199
+  C:0998H         LINE#         200
+  C:0998H         LINE#         201
+  C:099BH         LINE#         202
+  C:099EH         LINE#         203
+  C:099EH         LINE#         204
+  C:099EH         LINE#         205
+  C:099EH         LINE#         206
+  C:099EH         LINE#         207
+  C:099EH         LINE#         208
+  C:099EH         LINE#         209
+  C:099EH         LINE#         210
+  C:099EH         LINE#         211
+  C:099EH         LINE#         212
+  C:09A0H         LINE#         213
+  C:09A6H         LINE#         214
+  C:09A8H         LINE#         215
+  C:09AFH         LINE#         216
+  C:09AFH         LINE#         217
   -------         ENDPROC       MAIN
   -------         ENDMOD        QUIZ
 
@@ -207,8 +346,8 @@ SYMBOL TABLE OF MODULE:  Quiz (?C_STARTUP)
   -------         ENDMOD        ?C?COPY
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0095H BYTE ( 7%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00FFH BYTE (12%) *
 ******************************************************************************
 
-Program Size: data=19.0 xdata=0 code=395
+Program Size: data=19.0 xdata=0 code=501
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
