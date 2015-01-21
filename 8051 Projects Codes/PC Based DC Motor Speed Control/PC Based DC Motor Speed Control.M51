@@ -1,0 +1,142 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/13/2015  09:52:45  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+G:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE STARTUP.obj, PC Based DC Motor Speed Control.obj TO PC Based DC Motor Speed Contr
+>> ol
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  PC Based DC Motor Speed Control.obj (PC_BASED_DC_MOTOR_SPEED_CONTROL)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?PC_BASED_DC_MOTOR_SPEED_CONTROL
+                    0009H     0017H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?PC_BASED_DC_MOTOR_SPEED_CONTROL
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     000DH     UNIT         ?PR?PWM_SETUP?PC_BASED_DC_MOTOR_SPEED_CONTROL
+            CODE    0899H     0003H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   PC Based DC Motor Speed Control (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?C_INITSEG
+
+
+
+UNRESOLVED EXTERNAL SYMBOLS:
+   MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  09:52:45  PAGE 2
+
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:0021H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        PC_BASED_DC_MOTOR_SPEED_CONTROL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  B:0020H.0       PUBLIC        pwm_flag
+  B:0088H.4       PUBLIC        TR0
+  D:0008H         PUBLIC        pwm_width
+  C:088CH         PUBLIC        pwm_setup
+  -------         PROC          PWM_SETUP
+  C:088CH         LINE#         11
+  C:088CH         LINE#         12
+  C:088CH         LINE#         13
+  C:088FH         LINE#         14
+  C:0892H         LINE#         15
+  C:0894H         LINE#         16
+  C:0896H         LINE#         17
+  C:0898H         LINE#         18
+  -------         ENDPROC       PWM_SETUP
+  -------         ENDMOD        PC_BASED_DC_MOTOR_SPEED_CONTROL
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  09:52:45  PAGE 3
+
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PWM_SETUP?PC_BASED_DC_MOTOR_SPEED_CONTROL
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  MAIN
+    MODULE:  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  MAIN
+    MODULE:  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+    ADDRESS: 080DH
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001EH BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=10.1 xdata=0 code=159
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)
