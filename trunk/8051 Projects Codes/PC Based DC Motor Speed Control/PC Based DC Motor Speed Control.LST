@@ -1,0 +1,111 @@
+C51 COMPILER V9.52.0.0   PC_BASED_DC_MOTOR_SPEED_CONTROL                                   01/13/2015 12:40:58 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE PC_BASED_DC_MOTOR_SPEED_CONTROL
+OBJECT MODULE PLACED IN PC Based DC Motor Speed Control.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE PC Based DC Motor Speed Control.c BROWSE DEBUG OBJECTEXTEND T
+                    -ABS(2)
+
+line level    source
+
+   1          #include<regx52.h>
+   2          //Global variables and definition
+   3          sbit PWMPIN=P2^7;
+   4          sbit INC=P3^0;
+   5          sbit led_INC=P2^1;
+   6          sbit DEC=P3^1;
+   7          sbit led_DEC=P2^0;
+   8          unsigned char pwm_width;
+   9          bit pwm_flag = 0;
+  10           
+  11          void pwm_setup()
+  12          {
+  13   1      TMOD=0x20;
+  14   1      pwm_width = 0;
+  15   1      EA = 1;
+  16   1      ET0 = 1;
+  17   1      TR0 = 1;
+  18   1      }
+  19           void timer0() interrupt 1
+  20          {
+  21   1        if(!pwm_flag)
+  22   1          {             
+  23   2           //Start of High level
+  24   2          pwm_flag = 1;   //Set flag
+  25   2          PWMPIN = 1;     //Set PWM o/p pin
+  26   2          TH0 = pwm_width;          //Load timer
+  27   2          TF0 = 0;                 //Clear interrupt flag
+  28   2          return;                  //Return
+  29   2           }
+  30   1            else
+  31   1           {   //Start of Low level
+  32   2            pwm_flag = 0;   //Clear flag
+  33   2            PWMPIN = 0;     //Clear PWM o/p pin
+  34   2            TH0 = 255 - pwm_width;               //Load timer
+  35   2            TF0 = 0; //Clear Interrupt flag
+  36   2            return;  //return
+  37   2            }
+  38   1      }
+  39           void delay(unsigned int c1)      // change time in micro seconds
+  40          {
+  41   1        int a;
+  42   1        TH0=0x9B;           // select timer 0 
+  43   1        TL0=0x9B;           // to generate 100 micro second delay
+  44   1        TR0=1;              // start timer              
+  45   1        for(a=0;a<c1;a++)       // rotate loop between 5 to 15
+  46   1          {
+  47   2          while(TF0==0);        // wait until timer overflow
+  48   2          TF0=0;            // reset the flag
+  49   2          }
+  50   1        TR0=0;              // stop timer 
+  51   1      }
+  52          void main()
+  53          {
+  54   1        int i=0;
+C51 COMPILER V9.52.0.0   PC_BASED_DC_MOTOR_SPEED_CONTROL                                   01/13/2015 12:40:58 PAGE 2   
+
+  55   1        char str[20];
+  56   1        char a;
+  57   1        
+  58   1        /*------------------------------------------------
+  59   1      Setup the serial port for 2400 baud at 11.0592MHz.
+  60   1      ------------------------------------------------*/
+  61   1      
+  62   1          SCON  = 0x50;                /* SCON: mode 1, 8-bit UART, enable rcvr      */
+  63   1          TMOD |= 0x20;               /* TMOD: timer 1, mode 2, 8-bit reload        */
+  64   1          TH1   = 244;                /* TH1:  reload value for 2400 baud @ 11.0592MHz   */
+  65   1          TR1   = 1;                  /* TR1:  timer 1 run                          */
+  66   1          TI    = 1;                  /* TI:   set TI to send first char of UART    */
+  67   1        P3=1; // define port 3 as input port
+  68   1        P2=1;
+  69   1        pwm_setup();
+  70   1        P3=0;
+  71   1        INC=1;
+  72   1        DEC=1;
+  73   1        P2_1 =0;
+  74   1        P2_0 = 0;
+  75   1         while(1)
+  76   1        {
+  77   2          scanf("%s",&a);
+*** WARNING C206 IN LINE 77 OF PC Based DC Motor Speed Control.c: 'scanf': missing function-prototype
+*** ERROR C267 IN LINE 77 OF PC Based DC Motor Speed Control.c: 'scanf': requires ANSI-style prototype
+  78   2        //  if( INC == 0)  // increase the speed
+  79   2          if(a == 'a')
+  80   2          {  
+  81   3              pwm_width++;
+  82   3              if(pwm_width >= 255)
+  83   3                pwm_width=255;
+  84   3          }
+  85   2         // if( DEC == 0) // decrease the speed
+  86   2          else  if(a == 'b')
+  87   2          {
+  88   3              pwm_width--;
+  89   3              if(pwm_width <= 0)
+  90   3                pwm_width=0;
+  91   3          } 
+  92   2          delay(10);
+  93   2       }
+  94   1           }   
+  95               
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  1 ERROR(S)
