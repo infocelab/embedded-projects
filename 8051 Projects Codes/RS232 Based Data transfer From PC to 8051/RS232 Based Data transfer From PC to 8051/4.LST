@@ -1,90 +1,91 @@
-C51 COMPILER V9.52.0.0   4                                                                 12/20/2014 12:12:04 PAGE 1   
+C51 COMPILER V9.52.0.0   4                                                                 01/13/2015 12:29:08 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 4
 OBJECT MODULE PLACED IN 4.OBJ
-COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 4.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE 4.c BROWSE DEBUG OBJECTEXTEND TABS(2)
 
 line level    source
 
    1          #include<reg52.h>              //including sfr registers for ports of the controller
    2          #include<lcd.h>
    3          #include <stdio.h>  
-   4          //LCD Module Connections
-   5          sbit RS = P0^0;                                                                   
-   6          sbit EN = P0^1;                            
-   7          sbit D0 = P2^0;
-   8          sbit D1 = P2^1;
-   9          sbit D2 = P2^2;
-  10          sbit D3 = P2^3;
-  11          sbit D4 = P2^4;
-  12          sbit D5 = P2^5;
-  13          sbit D6 = P2^6;
-  14          sbit D7 = P2^7;
-  15          
-  16          sbit relay = P0^2;
-  17          //End LCD Module Connections
-  18          void Delay(int a)
-  19          {
-  20   1          int j;
-  21   1          int i;
-  22   1          for(i=0;i<a;i++)
-  23   1          {
-  24   2              for(j=0;j<100;j++)
-  25   2              {
-  26   3              }
-  27   2          }
-  28   1      }
-  29          void main()
-  30          {
-  31   1        int i=0;
-  32   1        char str[20];
-  33   1        char a;
-  34   1        
-  35   1        /*------------------------------------------------
-  36   1      Setup the serial port for 2400 baud at 11.0592MHz.
-  37   1      ------------------------------------------------*/
-  38   1      
-  39   1          SCON  = 0x50;                /* SCON: mode 1, 8-bit UART, enable rcvr      */
-  40   1          TMOD |= 0x20;               /* TMOD: timer 1, mode 2, 8-bit reload        */
-  41   1          TH1   = 244;                /* TH1:  reload value for 2400 baud @ 11.0592MHz   */
-  42   1          TR1   = 1;                  /* TR1:  timer 1 run                          */
-  43   1          TI    = 1;                  /* TI:   set TI to send first char of UART    */
-  44   1        
-  45   1        Lcd8_init();
-*** WARNING C206 IN LINE 45 OF 4.c: 'Lcd8_init': missing function-prototype
-  46   1      relay =0;
-  47   1        while(1)
-  48   1        {   
-  49   2          scanf("%c",&a);
-  50   2          Lcd8_Set_Cursor(1,i++);
-  51   2          Lcd8_Write_Char(a);
-  52   2          if(a == 'a')
-  53   2          {
-  54   3            relay =1;
-C51 COMPILER V9.52.0.0   4                                                                 12/20/2014 12:12:04 PAGE 2   
+   4          
+   5          //LCD Module Connections
+   6          sbit RS = P0^0;                                                                   
+   7          sbit EN = P0^1;                            
+   8          sbit D0 = P2^0;
+   9          sbit D1 = P2^1;
+  10          sbit D2 = P2^2;
+  11          sbit D3 = P2^3;
+  12          sbit D4 = P2^4;
+  13          sbit D5 = P2^5;
+  14          sbit D6 = P2^6;
+  15          sbit D7 = P2^7;
+  16          
+  17          sbit relay = P0^2;
+  18          //End LCD Module Connections
+  19          void Delay(int a)
+  20          {
+  21   1          int j;
+  22   1          int i;
+  23   1          for(i=0;i<a;i++)
+  24   1          {
+  25   2              for(j=0;j<100;j++)
+  26   2              {
+  27   3              }
+  28   2          }
+  29   1      }
+  30          void main()
+  31          {
+  32   1        int i=0;
+  33   1        char str[20];
+  34   1        char a;
+  35   1        
+  36   1        /*------------------------------------------------
+  37   1      Setup the serial port for 2400 baud at 11.0592MHz.
+  38   1      ------------------------------------------------*/
+  39   1      
+  40   1          SCON  = 0x50;                /* SCON: mode 1, 8-bit UART, enable rcvr      */
+  41   1          TMOD |= 0x20;               /* TMOD: timer 1, mode 2, 8-bit reload        */
+  42   1          TH1   = 244;                /* TH1:  reload value for 2400 baud @ 11.0592MHz   */
+  43   1          TR1   = 1;                  /* TR1:  timer 1 run                          */
+  44   1          TI    = 1;                  /* TI:   set TI to send first char of UART    */
+  45   1        
+  46   1        Lcd8_init();
+*** WARNING C206 IN LINE 46 OF 4.c: 'Lcd8_init': missing function-prototype
+  47   1      relay =0;
+  48   1        while(1)
+  49   1        {   
+  50   2          scanf("%c",&a);
+  51   2          Lcd8_Set_Cursor(1,i++);
+  52   2          Lcd8_Write_Char(a);
+  53   2          if(a == 'a')
+  54   2          {
+C51 COMPILER V9.52.0.0   4                                                                 01/13/2015 12:29:08 PAGE 2   
 
-  55   3            Delay(1000);
-  56   3          }
-  57   2          else  if(a == 'b')
-  58   2          {
-  59   3            relay =0;
-  60   3            Delay(1000);
-  61   3          }
-  62   2          
-  63   2          if(i==16)
-  64   2          {
-  65   3            Lcd8_Clear();
-  66   3            i=0;
-  67   3          }
-  68   2          
-  69   2      }
-  70   1      }
-*** WARNING C280 IN LINE 32 OF 4.c: 'str': unreferenced local variable
-  71          
+  55   3            relay =1;
+  56   3            Delay(1000);
+  57   3          }
+  58   2          else  if(a == 'b')
+  59   2          {
+  60   3            relay =0;
+  61   3            Delay(1000);
+  62   3          }
+  63   2          
+  64   2          if(i==16)
+  65   2          {
+  66   3            Lcd8_Clear();
+  67   3            i=0;
+  68   3          }
+  69   2          
+  70   2      }
+  71   1      }
+*** WARNING C280 IN LINE 33 OF 4.c: 'str': unreferenced local variable
   72          
   73          
   74          
+  75          
 *** WARNING C290 IN LINE 84 OF 4.c: missing return value
 *** WARNING C290 IN LINE 176 OF 4.c: missing return value
 
