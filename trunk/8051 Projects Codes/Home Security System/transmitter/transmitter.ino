@@ -50,9 +50,10 @@ uint8_t buflen = VW_MAX_MESSAGE_LEN;
           //delay(1000);
         }
 
-        while(Serial.available() > 0) {
-                // read the incoming byte:
-                incomingByte = Serial.read();
+        while(Serial.available() > 0) 
+        {
+          // read the incoming byte:
+          incomingByte = Serial.read();
                msg[count++]=incomingByte;
                flag=1;
         }
