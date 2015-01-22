@@ -4227,22 +4227,22 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="DIS4" library="display-hp" deviceset="HD-H103" device="" value="COMMON ANODE"/>
 <part name="CONN" library="con-amp-quick" deviceset="M08" device="" value="8 pin"/>
 <part name="CONNECTOR" library="con-amp-quick" deviceset="M05" device="" value="5 pin"/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
-<part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
-<part name="R4" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
+<part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
+<part name="R2" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
+<part name="R4" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R6" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R7" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R8" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
-<part name="R9" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
-<part name="R10" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
-<part name="R11" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
-<part name="R12" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
-<part name="R13" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
-<part name="R14" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
-<part name="R15" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
-<part name="R16" library="rcl" deviceset="R-EU_" device="0204/7" value="2.2E"/>
+<part name="R9" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
+<part name="R10" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
+<part name="R11" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
+<part name="R12" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
+<part name="R13" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
+<part name="R15" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
+<part name="R16" library="rcl" deviceset="R-EU_" device="0204/7" value="1E"/>
 </parts>
 <sheets>
 <sheet>
