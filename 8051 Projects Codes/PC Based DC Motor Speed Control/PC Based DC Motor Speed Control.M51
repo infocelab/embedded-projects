@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        01/13/2015  09:52:45  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/13/2015  18:52:35  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -13,6 +13,9 @@ INPUT MODULES INCLUDED:
   STARTUP.obj (?C_STARTUP)
   PC Based DC Motor Speed Control.obj (PC_BASED_DC_MOTOR_SPEED_CONTROL)
   G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CCASE)
 
 
 LINK MAP OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
@@ -23,34 +26,58 @@ LINK MAP OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0001H     UNIT         ?DT?PC_BASED_DC_MOTOR_SPEED_CONTROL
-                    0009H     0017H                  *** GAP ***
-            BIT     0020H.0   0000H.1   UNIT         ?BI?PC_BASED_DC_MOTOR_SPEED_CONTROL
-                    0020H.1   0000H.7                *** GAP ***
+            DATA    0008H     000EH     UNIT         ?DT?PC_BASED_DC_MOTOR_SPEED_CONTROL
+            DATA    0016H     000AH     UNIT         _DATA_GROUP_
+            BIT     0020H.0   0000H.2   UNIT         ?BI?PC_BASED_DC_MOTOR_SPEED_CONTROL
+                    0020H.2   0000H.6                *** GAP ***
             IDATA   0021H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-                    0003H     07FDH                  *** GAP ***
-            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
-            CODE    088CH     000DH     UNIT         ?PR?PWM_SETUP?PC_BASED_DC_MOTOR_SPEED_CONTROL
-            CODE    0899H     0003H     UNIT         ?C_INITSEG
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     0015H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     00CDH     UNIT         ?PR?_DISPLAY?PC_BASED_DC_MOTOR_SPEED_CONTROL
+            CODE    08CDH     00C0H     UNIT         ?PR?_SEND?PC_BASED_DC_MOTOR_SPEED_CONTROL
+            CODE    098DH     008DH     UNIT         ?C?LIB_CODE
+            CODE    0A1AH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0AA6H     0045H     UNIT         ?PR?MAIN?PC_BASED_DC_MOTOR_SPEED_CONTROL
+            CODE    0AEBH     0044H     UNIT         ?PR?ISR_SC?PC_BASED_DC_MOTOR_SPEED_CONTROL
+            CODE    0B2FH     0025H     UNIT         ?PR?_MSDELAY?PC_BASED_DC_MOTOR_SPEED_CONTROL
+            CODE    0B54H     0024H     UNIT         ?PR?DELAY?PC_BASED_DC_MOTOR_SPEED_CONTROL
+            CODE    0B78H     0024H     UNIT         ?PR?TIMER0?PC_BASED_DC_MOTOR_SPEED_CONTROL
+            CODE    0B9CH     001DH     UNIT         ?C_INITSEG
+            CODE    0BB9H     000DH     UNIT         ?PR?PWM_SETUP?PC_BASED_DC_MOTOR_SPEED_CONTROL
+            CODE    0BC6H     0003H     UNIT         ?PR?RPM_SETUP?PC_BASED_DC_MOTOR_SPEED_CONTROL
 
 
 
 OVERLAY MAP OF MODULE:   PC Based DC Motor Speed Control (?C_STARTUP)
 
 
-SEGMENT
-  +--> CALLED SEGMENT
----------------------
-?C_C51STARTUP
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 2
+
+
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?PC_BASED_DC_MOTOR_SPEED_CONTROL
   +--> ?C_INITSEG
 
+?PR?MAIN?PC_BASED_DC_MOTOR_SPEED_CONTROL         -----    -----
+  +--> ?PR?_MSDELAY?PC_BASED_DC_MOTOR_SPEED_...
+  +--> ?PR?PWM_SETUP?PC_BASED_DC_MOTOR_SPEED...
+  +--> ?PR?_DISPLAY?PC_BASED_DC_MOTOR_SPEED_...
 
+?PR?_MSDELAY?PC_BASED_DC_MOTOR_SPEED_...         -----    -----
+  +--> ?PR?_SEND?PC_BASED_DC_MOTOR_SPEED_CON...
 
-UNRESOLVED EXTERNAL SYMBOLS:
-   MAIN
+?PR?_DISPLAY?PC_BASED_DC_MOTOR_SPEED_...         0016H    000AH
+  +--> ?PR?_SEND?PC_BASED_DC_MOTOR_SPEED_CON...
+  +--> ?PR?_MSDELAY?PC_BASED_DC_MOTOR_SPEED_...
 
 
 
@@ -59,11 +86,8 @@ SYMBOL TABLE OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
   VALUE           TYPE          NAME
   ----------------------------------
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  09:52:45  PAGE 2
-
-
   -------         MODULE        ?C_STARTUP
-  C:0800H         SEGMENT       ?C_C51STARTUP
+  C:0A1AH         SEGMENT       ?C_C51STARTUP
   I:0021H         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
@@ -73,7 +97,7 @@ SYMBOL TABLE OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:0803H         SYMBOL        IDATALOOP
+  C:0A1DH         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -82,61 +106,346 @@ SYMBOL TABLE OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:0800H         SYMBOL        STARTUP1
+  C:0A1AH         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:0800H         LINE#         133
-  C:0802H         LINE#         134
-  C:0803H         LINE#         135
-  C:0804H         LINE#         136
-  C:0806H         LINE#         185
-  C:0809H         LINE#         196
+  C:0A1AH         LINE#         133
+  C:0A1CH         LINE#         134
+  C:0A1DH         LINE#         135
+  C:0A1EH         LINE#         136
+  C:0A20H         LINE#         185
+  C:0A23H         LINE#         196
   -------         ENDMOD        ?C_STARTUP
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 3
+
+
 
   -------         MODULE        PC_BASED_DC_MOTOR_SPEED_CONTROL
   C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  C:0B54H         PUBLIC        delay
+  B:0098H.0       PUBLIC        RI
+  B:0020H.0       PUBLIC        flag
+  B:0098H.1       PUBLIC        TI
+  C:0AEBH         PUBLIC        ISR_sc
+  C:0AA6H         PUBLIC        main
+  C:08CDH         PUBLIC        _send
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  B:0090H.0       PUBLIC        cmd
   D:0089H         PUBLIC        TMOD
+  B:00A0H.2       PUBLIC        led
   B:00A8H.1       PUBLIC        ET0
-  B:0020H.0       PUBLIC        pwm_flag
+  B:0088H.5       PUBLIC        TF0
+  B:0088H.7       PUBLIC        TF1
+  D:008CH         PUBLIC        TH0
+  D:008DH         PUBLIC        TH1
+  B:00A8H.2       PUBLIC        EX1
+  D:008BH         PUBLIC        TL1
+  B:0020H.1       PUBLIC        pwm_flag
+  C:0B78H         PUBLIC        timer0
   B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
   D:0008H         PUBLIC        pwm_width
-  C:088CH         PUBLIC        pwm_setup
+  B:00A0H.0       PUBLIC        PWMPIN
+  D:000AH         PUBLIC        a
+  D:000CH         PUBLIC        curspeed
+  B:00B0H.3       PUBLIC        encoder
+  C:0BC6H         PUBLIC        rpm_setup
+  D:000EH         PUBLIC        i
+  D:0010H         PUBLIC        j
+  C:0BB9H         PUBLIC        pwm_setup
+  D:0012H         PUBLIC        k
+  D:0014H         PUBLIC        l
+  C:0B34H         PUBLIC        _msdelay
+  C:0800H         PUBLIC        _display
+  -------         PROC          DELAY
+  -------         DO            
+  D:0006H         SYMBOL        k
+  -------         ENDDO         
+  C:0B54H         LINE#         20
+  C:0B54H         LINE#         21
+  C:0B54H         LINE#         23
+  C:0B57H         LINE#         24
+  C:0B5AH         LINE#         25
+  C:0B5CH         LINE#         26
+  C:0B5FH         LINE#         27
+  C:0B5FH         LINE#         28
+  C:0B62H         LINE#         29
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 4
+
+
+  C:0B64H         LINE#         30
+  C:0B67H         LINE#         31
+  C:0B6AH         LINE#         32
+  C:0B75H         LINE#         33
+  C:0B77H         LINE#         34
+  -------         ENDPROC       DELAY
+  -------         PROC          RPM_SETUP
+  C:0BC6H         LINE#         49
+  C:0BC6H         LINE#         50
+  C:0BC6H         LINE#         53
+  C:0BC8H         LINE#         55
+  -------         ENDPROC       RPM_SETUP
   -------         PROC          PWM_SETUP
-  C:088CH         LINE#         11
-  C:088CH         LINE#         12
-  C:088CH         LINE#         13
-  C:088FH         LINE#         14
-  C:0892H         LINE#         15
-  C:0894H         LINE#         16
-  C:0896H         LINE#         17
-  C:0898H         LINE#         18
+  C:0BB9H         LINE#         56
+  C:0BB9H         LINE#         57
+  C:0BB9H         LINE#         59
+  C:0BBFH         LINE#         60
+  C:0BC1H         LINE#         61
+  C:0BC3H         LINE#         62
+  C:0BC5H         LINE#         63
   -------         ENDPROC       PWM_SETUP
+  -------         PROC          TIMER0
+  C:0B78H         LINE#         65
+  C:0B7CH         LINE#         67
+  C:0B7FH         LINE#         68
+  C:0B7FH         LINE#         69
+  C:0B81H         LINE#         70
+  C:0B83H         LINE#         71
+  C:0B86H         LINE#         72
+  C:0B8AH         LINE#         74
+  C:0B8AH         LINE#         76
+  C:0B8AH         LINE#         77
+  C:0B8CH         LINE#         78
+  C:0B8EH         LINE#         79
+  C:0B95H         LINE#         80
+  C:0B97H         LINE#         82
+  C:0B97H         LINE#         84
+  -------         ENDPROC       TIMER0
+  -------         PROC          _SEND
+  D:0007H         SYMBOL        z
+  C:08CDH         LINE#         85
+  C:08CDH         LINE#         86
+  C:08CDH         LINE#         88
+  C:08FFH         LINE#         89
+  C:08FFH         LINE#         90
+  C:08FFH         LINE#         91
+  C:0902H         LINE#         92
+  C:0904H         LINE#         93
+  C:090CH         LINE#         95
+  C:090CH         LINE#         96
+  C:090FH         LINE#         97
+  C:0911H         LINE#         98
+  C:0916H         LINE#         100
+  C:0916H         LINE#         101
+  C:0919H         LINE#         102
+  C:091BH         LINE#         103
+  C:0920H         LINE#         105
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 5
+
+
+  C:0920H         LINE#         106
+  C:0923H         LINE#         107
+  C:0925H         LINE#         108
+  C:092AH         LINE#         110
+  C:092AH         LINE#         111
+  C:092DH         LINE#         112
+  C:092FH         LINE#         113
+  C:0934H         LINE#         115
+  C:0934H         LINE#         116
+  C:0937H         LINE#         117
+  C:0939H         LINE#         118
+  C:093EH         LINE#         120
+  C:093EH         LINE#         121
+  C:0941H         LINE#         122
+  C:0943H         LINE#         123
+  C:0948H         LINE#         125
+  C:0948H         LINE#         126
+  C:094BH         LINE#         127
+  C:094DH         LINE#         128
+  C:0952H         LINE#         130
+  C:0952H         LINE#         131
+  C:0955H         LINE#         132
+  C:0957H         LINE#         133
+  C:095CH         LINE#         135
+  C:095CH         LINE#         136
+  C:095FH         LINE#         137
+  C:0961H         LINE#         138
+  C:0966H         LINE#         140
+  C:0966H         LINE#         141
+  C:0969H         LINE#         142
+  C:096BH         LINE#         143
+  C:0970H         LINE#         145
+  C:0970H         LINE#         146
+  C:0973H         LINE#         147
+  C:0975H         LINE#         148
+  C:097AH         LINE#         150
+  C:097AH         LINE#         151
+  C:097DH         LINE#         152
+  C:097FH         LINE#         153
+  C:0984H         LINE#         155
+  C:0984H         LINE#         156
+  C:0987H         LINE#         157
+  C:0989H         LINE#         158
+  C:098CH         LINE#         159
+  C:098CH         LINE#         161
+  C:098CH         LINE#         164
+  -------         ENDPROC       _SEND
+  C:0B2FH         SYMBOL        L?0094
+  -------         PROC          L?0093
+  -------         ENDPROC       L?0093
+  C:0B2FH         SYMBOL        L?0094
+  -------         PROC          _MSDELAY
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 6
+
+
+  C:0B34H         LINE#         166
+  C:0B34H         LINE#         167
+  C:0B34H         LINE#         170
+  C:0B3EH         LINE#         171
+  C:0B53H         LINE#         172
+  -------         ENDPROC       _MSDELAY
+  -------         PROC          ISR_SC
+  -------         DO            
+  D:0007H         SYMBOL        v
+  -------         ENDDO         
+  C:0AEBH         LINE#         174
+  C:0AF4H         LINE#         178
+  C:0AF7H         LINE#         179
+  C:0AF7H         LINE#         180
+  C:0AF9H         LINE#         181
+  C:0AFCH         LINE#         182
+  C:0AFCH         LINE#         183
+  C:0AFEH         LINE#         184
+  C:0B06H         LINE#         185
+  C:0B11H         LINE#         186
+  C:0B11H         LINE#         187
+  C:0B17H         LINE#         188
+  C:0B17H         LINE#         194
+  C:0B17H         LINE#         195
+  C:0B1AH         LINE#         196
+  C:0B1AH         LINE#         197
+  C:0B1CH         LINE#         198
+  C:0B24H         LINE#         202
+  C:0B24H         LINE#         203
+  C:0B24H         LINE#         204
+  C:0B24H         LINE#         222
+  C:0B24H         LINE#         223
+  C:0B26H         LINE#         224
+  C:0B28H         LINE#         238
+  C:0B28H         LINE#         240
+  -------         ENDPROC       ISR_SC
+  -------         PROC          _DISPLAY
+  D:0006H         SYMBOL        speed
+  -------         DO            
+  D:0016H         SYMBOL        tmp1
+  D:0018H         SYMBOL        tmp2
+  D:0002H         SYMBOL        t
+  D:001AH         SYMBOL        t1
+  D:0082H         SYMBOL        i
+  D:001CH         SYMBOL        asci
+  -------         ENDDO         
+  C:0800H         LINE#         241
+  C:0800H         LINE#         242
+  C:0800H         LINE#         250
+  C:0804H         LINE#         251
+  C:0807H         LINE#         252
+  C:0810H         LINE#         253
+  C:0810H         LINE#         254
+  C:0814H         LINE#         255
+  C:0814H         LINE#         256
+  C:081DH         LINE#         257
+  C:081DH         LINE#         258
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 7
+
+
+  C:0826H         LINE#         259
+  C:0826H         LINE#         260
+  C:0835H         LINE#         261
+  C:0842H         LINE#         262
+  C:0851H         LINE#         263
+  C:0859H         LINE#         264
+  C:085BH         LINE#         265
+  C:0860H         LINE#         266
+  C:0862H         LINE#         268
+  C:0862H         LINE#         269
+  C:086BH         LINE#         270
+  C:086BH         LINE#         271
+  C:087AH         LINE#         272
+  C:0887H         LINE#         273
+  C:0896H         LINE#         274
+  C:089EH         LINE#         275
+  C:08A0H         LINE#         276
+  C:08A5H         LINE#         277
+  C:08A8H         LINE#         278
+  C:08A8H         LINE#         279
+  C:08ADH         LINE#         280
+  C:08B4H         LINE#         281
+  C:08B6H         LINE#         282
+  C:08B9H         LINE#         283
+  C:08BBH         LINE#         284
+  C:08BEH         LINE#         285
+  C:08C0H         LINE#         286
+  C:08C3H         LINE#         287
+  C:08C8H         LINE#         288
+  -------         ENDPROC       _DISPLAY
+  -------         PROC          MAIN
+  C:0AA6H         LINE#         291
+  C:0AA6H         LINE#         292
+  C:0AA6H         LINE#         294
+  C:0AA9H         LINE#         295
+  C:0AACH         LINE#         296
+  C:0AAFH         LINE#         298
+  C:0AB2H         LINE#         299
+  C:0AB4H         LINE#         300
+  C:0AB6H         LINE#         301
+  C:0ABDH         LINE#         302
+  C:0ABFH         LINE#         303
+  C:0AC2H         LINE#         304
+  C:0AC4H         LINE#         305
+  C:0AC7H         LINE#         306
+  C:0AC9H         LINE#         307
+  C:0ACBH         LINE#         311
+  C:0ACBH         LINE#         312
+  C:0ACBH         LINE#         316
+  C:0ACEH         LINE#         317
+  C:0ACEH         LINE#         319
+  C:0AD4H         LINE#         321
+  C:0AE2H         LINE#         322
+  C:0AE4H         LINE#         323
+  C:0AE4H         LINE#         328
+  C:0AE7H         LINE#         329
+  C:0AE9H         LINE#         358
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 8
+
+
+  -------         ENDPROC       MAIN
   -------         ENDMOD        PC_BASED_DC_MOTOR_SPEED_CONTROL
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  09:52:45  PAGE 3
+  -------         MODULE        ?C?IMUL
+  C:098DH         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
 
+  -------         MODULE        ?C?UIDIV
+  C:099FH         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+  -------         MODULE        ?C?CCASE
+  C:09F4H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PWM_SETUP?PC_BASED_DC_MOTOR_SPEED_CONTROL
+    SEGMENT: ?PR?DELAY?PC_BASED_DC_MOTOR_SPEED_CONTROL
 
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  MAIN
-    MODULE:  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
-
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  MAIN
-    MODULE:  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
-    ADDRESS: 080DH
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?RPM_SETUP?PC_BASED_DC_MOTOR_SPEED_CONTROL
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001EH BYTE ( 1%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 02C4H BYTE (34%) *
 ******************************************************************************
 
-Program Size: data=10.1 xdata=0 code=159
-LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)
+Program Size: data=33.2 xdata=0 code=978
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
