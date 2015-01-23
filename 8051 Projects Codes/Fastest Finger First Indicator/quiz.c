@@ -2,16 +2,16 @@
 // Program to interface single seven segment
  
 #include<reg51.h>
-sbit switch_1=P3^0;
-sbit switch_2=P3^1;
-sbit switch_3=P3^2;
+sbit switch_7=P3^0;
+sbit switch_6=P3^1;
+sbit switch_5=P3^2;
 sbit switch_4=P3^3;
-sbit switch_5=P3^4;
-sbit switch_6=P3^5;
-sbit switch_7=P3^6;
-sbit switch_8=P3^7;
+sbit switch_3=P3^4;
+sbit switch_2=P3^5;
+sbit switch_10=P3^6;
+sbit switch_1=P3^7;
 sbit switch_9 = P1^0;
-sbit switch_10 = P1^1;
+sbit switch_8= P1^1;
 sbit buzzer = P0^1;
 delay_ms(int time)		// Time delay function
 {
