@@ -1,9 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        01/13/2015  18:52:35  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/22/2015  02:52:39  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-G:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE STARTUP.obj, PC Based DC Motor Speed Control.obj TO PC Based DC Motor Speed Contr
->> ol
+C:\C51\BIN\BL51.EXE STARTUP.obj, PC Based DC Motor Speed Control.obj TO PC Based DC Motor Speed Control
 
 
 MEMORY MODEL: SMALL
@@ -12,10 +11,10 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   STARTUP.obj (?C_STARTUP)
   PC Based DC Motor Speed Control.obj (PC_BASED_DC_MOTOR_SPEED_CONTROL)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
-  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\C51\LIB\C51S.LIB (?C_INIT)
+  C:\C51\LIB\C51S.LIB (?C?IMUL)
+  C:\C51\LIB\C51S.LIB (?C?UIDIV)
+  C:\C51\LIB\C51S.LIB (?C?CCASE)
 
 
 LINK MAP OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
@@ -59,10 +58,10 @@ OVERLAY MAP OF MODULE:   PC Based DC Motor Speed Control (?C_STARTUP)
 
 SEGMENT                                            DATA_GROUP 
   +--> CALLED SEGMENT                            START    LENGTH
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 2
-
-
 ----------------------------------------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/22/2015  02:52:39  PAGE 2
+
+
 ?C_C51STARTUP                                    -----    -----
   +--> ?PR?MAIN?PC_BASED_DC_MOTOR_SPEED_CONTROL
   +--> ?C_INITSEG
@@ -119,8 +118,8 @@ SYMBOL TABLE OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
   C:0A20H         LINE#         185
   C:0A23H         LINE#         196
   -------         ENDMOD        ?C_STARTUP
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 3
 
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/22/2015  02:52:39  PAGE 3
 
 
   -------         MODULE        PC_BASED_DC_MOTOR_SPEED_CONTROL
@@ -179,10 +178,10 @@ SYMBOL TABLE OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
   C:0B5FH         LINE#         27
   C:0B5FH         LINE#         28
   C:0B62H         LINE#         29
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 4
-
-
   C:0B64H         LINE#         30
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/22/2015  02:52:39  PAGE 4
+
+
   C:0B67H         LINE#         31
   C:0B6AH         LINE#         32
   C:0B75H         LINE#         33
@@ -239,10 +238,10 @@ SYMBOL TABLE OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
   C:0919H         LINE#         102
   C:091BH         LINE#         103
   C:0920H         LINE#         105
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 5
-
-
   C:0920H         LINE#         106
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/22/2015  02:52:39  PAGE 5
+
+
   C:0923H         LINE#         107
   C:0925H         LINE#         108
   C:092AH         LINE#         110
@@ -299,10 +298,10 @@ SYMBOL TABLE OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
   D:0004H         SYMBOL        i
   D:0002H         SYMBOL        j
   -------         ENDDO         
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 6
-
-
   C:0B34H         LINE#         166
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/22/2015  02:52:39  PAGE 6
+
+
   C:0B34H         LINE#         167
   C:0B34H         LINE#         170
   C:0B3EH         LINE#         171
@@ -359,10 +358,10 @@ SYMBOL TABLE OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
   C:0814H         LINE#         256
   C:081DH         LINE#         257
   C:081DH         LINE#         258
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 7
-
-
   C:0826H         LINE#         259
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/22/2015  02:52:39  PAGE 7
+
+
   C:0826H         LINE#         260
   C:0835H         LINE#         261
   C:0842H         LINE#         262
@@ -419,10 +418,10 @@ SYMBOL TABLE OF MODULE:  PC Based DC Motor Speed Control (?C_STARTUP)
   C:0AE4H         LINE#         328
   C:0AE7H         LINE#         329
   C:0AE9H         LINE#         358
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/13/2015  18:52:35  PAGE 8
-
-
   -------         ENDPROC       MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/22/2015  02:52:39  PAGE 8
+
+
   -------         ENDMOD        PC_BASED_DC_MOTOR_SPEED_CONTROL
 
   -------         MODULE        ?C?IMUL
