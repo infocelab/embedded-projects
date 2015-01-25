@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"8051 Based Train Gate Control.obj" 
+TO "8051 Based Train Gate Control" 
+RAMSIZE(256) 

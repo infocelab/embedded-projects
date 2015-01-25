@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"ir module.obj" 
+TO "ir module" 
+RAMSIZE(256) 

@@ -1,0 +1,1048 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/01/2006  00:12:01  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, dot.obj TO dot RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  dot.obj (DOT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  dot (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         ?DT?DOT
+            DATA    000EH     0004H     UNIT         _DATA_GROUP_
+            IDATA   0012H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00BBH     UNIT         ?PR?_DISPLAY?DOT
+            CODE    08BBH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0947H     0066H     UNIT         ?PR?_DELAY?DOT
+            CODE    09ADH     0062H     UNIT         ?PR?MAIN?DOT
+            CODE    0A0FH     004FH     UNIT         ?PR?MAKE_V?DOT
+            CODE    0A5EH     0043H     UNIT         ?PR?MAKE_N?DOT
+            CODE    0AA1H     003DH     UNIT         ?PR?MAKE_T?DOT
+            CODE    0ADEH     003DH     UNIT         ?PR?MAKE_U?DOT
+            CODE    0B1BH     003AH     UNIT         ?PR?MAKE_A?DOT
+            CODE    0B55H     003AH     UNIT         ?PR?MAKE_B?DOT
+            CODE    0B8FH     003AH     UNIT         ?PR?MAKE_E?DOT
+            CODE    0BC9H     003AH     UNIT         ?PR?MAKE_F?DOT
+            CODE    0C03H     003AH     UNIT         ?PR?MAKE_G?DOT
+            CODE    0C3DH     003AH     UNIT         ?PR?MAKE_H?DOT
+            CODE    0C77H     003AH     UNIT         ?PR?MAKE_L?DOT
+            CODE    0CB1H     003AH     UNIT         ?PR?MAKE_P?DOT
+            CODE    0CEBH     003AH     UNIT         ?PR?MAKE_R?DOT
+            CODE    0D25H     003AH     UNIT         ?PR?MAKE_S?DOT
+            CODE    0D5FH     003AH     UNIT         ?PR?MAKE_W?DOT
+            CODE    0D99H     003AH     UNIT         ?PR?MAKE_X?DOT
+            CODE    0DD3H     003AH     UNIT         ?PR?MAKE_Y?DOT
+            CODE    0E0DH     003AH     UNIT         ?PR?MAKE_Z?DOT
+            CODE    0E47H     0037H     UNIT         ?PR?MAKE_J?DOT
+            CODE    0E7EH     0034H     UNIT         ?PR?MAKE_I?DOT
+            CODE    0EB2H     0034H     UNIT         ?PR?MAKE_K?DOT
+            CODE    0EE6H     0034H     UNIT         ?PR?MAKE_Q?DOT
+            CODE    0F1AH     0031H     UNIT         ?PR?MAKE_M?DOT
+            CODE    0F4BH     0028H     UNIT         ?PR?MAKE_O?DOT
+            CODE    0F73H     001FH     UNIT         ?PR?MAKE_D?DOT
+            CODE    0F92H     0016H     UNIT         ?PR?MAKE_C?DOT
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 2
+
+
+            CODE    0FA8H     0009H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   dot (?C_STARTUP)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?DOT
+  +--> ?C_INITSEG
+
+?PR?MAIN?DOT                   000EH    0004H
+  +--> ?PR?_DELAY?DOT
+  +--> ?PR?_DISPLAY?DOT
+
+?PR?_DISPLAY?DOT               -----    -----
+  +--> ?PR?MAKE_A?DOT
+  +--> ?PR?MAKE_B?DOT
+  +--> ?PR?MAKE_C?DOT
+  +--> ?PR?MAKE_D?DOT
+  +--> ?PR?MAKE_E?DOT
+  +--> ?PR?MAKE_F?DOT
+  +--> ?PR?MAKE_G?DOT
+  +--> ?PR?MAKE_H?DOT
+  +--> ?PR?MAKE_I?DOT
+  +--> ?PR?MAKE_J?DOT
+  +--> ?PR?MAKE_K?DOT
+  +--> ?PR?MAKE_L?DOT
+  +--> ?PR?MAKE_M?DOT
+  +--> ?PR?MAKE_N?DOT
+  +--> ?PR?MAKE_O?DOT
+  +--> ?PR?MAKE_P?DOT
+  +--> ?PR?MAKE_Q?DOT
+  +--> ?PR?MAKE_R?DOT
+  +--> ?PR?MAKE_S?DOT
+  +--> ?PR?MAKE_T?DOT
+  +--> ?PR?MAKE_U?DOT
+  +--> ?PR?MAKE_V?DOT
+  +--> ?PR?MAKE_W?DOT
+  +--> ?PR?MAKE_X?DOT
+  +--> ?PR?MAKE_Y?DOT
+  +--> ?PR?MAKE_Z?DOT
+
+?PR?MAKE_A?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_B?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_C?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_D?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 3
+
+
+
+?PR?MAKE_E?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_F?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_G?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_H?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_I?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_J?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_K?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_L?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_M?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_N?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_O?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_P?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_Q?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_R?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_S?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_T?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_U?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_V?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_W?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 4
+
+
+
+?PR?MAKE_X?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_Y?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_Z?DOT                 -----    -----
+  +--> ?PR?_DELAY?DOT
+
+
+
+SYMBOL TABLE OF MODULE:  dot (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:08BBH         SEGMENT       ?C_C51STARTUP
+  I:0012H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08BEH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:08BBH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:08BBH         LINE#         133
+  C:08BDH         LINE#         134
+  C:08BEH         LINE#         135
+  C:08BFH         LINE#         136
+  C:08C1H         LINE#         185
+  C:08C4H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        DOT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:097FH         PUBLIC        _delay
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 5
+
+
+  C:09ADH         PUBLIC        main
+  C:0B1BH         PUBLIC        make_A
+  C:0B55H         PUBLIC        make_B
+  C:0F92H         PUBLIC        make_C
+  C:0F73H         PUBLIC        make_D
+  C:0B8FH         PUBLIC        make_E
+  C:0BC9H         PUBLIC        make_F
+  C:0C03H         PUBLIC        make_G
+  C:0C3DH         PUBLIC        make_H
+  C:0E7EH         PUBLIC        make_I
+  C:0E47H         PUBLIC        make_J
+  C:0EB2H         PUBLIC        make_K
+  C:0C77H         PUBLIC        make_L
+  C:0F1AH         PUBLIC        make_M
+  C:0A5EH         PUBLIC        make_N
+  C:0F4BH         PUBLIC        make_O
+  C:0CB1H         PUBLIC        make_P
+  C:0EE6H         PUBLIC        make_Q
+  C:0CEBH         PUBLIC        make_R
+  C:0D25H         PUBLIC        make_S
+  C:0AA1H         PUBLIC        make_T
+  C:0ADEH         PUBLIC        make_U
+  C:0A0FH         PUBLIC        make_V
+  C:0D5FH         PUBLIC        make_W
+  C:0D99H         PUBLIC        make_X
+  C:0DD3H         PUBLIC        make_Y
+  C:0E0DH         PUBLIC        make_Z
+  B:00B0H.1       PUBLIC        INC
+  D:0008H         PUBLIC        d
+  D:000AH         PUBLIC        i
+  D:000CH         PUBLIC        j
+  C:0800H         PUBLIC        _display
+  C:0954H         SYMBOL        L?0078
+  C:0961H         SYMBOL        L?0079
+  C:0978H         SYMBOL        L?0080
+  C:097BH         SYMBOL        L?0081
+  -------         PROC          L?0077
+  -------         ENDPROC       L?0077
+  C:0954H         SYMBOL        L?0078
+  C:0961H         SYMBOL        L?0079
+  C:0978H         SYMBOL        L?0080
+  C:097BH         SYMBOL        L?0081
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        msec
+  C:097FH         LINE#         5
+  C:097FH         LINE#         6
+  C:097FH         LINE#         7
+  C:098DH         LINE#         8
+  C:09ACH         LINE#         9
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAKE_A
+  C:0B1BH         LINE#         12
+  C:0B1BH         LINE#         13
+  C:0B1BH         LINE#         14
+  C:0B1EH         LINE#         15
+  C:0B21H         LINE#         16
+  C:0B24H         LINE#         17
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 6
+
+
+  C:0B27H         LINE#         18
+  C:0B2AH         LINE#         19
+  C:0B2DH         LINE#         20
+  C:0B30H         LINE#         21
+  C:0B33H         LINE#         22
+  C:0B36H         LINE#         23
+  C:0B39H         LINE#         24
+  C:0B3CH         LINE#         25
+  C:0B3FH         LINE#         26
+  C:0B42H         LINE#         27
+  C:0B45H         LINE#         28
+  C:0B48H         LINE#         29
+  C:0B4BH         LINE#         30
+  C:0B4EH         LINE#         31
+  -------         ENDPROC       MAKE_A
+  -------         PROC          MAKE_B
+  C:0B55H         LINE#         34
+  C:0B55H         LINE#         35
+  C:0B55H         LINE#         36
+  C:0B58H         LINE#         37
+  C:0B5BH         LINE#         38
+  C:0B5EH         LINE#         39
+  C:0B61H         LINE#         40
+  C:0B64H         LINE#         41
+  C:0B67H         LINE#         42
+  C:0B6AH         LINE#         43
+  C:0B6DH         LINE#         44
+  C:0B70H         LINE#         45
+  C:0B73H         LINE#         46
+  C:0B76H         LINE#         47
+  C:0B79H         LINE#         48
+  C:0B7CH         LINE#         49
+  C:0B7FH         LINE#         50
+  C:0B82H         LINE#         51
+  C:0B85H         LINE#         52
+  C:0B88H         LINE#         53
+  -------         ENDPROC       MAKE_B
+  -------         PROC          MAKE_C
+  C:0F92H         LINE#         55
+  C:0F92H         LINE#         56
+  C:0F92H         LINE#         57
+  C:0F95H         LINE#         58
+  C:0F98H         LINE#         59
+  C:0F98H         LINE#         60
+  C:0F98H         LINE#         61
+  C:0F98H         LINE#         62
+  C:0F98H         LINE#         63
+  C:0F98H         LINE#         64
+  C:0F98H         LINE#         65
+  C:0F98H         LINE#         66
+  C:0F98H         LINE#         67
+  C:0F98H         LINE#         68
+  C:0F98H         LINE#         69
+  C:0F98H         LINE#         70
+  C:0F98H         LINE#         71
+  C:0F9BH         LINE#         72
+  C:0F9EH         LINE#         73
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 7
+
+
+  C:0FA1H         LINE#         74
+  -------         ENDPROC       MAKE_C
+  -------         PROC          MAKE_D
+  C:0F73H         LINE#         76
+  C:0F73H         LINE#         77
+  C:0F73H         LINE#         78
+  C:0F76H         LINE#         79
+  C:0F79H         LINE#         80
+  C:0F79H         LINE#         81
+  C:0F79H         LINE#         82
+  C:0F79H         LINE#         83
+  C:0F79H         LINE#         84
+  C:0F79H         LINE#         85
+  C:0F79H         LINE#         86
+  C:0F79H         LINE#         87
+  C:0F79H         LINE#         88
+  C:0F79H         LINE#         89
+  C:0F79H         LINE#         90
+  C:0F79H         LINE#         91
+  C:0F79H         LINE#         92
+  C:0F7CH         LINE#         93
+  C:0F7FH         LINE#         94
+  C:0F82H         LINE#         95
+  C:0F85H         LINE#         96
+  C:0F88H         LINE#         97
+  C:0F8BH         LINE#         98
+  -------         ENDPROC       MAKE_D
+  -------         PROC          MAKE_E
+  C:0B8FH         LINE#         100
+  C:0B8FH         LINE#         101
+  C:0B8FH         LINE#         102
+  C:0B92H         LINE#         103
+  C:0B95H         LINE#         104
+  C:0B98H         LINE#         105
+  C:0B9BH         LINE#         106
+  C:0B9EH         LINE#         107
+  C:0BA1H         LINE#         108
+  C:0BA4H         LINE#         109
+  C:0BA7H         LINE#         110
+  C:0BAAH         LINE#         111
+  C:0BADH         LINE#         112
+  C:0BB0H         LINE#         113
+  C:0BB3H         LINE#         114
+  C:0BB6H         LINE#         115
+  C:0BB9H         LINE#         116
+  C:0BBCH         LINE#         117
+  C:0BBFH         LINE#         118
+  C:0BC2H         LINE#         119
+  -------         ENDPROC       MAKE_E
+  -------         PROC          MAKE_F
+  C:0BC9H         LINE#         121
+  C:0BC9H         LINE#         122
+  C:0BC9H         LINE#         123
+  C:0BCCH         LINE#         124
+  C:0BCFH         LINE#         125
+  C:0BD2H         LINE#         126
+  C:0BD5H         LINE#         127
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 8
+
+
+  C:0BD8H         LINE#         128
+  C:0BDBH         LINE#         129
+  C:0BDEH         LINE#         130
+  C:0BE1H         LINE#         131
+  C:0BE4H         LINE#         132
+  C:0BE7H         LINE#         133
+  C:0BEAH         LINE#         134
+  C:0BEDH         LINE#         135
+  C:0BF0H         LINE#         136
+  C:0BF3H         LINE#         137
+  C:0BF6H         LINE#         138
+  C:0BF9H         LINE#         139
+  C:0BFCH         LINE#         140
+  -------         ENDPROC       MAKE_F
+  -------         PROC          MAKE_G
+  C:0C03H         LINE#         143
+  C:0C03H         LINE#         144
+  C:0C03H         LINE#         145
+  C:0C06H         LINE#         146
+  C:0C09H         LINE#         147
+  C:0C0CH         LINE#         148
+  C:0C0FH         LINE#         149
+  C:0C12H         LINE#         150
+  C:0C15H         LINE#         151
+  C:0C18H         LINE#         152
+  C:0C1BH         LINE#         153
+  C:0C1EH         LINE#         154
+  C:0C21H         LINE#         155
+  C:0C24H         LINE#         156
+  C:0C27H         LINE#         157
+  C:0C2AH         LINE#         158
+  C:0C2DH         LINE#         159
+  C:0C30H         LINE#         160
+  C:0C33H         LINE#         161
+  C:0C36H         LINE#         162
+  -------         ENDPROC       MAKE_G
+  -------         PROC          MAKE_H
+  C:0C3DH         LINE#         164
+  C:0C3DH         LINE#         165
+  C:0C3DH         LINE#         166
+  C:0C40H         LINE#         167
+  C:0C43H         LINE#         168
+  C:0C46H         LINE#         169
+  C:0C49H         LINE#         170
+  C:0C4CH         LINE#         171
+  C:0C4FH         LINE#         172
+  C:0C52H         LINE#         173
+  C:0C55H         LINE#         174
+  C:0C58H         LINE#         175
+  C:0C5BH         LINE#         176
+  C:0C5EH         LINE#         177
+  C:0C61H         LINE#         178
+  C:0C64H         LINE#         179
+  C:0C67H         LINE#         180
+  C:0C6AH         LINE#         181
+  C:0C6DH         LINE#         182
+  C:0C70H         LINE#         183
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 9
+
+
+  -------         ENDPROC       MAKE_H
+  -------         PROC          MAKE_I
+  C:0E7EH         LINE#         185
+  C:0E7EH         LINE#         186
+  C:0E7EH         LINE#         187
+  C:0E81H         LINE#         188
+  C:0E84H         LINE#         189
+  C:0E87H         LINE#         190
+  C:0E8AH         LINE#         191
+  C:0E8AH         LINE#         192
+  C:0E8DH         LINE#         193
+  C:0E90H         LINE#         194
+  C:0E93H         LINE#         195
+  C:0E96H         LINE#         196
+  C:0E99H         LINE#         197
+  C:0E99H         LINE#         198
+  C:0E9CH         LINE#         199
+  C:0E9FH         LINE#         200
+  C:0EA2H         LINE#         201
+  C:0EA5H         LINE#         202
+  C:0EA8H         LINE#         203
+  C:0EABH         LINE#         204
+  -------         ENDPROC       MAKE_I
+  -------         PROC          MAKE_J
+  C:0E47H         LINE#         207
+  C:0E47H         LINE#         208
+  C:0E47H         LINE#         209
+  C:0E4AH         LINE#         210
+  C:0E4DH         LINE#         211
+  C:0E50H         LINE#         212
+  C:0E53H         LINE#         213
+  C:0E56H         LINE#         214
+  C:0E59H         LINE#         215
+  C:0E5CH         LINE#         216
+  C:0E5FH         LINE#         217
+  C:0E62H         LINE#         218
+  C:0E65H         LINE#         219
+  C:0E65H         LINE#         220
+  C:0E68H         LINE#         221
+  C:0E6BH         LINE#         222
+  C:0E6EH         LINE#         223
+  C:0E71H         LINE#         224
+  C:0E74H         LINE#         225
+  C:0E77H         LINE#         226
+  -------         ENDPROC       MAKE_J
+  -------         PROC          MAKE_K
+  C:0EB2H         LINE#         228
+  C:0EB2H         LINE#         229
+  C:0EB2H         LINE#         230
+  C:0EB5H         LINE#         231
+  C:0EB8H         LINE#         232
+  C:0EBBH         LINE#         233
+  C:0EBEH         LINE#         234
+  C:0EBEH         LINE#         235
+  C:0EC1H         LINE#         236
+  C:0EC4H         LINE#         237
+  C:0EC4H         LINE#         238
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 10
+
+
+  C:0EC7H         LINE#         239
+  C:0ECAH         LINE#         240
+  C:0ECDH         LINE#         241
+  C:0ED0H         LINE#         242
+  C:0ED3H         LINE#         243
+  C:0ED6H         LINE#         244
+  C:0ED9H         LINE#         245
+  C:0EDCH         LINE#         246
+  C:0EDFH         LINE#         247
+  -------         ENDPROC       MAKE_K
+  -------         PROC          MAKE_L
+  C:0C77H         LINE#         249
+  C:0C77H         LINE#         250
+  C:0C77H         LINE#         251
+  C:0C7AH         LINE#         252
+  C:0C7DH         LINE#         253
+  C:0C80H         LINE#         254
+  C:0C83H         LINE#         255
+  C:0C86H         LINE#         256
+  C:0C89H         LINE#         257
+  C:0C8CH         LINE#         258
+  C:0C8FH         LINE#         259
+  C:0C92H         LINE#         260
+  C:0C95H         LINE#         261
+  C:0C98H         LINE#         262
+  C:0C9BH         LINE#         263
+  C:0C9EH         LINE#         264
+  C:0CA1H         LINE#         265
+  C:0CA4H         LINE#         266
+  C:0CA7H         LINE#         267
+  C:0CAAH         LINE#         268
+  -------         ENDPROC       MAKE_L
+  -------         PROC          MAKE_M
+  C:0F1AH         LINE#         270
+  C:0F1AH         LINE#         271
+  C:0F1AH         LINE#         272
+  C:0F1DH         LINE#         273
+  C:0F20H         LINE#         274
+  C:0F23H         LINE#         275
+  C:0F26H         LINE#         276
+  C:0F29H         LINE#         277
+  C:0F2CH         LINE#         278
+  C:0F2FH         LINE#         279
+  C:0F32H         LINE#         280
+  C:0F35H         LINE#         281
+  C:0F38H         LINE#         282
+  C:0F3BH         LINE#         283
+  C:0F3EH         LINE#         284
+  C:0F41H         LINE#         285
+  C:0F44H         LINE#         286
+  -------         ENDPROC       MAKE_M
+  -------         PROC          MAKE_N
+  C:0A5EH         LINE#         291
+  C:0A5EH         LINE#         292
+  C:0A5EH         LINE#         293
+  C:0A61H         LINE#         294
+  C:0A64H         LINE#         295
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 11
+
+
+  C:0A67H         LINE#         296
+  C:0A6AH         LINE#         297
+  C:0A6DH         LINE#         298
+  C:0A70H         LINE#         299
+  C:0A73H         LINE#         300
+  C:0A76H         LINE#         301
+  C:0A79H         LINE#         302
+  C:0A7CH         LINE#         303
+  C:0A7FH         LINE#         304
+  C:0A82H         LINE#         305
+  C:0A85H         LINE#         306
+  C:0A88H         LINE#         307
+  C:0A8BH         LINE#         308
+  C:0A8EH         LINE#         309
+  C:0A91H         LINE#         310
+  C:0A94H         LINE#         311
+  C:0A97H         LINE#         312
+  C:0A9AH         LINE#         313
+  -------         ENDPROC       MAKE_N
+  -------         PROC          MAKE_O
+  C:0F4BH         LINE#         316
+  C:0F4BH         LINE#         317
+  C:0F4BH         LINE#         319
+  C:0F4EH         LINE#         320
+  C:0F51H         LINE#         321
+  C:0F54H         LINE#         322
+  C:0F57H         LINE#         323
+  C:0F5AH         LINE#         324
+  C:0F5DH         LINE#         325
+  C:0F60H         LINE#         326
+  C:0F63H         LINE#         327
+  C:0F63H         LINE#         328
+  C:0F63H         LINE#         329
+  C:0F63H         LINE#         330
+  C:0F63H         LINE#         331
+  C:0F63H         LINE#         332
+  C:0F63H         LINE#         333
+  C:0F63H         LINE#         334
+  C:0F63H         LINE#         335
+  C:0F63H         LINE#         336
+  C:0F66H         LINE#         337
+  C:0F69H         LINE#         338
+  C:0F6CH         LINE#         339
+  -------         ENDPROC       MAKE_O
+  -------         PROC          MAKE_P
+  C:0CB1H         LINE#         341
+  C:0CB1H         LINE#         342
+  C:0CB1H         LINE#         343
+  C:0CB4H         LINE#         344
+  C:0CB7H         LINE#         345
+  C:0CBAH         LINE#         346
+  C:0CBDH         LINE#         347
+  C:0CC0H         LINE#         348
+  C:0CC3H         LINE#         349
+  C:0CC6H         LINE#         350
+  C:0CC9H         LINE#         351
+  C:0CCCH         LINE#         352
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 12
+
+
+  C:0CCFH         LINE#         353
+  C:0CD2H         LINE#         354
+  C:0CD5H         LINE#         355
+  C:0CD8H         LINE#         356
+  C:0CDBH         LINE#         357
+  C:0CDEH         LINE#         358
+  C:0CE1H         LINE#         359
+  C:0CE4H         LINE#         360
+  -------         ENDPROC       MAKE_P
+  -------         PROC          MAKE_Q
+  C:0EE6H         LINE#         362
+  C:0EE6H         LINE#         363
+  C:0EE6H         LINE#         366
+  C:0EE9H         LINE#         367
+  C:0EECH         LINE#         368
+  C:0EEFH         LINE#         369
+  C:0EF2H         LINE#         370
+  C:0EF5H         LINE#         371
+  C:0EF8H         LINE#         372
+  C:0EFBH         LINE#         373
+  C:0EFEH         LINE#         374
+  C:0F01H         LINE#         375
+  C:0F04H         LINE#         376
+  C:0F07H         LINE#         377
+  C:0F0AH         LINE#         378
+  C:0F0AH         LINE#         379
+  C:0F0AH         LINE#         380
+  C:0F0AH         LINE#         381
+  C:0F0AH         LINE#         382
+  C:0F0AH         LINE#         383
+  C:0F0AH         LINE#         384
+  C:0F0DH         LINE#         385
+  C:0F10H         LINE#         386
+  C:0F13H         LINE#         387
+  -------         ENDPROC       MAKE_Q
+  -------         PROC          MAKE_R
+  C:0CEBH         LINE#         390
+  C:0CEBH         LINE#         391
+  C:0CEBH         LINE#         392
+  C:0CEEH         LINE#         393
+  C:0CF1H         LINE#         394
+  C:0CF4H         LINE#         395
+  C:0CF7H         LINE#         396
+  C:0CFAH         LINE#         397
+  C:0CFDH         LINE#         398
+  C:0D00H         LINE#         399
+  C:0D03H         LINE#         400
+  C:0D06H         LINE#         401
+  C:0D09H         LINE#         402
+  C:0D0CH         LINE#         403
+  C:0D0FH         LINE#         404
+  C:0D12H         LINE#         405
+  C:0D15H         LINE#         406
+  C:0D18H         LINE#         407
+  C:0D1BH         LINE#         408
+  C:0D1EH         LINE#         409
+  -------         ENDPROC       MAKE_R
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 13
+
+
+  -------         PROC          MAKE_S
+  C:0D25H         LINE#         412
+  C:0D25H         LINE#         413
+  C:0D25H         LINE#         414
+  C:0D28H         LINE#         415
+  C:0D2BH         LINE#         416
+  C:0D2EH         LINE#         417
+  C:0D31H         LINE#         418
+  C:0D34H         LINE#         419
+  C:0D37H         LINE#         420
+  C:0D3AH         LINE#         421
+  C:0D3DH         LINE#         422
+  C:0D40H         LINE#         423
+  C:0D43H         LINE#         424
+  C:0D46H         LINE#         425
+  C:0D49H         LINE#         426
+  C:0D4CH         LINE#         427
+  C:0D4FH         LINE#         428
+  C:0D52H         LINE#         429
+  C:0D55H         LINE#         430
+  C:0D58H         LINE#         431
+  -------         ENDPROC       MAKE_S
+  -------         PROC          MAKE_T
+  C:0AA1H         LINE#         433
+  C:0AA1H         LINE#         434
+  C:0AA1H         LINE#         435
+  C:0AA4H         LINE#         436
+  C:0AA7H         LINE#         437
+  C:0AAAH         LINE#         438
+  C:0AADH         LINE#         439
+  C:0AB0H         LINE#         440
+  C:0AB3H         LINE#         441
+  C:0AB6H         LINE#         442
+  C:0AB9H         LINE#         443
+  C:0ABCH         LINE#         444
+  C:0ABFH         LINE#         445
+  C:0AC2H         LINE#         446
+  C:0AC5H         LINE#         447
+  C:0AC8H         LINE#         448
+  C:0ACBH         LINE#         449
+  C:0ACEH         LINE#         450
+  C:0AD1H         LINE#         451
+  C:0AD4H         LINE#         452
+  C:0AD7H         LINE#         453
+  -------         ENDPROC       MAKE_T
+  -------         PROC          MAKE_U
+  C:0ADEH         LINE#         456
+  C:0ADEH         LINE#         457
+  C:0ADEH         LINE#         458
+  C:0AE1H         LINE#         459
+  C:0AE4H         LINE#         460
+  C:0AE7H         LINE#         461
+  C:0AEAH         LINE#         462
+  C:0AEDH         LINE#         463
+  C:0AF0H         LINE#         464
+  C:0AF3H         LINE#         465
+  C:0AF6H         LINE#         466
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 14
+
+
+  C:0AF9H         LINE#         467
+  C:0AFCH         LINE#         468
+  C:0AFFH         LINE#         469
+  C:0B02H         LINE#         470
+  C:0B05H         LINE#         471
+  C:0B08H         LINE#         472
+  C:0B0BH         LINE#         473
+  C:0B0EH         LINE#         474
+  C:0B11H         LINE#         475
+  C:0B14H         LINE#         476
+  -------         ENDPROC       MAKE_U
+  -------         PROC          MAKE_V
+  C:0A0FH         LINE#         479
+  C:0A0FH         LINE#         480
+  C:0A0FH         LINE#         481
+  C:0A12H         LINE#         482
+  C:0A15H         LINE#         483
+  C:0A18H         LINE#         484
+  C:0A1BH         LINE#         485
+  C:0A1EH         LINE#         486
+  C:0A21H         LINE#         487
+  C:0A24H         LINE#         488
+  C:0A27H         LINE#         489
+  C:0A2AH         LINE#         490
+  C:0A2DH         LINE#         491
+  C:0A30H         LINE#         492
+  C:0A33H         LINE#         493
+  C:0A36H         LINE#         494
+  C:0A39H         LINE#         495
+  C:0A3CH         LINE#         496
+  C:0A3FH         LINE#         497
+  C:0A42H         LINE#         498
+  C:0A45H         LINE#         499
+  C:0A48H         LINE#         500
+  C:0A4BH         LINE#         501
+  C:0A4EH         LINE#         502
+  C:0A51H         LINE#         503
+  C:0A54H         LINE#         504
+  C:0A57H         LINE#         505
+  -------         ENDPROC       MAKE_V
+  -------         PROC          MAKE_W
+  C:0D5FH         LINE#         508
+  C:0D5FH         LINE#         509
+  C:0D5FH         LINE#         510
+  C:0D62H         LINE#         511
+  C:0D65H         LINE#         512
+  C:0D68H         LINE#         513
+  C:0D6BH         LINE#         514
+  C:0D6EH         LINE#         515
+  C:0D71H         LINE#         516
+  C:0D74H         LINE#         517
+  C:0D77H         LINE#         518
+  C:0D7AH         LINE#         519
+  C:0D7DH         LINE#         520
+  C:0D80H         LINE#         521
+  C:0D83H         LINE#         522
+  C:0D86H         LINE#         523
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 15
+
+
+  C:0D89H         LINE#         524
+  C:0D8CH         LINE#         525
+  C:0D8FH         LINE#         526
+  C:0D92H         LINE#         527
+  -------         ENDPROC       MAKE_W
+  -------         PROC          MAKE_X
+  C:0D99H         LINE#         529
+  C:0D99H         LINE#         530
+  C:0D99H         LINE#         531
+  C:0D9CH         LINE#         532
+  C:0D9FH         LINE#         533
+  C:0DA2H         LINE#         534
+  C:0DA5H         LINE#         535
+  C:0DA8H         LINE#         536
+  C:0DABH         LINE#         537
+  C:0DAEH         LINE#         538
+  C:0DB1H         LINE#         539
+  C:0DB4H         LINE#         540
+  C:0DB7H         LINE#         541
+  C:0DBAH         LINE#         542
+  C:0DBDH         LINE#         543
+  C:0DC0H         LINE#         544
+  C:0DC3H         LINE#         545
+  C:0DC6H         LINE#         546
+  C:0DC9H         LINE#         547
+  C:0DCCH         LINE#         548
+  -------         ENDPROC       MAKE_X
+  -------         PROC          MAKE_Y
+  C:0DD3H         LINE#         551
+  C:0DD3H         LINE#         552
+  C:0DD3H         LINE#         553
+  C:0DD6H         LINE#         554
+  C:0DD9H         LINE#         555
+  C:0DDCH         LINE#         556
+  C:0DDFH         LINE#         557
+  C:0DE2H         LINE#         558
+  C:0DE5H         LINE#         559
+  C:0DE8H         LINE#         560
+  C:0DEBH         LINE#         561
+  C:0DEEH         LINE#         562
+  C:0DF1H         LINE#         563
+  C:0DF4H         LINE#         564
+  C:0DF7H         LINE#         565
+  C:0DFAH         LINE#         566
+  C:0DFDH         LINE#         567
+  C:0E00H         LINE#         568
+  C:0E03H         LINE#         569
+  C:0E06H         LINE#         570
+  -------         ENDPROC       MAKE_Y
+  -------         PROC          MAKE_Z
+  C:0E0DH         LINE#         572
+  C:0E0DH         LINE#         573
+  C:0E0DH         LINE#         574
+  C:0E10H         LINE#         575
+  C:0E13H         LINE#         576
+  C:0E16H         LINE#         577
+  C:0E19H         LINE#         578
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 16
+
+
+  C:0E1CH         LINE#         579
+  C:0E1FH         LINE#         580
+  C:0E22H         LINE#         581
+  C:0E25H         LINE#         582
+  C:0E28H         LINE#         583
+  C:0E2BH         LINE#         584
+  C:0E2EH         LINE#         585
+  C:0E31H         LINE#         586
+  C:0E34H         LINE#         587
+  C:0E37H         LINE#         588
+  C:0E3AH         LINE#         589
+  C:0E3DH         LINE#         590
+  C:0E40H         LINE#         591
+  -------         ENDPROC       MAKE_Z
+  -------         PROC          MAIN
+  -------         DO            
+  D:000EH         SYMBOL        k
+  D:0010H         SYMBOL        count
+  -------         ENDDO         
+  C:09ADH         LINE#         593
+  C:09ADH         LINE#         594
+  C:09ADH         LINE#         595
+  C:09B6H         LINE#         596
+  C:09B8H         LINE#         597
+  C:09BEH         LINE#         598
+  C:09C1H         LINE#         599
+  C:09C6H         LINE#         600
+  C:09C9H         LINE#         602
+  C:09C9H         LINE#         603
+  C:09C9H         LINE#         604
+  C:09CCH         LINE#         605
+  C:09CCH         LINE#         606
+  C:09D4H         LINE#         607
+  C:09DBH         LINE#         608
+  C:09E3H         LINE#         609
+  C:09E7H         LINE#         610
+  C:09E7H         LINE#         611
+  C:09ECH         LINE#         612
+  C:09ECH         LINE#         613
+  C:09F3H         LINE#         614
+  C:0A06H         LINE#         615
+  C:0A0DH         LINE#         754
+  -------         ENDPROC       MAIN
+  -------         PROC          _DISPLAY
+  D:0006H         SYMBOL        i
+  C:0800H         LINE#         757
+  C:0800H         LINE#         758
+  C:0800H         LINE#         759
+  C:086CH         LINE#         760
+  C:086CH         LINE#         761
+  C:086CH         LINE#         762
+  C:086FH         LINE#         763
+  C:086FH         LINE#         764
+  C:086FH         LINE#         765
+  C:0872H         LINE#         766
+  C:0872H         LINE#         767
+  C:0872H         LINE#         768
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 17
+
+
+  C:0875H         LINE#         769
+  C:0875H         LINE#         770
+  C:0875H         LINE#         771
+  C:0878H         LINE#         772
+  C:0878H         LINE#         773
+  C:0878H         LINE#         774
+  C:087BH         LINE#         775
+  C:087BH         LINE#         776
+  C:087BH         LINE#         777
+  C:087EH         LINE#         778
+  C:087EH         LINE#         779
+  C:087EH         LINE#         780
+  C:0881H         LINE#         781
+  C:0881H         LINE#         782
+  C:0881H         LINE#         783
+  C:0884H         LINE#         784
+  C:0884H         LINE#         785
+  C:0884H         LINE#         786
+  C:0887H         LINE#         787
+  C:0887H         LINE#         788
+  C:0887H         LINE#         789
+  C:088AH         LINE#         790
+  C:088AH         LINE#         791
+  C:088AH         LINE#         792
+  C:088DH         LINE#         793
+  C:088DH         LINE#         794
+  C:088DH         LINE#         795
+  C:0890H         LINE#         796
+  C:0890H         LINE#         797
+  C:0890H         LINE#         798
+  C:0893H         LINE#         799
+  C:0893H         LINE#         800
+  C:0893H         LINE#         801
+  C:0896H         LINE#         802
+  C:0896H         LINE#         803
+  C:0896H         LINE#         804
+  C:0899H         LINE#         805
+  C:0899H         LINE#         806
+  C:0899H         LINE#         807
+  C:089CH         LINE#         808
+  C:089CH         LINE#         809
+  C:089CH         LINE#         810
+  C:089FH         LINE#         811
+  C:089FH         LINE#         812
+  C:089FH         LINE#         813
+  C:08A2H         LINE#         814
+  C:08A2H         LINE#         815
+  C:08A2H         LINE#         816
+  C:08A5H         LINE#         817
+  C:08A5H         LINE#         818
+  C:08A5H         LINE#         819
+  C:08A8H         LINE#         820
+  C:08A8H         LINE#         821
+  C:08A8H         LINE#         822
+  C:08ABH         LINE#         823
+  C:08ABH         LINE#         824
+  C:08ABH         LINE#         825
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2006  00:12:01  PAGE 18
+
+
+  C:08AEH         LINE#         826
+  C:08AEH         LINE#         827
+  C:08AEH         LINE#         828
+  C:08B1H         LINE#         829
+  C:08B1H         LINE#         830
+  C:08B1H         LINE#         831
+  C:08B4H         LINE#         832
+  C:08B4H         LINE#         833
+  C:08B4H         LINE#         834
+  C:08B7H         LINE#         835
+  C:08B7H         LINE#         836
+  C:08B7H         LINE#         837
+  C:08BAH         LINE#         838
+  C:08BAH         LINE#         841
+  C:08BAH         LINE#         842
+  -------         ENDPROC       _DISPLAY
+  -------         ENDMOD        DOT
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0733H BYTE (89%) *
+******************************************************************************
+
+Program Size: data=19.0 xdata=0 code=1972
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
