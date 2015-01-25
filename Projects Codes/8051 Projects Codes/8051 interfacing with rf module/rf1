@@ -1,0 +1,53 @@
+#include<reg52.h>
+//INPUT PIN
+sbit INPUT1 = P1^0;
+sbit INPUT2 = P1^1;
+sbit INPUT3 = P1^2;
+sbit INPUT4 = P1^3;
+//OUTPUT PIN
+sbit OUTPUT1 = P3^3;
+sbit OUTPUT2 = P3^4;
+sbit OUTPUT3 = P3^5;
+sbit OUTPUT4 = P3^6;
+ void Delay(int a)
+   {
+    int j;
+    int i;
+    for(i=0;i<a;i++)
+    {
+        for(j=0;j<100;j++)
+        {
+        }
+    }
+  }
+    void main()
+{
+	  int i;
+	  P1 = 0xFF; //Por1 used as a Input Port
+	  Delay(10);
+	  P3 = 0x00;  //Por1 used as a Output Port
+	  Delay(10);
+			while(1)
+	{
+		if(INPUT1==0 && INPUT2==1 && INPUT3==1 && INPUT4==1)  // 1 - on
+    {
+
+       OUTPUT4 = 1;
+			 Delay(100);
+			 OUTPUT1 = 0;
+			 OUTPUT2 = 0;
+			 OUTPUT3 = 0;
+		   Delay(100);
+				}
+		else if(INPUT1==1 && INPUT2==0 && INPUT3==1 && INPUT4==1) // 2 - off
+    {
+			
+       OUTPUT4 = 0;
+			 Delay(100);
+			 OUTPUT1 = 0;
+			 OUTPUT2 = 0;
+			 OUTPUT3 = 0;
+		   Delay(100);
+			   }
+    }
+	}

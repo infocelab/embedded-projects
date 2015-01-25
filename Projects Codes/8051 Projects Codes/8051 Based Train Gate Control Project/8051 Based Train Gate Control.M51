@@ -1,0 +1,146 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/10/2015  12:40:18  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, 8051 Based Train Gate Control.obj TO 8051 Based Train Gate Control RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  8051 Based Train Gate Control.obj (8051_BASED_TRAIN_GATE_CONTROL)
+
+
+LINK MAP OF MODULE:  8051 Based Train Gate Control (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     002AH     UNIT         ?PR?MAIN?8051_BASED_TRAIN_GATE_CONTROL
+            CODE    082AH     0020H     UNIT         ?PR?_MSDELAY?8051_BASED_TRAIN_GATE_CONTROL
+            CODE    084AH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   8051 Based Train Gate Control (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?8051_BASED_TRAIN_GATE_CONTROL
+
+?PR?MAIN?8051_BASED_TRAIN_GATE_CONTROL
+  +--> ?PR?_MSDELAY?8051_BASED_TRAIN_GATE_CO...
+
+
+
+SYMBOL TABLE OF MODULE:  8051 Based Train Gate Control (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:084AH         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2015  12:40:18  PAGE 2
+
+
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:084DH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:084AH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:084AH         LINE#         133
+  C:084CH         LINE#         134
+  C:084DH         LINE#         135
+  C:084EH         LINE#         136
+  C:0850H         LINE#         185
+  C:0853H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        8051_BASED_TRAIN_GATE_CONTROL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:0800H         PUBLIC        main
+  B:0080H.0       PUBLIC        module1
+  B:0080H.1       PUBLIC        module2
+  C:082AH         PUBLIC        _msDelay
+  B:00A0H.1       PUBLIC        motor1
+  B:00A0H.2       PUBLIC        motor2
+  -------         PROC          _MSDELAY
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:082AH         LINE#         6
+  C:082AH         LINE#         7
+  C:082AH         LINE#         9
+  C:0834H         LINE#         10
+  C:0849H         LINE#         11
+  -------         ENDPROC       _MSDELAY
+  -------         PROC          MAIN
+  C:0800H         LINE#         12
+  C:0800H         LINE#         13
+  C:0800H         LINE#         14
+  C:0803H         LINE#         15
+  C:0806H         LINE#         16
+  C:0806H         LINE#         17
+  C:0806H         LINE#         18
+  C:0809H         LINE#         19
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/10/2015  12:40:18  PAGE 3
+
+
+  C:0809H         LINE#         20
+  C:080BH         LINE#         21
+  C:0812H         LINE#         22
+  C:0814H         LINE#         23
+  C:0817H         LINE#         24
+  C:0817H         LINE#         26
+  C:081AH         LINE#         27
+  C:081AH         LINE#         28
+  C:081CH         LINE#         29
+  C:0823H         LINE#         30
+  C:0825H         LINE#         31
+  C:0828H         LINE#         32
+  C:0828H         LINE#         33
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        8051_BASED_TRAIN_GATE_CONTROL
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0059H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=89
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,7 @@
+main
+	display_W
+	display_E
+	display_L
+	display_C
+	display_O
+	display_M
