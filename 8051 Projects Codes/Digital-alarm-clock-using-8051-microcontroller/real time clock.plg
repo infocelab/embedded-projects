@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+G:\Celabcode\projects\8051 Projects Codes\Digital-alarm-clock-using-8051-microcontroller\real time clock.uvproj
+Project File Date:  <unknown>
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling real time clock.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  STPWTCH
+    MODULE:  real time clock.obj (REAL_TIME_CLOCK)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  STPWTCH
+    MODULE:  real time clock.obj (REAL_TIME_CLOCK)
+    ADDRESS: 0DD8H
+Program Size: data=54.0 xdata=0 code=1979
+creating hex file from "real time clock"...
+"real time clock" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling real time clock.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  STPWTCH
+    MODULE:  real time clock.obj (REAL_TIME_CLOCK)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  STPWTCH
+    MODULE:  real time clock.obj (REAL_TIME_CLOCK)
+    ADDRESS: 0DD8H
+Program Size: data=54.0 xdata=0 code=1979
+creating hex file from "real time clock"...
+"real time clock" - 0 Error(s), 2 Warning(s).
