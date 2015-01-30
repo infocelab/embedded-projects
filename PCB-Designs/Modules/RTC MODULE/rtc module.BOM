@@ -1,0 +1,7 @@
+Partlist exported from G:/Celabcode/projects/PCB-Designs/Modules/RTC MODULE/rtc module.sch at 1/26/2015 11:39:30 AM
+
+Part    Value  Device Package Description                        MF MPN    OC_FARNELL OC_NEWARK
+BATTERY 3.3v   M02    02P     AMP QUICK CONNECTOR                          unknown    unknown  
+IC1     DS1307 DS1621 DIL08   Digital Thermometer and Thermostat    DS1621 1188024    66F3769  
+Q1      32KHZ  XTAL/S QS      CRYSTAL                                                          
+SL1     5 pin  M05    05P     AMP QUICK CONNECTOR                          unknown    unknown  
