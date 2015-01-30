@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8248,8 +8248,8 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="JP5" gate="G$1" x="45.72" y="38.1" rot="R90"/>
 <instance part="JP6" gate="G$1" x="45.72" y="48.26" rot="R90"/>
 <instance part="R4" gate="G$1" x="60.96" y="60.96" rot="R90"/>
-<instance part="JP7" gate="1" x="88.9" y="83.82" rot="R270"/>
-<instance part="JP8" gate="1" x="88.9" y="73.66" rot="R270"/>
+<instance part="JP7" gate="1" x="83.82" y="76.2" rot="R270"/>
+<instance part="JP8" gate="1" x="33.02" y="17.78"/>
 </instances>
 <busses>
 </busses>
@@ -8338,8 +8338,17 @@ Source: 008-0260-0_E.pdf</description>
 <junction x="20.32" y="33.02"/>
 <wire x1="20.32" y1="33.02" x2="20.32" y2="15.24" width="0.1524" layer="91"/>
 <pinref part="LED2" gate="G$1" pin="C"/>
-<wire x1="20.32" y1="15.24" x2="45.72" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="15.24" x2="30.48" y2="15.24" width="0.1524" layer="91"/>
 <junction x="45.72" y="15.24"/>
+<pinref part="JP8" gate="1" pin="1"/>
+<wire x1="30.48" y1="15.24" x2="33.02" y2="15.24" width="0.1524" layer="91"/>
+<junction x="30.48" y="15.24"/>
+<pinref part="JP8" gate="1" pin="2"/>
+<wire x1="33.02" y1="15.24" x2="35.56" y2="15.24" width="0.1524" layer="91"/>
+<junction x="33.02" y="15.24"/>
+<pinref part="JP8" gate="1" pin="3"/>
+<wire x1="35.56" y1="15.24" x2="45.72" y2="15.24" width="0.1524" layer="91"/>
+<junction x="35.56" y="15.24"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -8384,7 +8393,10 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="68.58" y1="40.64" x2="81.28" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="40.64" x2="81.28" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="VDD@1"/>
-<wire x1="81.28" y1="66.04" x2="81.28" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="66.04" x2="81.28" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="73.66" x2="81.28" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="76.2" x2="81.28" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="78.74" x2="81.28" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="35.56" x2="81.28" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="35.56" x2="81.28" y2="40.64" width="0.1524" layer="91"/>
 <junction x="96.52" y="35.56"/>
@@ -8394,6 +8406,12 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="60.96" y1="66.04" x2="81.28" y2="66.04" width="0.1524" layer="91"/>
 <junction x="81.28" y="66.04"/>
 <junction x="60.96" y="66.04"/>
+<pinref part="JP7" gate="1" pin="1"/>
+<junction x="81.28" y="78.74"/>
+<pinref part="JP7" gate="1" pin="2"/>
+<junction x="81.28" y="76.2"/>
+<pinref part="JP7" gate="1" pin="3"/>
+<junction x="81.28" y="73.66"/>
 </segment>
 </net>
 <net name="N$6" class="0">
