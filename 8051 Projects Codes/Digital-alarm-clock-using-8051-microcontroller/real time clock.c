@@ -123,7 +123,7 @@ write_lcd((c%16)+48);
 write_lcd(' ');                         
  
 display_lcd(s[read_i2c(0xd0,0x03)]);//read day register and display 
-//write_lcd(*s[read_i2c(0xd0,0x03)]);
+write_lcd(*s[read_i2c(0xd0,0x03)]);
  
 cmd_lcd(0xc0);// Go to starting position of 2nd line of LCD
  
