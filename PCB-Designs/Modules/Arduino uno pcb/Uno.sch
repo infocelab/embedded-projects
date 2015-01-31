@@ -8349,6 +8349,11 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="JP8" gate="1" pin="3"/>
 <wire x1="35.56" y1="15.24" x2="45.72" y2="15.24" width="0.1524" layer="91"/>
 <junction x="35.56" y="15.24"/>
+<pinref part="IC1" gate="G$1" pin="VSS"/>
+<wire x1="68.58" y1="38.1" x2="76.2" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="38.1" x2="76.2" y2="50.8" width="0.1524" layer="91"/>
+<junction x="68.58" y="38.1"/>
+<junction x="76.2" y="50.8"/>
 </segment>
 </net>
 <net name="N$7" class="0">
