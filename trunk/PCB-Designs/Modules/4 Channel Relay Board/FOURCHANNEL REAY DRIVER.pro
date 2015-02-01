@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : D:/egle project/four CHANNELRELAY DIVER -/FOURCHANNEL REAY DRIVER.brd
+Job           : G:/Celabcode/projects/PCB-Designs/Modules/4 Channel Relay Board/FOURCHANNEL REAY DRIVER.brd
 
-Start at      : 12:56:09 (12/18/2014)
-End at        : 12:56:16 (12/18/2014)
-Elapsed time  : 00:00:07
+Start at      : 06:44:49 (1/27/2015)
+End at        : 06:44:52 (1/27/2015)
+Elapsed time  : 00:00:03
 
-Signals       :    30   RoutingGrid: 50 mil  Layers: 1
-Connections   :    62   predefined:  0 ( 0 Vias )
+Signals       :    26   RoutingGrid: 50 mil  Layers: 1
+Connections   :    50   predefined:  0 ( 0 Vias )
 
-Router memory :   12354
+Router memory :   14136
 
 Passname          :    Busses     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:00  00:00:06  00:00:00  00:00:00  00:00:00  00:00:01
-Number of Ripups  :         0       188         0         0         0         0
-max. Level        :         0         4         0         0         0         0
-max. Total        :         0        25         0         0         0         0
+Time per pass     :  00:00:00  00:00:03  00:00:00  00:00:00  00:00:00  00:00:00
+Number of Ripups  :         0        93         0         0         0         0
+max. Level        :         0         5         0         0         0         0
+max. Total        :         0        20         0         0         0         0
 
-Routed            :         9        62        62        62        62        62
+Routed            :        11        50        50        50        50        50
 Vias              :         0         0         0         0         0         0
-Resolution        :    14.5 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
+Resolution        :    22.0 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
 
 Final             : 100.0% finished
