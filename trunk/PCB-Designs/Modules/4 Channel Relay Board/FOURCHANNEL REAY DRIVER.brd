@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -62,7 +62,7 @@
 <wire x1="-5.08" y1="83.81" x2="-5.08" y2="-2.54" width="0" layer="20"/>
 <text x="1.27" y="68.58" size="3.302" layer="16" rot="MR270">four channel relay driver</text>
 <text x="20.32" y="80.01" size="3.302" layer="1">www.comptronicslab.com</text>
-<text x="3.81" y="5.08" size="3.302" layer="16" rot="MR180">www.comptronicslab.com</text>
+<text x="3.81" y="5.08" size="3.302" layer="16" rot="MR180">www.computronicslab.com</text>
 <text x="97.79" y="60.96" size="3.302" layer="1" rot="R270">four channel relay driver</text>
 <rectangle x1="2.54" y1="7.62" x2="15.24" y2="29.21" layer="16"/>
 <rectangle x1="2.54" y1="67.31" x2="13.97" y2="76.2" layer="16"/>
@@ -1587,7 +1587,7 @@ diameter 2.54 mm, horizontal, grid 10.16 mm</description>
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules name="default *">
+<designrules>
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
