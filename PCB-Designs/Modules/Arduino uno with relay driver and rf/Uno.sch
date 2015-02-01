@@ -9634,7 +9634,10 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="IC1" gate="G$1" pin="Z1"/>
 <wire x1="-7.62" y1="81.28" x2="-5.08" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="81.28" x2="-5.08" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="-5.08" y1="111.76" x2="10.16" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="111.76" x2="7.62" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="RX1" gate="G$1" pin="2"/>
+<junction x="7.62" y="111.76"/>
+<wire x1="7.62" y1="111.76" x2="10.16" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
