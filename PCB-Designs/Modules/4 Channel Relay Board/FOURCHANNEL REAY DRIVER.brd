@@ -75,7 +75,7 @@
 <wire x1="102.54" y1="83.81" x2="7.62" y2="83.81" width="0" layer="20"/>
 <wire x1="7.62" y1="83.81" x2="7.62" y2="-2.54" width="0" layer="20"/>
 <text x="12.7" y="67.31" size="3.302" layer="16" rot="MR270">four channel relay driver</text>
-<text x="93.98" y="12.7" size="3.302" layer="1" rot="R90">www.comptronicslab.com</text>
+<text x="93.98" y="12.7" size="3.302" layer="1" rot="R90">www.computronicslab.com</text>
 <text x="24.13" y="3.81" size="3.302" layer="16" rot="MR180">www.computronicslab.com</text>
 <text x="95.25" y="64.77" size="3.302" layer="1" rot="R270">four channel relay driver</text>
 </plain>
