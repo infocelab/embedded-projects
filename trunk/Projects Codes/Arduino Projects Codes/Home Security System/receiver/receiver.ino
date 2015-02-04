@@ -11,8 +11,8 @@
 #include <VirtualWire.h>
 
 const int led_pin = 13;
-const int transmit_pin = 3;
-const int receive_pin = 2;
+const int transmit_pin = 2;
+const int receive_pin = 3;
 const int transmit_en_pin = 4;
 const int relay1 = 8;
 const int relay2 = 9;
