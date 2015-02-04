@@ -13,8 +13,8 @@
 const int relay1 = 8;
 const int relay2 = 9;
 const int relay3 = 10;
-const int transmit_pin = 12;
-const int receive_pin = 2;
+const int transmit_pin = 2;
+const int receive_pin = 3;
 const int transmit_en_pin = 4;
 int count = 0;
 void setup()
