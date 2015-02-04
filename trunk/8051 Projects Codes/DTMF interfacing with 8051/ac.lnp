@@ -1,4 +1,0 @@
-"STARTUP.obj",
-"ac.obj" 
-TO "ac" 
-RAMSIZE(256) 
