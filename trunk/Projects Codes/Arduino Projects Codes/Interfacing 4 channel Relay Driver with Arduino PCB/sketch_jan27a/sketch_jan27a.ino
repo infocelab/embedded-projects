@@ -10,10 +10,10 @@
  //  define names for the 4 Digital pins On the Arduino 7,8,9,10
  //  These data pins link to 4 Relay board pins IN1, IN2, IN3, IN4
 
-#define RELAY1  6                        
-#define RELAY2  7                        
-#define RELAY3  8                        
-#define RELAY4  9
+#define RELAY1  8                      
+#define RELAY2  9                      
+#define RELAY3  10                      
+#define RELAY4  11
  
 void setup()
 {    
