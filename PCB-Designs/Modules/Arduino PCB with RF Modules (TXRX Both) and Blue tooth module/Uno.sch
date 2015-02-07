@@ -8381,7 +8381,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="R2" library="rcl" deviceset="R-EU_" device="0207/10" value="330R"/>
 <part name="C1" library="capacitor-wima" deviceset="C" device="2.5/2" value="22pf"/>
 <part name="C2" library="capacitor-wima" deviceset="C" device="2.5/2" value="22pf"/>
-<part name="C3" library="capacitor-wima" deviceset="C" device="2.5/2" value="100UF"/>
+<part name="C3" library="capacitor-wima" deviceset="C" device="2.5/2" value="470UF"/>
 <part name="C4" library="capacitor-wima" deviceset="C" device="2.5/2" value="0.1uf"/>
 <part name="C5" library="capacitor-wima" deviceset="C" device="2.5/2" value="0.1uf"/>
 <part name="C6" library="capacitor-wima" deviceset="C" device="2.5/2" value="4.7uf"/>
@@ -8825,26 +8825,26 @@ Source: 008-0260-0_E.pdf</description>
 </net>
 <net name="N$17" class="0">
 <segment>
-<pinref part="BLUETOOTH" gate="G$1" pin="4"/>
-<wire x1="12.7" y1="53.34" x2="38.1" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="53.34" x2="38.1" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="50.8" x2="68.58" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="50.8" x2="12.7" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="OUT"/>
 <junction x="68.58" y="50.8"/>
+<wire x1="12.7" y1="50.8" x2="68.58" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="50.8" x2="71.12" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="BLUETOOTH" gate="G$1" pin="3"/>
+<junction x="12.7" y="50.8"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
-<pinref part="BLUETOOTH" gate="G$1" pin="3"/>
-<wire x1="12.7" y1="50.8" x2="30.48" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="50.8" x2="30.48" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="53.34" x2="30.48" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="40.64" x2="40.64" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="40.64" x2="40.64" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="53.34" x2="68.58" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="AIN"/>
 <junction x="68.58" y="53.34"/>
 <wire x1="68.58" y1="53.34" x2="71.12" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="BLUETOOTH" gate="G$1" pin="4"/>
+<wire x1="12.7" y1="53.34" x2="30.48" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
