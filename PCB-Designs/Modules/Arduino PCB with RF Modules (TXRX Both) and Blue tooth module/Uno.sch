@@ -8490,14 +8490,6 @@ Source: 008-0260-0_E.pdf</description>
 <junction x="20.32" y="66.04"/>
 <junction x="27.94" y="66.04"/>
 <wire x1="15.24" y1="58.42" x2="15.24" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="C2" gate="G$1" pin="1"/>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="15.24" y1="48.26" x2="15.24" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="33.02" x2="35.56" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="27.94" x2="38.1" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="15.24" y1="33.02" x2="20.32" y2="33.02" width="0.1524" layer="91"/>
-<junction x="35.56" y="33.02"/>
-<wire x1="20.32" y1="33.02" x2="35.56" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="63.5" x2="50.8" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="C6" gate="G$1" pin="2"/>
 <wire x1="50.8" y1="63.5" x2="50.8" y2="71.12" width="0.1524" layer="91"/>
@@ -8519,23 +8511,6 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="88.9" y1="50.8" x2="76.2" y2="50.8" width="0.1524" layer="91"/>
 <junction x="96.52" y="40.64"/>
 <junction x="45.72" y="63.5"/>
-<pinref part="S1" gate="1" pin="4"/>
-<wire x1="20.32" y1="45.72" x2="20.32" y2="33.02" width="0.1524" layer="91"/>
-<junction x="20.32" y="45.72"/>
-<junction x="20.32" y="33.02"/>
-<wire x1="20.32" y1="33.02" x2="20.32" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="LED2" gate="G$1" pin="C"/>
-<wire x1="20.32" y1="15.24" x2="30.48" y2="15.24" width="0.1524" layer="91"/>
-<junction x="45.72" y="15.24"/>
-<pinref part="JP8" gate="1" pin="1"/>
-<wire x1="30.48" y1="15.24" x2="33.02" y2="15.24" width="0.1524" layer="91"/>
-<junction x="30.48" y="15.24"/>
-<pinref part="JP8" gate="1" pin="2"/>
-<wire x1="33.02" y1="15.24" x2="35.56" y2="15.24" width="0.1524" layer="91"/>
-<junction x="33.02" y="15.24"/>
-<pinref part="JP8" gate="1" pin="3"/>
-<wire x1="35.56" y1="15.24" x2="45.72" y2="15.24" width="0.1524" layer="91"/>
-<junction x="35.56" y="15.24"/>
 <pinref part="IC1" gate="G$1" pin="VSS"/>
 <wire x1="68.58" y1="38.1" x2="76.2" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="38.1" x2="76.2" y2="50.8" width="0.1524" layer="91"/>
@@ -8559,6 +8534,31 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="BLUETOOTH" gate="G$1" pin="2"/>
 <wire x1="12.7" y1="48.26" x2="7.62" y2="48.26" width="0.1524" layer="91"/>
 <junction x="12.7" y="48.26"/>
+<pinref part="LED2" gate="G$1" pin="C"/>
+<junction x="45.72" y="15.24"/>
+<pinref part="JP8" gate="1" pin="3"/>
+<wire x1="35.56" y1="15.24" x2="45.72" y2="15.24" width="0.1524" layer="91"/>
+<junction x="35.56" y="15.24"/>
+<pinref part="JP8" gate="1" pin="2"/>
+<wire x1="33.02" y1="15.24" x2="35.56" y2="15.24" width="0.1524" layer="91"/>
+<junction x="33.02" y="15.24"/>
+<pinref part="JP8" gate="1" pin="1"/>
+<wire x1="30.48" y1="15.24" x2="33.02" y2="15.24" width="0.1524" layer="91"/>
+<junction x="30.48" y="15.24"/>
+<pinref part="C2" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="27.94" x2="38.1" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="C1" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="33.02" x2="35.56" y2="27.94" width="0.1524" layer="91"/>
+<junction x="35.56" y="33.02"/>
+<wire x1="15.24" y1="33.02" x2="20.32" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="33.02" x2="35.56" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="S1" gate="1" pin="4"/>
+<junction x="20.32" y="45.72"/>
+<wire x1="20.32" y1="45.72" x2="20.32" y2="33.02" width="0.1524" layer="91"/>
+<junction x="20.32" y="33.02"/>
+<wire x1="20.32" y1="33.02" x2="20.32" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="15.24" x2="30.48" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="48.26" x2="15.24" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -8633,6 +8633,12 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="TX" gate="G$1" pin="1"/>
 <junction x="96.52" y="83.82"/>
 <junction x="114.3" y="71.12"/>
+<wire x1="55.88" y1="86.36" x2="55.88" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="93.98" x2="0" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="0" y1="93.98" x2="0" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="BLUETOOTH" gate="G$1" pin="1"/>
+<wire x1="0" y1="45.72" x2="12.7" y2="45.72" width="0.1524" layer="91"/>
+<junction x="12.7" y="45.72"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -8812,17 +8818,6 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="55.88" y1="15.24" x2="53.34" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="BLUETOOTH" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="45.72" x2="17.78" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="45.72" x2="17.78" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="48.26" x2="20.32" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="S1" gate="1" pin="3"/>
-<junction x="20.32" y="48.26"/>
-<wire x1="20.32" y1="48.26" x2="22.86" y2="48.26" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$17" class="0">
 <segment>
 <wire x1="10.16" y1="50.8" x2="12.7" y2="50.8" width="0.1524" layer="91"/>
@@ -8845,6 +8840,12 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="68.58" y1="53.34" x2="71.12" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="BLUETOOTH" gate="G$1" pin="4"/>
 <wire x1="12.7" y1="53.34" x2="30.48" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="S1" gate="1" pin="3"/>
+<wire x1="20.32" y1="48.26" x2="22.86" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
