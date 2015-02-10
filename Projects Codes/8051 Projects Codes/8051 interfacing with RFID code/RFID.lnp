@@ -1,4 +1,0 @@
-"STARTUP.obj",
-"RFID1.obj" 
-TO "RFID" 
-RAMSIZE(256) 
