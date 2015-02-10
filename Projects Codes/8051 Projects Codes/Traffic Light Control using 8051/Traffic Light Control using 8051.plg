@@ -1,0 +1,166 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\celabcode\Embedded-Projects\8051 Projects Codes\Traffic Light Control using 8051\Traffic Light Control using 8051.uvproj
+Project File Date:  01/24/2015
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+Traffic Light Control using 8051.c(2): error C141: syntax error near 'r0', expected '='
+Traffic Light Control using 8051.c(2): error C202: 'r0': undefined identifier
+Traffic Light Control using 8051.c(3): error C141: syntax error near 'y0', expected '='
+Traffic Light Control using 8051.c(4): error C141: syntax error near 'g0', expected '='
+Traffic Light Control using 8051.c(5): error C141: syntax error near 'r1', expected '='
+Traffic Light Control using 8051.c(6): error C141: syntax error near 'y1', expected '='
+Traffic Light Control using 8051.c(7): error C141: syntax error near 'g1', expected '='
+Traffic Light Control using 8051.c(8): error C141: syntax error near 'r2', expected '='
+Traffic Light Control using 8051.c(9): error C141: syntax error near 'y2', expected '='
+Traffic Light Control using 8051.c(10): error C141: syntax error near 'g2', expected '='
+Traffic Light Control using 8051.c(11): error C141: syntax error near 'r3', expected '='
+Traffic Light Control using 8051.c(12): error C141: syntax error near 'y3', expected '='
+Traffic Light Control using 8051.c(13): error C141: syntax error near 'g3', expected '='
+Traffic Light Control using 8051.c(27): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(27): error C141: syntax error near 'r0'
+Traffic Light Control using 8051.c(28): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(28): error C141: syntax error near 'y2'
+Traffic Light Control using 8051.c(29): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(29): error C141: syntax error near 'g3'
+Traffic Light Control using 8051.c(30): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(30): error C141: syntax error near 'r0'
+Traffic Light Control using 8051.c(33): error C202: 'ledr0': undefined identifier
+Traffic Light Control using 8051.c(34): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(34): error C141: syntax error near 'y3'
+Traffic Light Control using 8051.c(35): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(35): error C141: syntax error near 'g2'
+Traffic Light Control using 8051.c(36): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(36): error C141: syntax error near 'r1'
+Traffic Light Control using 8051.c(38): error C202: 'ledr3': undefined identifier
+Traffic Light Control using 8051.c(39): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(39): error C141: syntax error near 'y0'
+Traffic Light Control using 8051.c(40): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(40): error C141: syntax error near 'g1'
+Traffic Light Control using 8051.c(41): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(41): error C141: syntax error near 'r2'
+Traffic Light Control using 8051.c(44): error C202: 'ledr2': undefined identifier
+Traffic Light Control using 8051.c(45): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(45): error C141: syntax error near 'y1'
+Traffic Light Control using 8051.c(46): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(46): error C141: syntax error near 'g0'
+Traffic Light Control using 8051.c(47): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(47): error C141: syntax error near 'r3'
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+Traffic Light Control using 8051.c(2): error C141: syntax error near 'r0', expected '='
+Traffic Light Control using 8051.c(2): error C202: 'r0': undefined identifier
+Traffic Light Control using 8051.c(3): error C141: syntax error near 'y0', expected '='
+Traffic Light Control using 8051.c(4): error C141: syntax error near 'g0', expected '='
+Traffic Light Control using 8051.c(5): error C141: syntax error near 'r1', expected '='
+Traffic Light Control using 8051.c(6): error C141: syntax error near 'y1', expected '='
+Traffic Light Control using 8051.c(7): error C141: syntax error near 'g1', expected '='
+Traffic Light Control using 8051.c(8): error C141: syntax error near 'r2', expected '='
+Traffic Light Control using 8051.c(9): error C141: syntax error near 'y2', expected '='
+Traffic Light Control using 8051.c(10): error C141: syntax error near 'g2', expected '='
+Traffic Light Control using 8051.c(11): error C141: syntax error near 'r3', expected '='
+Traffic Light Control using 8051.c(12): error C141: syntax error near 'y3', expected '='
+Traffic Light Control using 8051.c(13): error C141: syntax error near 'g3', expected '='
+Traffic Light Control using 8051.c(27): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(27): error C141: syntax error near 'r0'
+Traffic Light Control using 8051.c(28): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(28): error C141: syntax error near 'y2'
+Traffic Light Control using 8051.c(29): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(29): error C141: syntax error near 'g3'
+Traffic Light Control using 8051.c(30): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(30): error C141: syntax error near 'r0'
+Traffic Light Control using 8051.c(33): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(33): error C141: syntax error near 'r0'
+Traffic Light Control using 8051.c(34): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(34): error C141: syntax error near 'y3'
+Traffic Light Control using 8051.c(35): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(35): error C141: syntax error near 'g2'
+Traffic Light Control using 8051.c(36): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(36): error C141: syntax error near 'r1'
+Traffic Light Control using 8051.c(38): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(38): error C141: syntax error near 'r3'
+Traffic Light Control using 8051.c(39): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(39): error C141: syntax error near 'y0'
+Traffic Light Control using 8051.c(40): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(40): error C141: syntax error near 'g1'
+Traffic Light Control using 8051.c(41): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(41): error C141: syntax error near 'r2'
+Traffic Light Control using 8051.c(44): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(44): error C141: syntax error near 'r2'
+Traffic Light Control using 8051.c(45): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(45): error C141: syntax error near 'y1'
+Traffic Light Control using 8051.c(46): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(46): error C141: syntax error near 'g0'
+Traffic Light Control using 8051.c(47): error C202: 'led': undefined identifier
+Traffic Light Control using 8051.c(47): error C141: syntax error near 'r3'
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+linking...
+Program Size: data=9.0 xdata=0 code=104
+"Traffic Light Control using 8051" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+linking...
+Program Size: data=9.0 xdata=0 code=104
+creating hex file from "Traffic Light Control using 8051"...
+"Traffic Light Control using 8051" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+linking...
+Program Size: data=9.0 xdata=0 code=102
+creating hex file from "Traffic Light Control using 8051"...
+"Traffic Light Control using 8051" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+linking...
+Program Size: data=9.0 xdata=0 code=103
+creating hex file from "Traffic Light Control using 8051"...
+"Traffic Light Control using 8051" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+linking...
+Program Size: data=9.0 xdata=0 code=102
+creating hex file from "Traffic Light Control using 8051"...
+"Traffic Light Control using 8051" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+linking...
+Program Size: data=9.0 xdata=0 code=102
+creating hex file from "Traffic Light Control using 8051"...
+"Traffic Light Control using 8051" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+linking...
+Program Size: data=9.0 xdata=0 code=146
+creating hex file from "Traffic Light Control using 8051"...
+"Traffic Light Control using 8051" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+linking...
+Program Size: data=9.0 xdata=0 code=150
+creating hex file from "Traffic Light Control using 8051"...
+"Traffic Light Control using 8051" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling Traffic Light Control using 8051.c...
+linking...
+Program Size: data=9.0 xdata=0 code=160
+creating hex file from "Traffic Light Control using 8051"...
+"Traffic Light Control using 8051" - 0 Error(s), 0 Warning(s).

@@ -1,0 +1,207 @@
+D:\Proj\C#\WeatherLogger\WeatherLogger\obj\Debug\ResolveAssemblyReference.cache
+D:\Proj\C#\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.FormMain.resources
+D:\Proj\C#\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.Properties.Resources.resources
+D:\Proj\C#\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.csproj.GenerateResource.Cache
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\WeatherLogger.exe
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\WeatherLogger.pdb
+D:\Proj\C#\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.exe
+D:\Proj\C#\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.pdb
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\ZedGraph.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\ZedGraph.Web.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\ZedGraph.xml
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\ZedGraph.Web.xml
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\de\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\es\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\fr\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\hu\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\it\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\ja\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\pt\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\ru\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\sk\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\sv\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\tr\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\zh-cn\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\zh-tw\ZedGraph.resources.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\AquaGauge.dll
+D:\Proj\C#\WeatherLogger\WeatherLogger\bin\Debug\AquaGauge.pdb
+D:\Proj\C#\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.DateSelector.resources
+D:\Proj\CS\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.exe
+D:\Proj\CS\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.pdb
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\WeatherLogger.exe
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\WeatherLogger.pdb
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\ZedGraph.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\ZedGraph.xml
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\AquaGauge.pdb
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\de\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\es\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\fr\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\hu\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\it\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\ja\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\pt\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\ru\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\sk\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\sv\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\tr\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\zh-cn\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\zh-tw\ZedGraph.resources.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\obj\Debug\ResolveAssemblyReference.cache
+D:\Proj\CS\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.DateSelector.resources
+D:\Proj\CS\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.FormMain.resources
+D:\Proj\CS\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.Properties.Resources.resources
+D:\Proj\CS\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.csproj.GenerateResource.Cache
+D:\Proj\CS\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.Preferences.resources
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\LED.dll
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\LED.pdb
+D:\Proj\CS\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.AboutBox.resources
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\WeatherLogger.exe.config
+D:\Proj\CS\WeatherLogger\WeatherLogger\bin\Debug\AquaGauge.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\WeatherLogger.exe.config
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\WeatherLogger.exe
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\WeatherLogger.pdb
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\ZedGraph.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\ZedGraph.xml
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\de\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\es\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\fr\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\hu\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\it\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\ja\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\pt\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\ru\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\sk\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\sv\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\tr\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\zh-cn\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\bin\Debug\zh-tw\ZedGraph.resources.dll
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\obj\Debug\ResolveAssemblyReference.cache
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.AboutBox.resources
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.DateSelector.resources
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.FormMain.resources
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.Preferences.resources
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.Properties.Resources.resources
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\obj\Debug\ResGen.read.1.tlog
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\obj\Debug\ResGen.write.1.tlog
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.exe
+F:\weather\Source\PC\WeatherLogger\WeatherLogger\obj\Debug\WeatherLogger.pdb
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.exe.config
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.exe
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.pdb
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.exe
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.pdb
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ZedGraph.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ZedGraph.xml
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\de\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\es\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\fr\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\hu\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\it\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ja\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\pt\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ru\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\sk\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\sv\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\tr\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\zh-cn\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\zh-tw\ZedGraph.resources.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csprojResolveAssemblyReference.cache
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.AboutBox.resources
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.DateSelector.resources
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.FormMain.resources
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.Preferences.resources
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.Properties.Resources.resources
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csproj.GenerateResource.Cache
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csproj.ResolveComReference.cache
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\Interop.LCC11.dll
+E:\celab\Weather logger\Weather logger\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\Interop.LCC11.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.exe.config
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\Interop.LCC11.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csproj.ResolveComReference.cache
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.exe
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.pdb
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ZedGraph.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ZedGraph.xml
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\de\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\es\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\fr\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\hu\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\it\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ja\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\pt\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ru\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\sk\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\sv\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\tr\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\zh-cn\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\zh-tw\ZedGraph.resources.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\Interop.LCC11.dll
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csprojResolveAssemblyReference.cache
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.AboutBox.resources
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.DateSelector.resources
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.FormMain.resources
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.Preferences.resources
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.Properties.Resources.resources
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csproj.GenerateResource.Cache
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.exe
+D:\PEL\EFY\CELAB\SVN\CelabCode\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.pdb
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.exe.config
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\Interop.LCC11.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csproj.ResolveComReference.cache
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.exe
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.pdb
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.exe
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.pdb
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ZedGraph.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ZedGraph.xml
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\de\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\es\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\fr\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\hu\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\it\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ja\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\pt\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ru\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\sk\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\sv\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\tr\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\zh-cn\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\zh-tw\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\Interop.LCC11.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csprojResolveAssemblyReference.cache
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.AboutBox.resources
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.DateSelector.resources
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.FormMain.resources
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.Preferences.resources
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.Properties.Resources.resources
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\Major Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csproj.GenerateResource.Cache
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.exe.config
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\Interop.LCC11.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csproj.ResolveComReference.cache
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.exe
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.pdb
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.exe
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\WeatherLogger.pdb
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ZedGraph.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ZedGraph.xml
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\de\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\es\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\fr\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\hu\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\it\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ja\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\pt\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\ru\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\sk\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\sv\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\tr\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\zh-cn\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\zh-tw\ZedGraph.resources.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\bin\Debug\Interop.LCC11.dll
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csprojResolveAssemblyReference.cache
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.AboutBox.resources
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.DateSelector.resources
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.FormMain.resources
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.Preferences.resources
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.Properties.Resources.resources
+E:\celab\SVN CELAB\CelabCodeAll\Embedded-Projects\8051 Projects Codes\Home Security System\HomeSecuritySystem\Weather-logger tested\PC Interface\WeatherLogger\obj\Debug\WeatherLogger.csproj.GenerateResource.Cache

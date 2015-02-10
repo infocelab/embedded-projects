@@ -1,0 +1,23 @@
+     	COMPONENT 
+
+NAME                       Value       
+BATTERY-1 				 9V          
+BATTERY-2 				 9V           
+C1       				 100uf                                                                                                                                          
+C2                           .01uf       
+D1                           1N4007      
+IC1                          NE555      
+IC2                          7805T       
+IR1                         TSOP1730TB1 
+LED1                         5MM                                                                                                                                                 
+LED2                         5MM             
+MOTOR                 
+T2                           BC557       
+R1                           220E        
+R2                           10K         
+R3                            1K          
+R4                          220E        
+R6                          10K         
+T1                          BC547       
+IC                          IC4017                             
+VR                          100K        
