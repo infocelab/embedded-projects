@@ -1,4 +1,0 @@
-"STARTUP.obj",
-"Stepper Motor.obj" 
-TO "Stepper Motor" 
-RAMSIZE(256) 

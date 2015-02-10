@@ -1,4 +1,0 @@
-"STARTUP.obj",
-"Traffic Light Control using 8051.obj" 
-TO "Traffic Light Control using 8051" 
-RAMSIZE(256) 

@@ -1,4 +1,0 @@
-"STARTUP.obj",
-"cals.obj" 
-TO "cals" 
-RAMSIZE(256) 

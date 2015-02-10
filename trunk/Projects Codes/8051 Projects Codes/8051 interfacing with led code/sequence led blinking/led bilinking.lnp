@@ -1,4 +1,0 @@
-"STARTUP.obj",
-"led bilinking.obj" 
-TO "led bilinking" 
-RAMSIZE(256) 
