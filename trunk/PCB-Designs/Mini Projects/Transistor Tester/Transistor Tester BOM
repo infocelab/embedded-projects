@@ -1,0 +1,20 @@
+Partlist exported from E:/celabcode/PCB-Designs/Mini Projects/Transistor Tester/Transistor Tester.sch at 12/19/2014 1:17:26 PM
+
+Part    Value         Device      Package Description               MF MPN OC_FARNELL OC_NEWARK
+BATTERY 9V            AB9V        AB9V    9-V BATTERY CLIP                                     
+C1      100uf         C2.5/6      C2.5-6  CAPACITOR                                            
+C2      0.01uf        C2.5/6      C2.5-6  CAPACITOR                                            
+D1      1N4007        1N4004      DO41-10 DIODE                                                
+D2      1N4007        1N4004      DO41-10 DIODE                                                
+D3      1N4007        1N4004      DO41-10 DIODE                                                
+D4      1N4007        1N4004      DO41-10 DIODE                                                
+IC2     CD4011        DG200ACJ    DIL14   ANALOG SWITCH                    unknown    77C6395  
+LED1    5mm           LED5MM      LED5MM  LED                                                  
+LED2    5mm           LED5MM      LED5MM  LED                                                  
+R1      220E          R-EU_0204/7 0204/7  RESISTOR, European symbol                            
+R2      220E          R-EU_0204/7 0204/7  RESISTOR, European symbol                            
+R3      330E          R-EU_0204/7 0204/7  RESISTOR, European symbol                            
+R4      1M            R-EU_0204/7 0204/7  RESISTOR, European symbol                            
+R5      1M            R-EU_0204/7 0204/7  RESISTOR, European symbol                            
+SL1     3 pin         M03         03P     AMP QUICK CONNECTOR              unknown    unknown  
+SW1     on/off switch SW_DIP-3    EDG-03  DIP SWITCH                                           

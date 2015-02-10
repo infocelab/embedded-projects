@@ -1,0 +1,11 @@
+Partlist exported from D:/egle project/melody generator/melody generator.sch at 12/18/2014 2:52:21 PM
+
+Part    Value         Device      Package Description               
+BATTERY A9V           AB9V        AB9V    9-V BATTERY CLIP          
+C1      0.1uf         C2.5/2      C2.5-2  CAPACITOR                 
+IC1     7805          78XXL       78XXL   VOLTAGE REGULATOR         
+IC2     UM66          79LXX       79LXX   VOLTAGE REGULATOR         
+JP1     spekar        JP1E        JP1     JUMPER                    
+R1      4.7k          R-EU_0204/7 0204/7  RESISTOR, European symbol 
+SW1     on/off switch SW_DIP-3    EDG-03  DIP SWITCH                
+T1      BC547         BC547       TO92    NPN TRANSISTOR            

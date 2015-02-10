@@ -1,0 +1,78 @@
+C51 COMPILER V9.52.0.0   RS232                                                             12/13/2014 13:41:57 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE RS232
+OBJECT MODULE PLACED IN rs232.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE rs232.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          
+   2          #include <reg52.h>                /* special function register declarations   */
+   3                                                                 /* for the intended 8051 derivative         */
+   4          
+   5          #include <stdio.h>                    /* prototype declarations for I/O functions */
+   6          sbit led1=P2^0;
+   7          
+   8          
+   9          void Delay();                            //advance declaration of function 
+  10          
+  11          /*------------------------------------------------
+  12          The main C function.  Program execution starts
+  13          here after stack initialization.
+  14          ------------------------------------------------*/
+  15          void main (void) {
+  16   1      
+  17   1      /*------------------------------------------------
+  18   1      Setup the serial port for 2400 baud at 11.0592MHz.
+  19   1      ------------------------------------------------*/
+  20   1      
+  21   1          SCON  = 0x50;                /* SCON: mode 1, 8-bit UART, enable rcvr      */
+  22   1          TMOD |= 0x20;               /* TMOD: timer 1, mode 2, 8-bit reload        */
+  23   1          TH1   = 244;                /* TH1:  reload value for 2400 baud @ 11.0592MHz   */
+  24   1          TR1   = 1;                  /* TR1:  timer 1 run                          */
+  25   1          TI    = 1;                  /* TI:   set TI to send first char of UART    */
+  26   1      P2=0x00;
+  27   1      
+  28   1      /*------------------------------------------------
+  29   1      Note that an embedded program never exits (because
+  30   1      there is no operating system to return to).  It
+  31   1      must loop and execute forever.
+  32   1      ------------------------------------------------*/
+  33   1        while (1) {   
+  34   2          
+  35   2            
+  36   2          printf ("Hello World\n");     /* Print "Hello World" */   
+  37   2      led1=1;   
+  38   2          Delay(); 
+  39   2          led1=0;
+  40   2          Delay();
+  41   2          
+  42   2          Delay();
+  43   2        }
+  44   1      }
+  45          
+  46          void Delay(void)
+  47          {
+  48   1          int j;
+  49   1          
+  50   1              for(j=0;j<10000;j++)
+  51   1              {
+  52   2              }
+  53   1      }
+
+
+C51 COMPILER V9.52.0.0   RS232                                                             12/13/2014 13:41:57 PAGE 2   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     55    ----
+   CONSTANT SIZE    =     13    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

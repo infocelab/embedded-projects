@@ -1,0 +1,10 @@
+Partlist exported from G:/Celabcode/projects/PCB-Designs/Modules/ADC Module/adc module.sch at 1/13/2015 1:53:52 PM
+
+Part       Value   Device      Package  Description               MF    MPN        OC_FARNELL OC_NEWARK
+C1         150pf   C2.5/4      C2.5-4   CAPACITOR                                                      
+CONNECTOR1 3 pin   M03         03P      AMP QUICK CONNECTOR                        unknown    unknown  
+CONNECTOR2 12 pin  M12         12P      AMP QUICK CONNECTOR                        unknown    unknown  
+IC1        ADC0804 MAX333ACPP  DIL20    ANALOG SWITCH             MAXIM MAX333ACPP unknown    77C9354  
+LM35       3 pin   M03         03P      AMP QUICK CONNECTOR                        unknown    unknown  
+R1         10K     R-EU_0204/7 0204/7   RESISTOR, European symbol                                      
+R2         10K     R-TRIMM74W  RTRIM74W Trimm resistor                                                 

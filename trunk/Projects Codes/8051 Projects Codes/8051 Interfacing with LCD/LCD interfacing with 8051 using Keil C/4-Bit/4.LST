@@ -1,0 +1,80 @@
+C51 COMPILER V9.51   4                                                                     05/08/2013 01:15:40 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE 4
+OBJECT MODULE PLACED IN 4.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 4.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg52.h>              //including sfr registers for ports of the controller
+   2          #include<lcd.h>
+   3          
+   4          //LCD Module Connections
+   5          sbit RS = P0^0;                                                                   
+   6          sbit EN = P0^1;                            
+   7          sbit D4 = P2^4;
+   8          sbit D5 = P2^5;
+   9          sbit D6 = P2^6;
+  10          sbit D7 = P2^7;
+  11          //End LCD Module Connections
+  12          void Delay(int a)
+  13          {
+  14   1          int j;
+  15   1          int i;
+  16   1          for(i=0;i<a;i++)
+  17   1          {
+  18   2              for(j=0;j<100;j++)
+  19   2              {
+  20   3              }
+  21   2          }
+  22   1      }
+  23          void main()
+  24          {
+  25   1        int i;
+  26   1        Lcd4_init();                                  
+*** WARNING C206 IN LINE 26 OF 4.c: 'Lcd4_init': missing function-prototype
+  27   1        while(1)
+  28   1        {                                   
+  29   2          Lcd4_Set_Cursor(1,1);
+  30   2          Lcd4_Write_String("electroSome LCD Hello World");
+  31   2          for(i=0;i<15;i++)
+  32   2          {
+  33   3            Delay(1000);
+  34   3            Lcd4_Shift_Left();
+  35   3          }
+  36   2          
+  37   2          for(i=0;i<15;i++)
+  38   2          {
+  39   3            Delay(1000);
+  40   3            Lcd4_Shift_Right();
+  41   3          }
+  42   2          Lcd4_Clear();
+  43   2          Lcd4_Set_Cursor(2,1);
+  44   2          Lcd4_Write_Char('e');
+  45   2          Lcd4_Write_Char('S');
+  46   2          Delay(2000);
+  47   2        }
+  48   1      }
+  49          
+  50          
+  51          
+  52          
+*** WARNING C290 IN LINE 83 OF 4.c: missing return value
+*** WARNING C290 IN LINE 175 OF 4.c: missing return value
+C51 COMPILER V9.51   4                                                                     05/08/2013 01:15:40 PAGE 2   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    702    ----
+   CONSTANT SIZE    =     28    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      15
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  3 WARNING(S),  0 ERROR(S)

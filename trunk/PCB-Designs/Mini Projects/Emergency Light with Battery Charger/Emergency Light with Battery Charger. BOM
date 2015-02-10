@@ -1,0 +1,25 @@
+Partlist exported from E:/celabcode/Embedded-Projects/PCB-Designs/Mini Projects/Emergency Light with Battery Charger/Emergency Light with Battery Charger.sch at 12/26/2014 6:22:12 PM
+
+Part  Value        Device      Package Description               MF MPN OC_FARNELL OC_NEWARK
+C1    100uf        C2.5/5      C2.5-5  CAPACITOR                                            
+D1    1N4007       1N4004      DO41-10 DIODE                                                
+D2    1N4007       1N4004      DO41-10 DIODE                                                
+D3    1N4007       1N4004      DO41-10 DIODE                                                
+JP1   ac connector JP1E        JP1     JUMPER                                               
+JP2   ac connector JP1E        JP1     JUMPER                                               
+JP3   battery      JP1E        JP1     JUMPER                                               
+LED1  5mm          LED5MM      LED5MM  LED                                                  
+LED2  5mm          LED5MM      LED5MM  LED                                                  
+LED3  5mm          LED5MM      LED5MM  LED                                                  
+LED4  5mm          LED5MM      LED5MM  LED                                                  
+LED5  5mm          LED5MM      LED5MM  LED                                                  
+LED6  5mm          LED5MM      LED5MM  LED                                                  
+LED7  3mm          LED3MM      LED3MM  LED                                                  
+LED8  3mm          LED3MM      LED3MM  LED                                                  
+R1    100E         R-EU_0204/7 0204/7  RESISTOR, European symbol                            
+R2    47E          R-EU_0204/7 0204/7  RESISTOR, European symbol                            
+R3    330E         R-EU_0204/7 0204/7  RESISTOR, European symbol                            
+R4    330E         R-EU_0204/7 0204/7  RESISTOR, European symbol                            
+RELAY 6V           G5L         G5LE    RELAY                            unknown    unknown  
+T1    BD139        BD139       TO126   NPN TRANSISTOR                                       
+ZD    6.8 V        ZPD         DO35Z10 Z DIODE                                              

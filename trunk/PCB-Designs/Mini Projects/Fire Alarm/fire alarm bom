@@ -1,0 +1,15 @@
+Partlist exported from D:/egle project/fire alarm egle design/fire alarm.sch at 12/16/2014 12:10:07 PM
+
+Part   Value   Device        Package  Description                   MF                MPN    OC_FARNELL OC_NEWARK SPICEMODEL SPICEPREFIX
+BUZZER B/C11L  B/C11L        B/C11L   BUZZER Source: Buerklin                                unknown    unknown                         
+D1     1N4007S 1N4148DO35-10 DO35-10  DIODE                                                                                             
+G1     AB9V    AB9V          AB9V     9-V BATTERY CLIP                                                                                  
+IC1    LM358   NE555         DIL-08   General purpose bipolar Timer Arrow Electronics NE555N 1467742    89K1486                         
+LED1   5mm     LED5MM        LED5MM   LED                                                                                               
+R1     10k     R0204/7       0204/7   RESISTOR, European symbol                                                   NONE       R          
+R2     500K    R-TRIMM64P    RTRIM64P Trimm resistor                                                                                    
+R3     10K     R0204/7       0204/7   RESISTOR, European symbol                                                   NONE       R          
+R4     220E    R0204/7       0204/7   RESISTOR, European symbol                                                   NONE       R          
+R5     100K    R0204/7       0204/7   RESISTOR, European symbol                                                   NONE       R          
+SL1    NTC104  M02           02P      AMP QUICK CONNECTOR                                    unknown    unknown                         
+T2     BC547   BC547         TO92     NPN TRANSISTOR                                                                                    

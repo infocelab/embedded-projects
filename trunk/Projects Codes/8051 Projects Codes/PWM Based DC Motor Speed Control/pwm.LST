@@ -1,0 +1,107 @@
+C51 COMPILER V9.52.0.0   PWM                                                               12/27/2014 11:51:24 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE PWM
+OBJECT MODULE PLACED IN pwm.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE pwm.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<regx52.h>
+   2          //Global variables and definition
+   3          sbit PWMPIN=P2^7;
+   4          sbit INC=P3^0;
+   5          sbit led_INC=P2^1;
+   6          sbit DEC=P3^1;
+   7          sbit led_DEC=P2^0;
+   8          unsigned char pwm_width;
+   9          bit pwm_flag = 0;
+  10           
+  11          void pwm_setup()
+  12          {
+  13   1      TMOD=0x20;
+  14   1      pwm_width = 0;
+  15   1      EA = 1;
+  16   1      ET0 = 1;
+  17   1      TR0 = 1;
+  18   1      }
+  19           
+  20          void timer0() interrupt 1
+  21          {
+  22   1        if(!pwm_flag)
+  23   1          {             
+  24   2           //Start of High level
+  25   2          pwm_flag = 1;   //Set flag
+  26   2          PWMPIN = 1;     //Set PWM o/p pin
+  27   2          TH0 = pwm_width;          //Load timer
+  28   2          TF0 = 0;                 //Clear interrupt flag
+  29   2          return;                  //Return
+  30   2           }
+  31   1            else
+  32   1           {   //Start of Low level
+  33   2            pwm_flag = 0;   //Clear flag
+  34   2            PWMPIN = 0;     //Clear PWM o/p pin
+  35   2            TH0 = 255 - pwm_width;               //Load timer
+  36   2            TF0 = 0; //Clear Interrupt flag
+  37   2            return;  //return
+  38   2            }
+  39   1      }
+  40           
+  41          void delay(unsigned int c1)     // change time in micro seconds
+  42          {
+  43   1        int a;
+  44   1        TH0=0x9B;           // select timer 0 
+  45   1        TL0=0x9B;           // to generate 100 micro second delay
+  46   1        TR0=1;              // start timer              
+  47   1        for(a=0;a<c1;a++)       // rotate loop between 5 to 15
+  48   1          {
+  49   2          while(TF0==0);        // wait until timer overflow
+  50   2          TF0=0;            // reset the flag
+  51   2          }
+  52   1        TR0=0;              // stop timer 
+  53   1      }
+  54          
+  55          void main()
+C51 COMPILER V9.52.0.0   PWM                                                               12/27/2014 11:51:24 PAGE 2   
+
+  56          {
+  57   1        P3=1; // define port 3 as input port
+  58   1        P2=1;
+  59   1        pwm_setup();
+  60   1        P3=0;
+  61   1        INC=1;
+  62   1        DEC=1;
+  63   1        P2_1 =0;
+  64   1        P2_0 = 0;
+  65   1        while(1)
+  66   1        {
+  67   2          if( INC == 0)  // increase the speed
+  68   2          {  
+  69   3              pwm_width++;
+  70   3              if(pwm_width >= 255)
+  71   3                pwm_width=255;
+  72   3          }
+  73   2          if( DEC == 0) // decrease the speed
+  74   2          {
+  75   3              pwm_width--;
+  76   3              if(pwm_width <= 0)
+  77   3                pwm_width=0;
+  78   3          } 
+  79   2          delay(10);
+  80   2       }
+  81   1                     
+  82   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    141    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
