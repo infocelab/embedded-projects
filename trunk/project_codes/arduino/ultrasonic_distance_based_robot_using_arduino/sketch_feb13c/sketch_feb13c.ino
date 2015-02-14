@@ -2,12 +2,12 @@
 #include <NewPing.h>
 
 //Below are the symbolic constants. Instead of having to type in a non-sensical pin number each time we want to do something we can write an easy to understand name which represents the pin, the compiler will then replace the names with the numbers
-#define LeftMotorForward 2
-#define LeftMotorBackward 3
-#define RightMotorForward 5
-#define RightMotorBackward 4
-#define USTrigger 8
-#define USEcho 9
+#define LeftMotorForward 9
+#define LeftMotorBackward 10
+#define RightMotorForward 11
+#define RightMotorBackward 12
+#define USTrigger 7
+#define USEcho 8
 #define MaxDistance 100
 #define LED 13
 
