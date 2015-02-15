@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -6475,7 +6475,7 @@ naming: grid - package width</description>
 <part name="IC1" library="california-micro-devices" deviceset="CM8870C" device="P"/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
 <part name="R2" library="rcl" deviceset="R-EU_" device="0204/7" value="100K"/>
-<part name="C1" library="capacitor-wima" deviceset="C" device="2.5/2" value="0.47uf"/>
+<part name="C1" library="capacitor-wima" deviceset="C" device="2.5/2" value="0.1uf"/>
 <part name="C2" library="capacitor-wima" deviceset="C" device="2.5/2" value="22PF"/>
 <part name="C3" library="capacitor-wima" deviceset="C" device="2.5/2" value="22PF"/>
 <part name="C4" library="capacitor-wima" deviceset="C" device="2.5/2" value="0.1UF"/>
