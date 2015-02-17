@@ -8459,7 +8459,7 @@ cm8870.pdf</description>
 <part name="LED5" library="led" deviceset="LED" device="3MM" value="3mm"/>
 <part name="LED6" library="led" deviceset="LED" device="3MM" value="3mm"/>
 <part name="INPUT" library="con-amp-quick" deviceset="M02" device=""/>
-<part name="R7" library="rcl" deviceset="R-EU_" device="0204/7" value="100K"/>
+<part name="R7" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
 </parts>
 <sheets>
 <sheet>
@@ -9043,13 +9043,15 @@ cm8870.pdf</description>
 </net>
 <net name="N$11" class="0">
 <segment>
-<wire x1="-15.24" y1="63.5" x2="-2.54" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="63.5" x2="-2.54" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="63.5" x2="-2.54" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="139.7" x2="177.8" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="IC4" gate="G$1" pin="Q4"/>
 <pinref part="LED3" gate="G$1" pin="A"/>
 <wire x1="177.8" y1="172.72" x2="170.18" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="139.7" x2="177.8" y2="172.72" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="DA0/ECK"/>
+<junction x="-17.78" y="63.5"/>
 </segment>
 </net>
 </nets>
