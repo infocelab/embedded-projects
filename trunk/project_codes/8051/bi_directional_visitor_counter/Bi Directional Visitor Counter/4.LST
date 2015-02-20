@@ -1,9 +1,9 @@
-C51 COMPILER V9.52.0.0   4                                                                 12/28/2014 16:09:31 PAGE 1   
+C51 COMPILER V9.52.0.0   4                                                                 02/20/2015 01:50:40 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 4
 OBJECT MODULE PLACED IN 4.OBJ
-COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 4.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE 4.c BROWSE DEBUG OBJECTEXTEND TABS(2)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   53   2          case 7:
   54   2          return '7';
   55   2          break;
-C51 COMPILER V9.52.0.0   4                                                                 12/28/2014 16:09:31 PAGE 2   
+C51 COMPILER V9.52.0.0   4                                                                 02/20/2015 01:50:40 PAGE 2   
 
   56   2          case 8:
   57   2          return '8';
@@ -126,7 +126,7 @@ line level    source
  114   2          
  115   2          Lcd8_Set_Cursor(2,2);
  116   2          c=toChar(k);
-C51 COMPILER V9.52.0.0   4                                                                 12/28/2014 16:09:31 PAGE 3   
+C51 COMPILER V9.52.0.0   4                                                                 02/20/2015 01:50:40 PAGE 3   
 
  117   2          Lcd8_Write_Char(c);
  118   2            
