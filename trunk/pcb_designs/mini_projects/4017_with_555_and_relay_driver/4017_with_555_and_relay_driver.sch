@@ -11505,7 +11505,7 @@ naming: grid - package width</description>
 <part name="D4" library="diode" deviceset="1N4004" device="" value="1N4007"/>
 <part name="C3" library="capacitor-wima" deviceset="C" device="5/7.2" value="220uf"/>
 <part name="JP1" library="jumper" deviceset="JP1E" device="" value="transformer"/>
-<part name="IC2" library="maxim" deviceset="MAX341CPE" device=""/>
+<part name="IC2" library="maxim" deviceset="MAX341CPE" device="" value="4017"/>
 <part name="RELAY-1" library="relay" deviceset="G5L" device="" value="12V"/>
 <part name="RELAY-2" library="relay" deviceset="G5L" device="" value="12V"/>
 <part name="JP2" library="jumper" deviceset="JP1E" device="" value="AC CONNECTOR"/>
