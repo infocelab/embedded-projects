@@ -1,0 +1,823 @@
+
+
+HI-TECH Software PICC Macro Assembler V9.50PL2
+                                                      Sat Feb 21 11:53:28 2015
+
+
+     1                           	processor	16F877A
+     2                           	opt	pw 79
+     3                           	psect	text0,local,class=CODE,delta=2
+     4                           	psect	text1,local,class=CODE,delta=2
+     5                           	psect	text2,local,class=CODE,delta=2
+     6                           	psect	text3,local,class=CODE,delta=2
+     7                           	psect	text4,local,class=CODE,delta=2
+     8                           	psect	text5,local,class=CODE,delta=2
+     9                           	psect	text6,local,class=CODE,delta=2
+    10                           	psect	text7,local,class=CODE,delta=2
+    11                           	psect	text8,local,class=CODE,delta=2
+    12                           	psect	text9,local,class=CODE,delta=2
+    13                           	psect	text10,local,class=CODE,delta=2
+    14                           	psect	rbss_0,global,class=BANK0,space=1,delta=
+      +                          1
+    15                           	psect	temp,global,ovrld,class=BANK0,space=1,de
+      +                          lta=1
+    16  0000                     
+    17  0000                     
+    18  0000                     
+    19  0000                     
+    20  0000                     
+    21  0000                     
+    22  0000                     
+    23  0000                     
+    24  0000                     
+    25  0000                     
+    26                           
+    27                           	psect	text0
+    28  04D7                     _PWM_Max_Duty
+    29                           ;pwm example.c: 7: int PWM_Max_Duty()
+    30  04D7  0183               	clrf	3	;select bank 0
+    31  04D8  0820               	movf	_freq,w
+    32  04D9  00F0               	movwf	btemp
+    33  04DA  0821               	movf	_freq+1,w
+    34  04DB  00F1               	movwf	btemp+1
+    35  04DC  0822               	movf	_freq+2,w
+    36  04DD  00F2               	movwf	btemp+2
+    37  04DE  0823               	movf	_freq+3,w
+    38  04DF  00F3               	movwf	btemp+3
+    39  04E0  3002               	movlw	2
+    40  04E1  24CC               	call	alsll
+    41  04E2  0870               	movf	btemp,w
+    42  04E3  00F4               	movwf	btemp+4
+    43  04E4  0871               	movf	btemp+1,w
+    44  04E5  00F5               	movwf	btemp+5
+    45  04E6  0872               	movf	btemp+2,w
+    46  04E7  00F6               	movwf	btemp+6
+    47  04E8  0873               	movf	btemp+3,w
+    48  04E9  00F7               	movwf	btemp+7
+    49  04EA  01F0               	clrf	btemp
+    50  04EB  302D               	movlw	45
+    51  04EC  00F1               	movwf	btemp+1
+    52  04ED  3031               	movlw	49
+    53  04EE  00F2               	movwf	btemp+2
+    54  04EF  3001               	movlw	1
+    55  04F0  00F3               	movwf	btemp+3
+    56  04F1  2741               	call	aldiv
+    57  04F2  0870               	movf	btemp,w
+    58  04F3  00AD               	movwf	?a_PWM_Max_Duty
+    59  04F4  0871               	movf	btemp+1,w
+    60  04F5  00AE               	movwf	?a_PWM_Max_Duty+1
+    61  04F6  0872               	movf	btemp+2,w
+    62  04F7  00AF               	movwf	?a_PWM_Max_Duty+2
+    63  04F8  0873               	movf	btemp+3,w
+    64  04F9  00B0               	movwf	?a_PWM_Max_Duty+3
+    65  04FA  082E               	movf	?a_PWM_Max_Duty+1,w
+    66  04FB  00F1               	movwf	btemp+1
+    67  04FC  082D               	movf	?a_PWM_Max_Duty,w
+    68  04FD  00F0               	movwf	btemp
+    69                           ;pwm example.c: 10: }
+    70  04FE  0008               	return	;W free
+    71  0000                     
+    72                           ;       param _fre assigned to ?_PWM1_Init+0
+    73  0000                     _PWM1_Init$fre	set	?_PWM1_Init
+    74                           
+    75                           	psect	text1
+    76  0529                     _PWM1_Init
+    77                           ;pwm example.c: 12: PWM1_Init(long fre)
+    78  0529  0183               	clrf	3	;select bank 0
+    79  052A  0820               	movf	_freq,w
+    80  052B  00F0               	movwf	btemp
+    81  052C  0821               	movf	_freq+1,w
+    82  052D  00F1               	movwf	btemp+1
+    83  052E  0822               	movf	_freq+2,w
+    84  052F  00F2               	movwf	btemp+2
+    85  0530  0823               	movf	_freq+3,w
+    86  0531  00F3               	movwf	btemp+3
+    87  0532  3002               	movlw	2
+    88  0533  24CC               	call	alsll
+    89  0534  3002               	movlw	2
+    90  0535  24CC               	call	alsll
+    91  0536  0870               	movf	btemp,w
+    92  0537  00F4               	movwf	btemp+4
+    93  0538  0871               	movf	btemp+1,w
+    94  0539  00F5               	movwf	btemp+5
+    95  053A  0872               	movf	btemp+2,w
+    96  053B  00F6               	movwf	btemp+6
+    97  053C  0873               	movf	btemp+3,w
+    98  053D  00F7               	movwf	btemp+7
+    99  053E  01F0               	clrf	btemp
+   100  053F  302D               	movlw	45
+   101  0540  00F1               	movwf	btemp+1
+   102  0541  3031               	movlw	49
+   103  0542  00F2               	movwf	btemp+2
+   104  0543  3001               	movlw	1
+   105  0544  00F3               	movwf	btemp+3
+   106  0545  2741               	call	aldiv
+   107  0546  0370               	decf	btemp,w
+   108  0547  1683               	bsf	3,5
+   109  0548  0092               	movwf	18	;volatile
+   110                           ;pwm example.c: 15: freq = fre;
+   111  0549  1283               	bcf	3,5
+   112  054A  0828               	movf	?_PWM1_Init,w
+   113  054B  00A0               	movwf	_freq
+   114  054C  0829               	movf	?_PWM1_Init+1,w
+   115  054D  00A1               	movwf	_freq+1
+   116  054E  082A               	movf	?_PWM1_Init+2,w
+   117  054F  00A2               	movwf	_freq+2
+   118  0550  082B               	movf	?_PWM1_Init+3,w
+   119  0551  00A3               	movwf	_freq+3
+   120                           ;pwm example.c: 16: }
+   121  0552  0008               	return	;W free
+   122                           
+   123                           	psect	text2
+   124  04FF                     _PWM2_Init
+   125                           ;pwm example.c: 18: PWM2_Init(long fre)
+   126  04FF  0183               	clrf	3	;select bank 0
+   127  0500  0820               	movf	_freq,w
+   128  0501  00F0               	movwf	btemp
+   129  0502  0821               	movf	_freq+1,w
+   130  0503  00F1               	movwf	btemp+1
+   131  0504  0822               	movf	_freq+2,w
+   132  0505  00F2               	movwf	btemp+2
+   133  0506  0823               	movf	_freq+3,w
+   134  0507  00F3               	movwf	btemp+3
+   135  0508  3002               	movlw	2
+   136  0509  24CC               	call	alsll
+   137  050A  3002               	movlw	2
+   138  050B  24CC               	call	alsll
+   139  050C  0870               	movf	btemp,w
+   140  050D  00F4               	movwf	btemp+4
+   141  050E  0871               	movf	btemp+1,w
+   142  050F  00F5               	movwf	btemp+5
+   143  0510  0872               	movf	btemp+2,w
+   144  0511  00F6               	movwf	btemp+6
+   145  0512  0873               	movf	btemp+3,w
+   146  0513  00F7               	movwf	btemp+7
+   147  0514  01F0               	clrf	btemp
+   148  0515  302D               	movlw	45
+   149  0516  00F1               	movwf	btemp+1
+   150  0517  3031               	movlw	49
+   151  0518  00F2               	movwf	btemp+2
+   152  0519  3001               	movlw	1
+   153  051A  00F3               	movwf	btemp+3
+   154  051B  2741               	call	aldiv
+   155  051C  0370               	decf	btemp,w
+   156  051D  1683               	bsf	3,5
+   157  051E  0092               	movwf	18	;volatile
+   158                           ;pwm example.c: 21: freq = fre;
+   159  051F  1283               	bcf	3,5
+   160  0520  0828               	movf	?_PWM2_Init,w
+   161  0521  00A0               	movwf	_freq
+   162  0522  0829               	movf	?_PWM2_Init+1,w
+   163  0523  00A1               	movwf	_freq+1
+   164  0524  082A               	movf	?_PWM2_Init+2,w
+   165  0525  00A2               	movwf	_freq+2
+   166  0526  082B               	movf	?_PWM2_Init+3,w
+   167  0527  00A3               	movwf	_freq+3
+   168                           ;pwm example.c: 22: }
+   169  0528  0008               	return	;W free
+   170                           
+   171                           	psect	text3
+   172  0553                     _PWM1_Duty
+   173                           ;pwm example.c: 24: PWM1_Duty(unsigned int duty
+      +                          )
+   174  0553  3004               	movlw	4
+   175  0554  0183               	clrf	3	;select bank 0
+   176  0555  0229               	subwf	?_PWM1_Duty+1,w
+   177  0556  3000               	movlw	0
+   178  0557  1903               	btfsc	3,2
+   179  0558  0228               	subwf	?_PWM1_Duty,w
+   180  0559  1803               	btfsc	3,0
+   181  055A  0008               	return
+   182                           ;pwm example.c: 27: {
+   183  055B  24D7               	call	_PWM_Max_Duty
+   184  055C  2738               	call	awtoft
+   185  055D  0870               	movf	btemp,w
+   186  055E  00AA               	movwf	?a_PWM1_Duty
+   187  055F  0871               	movf	btemp+1,w
+   188  0560  00AB               	movwf	?a_PWM1_Duty+1
+   189  0561  0872               	movf	btemp+2,w
+   190  0562  00AC               	movwf	?a_PWM1_Duty+2
+   191  0563  0829               	movf	?_PWM1_Duty+1,w
+   192  0564  00F1               	movwf	btemp+1
+   193  0565  0828               	movf	?_PWM1_Duty,w
+   194  0566  00F0               	movwf	btemp
+   195  0567  273E               	call	lwtoft
+   196  0568  30C0               	movlw	192
+   197  0569  00F3               	movwf	btemp+3
+   198  056A  307F               	movlw	127
+   199  056B  00F4               	movwf	btemp+4
+   200  056C  3044               	movlw	68
+   201  056D  00F5               	movwf	btemp+5
+   202  056E  2689               	call	ftdiv
+   203  056F  082A               	movf	?a_PWM1_Duty,w
+   204  0570  00F3               	movwf	btemp+3
+   205  0571  082B               	movf	?a_PWM1_Duty+1,w
+   206  0572  00F4               	movwf	btemp+4
+   207  0573  082C               	movf	?a_PWM1_Duty+2,w
+   208  0574  00F5               	movwf	btemp+5
+   209  0575  26C1               	call	ftmul
+   210  0576  2702               	call	fttol
+   211  0577  0870               	movf	btemp,w
+   212  0578  00A8               	movwf	?_PWM1_Duty
+   213  0579  0871               	movf	btemp+1,w
+   214  057A  00A9               	movwf	?_PWM1_Duty+1
+   215                           ;pwm example.c: 29: CCP1X = duty & 2;
+   216  057B  1297               	bcf	23,5
+   217                           ;pwm example.c: 30: CCP1Y = duty & 1;
+   218  057C  0C28               	rrf	?_PWM1_Duty,w
+   219  057D  1C03               	btfss	3,0
+   220  057E  2D81               	goto	u20
+   221  057F  1617               	bsf	23,4
+   222  0580  2D82               	goto	u34
+   223  0581                     u20
+   224  0581  1217               	bcf	23,4
+   225  0582                     u34
+   226                           ;pwm example.c: 31: CCPR1L = duty>>2;
+   227  0582  1283               	bcf	3,5
+   228  0583  1303               	bcf	3,6	;carry unused
+   229  0584  0829               	movf	?_PWM1_Duty+1,w
+   230  0585  00F1               	movwf	btemp+1
+   231  0586  0828               	movf	?_PWM1_Duty,w
+   232  0587  00F0               	movwf	btemp
+   233  0588  1003               	bcf	3,0
+   234  0589  0CF1               	rrf	btemp+1
+   235  058A  0CF0               	rrf	btemp
+   236  058B  1003               	bcf	3,0
+   237  058C  0CF1               	rrf	btemp+1
+   238  058D  0CF0               	rrf	btemp
+   239  058E  0870               	movf	btemp,w
+   240  058F  0095               	movwf	21	;volatile
+   241                           ;pwm example.c: 32: }
+   242  0590  0008               	return	;W free
+   243                           
+   244                           	psect	text4
+   245  0591                     _PWM2_Duty
+   246                           ;pwm example.c: 35: PWM2_Duty(unsigned int duty
+      +                          )
+   247  0591  3004               	movlw	4
+   248  0592  0183               	clrf	3	;select bank 0
+   249  0593  0229               	subwf	?_PWM2_Duty+1,w
+   250  0594  3000               	movlw	0
+   251  0595  1903               	btfsc	3,2
+   252  0596  0228               	subwf	?_PWM2_Duty,w
+   253  0597  1803               	btfsc	3,0
+   254  0598  0008               	return
+   255                           ;pwm example.c: 38: {
+   256  0599  24D7               	call	_PWM_Max_Duty
+   257  059A  2738               	call	awtoft
+   258  059B  0870               	movf	btemp,w
+   259  059C  00AA               	movwf	?a_PWM2_Duty
+   260  059D  0871               	movf	btemp+1,w
+   261  059E  00AB               	movwf	?a_PWM2_Duty+1
+   262  059F  0872               	movf	btemp+2,w
+   263  05A0  00AC               	movwf	?a_PWM2_Duty+2
+   264  05A1  0829               	movf	?_PWM2_Duty+1,w
+   265  05A2  00F1               	movwf	btemp+1
+   266  05A3  0828               	movf	?_PWM2_Duty,w
+   267  05A4  00F0               	movwf	btemp
+   268  05A5  273E               	call	lwtoft
+   269  05A6  30C0               	movlw	192
+   270  05A7  00F3               	movwf	btemp+3
+   271  05A8  307F               	movlw	127
+   272  05A9  00F4               	movwf	btemp+4
+   273  05AA  3044               	movlw	68
+   274  05AB  00F5               	movwf	btemp+5
+   275  05AC  2689               	call	ftdiv
+   276  05AD  082A               	movf	?a_PWM2_Duty,w
+   277  05AE  00F3               	movwf	btemp+3
+   278  05AF  082B               	movf	?a_PWM2_Duty+1,w
+   279  05B0  00F4               	movwf	btemp+4
+   280  05B1  082C               	movf	?a_PWM2_Duty+2,w
+   281  05B2  00F5               	movwf	btemp+5
+   282  05B3  26C1               	call	ftmul
+   283  05B4  2702               	call	fttol
+   284  05B5  0870               	movf	btemp,w
+   285  05B6  00A8               	movwf	?_PWM2_Duty
+   286  05B7  0871               	movf	btemp+1,w
+   287  05B8  00A9               	movwf	?_PWM2_Duty+1
+   288                           ;pwm example.c: 40: CCP2X = duty & 2;
+   289  05B9  129D               	bcf	29,5
+   290                           ;pwm example.c: 41: CCP2Y = duty & 1;
+   291  05BA  0C28               	rrf	?_PWM2_Duty,w
+   292  05BB  1C03               	btfss	3,0
+   293  05BC  2DBF               	goto	u50
+   294  05BD  161D               	bsf	29,4
+   295  05BE  2DC0               	goto	u64
+   296  05BF                     u50
+   297  05BF  121D               	bcf	29,4
+   298  05C0                     u64
+   299                           ;pwm example.c: 42: CCPR2L = duty>>2;
+   300  05C0  1283               	bcf	3,5
+   301  05C1  1303               	bcf	3,6	;carry unused
+   302  05C2  0829               	movf	?_PWM2_Duty+1,w
+   303  05C3  00F1               	movwf	btemp+1
+   304  05C4  0828               	movf	?_PWM2_Duty,w
+   305  05C5  00F0               	movwf	btemp
+   306  05C6  1003               	bcf	3,0
+   307  05C7  0CF1               	rrf	btemp+1
+   308  05C8  0CF0               	rrf	btemp
+   309  05C9  1003               	bcf	3,0
+   310  05CA  0CF1               	rrf	btemp+1
+   311  05CB  0CF0               	rrf	btemp
+   312  05CC  0870               	movf	btemp,w
+   313  05CD  009B               	movwf	27	;volatile
+   314                           ;pwm example.c: 43: }
+   315  05CE  0008               	return	;W free
+   316                           
+   317                           	psect	text5
+   318  04B8                     _PWM1_Start
+   319                           ;pwm example.c: 46: PWM1_Start()
+   320  04B8  0183               	clrf	3	;select bank 0
+   321  04B9  1597               	bsf	23,3
+   322                           ;pwm example.c: 49: CCP1M2 = 1;
+   323  04BA  1517               	bsf	23,2
+   324                           ;pwm example.c: 54: T2CKPS0 = 1;
+   325  04BB  1412               	bsf	18,0
+   326                           ;pwm example.c: 55: T2CKPS1 = 0;
+   327  04BC  1092               	bcf	18,1
+   328                           ;pwm example.c: 60: TMR2ON = 1;
+   329  04BD  1512               	bsf	18,2
+   330                           ;pwm example.c: 61: TRISC2 = 0;
+   331  04BE  1683               	bsf	3,5
+   332  04BF  1107               	bcf	7,2
+   333                           ;pwm example.c: 62: }
+   334  04C0  1283               	bcf	3,5
+   335  04C1  0008               	return	;W free
+   336                           
+   337                           	psect	text6
+   338  04B4                     _PWM1_Stop
+   339                           ;pwm example.c: 64: PWM1_Stop()
+   340  04B4  0183               	clrf	3	;select bank 0
+   341  04B5  1197               	bcf	23,3
+   342                           ;pwm example.c: 67: CCP1M2 = 0;
+   343  04B6  1117               	bcf	23,2
+   344                           ;pwm example.c: 69: }
+   345  04B7  0008               	return	;W free
+   346                           
+   347                           	psect	text7
+   348  04C2                     _PWM2_Start
+   349                           ;pwm example.c: 71: PWM2_Start()
+   350  04C2  0183               	clrf	3	;select bank 0
+   351  04C3  159D               	bsf	29,3
+   352                           ;pwm example.c: 74: CCP2M2 = 1;
+   353  04C4  151D               	bsf	29,2
+   354                           ;pwm example.c: 79: T2CKPS0 = 1;
+   355  04C5  1412               	bsf	18,0
+   356                           ;pwm example.c: 80: T2CKPS1 = 0;
+   357  04C6  1092               	bcf	18,1
+   358                           ;pwm example.c: 85: TMR2ON = 1;
+   359  04C7  1512               	bsf	18,2
+   360                           ;pwm example.c: 86: TRISC1 = 0;
+   361  04C8  1683               	bsf	3,5
+   362  04C9  1087               	bcf	7,1
+   363                           ;pwm example.c: 87: }
+   364  04CA  1283               	bcf	3,5
+   365  04CB  0008               	return	;W free
+   366                           
+   367                           	psect	text8
+   368  04B0                     _PWM2_Stop
+   369                           ;pwm example.c: 89: PWM2_Stop()
+   370  04B0  0183               	clrf	3	;select bank 0
+   371  04B1  119D               	bcf	29,3
+   372                           ;pwm example.c: 92: CCP2M2 = 0;
+   373  04B2  111D               	bcf	29,2
+   374                           ;pwm example.c: 93: }
+   375  04B3  0008               	return	;W free
+   376                           
+   377                           	psect	text9
+   378  05CF                     _main
+   379                           ;	_i assigned to ?a_main+0
+   380  0000                     _main$i	set	?a_main
+   381                           ;	_j assigned to ?a_main+2
+   382  0000                     _main$j	set	?a_main+2
+   383                           ;pwm example.c: 98: void main()
+   384  05CF  1283               	bcf	3,5
+   385  05D0  1303               	bcf	3,6	;carry unused
+   386  05D1  01A4               	clrf	?a_main
+   387  05D2  01A5               	clrf	?a_main+1
+   388  05D3  01A6               	clrf	?a_main+2
+   389  05D4  01A7               	clrf	?a_main+3
+   390                           ;pwm example.c: 101: PWM1_Init(5000);
+   391  05D5  3088               	movlw	136
+   392  05D6  00A8               	movwf	?_PWM1_Init
+   393  05D7  3013               	movlw	19
+   394  05D8  00A9               	movwf	?_PWM1_Init+1
+   395  05D9  3000               	movlw	0
+   396  05DA  01AA               	clrf	?_PWM1_Init+2
+   397  05DB  01AB               	clrf	?_PWM1_Init+3
+   398  05DC  2529               	call	_PWM1_Init
+   399                           ;pwm example.c: 102: PWM2_Init(5000);
+   400  05DD  3088               	movlw	136
+   401  05DE  00A8               	movwf	?_PWM2_Init
+   402  05DF  3013               	movlw	19
+   403  05E0  00A9               	movwf	?_PWM2_Init+1
+   404  05E1  3000               	movlw	0
+   405  05E2  01AA               	clrf	?_PWM2_Init+2
+   406  05E3  01AB               	clrf	?_PWM2_Init+3
+   407  05E4  24FF               	call	_PWM2_Init
+   408                           ;pwm example.c: 103: TRISD = 0xFF;
+   409  05E5  30FF               	movlw	-1
+   410  05E6  1683               	bsf	3,5
+   411  05E7  0088               	movwf	8	;volatile
+   412                           ;pwm example.c: 104: TRISB = 0;
+   413  05E8  0186               	clrf	6	;volatile
+   414                           ;pwm example.c: 107: PWM1_Duty(0);
+   415  05E9  1283               	bcf	3,5
+   416  05EA  01A8               	clrf	?_PWM1_Duty
+   417  05EB  01A9               	clrf	?_PWM1_Duty+1
+   418  05EC  2553               	call	_PWM1_Duty
+   419                           ;pwm example.c: 108: PWM2_Duty(0);
+   420  05ED  01A8               	clrf	?_PWM2_Duty
+   421  05EE  01A9               	clrf	?_PWM2_Duty+1
+   422  05EF  2591               	call	_PWM2_Duty
+   423                           ;pwm example.c: 109: PWM1_Start();
+   424  05F0  24B8               	call	_PWM1_Start
+   425                           ;pwm example.c: 110: PWM2_Start();
+   426  05F1  24C2               	call	_PWM2_Start
+   427  05F2                     l15
+   428                           ;pwm example.c: 111: do
+   429                           ;pwm example.c: 112: {
+   430  05F2  1808               	btfsc	8,0
+   431  05F3  2DFF               	goto	l16
+   432  05F4  3003               	movlw	3
+   433  05F5  0225               	subwf	?a_main+1,w
+   434  05F6  30E8               	movlw	232
+   435  05F7  1903               	btfsc	3,2
+   436  05F8  0224               	subwf	?a_main,w
+   437  05F9  1803               	btfsc	3,0
+   438  05FA  2DFF               	goto	l16
+   439                           ;pwm example.c: 114: i=i+10;
+   440  05FB  300A               	movlw	10
+   441  05FC  07A4               	addwf	?a_main
+   442  05FD  1803               	btfsc	3,0
+   443  05FE  0AA5               	incf	?a_main+1
+   444  05FF                     l16
+   445                           ;pwm example.c: 115: if(RD1 == 0 && i>0)
+   446  05FF  1888               	btfsc	8,1
+   447  0600  2E09               	goto	l17
+   448  0601  0825               	movf	?a_main+1,w
+   449  0602  0424               	iorwf	?a_main,w
+   450  0603  1903               	btfsc	3,2
+   451  0604  2E09               	goto	l17
+   452                           ;pwm example.c: 116: i=i-10;
+   453  0605  30F6               	movlw	-10
+   454  0606  07A4               	addwf	?a_main
+   455  0607  1C03               	btfss	3,0
+   456  0608  03A5               	decf	?a_main+1
+   457  0609                     l17
+   458                           ;pwm example.c: 117: if(RD2 == 0 && j<1000)
+   459  0609  1908               	btfsc	8,2
+   460  060A  2E16               	goto	l18
+   461  060B  3003               	movlw	3
+   462  060C  0227               	subwf	?a_main+3,w
+   463  060D  30E8               	movlw	232
+   464  060E  1903               	btfsc	3,2
+   465  060F  0226               	subwf	?a_main+2,w
+   466  0610  1803               	btfsc	3,0
+   467  0611  2E16               	goto	l18
+   468                           ;pwm example.c: 118: j=j+10;
+   469  0612  300A               	movlw	10
+   470  0613  07A6               	addwf	?a_main+2
+   471  0614  1803               	btfsc	3,0
+   472  0615  0AA7               	incf	?a_main+3
+   473  0616                     l18
+   474                           ;pwm example.c: 119: if(RD3 == 0 && j>0)
+   475  0616  1988               	btfsc	8,3
+   476  0617  2E20               	goto	l19
+   477  0618  0827               	movf	?a_main+3,w
+   478  0619  0426               	iorwf	?a_main+2,w
+   479  061A  1903               	btfsc	3,2
+   480  061B  2E20               	goto	l19
+   481                           ;pwm example.c: 120: j=j-10;
+   482  061C  30F6               	movlw	-10
+   483  061D  07A6               	addwf	?a_main+2
+   484  061E  1C03               	btfss	3,0
+   485  061F  03A7               	decf	?a_main+3
+   486  0620                     l19
+   487                           ;pwm example.c: 121: PWM1_Duty(i);
+   488  0620  0824               	movf	?a_main,w
+   489  0621  00A8               	movwf	?_PWM1_Duty
+   490  0622  0825               	movf	?a_main+1,w
+   491  0623  00A9               	movwf	?_PWM1_Duty+1
+   492  0624  2553               	call	_PWM1_Duty
+   493                           ;pwm example.c: 122: PWM2_Duty(j);
+   494  0625  0826               	movf	?a_main+2,w
+   495  0626  00A8               	movwf	?_PWM2_Duty
+   496  0627  0827               	movf	?a_main+3,w
+   497  0628  00A9               	movwf	?_PWM2_Duty+1
+   498  0629  2591               	call	_PWM2_Duty
+   499                           ;pwm example.c: 126: __delay_ms(50);
+   500  062A  3032               	movlw	50
+   501  062B  00A8               	movwf	?___delay_ms
+   502  062C  01A9               	clrf	?___delay_ms+1
+   503  062D  2000               	call	___delay_ms
+   504                           ;pwm example.c: 127: }while(1);
+   505  062E  2DF2               	goto	l15
+   506                           
+   507                           	psect	text10
+   508  0000                     
+   509  0000                     
+   510  0000                     
+   511  0000                     
+   512  0000                     
+   513  0000                     
+   514  0000                     
+   515  0000                     
+   516  0000                     
+   517  0000                     
+   518  0000                     
+   519  0000                     
+   520  0000                     
+   521  0000                     
+   522  0000                     
+   523  0000                     
+   524  0000                     
+   525  0000                     
+   526  0000                     
+   527  0000                     
+   528  0000                     
+   529  0000                     
+   530  0000                     
+   531  0000                     
+   532  0000                     
+   533  0000                     
+   534  0000                     
+   535  0000                     
+   536  0000                     
+   537  0000                     
+   538  0000                     
+   539  0000                     
+   540  0000                     
+   541  0000                     
+   542  0000                     
+   543  0000                     
+   544  0000                     
+   545  0000                     
+   546  0000                     
+   547  0000                     
+   548  0000                     
+   549  0000                     
+   550  0000                     
+   551  0000                     
+   552  0000                     
+   553  0000                     
+   554  0000                     
+   555  0000                     
+   556  0000                     
+   557  0000                     
+   558  0000                     
+   559  0000                     
+   560  0000                     
+   561  0000                     
+   562  0000                     
+   563  0000                     
+   564  0000                     
+   565  0000                     
+   566  0000                     
+   567  0000                     
+   568  0000                     
+   569  0000                     
+   570  0000                     
+   571  0000                     
+   572  0000                     
+   573  0000                     
+   574  0000                     
+   575  0000                     
+   576  0000                     
+   577  0000                     
+   578  0000                     
+   579  0000                     
+   580  0000                     
+   581  0000                     
+   582  0000                     
+   583  0000                     
+   584  0000                     
+   585  0000                     
+   586  0000                     
+   587  0000                     
+   588  0000                     
+   589  0000                     
+   590  0000                     
+   591  0000                     
+   592  0000                     
+   593  0000                     
+   594  0000                     
+   595  0000                     
+   596  0000                     
+   597  0000                     
+   598  0000                     
+   599  0000                     
+   600  0000                     
+   601  0000                     
+   602  0000                     
+   603  0000                     
+   604  0000                     
+   605  0000                     
+   606  0000                     
+   607  0000                     
+   608  0000                     
+   609  0000                     
+   610  0000                     
+   611  0000                     
+   612  0000                     
+   613  0000                     
+   614  0000                     
+   615  0000                     
+   616  0000                     
+   617  0000                     
+   618  0000                     
+   619  0000                     
+   620  0000                     
+   621  0000                     
+   622  0000                     
+   623  0000                     
+   624  0000                     
+   625  0000                     
+   626  0000                     
+   627  0000                     
+   628  0000                     
+   629  0000                     
+   630  0000                     
+   631  0000                     
+   632  0000                     
+   633  0000                     
+   634  0000                     
+   635  0000                     
+   636  0000                     
+   637  0000                     
+   638  0000                     
+   639  0000                     
+   640  0000                     
+   641  0000                     
+   642  0000                     
+   643  0000                     
+   644  0000                     
+   645  0000                     
+   646  0000                     
+   647  0000                     
+   648  0000                     
+   649  0000                     
+   650  0000                     
+   651  0000                     
+   652  0000                     
+   653  0000                     
+   654  0000                     
+   655  0000                     
+   656  0000                     
+   657  0000                     
+   658  0000                     
+   659  0000                     
+   660  0000                     
+   661  0000                     
+   662  0000                     
+   663  0000                     
+   664  0000                     
+   665  0000                     
+   666  0000                     
+   667  0000                     
+   668  0000                     
+   669  0000                     
+   670  0000                     
+   671  0000                     
+   672  0000                     
+   673  0000                     
+   674  0000                     
+   675  0000                     
+   676  0000                     
+   677  0000                     
+   678  0000                     
+   679  0000                     
+   680  0000                     
+   681  0000                     
+   682  0000                     
+   683  0000                     
+   684  0000                     
+   685  0000                     
+   686  0000                     
+   687  0000                     
+   688  0000                     
+   689  0000                     
+   690  0000                     
+   691  0000                     
+   692  0000                     
+   693  0000                     
+   694  0000                     
+   695  0000                     
+   696  0000                     
+   697  0000                     
+   698  0000                     
+   699  0000                     
+   700  0000                     
+   701  0000                     
+   702  0000                     
+   703  0000                     
+   704  0000                     
+   705  0000                     
+   706  0000                     
+   707  0000                     
+   708  0000                     
+   709  0000                     
+   710  0000                     
+   711  0000                     
+   712  0000                     
+   713  0000                     
+   714  0000                     
+   715  0000                     
+   716  0000                     
+   717  0000                     
+   718  0000                     
+   719  0000                     
+   720  0000                     
+   721  0000                     
+   722  0000                     
+   723  0000                     
+   724  0000                     
+   725  0000                     
+   726  0000                     
+   727  0000                     
+   728  0000                     
+   729  0000                     
+   730  0000                     
+   731  0000                     
+   732  0000                     
+   733  0000                     
+   734  0000                     
+   735  0000                     
+   736  0000                     
+   737  0000                     
+   738  0000                     
+   739  0000                     
+   740  0000                     
+   741  0000                     
+   742  0000                     
+   743  0000                     
+   744  0000                     
+   745  0000                     
+   746  0000                     
+   747  0000                     
+   748  0000                     
+   749  0000                     
+   750  0000                     
+   751  0000                     
+   752  0000                     
+   753  0000                     
+   754  0000                     
+   755  0000                     
+   756  0000                     
+   757  0000                     
+   758  0000                     
+   759  0000                     
+   760  0000                     
+   761  0000                     
+   762  0000                     
+   763  0000                     
+   764  0000                     
+   765  0000                     
+   766  0000                     
+   767  0000                     
+   768  0000                     
+   769  0000                     
+   770  0000                     
+   771  0000                     
+   772  0000                     
+   773  0000                     
+   774  0000                     
+   775  0000                     
+   776  0000                     
+   777  0000                     
+   778  0000                     
+   779  0000                     
+   780  0000                     
+   781  0000                     
+   782  0000                     
+   783  0000                     
+   784                           
+   785                           	psect	rbss_0
+   786  0020                     _freq
+   787  0020                     	ds	4
+   788                           
+   789                           	psect	temp
+   790  0070                     btemp
+   791  0070                     	ds	8
+
+
+HI-TECH Software PICC Macro Assembler V9.50PL2
+Symbol Table                                          Sat Feb 21 11:53:28 2015
+
+        ?a_main 0024              l15 05F2              l16 05FF  
+            l17 0609              l18 0616              l19 0620  
+            u20 0581              u50 05BF              u34 0582  
+            u64 05C0            f2813 002A            f2823 002A  
+          f2783 002D            _main 05CF            _freq 0020  
+          aldiv 0741            alsll 04CC            btemp 0070  
+          ftdiv 0689            ftmul 06C1            fttol 0702  
+          start 0000  ?a_PWM_Max_Duty 002D      ?_PWM1_Init 0028  
+    ?_PWM1_Duty 0028      ?_PWM2_Init 0028      ?_PWM2_Duty 0028  
+   ?___delay_ms 0028      ___delay_ms 0000           awtoft 0738  
+         lwtoft 073E           status 0003     ?a_PWM1_Duty 002A  
+   ?a_PWM2_Duty 002A    _PWM_Max_Duty 04D7      _PWM1_Start 04B8  
+    _PWM2_Start 04C2       _PWM1_Init 0529       _PWM1_Duty 0553  
+     _PWM2_Init 04FF       _PWM2_Duty 0591       _PWM1_Stop 04B4  
+     _PWM2_Stop 04B0      used_btemp0 0001      used_btemp1 0001  
+    used_btemp2 0001      used_btemp3 0001      used_btemp4 0001  
+    used_btemp5 0001      used_btemp6 0001      used_btemp7 0001  

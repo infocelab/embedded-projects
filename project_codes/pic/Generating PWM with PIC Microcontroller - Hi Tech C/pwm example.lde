@@ -1,0 +1,12 @@
+Advisory[1207]   : some of the command line options you are using are now obsolete
+Advisory[1208]   : use --help option or refer to the user manual for option details
+aspic.exe "--edf=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\dat\en_msgs.txt" -E1 "-CC:\Program Files\HI-TECH Software\PICC-Lite\9.50\dat\picc-lite.ini" -ver=V9.50PL2 --chip=16F877A -R800 -oC:\Users\ABC\AppData\Local\Temp\sfb8.obj C:\Users\ABC\AppData\Local\Temp\sfb8.as
+hlink.exe "--edf=C:\Program Files\HI-TECH Software\PICC-Lite\9.50\dat\en_msgs.txt" "-h+pwm example.sym" -z -Q16F877A "-Mpwm example.map" -E1 -ver=PICC-Lite#V9.50PL2 -ACODE=00h-07FFh -ACONST=00h-0FFhx8 -AENTRY=00h-0FFhx8 -ASTRING=00h-0FFhx8 -ABANK0=020h-07Fh -ABANK1=0A0h-0EFh -ACOMBANK=070h-07Fh -ppowerup=CODE -preset_vec=00h,intentry,intcode,intret,init,end_init,clrtext,maintext,stringtable,pstrings,strings -prbit_0=BANK0,rbss_0=BANK0,rdata_0=BANK0,idata_0=CODE -pnvram=BANK0 -prbit_1=BANK1,rbss_1=BANK1,rdata_1=BANK1,idata_1=CODE -pnvram_1=BANK1,nvbit_1=BANK1 -prbit_2=BANK2,rbss_2=BANK2,rdata_2=BANK2,idata_2=CODE -pnvram_2=BANK2,nvbit_2=BANK2 -prbit_3=BANK3,rbss_3=BANK3,rdata_3=BANK3,idata_3=CODE -pnvram_3=BANK3,nvbit_3=BANK3 -ptemp=COMBANK -ACONFIG=02007h-02007h -pconfig=CONFIG -AIDLOC=02000h-02003h -pidloc=IDLOC -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -pfloat_text0=CODE,float_text1=CODE,float_text2=CODE -pfloat_text3=CODE,float_text4=CODE -pintsave_0=COMBANK -pintsave_1=BANK1 -pintsave_2=BANK2 -pintsave_3=BANK3 C:\Users\ABC\AppData\Local\Temp\sfb8.obj "E:\celabcode\Embedded-Projects\project_codes\pic\Generating PWM with PIC Microcontroller - Hi Tech C\pwm example.obj" "C:\Program Files\HI-TECH Software\PICC-Lite\9.50\lib\pcl62--u.libError[499]   : undefined symbol:
+	___delay_ms (E:\celabcode\Embedded-Projects\project_codes\pic\Generating PWM with PIC Microcontroller - Hi Tech C\pwm example.obj)
+" "C:\Program Files\HI-TECH Software\PICC-Lite\9.50\lib\pcl40c-c.lib" "C:\Program Files\HI-TECH Software\PICC-Lite\9.50\lib\pcl62--u.lib"
+del l.obj
+del C:\Users\ABC\AppData\Local\Temp\sfb8.
+del C:\Users\ABC\AppData\Local\Temp\sfb8.1
+del C:\Users\ABC\AppData\Local\Temp\sfb8.2
+del C:\Users\ABC\AppData\Local\Temp\sfb8.as
+del C:\Users\ABC\AppData\Local\Temp\sfb8.obj

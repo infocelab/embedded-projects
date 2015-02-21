@@ -1,0 +1,292 @@
+__Hpstrings D 0 CODE
+__Lpstrings D 0 CODE
+ftnorm1 665 0 CODE
+ftmul_x 6C2 0 CODE
+aldiv_x 742 0 CODE
+lldiv_x 777 0 CODE
+ftdiv_x 68A 0 CODE
+__Brbit_0 20 FFFFFF20 BANK0
+__Hidloc 2000 0 IDLOC
+__Lidloc 2000 0 IDLOC
+clear_bit0 0 0 CODE
+reset_vec 0 0 CODE
+__Hrbit_0 100 FFFFFF20 BANK0
+?a_PWM_Max_Duty 2D 0 BANK0
+__Hend_init D 0 CODE
+__Lend_init 4 0 CODE
+__Lrbit_0 100 FFFFFF20 BANK0
+__Hidata_3 D 0 CODE
+__Lidata_3 D 0 CODE
+__Bnvbit_3 1A FFFFFF4A BANK3
+__Hrdata_3 1A 0 BANK3
+__Htext A0 0
+__Hnvbit_3 D0 FFFFFF4A BANK3
+__Lrdata_3 1A 0 BANK3
+__Ltext A0 0
+__Lnvbit_3 D0 FFFFFF4A BANK3
+__Hreset_vec 0 0 CODE
+?a_DelayMs 28 0 BANK0
+__Lreset_vec 0 0 CODE
+__Hintsave A0 0
+__Lintsave A0 0
+__Hnvram_1 A0 0 BANK1
+__Lnvram_1 A0 0 BANK1
+__Brbit_1 A0 FFFFFBA0 BANK1
+__Hrbss_0 31 0 BANK0
+__Hrbit_1 500 FFFFFBA0 BANK1
+__Lrbss_0 20 0 BANK0
+__Lrbit_1 500 FFFFFBA0 BANK1
+_DelayMs 4CC 0 CODE
+__Hintcode 0 0 CODE
+__Lintcode 0 0 CODE
+storeback 7F1 0 CODE
+__Brbit_2 A0 FFFFFBA0 BANK2
+used_btemp0 1 0
+__Hintret 0 0 CODE
+__Lintret 0 0 CODE
+__Hidata_0 D 0 CODE
+__Hrbss_1 A0 0 BANK1
+__Hrbit_2 500 FFFFFBA0 BANK2
+__Lrbss_1 A0 0 BANK1
+__Lrbit_2 500 FFFFFBA0 BANK2
+__Lidata_0 D 0 CODE
+used_btemp2 1 0
+__Hstruct 32 0 BANK0
+__Lstruct 32 0 BANK0
+__Hcode A0 0
+__Bptbit_0 A0 FFFFFBA0
+_PWM1_Stop 4A5 0 CODE
+__Lcode A0 0
+__Bnvbit_0 A0 FFFFFBA0
+used_btemp4 1 0
+__Hptbit_0 500 FFFFFBA0
+_PWM2_Stop 4A9 0 CODE
+__Hrdata_0 31 0 BANK0
+__Lptbit_0 500 FFFFFBA0
+__Hnvbit_0 500 FFFFFBA0
+__Hstringtable D 0 ENTRY
+__Lrdata_0 31 0 BANK0
+__Lnvbit_0 500 FFFFFBA0
+__Lstringtable D 0 ENTRY
+_PWM1_Start 4AD 0 CODE
+used_btemp6 1 0
+_PWM2_Start 4B7 0 CODE
+__Hstrings D 0 STRING
+__Lstrings D 0 STRING
+used_btemp8 1 0
+clear_bank0 0 0 CODE
+__Beeprom_data 2100 4200 EEDATA
+__Hconfig 2007 0 CONFIG
+__Lconfig 2007 0 CONFIG
+__Heeprom_data 0 4200 EEDATA
+__Leeprom_data 0 4200 EEDATA
+__Hnvram_2 1A 0 BANK2
+__Lnvram_2 1A 0 BANK2
+__Brbit_3 1A FFFFFF4A BANK3
+__Hfloat_text0 800 0 CODE
+__Hrbss_2 A0 0 BANK2
+__Hrbit_3 D0 FFFFFF4A BANK3
+altoft 725 0 CODE
+doldiv 779 0 CODE
+__Lfloat_text0 741 0 CODE
+__S0 2007 0
+__S1 A0 0
+lltoft 72A 0 CODE
+__Lrbss_2 A0 0 BANK2
+__Lrbit_3 D0 FFFFFF4A BANK3
+__S2 2100 0
+awtoft 738 0 CODE
+__Hclrtext D 0 CODE
+lwtoft 73E 0 CODE
+__Hintentry 0 0 CODE
+__Lclrtext D 0 CODE
+__Lintentry 0 0 CODE
+ftunpack1 63B 0 CODE
+l0neg 768 0 CODE
+__Hnvram 31 0 BANK0
+__Lnvram 31 0 BANK0
+zerctt 646 0 CODE
+__Hfloat_text1 D 0 CODE
+__Hcommon_ram A0 0
+__Lfloat_text1 D 0 CODE
+__Lcommon_ram A0 0
+almod 741 0 CODE
+__Hpowerup 0 0 CODE
+llmod 776 0 CODE
+__Lpowerup 0 0 CODE
+__Hrbss_3 1A 0 BANK3
+__Hidata_1 D 0 CODE
+__Lrbss_3 1A 0 BANK3
+__Lidata_1 D 0 CODE
+_main 5D1 0 CODE
+__Bnvbit_1 A0 FFFFFBA0 BANK1
+__Hrdata_1 A0 0 BANK1
+__Hnvbit_1 500 FFFFFBA0 BANK1
+__Lrdata_1 A0 0 BANK1
+__Hfloat_text2 D 0 CODE
+ftunpack2 64A 0 CODE
+__Lnvbit_1 500 FFFFFBA0 BANK1
+__Lfloat_text2 D 0 CODE
+alsll 4C1 0 CODE
+storeback_3 62F 0 CODE
+__Hinit23 A0 0
+_freq 20 0 BANK0
+llsll 4C1 0 CODE
+__Linit23 A0 0
+fttol 702 0 CODE
+ftmul 6C1 0 CODE
+aldiv 741 0 CODE
+?a_main 24 0 BANK0
+lldiv 776 0 CODE
+ftdiv 689 0 CODE
+__Hnvram_3 1A 0 BANK3
+_exit 0 0 CODE
+__Lnvram_3 1A 0 BANK3
+_PWM_Max_Duty 4D9 0 CODE
+start 0 0 CODE
+__Hfloat_text3 D 0 CODE
+__Lfloat_text3 D 0 CODE
+intlevel0 0 0 CODE
+?a_PWM1_Duty 2A 0 BANK0
+?a_PWM2_Duty 2A 0 BANK0
+__Hfloat_text4 741 0 CODE
+__Hintsave_0 7C 0 COMBANK
+__Lfloat_text4 63B 0 CODE
+__Lintsave_0 7C 0 COMBANK
+used_btemp1 1 0
+__Htemp 7C 0 BANK0
+?_PWM1_Duty 28 0 BANK0
+__Hintsave_1 A0 0 BANK1
+__Hidata_2 D 0 CODE
+__Ltemp 70 0 BANK0
+__Lintsave_1 A0 0 BANK1
+__Lidata_2 D 0 CODE
+?_PWM2_Duty 28 0 BANK0
+used_btemp3 1 0
+__Hintsave_2 A0 0 BANK2
+__Lintsave_2 A0 0 BANK2
+intlevel1 0 0 CODE
+__Bnvbit_2 1A FFFFFF4A BANK2
+used_btemp5 1 0
+__Hrdata_2 A0 0 BANK2
+__Hintsave_3 A0 0 BANK3
+_PWM1_Duty 555 0 CODE
+__Hnvbit_2 D0 FFFFFF4A BANK2
+__Lrdata_2 A0 0 BANK2
+__Lintsave_3 A0 0 BANK3
+_PWM2_Duty 593 0 CODE
+__Lnvbit_2 D0 FFFFFF4A BANK2
+?_PWM1_Init 28 0 BANK0
+used_btemp7 1 0
+__Hxtemp 32 0 BANK0
+clear_ram 8 0 CODE
+used_btemp10 1 0
+?_PWM2_Init 28 0 BANK0
+_PWM1_Init 501 0 CODE
+__Lxtemp 31 0 BANK0
+_PWM2_Init 52B 0 CODE
+used_btemp9 1 0
+__Hinit 4 0 CODE
+used_btemp11 1 0
+__Linit 0 0 CODE
+__Hmaintext D 0 CODE
+used_btemp12 1 0
+__Lmaintext D 0 CODE
+%segments
+reset_vec 0 19 CODE
+rbit_0 100 111 BANK0
+temp 70 7B COMBANK
+float_text0 E82 FFF CODE
+float_text4 C76 E81 CODE
+ftext0 C5E C75 CODE
+text9 BA2 C5D CODE
+text4 B26 BA1 CODE
+text3 AAA B25 CODE
+text2 A56 AA9 CODE
+text1 A02 A55 CODE
+text0 9B2 A01 CODE
+text0 998 9B1 CODE
+text 982 997 CODE
+text7 96E 981 CODE
+text5 95A 96D CODE
+text8 952 959 CODE
+text6 94A 951 CODE
+%locals
+C:\Users\ABC\AppData\Local\Temp\suno.obj
+FSR 4
+INDF 0
+clrloop 5 0 CODE
+STATUS 3
+E:\celabcode\Embedded-Projects\project_codes\pic\pwm\tempr.obj
+btemp 70 0 BANK0
+status 3
+E:\celabcode\Embedded-Projects\project_codes\pic\pwm\tempr.c
+13 4D9 0 CODE
+14 500 0 CODE
+18 501 0 CODE
+19 521 0 CODE
+20 52A 0 CODE
+24 52B 0 CODE
+25 54B 0 CODE
+26 554 0 CODE
+30 555 0 CODE
+32 55D 0 CODE
+33 57D 0 CODE
+34 57E 0 CODE
+35 584 0 CODE
+37 592 0 CODE
+41 593 0 CODE
+43 59B 0 CODE
+44 5BB 0 CODE
+45 5BC 0 CODE
+46 5C2 0 CODE
+48 5D0 0 CODE
+52 4AD 0 CODE
+53 4AF 0 CODE
+58 4B0 0 CODE
+59 4B1 0 CODE
+64 4B2 0 CODE
+65 4B3 0 CODE
+66 4B5 0 CODE
+70 4A5 0 CODE
+71 4A7 0 CODE
+73 4A8 0 CODE
+77 4B7 0 CODE
+78 4B9 0 CODE
+83 4BA 0 CODE
+84 4BB 0 CODE
+89 4BC 0 CODE
+90 4BD 0 CODE
+91 4BF 0 CODE
+95 4A9 0 CODE
+96 4AB 0 CODE
+97 4AC 0 CODE
+102 5D1 0 CODE
+103 5D7 0 CODE
+104 5DF 0 CODE
+105 5E7 0 CODE
+106 5EA 0 CODE
+108 5EB 0 CODE
+109 5EF 0 CODE
+110 5F2 0 CODE
+111 5F3 0 CODE
+115 5F4 0 CODE
+116 5FD 0 CODE
+117 601 0 CODE
+118 607 0 CODE
+119 60B 0 CODE
+120 614 0 CODE
+121 618 0 CODE
+122 61E 0 CODE
+123 622 0 CODE
+124 627 0 CODE
+129 62C 0 CODE
+113 62E 0 CODE
+E:\celabcode\Embedded-Projects\project_codes\pic\pwm\delay.obj
+status 3
+E:\celabcode\Embedded-Projects\project_codes\pic\pwm\delay.c
+21 4CC 0 CODE
+22 4CE 0 CODE
+24 4D0 0 CODE
+25 4D4 0 CODE
+26 4D6 0 CODE
