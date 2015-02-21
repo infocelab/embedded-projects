@@ -1,0 +1,15 @@
+
+          COMPONENT
+
+NAME				     Value        
+C1   					100uf                                                       
+C2   					0.1uf        
+CONN 					4 PIN        
+BATTERY  			       9V         
+IC1                           NE555        
+LED1                          5mm          
+R1                             1K          
+R2                             220E         
+R3                             4.7K         
+SW                             on/off SWITCH
+VR                             100k         
