@@ -1,0 +1,16 @@
+_PWM1_Start: CODE, 427 0 11
+___aldiv: CODE, 1243 0 168
+_PWM2_Start: CODE, 438 0 11
+___ftpack: CODE, 700 0 123
+_main: CODE, 1411 0 199
+___lwtoft: CODE, 449 0 27
+_PWM1_Init: CODE, 570 0 65
+_PWM_Max_Duty: CODE, 520 0 50
+_PWM2_Init: CODE, 635 0 65
+_PWM1_Duty: CODE, 823 0 127
+_PWM2_Duty: CODE, 950 0 127
+___ftmul: CODE, 1810 0 238
+___awtoft: CODE, 476 0 44
+___fttol: CODE, 1077 0 166
+___ftdiv: CODE, 1610 0 200
+Total: 1621
