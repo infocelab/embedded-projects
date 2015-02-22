@@ -1,9 +1,0 @@
-Advisory[1207]   : some of the command line options you are using are now obsolete
-Advisory[1208]   : use --help option or refer to the user manual for option details
-Warning[349] E:\celabcode\Embedded-Projects\project_codes\pic\pwm\tempr.c 12 : non-prototyped function declaration for "PWM_Max_Duty"
-Warning[356] E:\celabcode\Embedded-Projects\project_codes\pic\pwm\tempr.c 32 : implicit conversion of float to integer
-Warning[356] E:\celabcode\Embedded-Projects\project_codes\pic\pwm\tempr.c 43 : implicit conversion of float to integer
-Warning[349] E:\celabcode\Embedded-Projects\project_codes\pic\pwm\tempr.c 51 : non-prototyped function declaration for "PWM1_Start"
-Warning[349] E:\celabcode\Embedded-Projects\project_codes\pic\pwm\tempr.c 69 : non-prototyped function declaration for "PWM1_Stop"
-Warning[349] E:\celabcode\Embedded-Projects\project_codes\pic\pwm\tempr.c 76 : non-prototyped function declaration for "PWM2_Start"
-Warning[349] E:\celabcode\Embedded-Projects\project_codes\pic\pwm\tempr.c 94 : non-prototyped function declaration for "PWM2_Stop"
