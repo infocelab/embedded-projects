@@ -11667,13 +11667,6 @@ naming: grid - package width</description>
 </net>
 <net name="N$9" class="0">
 <segment>
-<pinref part="IC2" gate="G$1" pin="A1"/>
-<wire x1="5.08" y1="114.3" x2="0" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="0" y1="114.3" x2="0" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="0" y1="111.76" x2="5.08" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="IC2" gate="G$1" pin="A2"/>
-<wire x1="5.08" y1="111.76" x2="7.62" y2="111.76" width="0.1524" layer="91"/>
-<junction x="5.08" y="111.76"/>
 <pinref part="D2" gate="1" pin="A"/>
 <pinref part="D1" gate="1" pin="A"/>
 <wire x1="-93.98" y1="132.08" x2="-93.98" y2="127" width="0.1524" layer="91"/>
@@ -11706,9 +11699,8 @@ naming: grid - package width</description>
 <wire x1="-12.7" y1="106.68" x2="-12.7" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="GND"/>
 <wire x1="30.48" y1="96.52" x2="20.32" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="96.52" x2="20.32" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="96.52" x2="20.32" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="S2"/>
-<wire x1="20.32" y1="111.76" x2="20.32" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="119.38" x2="5.08" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="-12.7" y1="119.38" x2="5.08" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="T1" gate="G$1" pin="E"/>
@@ -11723,7 +11715,6 @@ naming: grid - package width</description>
 <wire x1="78.74" y1="96.52" x2="78.74" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="111.76" x2="78.74" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="96.52" x2="78.74" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="5.08" y1="111.76" x2="20.32" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -11877,12 +11868,9 @@ naming: grid - package width</description>
 <wire x1="139.7" y1="124.46" x2="132.08" y2="124.46" width="0.1524" layer="91"/>
 <junction x="139.7" y="124.46"/>
 <wire x1="93.98" y1="116.84" x2="132.08" y2="116.84" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
 <pinref part="IC2" gate="G$1" pin="D1"/>
-<wire x1="43.18" y1="116.84" x2="71.12" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="116.84" x2="68.58" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="116.84" x2="71.12" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="124.46" x2="43.18" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="127" x2="30.48" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="124.46" x2="43.18" y2="124.46" width="0.1524" layer="91"/>
@@ -11903,6 +11891,18 @@ naming: grid - package width</description>
 <wire x1="-66.04" y1="88.9" x2="-60.96" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="-25.4" y1="91.44" x2="-60.96" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="-60.96" y1="91.44" x2="-60.96" y2="88.9" width="0.1524" layer="91"/>
+<junction x="68.58" y="116.84"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="A2"/>
+<wire x1="5.08" y1="111.76" x2="7.62" y2="111.76" width="0.1524" layer="91"/>
+<junction x="5.08" y="111.76"/>
+<pinref part="IC2" gate="G$1" pin="A1"/>
+<wire x1="5.08" y1="114.3" x2="0" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="0" y1="114.3" x2="0" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="0" y1="111.76" x2="5.08" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
