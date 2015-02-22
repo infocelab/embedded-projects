@@ -34,11 +34,11 @@ must loop and execute forever.
 		
 			
     printf ("Hello World\n"); 		/* Print "Hello World" */  
- Delay(); 		
-led1=1;		
-    Delay(); 
-		led1=0;
-    Delay();
+     Delay(); 		
+     led1=1;		
+     Delay(); 
+		 led1=0;
+     Delay();
 
   }
 }
