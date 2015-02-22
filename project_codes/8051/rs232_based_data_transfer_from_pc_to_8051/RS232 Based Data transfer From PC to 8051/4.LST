@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   4                                                                 01/13/2015 12:29:08 PAGE 1   
+C51 COMPILER V9.52.0.0   4                                                                 02/20/2015 08:15:39 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 4
@@ -62,7 +62,7 @@ line level    source
   52   2          Lcd8_Write_Char(a);
   53   2          if(a == 'a')
   54   2          {
-C51 COMPILER V9.52.0.0   4                                                                 01/13/2015 12:29:08 PAGE 2   
+C51 COMPILER V9.52.0.0   4                                                                 02/20/2015 08:15:39 PAGE 2   
 
   55   3            relay =1;
   56   3            Delay(1000);
