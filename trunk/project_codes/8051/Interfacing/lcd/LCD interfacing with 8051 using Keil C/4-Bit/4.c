@@ -1,4 +1,4 @@
-#include<reg52.h>							 //including sfr registers for ports of the controller
+#include<reg52.h>							
 #include<lcd.h>
 
 //LCD Module Connections
@@ -27,7 +27,7 @@ void main()
   while(1)
   {                                   
     Lcd4_Set_Cursor(1,1);
-	  Lcd4_Write_String("electroSome LCD Hello World");
+	  Lcd4_Write_String("Celab LCD Example");
 		for(i=0;i<15;i++)
 		{
 		  Delay(1000);
@@ -41,8 +41,8 @@ void main()
 		}
 		Lcd4_Clear();
 		Lcd4_Set_Cursor(2,1);
-		Lcd4_Write_Char('e');
-		Lcd4_Write_Char('S');
+		Lcd4_Write_Char('H');
+		Lcd4_Write_Char('I');
 		Delay(2000);
   }
 }

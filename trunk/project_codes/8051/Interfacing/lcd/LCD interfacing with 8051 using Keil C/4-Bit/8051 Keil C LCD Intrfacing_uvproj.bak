@@ -355,6 +355,11 @@
               <FileType>1</FileType>
               <FilePath>.\4.c</FilePath>
             </File>
+            <File>
+              <FileName>lcd.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lcd.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
