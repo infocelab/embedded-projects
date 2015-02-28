@@ -19,11 +19,12 @@ void SIM900power()
  
 void sendSMS()
 {
+ 
   SIM900.print("AT+CMGF=1\r");                                                        // AT command to send SMS message
   delay(100);
-  SIM900.println("AT + CMGS = \"+917827855025\"");                                     // recipient's mobile number, in international format
+  SIM900.println("AT+CMGS=\"+917503021151\"\r");                                     // recipient's mobile number, in international format
   delay(100);
-  SIM900.println("Hello, world. This is a text message from an Arduino Uno.");        // message to send
+  SIM900.println("Helloworld");        // message to send
   delay(100);
   SIM900.println((char)26);                       // End AT command with a ^Z, ASCII code 26
   delay(2000); 

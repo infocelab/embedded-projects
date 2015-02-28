@@ -30,10 +30,26 @@ void callSomeone()
   SIM900.println("ATH");   // hang up
 }
  
+ void sendSMS()
+{
+  SIM900.print("AT+CMGF=1\r");                                                        // AT command to send SMS message
+  delay(100);
+  SIM900.println("AT+CMGS=\"+917503021151\"\r");                                     // recipient's mobile number, in international format
+  delay(100);
+  SIM900.println("Helloworld");        // message to send
+  delay(100);
+  SIM900.println((char)26);                       // End AT command with a ^Z, ASCII code 26
+  delay(2000); 
+  SIM900.println();
+  delay(5000);                                     // give module time to send SMS
+  SIM900power();                                   // turn off module
+}
 void loop()
 {
   callSomeone(); // call someone
   SIM900power();   // power off GSM shield
-  do {} while (1); // do nothing
+  Serial.println("sending sms");
+  sendSMS();
+  //do {} while (1); // do nothing
 }
 
