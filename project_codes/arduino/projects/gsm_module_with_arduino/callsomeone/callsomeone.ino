@@ -1,5 +1,6 @@
 #include <SoftwareSerial.h>
 SoftwareSerial SIM900(7, 8); // configure software serial port
+// 7 - GSM TX , 8 - GSM RX
  
 void setup()
 {
@@ -35,3 +36,4 @@ void loop()
   SIM900power();   // power off GSM shield
   do {} while (1); // do nothing
 }
+
