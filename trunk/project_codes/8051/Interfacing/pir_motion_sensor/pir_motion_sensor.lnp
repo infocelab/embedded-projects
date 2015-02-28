@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"pir sensor.obj" 
+TO "pir_motion_sensor" 
+RAMSIZE(256) 
