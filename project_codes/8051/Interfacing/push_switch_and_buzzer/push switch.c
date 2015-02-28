@@ -1,6 +1,5 @@
-#include<reg52.h> /* special function register declarations   */
-                  /* for the intended 8051 derivative         */
-#include<stdio.h> /* prototype declarations for I/O functions */
+#include<reg52.h> 
+#include<stdio.h> 
 
 sbit buzzer_pin = P2^0;     //Defining LED PIN
 sbit switch_pin = P0^0;  //Defining Switch PIN
@@ -8,16 +7,18 @@ sbit switch_pin = P0^0;  //Defining Switch PIN
 void Delay(int); //Function prototype declaration
 void main (void) 
 {
-   switch_pin = 0; // Making Switch PIN input
-   buzzer_pin = 1;    //Making LED pin output
+	P2 = 0;
+	P0 = 1;
+   switch_pin = 1; // Making Switch PIN input
+   buzzer_pin = 0;    //Making LED pin output
 
    while(1)     //infinite loop 
    {
       if(switch_pin == 1) //If switch pressed
       {
-	 buzzer_pin = 0; //LED ON
+	 buzzer_pin = 1; //LED ON
 	 Delay(1000); //Delay
-	 buzzer_pin = 1; //LED OFF	
+	 buzzer_pin = 0; //LED OFF	
       }
    }
 }
