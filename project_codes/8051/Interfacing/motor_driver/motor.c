@@ -1,6 +1,6 @@
 #include<reg52.h>
-sbit motor_pin_1 = P3^7;
-sbit motor_pin_2 = P3^6;
+sbit motor_pin_1 = P3^0;
+sbit motor_pin_2 = P3^1;
 void msDelay(unsigned int x)
 { 
 	unsigned int i,j;

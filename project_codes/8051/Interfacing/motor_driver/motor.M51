@@ -1,8 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        01/06/2015  15:15:40  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/12/2015  02:09:33  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, motor.obj TO motor RAMSIZE (256)
+C:\KEIL_V5\C51\BIN\BL51.EXE STARTUP.obj, motor.obj TO motor RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
@@ -59,7 +59,7 @@ SYMBOL TABLE OF MODULE:  motor (?C_STARTUP)
   D:00F0H         SYMBOL        B
   D:0083H         SYMBOL        DPH
   D:0082H         SYMBOL        DPL
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/06/2015  15:15:40  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/12/2015  02:09:33  PAGE 2
 
 
   N:0000H         SYMBOL        IBPSTACK
@@ -99,8 +99,8 @@ SYMBOL TABLE OF MODULE:  motor (?C_STARTUP)
   D:0088H         PUBLIC        TCON
   C:0825H         PUBLIC        _msDelay
   D:00C8H         PUBLIC        T2CON
-  B:00B0H.7       PUBLIC        motor_pin_1
-  B:00B0H.6       PUBLIC        motor_pin_2
+  B:00B0H.0       PUBLIC        motor_pin_1
+  B:00B0H.1       PUBLIC        motor_pin_2
   D:00D0H         PUBLIC        PSW
   -------         PROC          _MSDELAY
   D:0006H         SYMBOL        x
@@ -119,7 +119,7 @@ SYMBOL TABLE OF MODULE:  motor (?C_STARTUP)
   C:0800H         LINE#         12
   C:0800H         LINE#         13
   C:0803H         LINE#         14
-BL51 BANKED LINKER/LOCATER V6.22                                                      01/06/2015  15:15:40  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/12/2015  02:09:33  PAGE 3
 
 
   C:0803H         LINE#         15
