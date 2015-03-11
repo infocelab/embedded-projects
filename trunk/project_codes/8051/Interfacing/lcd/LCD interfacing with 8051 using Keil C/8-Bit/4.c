@@ -31,7 +31,7 @@ void main()
   while(1)
   {                                   
     Lcd8_Set_Cursor(1,1);
-	  Lcd8_Write_String("celab ");
+	  Lcd8_Write_String("celab lcd example");
 		for(i=0;i<15;i++)
 		{
 		  Delay(1000);
@@ -44,11 +44,11 @@ void main()
 		}
 		Lcd8_Clear();
 		Lcd8_Set_Cursor(2,1);
-		 Lcd8_Write_String("CE LAB ");
+		 Lcd8_Write_String("Welcome ");
 		for(i=0;i<15;i++)
 		Delay(1000);
-		Lcd8_Write_Char('e');
-		Lcd8_Write_Char('S');
+		Lcd8_Write_Char('o');
+		Lcd8_Write_Char('k');
 		Delay(3000);
   }
 }
