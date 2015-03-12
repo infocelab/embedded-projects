@@ -11394,12 +11394,15 @@ Cermet, abgedichtet nach IP67</description>
 <wire x1="81.28" y1="71.12" x2="124.46" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="71.12" x2="127" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="127" y1="71.12" x2="127" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="127" y1="53.34" x2="144.78" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="127" y1="53.34" x2="132.08" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="53.34" x2="144.78" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="53.34" x2="144.78" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="LCD" gate="G$1" pin="15"/>
 <wire x1="144.78" y1="20.32" x2="132.08" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="VR" gate="G$1" pin="E"/>
 <junction x="124.46" y="71.12"/>
+<pinref part="LCD" gate="G$1" pin="2"/>
+<junction x="132.08" y="53.34"/>
 </segment>
 </net>
 <net name="N$6" class="0">
