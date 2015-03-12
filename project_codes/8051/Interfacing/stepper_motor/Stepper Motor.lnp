@@ -1,4 +1,4 @@
 "STARTUP.obj",
-"Stepper Motor.obj" 
-TO "Stepper Motor" 
+"stepper motor.obj" 
+TO "stepper motor" 
 RAMSIZE(256) 
