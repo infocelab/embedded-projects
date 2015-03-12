@@ -6,13 +6,13 @@ accordingly to your configuration and IR remote
  
 #include <IRremote.h>
  
-int RECV_PIN = 3; // the pin where you connect the output pin of TSOP4838
-int relay1 = 2;
-int relay2 = 4;
-int relay3 = 7;
-int relay4 = 8;
-int relay5 = 9;
-int relay6 = 10;
+int RECV_PIN = 2; // the pin where you connect the output pin of TSOP4838
+int relay1 = 3;
+int relay2 = 8;
+int relay3 = 9;
+int relay4 = 10;
+int relay5 = 11;
+int relay6 = 12;
 int itsONrelay[] = {0,0,0,0,0,0,0};
 /* the initial state of LEDs is OFF (zero) 
 the first zero must remain zero but you can 
