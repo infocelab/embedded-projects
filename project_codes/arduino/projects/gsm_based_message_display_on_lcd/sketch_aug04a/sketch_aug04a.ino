@@ -32,7 +32,7 @@ void loop()
       if(count >= 35)
       {
         count=0;
-        for(i=0;i<18;i++)
+        for(i=0;i<36;i++)
         input[i]='\0';
       }
       
