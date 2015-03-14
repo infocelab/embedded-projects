@@ -33,11 +33,13 @@ Count=0
 [OTHER_FILES]
 Count=0
 [SEARCH_PATH]
-Count=4
+Count=6
 Path0=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\defs\
 Path1=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\
 Path2=E:\celabcode\Embedded-Projects\project_codes\pic\pic_based_ automatic_Street_light_ project\
-Path3=E:\celabcode\Embedded-Projects\project_codes\pic\ir_module_use _led_on_and_off\
+Path3=C:\Users\ABC\Documents\Mikroelektronika\mikroC PRO for PIC\defs\
+Path4=C:\Users\ABC\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\
+Path5=E:\celabcode\Embedded-Projects\project_codes\pic\ir_module_use _led_on_and_off\
 [HEADER_PATH]
 Count=0
 [HEADERS]
