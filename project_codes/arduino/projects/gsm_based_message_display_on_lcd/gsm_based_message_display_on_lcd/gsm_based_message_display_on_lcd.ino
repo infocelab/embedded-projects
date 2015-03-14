@@ -1,7 +1,7 @@
  
 #include <SoftwareSerial.h>
 #include <LiquidCrystal.h>
-SoftwareSerial SIM900(4, 5); //tx-4 rx-5
+SoftwareSerial SIM900(2, 3); //tx-2 rx-3
 LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
 char input[36];
 int count = 0; // A variable to count the length of the Tag DATA
