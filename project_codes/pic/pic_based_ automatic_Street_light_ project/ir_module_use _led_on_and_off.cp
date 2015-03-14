@@ -4,49 +4,55 @@
 
 void main()
 {
- short current_duty_1 =  10 ;
- short current_duty_2 =  10 ;
- short flag1 = 0;
- short flag2 = 0;
+
+
+
+
 
  TRISD = 0xFF;
  TRISC = 0x00;
 
- PWM1_Init(5000);
- PWM2_Init(5000);
 
- PWM1_Start();
- PWM2_Start();
 
- PWM1_Set_Duty(current_duty_1);
- PWM2_Set_Duty(current_duty_2);
+
+
+
+
+
+
+ RC0_bit=1;
+ RC1_bit=0;
+ RC2_bit=0;
+ RC3_bit=0;
+ RC4_bit=0;
 
  while (1)
  {
  if (RD0_bit == 1)
  {
- Delay_ms(40);
- current_duty_1 =  40 ;
- PWM1_Set_Duty(current_duty_1);
+ RC1_bit=1;
+ RC0_bit=0;
  }
  else if (RD1_bit == 1)
  {
- Delay_ms(40);
- current_duty_2 =  40 ;
- PWM2_Set_Duty(current_duty_2);
+ RC2_bit=1;
+ RC1_bit=0;
  }
- if(current_duty_1 >  10 )
+ else if (RD2_bit == 1)
  {
- current_duty_1--;
- PWM1_Set_Duty(current_duty_1);
- Delay_ms(30);
+ RC3_bit=1;
+ RC2_bit=0;
  }
- if(current_duty_2 >  10 )
+ else if (RD3_bit == 1)
  {
- current_duty_2--;
- PWM2_Set_Duty(current_duty_2);
- Delay_ms(30);
+ RC4_bit=1;
+ RC3_bit=0;
  }
- Delay_ms(10);
+ else if (RD4_bit == 1)
+ {
+ RC4_bit=0;
+ RC0_bit=1;
+ }
+ Delay_ms(5);
  }
 }
