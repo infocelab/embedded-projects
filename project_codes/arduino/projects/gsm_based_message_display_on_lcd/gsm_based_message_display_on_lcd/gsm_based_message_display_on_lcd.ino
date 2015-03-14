@@ -38,31 +38,71 @@ void SIM900power()
   digitalWrite(9, LOW);
   delay(7000);
 }
+
+void gsm_read()
+{
+ // Now we simply display any text that the GSM shield sends out on the serial monitor
+  if(SIM900.available() >0)
+  {
+
+   // while(SIM900.available()) // Keep reading Byte by Byte from the Buffer till the Buffer is empty
+    {
+    incoming_char=SIM900.read(); //Get the character from the cellular serial port.
+    Serial.print(incoming_char); //Print the incoming character to the terminal.
+    input[count] = incoming_char; // Read 1 Byte of data and store it in a character variable
+    count++; // Increment the Byte count after every Byte Read
+    delay(25); 
+    }
  
+  } 
+  
+}
 void loop()
 {
   // set the cursor to column 0, line 1
   // (note: line 1 is the second row, since counting begins with 0):
 
-  // Now we simply display any text that the GSM shield sends out on the serial monitor
-  if(SIM900.available() >0)
-  {
-
-    incoming_char=SIM900.read(); //Get the character from the cellular serial port.
-    Serial.print(incoming_char); //Print the incoming character to the terminal.
-    input[count] = incoming_char; // Read 1 Byte of data and store it in a character variable
-    count++; // Increment the Byte count after every Byte Read
-    //delay(5); 
-
-  }
-
-   if(count > 35)
+  
+gsm_read();
+   lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print(input);
+      if(count >= 35)
       {
         count=0;
-        for(int i=0;i<36;i++)
+        for(int i=0;i<18;i++)
         input[i]='\0';
       }
-      lcd.clear();
-            lcd.print(input);
+      
+            
+      if(count > 0)
+      {
+        // scroll 13 positions (string length) to the left 
+   // to move it offscreen left:
+   for (int positionCounter = 0; positionCounter < 13; positionCounter++) {
+     // scroll one position left:
+     lcd.scrollDisplayLeft(); 
+     // wait a bit:
+     delay(120);
+   }
+
+   // scroll 29 positions (string length + display length) to the right
+   // to move it offscreen right:
+   for (int positionCounter = 0; positionCounter < 29; positionCounter++) {
+     // scroll one position right:
+     lcd.scrollDisplayRight(); 
+     // wait a bit:
+     delay(120);
+   }
+
+     // scroll 16 positions (display length + string length) to the left
+     // to move it back to center:
+   for (int positionCounter = 0; positionCounter < 16; positionCounter++) {
+     // scroll one position left:
+     lcd.scrollDisplayLeft(); 
+     // wait a bit:
+     delay(120);
+   }
+      }
   
 }
