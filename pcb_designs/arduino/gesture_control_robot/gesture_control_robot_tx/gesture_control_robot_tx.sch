@@ -11508,10 +11508,10 @@ Cermet, abgedichtet nach IP67</description>
 <junction x="-27.94" y="58.42"/>
 <pinref part="IC1" gate="G$1" pin="VSS"/>
 <wire x1="-5.08" y1="81.28" x2="2.54" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="2.54" y1="81.28" x2="2.54" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="81.28" x2="2.54" y2="88.9" width="0.1524" layer="91"/>
 <junction x="-5.08" y="81.28"/>
 <junction x="2.54" y="93.98"/>
-<wire x1="2.54" y1="91.44" x2="2.54" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="2.54" y1="88.9" x2="2.54" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="-27.94" y1="121.92" x2="-27.94" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="LCD" gate="G$1" pin="1"/>
 <wire x1="-27.94" y1="137.16" x2="58.42" y2="137.16" width="0.1524" layer="91"/>
@@ -11531,7 +11531,7 @@ Cermet, abgedichtet nach IP67</description>
 <wire x1="33.02" y1="106.68" x2="2.54" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="106.68" x2="2.54" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="TX" gate="G$1" pin="3"/>
-<wire x1="-20.32" y1="91.44" x2="2.54" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="91.44" x2="2.54" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -11752,15 +11752,19 @@ Cermet, abgedichtet nach IP67</description>
 <wire x1="40.64" y1="104.14" x2="33.02" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="OUT"/>
+<wire x1="-5.08" y1="93.98" x2="-2.54" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+</net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="TX" gate="G$1" pin="2"/>
 <wire x1="-20.32" y1="88.9" x2="-7.62" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="88.9" x2="-7.62" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="93.98" x2="-5.08" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="OUT"/>
-<junction x="-5.08" y="93.98"/>
-<wire x1="-5.08" y1="93.98" x2="-2.54" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="88.9" x2="-7.62" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="STAT"/>
+<wire x1="-7.62" y1="91.44" x2="-5.08" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
