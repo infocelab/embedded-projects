@@ -7,7 +7,7 @@
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="800" x="566" flags="00000003" y="517" h="200" pid="0" iid="-1">
+   <POPUP w="800" x="566" flags="00000002" y="517" h="200" pid="0" iid="-1">
     <PROPERTIES>
      <ITEM name="Message Column Width">544</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
@@ -131,15 +131,15 @@
      <ITEM name="HexMode">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="695" x="93" flags="00000001" y="126" h="453" pid="0" iid="1">
+   <POPUP w="695" x="168" flags="00000001" y="198" h="453" pid="0" iid="1">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="511" x="811" flags="00008001" y="404" h="147" pid="0" iid="5">
+   <POPUP w="511" x="811" flags="00000001" y="404" h="147" pid="0" iid="5">
     <PROPERTIES>
      <ITEM name="AMPLR">3</ITEM>
      <ITEM name="AMPLV">69</ITEM>
      <ITEM name="FREQR">4</ITEM>
-     <ITEM name="FREQV">81</ITEM>
+     <ITEM name="FREQV">87</ITEM>
      <ITEM name="UNIPOLAR">0</ITEM>
      <ITEM name="WAVEFORM">3</ITEM>
     </PROPERTIES>
