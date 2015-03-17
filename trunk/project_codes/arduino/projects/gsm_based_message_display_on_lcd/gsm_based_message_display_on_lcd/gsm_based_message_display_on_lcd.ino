@@ -13,7 +13,9 @@ void setup()
 {
   // set up the LCD's number of columns and rows: 
   lcd.begin(16, 2);
-   lcd.print("WELCOME");
+  lcd.print("GSM Notice Board");
+  lcd.setCursor(0, 1);
+  lcd.print("By : Anchal");
   Serial.begin(9600); // for serial monitor
   SIM900.begin(19200); // for GSM shield
   SIM900power();  // turn on shield
