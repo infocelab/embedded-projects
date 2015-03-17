@@ -3,7 +3,7 @@
 #include <LiquidCrystal.h>
 SoftwareSerial SIM900(2, 3); //tx-2 rx-3
 LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
-char input[36];
+char input[54];
 int count = 0; // A variable to count the length of the Tag DATA
 int delay_val = 70;
 
@@ -70,10 +70,10 @@ gsm_read();
    lcd.clear();
       lcd.setCursor(0, 0);
       lcd.print(input);
-      if(count >= 35)
+      if(count >= 54)
       {
         count=0;
-        for(int i=0;i<36;i++)
+        for(int i=0;i<54;i++)
         input[i]='\0';
       }
       
