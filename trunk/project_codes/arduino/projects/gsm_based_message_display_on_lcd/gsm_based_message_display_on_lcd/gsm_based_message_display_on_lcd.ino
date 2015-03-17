@@ -39,7 +39,7 @@ void SIM900power()
   delay(7000);
 }
 
-void gsm_read()
+int gsm_read()
 {
  // Now we simply display any text that the GSM shield sends out on the serial monitor
   if(SIM900.available() >0)
@@ -51,19 +51,23 @@ void gsm_read()
     Serial.print(incoming_char); //Print the incoming character to the terminal.
     input[count] = incoming_char; // Read 1 Byte of data and store it in a character variable
     count++; // Increment the Byte count after every Byte Read
-    delay(25); 
+    delay(25);
+    return 1;
     }
  
   } 
-  
+    return 0;
 }
 void loop()
 {
   // set the cursor to column 0, line 1
   // (note: line 1 is the second row, since counting begins with 0):
 
-  
-gsm_read();
+  int y=1;
+  while(y == 1)
+  {
+     y=gsm_read(); 
+  }
    lcd.clear();
       lcd.setCursor(0, 0);
       lcd.print(input);
@@ -84,7 +88,6 @@ gsm_read();
      lcd.scrollDisplayLeft(); 
      // wait a bit:
      delay(delay_val);
-     gsm_read();
      delay(delay_val);
    }
 
@@ -95,7 +98,6 @@ gsm_read();
      lcd.scrollDisplayRight(); 
      // wait a bit:
 	delay(delay_val);
-     gsm_read();
      delay(delay_val);
    }
 
@@ -106,7 +108,6 @@ gsm_read();
      lcd.scrollDisplayLeft(); 
      // wait a bit:
      delay(delay_val);
-     gsm_read();
      delay(delay_val);
    }
       }
