@@ -20,9 +20,10 @@ void loop()
   // map it to the range of the analog out:
   outputValue = map(sensorValue, 0, 1023, 0, 255);  
   // change the analog out value:
+  Serial.println(outputValue);
   analogWrite(analogOutPin, outputValue);           
 
-  if(outputValue > 5)
+  if(outputValue > 17)
   {
     // turn the ledPin on
   digitalWrite(ledPin, HIGH);  
