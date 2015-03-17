@@ -5,7 +5,7 @@ SoftwareSerial SIM900(2, 3); //tx-2 rx-3
 LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
 char input[36];
 int count = 0; // A variable to count the length of the Tag DATA
-
+int delay_val = 30;
 
 char incoming_char=0;
  
@@ -83,9 +83,9 @@ gsm_read();
      // scroll one position left:
      lcd.scrollDisplayLeft(); 
      // wait a bit:
-     delay(50);
+     delay(delay_val);
      gsm_read();
-     delay(50);
+     delay(delay_val);
    }
 
    // scroll 29 positions (string length + display length) to the right
@@ -94,9 +94,9 @@ gsm_read();
      // scroll one position right:
      lcd.scrollDisplayRight(); 
      // wait a bit:
-	delay(50);
+	delay(delay_val);
      gsm_read();
-     delay(50);
+     delay(delay_val);
    }
 
      // scroll 16 positions (display length + string length) to the left
@@ -105,9 +105,9 @@ gsm_read();
      // scroll one position left:
      lcd.scrollDisplayLeft(); 
      // wait a bit:
-     delay(50);
+     delay(delay_val);
      gsm_read();
-     delay(50);
+     delay(delay_val);
    }
       }
   
