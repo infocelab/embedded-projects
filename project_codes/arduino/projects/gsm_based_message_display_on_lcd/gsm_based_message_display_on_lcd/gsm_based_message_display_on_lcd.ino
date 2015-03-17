@@ -5,7 +5,7 @@ SoftwareSerial SIM900(2, 3); //tx-2 rx-3
 LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
 char input[54];
 int count = 0; // A variable to count the length of the Tag DATA
-int delay_val = 70;
+int delay_val = 200;
 
 char incoming_char=0;
  
