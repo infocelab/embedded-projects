@@ -83,7 +83,9 @@ gsm_read();
      // scroll one position left:
      lcd.scrollDisplayLeft(); 
      // wait a bit:
-     delay(120);
+     delay(50);
+     gsm_read();
+     delay(50);
    }
 
    // scroll 29 positions (string length + display length) to the right
@@ -92,7 +94,9 @@ gsm_read();
      // scroll one position right:
      lcd.scrollDisplayRight(); 
      // wait a bit:
-     delay(120);
+	delay(50);
+     gsm_read();
+     delay(50);
    }
 
      // scroll 16 positions (display length + string length) to the left
@@ -101,7 +105,9 @@ gsm_read();
      // scroll one position left:
      lcd.scrollDisplayLeft(); 
      // wait a bit:
-     delay(120);
+     delay(50);
+     gsm_read();
+     delay(50);
    }
       }
   
