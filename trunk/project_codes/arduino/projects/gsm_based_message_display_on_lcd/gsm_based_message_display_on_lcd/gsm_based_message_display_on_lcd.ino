@@ -73,7 +73,7 @@ gsm_read();
       if(count >= 35)
       {
         count=0;
-        for(int i=0;i<18;i++)
+        for(int i=0;i<36;i++)
         input[i]='\0';
       }
       
