@@ -17,7 +17,7 @@ const int stepsPerRevolution = 300;  // change this to fit the number of steps p
  
 // initialize the stepper library on pins 2 through 5:
 
-Stepper myStepper(stepsPerRevolution, 8,9,10,11);            
+Stepper myStepper(stepsPerRevolution, 9,10,11,12);            
  
 void setup() 
 {
