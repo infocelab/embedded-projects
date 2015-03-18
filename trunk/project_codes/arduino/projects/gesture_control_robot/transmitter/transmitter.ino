@@ -22,7 +22,7 @@ void setup()
   lcd.print("GESTURE CONTROL");
 
   lcd.setCursor(0, 1);
-   lcd.print("ROBOT By-Nishant");
+   lcd.print("Nishant & Dawood");
   delay(1000);
  
 }
