@@ -4,14 +4,14 @@ sbit RIGHT_FORWARD  =P2^1;
 sbit LEFT_BACKWARD  =P2^2;
 sbit RIGHT_BACKWARD =P2^4;
 
-sbit Left_sensor  = P0^1;
-sbit Right_sensor = P0^0;
+sbit Left_sensor  = P3^1;
+sbit Right_sensor = P3^0;
 void stop()
 {
-                    LEFT_FORWARD = 1;
-                    LEFT_BACKWARD =1;
-                    RIGHT_FORWARD = 1;
-                    RIGHT_BACKWARD =1;
+                    LEFT_FORWARD = 0;
+                    LEFT_BACKWARD =0;
+                    RIGHT_FORWARD = 0;
+                    RIGHT_BACKWARD =0;
 }
 
 void msDelay(unsigned int x)
@@ -23,17 +23,19 @@ void msDelay(unsigned int x)
 	
 void main() 
 {
-  P0= 0x00;                         // Configure PORT3 as input
-  P2 = 0xFF;                        // Initial PORT2 value
-  stop();
-  while(1)
+  P3= 0x00;                         // Configure PORT3 as input
+  P2 = 0xFF;                       // Initial PORT2 value
+  msDelay(10); 
+  P2 = 0x00; 	
+  stop(); 
+  while(1) 
   {
-    if(Left_sensor == 1  && Right_sensor == 1  )  // both on white
+    if(Left_sensor == 1  && Right_sensor == 1)  // both on white
     {
                     stop();
-                   msDelay(10);
-                    LEFT_FORWARD =0;
-                    RIGHT_FORWARD =0;
+                    msDelay(10);
+                    LEFT_FORWARD =1;
+                    RIGHT_FORWARD =1;
                     msDelay(100);
     }
     else if(Left_sensor == 0  && Right_sensor == 0 )  // both on black
@@ -41,21 +43,21 @@ void main()
                     stop();
                     msDelay(100);
     }
-    else if(Right_sensor == 0)  // moving left
+    else if(Right_sensor == 0)   // moving left
     {
                     stop();
                     msDelay(10);
-                    LEFT_BACKWARD =0;
-                    RIGHT_FORWARD =0;
+                    LEFT_BACKWARD =1;
+                    RIGHT_FORWARD =1;
                     msDelay(100);
     }
-    else if(Left_sensor == 0)  // moving right
+    else if(Left_sensor == 0)   // moving right
     {
                     stop();
                     msDelay(10);
-                    LEFT_FORWARD =0;
-                    RIGHT_BACKWARD =0;
-                   msDelay(100);
+                    LEFT_FORWARD =1;
+                    RIGHT_BACKWARD =1;
+                    msDelay(100);
     }
   }
 }
