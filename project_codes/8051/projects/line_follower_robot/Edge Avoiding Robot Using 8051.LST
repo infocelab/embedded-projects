@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   EDGE_AVOIDING_ROBOT_USING_8051                                    01/26/2015 22:49:47 PAGE 1   
+C51 COMPILER V9.52.0.0   EDGE_AVOIDING_ROBOT_USING_8051                                    03/19/2015 04:51:23 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE EDGE_AVOIDING_ROBOT_USING_8051
@@ -14,14 +14,14 @@ line level    source
    4          sbit LEFT_BACKWARD  =P2^2;
    5          sbit RIGHT_BACKWARD =P2^4;
    6          
-   7          sbit Left_sensor  = P0^1;
-   8          sbit Right_sensor = P0^0;
+   7          sbit Left_sensor  = P3^1;
+   8          sbit Right_sensor = P3^0;
    9          void stop()
   10          {
-  11   1                          LEFT_FORWARD = 1;
-  12   1                          LEFT_BACKWARD =1;
-  13   1                          RIGHT_FORWARD = 1;
-  14   1                          RIGHT_BACKWARD =1;
+  11   1                          LEFT_FORWARD = 0;
+  12   1                          LEFT_BACKWARD =0;
+  13   1                          RIGHT_FORWARD = 0;
+  14   1                          RIGHT_BACKWARD =0;
   15   1      }
   16          
   17          void msDelay(unsigned int x)
@@ -33,48 +33,50 @@ line level    source
   23            
   24          void main() 
   25          {
-  26   1        P0= 0x00;                         // Configure PORT3 as input
-  27   1        P2 = 0xFF;                        // Initial PORT2 value
-  28   1        stop();
-  29   1        while(1)
-  30   1        {
-  31   2          if(Left_sensor == 1  && Right_sensor == 1  )  // both on white
-  32   2          {
-  33   3                          stop();
-  34   3                         msDelay(10);
-  35   3                          LEFT_FORWARD =0;
-  36   3                          RIGHT_FORWARD =0;
-  37   3                          msDelay(100);
-  38   3          }
-  39   2          else if(Left_sensor == 0  && Right_sensor == 0 )  // both on black
-  40   2          {
-  41   3                          stop();
-  42   3                          msDelay(100);
-  43   3          }
-  44   2          else if(Right_sensor == 0)  // moving left
-  45   2          {
-  46   3                          stop();
-  47   3                          msDelay(10);
-  48   3                          LEFT_BACKWARD =0;
-  49   3                          RIGHT_FORWARD =0;
-  50   3                          msDelay(100);
-  51   3          }
-  52   2          else if(Left_sensor == 0)  // moving right
-  53   2          {
-  54   3                          stop();
-C51 COMPILER V9.52.0.0   EDGE_AVOIDING_ROBOT_USING_8051                                    01/26/2015 22:49:47 PAGE 2   
+  26   1        P3= 0x00;                         // Configure PORT3 as input
+  27   1        P2 = 0xFF;                       // Initial PORT2 value
+  28   1        msDelay(10); 
+  29   1        P2 = 0x00;  
+  30   1        stop(); 
+  31   1        while(1) 
+  32   1        {
+  33   2          if(Left_sensor == 1  && Right_sensor == 1)  // both on white
+  34   2          {
+  35   3                          stop();
+  36   3                          msDelay(10);
+  37   3                          LEFT_FORWARD =1;
+  38   3                          RIGHT_FORWARD =1;
+  39   3                          msDelay(100);
+  40   3          }
+  41   2          else if(Left_sensor == 0  && Right_sensor == 0 )  // both on black
+  42   2          {
+  43   3                          stop();
+  44   3                          msDelay(100);
+  45   3          }
+  46   2          else if(Right_sensor == 0)   // moving left
+  47   2          {
+  48   3                          stop();
+  49   3                          msDelay(10);
+  50   3                          LEFT_BACKWARD =1;
+  51   3                          RIGHT_FORWARD =1;
+  52   3                          msDelay(100);
+  53   3          }
+  54   2          else if(Left_sensor == 0)   // moving right
+C51 COMPILER V9.52.0.0   EDGE_AVOIDING_ROBOT_USING_8051                                    03/19/2015 04:51:23 PAGE 2   
 
-  55   3                          msDelay(10);
-  56   3                          LEFT_FORWARD =0;
-  57   3                          RIGHT_BACKWARD =0;
-  58   3                         msDelay(100);
-  59   3          }
-  60   2        }
-  61   1      }
+  55   2          {
+  56   3                          stop();
+  57   3                          msDelay(10);
+  58   3                          LEFT_FORWARD =1;
+  59   3                          RIGHT_BACKWARD =1;
+  60   3                          msDelay(100);
+  61   3          }
+  62   2        }
+  63   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    119    ----
+   CODE SIZE        =    128    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
