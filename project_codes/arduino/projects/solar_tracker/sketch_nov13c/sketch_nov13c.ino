@@ -11,6 +11,8 @@
  */
  
 #include <Stepper.h>
+const int leftsensor = 6; 
+const int rightsensor = 7; 
  
 const int stepsPerRevolution = 300;  // change this to fit the number of steps per revolution
 // for your motor
@@ -23,27 +25,27 @@ void setup()
 {
   Serial.begin(9600);
   // set the speed at 10 rpm:
-  myStepper.setSpeed(10);
-  pinMode(A0, INPUT);
-  pinMode(A1, INPUT);
-  digitalWrite(A0,HIGH);
-  digitalWrite(A1,HIGH);
+  myStepper.setSpeed(5);
+  pinMode(leftsensor, INPUT);
+  pinMode(rightsensor, INPUT);
+  digitalWrite(leftsensor,LOW);
+  digitalWrite(rightsensor,LOW);
 }
  
 void loop() 
 {
-  if (digitalRead(A0) == LOW)
+  if (digitalRead(leftsensor) == HIGH)
   {
     // step one revolution  in one direction:
    // myStepper.step(stepsPerRevolution);
-   myStepper.step(5);
+   myStepper.step(3);
    delay(500);
   }
  
  
-  if (digitalRead(A1) == LOW)
+  if (digitalRead(rightsensor) == HIGH)
   {
-    myStepper.step(-5);
+    myStepper.step(-3);
    delay(500);
     // step one revolution in the other direction:
    // myStepper.step(-stepsPerRevolution);
