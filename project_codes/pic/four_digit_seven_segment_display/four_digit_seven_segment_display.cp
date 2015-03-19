@@ -28,19 +28,19 @@ void main()
  {
  PORTB = Hex(s%10);
  PORTD.F3 = 1;
- Delay_ms(10);
+ Delay_ms(1);
  PORTD.F3 = 0;
  PORTB = Hex((s/10)%10);
  PORTD.F2 = 1;
- Delay_ms(10);
+ Delay_ms(1);
  PORTD.F2 = 0;
  PORTB = Hex((s/100)%10);
  PORTD.F1 = 1;
- Delay_ms(10);
+ Delay_ms(1);
  PORTD.F1 = 0;
  PORTB = Hex((s/1000)%10);
  PORTD.F0 = 1;
- Delay_ms(10);
+ Delay_ms(1);
  PORTD.F0 = 0;
 
  if(d>0)

@@ -216,16 +216,17 @@ L_main12:
 	MOVWF      PORTB+0
 ;four_digit_seven_segment_display.c,29 :: 		PORTD.F3 = 1;
 	BSF        PORTD+0, 3
-;four_digit_seven_segment_display.c,30 :: 		Delay_ms(10);
-	MOVLW      26
+;four_digit_seven_segment_display.c,30 :: 		Delay_ms(1);
+	MOVLW      3
 	MOVWF      R12+0
-	MOVLW      248
+	MOVLW      151
 	MOVWF      R13+0
 L_main15:
 	DECFSZ     R13+0, 1
 	GOTO       L_main15
 	DECFSZ     R12+0, 1
 	GOTO       L_main15
+	NOP
 	NOP
 ;four_digit_seven_segment_display.c,31 :: 		PORTD.F3 = 0;
 	BCF        PORTD+0, 3
@@ -257,16 +258,17 @@ L_main15:
 	MOVWF      PORTB+0
 ;four_digit_seven_segment_display.c,33 :: 		PORTD.F2 = 1;
 	BSF        PORTD+0, 2
-;four_digit_seven_segment_display.c,34 :: 		Delay_ms(10);
-	MOVLW      26
+;four_digit_seven_segment_display.c,34 :: 		Delay_ms(1);
+	MOVLW      3
 	MOVWF      R12+0
-	MOVLW      248
+	MOVLW      151
 	MOVWF      R13+0
 L_main16:
 	DECFSZ     R13+0, 1
 	GOTO       L_main16
 	DECFSZ     R12+0, 1
 	GOTO       L_main16
+	NOP
 	NOP
 ;four_digit_seven_segment_display.c,35 :: 		PORTD.F2 = 0;
 	BCF        PORTD+0, 2
@@ -298,16 +300,17 @@ L_main16:
 	MOVWF      PORTB+0
 ;four_digit_seven_segment_display.c,37 :: 		PORTD.F1 = 1;
 	BSF        PORTD+0, 1
-;four_digit_seven_segment_display.c,38 :: 		Delay_ms(10);
-	MOVLW      26
+;four_digit_seven_segment_display.c,38 :: 		Delay_ms(1);
+	MOVLW      3
 	MOVWF      R12+0
-	MOVLW      248
+	MOVLW      151
 	MOVWF      R13+0
 L_main17:
 	DECFSZ     R13+0, 1
 	GOTO       L_main17
 	DECFSZ     R12+0, 1
 	GOTO       L_main17
+	NOP
 	NOP
 ;four_digit_seven_segment_display.c,39 :: 		PORTD.F1 = 0;
 	BCF        PORTD+0, 1
@@ -339,16 +342,17 @@ L_main17:
 	MOVWF      PORTB+0
 ;four_digit_seven_segment_display.c,41 :: 		PORTD.F0 = 1;
 	BSF        PORTD+0, 0
-;four_digit_seven_segment_display.c,42 :: 		Delay_ms(10);
-	MOVLW      26
+;four_digit_seven_segment_display.c,42 :: 		Delay_ms(1);
+	MOVLW      3
 	MOVWF      R12+0
-	MOVLW      248
+	MOVLW      151
 	MOVWF      R13+0
 L_main18:
 	DECFSZ     R13+0, 1
 	GOTO       L_main18
 	DECFSZ     R12+0, 1
 	GOTO       L_main18
+	NOP
 	NOP
 ;four_digit_seven_segment_display.c,43 :: 		PORTD.F0 = 0;
 	BCF        PORTD+0, 0
