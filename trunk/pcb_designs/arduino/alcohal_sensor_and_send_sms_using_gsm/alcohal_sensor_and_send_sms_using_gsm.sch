@@ -8467,12 +8467,10 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="50.8" y1="43.18" x2="58.42" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="43.18" x2="58.42" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="38.1" x2="68.58" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="ALCOHOLSENSOR" gate="G$1" pin="4"/>
-<wire x1="96.52" y1="73.66" x2="96.52" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="71.12" x2="101.6" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="71.12" x2="101.6" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="93.98" x2="45.72" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="93.98" x2="45.72" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="93.98" x2="45.72" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="ALCOHOLSENSOR" gate="G$1" pin="2"/>
+<wire x1="91.44" y1="93.98" x2="91.44" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -8600,19 +8598,18 @@ Source: 008-0260-0_E.pdf</description>
 <pinref part="IC1" gate="G$1" pin="DA4"/>
 <wire x1="96.52" y1="22.86" x2="104.14" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="22.86" x2="104.14" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="ALCOHOLSENSOR" gate="G$1" pin="2"/>
-<wire x1="104.14" y1="68.58" x2="91.44" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="68.58" x2="91.44" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="68.58" x2="93.98" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="ALCOHOLSENSOR" gate="G$1" pin="3"/>
+<wire x1="93.98" y1="68.58" x2="93.98" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
-<pinref part="ALCOHOLSENSOR" gate="G$1" pin="3"/>
-<wire x1="93.98" y1="73.66" x2="93.98" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="63.5" x2="99.06" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="63.5" x2="99.06" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="73.66" x2="99.06" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="CSR"/>
 <wire x1="99.06" y1="43.18" x2="96.52" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="ALCOHOLSENSOR" gate="G$1" pin="4"/>
+<wire x1="99.06" y1="73.66" x2="96.52" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$14" class="0">
