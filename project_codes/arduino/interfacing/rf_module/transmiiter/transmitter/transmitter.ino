@@ -11,7 +11,7 @@
 #include <VirtualWire.h>
 
 const int led_pin = 2;
-const int transmit_pin = 11;
+const int transmit_pin = 13;
 const int receive_pin = 12;
 const int transmit_en_pin = 3;
 
@@ -30,7 +30,7 @@ byte count = 1;
 
 void loop()
 {
-  char msg[7] = {'h','e','l','l','o',' ','#'};
+  char msg[7] = {'a'};
 
   msg[6] = count;
   digitalWrite(led_pin, HIGH); // Flash a light to show transmitting
