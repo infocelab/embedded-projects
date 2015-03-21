@@ -9,15 +9,15 @@
 // $Id: receiver.pde,v 1.3 2009/03/30 00:07:24 mikem Exp $
 
 #include <VirtualWire.h>
-const int receive_pin = 0;
+const int receive_pin = 8;
 int front_motor_1 = 12;
-int front_motor_2 = 13;
-int led = 7;
+int front_motor_2 = 7;
+int led = 13;
 
 void setup()
 {
     delay(1000);
-
+Serial.begin(9600);
     // Initialise the IO and ISR
     vw_set_rx_pin(receive_pin);
     vw_set_ptt_inverted(true); // Required for DR3100
