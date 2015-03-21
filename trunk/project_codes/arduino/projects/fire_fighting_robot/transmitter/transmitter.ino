@@ -1,85 +1,48 @@
+// transmitter.pde
+//
+// Simple example of how to use VirtualWire to transmit messages
+// Implements a simplex (one-way) transmitter with an TX-C1 module
+//
+// See VirtualWire.h for detailed API docs
+// Author: Mike McCauley (mikem@airspayce.com)
+// Copyright (C) 2008 Mike McCauley
+// $Id: transmitter.pde,v 1.3 2009/03/30 00:07:24 mikem Exp $
 
 #include <VirtualWire.h>
-const int transmit_pin = 2;
-const int transmit_en_pin = 13;
- 
+
+const int led_pin = 2;
+const int transmit_pin = 13;
+const int receive_pin = 12;
+const int transmit_en_pin = 3;
+
 void setup()
 {
   Serial.begin(9600);
-  // initialize the serial communications:
- vw_set_tx_pin(transmit_pin);
- vw_set_ptt_pin(transmit_en_pin);
- vw_set_ptt_inverted(true); // Required for DR3100
-  vw_setup(2000);       // Bits per sec
-  delay(1000);
+    // Initialise the IO and ISR
+    vw_set_tx_pin(transmit_pin);
+    vw_set_rx_pin(receive_pin);
+    vw_set_ptt_pin(transmit_en_pin);
+    vw_set_ptt_inverted(true); // Required for DR3100
+    vw_setup(2000);       // Bits per sec
+    pinMode(led_pin, OUTPUT);
 }
- char d;
- 
+
+byte count = 1;
+char d;
+char msg[]={'b'};
+
 void loop()
-{
-   // send data only when you receive data:
-   if (Serial.available() > 0) {
-   // read the incoming byte:
-   d = Serial.read();
-   switch(d)
-   {
-    case 'f':
-   fwd();
-   break; 
-    case 'b':
-   bwk();
-   break; 
-     
-    case 'l':
-   lft();
-   break; 
-     
-   case 'r':
-   rgt();
-   break; 
-    case 's':
-   stp();
-   break; 
-    
-   }
-  }
-  delay(100);
+{ 
+ if(Serial.available() > 0)
+ {
+  d =Serial.read();
+  msg[0]=d;
+
+  digitalWrite(led_pin, HIGH); // Flash a light to show transmitting
+  vw_send((uint8_t *)msg,1);
+  vw_wait_tx(); // Wait until the whole message is gone
+  digitalWrite(led_pin, LOW);
  }
-
-void fwd()
-{ 
-   char msg[] = {'f','\0'};
-   vw_send((uint8_t *)msg, 2);
-  vw_wait_tx(); // Wait until the whole message is gone
-  delay(300);
+ delay(500);
+ 
 }
-void bwk()
-{ 
-   char msg[] = {'b','\0'};
-   vw_send((uint8_t *)msg, 2);
-  vw_wait_tx(); // Wait until the whole message is gone
-  delay(300);
-}
-void lft()
-{ 
-   char msg[] = {'l','\0'};
-   vw_send((uint8_t *)msg, 2);
-  vw_wait_tx(); // Wait until the whole message is gone
-  delay(300);
-}
-void rgt()
-{ 
-   char msg[] = {'r','\0'};
-   vw_send((uint8_t *)msg, 2);
-  vw_wait_tx(); // Wait until the whole message is gone
-  delay(300);
-}
-void stp()
-{ 
-   char msg[] = {'s','\0'};
-   vw_send((uint8_t *)msg, 2);
-  vw_wait_tx(); // Wait until the whole message is gone
-  delay(300);
-}
-
-
