@@ -9,9 +9,12 @@
 // $Id: receiver.pde,v 1.3 2009/03/30 00:07:24 mikem Exp $
 
 #include <VirtualWire.h>
-const int receive_pin = 8;
-int front_motor_1 = 12;
-int front_motor_2 = 7;
+const int receive_pin = 12;
+int motor1_a = 7;
+int motor1_b = 8;
+int motor2_a = 9;
+int motor2_b = 10;
+
 int led = 13;
 
 void setup()
@@ -23,11 +26,16 @@ Serial.begin(9600);
     vw_set_ptt_inverted(true); // Required for DR3100
     vw_setup(2000);	 // Bits per sec
     vw_rx_start();       // Start the receiver PLL running
-    pinMode(front_motor_1, OUTPUT);
-    pinMode(front_motor_2, OUTPUT);
+    pinMode(motor1_a, OUTPUT);
+    pinMode(motor1_b, OUTPUT);
+    pinMode(motor2_a, OUTPUT);
+    pinMode(motor2_b, OUTPUT);
     
-    digitalWrite(front_motor_1,HIGH);
-    digitalWrite(front_motor_2,HIGH);
+    digitalWrite(motor1_a,LOW);
+    digitalWrite(motor1_b,LOW);
+    digitalWrite(motor2_a,LOW);
+    digitalWrite(motor2_b,LOW);
+
      pinMode(led, OUTPUT);   
      digitalWrite(led, LOW);     
 }
@@ -78,34 +86,43 @@ void loop()
 delay(500);
 }// end of loop
 void fwd()
-{ 
-digitalWrite(front_motor_1,LOW);
-digitalWrite(front_motor_2,HIGH);
+{   
+    digitalWrite(motor1_a,HIGH);
+    digitalWrite(motor1_b,LOW);
+    digitalWrite(motor2_a,HIGH);
+    digitalWrite(motor2_b,LOW);
 delay(500);
-
 }
 void bwk()
-{ 
-digitalWrite(front_motor_1,HIGH);
-digitalWrite(front_motor_2,LOW);
+{
+    digitalWrite(motor1_a,LOW);
+    digitalWrite(motor1_b,HIGH);
+    digitalWrite(motor2_a,LOW);
+    digitalWrite(motor2_b,HIGH);
 delay(500);
 }
 void lft()
 { 
-  digitalWrite(front_motor_1,HIGH);
-digitalWrite(front_motor_2,LOW);
+    digitalWrite(motor1_a,HIGH);
+    digitalWrite(motor1_b,LOW);
+    digitalWrite(motor2_a,LOW);
+    digitalWrite(motor2_b,HIGH);
 delay(500);
 }
 void rgt()
-{ 
-digitalWrite(front_motor_1,LOW);
-digitalWrite(front_motor_2,HIGH);
-delay(500);
+{
+    digitalWrite(motor1_a,LOW);
+    digitalWrite(motor1_b,HIGH);
+    digitalWrite(motor2_a,HIGH);
+    digitalWrite(motor2_b,LOW);
+ delay(500);
 }
 void stp()
 { 
-digitalWrite(front_motor_1,LOW);
-digitalWrite(front_motor_2,LOW);
+    digitalWrite(motor1_a,LOW);
+    digitalWrite(motor1_b,LOW);
+    digitalWrite(motor2_a,LOW);
+    digitalWrite(motor2_b,LOW);
 
 delay(500);
 }
