@@ -13,7 +13,7 @@
 const int led_pin = 2;
 const int transmit_pin = 13;
 const int receive_pin = 12;
-const int transmit_en_pin = 3;
+const int transmit_en_pin = 7;
 
 void setup()
 {
@@ -37,6 +37,7 @@ void loop()
  {
   d =Serial.read();
   msg[0]=d;
+  Serial.println("sending...");
 
   digitalWrite(led_pin, HIGH); // Flash a light to show transmitting
   vw_send((uint8_t *)msg,1);
