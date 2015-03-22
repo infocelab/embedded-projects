@@ -30,13 +30,12 @@ byte count = 1;
 
 void loop()
 {
-  char msg[7] = {'a'};
-
-  msg[6] = count;
+  char msg[2] = {'a'};
+  msg[0]='a';
+  msg[1]='\0'; 
   digitalWrite(led_pin, HIGH); // Flash a light to show transmitting
-  vw_send((uint8_t *)msg, 7);
+  vw_send((uint8_t *)msg, 2);
   vw_wait_tx(); // Wait until the whole message is gone
   digitalWrite(led_pin, LOW);
   delay(1000);
-  count = count + 1;
 }
