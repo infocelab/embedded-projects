@@ -11,10 +11,10 @@
  */
  
 #include <Stepper.h>
-const int leftsensor = 6; 
-const int rightsensor = 7; 
+ int leftsensor = 5; 
+ int rightsensor = 6; 
  
-const int stepsPerRevolution = 300;  // change this to fit the number of steps per revolution
+const int stepsPerRevolution = 20;  // change this to fit the number of steps per revolution
 // for your motor
  
 // initialize the stepper library on pins 2 through 5:
@@ -30,6 +30,7 @@ void setup()
   pinMode(rightsensor, INPUT);
   digitalWrite(leftsensor,LOW);
   digitalWrite(rightsensor,LOW);
+  delay(50);
 }
  
 void loop() 
@@ -39,14 +40,14 @@ void loop()
     // step one revolution  in one direction:
    // myStepper.step(stepsPerRevolution);
    myStepper.step(3);
-   delay(500);
+   delay(100);
   }
  
  
   if (digitalRead(rightsensor) == HIGH)
   {
     myStepper.step(-3);
-   delay(500);
+   delay(100);
     // step one revolution in the other direction:
    // myStepper.step(-stepsPerRevolution);
   }
