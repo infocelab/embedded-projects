@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.1">
+<eagle version="7.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8219,6 +8219,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="R4" library="rcl" deviceset="R-EU_" device="0207/10" value="10K"/>
 <part name="JP7" library="jumper" deviceset="JP2E" device=""/>
 <part name="JP8" library="jumper" deviceset="JP2E" device=""/>
+<part name="JP9" library="jumper" deviceset="JP2E" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8250,6 +8251,7 @@ Source: 008-0260-0_E.pdf</description>
 <instance part="R4" gate="G$1" x="60.96" y="60.96" rot="R90"/>
 <instance part="JP7" gate="1" x="83.82" y="76.2" rot="R270"/>
 <instance part="JP8" gate="1" x="33.02" y="17.78"/>
+<instance part="JP9" gate="1" x="33.02" y="83.82" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -8360,8 +8362,10 @@ Source: 008-0260-0_E.pdf</description>
 <segment>
 <pinref part="IC2" gate="A1" pin="VI"/>
 <junction x="35.56" y="86.36"/>
-<wire x1="35.56" y1="86.36" x2="27.94" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="86.36" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="33.02" y1="86.36" x2="30.48" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="86.36" x2="27.94" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="86.36" x2="20.32" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="86.36" x2="20.32" y2="73.66" width="0.1524" layer="91"/>
 <junction x="27.94" y="86.36"/>
@@ -8370,6 +8374,11 @@ Source: 008-0260-0_E.pdf</description>
 <junction x="20.32" y="73.66"/>
 <junction x="27.94" y="73.66"/>
 <pinref part="D1" gate="1" pin="C"/>
+<pinref part="JP9" gate="1" pin="1"/>
+<pinref part="JP9" gate="1" pin="2"/>
+<junction x="33.02" y="86.36"/>
+<pinref part="JP9" gate="1" pin="3"/>
+<junction x="30.48" y="86.36"/>
 </segment>
 </net>
 <net name="N$3" class="0">
