@@ -11,21 +11,21 @@
  */
  
 #include <Stepper.h>
- int leftsensor = 5; 
- int rightsensor = 6; 
+ int leftsensor = A0; 
+ int rightsensor = A1; 
  
 const int stepsPerRevolution = 20;  // change this to fit the number of steps per revolution
 // for your motor
  
 // initialize the stepper library on pins 2 through 5:
-
-Stepper myStepper(stepsPerRevolution, 9,10,11,12);            
+int stepCount = 0;
+  Stepper myStepper(stepsPerRevolution, 9,10,11,12);            
  
 void setup() 
 {
   Serial.begin(9600);
   // set the speed at 10 rpm:
-  myStepper.setSpeed(5);
+  myStepper.setSpeed(60);
   pinMode(leftsensor, INPUT);
   pinMode(rightsensor, INPUT);
   digitalWrite(leftsensor,LOW);
@@ -35,23 +35,25 @@ void setup()
  
 void loop() 
 {
-  if (digitalRead(leftsensor) == HIGH)
-  {
-    // step one revolution  in one direction:
-   // myStepper.step(stepsPerRevolution);
-   myStepper.step(3);
-   delay(100);
+  int left= analogRead(leftsensor);
+  int right= analogRead(rightsensor);
+  Serial.print("Left Sensor:");
+  Serial.print(left);
+  Serial.print("     Right Sensor:");
+  Serial.println(analogRead(rightsensor));
+
+  delay(1000);
+  if ( abs(left - right) > 30 && left > right)
+  {  
+     Serial.println("moving left");
+   myStepper.step(-stepsPerRevolution);
   }
- 
- 
-  if (digitalRead(rightsensor) == HIGH)
+  else if ( abs(left - right) > 30 && right > left)
   {
-    myStepper.step(-3);
-   delay(100);
-    // step one revolution in the other direction:
-   // myStepper.step(-stepsPerRevolution);
+     Serial.println("moving right");
+    myStepper.step(stepsPerRevolution);
   }
-  //Note that + stands for clockwise while - for counterclockwise 
+     delay(500);  
 }
  
 
