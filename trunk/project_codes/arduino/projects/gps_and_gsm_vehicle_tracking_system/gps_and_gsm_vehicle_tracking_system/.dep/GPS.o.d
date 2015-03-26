@@ -1,1 +1,0 @@
-GPS.o: GPS.c
