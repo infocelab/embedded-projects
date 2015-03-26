@@ -1,5 +1,0 @@
-Advisory[1207]   : some of the command line options you are using are now obsolete
-Advisory[1208]   : use --help option or refer to the user manual for option details
-Warning[356] E:\celabcode\Embedded-Projects\project_codes\pic\pic_based_temperature_monitoring_new\pic_based_temperature_monitoring_new\tempr\tempr.c 79 : implicit conversion of float to integer
-Warning[356] E:\celabcode\Embedded-Projects\project_codes\pic\pic_based_temperature_monitoring_new\pic_based_temperature_monitoring_new\tempr\tempr.c 80 : implicit conversion of float to integer
-Warning[356] E:\celabcode\Embedded-Projects\project_codes\pic\pic_based_temperature_monitoring_new\pic_based_temperature_monitoring_new\tempr\tempr.c 95 : implicit conversion of float to integer

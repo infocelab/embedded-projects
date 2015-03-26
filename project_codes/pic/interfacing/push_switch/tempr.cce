@@ -1,4 +1,0 @@
-Advisory[1207]   : some of the command line options you are using are now obsolete
-Advisory[1208]   : use --help option or refer to the user manual for option details
-Warning[176] E:\celabcode\Embedded-Projects\project_codes\pic\push_switch\tempr.c 22 : missing newline
-Warning[337] E:\celabcode\Embedded-Projects\project_codes\pic\push_switch\tempr.c 21 : line does not have a newline on the end
