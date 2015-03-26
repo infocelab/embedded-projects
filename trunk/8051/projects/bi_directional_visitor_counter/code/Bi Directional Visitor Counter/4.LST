@@ -1,0 +1,158 @@
+C51 COMPILER V9.52.0.0   4                                                                 02/20/2015 01:50:40 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 4
+OBJECT MODULE PLACED IN 4.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE 4.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg52.h>              //including sfr registers for ports of the controller
+   2          #include<lcd.h>
+   3          
+   4          //LCD Module Connections
+   5          sbit RS = P0^0;                                                                   
+   6          sbit EN = P0^1;                            
+   7          sbit D0 = P2^0;
+   8          sbit D1 = P2^1;
+   9          sbit D2 = P2^2;
+  10          sbit D3 = P2^3;
+  11          sbit D4 = P2^4;
+  12          sbit D5 = P2^5;
+  13          sbit D6 = P2^6;
+  14          sbit D7 = P2^7;
+  15          
+  16          sbit enter = P0^2;
+  17          sbit exit = P0^3;
+  18          //End LCD Module Connections
+  19          void Delay(int a)
+  20          {
+  21   1          int j;
+  22   1          int i;
+  23   1          for(i=0;i<a;i++)
+  24   1          {
+  25   2              for(j=0;j<100;j++)
+  26   2              {
+  27   3              }
+  28   2          }
+  29   1      }
+  30          
+  31          char toChar(int a)
+  32          {
+  33   1      switch(a)
+  34   1        {
+  35   2          case 1:
+  36   2          return '1';
+  37   2          break;
+  38   2          case 2:
+  39   2          return '2';
+  40   2          break;
+  41   2          case 3:
+  42   2          return '3';
+  43   2          break;
+  44   2          case 4:
+  45   2          return '4';
+  46   2          break;
+  47   2          case 5:
+  48   2          return '5';
+  49   2          break;
+  50   2          case 6:
+  51   2          return '6';
+  52   2          break;
+  53   2          case 7:
+  54   2          return '7';
+  55   2          break;
+C51 COMPILER V9.52.0.0   4                                                                 02/20/2015 01:50:40 PAGE 2   
+
+  56   2          case 8:
+  57   2          return '8';
+  58   2          break;
+  59   2          case 9:
+  60   2          return '9';
+  61   2          break;
+  62   2          case 0:
+  63   2          return '0';
+  64   2          break;
+  65   2          
+  66   2        }
+  67   1      
+  68   1      }
+  69          void main()
+  70          {
+  71   1        int i,j,k,l;
+  72   1        int count=0;
+  73   1        char c;
+  74   1        enter=1;
+  75   1        exit=1;
+  76   1        Lcd8_init(); 
+*** WARNING C206 IN LINE 76 OF 4.c: 'Lcd8_init': missing function-prototype
+  77   1        Lcd8_Clear();
+  78   1        Lcd8_Set_Cursor(1,1);
+  79   1        Lcd8_Write_String("Welcome:");
+  80   1        Lcd8_Set_Cursor(2,1);
+  81   1        c=toChar(count);
+  82   1        Lcd8_Write_Char(c);
+  83   1              
+  84   1        while(1)
+  85   1        { 
+  86   2          if(enter == 1)
+  87   2          {
+  88   3            Lcd8_Clear();
+  89   3            Lcd8_Set_Cursor(1,1);
+  90   3            Lcd8_Write_String("Welcome");
+  91   3            count++;
+  92   3            if(count == 999)
+  93   3              count=0;
+  94   3            Delay(500);
+  95   3          }
+  96   2          if(exit == 1)
+  97   2          {
+  98   3            Lcd8_Clear();
+  99   3            Lcd8_Set_Cursor(1,1);
+ 100   3            Lcd8_Write_String("Thanks");
+ 101   3            count--;
+ 102   3            if(count == -1)
+ 103   3              count=0;
+ 104   3            Delay(500);
+ 105   3          }
+ 106   2          i=count;
+ 107   2          j=i%10;
+ 108   2          k=i/10;
+ 109   2          l=i/100;
+ 110   2          k=k-l*10;
+ 111   2          Lcd8_Set_Cursor(2,3);
+ 112   2          c=toChar(j);
+ 113   2          Lcd8_Write_Char(c);
+ 114   2          
+ 115   2          Lcd8_Set_Cursor(2,2);
+ 116   2          c=toChar(k);
+C51 COMPILER V9.52.0.0   4                                                                 02/20/2015 01:50:40 PAGE 3   
+
+ 117   2          Lcd8_Write_Char(c);
+ 118   2            
+ 119   2          Lcd8_Set_Cursor(2,1);
+ 120   2          c=toChar(l);
+ 121   2          Lcd8_Write_Char(c);
+ 122   2        }
+ 123   1      }
+ 124          
+ 125          
+ 126          
+ 127          
+*** WARNING C290 IN LINE 84 OF 4.c: missing return value
+*** WARNING C290 IN LINE 176 OF 4.c: missing return value
+*** WARNING C291 IN LINE 68 OF 4.c: not every exit path returns a value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    936    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      26
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  4 WARNING(S),  0 ERROR(S)
