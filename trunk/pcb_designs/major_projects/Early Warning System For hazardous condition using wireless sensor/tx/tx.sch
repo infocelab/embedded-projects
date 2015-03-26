@@ -8895,14 +8895,14 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="111.76" y1="22.86" x2="116.84" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="76.2" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="76.2" x2="48.26" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="SMOKESENSOR" gate="G$1" pin="1"/>
-<wire x1="48.26" y1="93.98" x2="101.6" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="93.98" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="93.98" x2="109.22" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="SL1" gate="G$1" pin="2"/>
 <wire x1="58.42" y1="43.18" x2="63.5" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="43.18" x2="63.5" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="40.64" x2="63.5" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="43.18" x2="63.5" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="38.1" x2="68.58" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="93.98" x2="109.22" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="SMOKESENSOR" gate="G$1" pin="3"/>
+<wire x1="109.22" y1="78.74" x2="101.6" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -9113,9 +9113,9 @@ Source: 008-0260-0_E.pdf</description>
 <wire x1="104.14" y1="48.26" x2="106.68" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="48.26" x2="106.68" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="63.5" x2="99.06" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="63.5" x2="99.06" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="81.28" x2="101.6" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="SMOKESENSOR" gate="G$1" pin="2"/>
+<wire x1="99.06" y1="63.5" x2="99.06" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="SMOKESENSOR" gate="G$1" pin="1"/>
+<wire x1="99.06" y1="83.82" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
