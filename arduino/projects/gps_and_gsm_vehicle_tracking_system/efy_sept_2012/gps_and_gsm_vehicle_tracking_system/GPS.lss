@@ -1,0 +1,866 @@
+
+GPS.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000308  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000028  00800060  00000308  0000037c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000035  00800088  00000330  000003a4  2**0
+                  ALLOC
+  3 .debug_aranges 00000020  00000000  00000000  000003a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 000000cd  00000000  00000000  000003c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000703  00000000  00000000  00000491  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000001db  00000000  00000000  00000b94  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000004d1  00000000  00000000  00000d6f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000070  00000000  00000000  00001240  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000016c  00000000  00000000  000012b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000001c8  00000000  00000000  0000141c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000000c0  00000000  00000000  000015e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e8 e0       	ldi	r30, 0x08	; 8
+  68:	f3 e0       	ldi	r31, 0x03	; 3
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
+
+0000006c <.do_copy_data_loop>:
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+
+00000070 <.do_copy_data_start>:
+  70:	a8 38       	cpi	r26, 0x88	; 136
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	a8 e8       	ldi	r26, 0x88	; 136
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	ad 3b       	cpi	r26, 0xBD	; 189
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 49 00 	call	0x92	; 0x92 <main>
+  8a:	0c 94 82 01 	jmp	0x304	; 0x304 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__heap_end>
+
+00000092 <main>:
+
+unsigned char value,i,lati_value[9],lati_dir, longi_value[10], longi_dir, final_message[30];
+unsigned char deg = 0xB0;
+
+int main()
+{
+  92:	1f 93       	push	r17
+
+DDRC=0x00;
+  94:	14 ba       	out	0x14, r1	; 20
+PORTC=0xff;
+  96:	8f ef       	ldi	r24, 0xFF	; 255
+  98:	85 bb       	out	0x15, r24	; 21
+
+ 
+void usart_init()
+{
+
+UCSRB =  (1 << RXEN) | (1 << TXEN);                    
+  9a:	88 e1       	ldi	r24, 0x18	; 24
+  9c:	8a b9       	out	0x0a, r24	; 10
+
+// Use 8-bit character sizes
+UCSRC |= (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1);   
+  9e:	80 b5       	in	r24, 0x20	; 32
+  a0:	86 68       	ori	r24, 0x86	; 134
+  a2:	80 bd       	out	0x20, r24	; 32
+
+// Load lower 8-bits of the baud rate value into the low byte of the UBRR register
+UBRRL = BAUD_PRESCALE;  
+  a4:	8d e4       	ldi	r24, 0x4D	; 77
+  a6:	89 b9       	out	0x09, r24	; 9
+                              
+UBRRH = (BAUD_PRESCALE >> 8);                          
+  a8:	10 bc       	out	0x20, r1	; 32
+	 final_message[i] = lati_value[i];
+
+	  }
+
+  final_message[9] = lati_dir;
+  final_message[10] = ' ';
+  aa:	10 e2       	ldi	r17, 0x20	; 32
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  ac:	48 eb       	ldi	r20, 0xB8	; 184
+  ae:	5b e0       	ldi	r21, 0x0B	; 11
+
+void usart_writech(unsigned char data)
+{
+ 
+ while(!(UCSRA & (1<<UDRE)));
+ UDR = data;
+  b0:	6d e0       	ldi	r22, 0x0D	; 13
+UCSRC |= (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1);   
+
+// Load lower 8-bits of the baud rate value into the low byte of the UBRR register
+UBRRL = BAUD_PRESCALE;  
+                              
+UBRRH = (BAUD_PRESCALE >> 8);                          
+  b2:	7a e1       	ldi	r23, 0x1A	; 26
+  b4:	30 91 89 00 	lds	r19, 0x0089
+  b8:	20 91 88 00 	lds	r18, 0x0088
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+  bc:	5f 9b       	sbis	0x0b, 7	; 11
+  be:	fe cf       	rjmp	.-4      	; 0xbc <main+0x2a>
+
+return(UDR);                                            
+  c0:	9c b1       	in	r25, 0x0c	; 12
+
+    while(1)
+	{
+	 a:
+	 value=usart_getch();
+	 if(value=='$')
+  c2:	94 32       	cpi	r25, 0x24	; 36
+  c4:	09 f0       	breq	.+2      	; 0xc8 <main+0x36>
+  c6:	5b c0       	rjmp	.+182    	; 0x17e <main+0xec>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+  c8:	5f 9b       	sbis	0x0b, 7	; 11
+  ca:	fe cf       	rjmp	.-4      	; 0xc8 <main+0x36>
+
+return(UDR);                                            
+  cc:	9c b1       	in	r25, 0x0c	; 12
+	 value=usart_getch();
+	 if(value=='$')
+	 {
+		
+	value=usart_getch();
+		if(value=='G')
+  ce:	97 34       	cpi	r25, 0x47	; 71
+  d0:	09 f0       	breq	.+2      	; 0xd4 <main+0x42>
+  d2:	55 c0       	rjmp	.+170    	; 0x17e <main+0xec>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+  d4:	5f 9b       	sbis	0x0b, 7	; 11
+  d6:	fe cf       	rjmp	.-4      	; 0xd4 <main+0x42>
+
+return(UDR);                                            
+  d8:	9c b1       	in	r25, 0x0c	; 12
+		
+	value=usart_getch();
+		if(value=='G')
+	{
+	value=usart_getch();
+	if(value=='P')
+  da:	90 35       	cpi	r25, 0x50	; 80
+  dc:	09 f0       	breq	.+2      	; 0xe0 <main+0x4e>
+  de:	4f c0       	rjmp	.+158    	; 0x17e <main+0xec>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+  e0:	5f 9b       	sbis	0x0b, 7	; 11
+  e2:	fe cf       	rjmp	.-4      	; 0xe0 <main+0x4e>
+
+return(UDR);                                            
+  e4:	9c b1       	in	r25, 0x0c	; 12
+	{
+	value=usart_getch();
+	if(value=='P')
+	{
+	value=usart_getch();
+	if(value=='G')
+  e6:	97 34       	cpi	r25, 0x47	; 71
+  e8:	09 f0       	breq	.+2      	; 0xec <main+0x5a>
+  ea:	49 c0       	rjmp	.+146    	; 0x17e <main+0xec>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+  ec:	5f 9b       	sbis	0x0b, 7	; 11
+  ee:	fe cf       	rjmp	.-4      	; 0xec <main+0x5a>
+
+return(UDR);                                            
+  f0:	9c b1       	in	r25, 0x0c	; 12
+	value=usart_getch();
+	if(value=='G')
+	{
+				
+	value=usart_getch();
+	if(value=='A')
+  f2:	91 34       	cpi	r25, 0x41	; 65
+  f4:	09 f0       	breq	.+2      	; 0xf8 <main+0x66>
+  f6:	43 c0       	rjmp	.+134    	; 0x17e <main+0xec>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+  f8:	5f 9b       	sbis	0x0b, 7	; 11
+  fa:	fe cf       	rjmp	.-4      	; 0xf8 <main+0x66>
+
+return(UDR);                                            
+  fc:	9c b1       	in	r25, 0x0c	; 12
+				
+	value=usart_getch();
+	if(value=='A')
+	{
+	value=usart_getch();
+	if(value==',')
+  fe:	9c 32       	cpi	r25, 0x2C	; 44
+ 100:	f1 f5       	brne	.+124    	; 0x17e <main+0xec>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+ 102:	5f 9b       	sbis	0x0b, 7	; 11
+ 104:	fe cf       	rjmp	.-4      	; 0x102 <main+0x70>
+ 106:	02 c0       	rjmp	.+4      	; 0x10c <main+0x7a>
+
+return(UDR);                                            
+ 108:	5f 9b       	sbis	0x0b, 7	; 11
+ 10a:	fe cf       	rjmp	.-4      	; 0x108 <main+0x76>
+ 10c:	8c b1       	in	r24, 0x0c	; 12
+	{
+	value=usart_getch();
+	if(value==',')
+	{
+	value=usart_getch();
+	while(value!=',')
+ 10e:	8c 32       	cpi	r24, 0x2C	; 44
+ 110:	d9 f7       	brne	.-10     	; 0x108 <main+0x76>
+ 112:	90 e0       	ldi	r25, 0x00	; 0
+ 114:	09 c0       	rjmp	.+18     	; 0x128 <main+0x96>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+ 116:	5f 9b       	sbis	0x0b, 7	; 11
+ 118:	fe cf       	rjmp	.-4      	; 0x116 <main+0x84>
+
+return(UDR);                                            
+ 11a:	8c b1       	in	r24, 0x0c	; 12
+	}
+	
+	for(i=0; i<9; i++)
+	{
+
+	lati_value[i] = usart_getch();
+ 11c:	e9 2f       	mov	r30, r25
+ 11e:	f0 e0       	ldi	r31, 0x00	; 0
+ 120:	eb 56       	subi	r30, 0x6B	; 107
+ 122:	ff 4f       	sbci	r31, 0xFF	; 255
+ 124:	80 83       	st	Z, r24
+ 126:	9f 5f       	subi	r25, 0xFF	; 255
+	while(value!=',')
+	{
+	value=usart_getch();
+	}
+	
+	for(i=0; i<9; i++)
+ 128:	99 30       	cpi	r25, 0x09	; 9
+ 12a:	a9 f7       	brne	.-22     	; 0x116 <main+0x84>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+ 12c:	5f 9b       	sbis	0x0b, 7	; 11
+ 12e:	fe cf       	rjmp	.-4      	; 0x12c <main+0x9a>
+
+return(UDR);                                            
+ 130:	8c b1       	in	r24, 0x0c	; 12
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+ 132:	5f 9b       	sbis	0x0b, 7	; 11
+ 134:	fe cf       	rjmp	.-4      	; 0x132 <main+0xa0>
+
+return(UDR);                                            
+ 136:	3c b1       	in	r19, 0x0c	; 12
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+ 138:	5f 9b       	sbis	0x0b, 7	; 11
+ 13a:	fe cf       	rjmp	.-4      	; 0x138 <main+0xa6>
+
+return(UDR);                                            
+ 13c:	8c b1       	in	r24, 0x0c	; 12
+ 13e:	90 e0       	ldi	r25, 0x00	; 0
+ 140:	09 c0       	rjmp	.+18     	; 0x154 <main+0xc2>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+ 142:	5f 9b       	sbis	0x0b, 7	; 11
+ 144:	fe cf       	rjmp	.-4      	; 0x142 <main+0xb0>
+
+return(UDR);                                            
+ 146:	8c b1       	in	r24, 0x0c	; 12
+	lati_dir=usart_getch();
+	value=usart_getch();
+	for(i=0; i<10; i++)
+	{
+
+	longi_value[i] = usart_getch();
+ 148:	e9 2f       	mov	r30, r25
+ 14a:	f0 e0       	ldi	r31, 0x00	; 0
+ 14c:	e5 57       	subi	r30, 0x75	; 117
+ 14e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 150:	80 83       	st	Z, r24
+ 152:	9f 5f       	subi	r25, 0xFF	; 255
+	}
+	value = usart_getch();
+	
+	lati_dir=usart_getch();
+	value=usart_getch();
+	for(i=0; i<10; i++)
+ 154:	9a 30       	cpi	r25, 0x0A	; 10
+ 156:	a9 f7       	brne	.-22     	; 0x142 <main+0xb0>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+ 158:	5f 9b       	sbis	0x0b, 7	; 11
+ 15a:	fe cf       	rjmp	.-4      	; 0x158 <main+0xc6>
+
+return(UDR);                                            
+ 15c:	9c b1       	in	r25, 0x0c	; 12
+ 15e:	81 e0       	ldi	r24, 0x01	; 1
+ 160:	09 c0       	rjmp	.+18     	; 0x174 <main+0xe2>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+ 162:	5f 9b       	sbis	0x0b, 7	; 11
+ 164:	fe cf       	rjmp	.-4      	; 0x162 <main+0xd0>
+
+return(UDR);                                            
+ 166:	9c b1       	in	r25, 0x0c	; 12
+	}
+    value = usart_getch();
+	
+		for(i=1;value!=',';i++)
+	{
+		longi_value[i]=usart_getch();
+ 168:	e8 2f       	mov	r30, r24
+ 16a:	f0 e0       	ldi	r31, 0x00	; 0
+ 16c:	e5 57       	subi	r30, 0x75	; 117
+ 16e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 170:	90 83       	st	Z, r25
+ 172:	8f 5f       	subi	r24, 0xFF	; 255
+
+	longi_value[i] = usart_getch();
+	}
+    value = usart_getch();
+	
+		for(i=1;value!=',';i++)
+ 174:	9c 32       	cpi	r25, 0x2C	; 44
+ 176:	a9 f7       	brne	.-22     	; 0x162 <main+0xd0>
+ 
+ 
+unsigned int usart_getch()
+{
+
+while (!(UCSRA & (1 << RXC)));                          
+ 178:	5f 9b       	sbis	0x0b, 7	; 11
+ 17a:	fe cf       	rjmp	.-4      	; 0x178 <main+0xe6>
+
+return(UDR);                                            
+ 17c:	2c b1       	in	r18, 0x0c	; 12
+	}
+	}
+	}
+	}
+	}
+	if(*lati_value && *longi_value)
+ 17e:	80 91 95 00 	lds	r24, 0x0095
+ 182:	88 23       	and	r24, r24
+ 184:	09 f4       	brne	.+2      	; 0x188 <main+0xf6>
+ 186:	9a cf       	rjmp	.-204    	; 0xbc <main+0x2a>
+ 188:	80 91 8b 00 	lds	r24, 0x008B
+ 18c:	88 23       	and	r24, r24
+ 18e:	09 f4       	brne	.+2      	; 0x192 <main+0x100>
+ 190:	95 cf       	rjmp	.-214    	; 0xbc <main+0x2a>
+ 192:	30 93 89 00 	sts	0x0089, r19
+ 196:	20 93 88 00 	sts	0x0088, r18
+ 19a:	90 93 bc 00 	sts	0x00BC, r25
+ 19e:	90 e0       	ldi	r25, 0x00	; 0
+ 1a0:	0a c0       	rjmp	.+20     	; 0x1b6 <main+0x124>
+	{
+     for(i=0; i<9; i++)
+	 {
+	 final_message[i] = lati_value[i];
+ 1a2:	e9 2f       	mov	r30, r25
+ 1a4:	f0 e0       	ldi	r31, 0x00	; 0
+ 1a6:	df 01       	movw	r26, r30
+ 1a8:	ab 56       	subi	r26, 0x6B	; 107
+ 1aa:	bf 4f       	sbci	r27, 0xFF	; 255
+ 1ac:	8c 91       	ld	r24, X
+ 1ae:	e2 56       	subi	r30, 0x62	; 98
+ 1b0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1b2:	80 83       	st	Z, r24
+ 1b4:	9f 5f       	subi	r25, 0xFF	; 255
+	}
+	}
+	}
+	if(*lati_value && *longi_value)
+	{
+     for(i=0; i<9; i++)
+ 1b6:	99 30       	cpi	r25, 0x09	; 9
+ 1b8:	a0 f3       	brcs	.-24     	; 0x1a2 <main+0x110>
+	 {
+	 final_message[i] = lati_value[i];
+
+	  }
+
+  final_message[9] = lati_dir;
+ 1ba:	30 93 a7 00 	sts	0x00A7, r19
+  final_message[10] = ' ';
+ 1be:	10 93 a8 00 	sts	0x00A8, r17
+ 1c2:	90 e0       	ldi	r25, 0x00	; 0
+ 1c4:	0a c0       	rjmp	.+20     	; 0x1da <main+0x148>
+	 for(i=0; i<10; i++)
+	 {
+
+	 final_message[i+11] = longi_value[i];
+ 1c6:	e9 2f       	mov	r30, r25
+ 1c8:	f0 e0       	ldi	r31, 0x00	; 0
+ 1ca:	df 01       	movw	r26, r30
+ 1cc:	a5 57       	subi	r26, 0x75	; 117
+ 1ce:	bf 4f       	sbci	r27, 0xFF	; 255
+ 1d0:	8c 91       	ld	r24, X
+ 1d2:	e2 56       	subi	r30, 0x62	; 98
+ 1d4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1d6:	83 87       	std	Z+11, r24	; 0x0b
+ 1d8:	9f 5f       	subi	r25, 0xFF	; 255
+
+	  }
+
+  final_message[9] = lati_dir;
+  final_message[10] = ' ';
+	 for(i=0; i<10; i++)
+ 1da:	9a 30       	cpi	r25, 0x0A	; 10
+ 1dc:	a0 f3       	brcs	.-24     	; 0x1c6 <main+0x134>
+ 1de:	90 93 8a 00 	sts	0x008A, r25
+
+	 final_message[i+11] = longi_value[i];
+  }
+
+	
+	final_message[21] = longi_dir;
+ 1e2:	20 93 b3 00 	sts	0x00B3, r18
+	 final_message[22] = '\0';
+ 1e6:	10 92 b4 00 	sts	0x00B4, r1
+    }
+	else
+	 goto a;
+	while(PINC==0xff);
+ 1ea:	83 b3       	in	r24, 0x13	; 19
+ 1ec:	8f 3f       	cpi	r24, 0xFF	; 255
+ 1ee:	e9 f3       	breq	.-6      	; 0x1ea <main+0x158>
+ 1f0:	80 e0       	ldi	r24, 0x00	; 0
+ 1f2:	90 e0       	ldi	r25, 0x00	; 0
+ 1f4:	fa 01       	movw	r30, r20
+ 1f6:	31 97       	sbiw	r30, 0x01	; 1
+ 1f8:	f1 f7       	brne	.-4      	; 0x1f6 <main+0x164>
+
+void WaitMs(unsigned int ms)		
+{
+	unsigned int i;
+
+	for(i=0;i<=ms;i++)
+ 1fa:	01 96       	adiw	r24, 0x01	; 1
+ 1fc:	23 e0       	ldi	r18, 0x03	; 3
+ 1fe:	89 3e       	cpi	r24, 0xE9	; 233
+ 200:	92 07       	cpc	r25, r18
+ 202:	c1 f7       	brne	.-16     	; 0x1f4 <main+0x162>
+ 204:	e2 e8       	ldi	r30, 0x82	; 130
+ 206:	f0 e0       	ldi	r31, 0x00	; 0
+ 208:	04 c0       	rjmp	.+8      	; 0x212 <main+0x180>
+}
+
+void usart_writech(unsigned char data)
+{
+ 
+ while(!(UCSRA & (1<<UDRE)));
+ 20a:	5d 9b       	sbis	0x0b, 5	; 11
+ 20c:	fe cf       	rjmp	.-4      	; 0x20a <main+0x178>
+ UDR = data;
+ 20e:	ec b9       	out	0x0c, r30	; 12
+ 210:	31 96       	adiw	r30, 0x01	; 1
+}
+
+void usart_message(unsigned char *var) 
+{
+int h;
+while(*var)         
+ 212:	80 81       	ld	r24, Z
+ 214:	88 23       	and	r24, r24
+ 216:	c9 f7       	brne	.-14     	; 0x20a <main+0x178>
+ 218:	80 e0       	ldi	r24, 0x00	; 0
+ 21a:	90 e0       	ldi	r25, 0x00	; 0
+ 21c:	fa 01       	movw	r30, r20
+ 21e:	31 97       	sbiw	r30, 0x01	; 1
+ 220:	f1 f7       	brne	.-4      	; 0x21e <main+0x18c>
+
+void WaitMs(unsigned int ms)		
+{
+	unsigned int i;
+
+	for(i=0;i<=ms;i++)
+ 222:	01 96       	adiw	r24, 0x01	; 1
+ 224:	83 33       	cpi	r24, 0x33	; 51
+ 226:	91 05       	cpc	r25, r1
+ 228:	c9 f7       	brne	.-14     	; 0x21c <main+0x18a>
+ 22a:	e8 e7       	ldi	r30, 0x78	; 120
+ 22c:	f0 e0       	ldi	r31, 0x00	; 0
+ 22e:	04 c0       	rjmp	.+8      	; 0x238 <main+0x1a6>
+}
+
+void usart_writech(unsigned char data)
+{
+ 
+ while(!(UCSRA & (1<<UDRE)));
+ 230:	5d 9b       	sbis	0x0b, 5	; 11
+ 232:	fe cf       	rjmp	.-4      	; 0x230 <main+0x19e>
+ UDR = data;
+ 234:	ec b9       	out	0x0c, r30	; 12
+ 236:	31 96       	adiw	r30, 0x01	; 1
+}
+
+void usart_message(unsigned char *var) 
+{
+int h;
+while(*var)         
+ 238:	80 81       	ld	r24, Z
+ 23a:	88 23       	and	r24, r24
+ 23c:	c9 f7       	brne	.-14     	; 0x230 <main+0x19e>
+}
+
+void usart_writech(unsigned char data)
+{
+ 
+ while(!(UCSRA & (1<<UDRE)));
+ 23e:	5d 9b       	sbis	0x0b, 5	; 11
+ 240:	fe cf       	rjmp	.-4      	; 0x23e <main+0x1ac>
+ UDR = data;
+ 242:	6c b9       	out	0x0c, r22	; 12
+ 244:	80 e0       	ldi	r24, 0x00	; 0
+ 246:	90 e0       	ldi	r25, 0x00	; 0
+ 248:	fa 01       	movw	r30, r20
+ 24a:	31 97       	sbiw	r30, 0x01	; 1
+ 24c:	f1 f7       	brne	.-4      	; 0x24a <main+0x1b8>
+
+void WaitMs(unsigned int ms)		
+{
+	unsigned int i;
+
+	for(i=0;i<=ms;i++)
+ 24e:	01 96       	adiw	r24, 0x01	; 1
+ 250:	85 31       	cpi	r24, 0x15	; 21
+ 252:	91 05       	cpc	r25, r1
+ 254:	c9 f7       	brne	.-14     	; 0x248 <main+0x1b6>
+ 256:	80 e0       	ldi	r24, 0x00	; 0
+ 258:	90 e0       	ldi	r25, 0x00	; 0
+ 25a:	fa 01       	movw	r30, r20
+ 25c:	31 97       	sbiw	r30, 0x01	; 1
+ 25e:	f1 f7       	brne	.-4      	; 0x25c <main+0x1ca>
+ 260:	01 96       	adiw	r24, 0x01	; 1
+ 262:	85 31       	cpi	r24, 0x15	; 21
+ 264:	91 05       	cpc	r25, r1
+ 266:	c9 f7       	brne	.-14     	; 0x25a <main+0x1c8>
+ 268:	e0 e6       	ldi	r30, 0x60	; 96
+ 26a:	f0 e0       	ldi	r31, 0x00	; 0
+ 26c:	04 c0       	rjmp	.+8      	; 0x276 <main+0x1e4>
+}
+
+void usart_writech(unsigned char data)
+{
+ 
+ while(!(UCSRA & (1<<UDRE)));
+ 26e:	5d 9b       	sbis	0x0b, 5	; 11
+ 270:	fe cf       	rjmp	.-4      	; 0x26e <main+0x1dc>
+ UDR = data;
+ 272:	ec b9       	out	0x0c, r30	; 12
+ 274:	31 96       	adiw	r30, 0x01	; 1
+}
+
+void usart_message(unsigned char *var) 
+{
+int h;
+while(*var)         
+ 276:	80 81       	ld	r24, Z
+ 278:	88 23       	and	r24, r24
+ 27a:	c9 f7       	brne	.-14     	; 0x26e <main+0x1dc>
+}
+
+void usart_writech(unsigned char data)
+{
+ 
+ while(!(UCSRA & (1<<UDRE)));
+ 27c:	5d 9b       	sbis	0x0b, 5	; 11
+ 27e:	fe cf       	rjmp	.-4      	; 0x27c <main+0x1ea>
+ UDR = data;
+ 280:	6c b9       	out	0x0c, r22	; 12
+ 282:	ee e9       	ldi	r30, 0x9E	; 158
+ 284:	f0 e0       	ldi	r31, 0x00	; 0
+ 286:	04 c0       	rjmp	.+8      	; 0x290 <main+0x1fe>
+}
+
+void usart_writech(unsigned char data)
+{
+ 
+ while(!(UCSRA & (1<<UDRE)));
+ 288:	5d 9b       	sbis	0x0b, 5	; 11
+ 28a:	fe cf       	rjmp	.-4      	; 0x288 <main+0x1f6>
+ UDR = data;
+ 28c:	ec b9       	out	0x0c, r30	; 12
+ 28e:	31 96       	adiw	r30, 0x01	; 1
+}
+
+void usart_message(unsigned char *var) 
+{
+int h;
+while(*var)         
+ 290:	80 81       	ld	r24, Z
+ 292:	88 23       	and	r24, r24
+ 294:	c9 f7       	brne	.-14     	; 0x288 <main+0x1f6>
+}
+
+void usart_writech(unsigned char data)
+{
+ 
+ while(!(UCSRA & (1<<UDRE)));
+ 296:	5d 9b       	sbis	0x0b, 5	; 11
+ 298:	fe cf       	rjmp	.-4      	; 0x296 <main+0x204>
+ UDR = data;
+ 29a:	7c b9       	out	0x0c, r23	; 12
+ 29c:	80 e0       	ldi	r24, 0x00	; 0
+ 29e:	90 e0       	ldi	r25, 0x00	; 0
+ 2a0:	fa 01       	movw	r30, r20
+ 2a2:	31 97       	sbiw	r30, 0x01	; 1
+ 2a4:	f1 f7       	brne	.-4      	; 0x2a2 <main+0x210>
+
+void WaitMs(unsigned int ms)		
+{
+	unsigned int i;
+
+	for(i=0;i<=ms;i++)
+ 2a6:	01 96       	adiw	r24, 0x01	; 1
+ 2a8:	27 e2       	ldi	r18, 0x27	; 39
+ 2aa:	81 31       	cpi	r24, 0x11	; 17
+ 2ac:	92 07       	cpc	r25, r18
+ 2ae:	c1 f7       	brne	.-16     	; 0x2a0 <main+0x20e>
+ 2b0:	01 cf       	rjmp	.-510    	; 0xb4 <main+0x22>
+
+000002b2 <WaitMs>:
+	
+}
+
+
+void WaitMs(unsigned int ms)		
+{
+ 2b2:	20 e0       	ldi	r18, 0x00	; 0
+ 2b4:	30 e0       	ldi	r19, 0x00	; 0
+ 2b6:	48 eb       	ldi	r20, 0xB8	; 184
+ 2b8:	5b e0       	ldi	r21, 0x0B	; 11
+ 2ba:	fa 01       	movw	r30, r20
+ 2bc:	31 97       	sbiw	r30, 0x01	; 1
+ 2be:	f1 f7       	brne	.-4      	; 0x2bc <WaitMs+0xa>
+	unsigned int i;
+
+	for(i=0;i<=ms;i++)
+ 2c0:	2f 5f       	subi	r18, 0xFF	; 255
+ 2c2:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2c4:	82 17       	cp	r24, r18
+ 2c6:	93 07       	cpc	r25, r19
+ 2c8:	c0 f7       	brcc	.-16     	; 0x2ba <WaitMs+0x8>
+	{
+		_delay_ms(1);
+	}
+}
+ 2ca:	08 95       	ret
+
+000002cc <usart_init>:
+
+
+ 
+void usart_init()
+{
+ 2cc:	88 e1       	ldi	r24, 0x18	; 24
+ 2ce:	8a b9       	out	0x0a, r24	; 10
+
+UCSRB =  (1 << RXEN) | (1 << TXEN);                    
+
+// Use 8-bit character sizes
+UCSRC |= (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1);   
+ 2d0:	80 b5       	in	r24, 0x20	; 32
+ 2d2:	86 68       	ori	r24, 0x86	; 134
+ 2d4:	80 bd       	out	0x20, r24	; 32
+
+// Load lower 8-bits of the baud rate value into the low byte of the UBRR register
+UBRRL = BAUD_PRESCALE;  
+ 2d6:	8d e4       	ldi	r24, 0x4D	; 77
+ 2d8:	89 b9       	out	0x09, r24	; 9
+                              
+UBRRH = (BAUD_PRESCALE >> 8);                          
+ 2da:	10 bc       	out	0x20, r1	; 32
+}
+ 2dc:	08 95       	ret
+
+000002de <usart_getch>:
+ 
+ 
+unsigned int usart_getch()
+{
+ 2de:	5f 9b       	sbis	0x0b, 7	; 11
+ 2e0:	fe cf       	rjmp	.-4      	; 0x2de <usart_getch>
+
+while (!(UCSRA & (1 << RXC)));                          
+
+return(UDR);                                            
+ 2e2:	8c b1       	in	r24, 0x0c	; 12
+}
+ 2e4:	90 e0       	ldi	r25, 0x00	; 0
+ 2e6:	08 95       	ret
+
+000002e8 <usart_writech>:
+
+void usart_writech(unsigned char data)
+{
+ 2e8:	5d 9b       	sbis	0x0b, 5	; 11
+ 2ea:	fe cf       	rjmp	.-4      	; 0x2e8 <usart_writech>
+ 
+ while(!(UCSRA & (1<<UDRE)));
+ UDR = data;
+ 2ec:	8c b9       	out	0x0c, r24	; 12
+}
+ 2ee:	08 95       	ret
+
+000002f0 <usart_message>:
+
+void usart_message(unsigned char *var) 
+{
+ 2f0:	fc 01       	movw	r30, r24
+ 2f2:	04 c0       	rjmp	.+8      	; 0x2fc <usart_message+0xc>
+}
+
+void usart_writech(unsigned char data)
+{
+ 
+ while(!(UCSRA & (1<<UDRE)));
+ 2f4:	5d 9b       	sbis	0x0b, 5	; 11
+ 2f6:	fe cf       	rjmp	.-4      	; 0x2f4 <usart_message+0x4>
+ UDR = data;
+ 2f8:	ec b9       	out	0x0c, r30	; 12
+ 2fa:	31 96       	adiw	r30, 0x01	; 1
+}
+
+void usart_message(unsigned char *var) 
+{
+int h;
+while(*var)         
+ 2fc:	80 81       	ld	r24, Z
+ 2fe:	88 23       	and	r24, r24
+ 300:	c9 f7       	brne	.-14     	; 0x2f4 <usart_message+0x4>
+usart_writech(var++); // send message
+for(h=0;h<=200;h++); 
+}
+ 302:	08 95       	ret
+
+00000304 <_exit>:
+ 304:	f8 94       	cli
+
+00000306 <__stop_program>:
+ 306:	ff cf       	rjmp	.-2      	; 0x306 <__stop_program>
