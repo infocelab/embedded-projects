@@ -8633,7 +8633,7 @@ Source: Samtec SSW.pdf</description>
 <part name="D6" library="diode" deviceset="1N4004" device="" value="1N4007"/>
 <part name="D7" library="diode" deviceset="1N4004" device="" value="1N4007"/>
 <part name="D8" library="diode" deviceset="1N4004" device="" value="1N4007"/>
-<part name="X1" library="con-samtec" deviceset="SSW-101-02-S-D" device=""/>
+<part name="X1" library="con-samtec" deviceset="SSW-101-02-S-D" device="" value="hole"/>
 </parts>
 <sheets>
 <sheet>
