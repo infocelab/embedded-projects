@@ -1,4 +1,0 @@
-"STARTUP.obj",
-"single_relay_driver.obj" 
-TO "single_relay_driver" 
-RAMSIZE(256) 
