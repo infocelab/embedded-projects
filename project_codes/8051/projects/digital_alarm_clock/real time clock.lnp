@@ -1,4 +1,0 @@
-"STARTUP.obj",
-"real time clock.obj" 
-TO "real time clock" 
-RAMSIZE(256) 
