@@ -1,0 +1,372 @@
+C51 COMPILER V9.52.0.0   RFID                                                              10/17/2014 02:25:43 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE RFID
+OBJECT MODULE PLACED IN RFID.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE RFID.C BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          //Automatic RFID Based Vehicle Parking System
+   2          #include<reg51.h>
+   3          #include<string.h>
+   4          
+   5          sbit START_POINT=P1^3;
+   6          sbit TERMINATE_POINT=P1^4;
+   7          
+   8          sbit S1=P3^2;
+   9          sbit S2=P3^3;
+  10          
+  11          sbit rc1=P1^1;
+  12          sbit rc2=P1^2;
+  13          
+  14          sbit BUZZPORT=P1^7;
+  15          
+  16          sbit RS=P3^7;
+  17          sbit EN=P3^6;
+  18          
+  19          void lcdinit();
+  20          void lcdData(unsigned char l);
+  21          void lcdcmd(unsigned char k);
+  22          void buzzer(unsigned int time);
+  23          void DelayMs(unsigned int count); 
+  24          void display(unsigned char s,t,u);
+  25          void Welcome(unsigned char c[],unsigned char d[]);
+  26          void ConvertAndDisplay(unsigned int value1,unsigned char c[]);
+  27          void dcMotor(); 
+  28          
+  29          void main()
+  30          {
+  31   1      unsigned char i=0,j=0,result=0;
+  32   1      unsigned int count;
+  33   1      unsigned char c[15];
+  34   1      unsigned char d[]="42006B1BB8";
+  35   1      
+  36   1      signed int amount2=900;
+  37   1      
+  38   1      TMOD=0x20;      // To configure the serial port at 9600 baud rate
+  39   1      TH1=0xFD;
+  40   1      SCON=0X50;
+  41   1      TR1=1;
+  42   1      
+  43   1      S1=1;
+  44   1      S2=1;
+  45   1      
+  46   1      BUZZPORT=0;
+  47   1      START_POINT=0;
+  48   1      TERMINATE_POINT=0;
+  49   1      
+  50   1      lcdinit();
+  51   1      Welcome("AUTOMATIC RFID","CAR PARKING");
+  52   1      DelayMs(1000);
+  53   1      
+  54   1      while(1)
+  55   1      {
+C51 COMPILER V9.52.0.0   RFID                                                              10/17/2014 02:25:43 PAGE 2   
+
+  56   2      known:
+  57   2      Welcome("AUTOMATIC RFID","CAR PARKING");
+  58   2      DelayMs(100);
+  59   2      
+  60   2      while(S1==1 && S2==1);
+  61   2      
+  62   2      if(S2==0)
+  63   2      {
+  64   3            while(S2==0);
+  65   3          if(count>0)
+  66   3          {
+  67   4           count--;
+  68   4           ConvertAndDisplay(count,"Thanks for Visit");
+  69   4           DelayMs(1000);
+  70   4           goto known;
+  71   4            }
+  72   3            else
+  73   3          {
+  74   4            count=0;
+  75   4            ConvertAndDisplay(count,"Thanks for Visit");
+  76   4             DelayMs(1000);
+  77   4               goto known;
+  78   4            }
+  79   3      }
+  80   2      
+  81   2      if(S1==0)
+  82   2      {
+  83   3      while(S1==0);
+  84   3      for(i=0;i<12;i++)
+  85   3      {
+  86   4      c[i]=0xFF;
+  87   4      }
+  88   3      ConvertAndDisplay(count,"Please Show Card");
+  89   3      DelayMs(100);
+  90   3      while(RI==0);
+  91   3      
+  92   3      for(i=0;i<12;i++)       //command to recv data
+  93   3      {
+  94   4      j=0;
+  95   4      while(RI==0)
+  96   4      {
+  97   5      if(j>=1000)
+  98   5      goto timeout;
+  99   5      DelayMs(1);
+ 100   5      j++;
+ 101   5      }
+ 102   4      c[i]=SBUF+48;
+ 103   4      RI=0;
+ 104   4      }
+ 105   3      timeout:
+ 106   3      //result=strncmp(c,d,10);
+ 107   3      if(c[7] == '"' && c[8] == 'R' && c[9] == 'f' && c[10] == 'J' && c[11] == '0')
+ 108   3      {
+ 109   4      result=0; 
+ 110   4      }
+ 111   3      else
+ 112   3      {
+ 113   4        result=1;
+ 114   4      }
+ 115   3      if(count > 10)
+ 116   3      {
+ 117   4      
+C51 COMPILER V9.52.0.0   RFID                                                              10/17/2014 02:25:43 PAGE 3   
+
+ 118   4          Welcome("Parking is Full","Sorry for Inconvenience");
+ 119   4          buzzer(500);
+ 120   4          DelayMs(1000);
+ 121   4          goto known;
+ 122   4      }
+ 123   3      else if(result==0)
+ 124   3      {
+ 125   4      lcdinit();
+ 126   4      
+ 127   4      Welcome("VEHICAL Amount ","Detected:100");
+ 128   4      DelayMs(3000);
+ 129   4      amount2-=100;
+ 130   4      if(amount2>0)
+ 131   4      {
+ 132   5      ConvertAndDisplay(amount2,"Balance Amount");
+ 133   5      dcMotor();
+ 134   5      DelayMs(1000);
+ 135   5      }
+ 136   4      else
+ 137   4      {
+ 138   5        amount2=0;
+ 139   5        Welcome("VEHICAL Amount ","BALANCE NIL");
+ 140   5        buzzer(500);
+ 141   5        Welcome("Recharge Your","Card Please");
+ 142   5        while(rc1==1&&rc2==1);
+ 143   5        {   if(rc1==0)
+ 144   6          {
+ 145   7            while(rc1==0);
+ 146   7          amount2=900;
+ 147   7          Welcome("Card is recharged","with amount 900");
+ 148   7          DelayMs(2000);
+ 149   7          }
+ 150   6        if(rc2==0)
+ 151   6        {
+ 152   7          while(rc2==0);
+ 153   7        amount2=500;
+ 154   7        Welcome("Card is recharged","with amount 500");
+ 155   7            DelayMs(2000);
+ 156   7        }
+ 157   6      }
+ 158   5      }
+ 159   4      if(amount2<=400)
+ 160   4      {
+ 161   5        Welcome("VEHICAL Amount ","BALANCE LOW");
+ 162   5        buzzer(200);
+ 163   5      }
+ 164   4      DelayMs(1000);
+ 165   4      
+ 166   4      count++;
+ 167   4      lcdcmd(0x01);
+ 168   4      DelayMs(10);
+ 169   4      ConvertAndDisplay(count,"Number of Cars");
+ 170   4      DelayMs(2000);
+ 171   4      goto known;
+ 172   4      }
+ 173   3      else if(result!=0)
+ 174   3      {
+ 175   4          Welcome("Card not Matched","Plz Cnt Security");
+ 176   4          buzzer(1000);
+ 177   4          DelayMs(2000);
+ 178   4      }
+ 179   3      }
+C51 COMPILER V9.52.0.0   RFID                                                              10/17/2014 02:25:43 PAGE 4   
+
+ 180   2      }
+ 181   1      }
+ 182          
+ 183          void Welcome(unsigned char c[],unsigned char d[])
+ 184          {
+ 185   1      unsigned int i=0;
+ 186   1      
+ 187   1      lcdcmd(0x01);
+ 188   1      DelayMs(10);
+ 189   1      lcdcmd(0x80);
+ 190   1      DelayMs(10);
+ 191   1      
+ 192   1      i=0;
+ 193   1      while(c[i]!='\0')
+ 194   1      {
+ 195   2      lcdData(c[i]);
+ 196   2      i++;
+ 197   2      }
+ 198   1      
+ 199   1      lcdcmd(0xc0);
+ 200   1      DelayMs(10);
+ 201   1      
+ 202   1      i=0;
+ 203   1      while(d[i]!='\0')
+ 204   1      {
+ 205   2      lcdData(d[i]);
+ 206   2      i++;
+ 207   2      }
+ 208   1      }
+ 209          
+ 210          void ConvertAndDisplay(unsigned int value1,unsigned char c[])
+ 211          {
+ 212   1      unsigned int i,a=0,j;
+ 213   1      unsigned char d1,d2,d3;
+ 214   1      for(i=0;i<value1;i++)
+ 215   1      a=a+1;
+ 216   1      lcdcmd(0x01);
+ 217   1      DelayMs(10);
+ 218   1      lcdcmd(0x80);
+ 219   1      DelayMs(10);
+ 220   1      
+ 221   1      
+ 222   1      j=0;
+ 223   1      while(c[j]!='\0')
+ 224   1      {
+ 225   2      lcdData(c[j]);
+ 226   2      j++;
+ 227   2      }
+ 228   1      d1=a%10;    //digits before desible point
+ 229   1      a=a/10;
+ 230   1      d2=a%10;
+ 231   1      a=a/10;
+ 232   1      d3=a%10;
+ 233   1      
+ 234   1      lcdcmd(0xc0);
+ 235   1      DelayMs(10);
+ 236   1      
+ 237   1      display(d1,d2,d3);
+ 238   1      }
+ 239          //---------------------------------------
+ 240          // Lcd initialization subroutine
+ 241          //---------------------------------------
+C51 COMPILER V9.52.0.0   RFID                                                              10/17/2014 02:25:43 PAGE 5   
+
+ 242          void lcdinit(void)
+ 243          {
+ 244   1      lcdcmd(0x38);
+ 245   1      DelayMs(250);
+ 246   1      lcdcmd(0x0E);
+ 247   1      DelayMs(250);
+ 248   1      lcdcmd(0x01);
+ 249   1      DelayMs(250);
+ 250   1      lcdcmd(0x06);
+ 251   1      DelayMs(250);
+ 252   1      lcdcmd(0x80);
+ 253   1      DelayMs(250);
+ 254   1      }
+ 255          
+ 256          //---------------------------------------
+ 257          // Lcd data display
+ 258          //---------------------------------------
+ 259          void lcdData(unsigned char l)
+ 260          {
+ 261   1      P2=l;
+ 262   1      RS=1;
+ 263   1      EN=1;
+ 264   1      DelayMs(1);
+ 265   1      EN=0;
+ 266   1      return;
+ 267   1      }
+ 268          
+ 269          //---------------------------------------
+ 270          // Lcd command
+ 271          //---------------------------------------
+ 272          void lcdcmd(unsigned char k)
+ 273          {
+ 274   1      P2=k;
+ 275   1      RS=0;
+ 276   1      EN=1;
+ 277   1      DelayMs(1);
+ 278   1      EN=0;
+ 279   1      return;
+ 280   1      
+ 281   1      }
+ 282                 
+ 283          //---------------------------------------
+ 284          // Delay mS function
+ 285          //---------------------------------------
+ 286          void DelayMs(unsigned int count) 
+ 287          {  // mSec Delay 11.0592 Mhz 
+ 288   1          unsigned int i;         // Keil v7.5a 
+ 289   1          while(count) 
+ 290   1        {
+ 291   2              i = 115;       // 115 exact value
+ 292   2          while(i>0) 
+ 293   2          i--;
+ 294   2              count--;
+ 295   2          }
+ 296   1      }
+ 297          
+ 298          void dcMotor()
+ 299          {
+ 300   1          START_POINT=1;
+ 301   1          TERMINATE_POINT=0;
+ 302   1          DelayMs(1000);
+ 303   1          START_POINT=0;
+C51 COMPILER V9.52.0.0   RFID                                                              10/17/2014 02:25:43 PAGE 6   
+
+ 304   1          TERMINATE_POINT=0;
+ 305   1          DelayMs(2000);
+ 306   1          START_POINT=0;
+ 307   1          TERMINATE_POINT=1;   
+ 308   1          DelayMs(1000);
+ 309   1          START_POINT=0;
+ 310   1          TERMINATE_POINT=0;      
+ 311   1      }
+ 312          
+ 313          void display(unsigned char s,t,u)
+ 314          {
+ 315   1      s=s+0x30;     //convert each digit to equivalent ASCII value
+ 316   1      t=t+0x30;
+ 317   1      u=u+0x30;
+ 318   1      
+ 319   1      //Move the cursor to position 5 on LCD
+ 320   1      DelayMs(50);
+ 321   1      
+ 322   1      lcdData(u);     //Display the digits one by one on LCD
+ 323   1      DelayMs(50);
+ 324   1      lcdData(t);
+ 325   1      DelayMs(50);
+ 326   1      lcdData(s);
+ 327   1      DelayMs(50);
+ 328   1      } 
+ 329          
+ 330          void buzzer(unsigned int time)
+ 331          {
+ 332   1      
+ 333   1        BUZZPORT=1;
+ 334   1      
+ 335   1        DelayMs(time);
+ 336   1      
+ 337   1        BUZZPORT=0;
+ 338   1      } 
+ 339                   
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1164    ----
+   CONSTANT SIZE    =    305    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      54
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
