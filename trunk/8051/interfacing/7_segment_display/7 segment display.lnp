@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"7 segment display.obj" 
+TO "7 segment display" 
+RAMSIZE(256) 
