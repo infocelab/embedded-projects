@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"ultra sonic.obj" 
+TO "ultra sonic" 
+RAMSIZE(256) 

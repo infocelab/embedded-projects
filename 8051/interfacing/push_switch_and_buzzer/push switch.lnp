@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"push switch.obj" 
+TO "push switch" 
+RAMSIZE(256) 
