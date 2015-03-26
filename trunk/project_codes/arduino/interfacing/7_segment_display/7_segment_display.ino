@@ -1,9 +1,3 @@
-
- 
-// Arduino 7 segment display example software
-// http://www.hacktronics.com/Tutorials/arduino-and-7-segment-led.html
-// License: http://www.opensource.org/licenses/mit-license.php (Go crazy)
- 
 // Define the LED digit patters, from 0 - 9
 // Note that these patterns are for common cathode displays
 // For common anode displays, change the 1's to 0's and 0's to 1's
