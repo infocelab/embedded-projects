@@ -3,7 +3,7 @@
  int leftsensor = A0; 
  int rightsensor = A1; 
  int val_diff = 100;
-const int stepsPerRevolution = 20;  // change this to fit the number of steps per revolution
+const int stepsPerRevolution = 200;  // change this to fit the number of steps per revolution
 
   Stepper myStepper(stepsPerRevolution, 9,10,11,12);            
  
@@ -29,14 +29,22 @@ void loop()
   if ( abs(left - right) > val_diff && left > right)
   {  
      Serial.println("moving left");
-   myStepper.step(-stepsPerRevolution);
+   myStepper.step(-1);
+   delay(500);
   }
   else if ( abs(left - right) > val_diff && right > left)
   {
      Serial.println("moving right");
-    myStepper.step(stepsPerRevolution);
+    myStepper.step(1);
+    delay(500);
   }
-  delay(10000);  
+  else
+  {
+    Serial.println("stop");
+    myStepper.step(0);
+    delay(500);
+  }
+  
 }
  
 
