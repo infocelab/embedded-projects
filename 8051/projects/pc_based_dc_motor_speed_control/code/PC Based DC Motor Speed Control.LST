@@ -1,0 +1,396 @@
+C51 COMPILER V9.52.0.0   PC_BASED_DC_MOTOR_SPEED_CONTROL                                   01/22/2015 02:52:37 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE PC_BASED_DC_MOTOR_SPEED_CONTROL
+OBJECT MODULE PLACED IN PC Based DC Motor Speed Control.OBJ
+COMPILER INVOKED BY: C:\C51\BIN\C51.EXE PC Based DC Motor Speed Control.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          sbit cmd=P1^0;
+   3          sbit led=P2^2;
+   4          sbit m1=P2^0;
+   5          sbit encoder = P3^3;
+   6          unsigned int curspeed = 0;
+   7          sbit PWMPIN =P2^0;
+   8          #define minspeed 40
+   9          
+  10          unsigned int pwm_width;
+  11          
+  12          bit pwm_flag = 0;
+  13          bit flag =0;
+  14          unsigned int a=0;
+  15          int i=0,j=0,k=0,l=0;
+  16          void msdelay(unsigned int x);
+  17          void send(unsigned char z);
+  18           void display(int speed);
+  19          
+  20          void delay()          // 1 sec delay
+  21            {
+  22   1          int k;
+  23   1        TL1 = 0xAF;         // load value 15535=3CAF
+  24   1        TH1 = 0x3C;
+  25   1        TR1 = 1;
+  26   1        for(k=0;k<20;k++)
+  27   1          {
+  28   2          while(TF1==0);
+  29   2          TF1 = 0;
+  30   2          TL1 = 0xAF;
+  31   2          TH1 = 0x3C;
+  32   2          }
+  33   1        TR1 = 0;
+  34   1        }
+  35            /*
+  36            void int1(void) interrupt 2   // for rpm external interrupt 1 function
+  37          {
+  38            //EA=0;               // first disable interrupts
+  39            led=0;                // give indication
+  40            //TR1=1;                // start timer 1
+  41            delay();              // give 1 sec delay
+  42            //TR1=0;              // stop timer
+  43            led=1;
+  44            //flag=1;              // if not then set the flag
+  45            //EX1 = 0;
+  46           }
+  47            */
+  48           
+  49           void rpm_setup()
+  50          {
+  51   1        //TMOD = 0;
+  52   1        //EA = 1;
+  53   1        EX1 = 1;
+  54   1        //IT0 = 1;
+  55   1      }
+C51 COMPILER V9.52.0.0   PC_BASED_DC_MOTOR_SPEED_CONTROL                                   01/22/2015 02:52:37 PAGE 2   
+
+  56          void pwm_setup()
+  57          {
+  58   1        //TMOD = 0;
+  59   1        pwm_width = minspeed;
+  60   1        EA = 1;
+  61   1        ET0 = 1;
+  62   1        TR0 = 1;
+  63   1      }
+  64          
+  65          void timer0() interrupt 1 
+  66          {
+  67   1        if(!pwm_flag) 
+  68   1        { //Start of High level
+  69   2          pwm_flag = 1; //Set flag
+  70   2          PWMPIN = 1; //Set PWM o/p pin
+  71   2          TH0 = pwm_width;  //Load timer
+  72   2          TF0 = 0;   //Clear interrupt flag
+  73   2          return;  //Return
+  74   2        }
+  75   1        else 
+  76   1        { //Start of Low level
+  77   2          pwm_flag = 0; //Clear flag
+  78   2          PWMPIN = 0; //Clear PWM o/p pin
+  79   2          TH0 = 255 - pwm_width;  //Load timer
+  80   2          TF0 = 0;  //Clear Interrupt flag
+  81   2          return;  //return
+  82   2        }
+  83   1        
+  84   1      }
+  85          void send(unsigned char z)
+  86          {
+  87   1        
+  88   1        switch(z)
+  89   1        {
+  90   2          case '0':
+  91   2            SBUF=0x30; 
+  92   2            TI=0;
+  93   2            while(TI==0);
+  94   2          break;
+  95   2          case '1':
+  96   2            SBUF=0x31; 
+  97   2            TI=0;
+  98   2            while(TI==0);
+  99   2          break;
+ 100   2          case '2':
+ 101   2            SBUF=0x32; 
+ 102   2            TI=0;
+ 103   2            while(TI==0);
+ 104   2          break;
+ 105   2          case '3':
+ 106   2            SBUF=0x33; 
+ 107   2            TI=0;
+ 108   2            while(TI==0);
+ 109   2          break;
+ 110   2          case '4':
+ 111   2            SBUF=0x34; 
+ 112   2            TI=0;
+ 113   2            while(TI==0);
+ 114   2          break;
+ 115   2          case '5':
+ 116   2            SBUF=0x35; 
+ 117   2            TI=0;
+C51 COMPILER V9.52.0.0   PC_BASED_DC_MOTOR_SPEED_CONTROL                                   01/22/2015 02:52:37 PAGE 3   
+
+ 118   2            while(TI==0);
+ 119   2          break;
+ 120   2          case '6':
+ 121   2            SBUF=0x36; 
+ 122   2            TI=0;
+ 123   2            while(TI==0);
+ 124   2          break;
+ 125   2          case '7':
+ 126   2            SBUF=0x37; 
+ 127   2            TI=0;
+ 128   2            while(TI==0);
+ 129   2          break;
+ 130   2          case '8':
+ 131   2            SBUF=0x38; 
+ 132   2            TI=0;
+ 133   2            while(TI==0);
+ 134   2          break;
+ 135   2          case '9':
+ 136   2            SBUF=0x39; 
+ 137   2            TI=0;
+ 138   2            while(TI==0);
+ 139   2          break;
+ 140   2          case 'w':
+ 141   2            SBUF=0x77;
+ 142   2            TI=0;
+ 143   2            while(TI==0);
+ 144   2          break;
+ 145   2          case 'x':
+ 146   2            SBUF=0x78;
+ 147   2            TI=0;
+ 148   2            while(TI==0);
+ 149   2          break;
+ 150   2          case 'y':
+ 151   2            SBUF=0x79;
+ 152   2            TI=0;
+ 153   2            while(TI==0);
+ 154   2          break;
+ 155   2          case 'z':
+ 156   2            SBUF=0x7A;
+ 157   2            TI=0;
+ 158   2            while(TI==0);
+ 159   2          break;
+ 160   2          
+ 161   2        }
+ 162   1            
+ 163   1          
+ 164   1      }
+ 165          
+ 166          void msdelay(unsigned int x)
+ 167          {
+ 168   1        unsigned int i,j;
+ 169   1      
+ 170   1        for(i=0;i<x;i++)
+ 171   1        for(j=0;j<1275;j++);
+ 172   1      }
+ 173          
+ 174          void ISR_sc(void) interrupt 4
+ 175          {
+ 176   1        unsigned char v;
+ 177   1      
+ 178   1        if(RI==1)
+ 179   1        {
+C51 COMPILER V9.52.0.0   PC_BASED_DC_MOTOR_SPEED_CONTROL                                   01/22/2015 02:52:37 PAGE 4   
+
+ 180   2          v = SBUF;
+ 181   2          if(v==0x30)  // zero
+ 182   2          {
+ 183   3            led=1;
+ 184   3            pwm_width = pwm_width - 1;
+ 185   3            if(pwm_width<minspeed)
+ 186   3            {
+ 187   4                pwm_width =minspeed;
+ 188   4            }
+ 189   3            //SBUF=0x32; 
+ 190   3            //TI=0;
+ 191   3            //while(TI==0);
+ 192   3            
+ 193   3            
+ 194   3          }
+ 195   2          if(v==0x31)  // 0ne
+ 196   2          {
+ 197   3            led=0;
+ 198   3            pwm_width = pwm_width + 1;
+ 199   3            //SBUF=0x33; 
+ 200   3            //TI=0;
+ 201   3            //while(TI==0);
+ 202   3          }
+ 203   2          if(v==0x32) // two
+ 204   2          {
+ 205   3              //IT1 = 1;   // Configure interrupt 1
+ 206   3              //EX1 = 1;   // Enable EX1 Interrupt
+ 207   3              //msdelay();  
+ 208   3              //IT1 = 0;   // Configure interrupt 1
+ 209   3              //EX1 = 0;   // Enable EX1 Interrupt
+ 210   3            //led=0;                // give indication
+ 211   3            //TR1=1;                // start timer 1
+ 212   3            //delay();              // give 1 sec delay
+ 213   3            //TR1=0;              // stop timer
+ 214   3            //led=1;  
+ 215   3            //tmp1 = (TL1 & 0x0F);         // get lower nibble of TL0
+ 216   3            //tmp2 = TL1 >> 4;         // get upper nibble of TL0
+ 217   3            //tmp2 = tmp2*16;          // multiply upper nibble with 16
+ 218   3            //t = tmp1+tmp2;             // get decimal number
+ 219   3            //t=t*60;                // multiply it with 60
+ 220   3            //t = 6789;
+ 221   3      
+ 222   3          }
+ 223   2          flag=1;
+ 224   2          RI=0;
+ 225   2          /*i= (pwm_width - 40) * 10 + 100 ;
+ 226   2          j=i%10;
+ 227   2          k=i/10;
+ 228   2          l=i/100;
+ 229   2          k=k-l*10;
+ 230   2      
+ 231   2          send(l);
+ 232   2          send(k);
+ 233   2          send(j);
+ 234   2          send('#');
+ 235   2        */
+ 236   2          
+ 237   2          return;
+ 238   2        }
+ 239   1      
+ 240   1      }
+ 241           void display(int speed)             // convert hex to desimal and 
+C51 COMPILER V9.52.0.0   PC_BASED_DC_MOTOR_SPEED_CONTROL                                   01/22/2015 02:52:37 PAGE 5   
+
+ 242            {                  // decimal to ascii
+ 243   1          unsigned int tmp1,tmp2,t,t1,i;
+ 244   1          unsigned char asci[4];  
+ 245   1          //tmp1 = (TL1 & 0x0F);         // get lower nibble of TL0
+ 246   1          //tmp2 = TL1 >> 4;         // get upper nibble of TL0
+ 247   1          //tmp2 = tmp2*16;          // multiply upper nibble with 16
+ 248   1          //t = tmp1+tmp2;             // get decimal number
+ 249   1          //t=t*60;                // multiply it with 60
+ 250   1          t = speed;
+ 251   1          i=3;
+ 252   1          if(t >= 9999)
+ 253   1          {
+ 254   2            t=9999;
+ 255   2          }
+ 256   1          if(t>=1000)            // if more then 4 digits
+ 257   1          {
+ 258   2            while(t>10)
+ 259   2            {   
+ 260   3              t1=t%10;
+ 261   3              asci[i]=t1+0x30;     // convert them one by one 
+ 262   3              t=t/10;          // into ASCII
+ 263   3              i--;
+ 264   3            }
+ 265   2            asci[0]=t+0x30;
+ 266   2          }
+ 267   1          else                 // otherwise convert
+ 268   1          {
+ 269   2            while(t>10)
+ 270   2            {   
+ 271   3              t1=t%10;
+ 272   3              asci[i]=t1+0x30;      // last three digits
+ 273   3              t=t/10;
+ 274   3              i--;
+ 275   3            }
+ 276   2            asci[1]=t+0x30;
+ 277   2            asci[0]=0x30;        // and put first digit as 0
+ 278   2          }
+ 279   1            send('x');
+ 280   1            msdelay(7);
+ 281   1            send((unsigned char)asci[0]);
+ 282   1            msdelay(5);
+ 283   1            send((unsigned char)asci[1]);
+ 284   1            msdelay(5);
+ 285   1            send((unsigned char)asci[2]);
+ 286   1            msdelay(5);
+ 287   1            send((unsigned char)asci[3]);
+ 288   1            msdelay(5);
+ 289   1        }
+*** WARNING C280 IN LINE 243 OF PC Based DC Motor Speed Control.c: 'tmp1': unreferenced local variable
+*** WARNING C280 IN LINE 243 OF PC Based DC Motor Speed Control.c: 'tmp2': unreferenced local variable
+ 290          
+ 291          void main()
+ 292          {
+ 293   1        
+ 294   1        TMOD=0X20;
+ 295   1        SCON=0X50;
+ 296   1        IE=0X90;
+ 297   1        //IE=0XFF;
+ 298   1        TH1=0XFD;
+ 299   1        TR1=1;
+ 300   1        led=1;
+ 301   1        msdelay(500);
+C51 COMPILER V9.52.0.0   PC_BASED_DC_MOTOR_SPEED_CONTROL                                   01/22/2015 02:52:37 PAGE 6   
+
+ 302   1        led=0;
+ 303   1        msdelay(500);
+ 304   1        led=1;
+ 305   1        pwm_setup();
+ 306   1        encoder = 1;
+ 307   1        flag=0;
+ 308   1        //send('y');
+ 309   1        //ET1 = 1;
+ 310   1        //TR1 = 1;
+ 311   1        while(1)
+ 312   1        {
+ 313   2          
+ 314   2          //EX1 = 1;
+ 315   2          //while(flag==0);       // remain withine loop till rpm flag is clear
+ 316   2          if (flag == 1)
+ 317   2          {
+ 318   3            //i= (pwm_width - minspeed) * 10 + 100 ;
+ 319   3            i= pwm_width; 
+ 320   3            //i= pwm_width;
+ 321   3            display(i * 10);  
+ 322   3            flag=0;
+ 323   3          }
+ 324   2          //display(i); 
+ 325   2          //delay();              // give 1 sec delay   
+ 326   2          //IE=0X90;
+ 327   2      
+ 328   2          if(cmd ==0)
+ 329   2            cmd=0;
+ 330   2          /*
+ 331   2          i= (pwm_width - 40) * 10 + 100 ;
+ 332   2          j=i%10;
+ 333   2          k=i/10;
+ 334   2          l=i/100;
+ 335   2          k=k-l*10;
+ 336   2      
+ 337   2          send(l);
+ 338   2          send(k);
+ 339   2          send(j);
+ 340   2          send('z');*/
+ 341   2          //msdelay(200);
+ 342   2          /*if(cmd==0)
+ 343   2          {
+ 344   2            SBUF=0X31; 
+ 345   2            TI=0;
+ 346   2            while(TI==0);
+ 347   2            //led=1;
+ 348   2            while(cmd==0);
+ 349   2          }
+ 350   2          if(cmd==1)
+ 351   2          {
+ 352   2            SBUF=0X30;
+ 353   2            TI=0;
+ 354   2            while(TI==0);
+ 355   2            //led=0;
+ 356   2            while(cmd==1);
+ 357   2          }*/
+ 358   2        }
+ 359   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    659    ----
+C51 COMPILER V9.52.0.0   PC_BASED_DC_MOTOR_SPEED_CONTROL                                   01/22/2015 02:52:37 PAGE 7   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     14      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)
