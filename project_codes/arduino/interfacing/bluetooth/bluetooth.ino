@@ -1,7 +1,4 @@
 /* Turn an LED on/off based on a command send via BlueTooth
-**
-** Credit: The following example was used as a reference
-** Rui Santos: http://randomnerdtutorials.wordpress.com
 */
 
 int ledPin = 13;  // use the built in LED on pin 13 of the Uno
