@@ -1,0 +1,69 @@
+C51 COMPILER V9.52.0.0   FOUR_RELAY_DRIVER                                                 03/21/2015 06:23:07 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE FOUR_RELAY_DRIVER
+OBJECT MODULE PLACED IN four relay driver.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE four relay driver.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #define on 1
+   3          #define off 0
+   4          
+   5          sbit relay0=P2^0;
+   6          sbit relay1=P2^1;
+   7          sbit relay2=P2^2;
+   8          
+   9          
+  10          sbit volt_7=P0^0;
+  11          sbit volt_14=P0^1;
+  12          
+  13          void msDelay(unsigned int x)
+  14          {
+  15   1        unsigned int i,j;
+  16   1        for(i=0;i<=x;i++)
+  17   1        for(j=0;j<=975;j++);
+  18   1      }
+  19          void main()
+  20          {
+  21   1      P2=0x00;
+  22   1      P0=0xFF;
+  23   1        relay0=off;
+  24   1          relay1=off;
+  25   1          relay2=off;
+  26   1      relay0=on;
+  27   1      while(1)
+  28   1      {
+  29   2        if(volt_7 == 1)
+  30   2        {
+  31   3          relay0=off;
+  32   3          relay1=on;
+  33   3          relay2=off;
+  34   3        }
+  35   2        if(volt_14 == 1)
+  36   2        {
+  37   3          relay1=off;
+  38   3          relay2=on;
+  39   3          relay0=off;
+  40   3        }
+  41   2          msDelay(100);
+  42   2      }
+  43   1      }
+  44          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.52.0.0   FOUR_RELAY_DRIVER                                                 03/21/2015 06:23:07 PAGE 2   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
