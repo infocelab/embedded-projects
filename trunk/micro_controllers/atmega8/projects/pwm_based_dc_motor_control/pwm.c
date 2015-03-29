@@ -2,27 +2,19 @@
 
 
 #include <avr/io.h>
-
+#include <util/delay.h>
 //Global variables and definition
-#define PULSE_WIDTH 0xaa
+int pulse_width=80;
+
+void ioinit(void);
+void led_on(void);
+void led_off(void);
 
 void pwm_start(){
-	OCR1AL = PULSE_WIDTH;	//Load Pulse width
-	OCR1AH = 0;
-	DDRD |= (1<<5);		//PortD.5 as o/p
-	TCCR1A = 0x81;		//8-bit, Non-Inverted PWM
-	TCCR1B = 1;		//Start PWM
-}
-
-
-int main(void)
-{
-
-
     DDRB |= (1 << DDB3);
-    // PB3 is now an output
+    // PB2 is now an output
 
-    OCR2 = 128;
+    OCR2 = pulse_width;
     // set PWM for 50% duty cycle
 
 
@@ -34,11 +26,68 @@ int main(void)
 
     TCCR2 |= (1 << CS21);
     // set prescaler to 8 and starts PWM
+}
 
 
-//pwm_start();
+int main(void)
+{
+	    pwm_start();
+
     while (1)
     {
-        // we have a working Fast PWM
+
+	  if (bit_is_clear(PINC, 3)) // 26 pin
+      {
+	     led_on();
+         _delay_ms(1000);
+         led_off();
+	    _delay_ms(500);
+         if(pulse_width < 255)
+		{
+        pulse_width += 10;
+	    OCR2 = pulse_width; 
+		_delay_ms(2000);
+   		}
+        else
+		{
+           pulse_width=255;
+		}
+	  }	
+	  else if (bit_is_clear(PINC, 2))  // 25 pin
+      {
+	     led_on();
+         _delay_ms(1000);
+         led_off();
+	    _delay_ms(500);
+         if(pulse_width > 10)
+		{
+        pulse_width -= 10;
+	    OCR2 = pulse_width; 
+		_delay_ms(2000);
+   		}
+        else
+		{
+           pulse_width=0;
+		}
+	  }	
+      _delay_ms(100);
     }
 }
+
+
+void ioinit (void)
+{
+   DDRC = 0b11110111; //Pin 26 of MCU as input
+   PORTC = 0b00001000; //Enable internal pullup of pin 26
+}
+
+void led_on(void)
+{
+   PORTC |= _BV(PC5); //Pin 28 of MCU as output
+}
+ 
+void led_off(void)
+{
+   PORTC &= ~_BV(PC5);
+}
+ 

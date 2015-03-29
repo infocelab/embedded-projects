@@ -3,21 +3,27 @@ pwm.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000100  00000000  00000000  00000054  2**1
+  0 .data         00000002  00800100  000001ba  0000022e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000001ba  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .debug_aranges 00000020  00000000  00000000  00000154  2**0
+  2 .debug_aranges 00000020  00000000  00000000  00000230  2**0
                   CONTENTS, READONLY, DEBUGGING
-  2 .debug_pubnames 00000029  00000000  00000000  00000174  2**0
+  3 .debug_pubnames 0000005b  00000000  00000000  00000250  2**0
                   CONTENTS, READONLY, DEBUGGING
-  3 .debug_info   00000089  00000000  00000000  0000019d  2**0
+  4 .debug_info   0000036c  00000000  00000000  000002ab  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 00000054  00000000  00000000  00000226  2**0
+  5 .debug_abbrev 0000014e  00000000  00000000  00000617  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_line   000000b5  00000000  00000000  0000027a  2**0
+  6 .debug_line   000002d6  00000000  00000000  00000765  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_frame  00000030  00000000  00000000  00000330  2**2
+  7 .debug_frame  00000060  00000000  00000000  00000a3c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    000000bc  00000000  00000000  00000360  2**0
+  8 .debug_str    00000121  00000000  00000000  00000a9c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000228  00000000  00000000  00000bbd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000090  00000000  00000000  00000de5  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -71,21 +77,21 @@ Disassembly of section .text:
   98:	11 e0       	ldi	r17, 0x01	; 1
   9a:	a0 e0       	ldi	r26, 0x00	; 0
   9c:	b1 e0       	ldi	r27, 0x01	; 1
-  9e:	e0 e0       	ldi	r30, 0x00	; 0
+  9e:	ea eb       	ldi	r30, 0xBA	; 186
   a0:	f1 e0       	ldi	r31, 0x01	; 1
   a2:	00 e0       	ldi	r16, 0x00	; 0
   a4:	0b bf       	out	0x3b, r16	; 59
   a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
   a8:	07 90       	elpm	r0, Z+
   aa:	0d 92       	st	X+, r0
-  ac:	a0 30       	cpi	r26, 0x00	; 0
+  ac:	a2 30       	cpi	r26, 0x02	; 2
   ae:	b1 07       	cpc	r27, r17
   b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
   b2:	1b be       	out	0x3b, r1	; 59
 
 000000b4 <__do_clear_bss>:
   b4:	11 e0       	ldi	r17, 0x01	; 1
-  b6:	a0 e0       	ldi	r26, 0x00	; 0
+  b6:	a2 e0       	ldi	r26, 0x02	; 2
   b8:	b1 e0       	ldi	r27, 0x01	; 1
   ba:	01 c0       	rjmp	.+2      	; 0xbe <.do_clear_bss_start>
 
@@ -93,73 +99,317 @@ Disassembly of section .text:
   bc:	1d 92       	st	X+, r1
 
 000000be <.do_clear_bss_start>:
-  be:	a0 30       	cpi	r26, 0x00	; 0
+  be:	a2 30       	cpi	r26, 0x02	; 2
   c0:	b1 07       	cpc	r27, r17
   c2:	e1 f7       	brne	.-8      	; 0xbc <.do_clear_bss_loop>
-  c4:	0e 94 71 00 	call	0xe2	; 0xe2 <main>
-  c8:	0c 94 7e 00 	jmp	0xfc	; 0xfc <_exit>
+  c4:	0e 94 76 00 	call	0xec	; 0xec <main>
+  c8:	0c 94 db 00 	jmp	0x1b6	; 0x1b6 <_exit>
 
 000000cc <__bad_interrupt>:
   cc:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 000000d0 <pwm_start>:
-
-//Global variables and definition
-#define PULSE_WIDTH 0xaa
+void ioinit(void);
+void led_on(void);
+void led_off(void);
 
 void pwm_start(){
-	OCR1AL = PULSE_WIDTH;	//Load Pulse width
-  d0:	8a ea       	ldi	r24, 0xAA	; 170
-  d2:	8a bd       	out	0x2a, r24	; 42
-	OCR1AH = 0;
-  d4:	1b bc       	out	0x2b, r1	; 43
-	DDRD |= (1<<5);		//PortD.5 as o/p
-  d6:	8d 9a       	sbi	0x11, 5	; 17
-	TCCR1A = 0x81;		//8-bit, Non-Inverted PWM
-  d8:	81 e8       	ldi	r24, 0x81	; 129
-  da:	8f bd       	out	0x2f, r24	; 47
-	TCCR1B = 1;		//Start PWM
-  dc:	81 e0       	ldi	r24, 0x01	; 1
-  de:	8e bd       	out	0x2e, r24	; 46
-}
-  e0:	08 95       	ret
-
-000000e2 <main>:
-
-int main(void)
-{
-
-
     DDRB |= (1 << DDB3);
-  e2:	bb 9a       	sbi	0x17, 3	; 23
-    // PB3 is now an output
+  d0:	bb 9a       	sbi	0x17, 3	; 23
+    // PB2 is now an output
 
-    OCR2 = 128;
-  e4:	80 e8       	ldi	r24, 0x80	; 128
-  e6:	83 bd       	out	0x23, r24	; 35
+    OCR2 = pulse_width;
+  d2:	80 91 00 01 	lds	r24, 0x0100
+  d6:	83 bd       	out	0x23, r24	; 35
     // set PWM for 50% duty cycle
 
 
     TCCR2 |= (1 << COM21);
-  e8:	85 b5       	in	r24, 0x25	; 37
-  ea:	80 62       	ori	r24, 0x20	; 32
-  ec:	85 bd       	out	0x25, r24	; 37
+  d8:	85 b5       	in	r24, 0x25	; 37
+  da:	80 62       	ori	r24, 0x20	; 32
+  dc:	85 bd       	out	0x25, r24	; 37
     // set none-inverting mode
 
     TCCR2 |= (1 << WGM21) | (1 << WGM20);
-  ee:	85 b5       	in	r24, 0x25	; 37
-  f0:	88 64       	ori	r24, 0x48	; 72
-  f2:	85 bd       	out	0x25, r24	; 37
+  de:	85 b5       	in	r24, 0x25	; 37
+  e0:	88 64       	ori	r24, 0x48	; 72
+  e2:	85 bd       	out	0x25, r24	; 37
     // set fast PWM Mode
 
     TCCR2 |= (1 << CS21);
-  f4:	85 b5       	in	r24, 0x25	; 37
-  f6:	82 60       	ori	r24, 0x02	; 2
-  f8:	85 bd       	out	0x25, r24	; 37
-  fa:	ff cf       	rjmp	.-2      	; 0xfa <main+0x18>
+  e4:	85 b5       	in	r24, 0x25	; 37
+  e6:	82 60       	ori	r24, 0x02	; 2
+  e8:	85 bd       	out	0x25, r24	; 37
+    // set prescaler to 8 and starts PWM
+}
+  ea:	08 95       	ret
 
-000000fc <_exit>:
-  fc:	f8 94       	cli
+000000ec <main>:
+void ioinit(void);
+void led_on(void);
+void led_off(void);
 
-000000fe <__stop_program>:
-  fe:	ff cf       	rjmp	.-2      	; 0xfe <__stop_program>
+void pwm_start(){
+    DDRB |= (1 << DDB3);
+  ec:	bb 9a       	sbi	0x17, 3	; 23
+    // PB2 is now an output
+
+    OCR2 = pulse_width;
+  ee:	20 91 00 01 	lds	r18, 0x0100
+  f2:	30 91 01 01 	lds	r19, 0x0101
+  f6:	23 bd       	out	0x23, r18	; 35
+    // set PWM for 50% duty cycle
+
+
+    TCCR2 |= (1 << COM21);
+  f8:	85 b5       	in	r24, 0x25	; 37
+  fa:	80 62       	ori	r24, 0x20	; 32
+  fc:	85 bd       	out	0x25, r24	; 37
+    // set none-inverting mode
+
+    TCCR2 |= (1 << WGM21) | (1 << WGM20);
+  fe:	85 b5       	in	r24, 0x25	; 37
+ 100:	88 64       	ori	r24, 0x48	; 72
+ 102:	85 bd       	out	0x25, r24	; 37
+    // set fast PWM Mode
+
+    TCCR2 |= (1 << CS21);
+ 104:	85 b5       	in	r24, 0x25	; 37
+ 106:	82 60       	ori	r24, 0x02	; 2
+ 108:	85 bd       	out	0x25, r24	; 37
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 10a:	49 e1       	ldi	r20, 0x19	; 25
+ 10c:	50 e0       	ldi	r21, 0x00	; 0
+	    pwm_start();
+
+    while (1)
+    {
+
+	  if (bit_is_clear(PINC, 3)) // 26 pin
+ 10e:	68 ea       	ldi	r22, 0xA8	; 168
+ 110:	71 e6       	ldi	r23, 0x61	; 97
+ 112:	9b 99       	sbic	0x13, 3	; 19
+ 114:	21 c0       	rjmp	.+66     	; 0x158 <main+0x6c>
+   PORTC = 0b00001000; //Enable internal pullup of pin 26
+}
+
+void led_on(void)
+{
+   PORTC |= _BV(PC5); //Pin 28 of MCU as output
+ 116:	ad 9a       	sbi	0x15, 5	; 21
+ 118:	80 e1       	ldi	r24, 0x10	; 16
+ 11a:	97 e2       	ldi	r25, 0x27	; 39
+ 11c:	fa 01       	movw	r30, r20
+ 11e:	31 97       	sbiw	r30, 0x01	; 1
+ 120:	f1 f7       	brne	.-4      	; 0x11e <main+0x32>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 122:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 124:	d9 f7       	brne	.-10     	; 0x11c <main+0x30>
+}
+ 
+void led_off(void)
+{
+   PORTC &= ~_BV(PC5);
+ 126:	ad 98       	cbi	0x15, 5	; 21
+ 128:	88 e8       	ldi	r24, 0x88	; 136
+ 12a:	93 e1       	ldi	r25, 0x13	; 19
+ 12c:	fa 01       	movw	r30, r20
+ 12e:	31 97       	sbiw	r30, 0x01	; 1
+ 130:	f1 f7       	brne	.-4      	; 0x12e <main+0x42>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 132:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 134:	d9 f7       	brne	.-10     	; 0x12c <main+0x40>
+      {
+	     led_on();
+         _delay_ms(1000);
+         led_off();
+	    _delay_ms(500);
+         if(pulse_width < 255)
+ 136:	2f 3f       	cpi	r18, 0xFF	; 255
+ 138:	31 05       	cpc	r19, r1
+ 13a:	1c f0       	brlt	.+6      	; 0x142 <main+0x56>
+ 13c:	2f ef       	ldi	r18, 0xFF	; 255
+ 13e:	30 e0       	ldi	r19, 0x00	; 0
+ 140:	2d c0       	rjmp	.+90     	; 0x19c <main+0xb0>
+		{
+        pulse_width += 10;
+ 142:	26 5f       	subi	r18, 0xF6	; 246
+ 144:	3f 4f       	sbci	r19, 0xFF	; 255
+	    OCR2 = pulse_width; 
+ 146:	23 bd       	out	0x23, r18	; 35
+ 148:	80 e2       	ldi	r24, 0x20	; 32
+ 14a:	9e e4       	ldi	r25, 0x4E	; 78
+ 14c:	fa 01       	movw	r30, r20
+ 14e:	31 97       	sbiw	r30, 0x01	; 1
+ 150:	f1 f7       	brne	.-4      	; 0x14e <main+0x62>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 152:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 154:	d9 f7       	brne	.-10     	; 0x14c <main+0x60>
+ 156:	22 c0       	rjmp	.+68     	; 0x19c <main+0xb0>
+        else
+		{
+           pulse_width=255;
+		}
+	  }	
+	  else if (bit_is_clear(PINC, 2))  // 25 pin
+ 158:	9a 99       	sbic	0x13, 2	; 19
+ 15a:	20 c0       	rjmp	.+64     	; 0x19c <main+0xb0>
+   PORTC = 0b00001000; //Enable internal pullup of pin 26
+}
+
+void led_on(void)
+{
+   PORTC |= _BV(PC5); //Pin 28 of MCU as output
+ 15c:	ad 9a       	sbi	0x15, 5	; 21
+ 15e:	80 e1       	ldi	r24, 0x10	; 16
+ 160:	97 e2       	ldi	r25, 0x27	; 39
+ 162:	fa 01       	movw	r30, r20
+ 164:	31 97       	sbiw	r30, 0x01	; 1
+ 166:	f1 f7       	brne	.-4      	; 0x164 <main+0x78>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 168:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 16a:	d9 f7       	brne	.-10     	; 0x162 <main+0x76>
+}
+ 
+void led_off(void)
+{
+   PORTC &= ~_BV(PC5);
+ 16c:	ad 98       	cbi	0x15, 5	; 21
+ 16e:	88 e8       	ldi	r24, 0x88	; 136
+ 170:	93 e1       	ldi	r25, 0x13	; 19
+ 172:	fa 01       	movw	r30, r20
+ 174:	31 97       	sbiw	r30, 0x01	; 1
+ 176:	f1 f7       	brne	.-4      	; 0x174 <main+0x88>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 178:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 17a:	d9 f7       	brne	.-10     	; 0x172 <main+0x86>
+      {
+	     led_on();
+         _delay_ms(1000);
+         led_off();
+	    _delay_ms(500);
+         if(pulse_width > 10)
+ 17c:	2b 30       	cpi	r18, 0x0B	; 11
+ 17e:	31 05       	cpc	r19, r1
+ 180:	1c f4       	brge	.+6      	; 0x188 <main+0x9c>
+ 182:	20 e0       	ldi	r18, 0x00	; 0
+ 184:	30 e0       	ldi	r19, 0x00	; 0
+ 186:	0a c0       	rjmp	.+20     	; 0x19c <main+0xb0>
+		{
+        pulse_width -= 10;
+ 188:	2a 50       	subi	r18, 0x0A	; 10
+ 18a:	30 40       	sbci	r19, 0x00	; 0
+	    OCR2 = pulse_width; 
+ 18c:	23 bd       	out	0x23, r18	; 35
+ 18e:	80 e2       	ldi	r24, 0x20	; 32
+ 190:	9e e4       	ldi	r25, 0x4E	; 78
+ 192:	fa 01       	movw	r30, r20
+ 194:	31 97       	sbiw	r30, 0x01	; 1
+ 196:	f1 f7       	brne	.-4      	; 0x194 <main+0xa8>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 198:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 19a:	d9 f7       	brne	.-10     	; 0x192 <main+0xa6>
+ 19c:	cb 01       	movw	r24, r22
+ 19e:	01 97       	sbiw	r24, 0x01	; 1
+ 1a0:	f1 f7       	brne	.-4      	; 0x19e <main+0xb2>
+ 1a2:	b7 cf       	rjmp	.-146    	; 0x112 <main+0x26>
+
+000001a4 <ioinit>:
+}
+
+
+void ioinit (void)
+{
+   DDRC = 0b11110111; //Pin 26 of MCU as input
+ 1a4:	87 ef       	ldi	r24, 0xF7	; 247
+ 1a6:	84 bb       	out	0x14, r24	; 20
+   PORTC = 0b00001000; //Enable internal pullup of pin 26
+ 1a8:	88 e0       	ldi	r24, 0x08	; 8
+ 1aa:	85 bb       	out	0x15, r24	; 21
+}
+ 1ac:	08 95       	ret
+
+000001ae <led_on>:
+
+void led_on(void)
+{
+   PORTC |= _BV(PC5); //Pin 28 of MCU as output
+ 1ae:	ad 9a       	sbi	0x15, 5	; 21
+}
+ 1b0:	08 95       	ret
+
+000001b2 <led_off>:
+ 
+void led_off(void)
+{
+   PORTC &= ~_BV(PC5);
+ 1b2:	ad 98       	cbi	0x15, 5	; 21
+}
+ 1b4:	08 95       	ret
+
+000001b6 <_exit>:
+ 1b6:	f8 94       	cli
+
+000001b8 <__stop_program>:
+ 1b8:	ff cf       	rjmp	.-2      	; 0x1b8 <__stop_program>
