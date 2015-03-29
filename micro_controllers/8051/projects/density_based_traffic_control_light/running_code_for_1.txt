@@ -1,0 +1,122 @@
+#include<reg51.h>
+#define on 0
+#define off 1
+#define reset 1
+int count_1=0;
+int runtime_1 = 30;
+sbit R1 = P2^0;
+sbit Y1 = P2^1;
+sbit G1 = P2^2;
+sbit SS_CLK_1 = P2^3;
+sbit SS_RST_1 = P2^4;
+
+sbit module1 = P0^0;
+void msDelay(unsigned int x)
+{
+     unsigned int i,j;
+     for(i=0;i<x;i++)
+     for(j=0;j<775;j++);
+}
+
+void ss_reset(int d)
+{
+  switch(d)
+  {
+      case 1:
+			 SS_RST_1=1;
+			 msDelay(50);
+			 SS_RST_1=0;
+			 msDelay(50);
+			break;
+    case 2:
+			
+		
+		break;
+		
+		case 3:
+			
+		
+		break;
+		
+		case 4:
+			
+		
+		break;
+
+
+  }  	
+	
+	
+}
+
+
+void clock(int d)
+{
+	switch(d)
+	{
+		case 1:
+			 count_1++;
+			 SS_CLK_1=1;
+			 msDelay(50);
+			 SS_CLK_1=0;
+			 msDelay(50);
+		break;
+		case 2:
+			
+		
+		break;
+		
+		case 3:
+			
+		
+		break;
+		
+		case 4:
+			
+		
+		break;
+		
+		
+		
+		
+	}
+	
+}
+void main()
+{
+P2=0x00;
+P0=0xFF;
+	R1=off;
+	Y1=off;
+	G1=off;
+	R1=on;
+    while(1)
+     {
+			 if( module1 == 1)
+       {
+           runtime_1=60;
+       }
+			 else
+			 {
+				 runtime_1=30;
+			 }
+			 
+			 clock(1);
+       if(count_1 >= runtime_1)
+			 {
+				 count_1=0;
+				 ss_reset(1);
+			 }
+			 
+			 /*
+			 if( module == 1)
+          {
+           led = 1;
+           msDelay(1000);
+           led = 0;
+           msDelay(100);
+           }
+			 */
+     }
+}
+ 
