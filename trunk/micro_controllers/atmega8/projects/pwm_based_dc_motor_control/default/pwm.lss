@@ -1,0 +1,143 @@
+
+pwm.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000ee  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  00000142  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 0000001b  00000000  00000000  00000162  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   00000076  00000000  00000000  0000017d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 00000041  00000000  00000000  000001f3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   0000007d  00000000  00000000  00000234  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000020  00000000  00000000  000002b4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    000000b2  00000000  00000000  000002d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+   8:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+   c:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  10:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  14:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  18:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  1c:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  20:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  24:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  28:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  2c:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  30:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  34:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  38:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  3c:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  40:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  44:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  48:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  4c:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  50:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  54:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  58:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  5c:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  60:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  64:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  68:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  6c:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  70:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  74:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  78:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  7c:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  80:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  84:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+  88:	0c 94 66 00 	jmp	0xcc	; 0xcc <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	ee ee       	ldi	r30, 0xEE	; 238
+  a0:	f0 e0       	ldi	r31, 0x00	; 0
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a0 30       	cpi	r26, 0x00	; 0
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+  b2:	1b be       	out	0x3b, r1	; 59
+
+000000b4 <__do_clear_bss>:
+  b4:	11 e0       	ldi	r17, 0x01	; 1
+  b6:	a0 e0       	ldi	r26, 0x00	; 0
+  b8:	b1 e0       	ldi	r27, 0x01	; 1
+  ba:	01 c0       	rjmp	.+2      	; 0xbe <.do_clear_bss_start>
+
+000000bc <.do_clear_bss_loop>:
+  bc:	1d 92       	st	X+, r1
+
+000000be <.do_clear_bss_start>:
+  be:	a0 30       	cpi	r26, 0x00	; 0
+  c0:	b1 07       	cpc	r27, r17
+  c2:	e1 f7       	brne	.-8      	; 0xbc <.do_clear_bss_loop>
+  c4:	0e 94 68 00 	call	0xd0	; 0xd0 <main>
+  c8:	0c 94 75 00 	jmp	0xea	; 0xea <_exit>
+
+000000cc <__bad_interrupt>:
+  cc:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000d0 <main>:
+#include <avr/io.h>
+
+
+int main(void)
+{
+    DDRB |= (1 << DDB3);
+  d0:	bb 9a       	sbi	0x17, 3	; 23
+    // PB3 is now an output
+
+    OCR2 = 128;
+  d2:	80 e8       	ldi	r24, 0x80	; 128
+  d4:	83 bd       	out	0x23, r24	; 35
+    // set PWM for 50% duty cycle
+
+
+    TCCR2 |= (1 << COM21);
+  d6:	85 b5       	in	r24, 0x25	; 37
+  d8:	80 62       	ori	r24, 0x20	; 32
+  da:	85 bd       	out	0x25, r24	; 37
+    // set none-inverting mode
+
+    TCCR2 |= (1 << WGM21) | (1 << WGM20);
+  dc:	85 b5       	in	r24, 0x25	; 37
+  de:	88 64       	ori	r24, 0x48	; 72
+  e0:	85 bd       	out	0x25, r24	; 37
+    // set fast PWM Mode
+
+    TCCR2 |= (1 << CS21);
+  e2:	85 b5       	in	r24, 0x25	; 37
+  e4:	82 60       	ori	r24, 0x02	; 2
+  e6:	85 bd       	out	0x25, r24	; 37
+  e8:	ff cf       	rjmp	.-2      	; 0xe8 <main+0x18>
+
+000000ea <_exit>:
+  ea:	f8 94       	cli
+
+000000ec <__stop_program>:
+  ec:	ff cf       	rjmp	.-2      	; 0xec <__stop_program>
