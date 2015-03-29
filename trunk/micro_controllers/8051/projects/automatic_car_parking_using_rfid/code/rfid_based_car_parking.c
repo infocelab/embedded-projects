@@ -5,6 +5,9 @@
 sbit START_POINT=P1^3;
 sbit TERMINATE_POINT=P1^4;
 
+sbit STOP_START_POINT=P1^5;	
+sbit STOP_TERMINATE_POINT=P1^6;
+
 sbit S1=P3^2;
 sbit S2=P3^3;
 
@@ -24,7 +27,8 @@ void DelayMs(unsigned int count);
 void display(unsigned char s,t,u);
 void Welcome(unsigned char c[],unsigned char d[]);
 void ConvertAndDisplay(unsigned int value1,unsigned char c[]);
-void dcMotor(); 
+void dcMotor();
+void exit_dcMotor();
 
 void main()
 {
@@ -57,16 +61,17 @@ known:
 Welcome("AUTOMATIC RFID","CAR PARKING");
 DelayMs(100);
 
-while(S1==1 && S2==1);
+while(S1==0 && S2==0);
 
-if(S2==0)
+if(S2==1)
 {
-  		while(S2==0);
+  		while(S2==1);
 		if(count>0)
 		{
 		 count--;
 		 ConvertAndDisplay(count,"Thanks for Visit");
 		 DelayMs(1000);
+			exit_dcMotor();
 		 goto known;
 	    }
 	  	else
@@ -74,13 +79,14 @@ if(S2==0)
 		  count=0;
 		  ConvertAndDisplay(count,"Thanks for Visit");
 			 DelayMs(1000);
+			exit_dcMotor();
 				 goto known;
 	    }
 }
 
-if(S1==0)
+if(S1==1)
 {
-while(S1==0);
+while(S1==1);
 for(i=0;i<12;i++)
 {
 c[i]=0xFF;
@@ -308,6 +314,21 @@ void dcMotor()
 		DelayMs(1000);
 		START_POINT=0;
 		TERMINATE_POINT=0;	 		
+}
+
+void exit_dcMotor()
+{
+		STOP_START_POINT=1;
+		STOP_TERMINATE_POINT=0;
+		DelayMs(1000);
+		STOP_START_POINT=0;
+		STOP_TERMINATE_POINT=0;
+		DelayMs(2000);
+		STOP_START_POINT=0;
+		STOP_TERMINATE_POINT=1;	 
+		DelayMs(1000);
+		STOP_START_POINT=0;
+		STOP_TERMINATE_POINT=0;	 		
 }
 
 void display(unsigned char s,t,u)
