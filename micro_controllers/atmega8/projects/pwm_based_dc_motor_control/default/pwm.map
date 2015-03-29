@@ -115,7 +115,7 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x100
+.text           0x00000000      0x1ba
  *(.vectors)
  .vectors       0x00000000       0x8c c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
                 0x00000000                __vectors
@@ -206,20 +206,23 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a
                 0x000000cc                __vector_16
                 0x000000cc                __vector_18
                 0x000000cc                __vector_20
- .text          0x000000d0       0x2c pwm.o
-                0x000000e2                main
+ .text          0x000000d0       0xe6 pwm.o
+                0x000001ae                led_on
+                0x000001a4                ioinit
+                0x000000ec                main
+                0x000001b2                led_off
                 0x000000d0                pwm_start
- .text          0x000000fc        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
- .text          0x000000fc        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
-                0x000000fc                . = ALIGN (0x2)
+ .text          0x000001b6        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ .text          0x000001b6        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+                0x000001b6                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000000fc        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
- .text.libgcc   0x000000fc        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
-                0x000000fc                . = ALIGN (0x2)
+ .text.libgcc   0x000001b6        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ .text.libgcc   0x000001b6        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+                0x000001b6                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000000fc        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
-                0x000000fc                exit
-                0x000000fc                _exit
+ .fini9         0x000001b6        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+                0x000001b6                exit
+                0x000001b6                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -238,44 +241,45 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000000fc        0x4 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ .fini0         0x000001b6        0x4 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000100                _etext = .
+                0x000001ba                _etext = .
 
-.data           0x00800100        0x0 load address 0x00000100
+.data           0x00800100        0x2 load address 0x000001ba
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
- .data          0x00800100        0x0 pwm.o
- .data          0x00800100        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
- .data          0x00800100        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+ .data          0x00800100        0x2 pwm.o
+                0x00800100                pulse_width
+ .data          0x00800102        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ .data          0x00800102        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800100                . = ALIGN (0x2)
-                0x00800100                _edata = .
-                0x00800100                PROVIDE (__data_end, .)
+                0x00800102                . = ALIGN (0x2)
+                0x00800102                _edata = .
+                0x00800102                PROVIDE (__data_end, .)
 
-.bss            0x00800100        0x0
-                0x00800100                PROVIDE (__bss_start, .)
+.bss            0x00800102        0x0
+                0x00800102                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800100        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
- .bss           0x00800100        0x0 pwm.o
- .bss           0x00800100        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
- .bss           0x00800100        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+ .bss           0x00800102        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+ .bss           0x00800102        0x0 pwm.o
+ .bss           0x00800102        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ .bss           0x00800102        0x0 c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
-                0x00800100                PROVIDE (__bss_end, .)
-                0x00000100                __data_load_start = LOADADDR (.data)
-                0x00000100                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800102                PROVIDE (__bss_end, .)
+                0x000001ba                __data_load_start = LOADADDR (.data)
+                0x000001bc                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800100        0x0
-                0x00800100                PROVIDE (__noinit_start, .)
+.noinit         0x00800102        0x0
+                0x00800102                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800100                PROVIDE (__noinit_end, .)
-                0x00800100                _end = .
-                0x00800100                PROVIDE (__heap_start, .)
+                0x00800102                PROVIDE (__noinit_end, .)
+                0x00800102                _end = .
+                0x00800102                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -332,37 +336,41 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a
                 0x00000000       0x20 pwm.o
 
 .debug_pubnames
-                0x00000000       0x29
+                0x00000000       0x5b
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000       0x29 pwm.o
+                0x00000000       0x5b pwm.o
 
-.debug_info     0x00000000       0x89
+.debug_info     0x00000000      0x36c
  *(.debug_info)
- .debug_info    0x00000000       0x89 pwm.o
+ .debug_info    0x00000000      0x36c pwm.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000       0x54
+.debug_abbrev   0x00000000      0x14e
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0x54 pwm.o
+ .debug_abbrev  0x00000000      0x14e pwm.o
 
-.debug_line     0x00000000       0xb5
+.debug_line     0x00000000      0x2d6
  *(.debug_line)
- .debug_line    0x00000000       0xb5 pwm.o
+ .debug_line    0x00000000      0x2d6 pwm.o
 
-.debug_frame    0x00000000       0x30
+.debug_frame    0x00000000       0x60
  *(.debug_frame)
- .debug_frame   0x00000000       0x30 pwm.o
+ .debug_frame   0x00000000       0x60 pwm.o
 
-.debug_str      0x00000000       0xbc
+.debug_str      0x00000000      0x121
  *(.debug_str)
- .debug_str     0x00000000       0xbc pwm.o
-                                 0xf0 (size before relaxing)
+ .debug_str     0x00000000      0x121 pwm.o
+                                0x155 (size before relaxing)
 
-.debug_loc
+.debug_loc      0x00000000      0x228
  *(.debug_loc)
+ .debug_loc     0x00000000      0x228 pwm.o
 
 .debug_macinfo
  *(.debug_macinfo)
 OUTPUT(pwm.elf elf32-avr)
 LOAD linker stubs
+
+.debug_ranges   0x00000000       0x90
+ .debug_ranges  0x00000000       0x90 pwm.o
