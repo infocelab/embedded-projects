@@ -3,21 +3,21 @@ pwm.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000ee  00000000  00000000  00000054  2**1
+  0 .text         00000100  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .debug_aranges 00000020  00000000  00000000  00000142  2**0
+  1 .debug_aranges 00000020  00000000  00000000  00000154  2**0
                   CONTENTS, READONLY, DEBUGGING
-  2 .debug_pubnames 0000001b  00000000  00000000  00000162  2**0
+  2 .debug_pubnames 00000029  00000000  00000000  00000174  2**0
                   CONTENTS, READONLY, DEBUGGING
-  3 .debug_info   00000076  00000000  00000000  0000017d  2**0
+  3 .debug_info   00000089  00000000  00000000  0000019d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 00000041  00000000  00000000  000001f3  2**0
+  4 .debug_abbrev 00000054  00000000  00000000  00000226  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_line   0000007d  00000000  00000000  00000234  2**0
+  5 .debug_line   000000b5  00000000  00000000  0000027a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_frame  00000020  00000000  00000000  000002b4  2**2
+  6 .debug_frame  00000030  00000000  00000000  00000330  2**2
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    000000b2  00000000  00000000  000002d4  2**0
+  7 .debug_str    000000bc  00000000  00000000  00000360  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -71,8 +71,8 @@ Disassembly of section .text:
   98:	11 e0       	ldi	r17, 0x01	; 1
   9a:	a0 e0       	ldi	r26, 0x00	; 0
   9c:	b1 e0       	ldi	r27, 0x01	; 1
-  9e:	ee ee       	ldi	r30, 0xEE	; 238
-  a0:	f0 e0       	ldi	r31, 0x00	; 0
+  9e:	e0 e0       	ldi	r30, 0x00	; 0
+  a0:	f1 e0       	ldi	r31, 0x01	; 1
   a2:	00 e0       	ldi	r16, 0x00	; 0
   a4:	0b bf       	out	0x3b, r16	; 59
   a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
@@ -96,48 +96,70 @@ Disassembly of section .text:
   be:	a0 30       	cpi	r26, 0x00	; 0
   c0:	b1 07       	cpc	r27, r17
   c2:	e1 f7       	brne	.-8      	; 0xbc <.do_clear_bss_loop>
-  c4:	0e 94 68 00 	call	0xd0	; 0xd0 <main>
-  c8:	0c 94 75 00 	jmp	0xea	; 0xea <_exit>
+  c4:	0e 94 71 00 	call	0xe2	; 0xe2 <main>
+  c8:	0c 94 7e 00 	jmp	0xfc	; 0xfc <_exit>
 
 000000cc <__bad_interrupt>:
   cc:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-000000d0 <main>:
-#include <avr/io.h>
+000000d0 <pwm_start>:
 
+//Global variables and definition
+#define PULSE_WIDTH 0xaa
+
+void pwm_start(){
+	OCR1AL = PULSE_WIDTH;	//Load Pulse width
+  d0:	8a ea       	ldi	r24, 0xAA	; 170
+  d2:	8a bd       	out	0x2a, r24	; 42
+	OCR1AH = 0;
+  d4:	1b bc       	out	0x2b, r1	; 43
+	DDRD |= (1<<5);		//PortD.5 as o/p
+  d6:	8d 9a       	sbi	0x11, 5	; 17
+	TCCR1A = 0x81;		//8-bit, Non-Inverted PWM
+  d8:	81 e8       	ldi	r24, 0x81	; 129
+  da:	8f bd       	out	0x2f, r24	; 47
+	TCCR1B = 1;		//Start PWM
+  dc:	81 e0       	ldi	r24, 0x01	; 1
+  de:	8e bd       	out	0x2e, r24	; 46
+}
+  e0:	08 95       	ret
+
+000000e2 <main>:
 
 int main(void)
 {
+
+
     DDRB |= (1 << DDB3);
-  d0:	bb 9a       	sbi	0x17, 3	; 23
+  e2:	bb 9a       	sbi	0x17, 3	; 23
     // PB3 is now an output
 
     OCR2 = 128;
-  d2:	80 e8       	ldi	r24, 0x80	; 128
-  d4:	83 bd       	out	0x23, r24	; 35
+  e4:	80 e8       	ldi	r24, 0x80	; 128
+  e6:	83 bd       	out	0x23, r24	; 35
     // set PWM for 50% duty cycle
 
 
     TCCR2 |= (1 << COM21);
-  d6:	85 b5       	in	r24, 0x25	; 37
-  d8:	80 62       	ori	r24, 0x20	; 32
-  da:	85 bd       	out	0x25, r24	; 37
+  e8:	85 b5       	in	r24, 0x25	; 37
+  ea:	80 62       	ori	r24, 0x20	; 32
+  ec:	85 bd       	out	0x25, r24	; 37
     // set none-inverting mode
 
     TCCR2 |= (1 << WGM21) | (1 << WGM20);
-  dc:	85 b5       	in	r24, 0x25	; 37
-  de:	88 64       	ori	r24, 0x48	; 72
-  e0:	85 bd       	out	0x25, r24	; 37
+  ee:	85 b5       	in	r24, 0x25	; 37
+  f0:	88 64       	ori	r24, 0x48	; 72
+  f2:	85 bd       	out	0x25, r24	; 37
     // set fast PWM Mode
 
     TCCR2 |= (1 << CS21);
-  e2:	85 b5       	in	r24, 0x25	; 37
-  e4:	82 60       	ori	r24, 0x02	; 2
-  e6:	85 bd       	out	0x25, r24	; 37
-  e8:	ff cf       	rjmp	.-2      	; 0xe8 <main+0x18>
+  f4:	85 b5       	in	r24, 0x25	; 37
+  f6:	82 60       	ori	r24, 0x02	; 2
+  f8:	85 bd       	out	0x25, r24	; 37
+  fa:	ff cf       	rjmp	.-2      	; 0xfa <main+0x18>
 
-000000ea <_exit>:
-  ea:	f8 94       	cli
+000000fc <_exit>:
+  fc:	f8 94       	cli
 
-000000ec <__stop_program>:
-  ec:	ff cf       	rjmp	.-2      	; 0xec <__stop_program>
+000000fe <__stop_program>:
+  fe:	ff cf       	rjmp	.-2      	; 0xfe <__stop_program>
