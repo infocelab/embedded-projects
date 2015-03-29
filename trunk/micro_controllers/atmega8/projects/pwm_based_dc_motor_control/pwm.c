@@ -4,7 +4,7 @@
 #include <avr/io.h>
 
 //Global variables and definition
-#define PULSE_WIDTH 0x40
+#define PULSE_WIDTH 0xaa
 
 void pwm_start(){
 	OCR1AL = PULSE_WIDTH;	//Load Pulse width
@@ -18,7 +18,7 @@ void pwm_start(){
 int main(void)
 {
 
-/*
+
     DDRB |= (1 << DDB3);
     // PB3 is now an output
 
@@ -35,8 +35,8 @@ int main(void)
     TCCR2 |= (1 << CS21);
     // set prescaler to 8 and starts PWM
 
-*/
-pwm_start();
+
+//pwm_start();
     while (1)
     {
         // we have a working Fast PWM
