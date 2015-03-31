@@ -40,7 +40,7 @@ void loop()
                  digitalWrite(led, HIGH);
                  delay(100);
                  Xbee.println("");
-                 Xbee.println("Led ON");
+                 Xbee.println("Led ON CELAB");
               }
   
               if(incoming == '2')
@@ -51,6 +51,8 @@ void loop()
                  Xbee.println("");
                  Xbee.println("Led OFF");
               }
+              
+             
    }
 }
    
