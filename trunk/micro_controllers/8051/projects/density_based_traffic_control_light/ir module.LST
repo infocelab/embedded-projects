@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/29/2015 18:02:01 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/30/2015 05:53:39 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_MODULE
@@ -11,7 +11,7 @@ line level    source
    2          #define on 0
    3          #define off 1
    4          #define reset 1
-   5          int scan=1;
+   5          int scan=2;
    6          
    7          //for first segment
    8          int count_1=0;
@@ -29,8 +29,8 @@ line level    source
   20          sbit R2 = P3^0;
   21          sbit Y2 = P3^1;
   22          sbit G2 = P3^2;
-  23          sbit SS_CLK_2 = P3^3;
-  24          sbit SS_RST_2 = P3^4;
+  23          sbit SS_CLK_2 = P3^4;
+  24          sbit SS_RST_2 = P3^3;
   25          sbit module2_1 = P0^1;
   26          
   27          
@@ -62,7 +62,7 @@ line level    source
   53   2          case 3:
   54   2            
   55   2          
-C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/29/2015 18:02:01 PAGE 2   
+C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/30/2015 05:53:39 PAGE 2   
 
   56   2          break;
   57   2          
@@ -126,76 +126,77 @@ line level    source
  115   1        G2=off;
  116   1        R1=on;
  117   1        R2=on;
-C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/29/2015 18:02:01 PAGE 3   
+C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/30/2015 05:53:39 PAGE 3   
 
  118   1          while(1)
- 119   1           {
- 120   2             switch(scan)
- 121   2             {
- 122   3               case 1:
- 123   3                  // scan first segment
- 124   3                  if(count_1 == 0)
- 125   3                  {
- 126   4                    if( module1_1 == 1)
- 127   4                    {
- 128   5                      runtime_1=60;
- 129   5                    }
- 130   4                    else
- 131   4                    {
- 132   5                      runtime_1=30;
- 133   5                    }
- 134   4                  }
- 135   3                  R1=off;
- 136   3                  G1=on;
- 137   3                  clock(1);
- 138   3                  if(count_1 >= runtime_1)
- 139   3                  {
- 140   4                    count_1=0;
- 141   4                    ss_reset(1);
- 142   4                    scan=2;
- 143   4                    G1=off;
- 144   4                    Y1=on;
- 145   4                    msDelay(3000);
- 146   4                    Y1=off;
- 147   4                    R1=on;
- 148   4                  }
- 149   3               break;
- 150   3                case 2:
- 151   3                  // scan second segment
- 152   3                  if(count_1 == 0)
- 153   3                  {
- 154   4                    if( module2_1 == 1)
- 155   4                    {
- 156   5                      runtime_2=60;
- 157   5                    }
- 158   4                    else
- 159   4                    {
- 160   5                      runtime_2=30;
- 161   5                    }
- 162   4                  }
- 163   3                  R2=off;
- 164   3                  G2=on;
- 165   3                  clock(2);
- 166   3                  if(count_2 >= runtime_2)
- 167   3                  {
- 168   4                    count_2=0;
- 169   4                    ss_reset(2);
- 170   4                    scan=1;
- 171   4                    G2=off;
- 172   4                    Y2=on;
- 173   4                    msDelay(3000);
- 174   4                    Y2=off;
- 175   4                    R2=on;
- 176   4                  }
- 177   3               break;
- 178   3            }
- 179   2             
-C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/29/2015 18:02:01 PAGE 4   
+ 119   1           { 
+ 120   2             
+ 121   2             switch(scan)
+ 122   2             {
+ 123   3               case 1:
+ 124   3                  // scan first segment
+ 125   3                  if(count_1 == 0)
+ 126   3                  {
+ 127   4                    if( module1_1 == 1)
+ 128   4                    {
+ 129   5                      runtime_1=60;
+ 130   5                    }
+ 131   4                    else
+ 132   4                    {
+ 133   5                      runtime_1=30;
+ 134   5                    }
+ 135   4                  }
+ 136   3                  R1=off;
+ 137   3                  G1=on;
+ 138   3                  clock(1);
+ 139   3                  if(count_1 >= runtime_1)
+ 140   3                  {
+ 141   4                    count_1=0;
+ 142   4                    ss_reset(1);
+ 143   4                    scan=2;
+ 144   4                    G1=off;
+ 145   4                    Y1=on;
+ 146   4                    msDelay(3000);
+ 147   4                    Y1=off;
+ 148   4                    R1=on;
+ 149   4                  }
+ 150   3               break;
+ 151   3                case 2:
+ 152   3                  // scan second segment
+ 153   3                  if(count_2 == 0)
+ 154   3                  {
+ 155   4                    if( module2_1 == 1)
+ 156   4                    {
+ 157   5                      runtime_2=60;
+ 158   5                    }
+ 159   4                    else
+ 160   4                    {
+ 161   5                      runtime_2=30;
+ 162   5                    }
+ 163   4                  }
+ 164   3                  R2=off;
+ 165   3                  G2=on;
+ 166   3                  clock(2);
+ 167   3                  if(count_2 >= runtime_2)
+ 168   3                  {
+ 169   4                    count_2=0;
+ 170   4                    ss_reset(2);
+ 171   4                    scan=1;
+ 172   4                    G2=off;
+ 173   4                    Y2=on;
+ 174   4                    msDelay(3000);
+ 175   4                    Y2=off;
+ 176   4                    R2=on;
+ 177   4                  }
+ 178   3               break;
+ 179   3            }
+C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/30/2015 05:53:39 PAGE 4   
 
- 180   2            
- 181   2           }
- 182   1      }
- 183           
+ 180   2             
+ 181   2            
+ 182   2           }
+ 183   1      }
+ 184           
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

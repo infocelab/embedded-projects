@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        03/29/2015  18:02:01  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/30/2015  05:53:39  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -59,7 +59,7 @@ SEGMENT
   +--> ?PR?_MSDELAY?IR_MODULE
 
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/29/2015  18:02:01  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/30/2015  05:53:39  PAGE 2
 
 
 
@@ -113,13 +113,13 @@ SYMBOL TABLE OF MODULE:  ir module (?C_STARTUP)
   B:00B0H.1       PUBLIC        Y2
   C:095BH         PUBLIC        _clock
   B:00A0H.4       PUBLIC        SS_RST_1
-  B:00B0H.4       PUBLIC        SS_RST_2
+  B:00B0H.3       PUBLIC        SS_RST_2
   D:0008H         PUBLIC        runtime_1
   D:000AH         PUBLIC        runtime_2
   C:0800H         PUBLIC        main
   D:000CH         PUBLIC        scan
   D:000EH         PUBLIC        count_1
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/29/2015  18:02:01  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/30/2015  05:53:39  PAGE 3
 
 
   D:0010H         PUBLIC        count_2
@@ -128,7 +128,7 @@ SYMBOL TABLE OF MODULE:  ir module (?C_STARTUP)
   C:098EH         PUBLIC        _msDelay
   C:09AEH         PUBLIC        _ss_reset
   B:00A0H.3       PUBLIC        SS_CLK_1
-  B:00B0H.3       PUBLIC        SS_CLK_2
+  B:00B0H.4       PUBLIC        SS_CLK_2
   B:00A0H.2       PUBLIC        G1
   B:00B0H.2       PUBLIC        G2
   C:098AH         SYMBOL        L?0041
@@ -179,7 +179,7 @@ SYMBOL TABLE OF MODULE:  ir module (?C_STARTUP)
   C:095BH         LINE#         72
   C:0966H         LINE#         73
   C:0966H         LINE#         74
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/29/2015  18:02:01  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/30/2015  05:53:39  PAGE 4
 
 
   C:0966H         LINE#         75
@@ -217,63 +217,63 @@ SYMBOL TABLE OF MODULE:  ir module (?C_STARTUP)
   C:0814H         LINE#         117
   C:0816H         LINE#         118
   C:0816H         LINE#         119
-  C:0816H         LINE#         120
-  C:0823H         LINE#         121
+  C:0816H         LINE#         121
   C:0823H         LINE#         122
-  C:0823H         LINE#         124
-  C:0829H         LINE#         125
+  C:0823H         LINE#         123
+  C:0823H         LINE#         125
   C:0829H         LINE#         126
-  C:082CH         LINE#         127
+  C:0829H         LINE#         127
   C:082CH         LINE#         128
-  C:0831H         LINE#         129
-  C:0833H         LINE#         131
+  C:082CH         LINE#         129
+  C:0831H         LINE#         130
   C:0833H         LINE#         132
-  C:0839H         LINE#         133
+  C:0833H         LINE#         133
   C:0839H         LINE#         134
   C:0839H         LINE#         135
-  C:083BH         LINE#         136
-  C:083DH         LINE#         137
-  C:0844H         LINE#         138
-  C:0855H         LINE#         139
+  C:0839H         LINE#         136
+  C:083BH         LINE#         137
+  C:083DH         LINE#         138
+  C:0844H         LINE#         139
   C:0855H         LINE#         140
-  C:085AH         LINE#         141
-  C:0860H         LINE#         142
-  C:0866H         LINE#         143
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/29/2015  18:02:01  PAGE 5
+  C:0855H         LINE#         141
+  C:085AH         LINE#         142
+  C:0860H         LINE#         143
+  C:0866H         LINE#         144
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/30/2015  05:53:39  PAGE 5
 
 
-  C:0868H         LINE#         144
-  C:086AH         LINE#         145
-  C:0871H         LINE#         146
-  C:0873H         LINE#         147
-  C:0875H         LINE#         148
+  C:0868H         LINE#         145
+  C:086AH         LINE#         146
+  C:0871H         LINE#         147
+  C:0873H         LINE#         148
   C:0875H         LINE#         149
-  C:0877H         LINE#         150
-  C:0877H         LINE#         152
-  C:087DH         LINE#         153
+  C:0875H         LINE#         150
+  C:0877H         LINE#         151
+  C:0877H         LINE#         153
   C:087DH         LINE#         154
-  C:0880H         LINE#         155
+  C:087DH         LINE#         155
   C:0880H         LINE#         156
-  C:0885H         LINE#         157
-  C:0887H         LINE#         159
+  C:0880H         LINE#         157
+  C:0885H         LINE#         158
   C:0887H         LINE#         160
-  C:088DH         LINE#         161
+  C:0887H         LINE#         161
   C:088DH         LINE#         162
   C:088DH         LINE#         163
-  C:088FH         LINE#         164
-  C:0891H         LINE#         165
-  C:0898H         LINE#         166
-  C:08ACH         LINE#         167
+  C:088DH         LINE#         164
+  C:088FH         LINE#         165
+  C:0891H         LINE#         166
+  C:0898H         LINE#         167
   C:08ACH         LINE#         168
-  C:08B1H         LINE#         169
-  C:08B7H         LINE#         170
-  C:08BDH         LINE#         171
-  C:08BFH         LINE#         172
-  C:08C1H         LINE#         173
-  C:08C8H         LINE#         174
-  C:08CAH         LINE#         175
-  C:08CCH         LINE#         176
+  C:08ACH         LINE#         169
+  C:08B1H         LINE#         170
+  C:08B7H         LINE#         171
+  C:08BDH         LINE#         172
+  C:08BFH         LINE#         173
+  C:08C1H         LINE#         174
+  C:08C8H         LINE#         175
+  C:08CAH         LINE#         176
   C:08CCH         LINE#         177
+  C:08CCH         LINE#         178
   -------         ENDPROC       MAIN
   -------         ENDMOD        IR_MODULE
 

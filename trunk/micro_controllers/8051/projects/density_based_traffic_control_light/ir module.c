@@ -2,7 +2,7 @@
 #define on 0
 #define off 1
 #define reset 1
-int scan=1;
+int scan=2;
 
 //for first segment
 int count_1=0;
@@ -20,8 +20,8 @@ int runtime_2 = 30;
 sbit R2 = P3^0;
 sbit Y2 = P3^1;
 sbit G2 = P3^2;
-sbit SS_CLK_2 = P3^3;
-sbit SS_RST_2 = P3^4;
+sbit SS_CLK_2 = P3^4;
+sbit SS_RST_2 = P3^3;
 sbit module2_1 = P0^1;
 
 
@@ -150,7 +150,7 @@ P0=0xFF;
 				 break;
 					case 2:
 						// scan second segment
-						if(count_1 == 0)
+						if(count_2 == 0)
 						{
 							if( module2_1 == 1)
 							{
