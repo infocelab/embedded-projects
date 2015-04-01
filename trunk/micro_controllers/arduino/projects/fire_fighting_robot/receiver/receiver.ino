@@ -84,6 +84,14 @@ void loop()
                stp();
                 Serial.print("stop");
               break;
+               case '1': // home code
+               cntl();
+                Serial.print("center from left");
+               break;
+               case '2': // home code
+               cntr();
+                Serial.print("center from right");
+               break;
           
          } // end of switch
 
@@ -92,10 +100,10 @@ delay(1000);
 }// end of loop
 void fwd()
 {   
-    digitalWrite(motor1_a,HIGH);
-    digitalWrite(motor1_b,LOW);
-    digitalWrite(motor2_a,HIGH);
-    digitalWrite(motor2_b,LOW);
+     digitalWrite(motor1_a,HIGH);
+     digitalWrite(motor1_b,LOW);
+     digitalWrite(motor2_a,HIGH);
+     digitalWrite(motor2_b,LOW);
 delay(1000);
 }
 void bwk()
@@ -115,9 +123,8 @@ void lft()
      digitalWrite(motor2_b,LOW);
      Serial.println("clockwise");
      myStepper.step(stepsPerRevolution);
-     delay(500);
-     myStepper.step(-stepsPerRevolution/2);   // for come back the wheel in straight position
      delay(1000);
+    
 }
 void rgt()
 {
@@ -127,10 +134,8 @@ void rgt()
       digitalWrite(motor2_a,HIGH);
       digitalWrite(motor2_b,LOW);
       Serial.println("counterclockwise");
-      myStepper.step(-stepsPerRevolution);
-      delay(500); 
-      myStepper.step(stepsPerRevolution/2);  // for come back the wheel in straight position
-      delay(1000);
+       myStepper.step(-stepsPerRevolution);
+      delay(1000); 
 }
 void stp()
 { 
@@ -139,7 +144,16 @@ void stp()
     digitalWrite(motor1_b,LOW);
     digitalWrite(motor2_a,LOW);
     digitalWrite(motor2_b,LOW);
-     myStepper.step(0);
-
-    delay(1000);
+    myStepper.step(0);
+   delay(1000);
 }
+   void cntl()
+   {
+     myStepper.step(stepsPerRevolution/2);   // for come back the wheel in straight position
+     delay(1000);
+   }
+    void cntr()
+   {
+     myStepper.step(-stepsPerRevolution/2);   // for come back the wheel in straight position
+     delay(1000);
+   }
