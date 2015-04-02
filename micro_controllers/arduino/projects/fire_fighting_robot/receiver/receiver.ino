@@ -149,11 +149,11 @@ void stp()
 }
    void cntl()
    {
-     myStepper.step(stepsPerRevolution/2);   // for come back the wheel in straight position
+     myStepper.step(-stepsPerRevolution/2);   // for come back the wheel in straight position
      delay(1000);
    }
     void cntr()
    {
-     myStepper.step(-stepsPerRevolution/2);   // for come back the wheel in straight position
+     myStepper.step(stepsPerRevolution/2);   // for come back the wheel in straight position
      delay(1000);
    }
