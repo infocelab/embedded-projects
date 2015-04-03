@@ -14,7 +14,7 @@ int relay = 6;
  
 void setup()
 {
-
+    Serial.begin(9600);
     lcd.begin(16, 2);
     lcd.print("DAMPING CONTROL");
     lcd.setCursor(0, 1);
@@ -31,20 +31,26 @@ void loop()
   int y = analogRead(ypin);
   int z = analogRead(zpin);
   print_on_lcd(x,y,z);
-  digitalWrite(relay, HIGH);
-  delay(3000);
-  digitalWrite(relay, LOW);
-  delay(1000);
+  delay(500);
+  if( abs(x - 340) > 20 )
+  {
+    digitalWrite(relay, HIGH);
+    delay(1000);
+  }
+  else
+  {
+   digitalWrite(relay, LOW);
+    delay(1000);
+  }
 } 
 void print_on_lcd(int x, int y , int z)
 {
     lcd.clear();  
     lcd.setCursor(0, 0);
-    lcd.print("ACCELEROMETER");
+    lcd.print("Acceleration ");
     lcd.setCursor(0, 1);
-    lcd.print("x=");
-    lcd.print(x);
-    lcd.print(",Y=");
-    lcd.print(y);     
+    lcd.print(" value=");
+    lcd.print(abs(x - 340));
+    lcd.print(" m/s2");
 }
 
