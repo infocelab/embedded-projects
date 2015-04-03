@@ -10,6 +10,7 @@ const int zpin = A2;                  // z-axis (only on 3-axis models)
 int x_value = 340;
 int y_value = 340;
 int z_value = 340;
+int relay = 6;
  
 void setup()
 {
@@ -18,6 +19,8 @@ void setup()
     lcd.print("DAMPING CONTROL");
     lcd.setCursor(0, 1);
     lcd.print("PROJECT-2015");
+    pinMode(relay, OUTPUT);
+    digitalWrite(relay, LOW);
     delay(5000);
  
 }
@@ -28,6 +31,9 @@ void loop()
   int y = analogRead(ypin);
   int z = analogRead(zpin);
   print_on_lcd(x,y,z);
+  digitalWrite(relay, HIGH);
+  delay(3000);
+  digitalWrite(relay, LOW);
   delay(1000);
 } 
 void print_on_lcd(int x, int y , int z)
