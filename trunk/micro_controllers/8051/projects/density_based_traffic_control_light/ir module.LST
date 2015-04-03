@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/30/2015 05:53:39 PAGE 1   
+C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/31/2015 08:42:49 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IR_MODULE
@@ -11,7 +11,7 @@ line level    source
    2          #define on 0
    3          #define off 1
    4          #define reset 1
-   5          int scan=2;
+   5          int scan=1;
    6          
    7          //for first segment
    8          int count_1=0;
@@ -33,178 +33,322 @@ line level    source
   24          sbit SS_RST_2 = P3^3;
   25          sbit module2_1 = P0^1;
   26          
-  27          
-  28          
-  29          void msDelay(unsigned int x)
-  30          {
-  31   1           unsigned int i,j;
-  32   1           for(i=0;i<x;i++)
-  33   1           for(j=0;j<775;j++);
-  34   1      }
-  35          
-  36          void ss_reset(int d)
-  37          {
-  38   1        switch(d)
-  39   1        {
-  40   2            case 1:
-  41   2             SS_RST_1=1;
-  42   2             msDelay(50);
-  43   2             SS_RST_1=0;
-  44   2             msDelay(50);
-  45   2            break;
-  46   2          case 2:
-  47   2             SS_RST_2=1;
-  48   2             msDelay(50);
-  49   2             SS_RST_2=0;
-  50   2             msDelay(50);
-  51   2          break;
-  52   2          
-  53   2          case 3:
-  54   2            
-  55   2          
-C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/30/2015 05:53:39 PAGE 2   
+  27          // for third segment
+  28          int count_3=0;
+  29          int runtime_3 = 30;
+  30          sbit R3 = P2^5;
+  31          sbit Y3 = P2^6;
+  32          sbit G3 = P2^7;
+  33          sbit SS_CLK_3 = P3^7;
+  34          sbit SS_RST_3 = P3^6;
+  35          sbit module3_1 = P0^2;
+  36          
+  37          // for fourth segment
+  38          int count_4=0;
+  39          int runtime_4 = 30;
+  40          sbit R4 = P1^0;
+  41          sbit Y4 = P1^1;
+  42          sbit G4 = P1^2;
+  43          sbit SS_CLK_4 = P1^4;
+  44          sbit SS_RST_4 = P1^3;
+  45          sbit module4_1 = P0^3;
+  46          
+  47          
+  48          void msDelay(unsigned int x)
+  49          {
+  50   1           unsigned int i,j;
+  51   1           for(i=0;i<x;i++)
+  52   1           for(j=0;j<775;j++);
+  53   1      }
+  54          
+  55          void ss_reset(int d)
+C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/31/2015 08:42:49 PAGE 2   
 
-  56   2          break;
-  57   2          
-  58   2          case 4:
-  59   2            
-  60   2          
-  61   2          break;
-  62   2      
-  63   2      
-  64   2        }   
-  65   1        
-  66   1        
-  67   1      }
-  68          
-  69          
-  70          void clock(int d)
-  71          {
-  72   1        switch(d)
-  73   1        {
-  74   2          case 1:
-  75   2             count_1++;
-  76   2             SS_CLK_1=1;
-  77   2             msDelay(50);
-  78   2             SS_CLK_1=0;
-  79   2             msDelay(50);
-  80   2          break;
-  81   2          case 2:
-  82   2             count_2++;
-  83   2             SS_CLK_2=1;
-  84   2             msDelay(50);
-  85   2             SS_CLK_2=0;
-  86   2             msDelay(50);
-  87   2          
+  56          {
+  57   1        int delay = 30;
+  58   1        switch(d)
+  59   1        {
+  60   2          case 0: // reset all
+  61   2             SS_RST_1=1;
+  62   2             SS_RST_2=1;
+  63   2             SS_RST_3=1;
+  64   2             SS_RST_4=1;
+  65   2             msDelay(delay);
+  66   2             SS_RST_1=0;
+  67   2             SS_RST_2=0;
+  68   2             SS_RST_3=0;
+  69   2             SS_RST_4=0;
+  70   2             msDelay(delay);
+  71   2             count_1=0;
+  72   2             count_2=0;
+  73   2             count_3=0;
+  74   2             count_4=0;
+  75   2          break;
+  76   2            case 1:
+  77   2             SS_RST_1=1;
+  78   2             msDelay(delay);
+  79   2             SS_RST_1=0;
+  80   2             msDelay(delay);
+  81   2            break;
+  82   2            
+  83   2          case 2:
+  84   2             SS_RST_2=1;
+  85   2             msDelay(delay);
+  86   2             SS_RST_2=0;
+  87   2             msDelay(delay);
   88   2          break;
   89   2          
   90   2          case 3:
-  91   2            
-  92   2          
-  93   2          break;
-  94   2          
-  95   2          case 4:
-  96   2            
-  97   2          
-  98   2          break;
-  99   2          
- 100   2          
- 101   2          
- 102   2          
- 103   2        }
- 104   1        
+  91   2             SS_RST_3=1;
+  92   2             msDelay(delay);
+  93   2             SS_RST_3=0;
+  94   2             msDelay(delay);
+  95   2          break;
+  96   2          
+  97   2          case 4:
+  98   2             SS_RST_4=1;
+  99   2             msDelay(delay);
+ 100   2             SS_RST_4=0;
+ 101   2             msDelay(delay);
+ 102   2          break;
+ 103   2      
+ 104   2        }   
  105   1      }
- 106          void main()
- 107          {
- 108   1      P2=0x00;
- 109   1      P0=0xFF;
- 110   1        R1=off;
- 111   1        Y1=off;
- 112   1        G1=off;
- 113   1        R2=off;
- 114   1        Y2=off;
- 115   1        G2=off;
- 116   1        R1=on;
- 117   1        R2=on;
-C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/30/2015 05:53:39 PAGE 3   
+ 106          
+ 107          
+ 108          void clock(int d)
+ 109          {
+ 110   1        int delay = 20;
+ 111   1        switch(d)
+ 112   1        {
+ 113   2          case 1:
+ 114   2             count_1++;
+ 115   2             SS_CLK_1=1;
+ 116   2             msDelay(delay);
+ 117   2             SS_CLK_1=0;
+C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/31/2015 08:42:49 PAGE 3   
 
- 118   1          while(1)
- 119   1           { 
- 120   2             
- 121   2             switch(scan)
- 122   2             {
- 123   3               case 1:
- 124   3                  // scan first segment
- 125   3                  if(count_1 == 0)
- 126   3                  {
- 127   4                    if( module1_1 == 1)
- 128   4                    {
- 129   5                      runtime_1=60;
- 130   5                    }
- 131   4                    else
- 132   4                    {
- 133   5                      runtime_1=30;
- 134   5                    }
- 135   4                  }
- 136   3                  R1=off;
- 137   3                  G1=on;
- 138   3                  clock(1);
- 139   3                  if(count_1 >= runtime_1)
- 140   3                  {
- 141   4                    count_1=0;
- 142   4                    ss_reset(1);
- 143   4                    scan=2;
- 144   4                    G1=off;
- 145   4                    Y1=on;
- 146   4                    msDelay(3000);
- 147   4                    Y1=off;
- 148   4                    R1=on;
- 149   4                  }
- 150   3               break;
- 151   3                case 2:
- 152   3                  // scan second segment
- 153   3                  if(count_2 == 0)
- 154   3                  {
- 155   4                    if( module2_1 == 1)
- 156   4                    {
- 157   5                      runtime_2=60;
- 158   5                    }
- 159   4                    else
- 160   4                    {
- 161   5                      runtime_2=30;
- 162   5                    }
- 163   4                  }
- 164   3                  R2=off;
- 165   3                  G2=on;
- 166   3                  clock(2);
- 167   3                  if(count_2 >= runtime_2)
- 168   3                  {
- 169   4                    count_2=0;
- 170   4                    ss_reset(2);
- 171   4                    scan=1;
- 172   4                    G2=off;
- 173   4                    Y2=on;
- 174   4                    msDelay(3000);
- 175   4                    Y2=off;
- 176   4                    R2=on;
- 177   4                  }
- 178   3               break;
- 179   3            }
-C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/30/2015 05:53:39 PAGE 4   
+ 118   2             msDelay(delay);
+ 119   2          break;
+ 120   2          case 2:
+ 121   2             count_2++;
+ 122   2             SS_CLK_2=1;
+ 123   2             msDelay(delay);
+ 124   2             SS_CLK_2=0;
+ 125   2             msDelay(delay);
+ 126   2          
+ 127   2          break;
+ 128   2          
+ 129   2          case 3:
+ 130   2             count_3++;
+ 131   2             SS_CLK_3=1;
+ 132   2             msDelay(delay);
+ 133   2             SS_CLK_3=0;
+ 134   2             msDelay(delay);
+ 135   2          break;
+ 136   2          
+ 137   2          case 4:
+ 138   2             count_4++;
+ 139   2             SS_CLK_4=1;
+ 140   2             msDelay(delay);
+ 141   2             SS_CLK_4=0;
+ 142   2             msDelay(delay);
+ 143   2          break;
+ 144   2        }
+ 145   1        
+ 146   1      }
+ 147          void main()
+ 148          {
+ 149   1      P2=0x00;
+ 150   1      P1=0x00;
+ 151   1      P0=0xFF;
+ 152   1        R1=off;
+ 153   1        Y1=off;
+ 154   1        G1=off;
+ 155   1        R2=off;
+ 156   1        Y2=off;
+ 157   1        G2=off;
+ 158   1        R3=off;
+ 159   1        Y3=off;
+ 160   1        G3=off;
+ 161   1        R4=off;
+ 162   1        Y4=off;
+ 163   1        G4=off;
+ 164   1      
+ 165   1        R1=on;
+ 166   1        R2=on;
+ 167   1        R3=on;
+ 168   1        R4=on;
+ 169   1      
+ 170   1      ss_reset(0);
+ 171   1      
+ 172   1        while(1)
+ 173   1           { 
+ 174   2             /*
+ 175   2             if( module1_1 == 1)
+ 176   2             {
+ 177   2                Y1=on;
+ 178   2             }
+ 179   2            else
+C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/31/2015 08:42:49 PAGE 4   
 
- 180   2             
- 181   2            
- 182   2           }
- 183   1      }
- 184           
+ 180   2            {
+ 181   2                Y1=off;
+ 182   2            }
+ 183   2              if( module2_1 == 1)
+ 184   2             {
+ 185   2                Y2=on;
+ 186   2             }
+ 187   2            else
+ 188   2            {
+ 189   2                Y2=off;
+ 190   2            }
+ 191   2            if( module3_1 == 1)
+ 192   2             {
+ 193   2                Y3=on;
+ 194   2             }
+ 195   2            else
+ 196   2            {
+ 197   2                Y3=off;
+ 198   2            }
+ 199   2              if( module4_1 == 1)
+ 200   2             {
+ 201   2                Y4=on;
+ 202   2             }
+ 203   2            else
+ 204   2            {
+ 205   2                Y4=off;
+ 206   2            }
+ 207   2            */
+ 208   2                    
+ 209   2                    
+ 210   2             clock(1);
+ 211   2             clock(2);
+ 212   2             clock(3);
+ 213   2             clock(4);
+ 214   2             
+ 215   2             switch(scan)
+ 216   2             {
+ 217   3               case 1:
+ 218   3                  // scan first segment
+ 219   3                  if(count_1 <= 3)
+ 220   3                  {
+ 221   4                    if( module1_1 == 1)
+ 222   4                    {
+ 223   5                      runtime_1=60;
+ 224   5                    }
+ 225   4                    else
+ 226   4                    {
+ 227   5                      runtime_1=30;
+ 228   5                    }
+ 229   4                  }
+ 230   3                  R1=off;
+ 231   3                  G1=on;
+ 232   3                  if(count_1 >= runtime_1)
+ 233   3                  {
+ 234   4                    G1=off;
+ 235   4                    Y1=on;
+ 236   4                    msDelay(3000);
+ 237   4                    Y1=off;
+ 238   4                    ss_reset(0);
+ 239   4                    scan=2;
+ 240   4                    R1=on;
+ 241   4                  }
+C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/31/2015 08:42:49 PAGE 5   
+
+ 242   3               break;
+ 243   3                case 2:
+ 244   3                    // scan second segment
+ 245   3                  if(count_2 <= 3)
+ 246   3                  {
+ 247   4                    if( module2_1 == 1)
+ 248   4                    {
+ 249   5                      runtime_2=60;
+ 250   5                    }
+ 251   4                    else
+ 252   4                    {
+ 253   5                      runtime_2=30;
+ 254   5                    }
+ 255   4                  }
+ 256   3                  R2=off;
+ 257   3                  G2=on;
+ 258   3                  if(count_2 >= runtime_2)
+ 259   3                  {
+ 260   4                    G2=off;
+ 261   4                    Y2=on;
+ 262   4                    msDelay(3000);
+ 263   4                    Y2=off;
+ 264   4                    ss_reset(0);
+ 265   4                    scan=3;
+ 266   4                    R2=on;
+ 267   4                  }
+ 268   3               break;
+ 269   3                    case 3:
+ 270   3                    // scan third segment
+ 271   3                  if(count_3 <= 3)
+ 272   3                  {
+ 273   4                    if( module3_1 == 1)
+ 274   4                    {
+ 275   5                      runtime_3=60;
+ 276   5                    }
+ 277   4                    else
+ 278   4                    {
+ 279   5                      runtime_3=30;
+ 280   5                    }
+ 281   4                  }
+ 282   3                  R3=off;
+ 283   3                  G3=on;
+ 284   3                  if(count_3 >= runtime_3)
+ 285   3                  {
+ 286   4                    G3=off;
+ 287   4                    Y3=on;
+ 288   4                    msDelay(3000);
+ 289   4                    Y3=off;
+ 290   4                    ss_reset(0);
+ 291   4                    scan=4;
+ 292   4                    R3=on;
+ 293   4                  }
+ 294   3               break;
+ 295   3                      case 4:
+ 296   3                    // scan fourth segment
+ 297   3                  if(count_4 <= 3)
+ 298   3                  {
+ 299   4                    if( module4_1 == 1)
+ 300   4                    {
+ 301   5                      runtime_4=60;
+ 302   5                    }
+ 303   4                    else
+C51 COMPILER V9.52.0.0   IR_MODULE                                                         03/31/2015 08:42:49 PAGE 6   
+
+ 304   4                    {
+ 305   5                      runtime_4=30;
+ 306   5                    }
+ 307   4                  }
+ 308   3                  R4=off;
+ 309   3                  G4=on;
+ 310   3                  if(count_4 >= runtime_4)
+ 311   3                  {
+ 312   4                    G4=off;
+ 313   4                    Y4=on;
+ 314   4                    msDelay(3000);
+ 315   4                    Y4=off;
+ 316   4                    ss_reset(0);
+ 317   4                    scan=1;
+ 318   4                    R4=on;
+ 319   4                  }
+ 320   3               break;
+ 321   3              }
+ 322   2           }
+ 323   1      }
+ 324           
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    321    ----
+   CODE SIZE        =    681    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     10    ----
+   DATA SIZE        =     18       4
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
