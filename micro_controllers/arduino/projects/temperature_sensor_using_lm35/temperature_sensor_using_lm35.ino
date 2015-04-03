@@ -6,10 +6,11 @@ int gnd=A2;
 float temp;
 float tempf;
 
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
 
 void setup()
 {
+  Serial.begin(9600);
   pinMode(vcc,OUTPUT);
   pinMode(sensor,INPUT);
   pinMode(gnd,OUTPUT);
@@ -30,6 +31,7 @@ void loop()
 
   lcd.setCursor(0,1);   // sets cursor at column 0 row 1
   lcd.print(temp);      // prints temperature in degree Celsius
+  Serial.print(temp);
   lcd.print((char)223); // prints degree sign
   lcd.print("C");       // prints letter c
   lcd.setCursor(8,1);   // sets cursor at column 8 row 1
