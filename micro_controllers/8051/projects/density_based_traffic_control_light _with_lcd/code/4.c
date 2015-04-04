@@ -141,8 +141,9 @@ void main()
 			 {
 				 case 1:
 						// scan first segment
-				    if(count_1 <= 3)
+				    if(count_1 <= 0)
 						{
+							runtime_1=15;
 							if( module1_1 == 1)
 							{
 								runtime_1=30;
@@ -151,10 +152,11 @@ void main()
 							{
 								runtime_1=60;
 							}
+							count_1=runtime_1;
 					  }
 			      R1=off;
 						G1=on;
-						count_1++;
+						count_1--;
 						Lcd8_Clear();
 							
 						i=count_1;
@@ -190,7 +192,7 @@ void main()
 						Lcd8_Write_String("Seg1:15 Secs");
 						}
 				
-						if(count_1 >= runtime_1)
+						if(count_1 == 0)
 						{
 		     			G1=off;
 							count_1=0;
@@ -200,8 +202,9 @@ void main()
 				 break;
 				case 2:
 						// scan second segment
-				    if(count_2 <= 3)
+				    if(count_2 <= 0)
 						{
+							runtime_2=15;
 							if( module2_1 == 1)
 							{
 								runtime_2=30;
@@ -210,10 +213,11 @@ void main()
 							{
 								runtime_2=60;
 							}
+							count_2=runtime_2;
 					  }
 			      R2=off;
 						G2=on;
-						count_2++;
+						count_2--;
 						Lcd8_Clear();
 										
 						i=count_2;
@@ -250,7 +254,7 @@ void main()
 						Lcd8_Write_String("Seg2:15 Secs");
 						}
 				
-						if(count_2 >= runtime_2)
+						if(count_2 == 0)
 						{
 		     			G2=off;
 							count_2=0;
@@ -260,8 +264,9 @@ void main()
 				 break;
 				case 3:
 						// scan third segment
-				    if(count_3 <= 3)
+				    if(count_3 <= 0)
 						{
+							runtime_3=15;
 							if( module3_1 == 1)
 							{
 								runtime_3=30;
@@ -270,10 +275,11 @@ void main()
 							{
 								runtime_3=60;
 							}
+							count_3=runtime_3;
 					  }
 			      R3=off;
 						G3=on;
-						count_3++;
+						count_3--;
 						Lcd8_Clear();
 		      
 		  			i=count_3;
@@ -310,7 +316,7 @@ void main()
 						Lcd8_Write_String("Seg3:15 Secs");
 						}
 						
-						if(count_3 >= runtime_3)
+						if(count_3 == 0)
 						{
 		     			G3=off;
 							count_3=0;
@@ -320,8 +326,9 @@ void main()
 				 break;
 					case 4:
 						// scan fourth segment
-				    if(count_4 <= 3)
+				    if(count_4 <= 0)
 						{
+							runtime_4=15;
 							if( module4_1 == 1)
 							{
 								runtime_4=30;
@@ -330,10 +337,11 @@ void main()
 							{
 								runtime_4=60;
 							}
+							count_4=runtime_4;
 					  }
 			      R4=off;
 						G4=on;
-						count_4++;
+						count_4--;
 						Lcd8_Clear();
 						
 						i=count_4;
@@ -369,7 +377,7 @@ void main()
 						Lcd8_Write_String("Seg4:15 Secs");
 						}
 						
-						if(count_4 >= runtime_4)
+						if(count_4 == 0)
 						{
 		     			G4=off;
 							count_4=0;
