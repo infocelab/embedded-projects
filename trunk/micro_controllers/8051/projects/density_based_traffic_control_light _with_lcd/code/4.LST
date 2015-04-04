@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 12:59:41 PAGE 1   
+C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 14:05:00 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 4
@@ -62,7 +62,7 @@ line level    source
   53          // 
   54          //End LCD Module Connections
   55          void Delay(int a)
-C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 12:59:41 PAGE 2   
+C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 14:05:00 PAGE 2   
 
   56          {
   57   1          int j;
@@ -126,7 +126,7 @@ line level    source
  114   1        Lcd8_Write_String("Control");
  115   1        R1=off;
  116   1        G1=off;
-C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 12:59:41 PAGE 3   
+C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 14:05:00 PAGE 3   
 
  117   1        R2=off;
  118   1        G2=off;
@@ -155,258 +155,266 @@ line level    source
  141   2             {
  142   3               case 1:
  143   3                  // scan first segment
- 144   3                  if(count_1 <= 3)
+ 144   3                  if(count_1 <= 0)
  145   3                  {
- 146   4                    if( module1_1 == 1)
- 147   4                    {
- 148   5                      runtime_1=30;
- 149   5                    }
- 150   4                    if(module1_2 == 1)
- 151   4                    {
- 152   5                      runtime_1=60;
- 153   5                    }
- 154   4                  }
- 155   3                  R1=off;
- 156   3                  G1=on;
- 157   3                  count_1++;
- 158   3                  Lcd8_Clear();
- 159   3                    
- 160   3                  i=count_1;
- 161   3                  j=i%10;
- 162   3                  k=i/10;
- 163   3                  l=i/100;
- 164   3                  k=k-l*10;
- 165   3                  Lcd8_Set_Cursor(1,3);
- 166   3                  c=toChar(j);
- 167   3                  Lcd8_Write_Char(c);
- 168   3          
- 169   3                  Lcd8_Set_Cursor(1,2);
- 170   3                  c=toChar(k);
- 171   3                  Lcd8_Write_Char(c);
- 172   3            
- 173   3                  Lcd8_Set_Cursor(2,1);
- 174   3                  c=toChar(l);
- 175   3                  Lcd8_Write_Char(c);
- 176   3              
- 177   3                  if(runtime_1 == 60)
- 178   3                  { 
-C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 12:59:41 PAGE 4   
+ 146   4                    runtime_1=15;
+ 147   4                    if( module1_1 == 1)
+ 148   4                    {
+ 149   5                      runtime_1=30;
+ 150   5                    }
+ 151   4                    if(module1_2 == 1)
+ 152   4                    {
+ 153   5                      runtime_1=60;
+ 154   5                    }
+ 155   4                    count_1=runtime_1;
+ 156   4                  }
+ 157   3                  R1=off;
+ 158   3                  G1=on;
+ 159   3                  count_1--;
+ 160   3                  Lcd8_Clear();
+ 161   3                    
+ 162   3                  i=count_1;
+ 163   3                  j=i%10;
+ 164   3                  k=i/10;
+ 165   3                  l=i/100;
+ 166   3                  k=k-l*10;
+ 167   3                  Lcd8_Set_Cursor(1,3);
+ 168   3                  c=toChar(j);
+ 169   3                  Lcd8_Write_Char(c);
+ 170   3          
+ 171   3                  Lcd8_Set_Cursor(1,2);
+ 172   3                  c=toChar(k);
+ 173   3                  Lcd8_Write_Char(c);
+ 174   3            
+ 175   3                  Lcd8_Set_Cursor(2,1);
+ 176   3                  c=toChar(l);
+ 177   3                  Lcd8_Write_Char(c);
+ 178   3              
+C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 14:05:00 PAGE 4   
 
- 179   4                  Lcd8_Set_Cursor(2,1);
- 180   4                  Lcd8_Write_String("Seg1:60 Secs");
- 181   4                  }
- 182   3                  else if(runtime_1 == 30)
- 183   3                  { 
- 184   4                  Lcd8_Set_Cursor(2,1);
- 185   4                  Lcd8_Write_String("Seg1:30 Secs");
- 186   4                  }
- 187   3                  else
- 188   3                  { 
- 189   4                  Lcd8_Set_Cursor(2,1);
- 190   4                  Lcd8_Write_String("Seg1:15 Secs");
- 191   4                  }
- 192   3              
- 193   3                  if(count_1 >= runtime_1)
- 194   3                  {
- 195   4                    G1=off;
- 196   4                    count_1=0;
- 197   4                    scan=2;
- 198   4                    R1=on;
- 199   4                  }
- 200   3               break;
- 201   3              case 2:
- 202   3                  // scan second segment
- 203   3                  if(count_2 <= 3)
- 204   3                  {
- 205   4                    if( module2_1 == 1)
- 206   4                    {
- 207   5                      runtime_2=30;
- 208   5                    }
- 209   4                    if(module2_2 == 1)
- 210   4                    {
- 211   5                      runtime_2=60;
- 212   5                    }
- 213   4                  }
- 214   3                  R2=off;
- 215   3                  G2=on;
- 216   3                  count_2++;
- 217   3                  Lcd8_Clear();
- 218   3                          
- 219   3                  i=count_2;
- 220   3                  j=i%10;
- 221   3                  k=i/10;
- 222   3                  l=i/100;
- 223   3                  k=k-l*10;
- 224   3                  Lcd8_Set_Cursor(1,3);
- 225   3                  c=toChar(j);
- 226   3                  Lcd8_Write_Char(c);
- 227   3          
- 228   3                  Lcd8_Set_Cursor(1,2);
- 229   3                  c=toChar(k);
+ 179   3                  if(runtime_1 == 60)
+ 180   3                  { 
+ 181   4                  Lcd8_Set_Cursor(2,1);
+ 182   4                  Lcd8_Write_String("Seg1:60 Secs");
+ 183   4                  }
+ 184   3                  else if(runtime_1 == 30)
+ 185   3                  { 
+ 186   4                  Lcd8_Set_Cursor(2,1);
+ 187   4                  Lcd8_Write_String("Seg1:30 Secs");
+ 188   4                  }
+ 189   3                  else
+ 190   3                  { 
+ 191   4                  Lcd8_Set_Cursor(2,1);
+ 192   4                  Lcd8_Write_String("Seg1:15 Secs");
+ 193   4                  }
+ 194   3              
+ 195   3                  if(count_1 == 0)
+ 196   3                  {
+ 197   4                    G1=off;
+ 198   4                    count_1=0;
+ 199   4                    scan=2;
+ 200   4                    R1=on;
+ 201   4                  }
+ 202   3               break;
+ 203   3              case 2:
+ 204   3                  // scan second segment
+ 205   3                  if(count_2 <= 0)
+ 206   3                  {
+ 207   4                    runtime_2=15;
+ 208   4                    if( module2_1 == 1)
+ 209   4                    {
+ 210   5                      runtime_2=30;
+ 211   5                    }
+ 212   4                    if(module2_2 == 1)
+ 213   4                    {
+ 214   5                      runtime_2=60;
+ 215   5                    }
+ 216   4                    count_2=runtime_2;
+ 217   4                  }
+ 218   3                  R2=off;
+ 219   3                  G2=on;
+ 220   3                  count_2--;
+ 221   3                  Lcd8_Clear();
+ 222   3                          
+ 223   3                  i=count_2;
+ 224   3                  j=i%10;
+ 225   3                  k=i/10;
+ 226   3                  l=i/100;
+ 227   3                  k=k-l*10;
+ 228   3                  Lcd8_Set_Cursor(1,3);
+ 229   3                  c=toChar(j);
  230   3                  Lcd8_Write_Char(c);
- 231   3            
- 232   3                  Lcd8_Set_Cursor(2,1);
- 233   3                  c=toChar(l);
+ 231   3          
+ 232   3                  Lcd8_Set_Cursor(1,2);
+ 233   3                  c=toChar(k);
  234   3                  Lcd8_Write_Char(c);
- 235   3          
- 236   3          
- 237   3                  if(runtime_2 == 60)
- 238   3                  { 
- 239   4                  Lcd8_Set_Cursor(2,1);
- 240   4                  Lcd8_Write_String("Seg2:60 Secs");
-C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 12:59:41 PAGE 5   
+ 235   3            
+ 236   3                  Lcd8_Set_Cursor(2,1);
+ 237   3                  c=toChar(l);
+ 238   3                  Lcd8_Write_Char(c);
+ 239   3          
+ 240   3          
+C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 14:05:00 PAGE 5   
 
- 241   4                  }
- 242   3                  else if(runtime_2 == 30)
- 243   3                  { 
- 244   4                  Lcd8_Set_Cursor(2,1);
- 245   4                  Lcd8_Write_String("Seg2:30 Secs");
- 246   4                  }
- 247   3                  else
- 248   3                  { 
- 249   4                  Lcd8_Set_Cursor(2,1);
- 250   4                  Lcd8_Write_String("Seg2:15 Secs");
- 251   4                  }
- 252   3              
- 253   3                  if(count_2 >= runtime_2)
- 254   3                  {
- 255   4                    G2=off;
- 256   4                    count_2=0;
- 257   4                    scan=3;
- 258   4                    R2=on;
- 259   4                  }
- 260   3               break;
- 261   3              case 3:
- 262   3                  // scan third segment
- 263   3                  if(count_3 <= 3)
- 264   3                  {
- 265   4                    if( module3_1 == 1)
- 266   4                    {
- 267   5                      runtime_3=30;
- 268   5                    }
- 269   4                    if(module3_2 == 1)
- 270   4                    {
- 271   5                      runtime_3=60;
- 272   5                    }
- 273   4                  }
- 274   3                  R3=off;
- 275   3                  G3=on;
- 276   3                  count_3++;
- 277   3                  Lcd8_Clear();
- 278   3                
- 279   3                  i=count_3;
- 280   3                  j=i%10;
- 281   3                  k=i/10;
- 282   3                  l=i/100;
- 283   3                  k=k-l*10;
- 284   3                  Lcd8_Set_Cursor(1,3);
- 285   3                  c=toChar(j);
- 286   3                  Lcd8_Write_Char(c);
- 287   3          
- 288   3                  Lcd8_Set_Cursor(1,2);
- 289   3                  c=toChar(k);
- 290   3                  Lcd8_Write_Char(c);
- 291   3            
- 292   3                  Lcd8_Set_Cursor(2,1);
- 293   3                  c=toChar(l);
- 294   3                  Lcd8_Write_Char(c);
- 295   3          
- 296   3                  
- 297   3                  if(runtime_3 == 60)
- 298   3                  { 
- 299   4                  Lcd8_Set_Cursor(2,1);
- 300   4                  Lcd8_Write_String("Seg3:60 Secs");
- 301   4                  }
- 302   3                  else if(runtime_3 == 30)
-C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 12:59:41 PAGE 6   
+ 241   3                  if(runtime_2 == 60)
+ 242   3                  { 
+ 243   4                  Lcd8_Set_Cursor(2,1);
+ 244   4                  Lcd8_Write_String("Seg2:60 Secs");
+ 245   4                  }
+ 246   3                  else if(runtime_2 == 30)
+ 247   3                  { 
+ 248   4                  Lcd8_Set_Cursor(2,1);
+ 249   4                  Lcd8_Write_String("Seg2:30 Secs");
+ 250   4                  }
+ 251   3                  else
+ 252   3                  { 
+ 253   4                  Lcd8_Set_Cursor(2,1);
+ 254   4                  Lcd8_Write_String("Seg2:15 Secs");
+ 255   4                  }
+ 256   3              
+ 257   3                  if(count_2 == 0)
+ 258   3                  {
+ 259   4                    G2=off;
+ 260   4                    count_2=0;
+ 261   4                    scan=3;
+ 262   4                    R2=on;
+ 263   4                  }
+ 264   3               break;
+ 265   3              case 3:
+ 266   3                  // scan third segment
+ 267   3                  if(count_3 <= 0)
+ 268   3                  {
+ 269   4                    runtime_3=15;
+ 270   4                    if( module3_1 == 1)
+ 271   4                    {
+ 272   5                      runtime_3=30;
+ 273   5                    }
+ 274   4                    if(module3_2 == 1)
+ 275   4                    {
+ 276   5                      runtime_3=60;
+ 277   5                    }
+ 278   4                    count_3=runtime_3;
+ 279   4                  }
+ 280   3                  R3=off;
+ 281   3                  G3=on;
+ 282   3                  count_3--;
+ 283   3                  Lcd8_Clear();
+ 284   3                
+ 285   3                  i=count_3;
+ 286   3                  j=i%10;
+ 287   3                  k=i/10;
+ 288   3                  l=i/100;
+ 289   3                  k=k-l*10;
+ 290   3                  Lcd8_Set_Cursor(1,3);
+ 291   3                  c=toChar(j);
+ 292   3                  Lcd8_Write_Char(c);
+ 293   3          
+ 294   3                  Lcd8_Set_Cursor(1,2);
+ 295   3                  c=toChar(k);
+ 296   3                  Lcd8_Write_Char(c);
+ 297   3            
+ 298   3                  Lcd8_Set_Cursor(2,1);
+ 299   3                  c=toChar(l);
+ 300   3                  Lcd8_Write_Char(c);
+ 301   3          
+ 302   3                  
+C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 14:05:00 PAGE 6   
 
- 303   3                  { 
- 304   4                  Lcd8_Set_Cursor(2,1);
- 305   4                  Lcd8_Write_String("Seg3:30 Secs");
- 306   4                  }
- 307   3                  else
- 308   3                  { 
- 309   4                  Lcd8_Set_Cursor(2,1);
- 310   4                  Lcd8_Write_String("Seg3:15 Secs");
- 311   4                  }
- 312   3                  
- 313   3                  if(count_3 >= runtime_3)
- 314   3                  {
- 315   4                    G3=off;
- 316   4                    count_3=0;
- 317   4                    scan=4;
- 318   4                    R3=on;
- 319   4                  }
- 320   3               break;
- 321   3                case 4:
- 322   3                  // scan fourth segment
- 323   3                  if(count_4 <= 3)
- 324   3                  {
- 325   4                    if( module4_1 == 1)
- 326   4                    {
- 327   5                      runtime_4=30;
- 328   5                    }
- 329   4                    if(module4_2 == 1)
- 330   4                    {
- 331   5                      runtime_4=60;
- 332   5                    }
- 333   4                  }
- 334   3                  R4=off;
- 335   3                  G4=on;
- 336   3                  count_4++;
- 337   3                  Lcd8_Clear();
- 338   3                  
- 339   3                  i=count_4;
- 340   3                  j=i%10;
- 341   3                  k=i/10;
- 342   3                  l=i/100;
- 343   3                  k=k-l*10;
- 344   3                  Lcd8_Set_Cursor(1,3);
- 345   3                  c=toChar(j);
- 346   3                  Lcd8_Write_Char(c);
- 347   3          
- 348   3                  Lcd8_Set_Cursor(1,2);
- 349   3                  c=toChar(k);
- 350   3                  Lcd8_Write_Char(c);
- 351   3            
- 352   3                  Lcd8_Set_Cursor(2,1);
- 353   3                  c=toChar(l);
+ 303   3                  if(runtime_3 == 60)
+ 304   3                  { 
+ 305   4                  Lcd8_Set_Cursor(2,1);
+ 306   4                  Lcd8_Write_String("Seg3:60 Secs");
+ 307   4                  }
+ 308   3                  else if(runtime_3 == 30)
+ 309   3                  { 
+ 310   4                  Lcd8_Set_Cursor(2,1);
+ 311   4                  Lcd8_Write_String("Seg3:30 Secs");
+ 312   4                  }
+ 313   3                  else
+ 314   3                  { 
+ 315   4                  Lcd8_Set_Cursor(2,1);
+ 316   4                  Lcd8_Write_String("Seg3:15 Secs");
+ 317   4                  }
+ 318   3                  
+ 319   3                  if(count_3 == 0)
+ 320   3                  {
+ 321   4                    G3=off;
+ 322   4                    count_3=0;
+ 323   4                    scan=4;
+ 324   4                    R3=on;
+ 325   4                  }
+ 326   3               break;
+ 327   3                case 4:
+ 328   3                  // scan fourth segment
+ 329   3                  if(count_4 <= 0)
+ 330   3                  {
+ 331   4                    runtime_4=15;
+ 332   4                    if( module4_1 == 1)
+ 333   4                    {
+ 334   5                      runtime_4=30;
+ 335   5                    }
+ 336   4                    if(module4_2 == 1)
+ 337   4                    {
+ 338   5                      runtime_4=60;
+ 339   5                    }
+ 340   4                    count_4=runtime_4;
+ 341   4                  }
+ 342   3                  R4=off;
+ 343   3                  G4=on;
+ 344   3                  count_4--;
+ 345   3                  Lcd8_Clear();
+ 346   3                  
+ 347   3                  i=count_4;
+ 348   3                  j=i%10;
+ 349   3                  k=i/10;
+ 350   3                  l=i/100;
+ 351   3                  k=k-l*10;
+ 352   3                  Lcd8_Set_Cursor(1,3);
+ 353   3                  c=toChar(j);
  354   3                  Lcd8_Write_Char(c);
  355   3          
- 356   3                  if(runtime_4 == 60)
- 357   3                  { 
- 358   4                  Lcd8_Set_Cursor(2,1);
- 359   4                  Lcd8_Write_String("Seg4:60 Secs");
- 360   4                  }
- 361   3                  else if(runtime_4 == 30)
- 362   3                  { 
- 363   4                  Lcd8_Set_Cursor(2,1);
- 364   4                  Lcd8_Write_String("Seg4:30 Secs");
-C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 12:59:41 PAGE 7   
+ 356   3                  Lcd8_Set_Cursor(1,2);
+ 357   3                  c=toChar(k);
+ 358   3                  Lcd8_Write_Char(c);
+ 359   3            
+ 360   3                  Lcd8_Set_Cursor(2,1);
+ 361   3                  c=toChar(l);
+ 362   3                  Lcd8_Write_Char(c);
+ 363   3          
+ 364   3                  if(runtime_4 == 60)
+C51 COMPILER V9.52.0.0   4                                                                 03/31/2015 14:05:00 PAGE 7   
 
- 365   4                  }
- 366   3                  else
- 367   3                  { 
- 368   4                  Lcd8_Set_Cursor(2,1);
- 369   4                  Lcd8_Write_String("Seg4:15 Secs");
- 370   4                  }
- 371   3                  
- 372   3                  if(count_4 >= runtime_4)
- 373   3                  {
- 374   4                    G4=off;
- 375   4                    count_4=0;
- 376   4                    scan=1;
- 377   4                    R4=on;
+ 365   3                  { 
+ 366   4                  Lcd8_Set_Cursor(2,1);
+ 367   4                  Lcd8_Write_String("Seg4:60 Secs");
+ 368   4                  }
+ 369   3                  else if(runtime_4 == 30)
+ 370   3                  { 
+ 371   4                  Lcd8_Set_Cursor(2,1);
+ 372   4                  Lcd8_Write_String("Seg4:30 Secs");
+ 373   4                  }
+ 374   3                  else
+ 375   3                  { 
+ 376   4                  Lcd8_Set_Cursor(2,1);
+ 377   4                  Lcd8_Write_String("Seg4:15 Secs");
  378   4                  }
- 379   3               break;
- 380   3              }
- 381   2          Delay(700);
- 382   2        }
- 383   1      }
- 384          
- 385          
- 386          
- 387          
+ 379   3                  
+ 380   3                  if(count_4 == 0)
+ 381   3                  {
+ 382   4                    G4=off;
+ 383   4                    count_4=0;
+ 384   4                    scan=1;
+ 385   4                    R4=on;
+ 386   4                  }
+ 387   3               break;
+ 388   3              }
+ 389   2          Delay(700);
+ 390   2        }
+ 391   1      }
+ 392          
+ 393          
+ 394          
+ 395          
 *** WARNING C290 IN LINE 84 OF 4.c: missing return value
 *** WARNING C290 IN LINE 176 OF 4.c: missing return value
 *** WARNING C291 IN LINE 104 OF 4.c: not every exit path returns a value
