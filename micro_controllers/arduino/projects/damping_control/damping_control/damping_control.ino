@@ -35,6 +35,9 @@ void loop()
   if( abs(x - 340) > 20 )
   {
     digitalWrite(relay, HIGH);
+    lcd.setCursor(0, 0);
+    lcd.print("EMF Generated");
+
     delay(1000);
   }
   else
