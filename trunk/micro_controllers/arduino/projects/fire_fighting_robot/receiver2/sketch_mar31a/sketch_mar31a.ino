@@ -18,8 +18,8 @@ Stepper myStepper_nozzel(stepsPerRevolution_nozzel, 7,8,9,10);
 
 const int receive_pin = 12;
 int led = 13;
-int fan = 6;
-//int pump = A0
+int pump = 6;
+int fan = A0;
 
 
 void setup()
@@ -29,8 +29,8 @@ void setup()
     pinMode(fan, OUTPUT);   
     digitalWrite(fan, HIGH); 
    
-    pinMode(A0, OUTPUT);   
-    digitalWrite(A0, HIGH); 
+    pinMode(pump, OUTPUT);   
+    digitalWrite(pump, LOW); 
    
     myStepper_nozzel.setSpeed(30);
     myStepper_rotate.setSpeed(80);
@@ -131,17 +131,17 @@ void bottom()
      delay(500); 
 
 }
-void fan_motor()
+void pump_on()
 {
    
-     Serial.println("Fan on");
-     digitalWrite(fan, LOW);
+     Serial.println("pump on");
+     digitalWrite(pump, HIGH);
      delay(5000); 
-      digitalWrite(fan, HIGH);
+      digitalWrite(pump, LOW);
      delay(1000); 
 
 }
-void pump_on()
+void fan_motor()
 {
    
      Serial.println("pump start");
