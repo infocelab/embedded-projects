@@ -21,6 +21,6 @@ void loop(){
 } 
 lcd.setCursor(0, 1);
 lcd.print("INPUT V= ");
-lcd.print(vin);
+lcd.print(vin/10);
 delay(500);
 }
