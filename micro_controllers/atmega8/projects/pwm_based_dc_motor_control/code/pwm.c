@@ -35,7 +35,6 @@ int main(void)
 
     while (1)
     {
-
 	  if (bit_is_clear(PINC, 3)) // 26 pin
       {
 	     led_on();
