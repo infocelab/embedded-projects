@@ -358,10 +358,10 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a
  *(.debug_frame)
  .debug_frame   0x00000000       0x60 pwm.o
 
-.debug_str      0x00000000      0x121
+.debug_str      0x00000000      0x11d
  *(.debug_str)
- .debug_str     0x00000000      0x121 pwm.o
-                                0x155 (size before relaxing)
+ .debug_str     0x00000000      0x11d pwm.o
+                                0x151 (size before relaxing)
 
 .debug_loc      0x00000000      0x228
  *(.debug_loc)
