@@ -66,13 +66,13 @@ void make_C()
 void make_D()
 {
   data[0] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[1] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[2] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[3] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[4] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[5] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[6] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)  
-  data[7] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)  
+  data[1] = B11111100; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[2] = B01000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[3] = B01000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[4] = B01000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[5] = B01000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[6] = B01000010; //row 1s bit mask (1 LED is on 0 LED is off)  
+  data[7] = B11111100; //row 1s bit mask (1 LED is on 0 LED is off)  
   showSprite(speed); 
 }
 
@@ -80,13 +80,13 @@ void make_D()
 void make_E()
 {
   data[0] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[1] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[2] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[3] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[4] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[5] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[6] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)  
-  data[7] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)  
+  data[1] = B11111110; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[2] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[3] = B10000000; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[4] = B11111000; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[5] = B10000000; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[6] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)  
+  data[7] = B11111110; //row 1s bit mask (1 LED is on 0 LED is off)  
   showSprite(speed); 
 }
 
@@ -94,13 +94,13 @@ void make_E()
 void make_F()
 {
   data[0] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[1] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[2] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[3] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[4] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[5] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[6] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)  
-  data[7] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)  
+  data[1] = B11111110; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[2] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[3] = B10000000; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[4] = B11111000; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[5] = B10000000; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[6] = B10000000; //row 1s bit mask (1 LED is on 0 LED is off)  
+  data[7] = B10000000; //row 1s bit mask (1 LED is on 0 LED is off)  
   showSprite(speed); 
 }
 
@@ -108,13 +108,13 @@ void make_F()
 void make_G()
 {
   data[0] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[1] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[2] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[3] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[4] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[5] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[6] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)  
-  data[7] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)  
+  data[1] = B11111110; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[2] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[3] = B10000000; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[4] = B10011110; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[5] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[6] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)  
+  data[7] = B11111100; //row 1s bit mask (1 LED is on 0 LED is off)  
   showSprite(speed); 
 }
 
@@ -122,13 +122,13 @@ void make_G()
 void make_H()
 {
   data[0] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[1] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[2] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[3] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[4] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[5] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)
-  data[6] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)  
-  data[7] = B00000000; //row 1s bit mask (1 LED is on 0 LED is off)  
+  data[1] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[2] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[3] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[4] = B11111110; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[5] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)
+  data[6] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)  
+  data[7] = B10000010; //row 1s bit mask (1 LED is on 0 LED is off)  
   showSprite(speed); 
 }
 //repeats   
@@ -138,14 +138,14 @@ void loop()
  //Run a small test program which lights up each light in time
   //test();
  make_A();
-
- 
  make_B();
-
- 
  make_C();
+ make_D();
+ make_E();
+ make_F();
+ make_G();
+ make_H();
  
- //make_D();
  
  //Example #2 - static image
  //Display a defined bitmap
