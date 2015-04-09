@@ -1,12 +1,13 @@
-
-int r1=6;
-int r2=7;
-int r3=8;
-int r4=9;
-int c1=10;
-int c2=11;
-int c3=12;
-int c4=13;
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
+int r1=7;
+int r2=6;
+int r3=5;
+int r4=4;
+int c1=3;
+int c2=2;
+int c3=1;
+int c4=0;
 int colm1;
 int colm2;
 int colm3;
@@ -22,14 +23,25 @@ void setup()
   pinMode(c2,INPUT);
   pinMode(c3,INPUT);
   pinMode(c4,INPUT);
-  Serial.begin(9600);
+  
   digitalWrite(c1,HIGH);
   digitalWrite(c2,HIGH);
   digitalWrite(c3,HIGH);
   digitalWrite(c4,HIGH);
+  lcd.begin(16, 2);
+  lcd.print("keypad");
+  delay(4000);
+  lcd.clear();
+   lcd.setCursor(0, 1);
 }
 void loop()
-{
+{  
+  lcd.setCursor(0, 1);
+  lcd.clear();
+lcd.print("ENTER NO =");
+delay(200);
+ 
+
   digitalWrite(r1,LOW);
   digitalWrite(r2,HIGH);
   digitalWrite(r3,HIGH);
@@ -39,22 +51,22 @@ void loop()
   colm3=digitalRead(c3);
   colm4=digitalRead(c4);
   if(colm1==LOW)
-  {Serial.println("1");
+ { lcd.print("1");
    delay(200);}
-  else
+  else 
   {
    if(colm2==LOW)
-   {Serial.println("2");
+  {lcd.print("2");
     delay(200);}
    else
    {
    if(colm3==LOW)
-   {Serial.println("3");
+ { lcd.print("3");
      delay(200);}
    else
    {
    if(colm4==LOW)
-   {Serial.println("A");
+  { lcd.print("A");
       delay(200);}
    }}}
 
@@ -67,22 +79,22 @@ void loop()
   colm3=digitalRead(c3);
   colm4=digitalRead(c4);
   if(colm1==LOW)
-  {Serial.println("4");
+  {lcd.print("4");
     delay(200);}
   else
   {
-   if(colm2==LOW)
-   {Serial.println("5");
+  if(colm2==LOW)
+  {lcd.print("5");
     delay(200);}
    else
    {
    if(colm3==LOW)
-   {Serial.println("6");
+   {lcd.print("6");
       delay(200);}
    else
    {
    if(colm4==LOW)
-   {Serial.println("B");
+   {lcd.print("B");
        delay(200);}
    }}}
 
@@ -95,22 +107,22 @@ void loop()
   colm3=digitalRead(c3);
   colm4=digitalRead(c4);
   if(colm1==LOW)
-  {Serial.println("7");
+ { lcd.print("7");
      delay(200);}
   else
   {
    if(colm2==LOW)
-   {Serial.println("8");
+  {lcd.print("8");
        delay(200);}
    else
    {
    if(colm3==LOW)
-   {Serial.println("9");
+ { lcd.print("9");
         delay(200);}
    else
    {
    if(colm4==LOW)
-   {Serial.println("C");
+  {lcd.print("C");
         delay(200);}
    }}}
   digitalWrite(r1,HIGH);
@@ -122,22 +134,22 @@ void loop()
   colm3=digitalRead(c3);
   colm4=digitalRead(c4);
   if(colm1==LOW)
-  {Serial.println("*");
+  {lcd.print("*");
       delay(200);}
   else
   {
    if(colm2==LOW)
-   {Serial.println("0");
+  {lcd.print("0");
         delay(200);}
    else
    {
    if(colm3==LOW)
-   {Serial.println("#");
+{lcd.print("#");
       delay(200);}
    else
    {
    if(colm4==LOW)
-   {Serial.println("D");
+  { lcd.print("D");
        delay(200);}
 
    }}}
