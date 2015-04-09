@@ -3,7 +3,7 @@
  int leftsensor = A0; 
  int rightsensor = A1; 
  int val_diff = 100;
-const int stepsPerRevolution = 200;  // change this to fit the number of steps per revolution
+const int stepsPerRevolution = 300;  // change this to fit the number of steps per revolution
 
   Stepper myStepper(stepsPerRevolution, 9,10,11,12);            
  
