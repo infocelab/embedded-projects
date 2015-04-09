@@ -5,9 +5,11 @@ int sensor=A1;
 int gnd=A2;
 float temp;
 float tempf;
-int fan=2;
-int heater=3;
+int fan=6;
+int heater=7;
 LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
+//LiquidCrystal lcd(12, 11, 5, 4, 3, 2); //  for simulation
+
 
 void setup()
 {
@@ -27,6 +29,8 @@ void setup()
 
 void loop()
 {
+  lcd.setCursor(2,0);       // sets the cursor at column 2 row 0
+  lcd.print("TEMPERATURE"); // prints temperature
 
   temp=analogRead(sensor); // reads the sensor output
   temp=temp*5;             // converts the sensor reading to temperature
@@ -41,20 +45,23 @@ void loop()
   lcd.print(tempf);     // prints temperature in degree Fahrenheit
   lcd.print((char)223); // prints degree sign
   lcd.print("F");       // prints letter F
-  delay(10000); 
+  delay(1000); 
   if(temp>35)
   {
+    digitalWrite(heater,HIGH);
     digitalWrite(fan,LOW); 
     lcd.clear();
-    lcd.setCursor(2,0);       // sets the cursor at column 2 row 0
+    lcd.setCursor(0,2);       // sets the cursor at column 2 row 0
     lcd.print("Fan on"); 
     delay(100);  
   }
   else if(temp<=35)
   {
+       digitalWrite(fan,HIGH); 
+ 
      digitalWrite(heater,LOW); 
     lcd.clear();
-    lcd.setCursor(2,0);       // sets the cursor at column 2 row 0
+    lcd.setCursor(0,2);       // sets the cursor at column 2 row 0
     lcd.print("heater on"); 
     delay(100);
   }
