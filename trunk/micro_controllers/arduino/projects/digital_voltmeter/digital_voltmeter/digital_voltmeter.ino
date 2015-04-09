@@ -1,5 +1,7 @@
 #include <LiquidCrystal.h>
-LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
+//LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2); //  for simulation
+
 int analogInput = 0;
 float vout = 0.0;
 float vin = 0.0;
@@ -22,5 +24,5 @@ void loop(){
 lcd.setCursor(0, 1);
 lcd.print("INPUT V= ");
 lcd.print(vin/10);
-delay(500);
+delay(100);
 }
