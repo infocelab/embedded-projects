@@ -12,9 +12,8 @@
  SoftwareSerial SIM900(7, 8);
  SoftwareSerial GPS(4,12);
  char incoming_char=0;
+ int vib_sensor = A0;
  int ledPin = 13;                  // LED test pin
- int rxPin = 0;                    // RX PIN 
- int txPin = 1;                    // TX TX
  int byteGPS=-1;
  char linea[300] = "";
  char comandoGPR[7] = "$GPRMC";
@@ -33,8 +32,6 @@
   // blurt out contents of new SMS upon receipt to the GSM shield's serial out
   delay(100);
    pinMode(ledPin, OUTPUT);       // Initialize LED pin
-   pinMode(rxPin, INPUT);
-   pinMode(txPin, OUTPUT);
    Serial.begin(9600);
    for (int i=0;i<300;i++){       // Initialize a buffer for received data
      linea[i]=' ';
@@ -51,12 +48,10 @@
 }
 
  void loop() {
+   
+    int sensorValue = analogRead(vib_sensor);
+    if(sensorValue)
     // Now we simply display any text that the GSM shield sends out on the serial monitor
-  if(SIM900.available() >0)
-  {
-    incoming_char=SIM900.read(); //Get the character from the cellular serial port.
-    Serial.print(incoming_char); //Print the incoming character to the terminal.
-  }
    digitalWrite(ledPin, HIGH);
    byteGPS=GPS.read();         // Read a byte of the serial port
    if (byteGPS == -1) {           // See if the port is empty yet
