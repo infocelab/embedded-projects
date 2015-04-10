@@ -72,14 +72,12 @@
 </layers>
 <board>
 <plain>
-<wire x1="38.1" y1="13.97" x2="107.62" y2="13.97" width="0" layer="20"/>
-<wire x1="107.62" y1="13.97" x2="107.62" y2="58.41" width="0" layer="20"/>
-<wire x1="107.62" y1="58.41" x2="38.1" y2="58.41" width="0" layer="20"/>
-<wire x1="38.1" y1="58.41" x2="38.1" y2="13.97" width="0" layer="20"/>
-<text x="-2.54" y="30.48" size="1.778" layer="16" rot="MR90">WWW.COMPUTRONICSLAB.COM</text>
-<text x="6.35" y="30.48" size="1.778" layer="1" rot="R90">WWW.COMPUTRONICSLAB.COM</text>
-<text x="125.73" y="48.26" size="1.778" layer="1" rot="R270">ARDUINO BOARD WITH LCD</text>
-<text x="133.35" y="74.93" size="1.778" layer="16" rot="MR270">ARDUINO BOARD WITH LCD</text>
+<wire x1="38.1" y1="12.7" x2="105.08" y2="12.7" width="0" layer="20"/>
+<wire x1="105.08" y1="12.7" x2="105.08" y2="57.14" width="0" layer="20"/>
+<wire x1="105.08" y1="57.14" x2="38.1" y2="57.14" width="0" layer="20"/>
+<wire x1="38.1" y1="57.14" x2="38.1" y2="12.7" width="0" layer="20"/>
+<text x="40.64" y="17.78" size="1.778" layer="1" rot="R90">WWW.COMPUTRONICSLAB.COM</text>
+<text x="43.18" y="13.97" size="1.778" layer="1">ARDUINO BOARD WITH LCD</text>
 </plain>
 <libraries>
 <library name="quantum-research-group">
