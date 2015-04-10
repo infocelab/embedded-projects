@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   RFID                                                              04/10/2015 12:09:18 PAGE 1   
+C51 COMPILER V9.52.0.0   RFID                                                              04/10/2015 17:41:54 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE RFID
@@ -9,168 +9,175 @@ line level    source
 
    1          #include<reg51.h>
    2          #include<lcd.h>
-   3          sbit Relay = P3^2;
-   4          sbit Buz = P3^4;
-   5          //LCD Module Connections
-   6          sbit RS = P0^0;                                                                   
-   7          sbit EN = P0^1;                            
-   8          sbit D0 = P2^0;
-   9          sbit D1 = P2^1;
-  10          sbit D2 = P2^2;
-  11          sbit D3 = P2^3;
-  12          sbit D4 = P2^4;
-  13          sbit D5 = P2^5;
-  14          sbit D6 = P2^6;
-  15          sbit D7 = P2^7;
-  16          
-  17          
-  18          char seats[5]={'0','0','0','0','0'};
-  19          char card_id[12];
+   3          sbit led1 = P3^1;
+   4          sbit led2 = P3^2;
+   5          sbit led3 = P3^3;
+   6          sbit led4 = P3^4;
+   7          
+   8          //LCD Module Connections
+   9          sbit RS = P0^0;                                                                   
+  10          sbit EN = P0^1;                            
+  11          sbit D0 = P2^0;
+  12          sbit D1 = P2^1;
+  13          sbit D2 = P2^2;
+  14          sbit D3 = P2^3;
+  15          sbit D4 = P2^4;
+  16          sbit D5 = P2^5;
+  17          sbit D6 = P2^6;
+  18          sbit D7 = P2^7;
+  19          
   20          
-  21            void Delay(int a)
-  22             {
-  23   1          int j;
-  24   1          int i;
-  25   1          for(i=0;i<a;i++)
-  26   1          {
-  27   2              for(j=0;j<100;j++)
-  28   2              {
-  29   3                
-  30   3              }
-  31   2          }
-  32   1         }
-  33          
-  34             void recieve()     //Function to recieve data serialy from RS232 
-  35             {
-  36   1          unsigned char k;
-  37   1           for(k=0;k<12;k++)
-  38   1           { 
-  39   2             while(RI==0); 
-  40   2             card_id[k] = SBUF;
-  41   2               RI=0;
-  42   2           }
-  43   1        }
-  44          
-  45              void main()
-  46              { 
-  47   1            int l;
-  48   1            Relay = 0;
-  49   1            Buz = 1;
-  50   1            TMOD=0x20;            //Enable Timer 1
-  51   1            TH1=0XFD;
-  52   1            SCON=0x50;
-  53   1            TR1=1; 
-  54   1            Lcd8_init();
-*** WARNING C206 IN LINE 54 OF RFID.c: 'Lcd8_init': missing function-prototype
-C51 COMPILER V9.52.0.0   RFID                                                              04/10/2015 12:09:18 PAGE 2   
+  21          char seats[4]={'0','0','0','0'};
+  22          char card_id[12];
+  23          
+  24            void Delay(int a)
+  25             {
+  26   1          int j;
+  27   1          int i;
+  28   1          for(i=0;i<a;i++)
+  29   1          {
+  30   2              for(j=0;j<100;j++)
+  31   2              {
+  32   3                
+  33   3              }
+  34   2          }
+  35   1         }
+  36          
+  37             void recieve()     //Function to recieve data serialy from RS232 
+  38             {
+  39   1          unsigned char k;
+  40   1           for(k=0;k<12;k++)
+  41   1           { 
+  42   2             while(RI==0); 
+  43   2             card_id[k] = SBUF;
+  44   2               RI=0;
+  45   2           }
+  46   1        }
+  47          
+  48              void main()
+  49              { 
+  50   1            int l;
+  51   1            led1=0;
+  52   1            led2=0;
+  53   1            led3=0;
+  54   1            led4=0;
+  55   1            Delay(1000);
+C51 COMPILER V9.52.0.0   RFID                                                              04/10/2015 17:41:54 PAGE 2   
 
-  55   1            Lcd8_Set_Cursor(1,1);
-  56   1            Lcd8_Write_String("Welcome 2 Smart");
-  57   1            Delay(1000);
-  58   1            Lcd8_Set_Cursor(2,1);
-  59   1            Lcd8_Write_String("Travelling");
-  60   1            Delay(1000);
-  61   1            Lcd8_Clear();
-  62   1            Lcd8_Set_Cursor(1,1);
-  63   1            Lcd8_Write_String("PLZ Show Your");
-  64   1            Delay(1000);
-  65   1            Lcd8_Set_Cursor(2,1);
-  66   1            Lcd8_Write_String("Card");
-  67   1        
-  68   1          while(1)
-  69   1          {
-  70   2               recieve(); 
-  71   2               if((card_id[0] == '1' && card_id[1] == '3' && card_id[2] == '0' && card_id[3] == '0' && card_id[4] ==
+  56   1            led1=1;
+  57   1            led2=1;
+  58   1            led3=1;
+  59   1            led4=1;
+  60   1            
+  61   1      
+  62   1            TMOD=0x20;            //Enable Timer 1
+  63   1            TH1=0XFD;
+  64   1            SCON=0x50;
+  65   1            TR1=1; 
+  66   1            Lcd8_init();
+*** WARNING C206 IN LINE 66 OF RFID.c: 'Lcd8_init': missing function-prototype
+  67   1            Lcd8_Set_Cursor(1,1);
+  68   1            Lcd8_Write_String("Welcome 2 Smart");
+  69   1            Delay(1000);
+  70   1            Lcd8_Set_Cursor(2,1);
+  71   1            Lcd8_Write_String("Travelling");
+  72   1            Delay(1000);
+  73   1            Lcd8_Clear();
+  74   1            Lcd8_Set_Cursor(1,1);
+  75   1            Lcd8_Write_String("PLZ Show Your");
+  76   1            Lcd8_Set_Cursor(2,1);
+  77   1            Lcd8_Write_String("Card");
+  78   1        
+  79   1          while(1)
+  80   1          {
+  81   2               recieve(); 
+  82   2               if((card_id[0] == '1' && card_id[1] == '3' && card_id[2] == '0' && card_id[3] == '0' && card_id[4] ==
              - '4' && card_id[5] == 'A' && card_id[6] == '7' && card_id[7] == 'A' && card_id[8] == '5'  && card_id[9] == '2' && card_i
              -d[10] == '7' && card_id[11] == '1')
-  72   2                 ||
-  73   2               (card_id[0] == '1' && card_id[1] == '3' && card_id[2] == '0' && card_id[3] == '0' && card_id[4] == '4
+  83   2                 ||
+  84   2               (card_id[0] == '1' && card_id[1] == '3' && card_id[2] == '0' && card_id[3] == '0' && card_id[4] == '4
              -' && card_id[5] == '9' && card_id[6] == 'C' && card_id[7] == 'F' && card_id[8] == '1'  && card_id[9] == '6' && card_id[1
              -0] == '8' && card_id[11] == '3')
-  74   2               )
-  75   2               {
-  76   3                  Lcd8_Clear();
-  77   3                  Lcd8_Set_Cursor(1,1);
-  78   3                  Lcd8_Write_String("Valid User");
-  79   3                  Delay(2000);
-  80   3                  if(seats[0] == '0')
-  81   3                  {
-  82   4                    seats[0]='1';
-  83   4                    Lcd8_Set_Cursor(2,1);
-  84   4                    Lcd8_Write_String("Seat No: 1");
-  85   4                    Delay(2000);
-  86   4                  }
-  87   3                  else if(seats[1] == '0')
-  88   3                  {
-  89   4                    seats[1]='1'; 
-  90   4                    Lcd8_Set_Cursor(2,1);
-  91   4                    Lcd8_Write_String("Seat No: 2");  
-  92   4                    Delay(2000);              
-  93   4                  }
-  94   3                  else if(seats[2] == '0')
-  95   3                  {
-  96   4                    seats[2]='1';
-  97   4                    Lcd8_Set_Cursor(2,1);
-  98   4                    Lcd8_Write_String("Seat No: 3");
-  99   4                    Delay(2000);
- 100   4                  }
- 101   3                  else if(seats[3] == '0')
- 102   3                  {
- 103   4                    seats[3]='1';
- 104   4                    Lcd8_Set_Cursor(2,1);
- 105   4                    Lcd8_Write_String("Seat No: 4");
- 106   4                    Delay(2000);
- 107   4                  }
- 108   3                  else if(seats[4] == '0')
- 109   3                  {
- 110   4                    seats[4]='1';
- 111   4                    Lcd8_Set_Cursor(2,1);
- 112   4                    Lcd8_Write_String("Seat No: 5");
-C51 COMPILER V9.52.0.0   RFID                                                              04/10/2015 12:09:18 PAGE 3   
+  85   2               )
+  86   2               {
+  87   3                  Lcd8_Clear();
+  88   3                  Lcd8_Set_Cursor(1,1);
+  89   3                  Lcd8_Write_String("Valid User");
+  90   3                  Delay(1000);
+  91   3                  if(seats[0] == '0')
+  92   3                  {
+  93   4                    seats[0]='1';
+  94   4                    Lcd8_Set_Cursor(2,1);
+  95   4                    Lcd8_Write_String("Seat No: 1");
+  96   4                    led1=0;
+  97   4                    Delay(2000);
+  98   4                  }
+  99   3                  else if(seats[1] == '0')
+ 100   3                  {
+ 101   4                    seats[1]='1'; 
+ 102   4                    Lcd8_Set_Cursor(2,1);
+ 103   4                    Lcd8_Write_String("Seat No: 2");  
+ 104   4                    led2=0;
+ 105   4                    Delay(2000);              
+ 106   4                  }
+ 107   3                  else if(seats[2] == '0')
+ 108   3                  {
+ 109   4                    seats[2]='1';
+ 110   4                    Lcd8_Set_Cursor(2,1);
+ 111   4                    Lcd8_Write_String("Seat No: 3");
+ 112   4                    led3=0;
+C51 COMPILER V9.52.0.0   RFID                                                              04/10/2015 17:41:54 PAGE 3   
 
  113   4                    Delay(2000);
  114   4                  }
- 115   3                  else
+ 115   3                  else if(seats[3] == '0')
  116   3                  {
- 117   4                    Lcd8_Clear();
- 118   4                    Lcd8_Set_Cursor(1,1);
- 119   4                    Lcd8_Write_String("Sorry: ");
- 120   4                    Lcd8_Set_Cursor(2,1);
- 121   4                    Lcd8_Write_String("No Seats ");
- 122   4                    Delay(2000);
- 123   4                  }
- 124   3               }
- 125   2            else 
- 126   2              {
- 127   3                Lcd8_Clear();
- 128   3                Lcd8_Set_Cursor(1,1);
- 129   3                Lcd8_Write_String("Invalid User");
- 130   3                Lcd8_Set_Cursor(2,1);
- 131   3                Lcd8_Write_String("Try Again");
- 132   3                Delay(2000);
- 133   3                  
- 134   3               }
- 135   2               
- 136   2               Lcd8_Clear();
- 137   2               Lcd8_Write_String("PLZ Show Your");
- 138   2               Delay(1000);
- 139   2               Lcd8_Set_Cursor(2,1);
- 140   2               Lcd8_Write_String("Card");
- 141   2               Delay(2000);
- 142   2            }
- 143   1            
- 144   1      }
-*** WARNING C280 IN LINE 47 OF RFID.c: 'l': unreferenced local variable
+ 117   4                    seats[3]='1';
+ 118   4                    Lcd8_Set_Cursor(2,1);
+ 119   4                    Lcd8_Write_String("Seat No: 4");
+ 120   4                    led4=0;
+ 121   4                    Delay(2000);
+ 122   4                  }
+ 123   3                  else
+ 124   3                  {
+ 125   4                    Lcd8_Clear();
+ 126   4                    Lcd8_Set_Cursor(1,1);
+ 127   4                    Lcd8_Write_String("Sorry: ");
+ 128   4                    Lcd8_Set_Cursor(2,1);
+ 129   4                    Lcd8_Write_String("No Seats ");
+ 130   4                    Delay(2000);
+ 131   4                  }
+ 132   3               }
+ 133   2            else 
+ 134   2              {
+ 135   3                Lcd8_Clear();
+ 136   3                Lcd8_Set_Cursor(1,1);
+ 137   3                Lcd8_Write_String("Invalid User");
+ 138   3                Lcd8_Set_Cursor(2,1);
+ 139   3                Lcd8_Write_String("Try Again");
+ 140   3                Delay(2000);
+ 141   3                  
+ 142   3               }
+ 143   2               
+ 144   2               Lcd8_Clear();
+ 145   2               Lcd8_Write_String("PLZ Show Your");
+ 146   2               Lcd8_Set_Cursor(2,1);
+ 147   2               Lcd8_Write_String("Card");
+ 148   2               Delay(2000);
+ 149   2            }
+ 150   1            
+ 151   1      }
+*** WARNING C280 IN LINE 50 OF RFID.c: 'l': unreferenced local variable
 *** WARNING C290 IN LINE 84 OF RFID.c: missing return value
 *** WARNING C290 IN LINE 176 OF RFID.c: missing return value
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   1107    ----
-   CONSTANT SIZE    =    153    ----
+   CODE SIZE        =   1126    ----
+   CONSTANT SIZE    =    142    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     17      17
+   DATA SIZE        =     16      17
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

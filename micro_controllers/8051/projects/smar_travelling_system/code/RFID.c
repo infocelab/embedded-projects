@@ -1,7 +1,10 @@
 #include<reg51.h>
 #include<lcd.h>
-sbit Relay = P3^2;
-sbit Buz = P3^4;
+sbit led1 = P3^1;
+sbit led2 = P3^2;
+sbit led3 = P3^3;
+sbit led4 = P3^4;
+
 //LCD Module Connections
 sbit RS = P0^0;                                                                   
 sbit EN = P0^1;                            
@@ -15,7 +18,7 @@ sbit D6 = P2^6;
 sbit D7 = P2^7;
 
 
-char seats[5]={'0','0','0','0','0'};
+char seats[4]={'0','0','0','0'};
 char card_id[12];
 
   void Delay(int a)
@@ -45,8 +48,17 @@ char card_id[12];
     void main()
     { 
 			int l;
-			Relay = 0;
-			Buz = 1;
+			led1=0;
+			led2=0;
+			led3=0;
+			led4=0;
+			Delay(1000);
+	    led1=1;
+			led2=1;
+			led3=1;
+			led4=1;
+			
+
 		  TMOD=0x20;            //Enable Timer 1
       TH1=0XFD;
       SCON=0x50;
@@ -61,7 +73,6 @@ char card_id[12];
 	    Lcd8_Clear();
 			Lcd8_Set_Cursor(1,1);
 	    Lcd8_Write_String("PLZ Show Your");
-	    Delay(1000);
 	    Lcd8_Set_Cursor(2,1);
       Lcd8_Write_String("Card");
 	
@@ -76,12 +87,13 @@ char card_id[12];
 					  Lcd8_Clear();
 						Lcd8_Set_Cursor(1,1);
 						Lcd8_Write_String("Valid User");
-					  Delay(2000);
+					  Delay(1000);
 					  if(seats[0] == '0')
 						{
 							seats[0]='1';
 							Lcd8_Set_Cursor(2,1);
 						  Lcd8_Write_String("Seat No: 1");
+							led1=0;
 							Delay(2000);
 						}
 						else if(seats[1] == '0')
@@ -89,6 +101,7 @@ char card_id[12];
 							seats[1]='1'; 
 							Lcd8_Set_Cursor(2,1);
 						  Lcd8_Write_String("Seat No: 2");	
+							led2=0;
               Delay(2000);							
 						}
 						else if(seats[2] == '0')
@@ -96,6 +109,7 @@ char card_id[12];
 							seats[2]='1';
 							Lcd8_Set_Cursor(2,1);
 						  Lcd8_Write_String("Seat No: 3");
+							led3=0;
 							Delay(2000);
 						}
 						else if(seats[3] == '0')
@@ -103,13 +117,7 @@ char card_id[12];
 							seats[3]='1';
 							Lcd8_Set_Cursor(2,1);
 						  Lcd8_Write_String("Seat No: 4");
-							Delay(2000);
-						}
-						else if(seats[4] == '0')
-						{
-							seats[4]='1';
-							Lcd8_Set_Cursor(2,1);
-						  Lcd8_Write_String("Seat No: 5");
+							led4=0;
 							Delay(2000);
 						}
 						else
@@ -135,7 +143,6 @@ char card_id[12];
 				 
 				 Lcd8_Clear();
 	       Lcd8_Write_String("PLZ Show Your");
-	       Delay(1000);
 	       Lcd8_Set_Cursor(2,1);
          Lcd8_Write_String("Card");
 				 Delay(2000);
