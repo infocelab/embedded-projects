@@ -3,15 +3,15 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-E:\celabcode\Embedded-Projects\micro_controllers\8051\projects\smar_travelling_system1\code\RFID.uvproj
+E:\celabcode\Embedded-Projects\micro_controllers\8051\projects\smar_travelling_system\code\RFID.uvproj
 Project File Date:  03/27/2015
 
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 assembling STARTUP.A51...
 compiling RFID.c...
-RFID.c(54): warning C206: 'Lcd8_init': missing function-prototype
-RFID.c(47): warning C280: 'l': unreferenced local variable
+RFID.c(60): warning C206: 'Lcd8_init': missing function-prototype
+RFID.c(49): warning C280: 'l': unreferenced local variable
 RFID.c(84): warning C290: missing return value
 RFID.c(176): warning C290: missing return value
 linking...
@@ -31,13 +31,13 @@ linking...
     SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID
-Program Size: data=42.0 xdata=0 code=1427
+Program Size: data=41.0 xdata=0 code=1452
 creating hex file from "RFID"...
 "RFID" - 0 Error(s), 12 Warning(s).
 Rebuild target 'Target 1'
 assembling STARTUP.A51...
 compiling RFID.c...
-RFID.c(54): warning C206: 'Lcd8_init': missing function-prototype
+RFID.c(51): warning C206: 'Lcd8_init': missing function-prototype
 RFID.c(47): warning C280: 'l': unreferenced local variable
 RFID.c(84): warning C290: missing return value
 RFID.c(176): warning C290: missing return value
@@ -58,7 +58,34 @@ linking...
     SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID
-Program Size: data=42.0 xdata=0 code=1460
+Program Size: data=41.0 xdata=0 code=1417
+creating hex file from "RFID"...
+"RFID" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling RFID.c...
+RFID.c(51): warning C206: 'Lcd8_init': missing function-prototype
+RFID.c(47): warning C280: 'l': unreferenced local variable
+RFID.c(84): warning C290: missing return value
+RFID.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID
+Program Size: data=41.0 xdata=0 code=1417
 creating hex file from "RFID"...
 "RFID" - 0 Error(s), 12 Warning(s).
 Rebuild target 'Target 1'
@@ -92,7 +119,6 @@ Rebuild target 'Target 1'
 assembling STARTUP.A51...
 compiling RFID.c...
 RFID.c(54): warning C206: 'Lcd8_init': missing function-prototype
-RFID.c(47): warning C280: 'l': unreferenced local variable
 RFID.c(84): warning C290: missing return value
 RFID.c(176): warning C290: missing return value
 linking...
@@ -112,6 +138,39 @@ linking...
     SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID
-Program Size: data=42.0 xdata=0 code=1456
+Program Size: data=40.0 xdata=0 code=1482
+creating hex file from "RFID"...
+"RFID" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling RFID.c...
+RFID.c(61): error C202: 'Relay': undefined identifier
+RFID.c(62): error C202: 'Buz': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling RFID.c...
+RFID.c(66): warning C206: 'Lcd8_init': missing function-prototype
+RFID.c(50): warning C280: 'l': unreferenced local variable
+RFID.c(84): warning C290: missing return value
+RFID.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID
+Program Size: data=41.0 xdata=0 code=1463
 creating hex file from "RFID"...
 "RFID" - 0 Error(s), 12 Warning(s).
