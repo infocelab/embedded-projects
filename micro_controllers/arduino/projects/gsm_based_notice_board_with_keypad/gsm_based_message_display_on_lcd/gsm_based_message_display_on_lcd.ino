@@ -1,7 +1,7 @@
  
 #include <SoftwareSerial.h>
 #include <LiquidCrystal.h>
-SoftwareSerial SIM900(2, 3); //tx-2 rx-3
+SoftwareSerial SIM900(2,3); //tx-2 rx-3
 LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
 #define  msg_len  128
 char input[msg_len];
@@ -13,11 +13,11 @@ unsigned char incoming_char=0;
 int r1=7;
 int r2=6;
 int r3=5;
-int r4=4;
-int c1=3;
-int c2=2;
-int c3=0;
-int c4=1;
+int r4=A2;
+int c1=A0;
+int c2=A1;
+int c3=4;
+int c4=A3;
 int colm1;
 int colm2;
 int colm3;
@@ -60,8 +60,6 @@ void setup()
   digitalWrite(c4,HIGH);
   
     lcd.begin(16, 2);
-  lcd.print("keypad");
-  delay(3000);
   lcd.clear();
    lcd.setCursor(0, 1);
 }
@@ -74,7 +72,6 @@ void SIM900power()
   digitalWrite(9, LOW);
   delay(7000);
 }
-
 int gsm_read()
 {
  // Now we simply display any text that the GSM shield sends out on the serial monitor
@@ -111,7 +108,6 @@ int gsm_read()
   }
   } 
 }
-
 
 char read_keypad()
 {  
@@ -247,25 +243,26 @@ return 'N';
 char key='N';
 
 char roll_no;
-char key_count=0;
+int key_count=0;
 
 void loop()
 {
   lcd.clear();
-    lcd.setCursor(0, 0);
+  lcd.setCursor(0, 0);
+    
 lcd.print("ENTER NO :");
 key='N';
+key_count=0;
 while(key == 'N')
 {
+  //Serial.println(key_count);
   key=read_keypad();
-  /*if(key_count++ > 100)
+  if(key_count++ > 500)
   {
    key_count=0;
    break; 
-  }*/
-}
-//lcd.print(key);
-
+  }
+}  
 switch(key)
 {
  case '1':
@@ -274,6 +271,7 @@ switch(key)
 lcd.print("Amit Kumar");
     lcd.setCursor(0, 1);
 lcd.print("Room:R1 Seat:55");
+delay(3000);
 break;
   
  case '2':
@@ -282,6 +280,7 @@ break;
 lcd.print("Rohit");
     lcd.setCursor(0, 1);
 lcd.print("Room:R2 Seat:26");
+delay(3000);
 break;
 
  case '3':
@@ -290,6 +289,7 @@ break;
 lcd.print("Pankaj");
     lcd.setCursor(0, 1);
 lcd.print("Room:R3 Seat:14");
+delay(3000);
 break;
 
  case '4':
@@ -298,6 +298,7 @@ break;
 lcd.print("Prakash");
     lcd.setCursor(0, 1);
 lcd.print("Room:R2 Seat:09");
+delay(3000);
 break;
 
  case '5':
@@ -306,17 +307,11 @@ break;
 lcd.print("Ajay");
     lcd.setCursor(0, 1);
 lcd.print("Room:R1 Seat:29");
+delay(3000);
 break;
 }
-delay(3000);
-      // set the cursor to column 0, line 1
-  // (note: line 1 is the second row, since counting begins with 0):
-gsm_read();   
-////////////////////////
-    /* for(int i=0;i<msg_len;i++)
-           input[i]='Z';
-      count=10;*/
-///////////////////////
+  
+gsm_read();       
       if(count > 0)
       {
          lcd.clear();
@@ -328,8 +323,8 @@ gsm_read();
            for(int i=0;i<msg_len;i++)
            input[i]='\0';
          }
-         
-            // scroll 13 positions (string length) to the left 
+      
+        // scroll 13 positions (string length) to the left 
    // to move it offscreen left:
    for (int positionCounter = 0; positionCounter < count; positionCounter++) {
      // scroll one position left:
@@ -354,9 +349,10 @@ gsm_read();
      lcd.scrollDisplayLeft(); 
      // wait a bit:
      delay(delay_val);
-   }  
-      } 
-      
-      
+   }
+   
+}
+
+
 }
 
