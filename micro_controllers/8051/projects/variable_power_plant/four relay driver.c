@@ -30,15 +30,15 @@ while(1)
 {
 	if(volt_7 == ip_on && volt_14 == ip_off)
 	{
-		relay0=on;
+		relay0=off;
 		relay1=on;
 		relay2=off;
 	}	
 	else if(volt_7 == ip_on && volt_14 == ip_on)
 	{
-		relay1=on;
+		relay1=off;
 		relay2=on;
-		relay0=on;
+		relay0=off;
 	}
 	
 	else if(volt_7 == ip_off && volt_14 == ip_off)
