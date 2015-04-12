@@ -6,7 +6,8 @@ int gnd=A2;
 float temp;
 float tempf;
 
-LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
+//LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2); //  for simulation
 
 void setup()
 {
