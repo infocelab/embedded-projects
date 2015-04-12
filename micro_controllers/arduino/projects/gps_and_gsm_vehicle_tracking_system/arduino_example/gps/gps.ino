@@ -9,8 +9,8 @@
  #include <string.h>
  #include <ctype.h>
  #include <SoftwareSerial.h>
- SoftwareSerial SIM900(7, 8);
- SoftwareSerial GPS(4,12);
+ SoftwareSerial SIM900(2, 3);
+ SoftwareSerial GPS(4,5);
  char incoming_char=0;
  int vib_sensor = A0;
  int ledPin = 13;                  // LED test pin
@@ -46,21 +46,46 @@
   digitalWrite(9, LOW);
   delay(7000);
 }
+ 
+char lat[12]={"7400.39N"};
+int lat_count=0;
+
+char lon[12]={"2877.45E"};;
+int lon_count=0;
+int loop_count=0;
+void sendSMS()
+{
+ Serial.println("sending sms");
+  SIM900.print("AT+CMGF=1\r");                                                        // AT command to send SMS message
+  delay(100);
+  SIM900.println("AT+CMGS=\"+917503021151\"\r");                                     // recipient's mobile number, in international format
+  delay(100);
+
+  SIM900.print("Latitude:");        // message to send
+  delay(100);
+  SIM900.print(lat);        // message to send
+  delay(100);
+
+  SIM900.print("Longitude:");        // message to send
+  delay(100);
+  SIM900.print(lon);        // message to send
+  delay(100);
+  
+  SIM900.println((char)26);                       // End AT command with a ^Z, ASCII code 26
+  delay(2000); 
+  SIM900.println();
+  delay(5000);                                     // give module time to send SMS
+  SIM900power();                                   // turn off module
+}
 
  void loop() {
-   
-    int sensorValue = analogRead(vib_sensor);
-    if(sensorValue)
-    // Now we simply display any text that the GSM shield sends out on the serial monitor
-   digitalWrite(ledPin, HIGH);
    byteGPS=GPS.read();         // Read a byte of the serial port
    if (byteGPS == -1) {           // See if the port is empty yet
      delay(100); 
    } else {
-     // note: there is a potential buffer overflow here!
      linea[conta]=byteGPS;        // If there is serial port data, it is put in the buffer
      conta++; 
-     Serial.write(byteGPS); 
+     //Serial.write(byteGPS); 
      if (byteGPS==13){            // If the received byte is = to 13, end of transmission
        // note: the actual end of transmission is <CR><LF> (i.e. 0x13 0x10)
        digitalWrite(ledPin, LOW); 
@@ -84,27 +109,58 @@
              cont++;
            }
          }
-         Serial.println("");      // ... and write to the serial port
-         Serial.println("");
+        // Serial.println("");      // ... and write to the serial port
+        // Serial.println("");
          Serial.println("---------------");
+         Serial.println(loop_count++);
+             
          for (int i=0;i<12;i++){
            switch(i){
-             case 0 :Serial.print("Time in UTC (HhMmSs): ");break;
-             case 1 :Serial.print("Status (A=OK,V=KO): ");break;
-             case 2 :Serial.print("Latitude: ");break;
-             case 3 :Serial.print("Direction (N/S): ");break;
-             case 4 :Serial.print("Longitude: ");break;
-             case 5 :Serial.print("Direction (E/W): ");break;
-             case 6 :Serial.print("Velocity in knots: ");break;
-             case 7 :Serial.print("Heading in degrees: ");break;
-             case 8 :Serial.print("Date UTC (DdMmAa): ");break;
-             case 9 :Serial.print("Magnetic degrees: ");break;
-             case 10 :Serial.print("(E/W): ");break;
-             case 11 :Serial.print("Mode: ");break;
-             case 12 :Serial.print("Checksum: ");break;
+             //case 0 :Serial.print("Time in UTC (HhMmSs): ");break;
+             //case 1 :Serial.print("Status (A=OK,V=KO): ");break;
+             case 2 :Serial.print("Latitude: ");
+               for (int j=indices[i];j<(indices[i+1]-1);j++){
+            // Serial.print(linea[j+1]);
+             lat[lat_count++]=linea[j+1];  
+             }
+             break;
+             case 3 :Serial.print("Direction (N/S): ");
+                for (int j=indices[i];j<(indices[i+1]-1);j++){
+            // Serial.print(linea[j+1]);
+             lat[lat_count++]=linea[j+1];  
+             }
+                for (int j=0;j<lat_count;j++){
+             Serial.print(lat[j]); 
            }
-           for (int j=indices[i];j<(indices[i+1]-1);j++){
-             Serial.print(linea[j+1]); 
+           lat_count=0;
+           break;
+             case 4 :Serial.print("Longitude: ");
+                    for (int j=indices[i];j<(indices[i+1]-1);j++){
+            // Serial.print(linea[j+1]);
+             lon[lon_count++]=linea[j+1];  
+             }
+             break;
+             case 5 :Serial.print("Direction (E/W): ");
+             for (int j=indices[i];j<(indices[i+1]-1);j++){
+            // Serial.print(linea[j+1]);
+             lon[lon_count++]=linea[j+1];  
+             }
+                for (int j=0;j<lat_count;j++){
+             Serial.print(lon[j]); 
+           }
+           lon_count=0;
+         delay(10000);
+           sendSMS();
+           delay(10000);
+  
+             break;
+             //case 6 :Serial.print("Velocity in knots: ");break;
+             //case 7 :Serial.print("Heading in degrees: ");break;
+             //case 8 :Serial.print("Date UTC (DdMmAa): ");break;
+             //case 9 :Serial.print("Magnetic degrees: ");break;
+             //case 10 :Serial.print("(E/W): ");break;
+             //case 11 :Serial.print("Mode: ");break;
+             //case 12 :Serial.print("Checksum: ");break;
            }
            Serial.println("");
          }
