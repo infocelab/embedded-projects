@@ -63,20 +63,22 @@ V10 Mike Grusin, SparkFun Electronics 10/24/2013
 
 #include <SFE_BMP180.h>
 #include <Wire.h>
-
+#include <LiquidCrystal.h>
 // You will need to create an SFE_BMP180 object, here called "pressure":
 
 SFE_BMP180 pressure;
 
 #define ALTITUDE 1655.0 // Altitude of SparkFun's HQ in Boulder, CO. in meters
+LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
 
 void setup()
 {
   Serial.begin(9600);
+  lcd.begin(16, 2);
   Serial.println("REBOOT");
-
-  // Initialize the sensor (it is important to get calibration values stored on the device).
-
+ // Initialize the sensor (it is important to get calibration values stored on the device)
+  
+  delay(200);
   if (pressure.begin())
     Serial.println("BMP180 init success");
   else
@@ -132,6 +134,13 @@ void loop()
       // Print out the measurement:
       Serial.print("temperature: ");
       Serial.print(T,2);
+       lcd.setCursor(0,0); 
+       lcd.print("TEMP");
+      lcd.setCursor(0,1);
+      lcd.print(T);
+      lcd.setCursor(4,1);
+      lcd.print("C");
+      delay(100);
       Serial.print(" deg C, ");
       Serial.print((9.0/5.0)*T+32.0,2);
       Serial.println(" deg F");
@@ -160,6 +169,12 @@ void loop()
           Serial.print("absolute pressure: ");
           Serial.print(P,2);
           Serial.print(" mb, ");
+          lcd.setCursor(6,0); 
+          lcd.print("PRESSURE"); 
+          lcd.setCursor(6,1);
+          lcd.print(P);
+          lcd.setCursor(12,1);
+          lcd.print("mb");
           Serial.print(P*0.0295333727,2);
           Serial.println(" inHg");
 
