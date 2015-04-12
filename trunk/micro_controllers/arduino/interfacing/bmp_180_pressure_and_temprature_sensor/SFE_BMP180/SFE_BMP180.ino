@@ -1,32 +1,16 @@
-/* SFE_BMP180 library example sketch
+/* SFE_BMP180 altitude example sketch
 
-This sketch shows how to use the SFE_BMP180 library to read the
-Bosch BMP180 barometric pressure sensor.
+This sketch shows how to use the Bosch BMP180 pressure sensor
+as an altimiter.
 https://www.sparkfun.com/products/11824
 
 Like most pressure sensors, the BMP180 measures absolute pressure.
-This is the actual ambient pressure seen by the device, which will
-vary with both altitude and weather.
+Since absolute pressure varies with altitude, you can use the pressure
+to determine your altitude.
 
-Before taking a pressure reading you must take a temparture reading.
-This is done with startTemperature() and getTemperature().
-The result is in degrees C.
-
-Once you have a temperature reading, you can take a pressure reading.
-This is done with startPressure() and getPressure().
-The result is in millibar (mb) aka hectopascals (hPa).
-
-If you'll be monitoring weather patterns, you will probably want to
-remove the effects of altitude. This will produce readings that can
-be compared to the published pressure readings from other locations.
-To do this, use the sealevel() function. You will need to provide
-the known altitude at which the pressure was measured.
-
-If you want to measure altitude, you will need to know the pressure
-at a baseline altitude. This can be average sealevel pressure, or
-a previous pressure reading at your altitude, in which case
-subsequent altitude readings will be + or - the initial baseline.
-This is done with the altitude() function.
+Because pressure also varies with weather, you must first take a pressure
+reading at a known baseline altitude. Then you can measure variations
+from that pressure
 
 Hardware connections:
 
@@ -68,7 +52,7 @@ V10 Mike Grusin, SparkFun Electronics 10/24/2013
 
 SFE_BMP180 pressure;
 
-#define ALTITUDE 1655.0 // Altitude of SparkFun's HQ in Boulder, CO. in meters
+double baseline; // baseline pressure
 
 void setup()
 {
@@ -84,31 +68,48 @@ void setup()
     // Oops, something went wrong, this is usually a connection problem,
     // see the comments at the top of this sketch for the proper connections.
 
-    Serial.println("BMP180 init fail\n\n");
+    Serial.println("BMP180 init fail (disconnected?)\n\n");
     while(1); // Pause forever.
   }
+
+  // Get the baseline pressure:
+  
+  baseline = getPressure();
+  
+  Serial.print("baseline pressure: ");
+  Serial.print(baseline);
+  Serial.println(" mb");  
 }
 
 void loop()
 {
-  char status;
-  double T,P,p0,a;
-
-  // Loop here getting pressure readings every 10 seconds.
-
-  // If you want sea-level-compensated pressure, as used in weather reports,
-  // you will need to know the altitude at which your measurements are taken.
-  // We're using a constant called ALTITUDE in this sketch:
+  double a,P;
   
-  Serial.println();
-  Serial.print("provided altitude: ");
-  Serial.print(ALTITUDE,0);
+  // Get a new pressure reading:
+
+  P = getPressure();
+
+  // Show the relative altitude difference between
+  // the new reading and the baseline reading:
+
+  a = pressure.altitude(P,baseline);
+  
+  Serial.print("relative altitude: ");
+  if (a >= 0.0) Serial.print(" "); // add a space for positive numbers
+  Serial.print(a,1);
   Serial.print(" meters, ");
-  Serial.print(ALTITUDE*3.28084,0);
+  if (a >= 0.0) Serial.print(" "); // add a space for positive numbers
+  Serial.print(a*3.28084,0);
   Serial.println(" feet");
   
-  // If you want to measure altitude, and not pressure, you will instead need
-  // to provide a known baseline pressure. This is shown at the end of the sketch.
+  delay(500);
+}
+
+
+double getPressure()
+{
+  char status;
+  double T,P,p0,a;
 
   // You must first get a temperature measurement to perform a pressure reading.
   
@@ -120,22 +121,17 @@ void loop()
   if (status != 0)
   {
     // Wait for the measurement to complete:
+
     delay(status);
 
     // Retrieve the completed temperature measurement:
     // Note that the measurement is stored in the variable T.
+    // Use '&T' to provide the address of T to the function.
     // Function returns 1 if successful, 0 if failure.
 
     status = pressure.getTemperature(T);
     if (status != 0)
     {
-      // Print out the measurement:
-      Serial.print("temperature: ");
-      Serial.print(T,2);
-      Serial.print(" deg C, ");
-      Serial.print((9.0/5.0)*T+32.0,2);
-      Serial.println(" deg F");
-      
       // Start a pressure measurement:
       // The parameter is the oversampling setting, from 0 to 3 (highest res, longest wait).
       // If request is successful, the number of ms to wait is returned.
@@ -149,6 +145,7 @@ void loop()
 
         // Retrieve the completed pressure measurement:
         // Note that the measurement is stored in the variable P.
+        // Use '&P' to provide the address of P.
         // Note also that the function requires the previous temperature measurement (T).
         // (If temperature is stable, you can do one temperature measurement for a number of pressure measurements.)
         // Function returns 1 if successful, 0 if failure.
@@ -156,37 +153,7 @@ void loop()
         status = pressure.getPressure(P,T);
         if (status != 0)
         {
-          // Print out the measurement:
-          Serial.print("absolute pressure: ");
-          Serial.print(P,2);
-          Serial.print(" mb, ");
-          Serial.print(P*0.0295333727,2);
-          Serial.println(" inHg");
-
-          // The pressure sensor returns abolute pressure, which varies with altitude.
-          // To remove the effects of altitude, use the sealevel function and your current altitude.
-          // This number is commonly used in weather reports.
-          // Parameters: P = absolute pressure in mb, ALTITUDE = current altitude in m.
-          // Result: p0 = sea-level compensated pressure in mb
-
-          p0 = pressure.sealevel(P,ALTITUDE); // we're at 1655 meters (Boulder, CO)
-          Serial.print("relative (sea-level) pressure: ");
-          Serial.print(p0,2);
-          Serial.print(" mb, ");
-          Serial.print(p0*0.0295333727,2);
-          Serial.println(" inHg");
-
-          // On the other hand, if you want to determine your altitude from the pressure reading,
-          // use the altitude function along with a baseline pressure (sea-level or other).
-          // Parameters: P = absolute pressure in mb, p0 = baseline pressure in mb.
-          // Result: a = altitude in m.
-
-          a = pressure.altitude(P,p0);
-          Serial.print("computed altitude: ");
-          Serial.print(a,0);
-          Serial.print(" meters, ");
-          Serial.print(a*3.28084,0);
-          Serial.println(" feet");
+          return(P);
         }
         else Serial.println("error retrieving pressure measurement\n");
       }
@@ -195,6 +162,7 @@ void loop()
     else Serial.println("error retrieving temperature measurement\n");
   }
   else Serial.println("error starting temperature measurement\n");
-
-  delay(5000);  // Pause for 5 seconds.
 }
+
+
+
