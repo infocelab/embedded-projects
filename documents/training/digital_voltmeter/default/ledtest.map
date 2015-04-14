@@ -538,12 +538,12 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr4\libgcc.a
  .debug_frame   0x00000000       0x40 digital_voltmeter.o
  .debug_frame   0x00000040       0xc0 wiring_digital.o
 
-.debug_str      0x00000000      0x308
+.debug_str      0x00000000      0x301
  *(.debug_str)
- .debug_str     0x00000000      0x130 digital_voltmeter.o
-                                0x164 (size before relaxing)
- .debug_str     0x00000130      0x1d8 wiring_digital.o
-                                0x302 (size before relaxing)
+ .debug_str     0x00000000      0x129 digital_voltmeter.o
+                                0x15d (size before relaxing)
+ .debug_str     0x00000129      0x1d8 wiring_digital.o
+                                0x2fb (size before relaxing)
 
 .debug_loc
  *(.debug_loc)

@@ -9,36 +9,37 @@ float R2 = 10000.0; // resistance of R2 (10K) - see text!
 int value = 0;
 
 
-int main(void)
+  int main(void)
 {
-LiquidCrystal_lcd(12, 11, 5, 4, 3, 2); 
-  setup();
-  loop();
-}
+   LiquidCrystal_lcd(12, 11, 5, 4, 3, 2); 
+   setup();
+   loop();
+   }
 
-// the setup routine runs once when you press reset:
-void setup() {                
+    // the setup routine runs once when you press reset:
+  void setup() {                
   // initialize the digital pin as an output.
    pinMode(analogInput, INPUT);
   lcd_begin(16, 2);
   lcd_print("DC VOLTMETER");
    
-}
+  }
 
-// the loop routine runs over and over again forever:
-void loop() {
-while(1)
-{
+  // the loop routine runs over and over again forever:
+  void loop()
+  {
+  while(1)
+  {
    // read the value at analog input
    value = analogRead(analogInput);
    vout = (value * 5.0) / 1024.0; // see text
    vin = vout / (R2/(R1+R2)); 
    if (vin<0.09) {
    vin=0.0;//statement to quash undesired reading !
-} 
-lcd_setCursor(0, 1);
-lcd_print("INPUT V= ");
-lcd_printl(vin/10);
-delay(1000);
-}
+  } 
+  lcd_setCursor(0, 1);
+  lcd_print("INPUT V= ");
+  lcd_printl(vin/10);
+  delay(1000);
+  }
 }
