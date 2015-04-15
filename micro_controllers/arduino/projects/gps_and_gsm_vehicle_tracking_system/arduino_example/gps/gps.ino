@@ -21,7 +21,8 @@
  int bien=0;
  int conta=0;
  int indices[13];
- void setup() {
+ void setup()
+ {
     SIM900.begin(9600); // for GSM shield
     GPS.begin(9600); // for GPS shield
   SIM900power();  // turn on shield
@@ -78,9 +79,11 @@ void sendSMS()
   SIM900power();                                   // turn off module
 }
 
- void loop() {
+ void loop()
+ {
    byteGPS=GPS.read();         // Read a byte of the serial port
-   if (byteGPS == -1) {           // See if the port is empty yet
+   if (byteGPS == -1) 
+   {           // See if the port is empty yet
      delay(100); 
    } else {
      linea[conta]=byteGPS;        // If there is serial port data, it is put in the buffer
