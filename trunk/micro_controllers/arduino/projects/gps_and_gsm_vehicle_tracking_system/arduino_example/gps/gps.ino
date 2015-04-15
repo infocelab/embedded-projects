@@ -58,7 +58,7 @@ void sendSMS()
  Serial.println("sending sms");
   SIM900.print("AT+CMGF=1\r");                                                        // AT command to send SMS message
   delay(100);
-  SIM900.println("AT+CMGS=\"+917503021151\"\r");                                     // recipient's mobile number, in international format
+  SIM900.println("AT+CMGS=\"+918744875349\"\r");                                     // recipient's mobile number, in international format
   delay(100);
 
   SIM900.print("Latitude:");        // message to send
