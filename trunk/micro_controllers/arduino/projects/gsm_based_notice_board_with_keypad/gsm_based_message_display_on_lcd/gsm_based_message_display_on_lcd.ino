@@ -3,7 +3,7 @@
 #include <LiquidCrystal.h>
 SoftwareSerial SIM900(2,3); //tx-2 rx-3
 LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
-#define  msg_len  128
+#define  msg_len  160
 char input[msg_len];
 int count = 0; // A variable to count the length of the Tag DATA
 int delay_val = 200;
@@ -13,11 +13,11 @@ unsigned char incoming_char=0;
 int r1=7;
 int r2=6;
 int r3=5;
-int r4=A2;
+int r4=4;
 int c1=A0;
 int c2=A1;
-int c3=4;
-int c4=A3;
+int c3=A3;
+int c4=A4;
 int colm1;
 int colm2;
 int colm3;
@@ -29,11 +29,11 @@ void setup()
   lcd.begin(16, 2);
   lcd.print("GSM Notice Board");
   lcd.setCursor(0, 1);
-  lcd.print("Anchal & Rohit");
+  lcd.print("CP&Rajat&Harshit");
   Serial.begin(9600); // for serial monitor
   SIM900.begin(19200); // for GSM shield
   SIM900power();  // turn on shield
-  delay(20000);  // give time to log on to network.
+  delay(10000);  // give time to log on to network.
  
   SIM900.print("AT+CMGF=1\r");  // set SMS mode to text
   delay(100);
@@ -268,7 +268,7 @@ switch(key)
  case '1':
   lcd.clear();
     lcd.setCursor(0, 0);
-lcd.print("Amit Kumar");
+lcd.print("Chandra Prakash ");
     lcd.setCursor(0, 1);
 lcd.print("Room:R1 Seat:55");
 delay(3000);
@@ -277,7 +277,7 @@ break;
  case '2':
   lcd.clear();
     lcd.setCursor(0, 0);
-lcd.print("Rohit");
+lcd.print("Rajat");
     lcd.setCursor(0, 1);
 lcd.print("Room:R2 Seat:26");
 delay(3000);
@@ -286,7 +286,7 @@ break;
  case '3':
   lcd.clear();
     lcd.setCursor(0, 0);
-lcd.print("Pankaj");
+lcd.print("Harshit");
     lcd.setCursor(0, 1);
 lcd.print("Room:R3 Seat:14");
 delay(3000);
@@ -295,7 +295,7 @@ break;
  case '4':
   lcd.clear();
     lcd.setCursor(0, 0);
-lcd.print("Prakash");
+lcd.print("Shameem");
     lcd.setCursor(0, 1);
 lcd.print("Room:R2 Seat:09");
 delay(3000);
@@ -304,11 +304,44 @@ break;
  case '5':
   lcd.clear();
     lcd.setCursor(0, 0);
-lcd.print("Ajay");
+lcd.print("Gautam");
     lcd.setCursor(0, 1);
 lcd.print("Room:R1 Seat:29");
 delay(3000);
 break;
+ case '6':
+  lcd.clear();
+    lcd.setCursor(0, 0);
+lcd.print("Astha");
+    lcd.setCursor(0, 1);
+lcd.print("Room:R5 Seat:31");
+delay(3000);
+break;
+ case '7':
+  lcd.clear();
+    lcd.setCursor(0, 0);
+lcd.print("Pratibha");
+    lcd.setCursor(0, 1);
+lcd.print("Room:R6 Seat:22");
+delay(3000);
+break;
+ case '8':
+  lcd.clear();
+    lcd.setCursor(0, 0);
+lcd.print("Sakshi");
+    lcd.setCursor(0, 1);
+lcd.print("Room:R3 Seat:32");
+delay(3000);
+break;
+ case '9':
+  lcd.clear();
+    lcd.setCursor(0, 0);
+lcd.print("Rohit");
+    lcd.setCursor(0, 1);
+lcd.print("Debarred");
+delay(3000);
+break;
+
 }
   
 gsm_read();       
