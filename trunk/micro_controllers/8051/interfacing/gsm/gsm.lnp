@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"gsm.obj" 
+TO "gsm" 
+RAMSIZE(256) 
