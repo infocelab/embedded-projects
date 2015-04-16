@@ -376,12 +376,12 @@ LOAD c:/winavr-20081205/bin/../lib/gcc/avr/4.3.2/avr4\libgcc.a
  .debug_frame   0x00000000       0x20 lcd_with_atmega8.o
  .debug_frame   0x00000020       0x70 lcd.o
 
-.debug_str      0x00000000      0x194
+.debug_str      0x00000000      0x1b7
  *(.debug_str)
- .debug_str     0x00000000       0xce lcd_with_atmega8.o
-                                0x102 (size before relaxing)
- .debug_str     0x000000ce       0xc6 lcd.o
-                                0x1b9 (size before relaxing)
+ .debug_str     0x00000000       0xf1 lcd_with_atmega8.o
+                                0x125 (size before relaxing)
+ .debug_str     0x000000f1       0xc6 lcd.o
+                                0x1dc (size before relaxing)
 
 .debug_loc      0x00000000      0x386
  *(.debug_loc)
