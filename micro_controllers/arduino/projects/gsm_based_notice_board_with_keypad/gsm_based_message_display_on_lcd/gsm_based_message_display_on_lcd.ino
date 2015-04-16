@@ -12,11 +12,11 @@ unsigned char incoming_char=0;
 int r1=7;
 int r2=6;
 int r3=5;
-int r4=4;
+int r4=A2;
 int c1=A0;
 int c2=A1;
-int c3=A3;
-int c4=A4;
+int c3=4;
+int c4=A3;
 int colm1;
 int colm2;
 int colm3;
@@ -30,6 +30,7 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print("CP&Rajat&Harshit");
   Serial.begin(9600); // for serial monitor
+  
   SIM900.begin(9600); // for GSM shield
   SIM900power();  // turn on shield
   delay(10000);  // give time to log on to network.
@@ -139,10 +140,11 @@ char read_keypad()
         }
         else
         {
-        if(colm4==LOW)
+      /*  if(colm4==LOW)
         {
           return 'A'; 
         }
+        */
       }
     }
   }
@@ -173,10 +175,10 @@ char read_keypad()
    }
    else
    {
-   if(colm4==LOW)
+   /*if(colm4==LOW)
    {
             return 'B';
-   }
+   }*/
    }}}
 
   digitalWrite(r1,HIGH);
@@ -205,10 +207,11 @@ char read_keypad()
  }
  else
    {
-   if(colm4==LOW)
+   /*if(colm4==LOW)
   {
            return 'C'; 
-   }}}}
+   }*/
+ }}}
    
   digitalWrite(r1,HIGH);
   digitalWrite(r2,HIGH);
@@ -236,10 +239,10 @@ char read_keypad()
 }
 else
    {
-   if(colm4==LOW)
+   /*if(colm4==LOW)
   { 
            return 'D'; 
-  }   }}}
+  }*/   }}}
 return 'N';
 }
 char key='N';
@@ -264,7 +267,9 @@ while(key == 'N')
    key_count=0;
    break; 
   }
-}  
+}
+Serial.print("key:");
+Serial.println(key);
 switch(key)
 {
  case '1':
