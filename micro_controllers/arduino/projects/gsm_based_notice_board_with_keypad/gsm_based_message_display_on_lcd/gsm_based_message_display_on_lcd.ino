@@ -1,11 +1,10 @@
-
 #include <SoftwareSerial.h>
 #include<LiquidCrystal.h>
 LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
 SoftwareSerial SIM900(2,3); //tx-2 rx-3
 int lenth,lenth1,i=0,temp;
 char str[200];
-char name[80];
+char sms[80];
 int got=0;
 
 int r1=7;
@@ -28,7 +27,7 @@ void setup()
  Serial.begin(9600);
   SIM900.begin(9600);
   
-    pinMode(r1,OUTPUT);
+  pinMode(r1,OUTPUT);
   pinMode(r2,OUTPUT);
   pinMode(r3,OUTPUT);
   pinMode(r4,OUTPUT);
@@ -306,11 +305,11 @@ break;
 
 
  Serial.print(got);
- Serial.println(name);
+ Serial.println(sms);
  if(got == 1)
  {
 lcd.setCursor(0, 0);
-  lcd.print(name);
+  lcd.print(sms);
  }
  else
  {
@@ -338,12 +337,12 @@ lcd.setCursor(0, 0);
       //Serial.println("name:");
       while(str[i]!='#')
       {
-       name[lenth1]=str[i];
-       Serial.print(name[lenth1]);
+       sms[lenth1]=str[i];
+       Serial.print(sms[lenth1]);
        lenth1++;
        i++;
       }
-      name[lenth1]='\0';
+      sms[lenth1]='\0';
       break;
 
      }
@@ -353,7 +352,7 @@ lcd.setCursor(0, 0);
     lcd.clear();
     lcd.setCursor(0,0);
     delay(10);
-    lcd.print(name);
+    lcd.print(sms);
     temp=0;
     lenth=0;
     lenth1=0;  
