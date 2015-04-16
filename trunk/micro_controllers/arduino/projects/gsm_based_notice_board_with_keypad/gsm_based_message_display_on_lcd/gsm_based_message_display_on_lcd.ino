@@ -1,9 +1,8 @@
- 
 #include <SoftwareSerial.h>
 #include <LiquidCrystal.h>
 SoftwareSerial SIM900(2,3); //tx-2 rx-3
 LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
-#define  msg_len  160
+#define  msg_len  128
 char input[msg_len];
 int count = 0; // A variable to count the length of the Tag DATA
 int delay_val = 200;
@@ -31,7 +30,7 @@ void setup()
   lcd.setCursor(0, 1);
   lcd.print("CP&Rajat&Harshit");
   Serial.begin(9600); // for serial monitor
-  SIM900.begin(19200); // for GSM shield
+  SIM900.begin(9600); // for GSM shield
   SIM900power();  // turn on shield
   delay(10000);  // give time to log on to network.
  
@@ -78,7 +77,7 @@ int gsm_read()
   while(SIM900.available() > 0)
   {
     incoming_char=SIM900.read(); //Get the character from the cellular serial port.
-    Serial.print(incoming_char); //Print the incoming character to the terminal.
+    //Serial.print(incoming_char); //Print the incoming character to the terminal.
    if(incoming_char == '@')
    {
       msg=1;
@@ -89,15 +88,18 @@ int gsm_read()
       {     
         incoming_char=SIM900.read(); //Get the character from the cellular serial port.
         Serial.print(incoming_char); //Print the incoming character to the terminal.
+      Serial.print(",");
          if(incoming_char > 127)
          {
            input[count] ='\0';
+           Serial.println("return");
            return 0;
          }
            input[count] = incoming_char; // Read 1 Byte of data and store it in a character variable
            count++; // Increment the Byte count after every Byte Read 
        if(incoming_char == '*')
        {
+         Serial.println("star");
          msg=0;
          input[count-1] ='\0';
        }
