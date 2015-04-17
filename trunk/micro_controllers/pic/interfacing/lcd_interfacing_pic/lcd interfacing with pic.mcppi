@@ -33,11 +33,14 @@ Count=0
 [OTHER_FILES]
 Count=0
 [SEARCH_PATH]
-Count=4
-Path0=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\defs\
-Path1=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\
-Path2=E:\celabcode\Embedded-Projects\project_codes\pic\lcd_interfacing_pic\
-Path3=E:\celabcode\Embedded-Projects\project_codes\pic\push_switch\lcd_interfacing_pic\
+Count=7
+Path0=G:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\defs\
+Path1=G:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\
+Path2=G:\Celabcode\embedded-projects\micro_controllers\pic\interfacing\lcd_interfacing_pic\
+Path3=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\defs\
+Path4=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Uses\P16\
+Path5=E:\celabcode\Embedded-Projects\project_codes\pic\lcd_interfacing_pic\
+Path6=E:\celabcode\Embedded-Projects\project_codes\pic\push_switch\lcd_interfacing_pic\
 [HEADER_PATH]
 Count=0
 [HEADERS]
