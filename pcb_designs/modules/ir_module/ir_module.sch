@@ -7597,9 +7597,9 @@ Source: www.kingbright.com</description>
 <part name="IC1" library="st-microelectronics" deviceset="NE555" device="" value="358"/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="VR" library="resistor" deviceset="R-TRIMM" device="64P" value="50k"/>
-<part name="BLACKIR" library="led" deviceset="LED" device="5MM" value="5mm"/>
+<part name="WHITE" library="led" deviceset="LED" device="5MM" value="5mm"/>
 <part name="SL1" library="con-amp-quick" deviceset="M03" device=""/>
-<part name="LED2" library="led" deviceset="LED" device="5MM" value="5mm"/>
+<part name="BLACK" library="led" deviceset="LED" device="5MM" value="5mm"/>
 <part name="LED3" library="led" deviceset="LED" device="5MM" value="5mm"/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
 <part name="R6" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
@@ -7613,9 +7613,9 @@ Source: www.kingbright.com</description>
 <instance part="IC1" gate="G$1" x="53.34" y="45.72"/>
 <instance part="R1" gate="G$1" x="101.6" y="40.64" rot="R180"/>
 <instance part="VR" gate="G$1" x="33.02" y="48.26"/>
-<instance part="BLACKIR" gate="G$1" x="76.2" y="40.64"/>
+<instance part="WHITE" gate="G$1" x="76.2" y="40.64"/>
 <instance part="SL1" gate="G$1" x="22.86" y="86.36" rot="R270"/>
-<instance part="LED2" gate="G$1" x="68.58" y="35.56"/>
+<instance part="BLACK" gate="G$1" x="68.58" y="35.56"/>
 <instance part="LED3" gate="G$1" x="91.44" y="40.64" rot="R270"/>
 <instance part="R5" gate="G$1" x="76.2" y="48.26" rot="R270"/>
 <instance part="R6" gate="G$1" x="68.58" y="48.26" rot="R270"/>
@@ -7661,13 +7661,13 @@ Source: www.kingbright.com</description>
 <net name="N$5" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
-<pinref part="BLACKIR" gate="G$1" pin="A"/>
+<pinref part="WHITE" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
-<pinref part="LED2" gate="G$1" pin="A"/>
+<pinref part="BLACK" gate="G$1" pin="A"/>
 <wire x1="68.58" y1="38.1" x2="68.58" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="40.64" x2="68.58" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="43.18" x2="66.04" y2="40.64" width="0.1524" layer="91"/>
@@ -7697,10 +7697,10 @@ Source: www.kingbright.com</description>
 </net>
 <net name="N$11" class="0">
 <segment>
-<pinref part="BLACKIR" gate="G$1" pin="C"/>
+<pinref part="WHITE" gate="G$1" pin="C"/>
 <wire x1="76.2" y1="30.48" x2="76.2" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="30.48" x2="76.2" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="LED2" gate="G$1" pin="C"/>
+<pinref part="BLACK" gate="G$1" pin="C"/>
 <junction x="68.58" y="30.48"/>
 <pinref part="VR" gate="G$1" pin="E"/>
 <wire x1="33.02" y1="43.18" x2="33.02" y2="30.48" width="0.1524" layer="91"/>
