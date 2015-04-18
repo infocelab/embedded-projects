@@ -48,10 +48,10 @@
   delay(7000);
 }
  
-char lat[12]={"7400.39N"};
+char lat[12]={"28.4709161N"};
 int lat_count=0;
 
-char lon[12]={"2877.45E"};;
+char lon[20]={"77.5031764000000E"};;
 int lon_count=0;
 int loop_count=0;
 void sendSMS()
@@ -59,17 +59,21 @@ void sendSMS()
  Serial.println("sending sms");
   SIM900.print("AT+CMGF=1\r");                                                        // AT command to send SMS message
   delay(100);
-  SIM900.println("AT+CMGS=\"+918744875349\"\r");                                     // recipient's mobile number, in international format
+  SIM900.println("AT+CMGS=\"+917827855025\"\r");                                     // recipient's mobile number, in international format
   delay(100);
 
   SIM900.print("Latitude:");        // message to send
+  Serial.print("Latitude: ");
   delay(100);
   SIM900.print(lat);        // message to send
+  Serial.println(lat);
   delay(100);
 
   SIM900.print("Longitude:");        // message to send
+  Serial.print("Longitude: ");
   delay(100);
   SIM900.print(lon);        // message to send
+   Serial.println(lon);
   delay(100);
   
   SIM900.println((char)26);                       // End AT command with a ^Z, ASCII code 26
