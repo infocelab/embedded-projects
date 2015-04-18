@@ -1,58 +1,21 @@
-/*
- Example code for connecting a Parallax GPS module to the Arduino
- Igor Gonzalez Martin. 05-04-2007
- igor.gonzalez.martin@gmail.com
- English translation by djmatic 19-05-2007
- Listen for the $GPRMC string and extract the GPS location data from this.
- Display the result in the Arduino's serial monitor.
- */ 
- #include <string.h>
- #include <ctype.h>
- #include <SoftwareSerial.h>
- SoftwareSerial SIM900(2, 3);
- SoftwareSerial GPS(4,5);
- char incoming_char=0;
- int vib_sensor = A0;
- int ledPin = 13;                  // LED test pin
- int byteGPS=-1;
- char linea[300] = "";
- char comandoGPR[7] = "$GPRMC";
- int cont=0;
- int bien=0;
- int conta=0;
- int indices[13];
- void setup() {
-    SIM900.begin(9600); // for GSM shield
-    GPS.begin(9600); // for GPS shield
-  SIM900power();  // turn on shield
-  delay(20000);  // give time to log on to network.
-    SIM900.print("AT+CMGF=1\r");  // set SMS mode to text
-  delay(100);
-  SIM900.print("AT+CNMI=2,2,0,0,0\r"); 
-  // blurt out contents of new SMS upon receipt to the GSM shield's serial out
-  delay(100);
-   pinMode(ledPin, OUTPUT);       // Initialize LED pin
-   Serial.begin(9600);
-   for (int i=0;i<300;i++){       // Initialize a buffer for received data
-     linea[i]=' ';
-   }   
- }
- 
- void SIM900power()
-// software equivalent of pressing the GSM shield "power" button
-{
-  digitalWrite(9, HIGH);
-  delay(1000);
-  digitalWrite(9, LOW);
-  delay(7000);
-}
- 
-char lat[12]={"7400.39N"};
-int lat_count=0;
+#include <SoftwareSerial.h>
+SoftwareSerial SIM900(2, 3);
+SoftwareSerial GPS(11,12);
+#define vibrate_sense A0
 
-char lon[12]={"2877.45E"};;
-int lon_count=0;
-int loop_count=0;
+char str[70];
+char *test="$GPGGA";      
+char logitude[10];
+char latitude[10];
+int i=0,j=0,k=0;
+
+long TP_init()
+{
+   delay(10);
+   long measurement=pulseIn (vibrate_sense, HIGH);  //wait for the pin to get HIGH and returns measurement
+   return measurement;
+}
+   
 void sendSMS()
 {
  Serial.println("sending sms");
@@ -62,115 +25,85 @@ void sendSMS()
   delay(100);
 
   SIM900.print("Latitude:");        // message to send
+  Serial.print("Latitude:");
   delay(100);
-  SIM900.print(lat);        // message to send
+  SIM900.print(latitude);        // message to send
+  Serial.println(latitude);
   delay(100);
 
   SIM900.print("Longitude:");        // message to send
+  Serial.print("Longitude:");
   delay(100);
-  SIM900.print(lon);        // message to send
+  SIM900.print(logitude);        // message to send
+  Serial.println(logitude);
   delay(100);
   
   SIM900.println((char)26);                       // End AT command with a ^Z, ASCII code 26
   delay(2000); 
   SIM900.println();
   delay(5000);                                     // give module time to send SMS
-  SIM900power();                                   // turn off module
+
 }
 
- void loop() {
-   byteGPS=GPS.read();         // Read a byte of the serial port
-   if (byteGPS == -1) {           // See if the port is empty yet
-     delay(100); 
-   } else {
-     linea[conta]=byteGPS;        // If there is serial port data, it is put in the buffer
-     conta++; 
-     //Serial.write(byteGPS); 
-     if (byteGPS==13){            // If the received byte is = to 13, end of transmission
-       // note: the actual end of transmission is <CR><LF> (i.e. 0x13 0x10)
-       digitalWrite(ledPin, LOW); 
-       cont=0;
-       bien=0;
-       // The following for loop starts at 1, because this code is clowny and the first byte is the <LF> (0x10) from the previous transmission.
-       for (int i=1;i<7;i++){     // Verifies if the received command starts with $GPR
-         if (linea[i]==comandoGPR[i-1]){
-           bien++;
-         }
-       }
-       if(bien==6){               // If yes, continue and process the data
-         for (int i=0;i<300;i++){
-           if (linea[i]==','){    // check for the position of the  "," separator
-             // note: again, there is a potential buffer overflow here!
-             indices[cont]=i;
-             cont++;
-           }
-           if (linea[i]=='*'){    // ... and the "*"
-             indices[12]=i;
-             cont++;
-           }
-         }
-        // Serial.println("");      // ... and write to the serial port
-        // Serial.println("");
-         Serial.println("---------------");
-         Serial.println(loop_count++);
-             
-         for (int i=0;i<12;i++){
-           switch(i){
-             //case 0 :Serial.print("Time in UTC (HhMmSs): ");break;
-             //case 1 :Serial.print("Status (A=OK,V=KO): ");break;
-             case 2 :Serial.print("Latitude: ");
-               for (int j=indices[i];j<(indices[i+1]-1);j++){
-            // Serial.print(linea[j+1]);
-             lat[lat_count++]=linea[j+1];  
-             }
-             break;
-             case 3 :Serial.print("Direction (N/S): ");
-                for (int j=indices[i];j<(indices[i+1]-1);j++){
-            // Serial.print(linea[j+1]);
-             lat[lat_count++]=linea[j+1];  
-             }
-                for (int j=0;j<lat_count;j++){
-             Serial.print(lat[j]); 
-           }
-           lat_count=0;
-           break;
-             case 4 :Serial.print("Longitude: ");
-                    for (int j=indices[i];j<(indices[i+1]-1);j++){
-            // Serial.print(linea[j+1]);
-             lon[lon_count++]=linea[j+1];  
-             }
-             break;
-             case 5 :Serial.print("Direction (E/W): ");
-             for (int j=indices[i];j<(indices[i+1]-1);j++){
-            // Serial.print(linea[j+1]);
-             lon[lon_count++]=linea[j+1];  
-             }
-                for (int j=0;j<lat_count;j++){
-             Serial.print(lon[j]); 
-           }
-            lon_count=0;
-           if(analogRead(A0) > 1000)
-           {
-              sendSMS();
-           delay(5000);
-           }
-             break;
-             //case 6 :Serial.print("Velocity in knots: ");break;
-             //case 7 :Serial.print("Heading in degrees: ");break;
-             //case 8 :Serial.print("Date UTC (DdMmAa): ");break;
-             //case 9 :Serial.print("Magnetic degrees: ");break;
-             //case 10 :Serial.print("(E/W): ");break;
-             //case 11 :Serial.print("Mode: ");break;
-             //case 12 :Serial.print("Checksum: ");break;
-           }
-           Serial.println("");
-         }
-         Serial.println("---------------");
-       }
-       conta=0;                    // Reset the buffer
-       for (int i=0;i<300;i++){    //  
-         linea[i]=' ';             
-       }                 
+
+void setup()
+{
+   SIM900.begin(9600); // for GSM shield
+   GPS.begin(9600); // for GPS shield
+   delay(20000);  // give time to log on to network.
+   SIM900.print("AT+CMGF=1\r");  // set SMS mode to text
+   delay(100);
+   SIM900.print("AT+CNMI=2,2,0,0,0\r"); 
+   // blurt out contents of new SMS upon receipt to the GSM shield's serial out
+   delay(100);
+   Serial.begin(9600);
+   pinMode(vibrate_sense, INPUT);
+   delay(3000);
+}
+
+void loop()
+{
+  serialEvent();
+  long measurement =TP_init();
+  Serial.println(measurement);
+  if (measurement >= 1000)
+  {
+    j=0;
+    for(i=18;i<27;i++)          //extract latitude from string
+    {
+      latitude[j]=str[i];
+      j++;
+    }
+    k=0;
+    for(i=30;i<40;i++)          //extract longitude from string
+    {
+      logitude[k]=str[i];
+      k++;
+    }
+    sendSMS();
+    delay(5000);
+  }
+}
+
+void serialEvent()
+{
+  while (GPS.available())            //Serial incomming data from GPS
+  {
+    char inChar = (char)GPS.read();
+     str[i]= inChar;                    //store incomming data from GPS to temparary string str[]
+     i++;
+     if (i < 7)                      
+     {
+      if(str[i-1] != test[i-1])         //check for right string
+      {
+        i=0;
+      }
      }
-   }
- }
+    if(i >=60)
+    {
+     break;
+    }
+  }
+}
+
+ 
