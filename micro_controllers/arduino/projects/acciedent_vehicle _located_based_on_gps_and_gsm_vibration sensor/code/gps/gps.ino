@@ -1,5 +1,5 @@
 #include <SoftwareSerial.h>
-SoftwareSerial SIM900(2, 3);
+SoftwareSerial mySerial(2, 3);
 SoftwareSerial GPS(11,12);
 #define vibrate_sense A0
 
@@ -16,44 +16,43 @@ long TP_init()
    return measurement;
 }
    
-void sendSMS()
+ void SendMessage()
 {
- Serial.println("sending sms");
-  SIM900.print("AT+CMGF=1\r");                                                        // AT command to send SMS message
-  delay(100);
-  SIM900.println("AT+CMGS=\"+917503021151\"\r");                                     // recipient's mobile number, in international format
-  delay(100);
-
-  SIM900.print("Latitude:");        // message to send
+  mySerial.println("AT+CMGF=1");    //Sets the GSM Module in Text Mode
+  delay(1000);  // Delay of 1000 milli seconds or 1 second
+  mySerial.println("AT+CMGS=\"+917827855025\"\r"); // Replace x with mobile number
+  delay(1000);
+   Serial.println("sending sms");
+  mySerial.print("Latitude:");        // message to send
   Serial.print("Latitude:");
   delay(100);
-  SIM900.print(latitude);        // message to send
+  mySerial.print(latitude);        // message to send
   Serial.println(latitude);
   delay(100);
 
-  SIM900.print("Longitude:");        // message to send
+  mySerial.print("Longitude:");        // message to send
   Serial.print("Longitude:");
   delay(100);
-  SIM900.print(logitude);        // message to send
+ mySerial.print(logitude);        // message to send
   Serial.println(logitude);
   delay(100);
   
-  SIM900.println((char)26);                       // End AT command with a ^Z, ASCII code 26
-  delay(2000); 
-  SIM900.println();
-  delay(5000);                                     // give module time to send SMS
+  mySerial.println((char)26);// ASCII code of CTRL+Z
+  delay(1000);                                    // give module time to send SMS
 
 }
 
 
 void setup()
 {
-   SIM900.begin(9600); // for GSM shield
+  mySerial.begin(9600);   // Setting the baud rate of GSM Module  
+  Serial.begin(9600);    // Setting the baud rate of Serial Monitor (Arduino)
+  delay(100);
    GPS.begin(9600); // for GPS shield
    delay(20000);  // give time to log on to network.
-   SIM900.print("AT+CMGF=1\r");  // set SMS mode to text
+    mySerial.print("AT+CMGF=1");  // set SMS mode to text
    delay(100);
-   SIM900.print("AT+CNMI=2,2,0,0,0\r"); 
+  mySerial.print("AT+CNMI=2,2,0,0,0\r"); 
    // blurt out contents of new SMS upon receipt to the GSM shield's serial out
    delay(100);
    Serial.begin(9600);
@@ -80,7 +79,7 @@ void loop()
       logitude[k]=str[i];
       k++;
     }
-    sendSMS();
+     SendMessage();
     delay(5000);
   }
 }
