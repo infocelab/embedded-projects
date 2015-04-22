@@ -4,18 +4,31 @@
     int ledPin = 7;
     int ref_value1=0;
     int ref_value2=0;
+    int ref_value3=0;
+    int ref_value4=0;
+
     // Sensors 
 
    int Sensor1Data;
    int Sensor2Data;
+   int Sensor3Data;
+   int Sensor4Data;
+
    int motor1_input1=8;
    int motor1_input2=9;
-   int motor2_input3=10;
-   int motor2_input4=12;
+   int motor2_input1=10;
+   int motor2_input2=12;
+   int motor3_input1=8;
+   int motor3_input2=9;
+   int motor4_input1=10;
+   int motor4_input2=12;
+
    char AllCharMsg[32];
    // RF Transmission container
    char Sensor1CharMsg[4];
    char Sensor2CharMsg[4]; 
+   char Sensor3CharMsg[4];
+   char Sensor4CharMsg[4]; 
 
    void setup() 
     {
@@ -25,13 +38,23 @@
     pinMode(ledPin, OUTPUT);   
     pinMode(motor1_input1, OUTPUT); 
     pinMode(motor1_input2, OUTPUT);      
-    pinMode(motor2_input3, OUTPUT);      
-    pinMode(motor2_input4, OUTPUT); 
+    pinMode(motor2_input1, OUTPUT);      
+    pinMode(motor2_input2, OUTPUT); 
+ 
+    pinMode(motor3_input1, OUTPUT); 
+    pinMode(motor3_input2, OUTPUT);      
+    pinMode(motor4_input1, OUTPUT);      
+    pinMode(motor4_input2, OUTPUT); 
+ 
   
   digitalWrite(motor1_input1, LOW); 
   digitalWrite(motor1_input2, LOW);    
-  digitalWrite(motor2_input3, LOW);    
-  digitalWrite(motor2_input4, LOW);    
+  digitalWrite(motor2_input1, LOW);    
+  digitalWrite(motor2_input2, LOW);    
+  digitalWrite(motor3_input1, LOW); 
+  digitalWrite(motor3_input2, LOW);    
+  digitalWrite(motor4_input1, LOW);    
+  digitalWrite(motor4_input2, LOW);    
     
     // VirtualWire 
     // Initialise the IO and ISR
@@ -85,6 +108,10 @@
             Sensor1Data = atoi(command);
             ++separator;
             Sensor2Data = atoi(separator);
+            ++separator;
+            Sensor3Data = atoi(separator);
+            ++separator;
+            Sensor4Data = atoi(separator);
 
           // Do something with servoId and position
         }
@@ -98,6 +125,11 @@
         Serial.println(Sensor1Data);
          Serial.print("Sensor 2: ");
         Serial.println(Sensor2Data);
+          Serial.print("Sensor 3: ");
+        Serial.println(Sensor3Data);
+         Serial.print("Sensor 4: ");
+        Serial.println(Sensor4Data);
+     
         digitalWrite(7, false);
         if(abs(Sensor1Data - ref_value1) > 10)
         {
@@ -105,14 +137,14 @@
           {
             rotate_motor1_right();
             delay(3000);
-            motor_stop();
+            motor1_stop();
             ref_value1=Sensor1Data;
           }
           else if(Sensor1Data<ref_value1)
           {
             rotate_motor1_left();
             delay(3000);
-            motor_stop();
+            motor1_stop();
             ref_value1=Sensor1Data;
           }
         }      
@@ -122,57 +154,133 @@
           {
             rotate_motor2_right();
             delay(3000);
-            motor_stop();
+            motor2_stop();
             ref_value2=Sensor2Data;
           }
           else if(Sensor2Data<ref_value2)
           {
             rotate_motor2_left();
             delay(3000);
-            motor_stop();
+            motor2_stop();
             ref_value2=Sensor2Data;
           }
         }
-        
-    }
+     
+     
+        if(abs(Sensor3Data - ref_value3) > 10)
+        {
+          if(Sensor3Data>ref_value3)
+          {
+            rotate_motor3_right();
+            delay(3000);
+            motor3_stop();
+            ref_value3=Sensor3Data;
+          }
+          else if(Sensor3Data<ref_value3)
+          {
+            rotate_motor3_left();
+            delay(3000);
+            motor3_stop();
+            ref_value3=Sensor3Data;
+          }
+        }      
+        if(abs(Sensor4Data - ref_value4) > 10)
+        {
+          if(Sensor4Data>ref_value4)
+          {
+            rotate_motor4_right();
+            delay(3000);
+            motor4_stop();
+            ref_value4=Sensor4Data;
+          }
+          else if(Sensor4Data<ref_value4)
+          {
+            rotate_motor4_left();
+            delay(3000);
+            motor4_stop();
+            ref_value4=Sensor4Data;
+          }
+        }
+     }
 }
+
 void rotate_motor1_left()
 {
  digitalWrite(motor1_input1, HIGH); 
  digitalWrite(motor1_input2, LOW); 
- digitalWrite(motor2_input3, LOW); 
- digitalWrite(motor2_input4, LOW); 
  delay(1000);
 }
 void rotate_motor1_right()
 {
  digitalWrite(motor1_input1, LOW); 
  digitalWrite(motor1_input2, HIGH); 
- digitalWrite(motor2_input3, LOW); 
- digitalWrite(motor2_input4, LOW); 
  delay(1000);
  }
  void rotate_motor2_left()
 {
- digitalWrite(motor1_input1, LOW); 
- digitalWrite(motor1_input2, LOW); 
- digitalWrite(motor2_input3, HIGH); 
- digitalWrite(motor2_input4, LOW); 
+ digitalWrite(motor2_input1, HIGH); 
+ digitalWrite(motor2_input2, LOW); 
  delay(1000);
 }
 void rotate_motor2_right()
 {
- digitalWrite(motor1_input1, LOW); 
- digitalWrite(motor1_input2, LOW); 
- digitalWrite(motor2_input3, LOW); 
- digitalWrite(motor2_input4, HIGH); 
+ digitalWrite(motor2_input1, LOW); 
+ digitalWrite(motor2_input2, HIGH); 
  delay(1000);
  }
- void motor_stop()
+ 
+ 
+ 
+void rotate_motor3_left()
+{
+ digitalWrite(motor3_input1, HIGH); 
+ digitalWrite(motor3_input2, LOW); 
+ delay(1000);
+}
+void rotate_motor3_right()
+{
+ digitalWrite(motor3_input1, LOW); 
+ digitalWrite(motor3_input2, HIGH); 
+ delay(1000);
+ }
+ void rotate_motor4_left()
+{
+ digitalWrite(motor4_input1, HIGH); 
+ digitalWrite(motor4_input2, LOW); 
+ delay(1000);
+}
+void rotate_motor4_right()
+{
+ digitalWrite(motor4_input1, LOW); 
+ digitalWrite(motor4_input2, HIGH); 
+ delay(1000);
+ }
+ 
+ void motor1_stop()
 {
  digitalWrite(motor1_input1, LOW); 
  digitalWrite(motor1_input2, LOW); 
- digitalWrite(motor2_input3, LOW); 
- digitalWrite(motor2_input4, LOW); 
+ delay(1000);
+}
+
+ void motor2_stop()
+{
+ digitalWrite(motor2_input1, LOW); 
+ digitalWrite(motor2_input2, LOW); 
+ delay(1000);
+}
+
+
+ void motor3_stop()
+{
+ digitalWrite(motor3_input1, LOW); 
+ digitalWrite(motor3_input2, LOW); 
+ delay(1000);
+}
+
+ void motor4_stop()
+{
+ digitalWrite(motor4_input1, LOW); 
+ digitalWrite(motor4_input2, LOW); 
  delay(1000);
 }
