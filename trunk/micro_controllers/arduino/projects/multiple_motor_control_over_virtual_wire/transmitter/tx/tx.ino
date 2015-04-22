@@ -2,7 +2,7 @@
 
     // LED's
      const int ledPin = 7;
-
+     
      // Sensors 
      const int Sensor1Pin = A0;
      const int Sensor2Pin = A1;
@@ -11,6 +11,7 @@
      String AllCharMsg;
      char Sensor1CharMsg[4];
      char Sensor2CharMsg[4];  
+char arr[32];
 
     void setup()
        {
@@ -52,11 +53,11 @@
       Serial.println(" ");
       delay(1000);
      // END DEBUG
- 
-    AllCharMsg = (String)Sensor1CharMsg + (String)Sensor2CharMsg;
     
+    AllCharMsg = (String)Sensor1CharMsg + (String)',' + (String)Sensor2CharMsg;
+    AllCharMsg.StringToCharArray(arr,32);
     digitalWrite(7, true); // Turn on a light to show transmitting
-    vw_send((uint8_t *)AllCharMsg, strlen(AllCharMsg));
+    vw_send((uint8_t *)arr, strlen(arr));
     vw_wait_tx(); // Wait until the whole message is gone
     digitalWrite(7, false); // Turn off a light after transmission
     delay(200); 
