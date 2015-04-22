@@ -60,7 +60,8 @@ void loop()
      String stringOne(str);
      Serial.println("!!!!!!");
      Serial.print(stringOne);
-     int no1 = stringOne.indexOf("7503021151", 1 );
+     int no1=-1;
+     no1 = stringOne.indexOf("7503021151", 1 );
      if (no1 > 0) {
      Serial.print("==================================");
      if(g1 == 1)
@@ -79,7 +80,8 @@ void loop()
      }
      delay(3000);
    }
-     int no2 = stringOne.indexOf("8802038023", 1 );
+     int no2=-1;
+     no2 = stringOne.indexOf("8802038023", 1 );
      if (no2 > 0) {
      Serial.print("==================================");
      if(g2 == 1)
@@ -100,8 +102,8 @@ void loop()
    }
    
    
-   
-     int no3 = stringOne.indexOf("7503021151", 1 );
+     int no3=-1;
+     no3 = stringOne.indexOf("7503021151", 1 );
      if (no3 > 0) {
      Serial.print("==================================");
      if(g3 == 1)
@@ -121,7 +123,14 @@ void loop()
      delay(3000);
    }
  
-   
+   if(no1 == -1 && no2 == -1 && no3 == -1)
+   {
+       lcd.clear();
+       lcd.setCursor(0, 0);
+       lcd.print("UnRegistered No.");
+       delay(3000);
+       i=lenth;  
+   }
     while(i<lenth)
     {   
      if(str[i]=='*')
