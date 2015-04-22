@@ -2,7 +2,7 @@
 
     // LED's
     int ledPin = 7;
-    const int ref_value=440;
+    const int ref_value1=0;
    // Sensors 
    int Sensor1Data;
    int motor1_input1=8;
@@ -74,16 +74,19 @@
         Serial.print("Sensor 1: ");
         Serial.println(Sensor1Data);
         digitalWrite(7, false);
-        if(Sensor1Data>=ref_value)
+        if(Sensor1Data>ref_value1)
         {
           rotate_motor1_right();
-          delay(1000);
-        }
-        else if(Sensor1Data<ref_value)
-        {
+          delay(3000);
           motor_stop();
+          ref_value1=Sensor1Data;
+        }
+        else if(Sensor1Data<ref_value1)
+        {
           rotate_motor1_left();
-          delay(1000);
+          delay(3000);
+          motor_stop();
+          ref_value1=Sensor1Data;
         }
         
     }
