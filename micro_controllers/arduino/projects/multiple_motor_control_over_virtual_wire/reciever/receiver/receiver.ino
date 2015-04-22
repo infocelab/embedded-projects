@@ -115,8 +115,8 @@
             motor_stop();
             ref_value1=Sensor1Data;
           }
-        
-          else if(abs(Sensor2Data - ref_value2) > 10)
+        }      
+        if(abs(Sensor2Data - ref_value2) > 10)
         {
           if(Sensor2Data>ref_value2)
           {
@@ -133,7 +133,7 @@
             ref_value2=Sensor2Data;
           }
         }
-        }
+        
     }
 }
 void rotate_motor1_left()
