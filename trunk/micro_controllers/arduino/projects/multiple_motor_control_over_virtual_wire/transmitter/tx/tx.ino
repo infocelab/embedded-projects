@@ -8,7 +8,7 @@
      const int Sensor2Pin = A1;
      int Sensor1Data;
      int Sensor2Data;
-     
+     String AllCharMsg;
      char Sensor1CharMsg[4];
      char Sensor2CharMsg[4];  
 
@@ -53,9 +53,10 @@
       delay(1000);
      // END DEBUG
  
+    AllCharMsg = Sensor1CharMsg + Sensor2CharMsg;
+    
     digitalWrite(7, true); // Turn on a light to show transmitting
-    vw_send((uint8_t *)Sensor1CharMsg, strlen(Sensor1CharMsg));
-    vw_send((uint8_t *)Sensor2CharMsg, strlen(Sensor2CharMsg));
+    vw_send((uint8_t *)AllCharMsg, strlen(AllCharMsg));
     vw_wait_tx(); // Wait until the whole message is gone
     digitalWrite(7, false); // Turn off a light after transmission
     delay(200); 
