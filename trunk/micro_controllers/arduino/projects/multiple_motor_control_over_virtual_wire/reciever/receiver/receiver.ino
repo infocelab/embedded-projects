@@ -74,19 +74,22 @@
         Serial.print("Sensor 1: ");
         Serial.println(Sensor1Data);
         digitalWrite(7, false);
-        if(Sensor1Data>ref_value1)
+        if(abs(Sensor1Data - ref_value1) > 10)
         {
-          rotate_motor1_right();
-          delay(3000);
-          motor_stop();
-          ref_value1=Sensor1Data;
-        }
-        else if(Sensor1Data<ref_value1)
-        {
-          rotate_motor1_left();
-          delay(3000);
-          motor_stop();
-          ref_value1=Sensor1Data;
+          if(Sensor1Data>ref_value1)
+          {
+            rotate_motor1_right();
+            delay(3000);
+            motor_stop();
+            ref_value1=Sensor1Data;
+          }
+          else if(Sensor1Data<ref_value1)
+          {
+            rotate_motor1_left();
+            delay(3000);
+            motor_stop();
+            ref_value1=Sensor1Data;
+          }
         }
         
     }
