@@ -6,7 +6,7 @@
      // Sensors 
      const int Sensor1Pin = A0;
      int Sensor1Data;
-     //int Sensor2Data;
+     
     char Sensor1CharMsg[4]; 
 
     void setup()
