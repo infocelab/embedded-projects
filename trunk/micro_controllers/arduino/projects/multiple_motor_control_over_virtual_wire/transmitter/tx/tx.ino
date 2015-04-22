@@ -53,7 +53,7 @@
       delay(1000);
      // END DEBUG
  
-    AllCharMsg = Sensor1CharMsg + Sensor2CharMsg;
+    AllCharMsg = (String)Sensor1CharMsg + (String)Sensor2CharMsg;
     
     digitalWrite(7, true); // Turn on a light to show transmitting
     vw_send((uint8_t *)AllCharMsg, strlen(AllCharMsg));
