@@ -2,8 +2,13 @@
 
     // LED's
     int ledPin = 7;
+    const int ref_value=440;
    // Sensors 
    int Sensor1Data;
+   int motor1_input1=8;
+   int motor1_input2=9;
+   int motor1_input3=10;
+   int motor1_input4=12;
 
    // RF Transmission container
    char Sensor1CharMsg[4]; 
@@ -13,7 +18,16 @@
     Serial.begin(9600);
   
     // sets the digital pin as output
-    pinMode(ledPin, OUTPUT);      
+    pinMode(ledPin, OUTPUT);   
+    pinMode(motor1_input1, OUTPUT); 
+    pinMode(motor1_input2, OUTPUT);      
+    pinMode(motor1_input3, OUTPUT);      
+    pinMode(motor1_input4, OUTPUT); 
+  
+  digitalWrite(motor1_input1, LOW); 
+  digitalWrite(motor1_input2, LOW);    
+  digitalWrite(motor1_input3, LOW);    
+  digitalWrite(motor1_input4, LOW);    
     
     // VirtualWire 
     // Initialise the IO and ISR
@@ -59,10 +73,42 @@
         // DEBUG 
         Serial.print("Sensor 1: ");
         Serial.println(Sensor1Data);
-        
-        // END DEBUG
-                
-        // Turn off light to and await next message 
         digitalWrite(7, false);
+        if(Sensor1Data>=ref_value)
+        {
+          rotate_motor1_right();
+          delay(1000);
+        }
+        else if(Sensor1Data<ref_value)
+        {
+          motor_stop();
+          rotate_motor1_left();
+          delay(1000);
+        }
+        
     }
+}
+void rotate_motor1_left()
+{
+ digitalWrite(motor1_input1, HIGH); 
+ digitalWrite(motor1_input2, LOW); 
+ digitalWrite(motor1_input3, LOW); 
+ digitalWrite(motor1_input4, LOW); 
+ delay(1000);
+}
+void rotate_motor1_right()
+{
+ digitalWrite(motor1_input1, LOW); 
+ digitalWrite(motor1_input2, HIGH); 
+ digitalWrite(motor1_input3, LOW); 
+ digitalWrite(motor1_input4, LOW); 
+ delay(1000);
+ }
+ void motor_stop()
+{
+ digitalWrite(motor1_input1, LOW); 
+ digitalWrite(motor1_input2, LOW); 
+ digitalWrite(motor1_input3, LOW); 
+ digitalWrite(motor1_input4, LOW); 
+ delay(1000);
 }
