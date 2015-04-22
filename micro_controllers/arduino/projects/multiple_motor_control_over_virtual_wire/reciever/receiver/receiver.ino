@@ -5,13 +5,14 @@
     int ref_value1=0;
     int ref_value2=0;
     // Sensors 
+
    int Sensor1Data;
    int Sensor2Data;
    int motor1_input1=8;
    int motor1_input2=9;
    int motor2_input3=10;
    int motor2_input4=12;
-
+   char AllCharMsg[32];
    // RF Transmission container
    char Sensor1CharMsg[4];
    char Sensor2CharMsg[4]; 
@@ -61,18 +62,36 @@
          {            
           // Fill Sensor1CharMsg Char array with corresponding 
           // chars from buffer.   
-          Sensor1CharMsg[i] = char(buf[i]);
+          AllCharMsg[i] = char(buf[i]);
          }
+        
         
         // Null terminate the char array
         // This needs to be done otherwise problems will occur
         // when the incoming messages has less digits than the
         // one before. 
-        Sensor1CharMsg[buflen] = '\0';
+        AllCharMsg[buflen] = '\0';
         
-        // Convert Sensor1CharMsg Char array to integer
-        Sensor1Data = atoi(Sensor1CharMsg);
-        Sensor2Data = atoi(Sensor2CharMsg);
+        // Read each command pair 
+        char* command = strtok(AllCharMsg, "&");
+        while (command != 0)
+        {
+          // Split the command in two values
+          char* separator = strchr(command, ',');
+          if (separator != 0)
+          {
+            // Actually split the string in 2: replace ':' with 0
+            *separator = 0;
+            Sensor1Data = atoi(command);
+            ++separator;
+            Sensor2Data = atoi(separator);
+
+          // Do something with servoId and position
+        }
+        // Find the next command in input string
+        command = strtok(0, "&");
+      }
+
         
         // DEBUG 
         Serial.print("Sensor 1: ");
