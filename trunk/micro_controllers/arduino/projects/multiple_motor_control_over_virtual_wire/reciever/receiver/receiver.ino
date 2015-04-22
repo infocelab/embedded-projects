@@ -2,7 +2,7 @@
 
     // LED's
     int ledPin = 7;
-    const int ref_value1=0;
+    int ref_value1=0;
    // Sensors 
    int Sensor1Data;
    int motor1_input1=8;
