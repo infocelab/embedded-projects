@@ -54,8 +54,8 @@ char arr[32];
       delay(1000);
      // END DEBUG
     
-    AllCharMsg = (String)Sensor1CharMsg + (String)',' + (String)Sensor2CharMsg;
-    AllCharMsg.StringToCharArray(arr,32);
+    AllCharMsg = (String)Sensor1CharMsg + (String)',' + (String)Sensor2CharMsg + (String)'&';
+    AllCharMsg.toCharArray(arr,32);
     digitalWrite(7, true); // Turn on a light to show transmitting
     vw_send((uint8_t *)arr, strlen(arr));
     vw_wait_tx(); // Wait until the whole message is gone
