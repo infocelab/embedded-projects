@@ -1,42 +1,42 @@
-C51 COMPILER V9.53.0.0   804ADC                                                            04/23/2015 09:22:16 PAGE 1   
+C51 COMPILER V9.52.0.0   804ADC                                                            04/14/2015 15:10:21 PAGE 1   
 
 
-C51 COMPILER V9.53.0.0, COMPILATION OF MODULE 804ADC
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 804ADC
 OBJECT MODULE PLACED IN 804adc.OBJ
-COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE 804adc.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE 804adc.c BROWSE DEBUG OBJECTEXTEND TABS(2)
 
 line level    source
 
-   1          #include <REGX52.H>                                                                     //Header file
+   1          #include <REGX52.H>                 //Header file
    2          #include<string.h>
-   3          sbit RS=P3^7;                                                                           //RS pin of LCD is connected with 8th pin of Port 3
-   4          sbit EN=P3^6;                                                                           //EN pin of LCD is connected with 7th pin of Port 3
-   5          sbit wr=P3^5;                                                                           //Wr pin of ADC is connected with 6th pin of Port 3
-   6          #define LCD P2                                                                          //Lcd is connected with PORT 2
-   7          #define Temp P1                                                                         //ADC is connected with PORT 1
+   3          sbit RS=P0^0;                   //RS pin of LCD is connected with 8th pin of Port 3
+   4          sbit EN=P0^1;                   //EN pin of LCD is connected with 7th pin of Port 3
+   5          sbit wr=P0^5;                   //Wr pin of ADC is connected with 6th pin of Port 3
+   6          #define LCD P2                    //Lcd is connected with PORT 2
+   7          #define Temp P1                   //ADC is connected with PORT 1
    8          unsigned char d;
-   9          void delay(unsigned int x)                                                      // Delay program
+   9          void delay(unsigned int x)              // Delay program
   10          {
   11   1      unsigned int i,j;
   12   1      for(i=0;i<=x;i++)
   13   1      for(j=0;j<=100;j++);
   14   1      }
-  15          void cmd(unsigned char x)                                                  //Command function for Lcd to send commands from Microcontroller
-  16          {                                                                                                  // RS pin of Lcd should be low
+  15          void cmd(unsigned char x)              //Command function for Lcd to send commands from Microcontroller
+  16          {                          // RS pin of Lcd should be low
   17   1      LCD=x;
   18   1      RS=0;
   19   1      EN=1;
   20   1      delay(10);
   21   1      EN=0;
   22   1      }
-  23          void dat(unsigned char x)                                               // Data fuction for lcd to send data from Microcontroller
-  24          {                                                                                               //RS pin of Lcd should be high
+  23          void dat(unsigned char x)           // Data fuction for lcd to send data from Microcontroller
+  24          {                       //RS pin of Lcd should be high
   25   1      LCD=x;
   26   1      RS=1;
   27   1      EN=1;
   28   1      delay(10);
   29   1      EN=0;
-  30   1      }                                                                                               //This is the function to send the string to LCD
+  30   1      }                       //This is the function to send the string to LCD
   31          void message(unsigned char *p)
   32          {
   33   1      unsigned char c,m;
@@ -46,9 +46,9 @@ line level    source
   37   2      dat(p[m]);
   38   2      }
   39   1      }
-  40          Lcd_deg()                                          //Degree display function in LCD
+  40          Lcd_deg()            //Degree display function in LCD
   41          {
-  42   1      cmd(64);                                        //Address where values of the first custom character is stored
+  42   1      cmd(64);            //Address where values of the first custom character is stored
   43   1      dat(4);
   44   1      dat(17);
   45   1      dat(17);
@@ -60,58 +60,58 @@ line level    source
   51   1      cmd(0xC8);  //Address of the location where the character is to be displayed
   52   1      dat(0);  // Displaying the character created at address 0x64 
   53   1      delay(10);
-  54   1      }                                                                                                
-  55          adc()                                                                                    //Adc function for conversion
-C51 COMPILER V9.53.0.0   804ADC                                                            04/23/2015 09:22:16 PAGE 2   
+  54   1      }                        
+  55          adc()                      //Adc function for conversion
+C51 COMPILER V9.52.0.0   804ADC                                                            04/14/2015 15:10:21 PAGE 2   
 
   56          {
-  57   1      unsigned char d1,d2,d3;                                           //Should Make wr from '0' to '1' to convert analog to digital
+  57   1      unsigned char d1,d2,d3;             //Should Make wr from '0' to '1' to convert analog to digital
   58   1      wr=0;
   59   1      wr=1;
-  60   1      d=(((Temp)/5)*3);                                                                 //To convert 255 to 153
-  61   1      d1=d%10;                                                                                  //To convert unit digit, 10th digit, 100th digit
+  60   1      d=(((Temp)/5)*3);                 //To convert 255 to 153
+  61   1      d1=d%10;                      //To convert unit digit, 10th digit, 100th digit
   62   1      d2=((d/10)%10);
   63   1      d3=d/100;
-  64   1      cmd(0xc0);                                                                                //Conversion of int to ASCII to display in LCD
+  64   1      cmd(0xc0);                      //Conversion of int to ASCII to display in LCD
   65   1      dat(d3+0x30);
   66   1      dat(d2+0x30);
   67   1      dat(d1+0x30);
-  68   1      //Lcd_deg();                                                                            // To display degree in LCD
+  68   1      //Lcd_deg();                    // To display degree in LCD
   69   1      }
-  70          void main()                                                                             //Make P2 and P3 ports are outputs
+  70          void main()                   //Make P2 and P3 ports are outputs
   71          {
-  72   1      P2=0x00;                                                                                
-  73   1      P3=0x00;                                                                                 //Command for choosing 16x2 Lcd
-  74   1      cmd(0x38);                                                                              //Command for choosing Right shift
-  75   1      cmd(0x06);                                                                              //Command for display without cursor(Means cursor OFF)
-  76   1      cmd(0x0c);                                                                              //Message to display to LCD
-  77   1      message("Welcome to");                                  //Command to goto next line. Choosing second coloumn of lcd
+  72   1      P2=0x00;                    
+  73   1      P3=0x00;                     //Command for choosing 16x2 Lcd
+  74   1      cmd(0x38);                    //Command for choosing Right shift
+  75   1      cmd(0x06);                    //Command for display without cursor(Means cursor OFF)
+  76   1      cmd(0x0c);                    //Message to display to LCD
+  77   1      message("Welcome to");          //Command to goto next line. Choosing second coloumn of lcd
   78   1      cmd(0xc0);
   79   1      message("CELab");
   80   1      delay(2000);
   81   1      cmd(0x80);
-  82   1      message("Underground cable");                                   //Command to goto next line. Choosing second coloumn of lcd
+  82   1      message("Underground cable");         //Command to goto next line. Choosing second coloumn of lcd
   83   1      cmd(0xc0);
   84   1      message("Fault Finder");
   85   1      delay(2000);
   86   1      cmd(0x01);
   87   1      d=0;
-  88   1      while(1)                                                                                //infinite loop
+  88   1      while(1)                    //infinite loop
   89   1      {
   90   2      cmd(0x80);
   91   2      message("R->S1 S2 S3 S4");
   92   2      cmd(0xc0);
   93   2      if(d > 70)
-  94   2              message("   F  -  -  - ");
+  94   2        message("   F  -  -  - ");
   95   2      else if(d > 30)
-  96   2              message("   -  F  -  - ");
+  96   2        message("   -  F  -  - ");
   97   2      else if(d > 20 )
   98   2          message("   -  -  F  - ");
   99   2      else if(d > 10)
- 100   2              message("   -  -  -  F ");
+ 100   2        message("   -  -  -  F ");
  101   2      else if(d < 10)
- 102   2              message("   -  -  -  - ");
- 103   2      adc();                                                          //ADC function call
+ 102   2        message("   -  -  -  - ");
+ 103   2      adc();                //ADC function call
  104   2      }
  105   1      }
 *** WARNING C290 IN LINE 54 OF 804adc.c: missing return value
@@ -126,7 +126,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    DATA SIZE        =      1       7
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
-C51 COMPILER V9.53.0.0   804ADC                                                            04/23/2015 09:22:16 PAGE 3   
+C51 COMPILER V9.52.0.0   804ADC                                                            04/14/2015 15:10:21 PAGE 3   
 
 END OF MODULE INFORMATION.
 

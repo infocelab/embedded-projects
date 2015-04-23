@@ -1,8 +1,8 @@
 #include <REGX52.H>									//Header file
 #include<string.h>
-sbit RS=P3^7;										//RS pin of LCD is connected with 8th pin of Port 3
-sbit EN=P3^6;										//EN pin of LCD is connected with 7th pin of Port 3
-sbit wr=P3^5;										//Wr pin of ADC is connected with 6th pin of Port 3
+sbit RS=P0^0;										//RS pin of LCD is connected with 8th pin of Port 3
+sbit EN=P0^1;										//EN pin of LCD is connected with 7th pin of Port 3
+sbit wr=P0^5;										//Wr pin of ADC is connected with 6th pin of Port 3
 #define LCD P2										//Lcd is connected with PORT 2
 #define Temp P1										//ADC is connected with PORT 1
 unsigned char d;
