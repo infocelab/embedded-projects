@@ -1,8 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        03/21/2015  08:11:54  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/14/2015  15:32:25  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE STARTUP.obj, 804adc.obj TO 804adc RAMSIZE (256)
+G:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE STARTUP.obj, 804adc.obj TO 804adc RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
@@ -11,9 +11,9 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   STARTUP.obj (?C_STARTUP)
   804adc.obj (804ADC)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (STRLEN)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (STRLEN)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
 
 
 LINK MAP OF MODULE:  804adc (?C_STARTUP)
@@ -59,7 +59,7 @@ SEGMENT                          DATA_GROUP
   +--> ?PR?_MESSAGE?804ADC
   +--> ?PR?_DELAY?804ADC
   +--> ?PR?ADC?804ADC
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/21/2015  08:11:54  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/14/2015  15:32:25  PAGE 2
 
 
 
@@ -119,7 +119,7 @@ SYMBOL TABLE OF MODULE:  804adc (?C_STARTUP)
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
   C:09DAH         LINE#         133
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/21/2015  08:11:54  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/14/2015  15:32:25  PAGE 3
 
 
   C:09DCH         LINE#         134
@@ -131,19 +131,20 @@ SYMBOL TABLE OF MODULE:  804adc (?C_STARTUP)
 
   -------         MODULE        804ADC
   C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   C:0994H         PUBLIC        _delay
-  B:00B0H.6       PUBLIC        EN
-  B:00B0H.7       PUBLIC        RS
+  B:0080H.1       PUBLIC        EN
+  B:0080H.0       PUBLIC        RS
   C:095EH         PUBLIC        Lcd_deg
   C:0800H         PUBLIC        main
   C:0869H         PUBLIC        adc
   C:09E6H         PUBLIC        _cmd
   C:09D0H         PUBLIC        _dat
   C:08FFH         PUBLIC        _message
-  B:00B0H.5       PUBLIC        wr
+  B:0080H.5       PUBLIC        wr
   -------         PROC          L?0023
   -------         ENDPROC       L?0023
   -------         PROC          _DELAY
@@ -178,10 +179,10 @@ SYMBOL TABLE OF MODULE:  804adc (?C_STARTUP)
   C:09D0H         LINE#         24
   C:09D2H         LINE#         25
   C:09D4H         LINE#         26
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/14/2015  15:32:25  PAGE 4
+
+
   C:09D4H         LINE#         27
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/21/2015  08:11:54  PAGE 4
-
-
   C:09D7H         LINE#         28
   C:09D9H         LINE#         29
   -------         ENDPROC       _DAT
@@ -238,10 +239,10 @@ SYMBOL TABLE OF MODULE:  804adc (?C_STARTUP)
   C:089DH         LINE#         65
   C:08A5H         LINE#         66
   C:08ADH         LINE#         67
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/14/2015  15:32:25  PAGE 5
+
+
   -------         ENDPROC       ADC
-BL51 BANKED LINKER/LOCATER V6.22                                                      03/21/2015  08:11:54  PAGE 5
-
-
   -------         PROC          MAIN
   C:0800H         LINE#         69
   C:0800H         LINE#         70
