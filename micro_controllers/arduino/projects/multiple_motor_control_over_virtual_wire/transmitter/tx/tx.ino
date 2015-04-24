@@ -79,7 +79,7 @@ char arr[32];
      
      // END DEBUG
     
-    AllCharMsg = (String)Sensor1CharMsg + (String)',' + (String)Sensor2CharMsg + (String)',' + (String)Sensor3CharMsg + (String)',' + (String)Sensor4CharMsg + (String)'&';
+    AllCharMsg = (String)Sensor1CharMsg + (String)',' + (String)Sensor2CharMsg + (String)',' + (String)Sensor3CharMsg + (String)',' + (String)Sensor4CharMsg + (String)',' + (String)'0' + (String)'&';
     AllCharMsg.toCharArray(arr,32);
     digitalWrite(7, true); // Turn on a light to show transmitting
     vw_send((uint8_t *)arr, strlen(arr));
