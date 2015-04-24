@@ -1,35 +1,52 @@
-#include<reg52.h> /* special function register declarations   */
-                  /* for the intended 8051 derivative         */
-#include<stdio.h> /* prototype declarations for I/O functions */
-
-sbit LED_pin = P2^0;     //Defining LED PIN
-sbit switch_pin = P3^1;  //Defining Switch PIN
-
-void Delay(int); //Function prototype declaration
-void main (void) 
-{
-   switch_pin = 0; // Making Switch PIN input
-   LED_pin = 0;    //Making LED pin output
-
-   while(1)     //infinite loop 
+#include<reg52.h>
+//INPUT PIN
+sbit INPUT = P3^1;
+//OUTPUT PIN
+sbit OUTPUT = P2^0;
+int relay = 0;
+ void Delay(int a)
+ 
    {
-      if(switch_pin == 1) //If switch pressed
-      {
-		LED_pin = 1; //LED ON
-		Delay(1000); //Delay
-		LED_pin = 0; //LED OFF	
-      }
-   }
-}
-
-void Delay(int k)
-{
     int j;
     int i;
-    for(i=0;i<k;i++)
+    for(i=0;i<a;i++)
     {
         for(j=0;j<100;j++)
         {
         }
     }
-}
+  }
+    void main()
+{
+	  P3 = 0xFF; //Por0 used as a Input Port
+	  Delay(10);
+	  P2 = 0x00;  //Por3 used as a Output Port
+	  P3=0;
+	  Delay(10);
+	  
+			while(1)
+	   {
+		  if(INPUT==1 )  // 1 - on
+     {
+         
+				 if(relay==0)
+				 {
+          OUTPUT = 1;
+			    Delay(5000);
+					relay = 1;
+					while(INPUT==1); 
+				 }
+				else
+				{
+					
+					OUTPUT = 0;
+			    Delay(5000);
+					 relay = 0;
+				}				
+				
+			
+				
+			}
+		}
+		Delay(1000);
+	}

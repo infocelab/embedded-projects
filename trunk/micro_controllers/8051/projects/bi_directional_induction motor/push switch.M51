@@ -1,8 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        04/15/2015  00:31:52  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/24/2015  16:47:26  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-G:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE STARTUP.obj, push switch.obj TO push switch RAMSIZE (256)
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, push switch.obj TO push switch RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
@@ -11,6 +11,7 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   STARTUP.obj (?C_STARTUP)
   push switch.obj (PUSH_SWITCH)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
 
 
 LINK MAP OF MODULE:  push switch (?C_STARTUP)
@@ -21,14 +22,16 @@ LINK MAP OF MODULE:  push switch (?C_STARTUP)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            IDATA   0008H     0001H     UNIT         ?STACK
+            DATA    0008H     0002H     UNIT         ?DT?PUSH_SWITCH
+            IDATA   000AH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
                     0003H     07FDH                  *** GAP ***
-            CODE    0800H     0026H     UNIT         ?PR?_DELAY?PUSH_SWITCH
-            CODE    0826H     0014H     UNIT         ?PR?MAIN?PUSH_SWITCH
-            CODE    083AH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     003FH     UNIT         ?PR?MAIN?PUSH_SWITCH
+            CODE    08CBH     0026H     UNIT         ?PR?_DELAY?PUSH_SWITCH
+            CODE    08F1H     0005H     UNIT         ?C_INITSEG
 
 
 
@@ -40,6 +43,7 @@ SEGMENT
 ---------------------
 ?C_C51STARTUP
   +--> ?PR?MAIN?PUSH_SWITCH
+  +--> ?C_INITSEG
 
 ?PR?MAIN?PUSH_SWITCH
   +--> ?PR?_DELAY?PUSH_SWITCH
@@ -52,20 +56,20 @@ SYMBOL TABLE OF MODULE:  push switch (?C_STARTUP)
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:083AH         SEGMENT       ?C_C51STARTUP
-  I:0008H         SEGMENT       ?STACK
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:000AH         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2015  16:47:26  PAGE 2
+
+
   D:00E0H         SYMBOL        ACC
   D:00F0H         SYMBOL        B
   D:0083H         SYMBOL        DPH
   D:0082H         SYMBOL        DPL
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/15/2015  00:31:52  PAGE 2
-
-
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:083DH         SYMBOL        IDATALOOP
+  C:0803H         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -74,74 +78,86 @@ SYMBOL TABLE OF MODULE:  push switch (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:083AH         SYMBOL        STARTUP1
+  C:0800H         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:083AH         LINE#         133
-  C:083CH         LINE#         134
-  C:083DH         LINE#         135
-  C:083EH         LINE#         136
-  C:0840H         LINE#         185
-  C:0843H         LINE#         196
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        PUSH_SWITCH
   C:0000H         SYMBOL        _ICE_DUMMY_
-  B:00A0H.0       PUBLIC        LED_pin
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   D:00A8H         PUBLIC        IE
+  B:00B0H.1       PUBLIC        INPUT
   D:00B8H         PUBLIC        IP
-  C:0826H         PUBLIC        main
+  D:0008H         PUBLIC        relay
+  C:088CH         PUBLIC        main
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
-  B:00B0H.1       PUBLIC        switch_pin
   D:00C8H         PUBLIC        T2CON
-  C:0800H         PUBLIC        _Delay
+  C:08CBH         PUBLIC        _Delay
+  B:00A0H.0       PUBLIC        OUTPUT
   D:00D0H         PUBLIC        PSW
-  -------         PROC          MAIN
-  C:0826H         LINE#         9
-  C:0826H         LINE#         10
-  C:0826H         LINE#         11
-  C:0828H         LINE#         12
-  C:082AH         LINE#         14
-  C:082AH         LINE#         15
-  C:082AH         LINE#         16
-  C:082DH         LINE#         17
-  C:082DH         LINE#         18
-  C:082FH         LINE#         19
-  C:0836H         LINE#         20
-  C:0838H         LINE#         21
-  C:0838H         LINE#         22
-  -------         ENDPROC       MAIN
   -------         PROC          _DELAY
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/15/2015  00:31:52  PAGE 3
-
-
-  D:0006H         SYMBOL        k
+  D:0006H         SYMBOL        a
   -------         DO            
   D:0002H         SYMBOL        j
   D:0004H         SYMBOL        i
   -------         ENDDO         
-  C:0800H         LINE#         25
-  C:0800H         LINE#         26
-  C:0800H         LINE#         29
-  C:0810H         LINE#         30
-  C:0810H         LINE#         31
-  C:0813H         LINE#         32
-  C:0813H         LINE#         33
-  C:081EH         LINE#         34
-  C:0825H         LINE#         35
+  C:08CBH         LINE#         7
+  C:08CBH         LINE#         9
+  C:08CBH         LINE#         12
+  C:08DBH         LINE#         13
+  C:08DBH         LINE#         14
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2015  16:47:26  PAGE 3
+
+
+  C:08DEH         LINE#         15
+  C:08DEH         LINE#         16
+  C:08E9H         LINE#         17
+  C:08F0H         LINE#         18
   -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:088CH         LINE#         19
+  C:088CH         LINE#         20
+  C:088CH         LINE#         21
+  C:088FH         LINE#         22
+  C:0896H         LINE#         23
+  C:0899H         LINE#         24
+  C:089BH         LINE#         25
+  C:089EH         LINE#         27
+  C:089EH         LINE#         28
+  C:089EH         LINE#         29
+  C:08A1H         LINE#         30
+  C:08A1H         LINE#         32
+  C:08A7H         LINE#         33
+  C:08A7H         LINE#         34
+  C:08A9H         LINE#         35
+  C:08B0H         LINE#         36
+  C:08B6H         LINE#         37
+  C:08BBH         LINE#         40
+  C:08BBH         LINE#         42
+  C:08BDH         LINE#         43
+  C:08C4H         LINE#         44
+  C:08C9H         LINE#         45
+  C:08C9H         LINE#         49
+  C:08C9H         LINE#         50
+  -------         ENDPROC       MAIN
   -------         ENDMOD        PUSH_SWITCH
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0049H BYTE ( 3%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0078H BYTE ( 5%) *
 ******************************************************************************
 
-Program Size: data=9.0 xdata=0 code=73
+Program Size: data=11.0 xdata=0 code=249
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
