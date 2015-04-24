@@ -2,7 +2,7 @@
 #include<string.h>
 sbit RS=P0^0;										//RS pin of LCD is connected with 8th pin of Port 3
 sbit EN=P0^1;										//EN pin of LCD is connected with 7th pin of Port 3
-sbit wr=P0^5;										//Wr pin of ADC is connected with 6th pin of Port 3
+sbit wr=P3^5;										//Wr pin of ADC is connected with 6th pin of Port 3
 #define LCD P2										//Lcd is connected with PORT 2
 #define Temp P1										//ADC is connected with PORT 1
 unsigned char d;
@@ -69,12 +69,13 @@ dat(d1+0x30);
 }
 void main()										//Make P2 and P3 ports are outputs
 {
+P0=0x00;
 P2=0x00;										
 P3=0x00;										 //Command for choosing 16x2 Lcd
 cmd(0x38);										//Command for choosing Right shift
 cmd(0x06);										//Command for display without cursor(Means cursor OFF)
 cmd(0x0c);										//Message to display to LCD
-message("Welcome to");					//Command to goto next line. Choosing second coloumn of lcd
+message(" Welcome to");					//Command to goto next line. Choosing second coloumn of lcd
 cmd(0xc0);
 message("CELab");
 delay(2000);
@@ -90,13 +91,13 @@ while(1)										//infinite loop
 cmd(0x80);
 message("R->S1 S2 S3 S4");
 cmd(0xc0);
-if(d > 70)
+if(d > 145)
 	message("   F  -  -  - ");
-else if(d > 30)
+else if(d > 70)
 	message("   -  F  -  - ");
-else if(d > 20 )
+else if(d > 45 )
     message("   -  -  F  - ");
-else if(d > 10)
+else if(d > 30)
 	message("   -  -  -  F ");
 else if(d < 10)
 	message("   -  -  -  - ");
