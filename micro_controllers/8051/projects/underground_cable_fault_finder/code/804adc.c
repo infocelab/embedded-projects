@@ -114,7 +114,7 @@ else if(d > 30)
 else if(d < 10)
 	message("   -  -  -  - ");
 relay0=off ;
-delay(2000);
+delay(5000);
 
 relay1=on ;
 delay(300);
@@ -133,7 +133,7 @@ else if(d > 30)
 else if(d < 10)
 	message("   -  -  -  - ");
 relay1=off ;
-delay(2000);
+delay(5000);
 
 relay2=on ;
 delay(300);
@@ -152,6 +152,6 @@ else if(d > 30)
 else if(d < 10)
 	message("   -  -  -  - ");
 relay2=off ;
-delay(2000);
+delay(5000);
 }
 }
