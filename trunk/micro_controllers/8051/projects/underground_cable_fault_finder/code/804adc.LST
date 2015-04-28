@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   804ADC                                                            04/16/2015 16:15:33 PAGE 1   
+C51 COMPILER V9.52.0.0   804ADC                                                            04/16/2015 16:59:21 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 804ADC
@@ -62,7 +62,7 @@ line level    source
   53   1      dat(0);
   54   1      dat(0);
   55   1      dat(0);
-C51 COMPILER V9.52.0.0   804ADC                                                            04/16/2015 16:15:33 PAGE 2   
+C51 COMPILER V9.52.0.0   804ADC                                                            04/16/2015 16:59:21 PAGE 2   
 
   56   1      cmd(0xC8);  //Address of the location where the character is to be displayed
   57   1      dat(0);  // Displaying the character created at address 0x64 
@@ -102,74 +102,79 @@ line level    source
   91   1      delay(2000);
   92   1      cmd(0x01);
   93   1      d=0;
-  94   1        relay0=off;
-  95   1        relay1=off;
-  96   1          relay2=off;
+  94   1      relay0=off;
+  95   1      relay1=off;
+  96   1      relay2=off;
   97   1      while(1)                    //infinite loop
   98   1      {
-  99   2        relay0=on ;
- 100   2      cmd(0x80);
- 101   2      message("R->S1 S2 S3 S4");
- 102   2      cmd(0xc0);
- 103   2      if(d > 145)
- 104   2        message("   F  -  -  - ");
- 105   2      else if(d > 70)
- 106   2        message("   -  F  -  - ");
- 107   2      else if(d > 45 )
- 108   2          message("   -  -  F  - ");
- 109   2      else if(d > 30)
- 110   2        message("   -  -  -  F ");
- 111   2      else if(d < 10)
- 112   2        message("   -  -  -  - ");
- 113   2      adc();                //ADC function call
- 114   2      relay0=off ;
- 115   2      delay(100);
- 116   2        relay1=on ;
- 117   2      cmd(0x80);
-C51 COMPILER V9.52.0.0   804ADC                                                            04/16/2015 16:15:33 PAGE 3   
+  99   2      
+ 100   2      relay0=on ;
+ 101   2      delay(300);
+ 102   2      adc();
+ 103   2      cmd(0x80);
+ 104   2      message("R->S1 S2 S3 S4");
+ 105   2      cmd(0xc0);
+ 106   2      if(d > 145)
+ 107   2        message("   F  -  -  - ");
+ 108   2      else if(d > 70)
+ 109   2        message("   -  F  -  - ");
+ 110   2      else if(d > 45 )
+ 111   2          message("   -  -  F  - ");
+ 112   2      else if(d > 30)
+ 113   2        message("   -  -  -  F ");
+ 114   2      else if(d < 10)
+ 115   2        message("   -  -  -  - ");
+ 116   2      relay0=off ;
+ 117   2      delay(5000);
+C51 COMPILER V9.52.0.0   804ADC                                                            04/16/2015 16:59:21 PAGE 3   
 
- 118   2      message("R->S1 S2 S3 S4");
- 119   2      cmd(0xc0);
- 120   2      if(d > 145)
- 121   2        message("   F  -  -  - ");
- 122   2      else if(d > 70)
- 123   2        message("   -  F  -  - ");
- 124   2      else if(d > 45 )
- 125   2          message("   -  -  F  - ");
- 126   2      else if(d > 30)
- 127   2        message("   -  -  -  F ");
- 128   2      else if(d < 10)
- 129   2        message("   -  -  -  - ");
- 130   2      adc();                //ADC function call
- 131   2      relay1=off ;
- 132   2      delay(100);
- 133   2        relay2=on ;
- 134   2      cmd(0x80);
- 135   2      message("R->S1 S2 S3 S4");
- 136   2      cmd(0xc0);
- 137   2      if(d > 145)
- 138   2        message("   F  -  -  - ");
- 139   2      else if(d > 70)
- 140   2        message("   -  F  -  - ");
- 141   2      else if(d > 45 )
- 142   2          message("   -  -  F  - ");
- 143   2      else if(d > 30)
- 144   2        message("   -  -  -  F ");
- 145   2      else if(d < 10)
- 146   2        message("   -  -  -  - ");
- 147   2      adc();                //ADC function call
- 148   2      relay2=off ;
- 149   2      delay(100);
- 150   2      
- 151   2      }
- 152   1      }
+ 118   2      
+ 119   2      relay1=on ;
+ 120   2      delay(300);
+ 121   2      adc();
+ 122   2      cmd(0x80);
+ 123   2      message("Y->S1 S2 S3 S4");
+ 124   2      cmd(0xc0);
+ 125   2      if(d > 145)
+ 126   2        message("   F  -  -  - ");
+ 127   2      else if(d > 70)
+ 128   2        message("   -  F  -  - ");
+ 129   2      else if(d > 45 )
+ 130   2          message("   -  -  F  - ");
+ 131   2      else if(d > 30)
+ 132   2        message("   -  -  -  F ");
+ 133   2      else if(d < 10)
+ 134   2        message("   -  -  -  - ");
+ 135   2      relay1=off ;
+ 136   2      delay(5000);
+ 137   2      
+ 138   2      relay2=on ;
+ 139   2      delay(300);
+ 140   2      adc();
+ 141   2      cmd(0x80);
+ 142   2      message("G->S1 S2 S3 S4");
+ 143   2      cmd(0xc0);
+ 144   2      if(d > 145)
+ 145   2        message("   F  -  -  - ");
+ 146   2      else if(d > 70)
+ 147   2        message("   -  F  -  - ");
+ 148   2      else if(d > 45 )
+ 149   2          message("   -  -  F  - ");
+ 150   2      else if(d > 30)
+ 151   2        message("   -  -  -  F ");
+ 152   2      else if(d < 10)
+ 153   2        message("   -  -  -  - ");
+ 154   2      relay2=off ;
+ 155   2      delay(5000);
+ 156   2      }
+ 157   1      }
 *** WARNING C290 IN LINE 59 OF 804adc.c: missing return value
 *** WARNING C290 IN LINE 74 OF 804adc.c: missing return value
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    636    ----
-   CONSTANT SIZE    =    139    ----
+   CODE SIZE        =    665    ----
+   CONSTANT SIZE    =    169    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      1       7
