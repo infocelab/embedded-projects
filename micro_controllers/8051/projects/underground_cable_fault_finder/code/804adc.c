@@ -91,62 +91,67 @@ message("Fault Finder");
 delay(2000);
 cmd(0x01);
 d=0;
-	relay0=off;
-	relay1=off;
-		relay2=off;
+relay0=off;
+relay1=off;
+relay2=off;
 while(1)										//infinite loop
 {
-	relay0=on ;
-cmd(0x80);
-message("R->S1 S2 S3 S4");
-cmd(0xc0);
-if(d > 145)
-	message("   F  -  -  - ");
-else if(d > 70)
-	message("   -  F  -  - ");
-else if(d > 45 )
-    message("   -  -  F  - ");
-else if(d > 30)
-	message("   -  -  -  F ");
-else if(d < 10)
-	message("   -  -  -  - ");
-adc();								//ADC function call
-relay0=off ;
-delay(100);
-	relay1=on ;
-cmd(0x80);
-message("R->S1 S2 S3 S4");
-cmd(0xc0);
-if(d > 145)
-	message("   F  -  -  - ");
-else if(d > 70)
-	message("   -  F  -  - ");
-else if(d > 45 )
-    message("   -  -  F  - ");
-else if(d > 30)
-	message("   -  -  -  F ");
-else if(d < 10)
-	message("   -  -  -  - ");
-adc();								//ADC function call
-relay1=off ;
-delay(100);
-	relay2=on ;
-cmd(0x80);
-message("R->S1 S2 S3 S4");
-cmd(0xc0);
-if(d > 145)
-	message("   F  -  -  - ");
-else if(d > 70)
-	message("   -  F  -  - ");
-else if(d > 45 )
-    message("   -  -  F  - ");
-else if(d > 30)
-	message("   -  -  -  F ");
-else if(d < 10)
-	message("   -  -  -  - ");
-adc();								//ADC function call
-relay2=off ;
-delay(100);
 
+relay0=on ;
+delay(300);
+adc();
+cmd(0x80);
+message("R->S1 S2 S3 S4");
+cmd(0xc0);
+if(d > 145)
+	message("   F  -  -  - ");
+else if(d > 70)
+	message("   -  F  -  - ");
+else if(d > 45 )
+    message("   -  -  F  - ");
+else if(d > 30)
+	message("   -  -  -  F ");
+else if(d < 10)
+	message("   -  -  -  - ");
+relay0=off ;
+delay(2000);
+
+relay1=on ;
+delay(300);
+adc();
+cmd(0x80);
+message("Y->S1 S2 S3 S4");
+cmd(0xc0);
+if(d > 145)
+	message("   F  -  -  - ");
+else if(d > 70)
+	message("   -  F  -  - ");
+else if(d > 45 )
+    message("   -  -  F  - ");
+else if(d > 30)
+	message("   -  -  -  F ");
+else if(d < 10)
+	message("   -  -  -  - ");
+relay1=off ;
+delay(2000);
+
+relay2=on ;
+delay(300);
+adc();
+cmd(0x80);
+message("G->S1 S2 S3 S4");
+cmd(0xc0);
+if(d > 145)
+	message("   F  -  -  - ");
+else if(d > 70)
+	message("   -  F  -  - ");
+else if(d > 45 )
+    message("   -  -  F  - ");
+else if(d > 30)
+	message("   -  -  -  F ");
+else if(d < 10)
+	message("   -  -  -  - ");
+relay2=off ;
+delay(2000);
 }
 }
