@@ -11,6 +11,8 @@ void setup()
 {
   lcd.begin(16,2);
  Serial.begin(9600);
+   SIM900.println("AT");
+  delay(100);
   SIM900.begin(9600);
   SIM900.println("AT+CNMI=2,2,0,0,0");
   delay(100);
@@ -32,12 +34,12 @@ lcd.setCursor(0, 0);
      lcd.scrollDisplayLeft();
     serialEvent();
     delay(1);
-
    for(int j=0;j<600;j++)
    {
     serialEvent();
     delay(1);   
    }
+   Serial.println(str);
    if(temp==1)
    {
     i=0;
