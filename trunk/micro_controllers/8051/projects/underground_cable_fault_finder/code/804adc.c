@@ -3,6 +3,11 @@
 sbit RS=P0^0;										//RS pin of LCD is connected with 8th pin of Port 3
 sbit EN=P0^1;										//EN pin of LCD is connected with 7th pin of Port 3
 sbit wr=P3^5;										//Wr pin of ADC is connected with 6th pin of Port 3
+sbit relay0=P0^2;
+sbit relay1=P0^3;
+sbit relay2=P0^4;
+#define on 1 
+#define off 0
 #define LCD P2										//Lcd is connected with PORT 2
 #define Temp P1										//ADC is connected with PORT 1
 unsigned char d;
@@ -86,8 +91,12 @@ message("Fault Finder");
 delay(2000);
 cmd(0x01);
 d=0;
+	relay0=off;
+	relay1=off;
+		relay2=off;
 while(1)										//infinite loop
 {
+	relay0=on ;
 cmd(0x80);
 message("R->S1 S2 S3 S4");
 cmd(0xc0);
@@ -102,5 +111,42 @@ else if(d > 30)
 else if(d < 10)
 	message("   -  -  -  - ");
 adc();								//ADC function call
+relay0=off ;
+delay(100);
+	relay1=on ;
+cmd(0x80);
+message("R->S1 S2 S3 S4");
+cmd(0xc0);
+if(d > 145)
+	message("   F  -  -  - ");
+else if(d > 70)
+	message("   -  F  -  - ");
+else if(d > 45 )
+    message("   -  -  F  - ");
+else if(d > 30)
+	message("   -  -  -  F ");
+else if(d < 10)
+	message("   -  -  -  - ");
+adc();								//ADC function call
+relay1=off ;
+delay(100);
+	relay2=on ;
+cmd(0x80);
+message("R->S1 S2 S3 S4");
+cmd(0xc0);
+if(d > 145)
+	message("   F  -  -  - ");
+else if(d > 70)
+	message("   -  F  -  - ");
+else if(d > 45 )
+    message("   -  -  F  - ");
+else if(d > 30)
+	message("   -  -  -  F ");
+else if(d < 10)
+	message("   -  -  -  - ");
+adc();								//ADC function call
+relay2=off ;
+delay(100);
+
 }
 }
