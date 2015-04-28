@@ -1,8 +1,8 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        04/24/2015  09:58:21  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/16/2015  16:15:33  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE STARTUP.obj, 804adc.obj TO 804adc RAMSIZE (256)
+G:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE STARTUP.obj, 804adc.obj TO 804adc RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
@@ -11,9 +11,9 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   STARTUP.obj (?C_STARTUP)
   804adc.obj (804ADC)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (STRLEN)
-  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (STRLEN)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
 
 
 LINK MAP OF MODULE:  804adc (?C_STARTUP)
@@ -31,17 +31,17 @@ LINK MAP OF MODULE:  804adc (?C_STARTUP)
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
                     0003H     07FDH                  *** GAP ***
-            CODE    0800H     00C3H     UNIT         ?PR?MAIN?804ADC
-            CODE    08C3H     008BH     UNIT         ?CO?804ADC
-            CODE    094EH     0047H     UNIT         ?PR?ADC?804ADC
-            CODE    0995H     0046H     UNIT         ?C?LIB_CODE
-            CODE    09DBH     0030H     UNIT         ?PR?LCD_DEG?804ADC
-            CODE    0A0BH     002DH     UNIT         ?PR?_MESSAGE?804ADC
-            CODE    0A38H     0026H     UNIT         ?PR?_DELAY?804ADC
-            CODE    0A5EH     0015H     UNIT         ?PR?_STRLEN?STRLEN
-            CODE    0A73H     0011H     UNIT         ?PR?_DAT?804ADC
-            CODE    0A84H     000CH     UNIT         ?C_C51STARTUP
-            CODE    0A90H     000AH     UNIT         ?PR?_CMD?804ADC
+            CODE    0800H     0182H     UNIT         ?PR?MAIN?804ADC
+            CODE    0982H     008BH     UNIT         ?CO?804ADC
+            CODE    0A0DH     0047H     UNIT         ?PR?ADC?804ADC
+            CODE    0A54H     0046H     UNIT         ?C?LIB_CODE
+            CODE    0A9AH     0038H     UNIT         ?PR?_MESSAGE?804ADC
+            CODE    0AD2H     0030H     UNIT         ?PR?LCD_DEG?804ADC
+            CODE    0B02H     0024H     UNIT         ?PR?_DELAY?804ADC
+            CODE    0B26H     0017H     UNIT         ?PR?_DAT?804ADC
+            CODE    0B3DH     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    0B52H     0010H     UNIT         ?PR?_CMD?804ADC
+            CODE    0B62H     000CH     UNIT         ?C_C51STARTUP
 
 
 
@@ -59,7 +59,7 @@ SEGMENT                          DATA_GROUP
   +--> ?CO?804ADC
   +--> ?PR?_MESSAGE?804ADC
   +--> ?PR?_DELAY?804ADC
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2015  09:58:21  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/16/2015  16:15:33  PAGE 2
 
 
   +--> ?PR?ADC?804ADC
@@ -68,6 +68,8 @@ SEGMENT                          DATA_GROUP
   +--> ?PR?_DELAY?804ADC
 
 ?PR?_MESSAGE?804ADC            0008H    0005H
+  +--> ?PR?_CMD?804ADC
+  +--> ?CO?804ADC
   +--> ?PR?_STRLEN?STRLEN
   +--> ?PR?_DAT?804ADC
 
@@ -86,7 +88,7 @@ SYMBOL TABLE OF MODULE:  804adc (?C_STARTUP)
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:0A84H         SEGMENT       ?C_C51STARTUP
+  C:0B62H         SEGMENT       ?C_C51STARTUP
   I:000EH         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
@@ -96,7 +98,7 @@ SYMBOL TABLE OF MODULE:  804adc (?C_STARTUP)
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:0A87H         SYMBOL        IDATALOOP
+  C:0B65H         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -105,22 +107,22 @@ SYMBOL TABLE OF MODULE:  804adc (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:0A84H         SYMBOL        STARTUP1
+  C:0B62H         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:0A84H         LINE#         133
-  C:0A86H         LINE#         134
-  C:0A87H         LINE#         135
-  C:0A88H         LINE#         136
-  C:0A8AH         LINE#         185
-  C:0A8DH         LINE#         196
+  C:0B62H         LINE#         133
+  C:0B64H         LINE#         134
+  C:0B65H         LINE#         135
+  C:0B66H         LINE#         136
+  C:0B68H         LINE#         185
+  C:0B6BH         LINE#         196
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/16/2015  16:15:33  PAGE 3
+
+
   -------         ENDMOD        ?C_STARTUP
-
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2015  09:58:21  PAGE 3
-
 
   -------         MODULE        804ADC
   C:0000H         SYMBOL        _ICE_DUMMY_
@@ -128,88 +130,97 @@ SYMBOL TABLE OF MODULE:  804adc (?C_STARTUP)
   D:0090H         PUBLIC        P1
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
-  C:0A3EH         PUBLIC        _delay
+  C:0B06H         PUBLIC        _delay
   B:0080H.1       PUBLIC        EN
   B:0080H.0       PUBLIC        RS
-  C:09DBH         PUBLIC        Lcd_deg
+  C:0AD2H         PUBLIC        Lcd_deg
   C:0800H         PUBLIC        main
-  C:094EH         PUBLIC        adc
-  C:0A90H         PUBLIC        _cmd
-  C:0A7AH         PUBLIC        _dat
+  C:0A0DH         PUBLIC        adc
+  C:0B52H         PUBLIC        _cmd
+  C:0B2DH         PUBLIC        _dat
+  B:0080H.2       PUBLIC        relay0
+  B:0080H.3       PUBLIC        relay1
+  B:0080H.4       PUBLIC        relay2
   D:000DH         PUBLIC        d
-  C:0A0BH         PUBLIC        _message
+  C:0AA5H         PUBLIC        _message
   B:00B0H.5       PUBLIC        wr
-  -------         PROC          L?0035
-  -------         ENDPROC       L?0035
+  C:0B02H         SYMBOL        L?0064
+  -------         PROC          L?0063
+  -------         ENDPROC       L?0063
+  C:0B02H         SYMBOL        L?0064
   -------         PROC          _DELAY
   D:0006H         SYMBOL        x
   -------         DO            
   D:0004H         SYMBOL        i
   D:0002H         SYMBOL        j
   -------         ENDDO         
-  C:0A3EH         LINE#         9
-  C:0A3EH         LINE#         10
-  C:0A3EH         LINE#         12
-  C:0A48H         LINE#         13
-  C:0A5DH         LINE#         14
+  C:0B06H         LINE#         14
+  C:0B06H         LINE#         15
+  C:0B06H         LINE#         17
+  C:0B10H         LINE#         18
+  C:0B25H         LINE#         19
   -------         ENDPROC       _DELAY
   -------         PROC          _CMD
   D:0007H         SYMBOL        x
-  C:0A90H         LINE#         15
-  C:0A90H         LINE#         16
-  C:0A90H         LINE#         17
-  C:0A92H         LINE#         18
-  C:0A94H         LINE#         19
-  C:0A94H         LINE#         20
-  C:0A97H         LINE#         21
-  C:0A99H         LINE#         22
+  C:0B52H         LINE#         20
+  C:0B52H         LINE#         21
+  C:0B52H         LINE#         22
+  C:0B54H         LINE#         23
+  C:0B56H         LINE#         24
+  C:0B58H         LINE#         25
+  C:0B5FH         LINE#         26
+  C:0B61H         LINE#         27
   -------         ENDPROC       _CMD
-  -------         PROC          L?0034
-  -------         ENDPROC       L?0034
+  -------         PROC          L?0062
+  -------         ENDPROC       L?0062
   -------         PROC          _DAT
   D:0007H         SYMBOL        x
-  C:0A7AH         LINE#         23
-  C:0A7AH         LINE#         24
-  C:0A7AH         LINE#         25
-  C:0A7CH         LINE#         26
-  C:0A7EH         LINE#         27
-  C:0A7EH         LINE#         28
-  C:0A81H         LINE#         29
-  C:0A83H         LINE#         30
+  C:0B2DH         LINE#         28
+  C:0B2DH         LINE#         29
+  C:0B2DH         LINE#         30
+  C:0B2FH         LINE#         31
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/16/2015  16:15:33  PAGE 4
+
+
+  C:0B31H         LINE#         32
+  C:0B33H         LINE#         33
+  C:0B3AH         LINE#         34
+  C:0B3CH         LINE#         35
   -------         ENDPROC       _DAT
+  C:0A9AH         SYMBOL        L?0061
+  -------         PROC          L?0060
+  -------         ENDPROC       L?0060
+  C:0A9AH         SYMBOL        L?0061
   -------         PROC          _MESSAGE
   D:0008H         SYMBOL        p
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2015  09:58:21  PAGE 4
-
-
   -------         DO            
   D:000BH         SYMBOL        c
   D:000CH         SYMBOL        m
   -------         ENDDO         
-  C:0A0BH         LINE#         31
-  C:0A11H         LINE#         32
-  C:0A11H         LINE#         34
-  C:0A16H         LINE#         35
-  C:0A20H         LINE#         36
-  C:0A20H         LINE#         37
-  C:0A33H         LINE#         38
-  C:0A37H         LINE#         39
+  C:0AA5H         LINE#         36
+  C:0AABH         LINE#         37
+  C:0AABH         LINE#         39
+  C:0AB0H         LINE#         40
+  C:0ABAH         LINE#         41
+  C:0ABAH         LINE#         42
+  C:0ACDH         LINE#         43
+  C:0AD1H         LINE#         44
   -------         ENDPROC       _MESSAGE
   -------         PROC          LCD_DEG
-  C:09DBH         LINE#         40
-  C:09DBH         LINE#         41
-  C:09DBH         LINE#         42
-  C:09E0H         LINE#         43
-  C:09E5H         LINE#         44
-  C:09EAH         LINE#         45
-  C:09EFH         LINE#         46
-  C:09F4H         LINE#         47
-  C:09F4H         LINE#         48
-  C:09F7H         LINE#         49
-  C:09F7H         LINE#         50
-  C:09FAH         LINE#         51
-  C:09FFH         LINE#         52
-  C:0A04H         LINE#         53
+  C:0AD2H         LINE#         45
+  C:0AD2H         LINE#         46
+  C:0AD2H         LINE#         47
+  C:0AD7H         LINE#         48
+  C:0ADCH         LINE#         49
+  C:0AE1H         LINE#         50
+  C:0AE6H         LINE#         51
+  C:0AEBH         LINE#         52
+  C:0AEBH         LINE#         53
+  C:0AEEH         LINE#         54
+  C:0AEEH         LINE#         55
+  C:0AF1H         LINE#         56
+  C:0AF6H         LINE#         57
+  C:0AFBH         LINE#         58
   -------         ENDPROC       LCD_DEG
   -------         PROC          ADC
   -------         DO            
@@ -217,80 +228,123 @@ SYMBOL TABLE OF MODULE:  804adc (?C_STARTUP)
   D:0009H         SYMBOL        d2
   D:0001H         SYMBOL        d3
   -------         ENDDO         
-  C:094EH         LINE#         55
-  C:094EH         LINE#         56
-  C:094EH         LINE#         58
-  C:0950H         LINE#         59
-  C:0952H         LINE#         60
-  C:095EH         LINE#         61
-  C:0965H         LINE#         62
-  C:0972H         LINE#         63
-  C:0979H         LINE#         64
-  C:097EH         LINE#         65
-  C:0985H         LINE#         66
-  C:098DH         LINE#         67
+  C:0A0DH         LINE#         60
+  C:0A0DH         LINE#         61
+  C:0A0DH         LINE#         63
+  C:0A0FH         LINE#         64
+  C:0A11H         LINE#         65
+  C:0A1DH         LINE#         66
+  C:0A24H         LINE#         67
+  C:0A31H         LINE#         68
+  C:0A38H         LINE#         69
+  C:0A3DH         LINE#         70
+  C:0A44H         LINE#         71
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/16/2015  16:15:33  PAGE 5
+
+
+  C:0A4CH         LINE#         72
   -------         ENDPROC       ADC
   -------         PROC          MAIN
-  C:0800H         LINE#         70
-  C:0800H         LINE#         71
-  C:0800H         LINE#         72
-  C:0803H         LINE#         73
-  C:0805H         LINE#         74
-  C:0807H         LINE#         75
-  C:080CH         LINE#         76
-  C:0811H         LINE#         77
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2015  09:58:21  PAGE 5
+  C:0800H         LINE#         75
+  C:0800H         LINE#         76
+  C:0800H         LINE#         77
+  C:0803H         LINE#         78
+  C:0805H         LINE#         79
+  C:0807H         LINE#         80
+  C:080CH         LINE#         81
+  C:0811H         LINE#         82
+  C:0816H         LINE#         83
+  C:081FH         LINE#         84
+  C:0824H         LINE#         85
+  C:082DH         LINE#         86
+  C:0834H         LINE#         87
+  C:0839H         LINE#         88
+  C:0842H         LINE#         89
+  C:0847H         LINE#         90
+  C:0850H         LINE#         91
+  C:0857H         LINE#         92
+  C:085CH         LINE#         93
+  C:085FH         LINE#         94
+  C:0861H         LINE#         95
+  C:0863H         LINE#         96
+  C:0865H         LINE#         97
+  C:0865H         LINE#         98
+  C:0865H         LINE#         99
+  C:0867H         LINE#         100
+  C:0867H         LINE#         101
+  C:086AH         LINE#         102
+  C:086FH         LINE#         103
+  C:0876H         LINE#         104
+  C:087EH         LINE#         105
+  C:0885H         LINE#         106
+  C:088DH         LINE#         107
+  C:0894H         LINE#         108
+  C:089CH         LINE#         109
+  C:08A3H         LINE#         110
+  C:08ABH         LINE#         111
+  C:08B2H         LINE#         112
+  C:08BBH         LINE#         113
+  C:08BEH         LINE#         114
+  C:08C0H         LINE#         115
+  C:08C3H         LINE#         116
+  C:08C5H         LINE#         117
+  C:08C5H         LINE#         118
+  C:08C8H         LINE#         119
+  C:08CDH         LINE#         120
+  C:08D4H         LINE#         121
+  C:08DCH         LINE#         122
+  C:08E3H         LINE#         123
+  C:08EBH         LINE#         124
+  C:08F2H         LINE#         125
+  C:08FAH         LINE#         126
+  C:0901H         LINE#         127
+  C:0909H         LINE#         128
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/16/2015  16:15:33  PAGE 6
 
 
-  C:0816H         LINE#         78
-  C:081FH         LINE#         79
-  C:0824H         LINE#         80
-  C:082DH         LINE#         81
-  C:0834H         LINE#         82
-  C:0839H         LINE#         83
-  C:0842H         LINE#         84
-  C:0847H         LINE#         85
-  C:0850H         LINE#         86
-  C:0857H         LINE#         87
-  C:085CH         LINE#         88
-  C:085FH         LINE#         89
-  C:085FH         LINE#         90
-  C:085FH         LINE#         91
-  C:0864H         LINE#         92
-  C:086DH         LINE#         93
-  C:0872H         LINE#         94
-  C:0879H         LINE#         95
-  C:0881H         LINE#         96
-  C:0888H         LINE#         97
-  C:0890H         LINE#         98
-  C:0897H         LINE#         99
-  C:089FH         LINE#         100
-  C:08A6H         LINE#         101
-  C:08AEH         LINE#         102
-  C:08B5H         LINE#         103
-  C:08BEH         LINE#         104
-  C:08C1H         LINE#         105
+  C:0910H         LINE#         129
+  C:0919H         LINE#         130
+  C:091CH         LINE#         131
+  C:091EH         LINE#         132
+  C:0921H         LINE#         133
+  C:0923H         LINE#         134
+  C:0923H         LINE#         135
+  C:0926H         LINE#         136
+  C:092BH         LINE#         137
+  C:0932H         LINE#         138
+  C:093AH         LINE#         139
+  C:0941H         LINE#         140
+  C:0949H         LINE#         141
+  C:0950H         LINE#         142
+  C:0958H         LINE#         143
+  C:095FH         LINE#         144
+  C:0967H         LINE#         145
+  C:096EH         LINE#         146
+  C:0977H         LINE#         147
+  C:097AH         LINE#         148
+  C:097CH         LINE#         149
+  C:097FH         LINE#         151
   -------         ENDPROC       MAIN
   -------         ENDMOD        804ADC
 
   -------         MODULE        ?C?CLDOPTR
-  C:0995H         PUBLIC        ?C?CLDOPTR
+  C:0A54H         PUBLIC        ?C?CLDOPTR
   -------         ENDMOD        ?C?CLDOPTR
 
   -------         MODULE        STRLEN
-  C:0A5EH         PUBLIC        _STRLEN
+  C:0B3DH         PUBLIC        _STRLEN
   -------         ENDMOD        STRLEN
 
   -------         MODULE        ?C?CLDPTR
-  C:09C2H         PUBLIC        ?C?CLDPTR
+  C:0A81H         PUBLIC        ?C?CLDPTR
   -------         ENDMOD        ?C?CLDPTR
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?LCD_DEG?804ADC
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0242H BYTE (28%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0316H BYTE (38%) *
 ******************************************************************************
 
-Program Size: data=15.0 xdata=0 code=669
+Program Size: data=15.0 xdata=0 code=881
 LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
