@@ -1,0 +1,111 @@
+Digital Voltmeter using PIC Microcontroller
+
+This is a simple voltmeter which measures 0-5V at a precision of 4.8 mV. This is a simple design using inbuilt ADC of PIC 16F877A. PIC 16F877A have 8 channel 10bit ADC.  Measured voltage is displayed on 16x2 LCD display.
+Using one of the most popular 8 bit PIC 16f877A, for instance, reading the datasheet, we'll find that the ADC modules (10 bit) are controlled by four different registers. The first two, ADCON0 and ADCON1, are used to set and start the ADC module. When high level language is used, the programmer doesn't need to care a lot of the register connected to the results because they are normally stored in a variable by a routine of the language itself (adc_read, for instance, using mikroc).
+The ADCON0 
+As we can see this registers are 8 bit registers where.
+- bit6 and bit 7 are used to set the frequency of the conversions.
+- bits 3, 4 and 5 are used to select the pins of the microcontroller enabled to theadc conversions.
+- bit 2 represents the status of the conversion procedure.
+- bit 0 starts the conversion.
+
+
+Regarding the second register, ADCON1, it must be set for two reasons: to select the format of the result value (bit 7), to select (bit0...bit3) the reference voltage and to set the port configuration control bits according to the following table
+
+
+
+
+This circuit uses AN0 channel of ADC. The voltage conversion is employed in a logic, 16F877A have 10 bit ADC. That is, it can have 1024 levels. Reference voltage is fixed at
+0 – 5 V Analog I/P is mapped to one of the 1024 levels (0-1023 Digital Count)
+Resolution = 5/(1024)   (as it is 10 bit ADC)
+= 5/1024
+= 4.8828 mV   It  means that for a change in 4.8828mV, the binary output changes by 1.
+
+For More Details See
+PC Based Digital Voltmeter Using PIC 16F877A
+
+ADC module of PIC Microcontroller converts the Signals on its analog pin to 10 bit binary data and it has software selectable high and low voltage reference input to some combination of VDD, VSS, RA2 and RA3. The analog input to PIC is limited to 0 to 5.The converted value is in mV. It is then converted to volts and displayed on LCD.
+
+
+ Circuit
+
+
+
+Digital Voltmeter using PIC Microcontroller 
+
+ Code
+
+/**********************************************/
+/*
+
+
+ uC:16F877A
+ Compiler: mikroC
+ Crystal freq: 4MHz
+
+
+                                              */
+/**********************************************/
+// LCD module connections
+sbit LCD_RS at RC0_bit;
+sbit LCD_EN at RC2_bit;
+sbit LCD_D4 at RD4_bit;
+sbit LCD_D5 at RD5_bit;
+sbit LCD_D6 at RD6_bit;
+sbit LCD_D7 at RD7_bit;
+
+sbit LCD_RS_Direction at TRISC0_bit;
+sbit LCD_EN_Direction at TRISC2_bit;
+sbit LCD_D4_Direction at TRISD4_bit;
+sbit LCD_D5_Direction at TRISD5_bit;
+sbit LCD_D6_Direction at TRISD6_bit;
+sbit LCD_D7_Direction at TRISD7_bit;
+// End LCD module connections
+
+
+
+
+
+
+unsigned long temp;
+unsigned int i;
+char digit[]="0.000 VOLTS";
+
+void main() {
+
+
+TRISA=0xFF;
+
+
+ADCON0=0x01;
+ADCON1=0x0E;
+
+ 
+
+     Lcd_Init();                        // Initialize LCD
+
+  Lcd_Cmd(_LCD_CLEAR);               // Clear display
+  Lcd_Cmd(_LCD_CURSOR_OFF);          // Cursor off
+  LCD_Out(1,1,"EMBEDDED");
+   LCD_Out(2,1,"PROJECTS BLOG");
+   Delay_ms(1000);
+
+  do {
+    temp = ADC_Read(0);   // Get 10-bit results of AD conversion
+    temp=temp*5000/1023;   //Convert ADC value to mV
+   
+   
+
+    digit[0]=(temp/1000)+48;
+    digit[2]=((temp%1000)/100)+48;
+    digit[3]=(((temp%1000)%100)/10)+48;
+    digit[4]=(((temp%1000)%100)%10)+48;
+   
+    LCD_Cmd(_LCD_CLEAR);
+    LCD_Out(1,1,digit);
+
+      //Carriage Return
+    Delay_ms(500);
+
+  } while(1);
+}
