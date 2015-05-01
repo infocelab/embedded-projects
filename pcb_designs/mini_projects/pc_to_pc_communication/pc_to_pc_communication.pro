@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : E:/celabcode/Embedded-Projects/micro_controllers/8051/projects/pc_to_pc_communication/pc_to_pc_communication.brd
+Job           : E:/celabcode/Embedded-Projects/pcb_designs/mini_projects/pc_to_pc_communication/pc_to_pc_communication.brd
 
-Start at      : 12:22:01 (01-05-2015)
-End at        : 12:22:12 (01-05-2015)
-Elapsed time  : 00:00:10
+Start at      : 13:03:48 (01-05-2015)
+End at        : 13:04:06 (01-05-2015)
+Elapsed time  : 00:00:16
 
-Signals       :    16   RoutingGrid: 19 mil  Layers: 1
-Connections   :    27   predefined:  0 ( 0 Vias )
+Signals       :    20   RoutingGrid: 19 mil  Layers: 1
+Connections   :    44   predefined:  27 ( 0 Vias )
 
-Router memory :   32046
+Router memory :   49680
 
 Passname          : TopRouter     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:05  00:00:05  00:00:00  00:00:00  00:00:00  00:00:00
-Number of Ripups  :         0       119         0         0         0         0
-max. Level        :         0         3         0         0         0         0
-max. Total        :         0        11         0         0         0         0
+Time per pass     :  00:00:16  00:00:00  00:00:00  00:00:00  00:00:00  00:00:00
+Number of Ripups  :         0         0         0         0         0         0
+max. Level        :         0         0         0         0         0         0
+max. Total        :         0         0         0         0         0         0
 
-Routed            :        14        26        25        25        25        25
+Routed            :        17        17        17        17        17        17
 Vias              :         0         0         0         0         0         0
-Resolution        :    51.9 %    96.3 %    92.6 %    92.6 %    92.6 %    92.6 %
+Resolution        :   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
 
-Final             : 92.6% finished
+Final             : 100.0% finished
