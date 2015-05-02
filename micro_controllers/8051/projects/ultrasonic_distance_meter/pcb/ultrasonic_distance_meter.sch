@@ -11555,7 +11555,7 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <part name="J1" library="con-jack" deviceset="JACK-PLUG" device="0"/>
 <part name="S2" library="switch-dil" deviceset="DP02" device="" value="push switch"/>
 <part name="C6" library="capacitor-wima" deviceset="C" device="2.5/6" value="0.1uf"/>
-<part name="CONNECTOR-1" library="con-amp-quick" deviceset="M04" device="" value="4 pin">
+<part name="CONNECTOR-1" library="con-amp-quick" deviceset="M04" device="" value="ultrasonic sensor">
 <attribute name="MF" value=""/>
 <attribute name="MPN" value=""/>
 <attribute name="OC_FARNELL" value="unknown"/>
