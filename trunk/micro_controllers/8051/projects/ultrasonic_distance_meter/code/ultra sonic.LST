@@ -1,0 +1,186 @@
+C51 COMPILER V9.52.0.0   ULTRA_SONIC                                                       05/02/2015 02:02:59 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE ULTRA_SONIC
+OBJECT MODULE PLACED IN ultra sonic.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE ultra sonic.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg52.h>
+   2           
+   3          #define First_Line 0x80
+   4          #define Second_Line 0xc0
+   5          #define Curser_On  0x0f
+   6          #define Curser_Off 0x0c
+   7          #define Clear_Display 0x01
+   8          #define Data_Port P2
+   9           
+  10          sbit Lcd_rs = P0^0;
+  11          sbit Lcd_rw = P0^2;
+  12          sbit Lcd_en = P0^1;
+  13           
+  14          sbit echo= P3^4; 
+  15          sbit trig= P3^5;
+  16           
+  17          void Distance_Measure();
+  18          void Lcd8_Init();
+  19          void Lcd8_Command(unsigned char);
+  20          void Lcd8_Write(unsigned char,unsigned char);
+  21          void Lcd8_Display(unsigned char,const unsigned char*,unsigned int);
+  22          void Lcd8_Decimal2(unsigned char,unsigned char);
+  23          void Lcd8_Decimal3(unsigned char,unsigned char);
+  24          void Lcd8_Decimal4(unsigned char,unsigned int);
+  25          void Delay(unsigned int);
+  26          void del();  
+  27           
+  28          unsigned char i,inch1,inch2,result,obj_distance,rept,sec,j,a=0,c=0,kc,cu=0xc0,l,e[20],num[20],n,v[20];
+  29          unsigned long int count=0,count1=0;
+  30           
+  31          void main()
+  32          {
+  33   1       
+  34   1      EA=1;
+  35   1      ET0=1;
+  36   1      TMOD=0x01;
+  37   1      TH0=TL0=0x00;
+  38   1      TR0=1;
+  39   1      Lcd8_Init();Delay(65000); 
+  40   1          Lcd8_Display(0x80,"Ultrasonic      ",16);
+  41   1      Lcd8_Display(0xc0,"                ",16);
+  42   1      Delay(65000);Delay(65000);
+  43   1      Lcd8_Display(0xC0,"Distance:       ",16);
+  44   1       
+  45   1      while(1)
+  46   1      {
+  47   2       
+  48   2      Distance_Measure();
+  49   2       
+  50   2      }
+  51   1      }
+  52           
+  53           
+  54          void Distance_Measure()
+  55          {
+C51 COMPILER V9.52.0.0   ULTRA_SONIC                                                       05/02/2015 02:02:59 PAGE 2   
+
+  56   1      count=count1=0;
+  57   1      TH0=0x00;TL0=0x00; 
+  58   1      TR0=0;
+  59   1      for(i=0;i<10;i++)         
+  60   1      {
+  61   2      trig=0;           
+  62   2      Delay(1000);
+  63   2      trig=1;           
+  64   2      Delay(10);
+  65   2      trig=0;   
+  66   2      while(echo==0);
+  67   2      TR0=1; 
+  68   2      while(echo==1);
+  69   2      TR0=0;
+  70   2      count=TH0<<8;      
+  71   2      count=count|TL0;    
+  72   2      TH0=TL0=0x00; 
+  73   2      count1=count1+count;
+  74   2      Delay(5000);        
+  75   2      }
+  76   1      count=count1/10;
+  77   1      inch1=count%10000/1000;
+  78   1      inch2=count%1000/100;
+  79   1      result=(inch1*10)+inch2;
+  80   1       
+  81   1      obj_distance=result-2;  
+  82   1      Lcd8_Decimal3(0XCb,obj_distance); 
+  83   1       
+  84   1      }
+  85           
+  86          void Lcd8_Init()
+  87          {
+  88   1      Lcd8_Command(0x38); //to select function set
+  89   1      Lcd8_Command(0x06); //entry mode set
+  90   1      Lcd8_Command(0x0c); //display on
+  91   1      Lcd8_Command(0x01); //clear display
+  92   1      }
+  93           
+  94          void Lcd8_Command(unsigned char com)
+  95          {
+  96   1      Data_Port=com;
+  97   1      Lcd_en=1;
+  98   1      Lcd_rs=Lcd_rw=0;
+  99   1      Delay(125);
+ 100   1      Lcd_en=0;
+ 101   1      Delay(125);
+ 102   1      }
+ 103           
+ 104          void Lcd8_Write(unsigned char com,unsigned char lr)
+ 105          {
+ 106   1      Lcd8_Command(com);
+ 107   1       
+ 108   1      Data_Port=lr; // Data 
+ 109   1      Lcd_en=Lcd_rs=1;
+ 110   1      Lcd_rw=0;
+ 111   1      Delay(125);
+ 112   1      Lcd_en=0;
+ 113   1      Delay(125);
+ 114   1      }
+ 115           
+ 116          void Lcd8_Display(unsigned char com,const unsigned char *word,unsigned int n)
+ 117          {
+C51 COMPILER V9.52.0.0   ULTRA_SONIC                                                       05/02/2015 02:02:59 PAGE 3   
+
+ 118   1      unsigned char Lcd_i;
+ 119   1       
+ 120   1      for(Lcd_i=0;Lcd_i<n;Lcd_i++)
+ 121   1      { 
+ 122   2      Lcd8_Write(com+Lcd_i,word[Lcd_i]);
+ 123   2        }
+ 124   1      }
+ 125           
+ 126          void Lcd8_Decimal2(unsigned char com,unsigned char val)
+ 127          {
+ 128   1      unsigned int Lcd_hr,Lcd_t,Lcd_o;
+ 129   1       
+ 130   1      Lcd_hr=val%100;
+ 131   1      Lcd_t=Lcd_hr/10;
+ 132   1      Lcd_o=Lcd_hr%10;
+ 133   1       
+ 134   1      Lcd8_Write(com,Lcd_t+0x30);
+ 135   1      Lcd8_Write(com+1,Lcd_o+0x30);
+ 136   1      }
+ 137           
+ 138           
+ 139          void Lcd8_Decimal3(unsigned char com,unsigned char val)
+ 140          {
+ 141   1      unsigned int Lcd_h,Lcd_hr,Lcd_t,Lcd_o;
+ 142   1       
+ 143   1      Lcd_h=val/100;
+ 144   1      Lcd_hr=val%100;
+ 145   1      Lcd_t=Lcd_hr/10;
+ 146   1      Lcd_o=Lcd_hr%10;
+ 147   1       
+ 148   1      Lcd8_Write(com,Lcd_h+0x30);
+ 149   1      Lcd8_Write(com+1,Lcd_t+0x30);
+ 150   1      Lcd8_Write(com+2,Lcd_o+0x30);
+ 151   1      }
+ 152           
+ 153           
+ 154           
+ 155          void Delay(unsigned int del)
+ 156          {
+ 157   1      while(del--);
+ 158   1      }
+ 159          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    606    ----
+   CONSTANT SIZE    =     51    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     82      18
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

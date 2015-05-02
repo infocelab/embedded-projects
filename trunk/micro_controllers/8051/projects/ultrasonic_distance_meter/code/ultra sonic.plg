@@ -1,0 +1,18 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+G:\Celabcode\embedded-projects\micro_controllers\8051\projects\ultrasonic_distance_meter\code\ultra sonic.uvproj
+Project File Date:  03/20/2015
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling ultra sonic.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD8_DECIMAL2?ULTRA_SONIC
+Program Size: data=102.0 xdata=0 code=1158
+creating hex file from "ultra sonic"...
+"ultra sonic" - 0 Error(s), 1 Warning(s).
