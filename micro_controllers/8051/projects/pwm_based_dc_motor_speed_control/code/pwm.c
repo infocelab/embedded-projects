@@ -1,10 +1,9 @@
 #include<regx52.h>
 //Global variables and definition
-sbit PWMPIN=P2^7;
-sbit INC=P3^0;
-sbit led_INC=P2^1;
-sbit DEC=P3^1;
-sbit led_DEC=P2^0;
+sbit PWMPIN=P2^0;
+sbit INC=P3^6;
+sbit DEC=P3^7;
+
 unsigned char pwm_width;
 bit pwm_flag = 0;
  
