@@ -1,4 +1,4 @@
-#line 1 "C:/Users/ABC/Desktop/led blinking/MyProject.c"
+#line 1 "G:/Celabcode/embedded-projects/micro_controllers/pic/interfacing/led_blinking/led_blinking - Copy/led_blinking.c"
 void main()
 {
  trisb=0x00;

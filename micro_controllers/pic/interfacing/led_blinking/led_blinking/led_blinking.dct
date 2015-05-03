@@ -831,6 +831,7 @@ s1d13700_h_line
 s1d13700_hdot_scr
 s1d13700_image
 s1d13700_init
+s1d13700_invert
 s1d13700_layer_flash_16hz
 s1d13700_layer_flash_2hz
 s1d13700_layer_off
