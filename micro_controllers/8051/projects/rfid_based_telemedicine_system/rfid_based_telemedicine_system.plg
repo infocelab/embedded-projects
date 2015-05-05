@@ -1,0 +1,170 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\Shankar\8051\programming\RFID_Based_Telemedicine_System\rfid_based_telemedicine_system.uvproj
+Project File Date:  05/04/2015
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?C_START
+    MODULE:  STARTUP.obj (?C_STARTUP)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?C_START
+    MODULE:  STARTUP.obj (?C_STARTUP)
+    ADDRESS: 080AH
+Program Size: data=9.0 xdata=0 code=15
+creating hex file from "rfid_based_telemedicine_system"...
+"rfid_based_telemedicine_system" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_based_telemedicine_system.c...
+rfid_based_telemedicine_system.c(49): warning C206: 'Lcd8_init': missing function-prototype
+rfid_based_telemedicine_system.c(77): error C141: syntax error near 'else'
+rfid_based_telemedicine_system.c(111): error C141: syntax error near '}'
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_based_telemedicine_system.c...
+rfid_based_telemedicine_system.c(49): warning C206: 'Lcd8_init': missing function-prototype
+rfid_based_telemedicine_system.c(77): error C141: syntax error near 'else'
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_based_telemedicine_system.c...
+rfid_based_telemedicine_system.c(49): warning C206: 'Lcd8_init': missing function-prototype
+rfid_based_telemedicine_system.c(43): warning C280: 'l': unreferenced local variable
+rfid_based_telemedicine_system.c(84): warning C290: missing return value
+rfid_based_telemedicine_system.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_BASED_TELEMEDICINE_SYSTEM
+Program Size: data=37.0 xdata=0 code=1244
+creating hex file from "rfid_based_telemedicine_system"...
+"rfid_based_telemedicine_system" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_based_telemedicine_system.c...
+rfid_based_telemedicine_system.c(49): warning C206: 'Lcd8_init': missing function-prototype
+rfid_based_telemedicine_system.c(43): warning C280: 'l': unreferenced local variable
+rfid_based_telemedicine_system.c(84): warning C290: missing return value
+rfid_based_telemedicine_system.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_BASED_TELEMEDICINE_SYSTEM
+Program Size: data=37.0 xdata=0 code=1244
+creating hex file from "rfid_based_telemedicine_system"...
+"rfid_based_telemedicine_system" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_based_telemedicine_system.c...
+rfid_based_telemedicine_system.c(49): warning C206: 'Lcd8_init': missing function-prototype
+rfid_based_telemedicine_system.c(43): warning C280: 'l': unreferenced local variable
+rfid_based_telemedicine_system.c(84): warning C290: missing return value
+rfid_based_telemedicine_system.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_BASED_TELEMEDICINE_SYSTEM
+Program Size: data=37.0 xdata=0 code=1248
+creating hex file from "rfid_based_telemedicine_system"...
+"rfid_based_telemedicine_system" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_based_telemedicine_system.c...
+rfid_based_telemedicine_system.c(49): warning C206: 'Lcd8_init': missing function-prototype
+rfid_based_telemedicine_system.c(43): warning C280: 'l': unreferenced local variable
+rfid_based_telemedicine_system.c(84): warning C290: missing return value
+rfid_based_telemedicine_system.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_BASED_TELEMEDICINE_SYSTEM
+Program Size: data=37.0 xdata=0 code=1248
+creating hex file from "rfid_based_telemedicine_system"...
+"rfid_based_telemedicine_system" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_based_telemedicine_system.c...
+rfid_based_telemedicine_system.c(49): warning C206: 'Lcd8_init': missing function-prototype
+rfid_based_telemedicine_system.c(43): warning C280: 'l': unreferenced local variable
+rfid_based_telemedicine_system.c(84): warning C290: missing return value
+rfid_based_telemedicine_system.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_BASED_TELEMEDICINE_SYSTEM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_BASED_TELEMEDICINE_SYSTEM
+Program Size: data=37.0 xdata=0 code=1248
+creating hex file from "rfid_based_telemedicine_system"...
+"rfid_based_telemedicine_system" - 0 Error(s), 12 Warning(s).

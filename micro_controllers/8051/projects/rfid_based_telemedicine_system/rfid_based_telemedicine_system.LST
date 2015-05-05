@@ -1,0 +1,146 @@
+C51 COMPILER V9.52.0.0   RFID_BASED_TELEMEDICINE_SYSTEM                                    05/05/2015 16:12:40 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE RFID_BASED_TELEMEDICINE_SYSTEM
+OBJECT MODULE PLACED IN rfid_based_telemedicine_system.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE rfid_based_telemedicine_system.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include<lcd.h>
+   3          sbit RS = P0^0;                                                                   
+   4          sbit EN = P0^1;                            
+   5          sbit D0 = P2^0;
+   6          sbit D1 = P2^1;
+   7          sbit D2 = P2^2;
+   8          sbit D3 = P2^3;
+   9          sbit D4 = P2^4;
+  10          sbit D5 = P2^5;
+  11          sbit D6 = P2^6;
+  12          sbit D7 = P2^7;
+  13          
+  14          
+  15           unsigned char card_id[12];
+  16            void Delay(int a)
+  17             {
+  18   1          int j;
+  19   1          int i;
+  20   1          for(i=0;i<a;i++)
+  21   1          {
+  22   2              for(j=0;j<100;j++)
+  23   2              {
+  24   3                
+  25   3              }
+  26   2          }
+  27   1         }
+  28          
+  29             void recieve()     //Function to recieve data serialy from RS232 
+  30             {
+  31   1          unsigned char k;
+  32   1           for(k=0;k<12;k++)
+  33   1           { 
+  34   2             while(RI==0); 
+  35   2             card_id[k] = SBUF;
+  36   2               RI=0;
+  37   2           }
+  38   1        }
+  39          
+  40              void main()
+  41              { 
+  42   1            
+  43   1            int l;
+  44   1            
+  45   1            TMOD=0x20;            //Enable Timer 1
+  46   1            TH1=0XFD;
+  47   1            SCON=0x50; 
+  48   1            TR1=1; 
+  49   1            Lcd8_init();
+*** WARNING C206 IN LINE 49 OF rfid_based_telemedicine_system.c: 'Lcd8_init': missing function-prototype
+  50   1            Lcd8_Set_Cursor(1,0);
+  51   1            Lcd8_Write_String("RFID based Tele-");
+  52   1            Lcd8_Set_Cursor(2,0);
+  53   1            Lcd8_Write_String("-medicine System");
+  54   1            Delay(5000);
+C51 COMPILER V9.52.0.0   RFID_BASED_TELEMEDICINE_SYSTEM                                    05/05/2015 16:12:40 PAGE 2   
+
+  55   1            Lcd8_Clear();
+  56   1            Lcd8_Set_Cursor(0,1);
+  57   1            Lcd8_Write_String("Please Show Your");
+  58   1            Lcd8_Set_Cursor(2,0);
+  59   1            Lcd8_Write_String("Card");
+  60   1            Delay(100);
+  61   1          while(1)
+  62   1          {
+  63   2               recieve(); 
+  64   2            
+  65   2               if(card_id[0] == '1' && card_id[1] == '3' && card_id[2] == '0' && card_id[3] == '0' && card_id[4] == 
+             -'4' && card_id[5] == 'A' && card_id[6] == '0' && card_id[7] == '1' && card_id[8] == 'E'  && card_id[9] == 'D' && card_id
+             -[10] == 'B' && card_id[11] == '5')
+  66   2               {
+  67   3                            
+  68   3                  Lcd8_Clear();
+  69   3                  Lcd8_Set_Cursor(1,0);
+  70   3                  Lcd8_Write_String("Anand Sharma");
+  71   3                  Delay(300);
+  72   3                  Lcd8_Set_Cursor(2,0);
+  73   3                  Lcd8_Write_String("diseases-Cancer"); 
+  74   3                  Delay(800);
+  75   3                  }
+  76   2               
+  77   2               else if(card_id[0] == '1' && card_id[1] == '3' && card_id[2] == '0' && card_id[3] == '0' && card_id[4
+             -] == '4' && card_id[5] == '9' && card_id[6] == 'D' && card_id[7] == 'E' && card_id[8] == 'C'  && card_id[9] == 'C' && ca
+             -rd_id[10] == '4' && card_id[11] == '8')
+  78   2               {
+  79   3                  Lcd8_Clear();
+  80   3                  Lcd8_Set_Cursor(1,0);
+  81   3                  Lcd8_Write_String("Anup Rajpal");
+  82   3                  Delay(300);
+  83   3                  Lcd8_Set_Cursor(2,0);
+  84   3                  Lcd8_Write_String("diseases-Maleria");  
+  85   3                  Delay(800);
+  86   3                }
+  87   2               else
+  88   2               {
+  89   3                   Lcd8_Clear();
+  90   3                   Lcd8_Set_Cursor(1,0);
+  91   3                   Lcd8_Write_String("Invalid Card");
+  92   3                   Lcd8_Set_Cursor(2,0);
+  93   3                   Lcd8_Write_String("Contact Security:");
+  94   3                   Delay(500);
+  95   3               }
+  96   2               Delay(2000);
+  97   2               Lcd8_Clear();
+  98   2               Lcd8_Write_String("RFID based Tele-");
+  99   2               Delay(1000);
+ 100   2               Lcd8_Set_Cursor(2,0);
+ 101   2               Lcd8_Write_String("-medicine System");
+ 102   2               Delay(5000);
+ 103   2               Lcd8_Clear();
+ 104   2               Lcd8_Set_Cursor(0,1);
+ 105   2               Lcd8_Write_String("Please Show Your");
+ 106   2               Delay(1000);
+ 107   2               Lcd8_Set_Cursor(2,0);
+ 108   2               Lcd8_Write_String("Card");
+ 109   2            }
+ 110   1          }
+*** WARNING C280 IN LINE 43 OF rfid_based_telemedicine_system.c: 'l': unreferenced local variable
+ 111                
+C51 COMPILER V9.52.0.0   RFID_BASED_TELEMEDICINE_SYSTEM                                    05/05/2015 16:12:40 PAGE 3   
+
+*** WARNING C290 IN LINE 84 OF rfid_based_telemedicine_system.c: missing return value
+*** WARNING C290 IN LINE 176 OF rfid_based_telemedicine_system.c: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1043    ----
+   CONSTANT SIZE    =    145    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     12      17
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  4 WARNING(S),  0 ERROR(S)
