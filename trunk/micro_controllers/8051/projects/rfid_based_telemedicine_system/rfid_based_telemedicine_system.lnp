@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"rfid_based_telemedicine_system.obj" 
+TO "rfid_based_telemedicine_system" 
+RAMSIZE(256) 
