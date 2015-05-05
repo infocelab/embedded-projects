@@ -1,0 +1,590 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/05/2015  12:38:56  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, rfid_card_read.obj TO rfid_card_read RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  rfid_card_read.obj (RFID_CARD_READ)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+
+
+LINK MAP OF MODULE:  rfid_card_read (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000CH     UNIT         ?DT?RFID_CARD_READ
+            DATA    0014H     0005H     UNIT         ?DT?_LCD4_WRITE_STRING?RFID_CARD_READ
+            DATA    0019H     0005H     UNIT         _DATA_GROUP_
+            DATA    001EH     0004H     UNIT         ?DT?_LCD4_SET_CURSOR?RFID_CARD_READ
+            IDATA   0022H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0089H     UNIT         ?PR?MAIN?RFID_CARD_READ
+            CODE    0889H     0050H     UNIT         ?PR?_LCD8_PORT?RFID_CARD_READ
+            CODE    08D9H     004AH     UNIT         ?CO?RFID_CARD_READ
+            CODE    0923H     0040H     UNIT         ?PR?_LCD4_SET_CURSOR?RFID_CARD_READ
+            CODE    0963H     0037H     UNIT         ?PR?_LCD8_WRITE_STRING?RFID_CARD_READ
+            CODE    099AH     0037H     UNIT         ?PR?LCD4_INIT?RFID_CARD_READ
+            CODE    09D1H     002FH     UNIT         ?PR?_LCD_DELAY?RFID_CARD_READ
+            CODE    0A00H     002DH     UNIT         ?C?LIB_CODE
+            CODE    0A2DH     002BH     UNIT         ?PR?_LCD4_WRITE_CHAR?RFID_CARD_READ
+            CODE    0A58H     002BH     UNIT         ?PR?_LCD4_WRITE_STRING?RFID_CARD_READ
+            CODE    0A83H     002AH     UNIT         ?PR?LCD8_INIT?RFID_CARD_READ
+            CODE    0AADH     0028H     UNIT         ?PR?_LCD4_PORT?RFID_CARD_READ
+            CODE    0AD5H     0026H     UNIT         ?PR?_LCD8_SET_CURSOR?RFID_CARD_READ
+            CODE    0AFBH     0026H     UNIT         ?PR?_DELAY?RFID_CARD_READ
+            CODE    0B21H     0012H     UNIT         ?PR?_LCD4_CMD?RFID_CARD_READ
+            CODE    0B33H     0012H     UNIT         ?PR?RECIEVE?RFID_CARD_READ
+            CODE    0B45H     000FH     UNIT         ?PR?_LCD8_CMD?RFID_CARD_READ
+            CODE    0B54H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0B60H     000AH     UNIT         ?PR?LCD4_CLEAR?RFID_CARD_READ
+            CODE    0B6AH     000AH     UNIT         ?PR?LCD4_SHIFT_RIGHT?RFID_CARD_READ
+            CODE    0B74H     000AH     UNIT         ?PR?LCD4_SHIFT_LEFT?RFID_CARD_READ
+            CODE    0B7EH     0008H     UNIT         ?PR?_LCD8_WRITE_CHAR?RFID_CARD_READ
+            CODE    0B86H     0005H     UNIT         ?PR?LCD8_CLEAR?RFID_CARD_READ
+            CODE    0B8BH     0005H     UNIT         ?PR?LCD8_SHIFT_RIGHT?RFID_CARD_READ
+            CODE    0B90H     0005H     UNIT         ?PR?LCD8_SHIFT_LEFT?RFID_CARD_READ
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  12:38:56  PAGE 2
+
+
+OVERLAY MAP OF MODULE:   rfid_card_read (?C_STARTUP)
+
+
+SEGMENT                                         DATA_GROUP 
+  +--> CALLED SEGMENT                         START    LENGTH
+-------------------------------------------------------------
+?C_C51STARTUP                                 -----    -----
+  +--> ?PR?MAIN?RFID_CARD_READ
+
+?PR?MAIN?RFID_CARD_READ                       -----    -----
+  +--> ?PR?LCD8_INIT?RFID_CARD_READ
+  +--> ?PR?_LCD8_SET_CURSOR?RFID_CARD_READ
+  +--> ?CO?RFID_CARD_READ
+  +--> ?PR?_LCD8_WRITE_STRING?RFID_CARD_READ
+  +--> ?PR?RECIEVE?RFID_CARD_READ
+  +--> ?PR?LCD8_CLEAR?RFID_CARD_READ
+  +--> ?PR?_LCD8_WRITE_CHAR?RFID_CARD_READ
+
+?PR?LCD8_INIT?RFID_CARD_READ                  -----    -----
+  +--> ?PR?_LCD8_PORT?RFID_CARD_READ
+  +--> ?PR?_LCD8_CMD?RFID_CARD_READ
+
+?PR?_LCD8_CMD?RFID_CARD_READ                  -----    -----
+  +--> ?PR?_LCD_DELAY?RFID_CARD_READ
+
+?PR?_LCD_DELAY?RFID_CARD_READ                 -----    -----
+  +--> ?PR?_LCD8_PORT?RFID_CARD_READ
+
+?PR?_LCD8_SET_CURSOR?RFID_CARD_READ           0019H    0001H
+  +--> ?PR?_DELAY?RFID_CARD_READ
+  +--> ?PR?_LCD8_CMD?RFID_CARD_READ
+
+?PR?_LCD8_WRITE_STRING?RFID_CARD_READ         0019H    0005H
+  +--> ?PR?_DELAY?RFID_CARD_READ
+  +--> ?PR?LCD8_CLEAR?RFID_CARD_READ
+  +--> ?CO?RFID_CARD_READ
+  +--> ?PR?_LCD8_WRITE_CHAR?RFID_CARD_READ
+
+?PR?LCD8_CLEAR?RFID_CARD_READ                 -----    -----
+  +--> ?PR?_LCD8_CMD?RFID_CARD_READ
+
+?PR?_LCD8_WRITE_CHAR?RFID_CARD_READ           -----    -----
+  +--> ?PR?_LCD_DELAY?RFID_CARD_READ
+
+
+
+SYMBOL TABLE OF MODULE:  rfid_card_read (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0B54H         SEGMENT       ?C_C51STARTUP
+  I:0022H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  12:38:56  PAGE 3
+
+
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0B57H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0B54H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0B54H         LINE#         133
+  C:0B56H         LINE#         134
+  C:0B57H         LINE#         135
+  C:0B58H         LINE#         136
+  C:0B5AH         LINE#         185
+  C:0B5DH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        RFID_CARD_READ
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:0B6AH         PUBLIC        Lcd4_Shift_Right
+  C:0B8BH         PUBLIC        Lcd8_Shift_Right
+  C:0A58H         PUBLIC        _Lcd4_Write_String
+  C:0B60H         PUBLIC        Lcd4_Clear
+  B:0080H.1       PUBLIC        EN
+  C:096FH         PUBLIC        _Lcd8_Write_String
+  C:0B86H         PUBLIC        Lcd8_Clear
+  C:0B74H         PUBLIC        Lcd4_Shift_Left
+  C:0A2DH         PUBLIC        _Lcd4_Write_Char
+  B:0098H.0       PUBLIC        RI
+  C:0B90H         PUBLIC        Lcd8_Shift_Left
+  C:0B7EH         PUBLIC        _Lcd8_Write_Char
+  B:0080H.0       PUBLIC        RS
+  C:0800H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:0923H         PUBLIC        _Lcd4_Set_Cursor
+  C:0AE0H         PUBLIC        _Lcd8_Set_Cursor
+  C:0B28H         PUBLIC        _Lcd4_Cmd
+  C:099AH         PUBLIC        Lcd4_Init
+  C:0B4CH         PUBLIC        _Lcd8_Cmd
+  C:0A83H         PUBLIC        Lcd8_Init
+  D:0008H         PUBLIC        card_id
+  D:008DH         PUBLIC        TH1
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  12:38:56  PAGE 4
+
+
+  C:0AADH         PUBLIC        _Lcd4_Port
+  C:0889H         PUBLIC        _Lcd8_Port
+  B:0088H.6       PUBLIC        TR1
+  C:09DAH         PUBLIC        _Lcd_Delay
+  C:0B33H         PUBLIC        recieve
+  C:0AFBH         PUBLIC        _Delay
+  B:00A0H.0       PUBLIC        D0
+  B:00A0H.1       PUBLIC        D1
+  B:00A0H.2       PUBLIC        D2
+  B:00A0H.3       PUBLIC        D3
+  B:00A0H.4       PUBLIC        D4
+  B:00A0H.5       PUBLIC        D5
+  B:00A0H.6       PUBLIC        D6
+  B:00A0H.7       PUBLIC        D7
+  C:09D4H         SYMBOL        L?0096
+  -------         PROC          L?0095
+  -------         ENDPROC       L?0095
+  C:09D4H         SYMBOL        L?0096
+  -------         PROC          _LCD_DELAY
+  D:0006H         SYMBOL        a
+  -------         DO            
+  D:0002H         SYMBOL        j
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:09DAH         LINE#         17
+  C:09DAH         LINE#         18
+  C:09DAH         LINE#         21
+  C:09EAH         LINE#         22
+  C:09EAH         LINE#         23
+  C:09EDH         LINE#         24
+  C:09EDH         LINE#         25
+  C:09F8H         LINE#         26
+  C:09FFH         LINE#         27
+  -------         ENDPROC       _LCD_DELAY
+  -------         PROC          _LCD8_PORT
+  D:0007H         SYMBOL        a
+  C:0889H         LINE#         30
+  C:0889H         LINE#         31
+  C:0889H         LINE#         32
+  C:088DH         LINE#         33
+  C:0891H         LINE#         35
+  C:0893H         LINE#         37
+  C:0897H         LINE#         38
+  C:089BH         LINE#         40
+  C:089DH         LINE#         42
+  C:08A1H         LINE#         43
+  C:08A5H         LINE#         45
+  C:08A7H         LINE#         47
+  C:08ABH         LINE#         48
+  C:08AFH         LINE#         50
+  C:08B1H         LINE#         52
+  C:08B5H         LINE#         53
+  C:08B9H         LINE#         55
+  C:08BBH         LINE#         57
+  C:08BFH         LINE#         58
+  C:08C3H         LINE#         60
+  C:08C5H         LINE#         62
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  12:38:56  PAGE 5
+
+
+  C:08C9H         LINE#         63
+  C:08CDH         LINE#         65
+  C:08CFH         LINE#         67
+  C:08D3H         LINE#         68
+  C:08D6H         LINE#         70
+  C:08D8H         LINE#         71
+  -------         ENDPROC       _LCD8_PORT
+  C:0B45H         SYMBOL        L?0098
+  -------         PROC          L?0097
+  -------         ENDPROC       L?0097
+  C:0B45H         SYMBOL        L?0098
+  -------         PROC          _LCD8_CMD
+  D:0007H         SYMBOL        a
+  C:0B4CH         LINE#         72
+  C:0B4CH         LINE#         73
+  C:0B4CH         LINE#         74
+  C:0B4EH         LINE#         75
+  C:0B4EH         LINE#         76
+  C:0B4EH         LINE#         77
+  C:0B51H         LINE#         78
+  C:0B53H         LINE#         79
+  -------         ENDPROC       _LCD8_CMD
+  -------         PROC          LCD8_CLEAR
+  C:0B86H         LINE#         81
+  C:0B86H         LINE#         82
+  C:0B86H         LINE#         83
+  -------         ENDPROC       LCD8_CLEAR
+  C:0AD5H         SYMBOL        L?0093
+  C:0ADCH         SYMBOL        L?0094
+  -------         PROC          L?0092
+  -------         ENDPROC       L?0092
+  C:0AD5H         SYMBOL        L?0093
+  C:0ADCH         SYMBOL        L?0094
+  -------         PROC          _LCD8_SET_CURSOR
+  D:0019H         SYMBOL        a
+  D:0001H         SYMBOL        b
+  C:0AE0H         LINE#         86
+  C:0AE4H         LINE#         87
+  C:0AE4H         LINE#         88
+  C:0AE9H         LINE#         89
+  C:0AEEH         LINE#         90
+  C:0AF3H         LINE#         91
+  C:0AFAH         LINE#         92
+  -------         ENDPROC       _LCD8_SET_CURSOR
+  -------         PROC          LCD8_INIT
+  C:0A83H         LINE#         94
+  C:0A83H         LINE#         95
+  C:0A83H         LINE#         96
+  C:0A88H         LINE#         97
+  C:0A8AH         LINE#         98
+  C:0A8CH         LINE#         100
+  C:0A8FH         LINE#         101
+  C:0A91H         LINE#         102
+  C:0A94H         LINE#         103
+  C:0A96H         LINE#         104
+  C:0A99H         LINE#         106
+  C:0A9EH         LINE#         107
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  12:38:56  PAGE 6
+
+
+  C:0AA3H         LINE#         108
+  C:0AA8H         LINE#         109
+  -------         ENDPROC       LCD8_INIT
+  -------         PROC          _LCD8_WRITE_CHAR
+  D:0007H         SYMBOL        a
+  C:0B7EH         LINE#         112
+  C:0B7EH         LINE#         113
+  C:0B7EH         LINE#         114
+  C:0B80H         LINE#         115
+  C:0B80H         LINE#         116
+  C:0B80H         LINE#         117
+  C:0B83H         LINE#         118
+  C:0B85H         LINE#         119
+  -------         ENDPROC       _LCD8_WRITE_CHAR
+  -------         PROC          L?0101
+  -------         ENDPROC       L?0101
+  -------         PROC          _LCD8_WRITE_STRING
+  D:0019H         SYMBOL        a
+  -------         DO            
+  D:001CH         SYMBOL        i
+  -------         ENDDO         
+  C:096FH         LINE#         121
+  C:0975H         LINE#         122
+  C:0975H         LINE#         124
+  C:098CH         LINE#         125
+  C:0999H         LINE#         126
+  -------         ENDPROC       _LCD8_WRITE_STRING
+  -------         PROC          LCD8_SHIFT_RIGHT
+  C:0B8BH         LINE#         128
+  C:0B8BH         LINE#         129
+  C:0B8BH         LINE#         130
+  -------         ENDPROC       LCD8_SHIFT_RIGHT
+  -------         PROC          LCD8_SHIFT_LEFT
+  C:0B90H         LINE#         133
+  C:0B90H         LINE#         134
+  C:0B90H         LINE#         135
+  -------         ENDPROC       LCD8_SHIFT_LEFT
+  -------         PROC          _LCD4_PORT
+  D:0007H         SYMBOL        a
+  C:0AADH         LINE#         141
+  C:0AADH         LINE#         142
+  C:0AADH         LINE#         143
+  C:0AB1H         LINE#         144
+  C:0AB5H         LINE#         146
+  C:0AB7H         LINE#         148
+  C:0ABBH         LINE#         149
+  C:0ABFH         LINE#         151
+  C:0AC1H         LINE#         153
+  C:0AC5H         LINE#         154
+  C:0AC9H         LINE#         156
+  C:0ACBH         LINE#         158
+  C:0ACFH         LINE#         159
+  C:0AD2H         LINE#         161
+  C:0AD4H         LINE#         162
+  -------         ENDPROC       _LCD4_PORT
+  C:0B21H         SYMBOL        L?0100
+  -------         PROC          L?0099
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  12:38:56  PAGE 7
+
+
+  -------         ENDPROC       L?0099
+  C:0B21H         SYMBOL        L?0100
+  -------         PROC          _LCD4_CMD
+  D:0007H         SYMBOL        a
+  C:0B28H         LINE#         163
+  C:0B28H         LINE#         164
+  C:0B28H         LINE#         165
+  C:0B2AH         LINE#         166
+  C:0B2DH         LINE#         167
+  C:0B2DH         LINE#         168
+  C:0B30H         LINE#         169
+  C:0B32H         LINE#         170
+  -------         ENDPROC       _LCD4_CMD
+  -------         PROC          LCD4_CLEAR
+  C:0B60H         LINE#         172
+  C:0B60H         LINE#         173
+  C:0B60H         LINE#         174
+  C:0B65H         LINE#         175
+  -------         ENDPROC       LCD4_CLEAR
+  -------         PROC          _LCD4_SET_CURSOR
+  D:001EH         SYMBOL        a
+  D:0001H         SYMBOL        b
+  -------         DO            
+  D:001FH         SYMBOL        temp
+  D:0020H         SYMBOL        z
+  D:0021H         SYMBOL        y
+  -------         ENDDO         
+  C:0923H         LINE#         178
+  C:0927H         LINE#         179
+  C:0927H         LINE#         181
+  C:092CH         LINE#         182
+  C:092CH         LINE#         183
+  C:0932H         LINE#         184
+  C:093BH         LINE#         185
+  C:093CH         LINE#         186
+  C:093CH         LINE#         187
+  C:093CH         LINE#         188
+  C:093EH         LINE#         189
+  C:0943H         LINE#         190
+  C:0943H         LINE#         191
+  C:0948H         LINE#         192
+  C:0951H         LINE#         193
+  C:0958H         LINE#         194
+  C:095DH         LINE#         195
+  C:0962H         LINE#         196
+  C:0962H         LINE#         197
+  -------         ENDPROC       _LCD4_SET_CURSOR
+  -------         PROC          LCD4_INIT
+  C:099AH         LINE#         199
+  C:099AH         LINE#         200
+  C:099AH         LINE#         201
+  C:099FH         LINE#         202
+  C:09A1H         LINE#         204
+  C:09A4H         LINE#         205
+  C:09A6H         LINE#         206
+  C:09A9H         LINE#         207
+  C:09ABH         LINE#         208
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  12:38:56  PAGE 8
+
+
+  C:09AEH         LINE#         210
+  C:09B3H         LINE#         211
+  C:09B8H         LINE#         212
+  C:09BDH         LINE#         213
+  C:09C2H         LINE#         214
+  C:09C7H         LINE#         215
+  C:09CCH         LINE#         216
+  -------         ENDPROC       LCD4_INIT
+  -------         PROC          _LCD4_WRITE_CHAR
+  D:0006H         SYMBOL        a
+  -------         DO            
+  D:0001H         SYMBOL        temp
+  D:0007H         SYMBOL        y
+  -------         ENDDO         
+  C:0A2DH         LINE#         219
+  C:0A2FH         LINE#         220
+  C:0A2FH         LINE#         222
+  C:0A33H         LINE#         223
+  C:0A37H         LINE#         224
+  C:0A39H         LINE#         225
+  C:0A44H         LINE#         226
+  C:0A44H         LINE#         227
+  C:0A47H         LINE#         228
+  C:0A49H         LINE#         229
+  C:0A4EH         LINE#         230
+  C:0A50H         LINE#         231
+  C:0A55H         LINE#         232
+  C:0A57H         LINE#         233
+  -------         ENDPROC       _LCD4_WRITE_CHAR
+  -------         PROC          _LCD4_WRITE_STRING
+  D:0014H         SYMBOL        a
+  -------         DO            
+  D:0017H         SYMBOL        i
+  -------         ENDDO         
+  C:0A58H         LINE#         235
+  C:0A5EH         LINE#         236
+  C:0A5EH         LINE#         238
+  C:0A75H         LINE#         239
+  C:0A82H         LINE#         240
+  -------         ENDPROC       _LCD4_WRITE_STRING
+  -------         PROC          LCD4_SHIFT_RIGHT
+  C:0B6AH         LINE#         242
+  C:0B6AH         LINE#         243
+  C:0B6AH         LINE#         244
+  C:0B6FH         LINE#         245
+  -------         ENDPROC       LCD4_SHIFT_RIGHT
+  -------         PROC          LCD4_SHIFT_LEFT
+  C:0B74H         LINE#         248
+  C:0B74H         LINE#         249
+  C:0B74H         LINE#         250
+  C:0B79H         LINE#         251
+  -------         ENDPROC       LCD4_SHIFT_LEFT
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        a
+  -------         DO            
+  D:0002H         SYMBOL        j
+  D:0004H         SYMBOL        i
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  12:38:56  PAGE 9
+
+
+  -------         ENDDO         
+  C:0AFBH         LINE#         19
+  C:0AFBH         LINE#         20
+  C:0AFBH         LINE#         23
+  C:0B0BH         LINE#         24
+  C:0B0BH         LINE#         25
+  C:0B0EH         LINE#         26
+  C:0B0EH         LINE#         28
+  C:0B19H         LINE#         29
+  C:0B20H         LINE#         30
+  -------         ENDPROC       _DELAY
+  -------         PROC          RECIEVE
+  -------         DO            
+  D:0007H         SYMBOL        k
+  -------         ENDDO         
+  C:0B33H         LINE#         32
+  C:0B33H         LINE#         33
+  C:0B33H         LINE#         35
+  C:0B35H         LINE#         36
+  C:0B35H         LINE#         37
+  C:0B38H         LINE#         38
+  C:0B3EH         LINE#         39
+  C:0B40H         LINE#         40
+  C:0B44H         LINE#         41
+  -------         ENDPROC       RECIEVE
+  -------         PROC          MAIN
+  -------         DO            
+  D:0082H         SYMBOL        l
+  -------         ENDDO         
+  C:0800H         LINE#         43
+  C:0800H         LINE#         44
+  C:0800H         LINE#         46
+  C:0803H         LINE#         47
+  C:0806H         LINE#         48
+  C:0809H         LINE#         49
+  C:080BH         LINE#         50
+  C:080EH         LINE#         51
+  C:0815H         LINE#         52
+  C:081EH         LINE#         53
+  C:081EH         LINE#         54
+  C:0821H         LINE#         55
+  C:082AH         LINE#         56
+  C:0831H         LINE#         57
+  C:0835H         LINE#         58
+  C:0835H         LINE#         59
+  C:0838H         LINE#         60
+  C:0838H         LINE#         61
+  C:083BH         LINE#         62
+  C:0844H         LINE#         64
+  C:0844H         LINE#         65
+  C:0844H         LINE#         66
+  C:0847H         LINE#         67
+  C:084AH         LINE#         68
+  C:0851H         LINE#         69
+  C:085AH         LINE#         70
+  C:085DH         LINE#         71
+  C:0860H         LINE#         72
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/05/2015  12:38:56  PAGE 10
+
+
+  C:0860H         LINE#         73
+  C:086BH         LINE#         74
+  C:0874H         LINE#         75
+  C:0878H         LINE#         76
+  C:0878H         LINE#         77
+  C:087BH         LINE#         78
+  C:087BH         LINE#         79
+  C:087EH         LINE#         80
+  C:0887H         LINE#         81
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        RFID_CARD_READ
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0A00H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_CARD_READ
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_CARD_READ
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_CARD_READ
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_CARD_READ
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_CARD_READ
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_CARD_READ
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_CARD_READ
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_CARD_READ
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 036BH BYTE (42%) *
+******************************************************************************
+
+Program Size: data=35.0 xdata=0 code=920
+LINK/LOCATE RUN COMPLETE.  8 WARNING(S),  0 ERROR(S)
