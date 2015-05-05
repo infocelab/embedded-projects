@@ -1,0 +1,112 @@
+C51 COMPILER V9.52.0.0   RFID_CARD_READ                                                    05/05/2015 12:38:56 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE RFID_CARD_READ
+OBJECT MODULE PLACED IN rfid_card_read.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE rfid_card_read.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include<lcd.h>
+   3          
+   4          //LCD Module Connections
+   5          sbit RS = P0^0;                                                                   
+   6          sbit EN = P0^1;                            
+   7          sbit D0 = P2^0;
+   8          sbit D1 = P2^1;
+   9          sbit D2 = P2^2;
+  10          sbit D3 = P2^3;
+  11          sbit D4 = P2^4;
+  12          sbit D5 = P2^5;
+  13          sbit D6 = P2^6;
+  14          sbit D7 = P2^7;
+  15          
+  16          
+  17          unsigned char card_id[12];
+  18          
+  19            void Delay(int a)
+  20             {
+  21   1          int j;
+  22   1          int i;
+  23   1          for(i=0;i<a;i++)
+  24   1          {
+  25   2              for(j=0;j<100;j++)
+  26   2              {
+  27   3                
+  28   3              }
+  29   2          }
+  30   1         }
+  31          
+  32             void recieve()     //Function to recieve data serialy from RS232 
+  33             {
+  34   1          unsigned char k;
+  35   1           for(k=0;k<12;k++)
+  36   1           { 
+  37   2             while(RI==0); 
+  38   2             card_id[k] = SBUF;
+  39   2               RI=0;
+  40   2           }
+  41   1        }
+  42          
+  43              void main()
+  44              { 
+  45   1            int l;
+  46   1            TMOD=0x20;            //Enable Timer 1
+  47   1            TH1=0XFD;
+  48   1            SCON=0x50;
+  49   1            TR1=1; 
+  50   1            Lcd8_init();
+*** WARNING C206 IN LINE 50 OF rfid_card_read.c: 'Lcd8_init': missing function-prototype
+  51   1            Lcd8_Set_Cursor(1,1);
+  52   1            Lcd8_Write_String("Welcome 2 RFID ");
+  53   1            Delay(1000);
+  54   1            Lcd8_Set_Cursor(2,1);
+C51 COMPILER V9.52.0.0   RFID_CARD_READ                                                    05/05/2015 12:38:56 PAGE 2   
+
+  55   1            Lcd8_Write_String("Tag Read Example");
+  56   1            Lcd8_Set_Cursor(1,1);
+  57   1            Delay(1000);
+  58   1            Lcd8_Clear();
+  59   1            Lcd8_Write_String("PLZ Show Your RFID ");
+  60   1            Delay(1000);
+  61   1            Lcd8_Set_Cursor(2,1);
+  62   1            Lcd8_Write_String("Card");
+  63   1        
+  64   1          while(1)
+  65   1          {
+  66   2              recieve();
+  67   2              Lcd8_Clear(); 
+  68   2              Lcd8_Set_Cursor(1,1);
+  69   2              Lcd8_Write_String("Unique card ID:");
+  70   2              Lcd8_Set_Cursor(2,1);
+  71   2              for(l=0;l<12;l++)
+  72   2                  {  
+  73   3                    Lcd8_Write_Char(card_id[l]);
+  74   3                  }
+  75   2                Delay(5000);
+  76   2            Lcd8_Clear();
+  77   2            Lcd8_Write_String("PLZ Show Your RFID ");
+  78   2            Delay(1000);
+  79   2            Lcd8_Set_Cursor(2,1);
+  80   2            Lcd8_Write_String("Card");      
+  81   2          }
+  82   1            
+  83   1            
+  84   1      }
+*** WARNING C290 IN LINE 84 OF rfid_card_read.c: missing return value
+*** WARNING C290 IN LINE 176 OF rfid_card_read.c: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    786    ----
+   CONSTANT SIZE    =     74    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     12      15
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  3 WARNING(S),  0 ERROR(S)

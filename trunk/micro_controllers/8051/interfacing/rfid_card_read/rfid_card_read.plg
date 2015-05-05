@@ -1,0 +1,156 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\pc\Desktop\rfid_card_read\rfid_card_read.uvproj
+Project File Date:  05/05/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_card_read.c...
+rfid_card_read.c(2): warning C318: can't open file 'lcd.h'
+rfid_card_read.c(50): warning C206: 'Lcd8_init': missing function-prototype
+rfid_card_read.c(51): warning C206: 'Lcd8_Set_Cursor': missing function-prototype
+rfid_card_read.c(51): error C267: 'Lcd8_Set_Cursor': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling rfid_card_read.c...
+rfid_card_read.c(50): warning C206: 'Lcd8_init': missing function-prototype
+rfid_card_read.c(67): error C141: syntax error near ']'
+Target not created
+Build target 'Target 1'
+compiling rfid_card_read.c...
+rfid_card_read.c(49): warning C206: 'Lcd8_init': missing function-prototype
+rfid_card_read.c(66): error C141: syntax error near ']'
+Target not created
+Build target 'Target 1'
+compiling rfid_card_read.c...
+rfid_card_read.c(55): warning C206: 'Lcd8_init': missing function-prototype
+rfid_card_read.c(84): warning C290: missing return value
+rfid_card_read.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_CARD_READ
+Program Size: data=37.0 xdata=0 code=1098
+creating hex file from "rfid_card_read"...
+"rfid_card_read" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_card_read.c...
+rfid_card_read.c(55): warning C206: 'Lcd8_init': missing function-prototype
+rfid_card_read.c(84): warning C290: missing return value
+rfid_card_read.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_CARD_READ
+Program Size: data=37.0 xdata=0 code=1096
+creating hex file from "rfid_card_read"...
+"rfid_card_read" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_card_read.c...
+rfid_card_read.c(50): warning C206: 'Lcd8_init': missing function-prototype
+rfid_card_read.c(84): warning C290: missing return value
+rfid_card_read.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_CARD_READ
+Program Size: data=35.0 xdata=0 code=855
+creating hex file from "rfid_card_read"...
+"rfid_card_read" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_card_read.c...
+rfid_card_read.c(50): warning C206: 'Lcd8_init': missing function-prototype
+rfid_card_read.c(84): warning C290: missing return value
+rfid_card_read.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_CARD_READ
+Program Size: data=35.0 xdata=0 code=858
+creating hex file from "rfid_card_read"...
+"rfid_card_read" - 0 Error(s), 11 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling rfid_card_read.c...
+rfid_card_read.c(50): warning C206: 'Lcd8_init': missing function-prototype
+rfid_card_read.c(84): warning C290: missing return value
+rfid_card_read.c(176): warning C290: missing return value
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?RFID_CARD_READ
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?RFID_CARD_READ
+Program Size: data=35.0 xdata=0 code=920
+creating hex file from "rfid_card_read"...
+"rfid_card_read" - 0 Error(s), 11 Warning(s).
