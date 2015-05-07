@@ -1,0 +1,67 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\celabcode\Embedded-Projects\micro_controllers\8051\interfacing\gsm_with_8051\gsm_with_8051.uvproj
+Project File Date:  05/07/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling gsm_with_8051.c...
+gsm_with_8051.c(17): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling gsm_with_8051.c...
+gsm_with_8051.c(66): warning C206: 'Lcd8_init': missing function-prototype
+gsm_with_8051.c(84): warning C290: missing return value
+gsm_with_8051.c(176): warning C290: missing return value
+gsm_with_8051.c(105): warning C294: unreachable code
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?GSM_WITH_8051
+Program Size: data=41.1 xdata=0 code=2031
+creating hex file from "gsm_with_8051"...
+"gsm_with_8051" - 0 Error(s), 12 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling gsm_with_8051.c...
+gsm_with_8051.c(64): warning C206: 'Lcd8_init': missing function-prototype
+gsm_with_8051.c(84): warning C290: missing return value
+gsm_with_8051.c(176): warning C290: missing return value
+gsm_with_8051.c(103): warning C294: unreachable code
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_RIGHT?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD8_SHIFT_LEFT?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_CLEAR?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_SET_CURSOR?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_INIT?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD4_WRITE_STRING?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_RIGHT?GSM_WITH_8051
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LCD4_SHIFT_LEFT?GSM_WITH_8051
+Program Size: data=41.1 xdata=0 code=2076
+creating hex file from "gsm_with_8051"...
+"gsm_with_8051" - 0 Error(s), 12 Warning(s).
