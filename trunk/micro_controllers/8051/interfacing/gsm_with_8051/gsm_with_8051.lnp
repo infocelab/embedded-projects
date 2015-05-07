@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"gsm_with_8051.obj" 
+TO "gsm_with_8051" 
+RAMSIZE(256) 
