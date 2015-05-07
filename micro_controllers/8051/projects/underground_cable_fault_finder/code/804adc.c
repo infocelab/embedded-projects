@@ -104,13 +104,13 @@ cmd(0x80);
 message("R->S1 S2 S3 S4");
 cmd(0xc0);
 if(d > 145)
-	message("   F  -  -  - ");
+	message("1KM   F  -  -  - ");
 else if(d > 70)
-	message("   -  F  -  - ");
+	message("2KM   -  F  -  - ");
 else if(d > 45 )
-    message("   -  -  F  - ");
+    message("3KM   -  -  F  - ");
 else if(d > 30)
-	message("   -  -  -  F ");
+	message("4KM   -  -  -  F ");
 else if(d < 10)
 	message("   -  -  -  - ");
 relay0=off ;
@@ -123,13 +123,13 @@ cmd(0x80);
 message("Y->S1 S2 S3 S4");
 cmd(0xc0);
 if(d > 145)
-	message("   F  -  -  - ");
+	message("1KM   F  -  -  - ");
 else if(d > 70)
-	message("   -  F  -  - ");
+	message("2KM   -  F  -  - ");
 else if(d > 45 )
-    message("   -  -  F  - ");
+    message("3KM   -  -  F  - ");
 else if(d > 30)
-	message("   -  -  -  F ");
+	message("4KM  -  -  -  F ");
 else if(d < 10)
 	message("   -  -  -  - ");
 relay1=off ;
@@ -142,13 +142,13 @@ cmd(0x80);
 message("G->S1 S2 S3 S4");
 cmd(0xc0);
 if(d > 145)
-	message("   F  -  -  - ");
+	message("1KM   F  -  -  - ");
 else if(d > 70)
-	message("   -  F  -  - ");
+	message("2KM   -  F  -  - ");
 else if(d > 45 )
-    message("   -  -  F  - ");
+    message("3KM   -  -  F  - ");
 else if(d > 30)
-	message("   -  -  -  F ");
+	message("4KM   -  -  -  F ");
 else if(d < 10)
 	message("   -  -  -  - ");
 relay2=off ;
