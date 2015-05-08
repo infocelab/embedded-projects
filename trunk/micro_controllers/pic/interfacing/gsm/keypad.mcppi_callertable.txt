@@ -1,0 +1,10 @@
+main
+	__CC2DW
+		____DoICP
+	UART1_Init
+	send_to_modem
+		UART1_Write
+	send_sms
+		send_to_modem1
+			UART1_Write
+		UART1_Write
