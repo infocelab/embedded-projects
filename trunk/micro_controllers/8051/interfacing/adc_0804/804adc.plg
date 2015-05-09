@@ -3,7 +3,16 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-E:\celabcode\Embedded-Projects\8051 Projects Codes\8051 interfacing adc 804\804adc.uvproj
-Project File Date:  01/15/2015
+G:\Celabcode\embedded-projects\micro_controllers\8051\interfacing\adc_0804\804adc.uvproj
+Project File Date:  03/20/2015
 
 <h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling 804adc.c...
+804adc.c(53): warning C290: missing return value
+804adc.c(68): warning C290: missing return value
+linking...
+Program Size: data=14.0 xdata=0 code=501
+creating hex file from "804adc"...
+"804adc" - 0 Error(s), 2 Warning(s).
