@@ -1,4 +1,4 @@
-#line 1 "G:/Celabcode/embedded-projects/micro_controllers/pic/interfacing/lcd_interfacing_pic/lcd interfacing with pic.c"
+#line 1 "G:/Celabcode/embedded-projects/micro_controllers/pic/interfacing/lcd_interfacing/lcd interfacing with pic.c"
 
 sbit LCD_RS at RC2_bit;
 sbit LCD_EN at RC3_bit;
@@ -15,8 +15,15 @@ sbit LCD_D7_Direction at TRISC7_bit;
 
 void main()
 {
+
  Lcd_Init();
  Lcd_Cmd(_LCD_CLEAR);
  Lcd_Cmd(_LCD_CURSOR_OFF);
- Lcd_Out(1,1,"computronics lab");
+ while(1)
+{
+ Lcd_Out(1,1,"hello");
+ delay_ms(1000);
+ Lcd_Cmd(_LCD_CLEAR);
+ delay_ms(100);
+ }
 }

@@ -14,8 +14,15 @@ sbit LCD_D7_Direction at TRISC7_bit;
 // End LCD module connections
 void main()
 {
+
  Lcd_Init(); // Initialize LCD
  Lcd_Cmd(_LCD_CLEAR); // Clear display
  Lcd_Cmd(_LCD_CURSOR_OFF); // Cursor off
- Lcd_Out(1,1,"computronics lab");//Write text'Hello World' in first row
+ while(1)
+{
+ Lcd_Out(1,1,"hello");//Write text'Hello World' in first row
+ delay_ms(1000);
+  Lcd_Cmd(_LCD_CLEAR); // Clear display
+                 delay_ms(100);
+ }
 }
