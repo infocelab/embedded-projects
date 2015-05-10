@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"8051_with_lcd.obj" 
+TO "8051_with_lcd" 
+RAMSIZE(256) 
