@@ -73,7 +73,7 @@ Lcd_deg();	// To display degree in LCD
 void main()										//Make P2 and P3 ports are outputs
 {
 char x;
-P0=0x00;
+P0=0xFF;
 P2=0x00;										
 P3=0x00;										 //Command for choosing 16x2 Lcd
 delay(1000);	
@@ -99,14 +99,14 @@ cmd(0xc0);
   adc();								//ADC function call
 	if(x1>=5 && x2>=3)
 	{
-		motor=1;
+		motor=0;
 		delay(2000);
 		
 	}
 		
 	else
 	{
-			motor=0;
+			motor=1;
 		  delay(2000);
 	}
 }
