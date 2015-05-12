@@ -11029,17 +11029,23 @@ Mors</description>
 <part name="CONN5" library="con-amp-quick" deviceset="M02" device="" value="2pin"/>
 <part name="CONN4" library="con-amp-quick" deviceset="M02" device=""/>
 <part name="CONN6" library="con-amp-quick" deviceset="M02" device="" value="2pin"/>
-<part name="CONN7" library="con-amp-quick" deviceset="M04" device="" value="4 pin">
-<attribute name="MF" value=""/>
-<attribute name="MPN" value=""/>
-<attribute name="OC_FARNELL" value="unknown"/>
-<attribute name="OC_NEWARK" value="unknown"/>
-</part>
 <part name="S2" library="switch-dil" deviceset="DP02" device="" value="push switch"/>
 <part name="C7" library="capacitor-wima" deviceset="C" device="2,5-3" value="0.1uf"/>
 <part name="S1" library="switch-dil" deviceset="DA03" device=""/>
 <part name="SL1" library="con-amp-quick" deviceset="M06" device=""/>
 <part name="R4" library="rcl" deviceset="R-EU_" device="0204/7" value="68E"/>
+<part name="CONN7" library="con-amp-quick" deviceset="M02" device="" value="2pin">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+<attribute name="OC_NEWARK" value="unknown"/>
+</part>
+<part name="CONN8" library="con-amp-quick" deviceset="M02" device="" value="2pin">
+<attribute name="MF" value=""/>
+<attribute name="MPN" value=""/>
+<attribute name="OC_FARNELL" value="unknown"/>
+<attribute name="OC_NEWARK" value="unknown"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -11074,12 +11080,13 @@ Mors</description>
 <instance part="CONN5" gate="G$1" x="38.1" y="35.56"/>
 <instance part="CONN4" gate="G$1" x="38.1" y="45.72"/>
 <instance part="CONN6" gate="G$1" x="134.62" y="38.1" rot="R180"/>
-<instance part="CONN7" gate="G$1" x="132.08" y="55.88" rot="R180"/>
 <instance part="S2" gate="1" x="45.72" y="101.6"/>
 <instance part="C7" gate="G$1" x="27.94" y="88.9" rot="R180"/>
 <instance part="S1" gate="1" x="-10.16" y="91.44"/>
 <instance part="SL1" gate="G$1" x="66.04" y="99.06" rot="R270"/>
 <instance part="R4" gate="G$1" x="50.8" y="93.98"/>
+<instance part="CONN7" gate="G$1" x="134.62" y="58.42" rot="R180"/>
+<instance part="CONN8" gate="G$1" x="134.62" y="48.26" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -11534,6 +11541,7 @@ Mors</description>
 <pinref part="IC1" gate="G$1" pin="RD7/SPP7/P1D"/>
 <pinref part="CONN7" gate="G$1" pin="1"/>
 <wire x1="127" y1="58.42" x2="116.84" y2="58.42" width="0.1524" layer="91"/>
+<junction x="127" y="58.42"/>
 </segment>
 </net>
 <net name="N$28" class="0">
@@ -11541,20 +11549,7 @@ Mors</description>
 <pinref part="IC1" gate="G$1" pin="RD6/SPP6/P1C"/>
 <pinref part="CONN7" gate="G$1" pin="2"/>
 <wire x1="127" y1="55.88" x2="116.84" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$36" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="RD5/SPP5/P1B"/>
-<pinref part="CONN7" gate="G$1" pin="3"/>
-<wire x1="127" y1="53.34" x2="116.84" y2="53.34" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$37" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="RD4/SPP4"/>
-<pinref part="CONN7" gate="G$1" pin="4"/>
-<wire x1="127" y1="50.8" x2="116.84" y2="50.8" width="0.1524" layer="91"/>
+<junction x="127" y="55.88"/>
 </segment>
 </net>
 <net name="N$38" class="0">
@@ -11582,29 +11577,29 @@ Mors</description>
 </net>
 <net name="N$42" class="0">
 <segment>
-<pinref part="IC1" gate="G$1" pin="RC6/TX/CK"/>
-<wire x1="116.84" y1="45.72" x2="111.76" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="45.72" x2="111.76" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="48.26" x2="99.06" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="48.26" x2="109.22" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="48.26" x2="99.06" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="48.26" x2="99.06" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="LCD" gate="G$1" pin="13"/>
 <wire x1="99.06" y1="7.62" x2="101.6" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="7.62" x2="101.6" y2="0" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="48.26" x2="111.76" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="48.26" x2="111.76" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="RD4/SPP4"/>
+<wire x1="119.38" y1="50.8" x2="116.84" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="50.8" x2="119.38" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$43" class="0">
 <segment>
-<pinref part="IC1" gate="G$1" pin="RC7/RX/DT/SDO"/>
-<wire x1="116.84" y1="48.26" x2="114.3" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="48.26" x2="114.3" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="48.26" x2="111.76" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="48.26" x2="111.76" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="53.34" x2="96.52" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="53.34" x2="96.52" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="LCD" gate="G$1" pin="14"/>
 <wire x1="96.52" y1="5.08" x2="99.06" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="5.08" x2="99.06" y2="0" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="0" x2="99.06" y2="-2.54" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="RD5/SPP5/P1B"/>
+<wire x1="111.76" y1="53.34" x2="116.84" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$46" class="0">
@@ -11633,6 +11628,22 @@ Mors</description>
 <pinref part="R4" gate="G$1" pin="2"/>
 <pinref part="SL1" gate="G$1" pin="1"/>
 <wire x1="55.88" y1="93.98" x2="60.96" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$48" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RC7/RX/DT/SDO"/>
+<wire x1="127" y1="48.26" x2="114.3" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="CONN8" gate="G$1" pin="1"/>
+<junction x="127" y="48.26"/>
+<wire x1="127" y1="48.26" x2="116.84" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$36" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RC6/TX/CK"/>
+<pinref part="CONN8" gate="G$1" pin="2"/>
+<wire x1="127" y1="45.72" x2="116.84" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
