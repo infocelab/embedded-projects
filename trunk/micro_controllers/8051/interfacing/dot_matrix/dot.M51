@@ -1,0 +1,351 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/13/2015  16:56:06  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+G:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE STARTUP.obj, dot.obj TO dot RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  dot.obj (DOT)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  dot (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         ?DT?DOT
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00A6H     UNIT         ?PR?MAIN?DOT
+            CODE    08A6H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0932H     0066H     UNIT         ?PR?_DELAY?DOT
+            CODE    0998H     0043H     UNIT         ?PR?MAKE_D?DOT
+            CODE    09DBH     003AH     UNIT         ?PR?MAKE_B?DOT
+            CODE    0A15H     003AH     UNIT         ?PR?MAKE_C?DOT
+            CODE    0A4FH     003AH     UNIT         ?PR?MAKE_E?DOT
+            CODE    0A89H     0016H     UNIT         ?PR?MAKE_A?DOT
+            CODE    0A9FH     0016H     UNIT         ?PR?MAKE_F?DOT
+            CODE    0AB5H     0009H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   dot (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?DOT
+  +--> ?C_INITSEG
+
+?PR?MAIN?DOT
+  +--> ?PR?_DELAY?DOT
+  +--> ?PR?MAKE_A?DOT
+  +--> ?PR?MAKE_B?DOT
+  +--> ?PR?MAKE_C?DOT
+  +--> ?PR?MAKE_D?DOT
+  +--> ?PR?MAKE_E?DOT
+  +--> ?PR?MAKE_F?DOT
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/13/2015  16:56:06  PAGE 2
+
+
+
+?PR?MAKE_A?DOT
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_B?DOT
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_C?DOT
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_D?DOT
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_E?DOT
+  +--> ?PR?_DELAY?DOT
+
+?PR?MAKE_F?DOT
+  +--> ?PR?_DELAY?DOT
+
+
+
+SYMBOL TABLE OF MODULE:  dot (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:08A6H         SEGMENT       ?C_C51STARTUP
+  I:000EH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08A9H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:08A6H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:08A6H         LINE#         133
+  C:08A8H         LINE#         134
+  C:08A9H         LINE#         135
+  C:08AAH         LINE#         136
+  C:08ACH         LINE#         185
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/13/2015  16:56:06  PAGE 3
+
+
+  C:08AFH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        DOT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:096AH         PUBLIC        _delay
+  C:0800H         PUBLIC        main
+  C:0A89H         PUBLIC        make_A
+  C:09DBH         PUBLIC        make_B
+  C:0A15H         PUBLIC        make_C
+  C:0998H         PUBLIC        make_D
+  C:0A4FH         PUBLIC        make_E
+  C:0A9FH         PUBLIC        make_F
+  D:0008H         PUBLIC        d
+  D:000AH         PUBLIC        i
+  D:000CH         PUBLIC        j
+  C:0966H         SYMBOL        L?0045
+  -------         PROC          L?0044
+  -------         ENDPROC       L?0044
+  C:0966H         SYMBOL        L?0045
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        msec
+  C:096AH         LINE#         3
+  C:096AH         LINE#         4
+  C:096AH         LINE#         5
+  C:0978H         LINE#         6
+  C:0997H         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAKE_A
+  C:0A89H         LINE#         9
+  C:0A89H         LINE#         10
+  C:0A89H         LINE#         11
+  C:0A8CH         LINE#         12
+  C:0A8FH         LINE#         13
+  C:0A8FH         LINE#         14
+  C:0A8FH         LINE#         15
+  C:0A8FH         LINE#         16
+  C:0A8FH         LINE#         17
+  C:0A8FH         LINE#         18
+  C:0A8FH         LINE#         19
+  C:0A8FH         LINE#         20
+  C:0A8FH         LINE#         21
+  C:0A8FH         LINE#         22
+  C:0A8FH         LINE#         23
+  C:0A8FH         LINE#         24
+  C:0A8FH         LINE#         25
+  C:0A92H         LINE#         26
+  C:0A95H         LINE#         27
+  C:0A98H         LINE#         28
+  -------         ENDPROC       MAKE_A
+  -------         PROC          MAKE_B
+  C:09DBH         LINE#         31
+  C:09DBH         LINE#         32
+  C:09DBH         LINE#         33
+  C:09DEH         LINE#         34
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/13/2015  16:56:06  PAGE 4
+
+
+  C:09E1H         LINE#         35
+  C:09E4H         LINE#         36
+  C:09E7H         LINE#         37
+  C:09EAH         LINE#         38
+  C:09EDH         LINE#         39
+  C:09F0H         LINE#         40
+  C:09F3H         LINE#         41
+  C:09F6H         LINE#         42
+  C:09F9H         LINE#         43
+  C:09FCH         LINE#         44
+  C:09FFH         LINE#         45
+  C:0A02H         LINE#         46
+  C:0A05H         LINE#         47
+  C:0A08H         LINE#         48
+  C:0A0BH         LINE#         49
+  C:0A0EH         LINE#         50
+  -------         ENDPROC       MAKE_B
+  -------         PROC          MAKE_C
+  C:0A15H         LINE#         52
+  C:0A15H         LINE#         53
+  C:0A15H         LINE#         54
+  C:0A18H         LINE#         55
+  C:0A1BH         LINE#         56
+  C:0A1EH         LINE#         57
+  C:0A21H         LINE#         58
+  C:0A24H         LINE#         59
+  C:0A27H         LINE#         60
+  C:0A2AH         LINE#         61
+  C:0A2DH         LINE#         62
+  C:0A30H         LINE#         63
+  C:0A33H         LINE#         64
+  C:0A36H         LINE#         65
+  C:0A39H         LINE#         66
+  C:0A3CH         LINE#         67
+  C:0A3FH         LINE#         68
+  C:0A42H         LINE#         69
+  C:0A45H         LINE#         70
+  C:0A48H         LINE#         71
+  -------         ENDPROC       MAKE_C
+  -------         PROC          MAKE_D
+  C:0998H         LINE#         73
+  C:0998H         LINE#         74
+  C:0998H         LINE#         75
+  C:099BH         LINE#         76
+  C:099EH         LINE#         77
+  C:09A1H         LINE#         78
+  C:09A4H         LINE#         79
+  C:09A7H         LINE#         80
+  C:09AAH         LINE#         81
+  C:09ADH         LINE#         82
+  C:09B0H         LINE#         83
+  C:09B3H         LINE#         84
+  C:09B6H         LINE#         85
+  C:09B9H         LINE#         86
+  C:09BCH         LINE#         87
+  C:09BFH         LINE#         88
+  C:09C2H         LINE#         89
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/13/2015  16:56:06  PAGE 5
+
+
+  C:09C5H         LINE#         90
+  C:09C8H         LINE#         91
+  C:09CBH         LINE#         92
+  C:09CEH         LINE#         93
+  C:09D1H         LINE#         94
+  C:09D4H         LINE#         95
+  -------         ENDPROC       MAKE_D
+  -------         PROC          MAKE_E
+  C:0A4FH         LINE#         97
+  C:0A4FH         LINE#         98
+  C:0A4FH         LINE#         99
+  C:0A52H         LINE#         100
+  C:0A55H         LINE#         101
+  C:0A58H         LINE#         102
+  C:0A5BH         LINE#         103
+  C:0A5EH         LINE#         104
+  C:0A61H         LINE#         105
+  C:0A64H         LINE#         106
+  C:0A67H         LINE#         107
+  C:0A6AH         LINE#         108
+  C:0A6DH         LINE#         109
+  C:0A70H         LINE#         110
+  C:0A73H         LINE#         111
+  C:0A76H         LINE#         112
+  C:0A79H         LINE#         113
+  C:0A7CH         LINE#         114
+  C:0A7FH         LINE#         115
+  C:0A82H         LINE#         116
+  -------         ENDPROC       MAKE_E
+  -------         PROC          MAKE_F
+  C:0A9FH         LINE#         118
+  C:0A9FH         LINE#         119
+  C:0A9FH         LINE#         120
+  C:0AA2H         LINE#         121
+  C:0AA5H         LINE#         122
+  C:0AA5H         LINE#         123
+  C:0AA5H         LINE#         124
+  C:0AA5H         LINE#         125
+  C:0AA5H         LINE#         126
+  C:0AA5H         LINE#         127
+  C:0AA5H         LINE#         128
+  C:0AA5H         LINE#         129
+  C:0AA5H         LINE#         130
+  C:0AA5H         LINE#         131
+  C:0AA5H         LINE#         132
+  C:0AA5H         LINE#         133
+  C:0AA5H         LINE#         134
+  C:0AA8H         LINE#         135
+  C:0AABH         LINE#         136
+  C:0AAEH         LINE#         137
+  -------         ENDPROC       MAKE_F
+  -------         PROC          MAIN
+  -------         DO            
+  D:0004H         SYMBOL        k
+  -------         ENDDO         
+  C:0800H         LINE#         139
+  C:0800H         LINE#         140
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/13/2015  16:56:06  PAGE 6
+
+
+  C:0800H         LINE#         141
+  C:0803H         LINE#         142
+  C:0805H         LINE#         143
+  C:080BH         LINE#         144
+  C:080EH         LINE#         145
+  C:0813H         LINE#         146
+  C:0813H         LINE#         147
+  C:0813H         LINE#         148
+  C:0816H         LINE#         149
+  C:0816H         LINE#         150
+  C:0819H         LINE#         151
+  C:0824H         LINE#         152
+  C:082BH         LINE#         153
+  C:082EH         LINE#         154
+  C:082EH         LINE#         155
+  C:0831H         LINE#         156
+  C:083CH         LINE#         157
+  C:0843H         LINE#         158
+  C:0846H         LINE#         159
+  C:0846H         LINE#         160
+  C:0849H         LINE#         161
+  C:0854H         LINE#         162
+  C:085BH         LINE#         163
+  C:085EH         LINE#         164
+  C:085EH         LINE#         165
+  C:0861H         LINE#         166
+  C:086CH         LINE#         167
+  C:0873H         LINE#         168
+  C:0876H         LINE#         169
+  C:0876H         LINE#         170
+  C:0879H         LINE#         171
+  C:0884H         LINE#         172
+  C:088BH         LINE#         173
+  C:088EH         LINE#         174
+  C:088EH         LINE#         175
+  C:0891H         LINE#         176
+  C:089CH         LINE#         177
+  C:08A3H         LINE#         178
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DOT
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0240H BYTE (28%) *
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 code=705
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
