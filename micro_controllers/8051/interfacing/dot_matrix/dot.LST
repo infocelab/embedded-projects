@@ -1,0 +1,208 @@
+C51 COMPILER V9.52.0.0   DOT                                                               05/13/2015 16:56:05 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DOT
+OBJECT MODULE PLACED IN dot.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE dot.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          int i=0,j,d=0;
+   3          void delay(unsigned int msec)  // Function to provide time delay in msec.
+   4          {
+   5   1      for(i=0;i<msec;i++)
+   6   1      for(j=0;j<675;j++);
+   7   1      }
+   8           
+   9          void make_A()
+  10          {
+  11   1        P1 = 0x02;
+  12   1        P2 = 0xFC;
+  13   1        delay(d);
+  14   1        P1 = 0x04;
+  15   1        P2 = 0x12;
+  16   1        delay(d);
+  17   1        P1 = 0x08;
+  18   1        P2 = 0x12;
+  19   1        delay(d);
+  20   1        P1 = 0x10;
+  21   1        P2 = 0x12;
+  22   1        delay(d);
+  23   1        P1 = 0x20;
+  24   1        P2 = 0x12;
+  25   1        delay(d);
+  26   1        P1 = 0x40;
+  27   1        P2 = 0xFC;
+  28   1        delay(d);
+  29   1      }
+  30          
+  31          void make_B()
+  32          {
+  33   1        P1 = 0x02;
+  34   1        P2 = 0x7C;
+  35   1        delay(d);
+  36   1        P1 = 0x04;
+  37   1        P2 = 0x92;
+  38   1        delay(d);
+  39   1        P1 = 0x08;
+  40   1        P2 = 0x92;
+  41   1        delay(d);
+  42   1        P1 = 0x10;
+  43   1        P2 = 0x92;
+  44   1        delay(d);
+  45   1        P1 = 0x20;
+  46   1        P2 = 0xFE;
+  47   1        delay(d);
+  48   1        P1 = 0x40;
+  49   1        P2 = 0x82;
+  50   1        delay(d);
+  51   1      }
+  52          void make_C()
+  53          {
+  54   1        P1 = 0x02;
+  55   1        P2 = 0x82;
+C51 COMPILER V9.52.0.0   DOT                                                               05/13/2015 16:56:05 PAGE 2   
+
+  56   1        delay(d);
+  57   1        P1 = 0x04;
+  58   1        P2 = 0x82;
+  59   1        delay(d);
+  60   1        P1 = 0x08;
+  61   1        P2 = 0x82;
+  62   1        delay(d);
+  63   1        P1 = 0x10;
+  64   1        P2 = 0x82;
+  65   1        delay(d);
+  66   1        P1 = 0x20;
+  67   1        P2 = 0x82;
+  68   1        delay(d);
+  69   1        P1 = 0x40;
+  70   1        P2 = 0x7C;
+  71   1        delay(d);
+  72   1      }
+  73          void make_D()
+  74          {
+  75   1        P1 = 0x02;
+  76   1        P2 = 0x7C;
+  77   1        delay(d);
+  78   1        P1 = 0x04;
+  79   1        P2 = 0x82;
+  80   1        delay(d);
+  81   1        P1 = 0x08;
+  82   1        P2 = 0x82;
+  83   1        delay(d);
+  84   1        P1 = 0x10;
+  85   1        P2 = 0x82;
+  86   1        delay(d);
+  87   1        P1 = 0x20;
+  88   1        P2 = 0x82;
+  89   1        delay(d);
+  90   1        P1 = 0x40;
+  91   1        P2 = 0xFE;
+  92   1        delay(d);
+  93   1        P1 = 0x80;
+  94   1        P2 = 0x82;
+  95   1        delay(d);
+  96   1      }
+  97          void make_E()
+  98          {
+  99   1        P1 = 0x02;
+ 100   1        P2 = 0x92;
+ 101   1        delay(d);
+ 102   1        P1 = 0x04;
+ 103   1        P2 = 0x92;
+ 104   1        delay(d);
+ 105   1        P1 = 0x08;
+ 106   1        P2 = 0x92;
+ 107   1        delay(d);
+ 108   1        P1 = 0x10;
+ 109   1        P2 = 0x92;
+ 110   1        delay(d);
+ 111   1        P1 = 0x20;
+ 112   1        P2 = 0x92;
+ 113   1        delay(d);
+ 114   1        P1 = 0x40;
+ 115   1        P2 = 0xFE;
+ 116   1        delay(d);
+ 117   1      }
+C51 COMPILER V9.52.0.0   DOT                                                               05/13/2015 16:56:05 PAGE 3   
+
+ 118          void make_F()
+ 119          {
+ 120   1        P1 = 0x02;
+ 121   1        P2 = 0x12;
+ 122   1        delay(d);
+ 123   1        P1 = 0x04;
+ 124   1        P2 = 0x12;
+ 125   1        delay(d);
+ 126   1        P1 = 0x08;
+ 127   1        P2 = 0x12;
+ 128   1        delay(d);
+ 129   1        P1 = 0x10;
+ 130   1        P2 = 0x12;
+ 131   1        delay(d);
+ 132   1        P1 = 0x20;
+ 133   1        P2 = 0x12;
+ 134   1        delay(d);
+ 135   1        P1 = 0x40;
+ 136   1        P2 = 0xFE;
+ 137   1        delay(d);
+ 138   1      }
+ 139          void main ()
+ 140          {
+ 141   1        int k=0;
+ 142   1        P1 = 0x00;
+ 143   1        delay(1);
+ 144   1        P2 = 0x00;
+ 145   1        d=1;
+ 146   1        while(1)
+ 147   1        {
+ 148   2          for(k=0;k<100;k++)
+ 149   2          {
+ 150   3            make_A();
+ 151   3          }
+ 152   2          delay(20);
+ 153   2          for(k=0;k<100;k++)
+ 154   2          {
+ 155   3            make_B();
+ 156   3          }
+ 157   2          delay(20);
+ 158   2          for(k=0;k<100;k++)
+ 159   2          {
+ 160   3            make_C();
+ 161   3          }
+ 162   2          delay(20);
+ 163   2          for(k=0;k<100;k++)
+ 164   2          {
+ 165   3            make_D();
+ 166   3          }
+ 167   2          delay(20);
+ 168   2          for(k=0;k<100;k++)
+ 169   2          {
+ 170   3            make_E();
+ 171   3          }
+ 172   2          delay(20);
+ 173   2            for(k=0;k<100;k++)
+ 174   2          {
+ 175   3            make_F();
+ 176   3          }
+ 177   2          delay(20);
+ 178   2        }
+ 179   1      }
+C51 COMPILER V9.52.0.0   DOT                                                               05/13/2015 16:56:05 PAGE 4   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    553    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
