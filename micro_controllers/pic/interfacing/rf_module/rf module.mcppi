@@ -1,20 +1,6 @@
 [DEVICE]
 Name=P18F45K22
 Clock=4000000
-[MEMORY_MODEL]
-Value=-1
-[BUILD_TYPE]
-Value=0
-[ACTIVE_TAB]
-Value=rf module.c
-[USE_EEPROM]
-Value=0
-[USE_HEAP]
-Value=0
-[HEAP_SIZE]
-Value=2000
-[EEPROM_DEFINITION]
-Value=
 [FILES]
 Count=1
 File0=rf module.c
@@ -24,9 +10,7 @@ Count=0
 Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
-Count=2
-File0=rf module.c
-File1=..\pic_led_blinking\led_blinking\MyProject.c
+Count=0
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]
@@ -34,10 +18,13 @@ Count=0
 [OTHER_FILES]
 Count=0
 [SEARCH_PATH]
-Count=3
-Path0=C:\Users\ABC\Documents\Mikroelektronika\mikroC PRO for PIC\defs\
-Path1=C:\Users\ABC\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\
-Path2=E:\celabcode\Embedded-Projects\project_codes\pic\interfacing\rf_module\
+Count=6
+Path0=G:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\defs\
+Path1=G:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\
+Path2=G:\Celabcode\embedded-projects\micro_controllers\pic\interfacing\rf_module\
+Path3=C:\Users\ABC\Documents\Mikroelektronika\mikroC PRO for PIC\defs\
+Path4=C:\Users\ABC\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\
+Path5=E:\celabcode\Embedded-Projects\project_codes\pic\interfacing\rf_module\
 [HEADER_PATH]
 Count=0
 [HEADERS]
@@ -45,7 +32,7 @@ Count=0
 [PLDS]
 Count=0
 [Useses]
-Count=53
+Count=54
 File0=ADC
 File1=Button
 File2=CAN_SPI
@@ -99,9 +86,22 @@ File49=Time
 File50=TouchPanel
 File51=Trigonometry
 File52=UART
+File53=PWM
+[MEMORY_MODEL]
+Value=-1
+[BUILD_TYPE]
+Value=0
+[ACTIVE_TAB]
+Value=rf module.c
+[USE_EEPROM]
+Value=0
+[USE_HEAP]
+Value=0
+[HEAP_SIZE]
+Value=2000
+[EEPROM_DEFINITION]
+Value=
 [EXPANDED NODES]
 Node1=Sources
-Node2=Image Files
-Node3=Active Comments Files
-Node4=Output Files
-Count=4
+Node2=Output Files
+Count=2
