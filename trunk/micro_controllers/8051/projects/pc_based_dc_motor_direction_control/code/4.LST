@@ -1,0 +1,114 @@
+C51 COMPILER V9.52.0.0   4                                                                 05/16/2015 13:35:53 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 4
+OBJECT MODULE PLACED IN 4.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE 4.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg52.h>              //including sfr registers for ports of the controller
+   2          #include<lcd.h>
+   3          #include <stdio.h>  
+   4          
+   5          //LCD Module Connections
+   6          sbit RS = P0^0;                                                                   
+   7          sbit EN = P0^1;                            
+   8          sbit D0 = P2^0;
+   9          sbit D1 = P2^1;
+  10          sbit D2 = P2^2;
+  11          sbit D3 = P2^3;
+  12          sbit D4 = P2^4;
+  13          sbit D5 = P2^5;
+  14          sbit D6 = P2^6;
+  15          sbit D7 = P2^7;
+  16          
+  17          sbit motor1a = P0^2;
+  18          sbit motor1b = P0^3;
+  19          //End LCD Module Connections
+  20          void Delay(int a)
+  21          {
+  22   1          int j;
+  23   1          int i;
+  24   1          for(i=0;i<a;i++)
+  25   1          {
+  26   2              for(j=0;j<100;j++)
+  27   2              {
+  28   3              }
+  29   2          }
+  30   1      }
+  31          void main()
+  32          {
+  33   1        int i=0;
+  34   1        char str[20];
+  35   1        char a;
+  36   1        
+  37   1        /*------------------------------------------------
+  38   1      Setup the serial port for 2400 baud at 11.0592MHz.
+  39   1      ------------------------------------------------*/
+  40   1      
+  41   1          SCON  = 0x50;                /* SCON: mode 1, 8-bit UART, enable rcvr      */
+  42   1          TMOD |= 0x20;               /* TMOD: timer 1, mode 2, 8-bit reload        */
+  43   1          TH1   = 244;                /* TH1:  reload value for 2400 baud @ 11.0592MHz   */
+  44   1          TR1   = 1;                  /* TR1:  timer 1 run                          */
+  45   1          TI    = 1;                  /* TI:   set TI to send first char of UART    */
+  46   1        
+  47   1        Lcd8_init();
+*** WARNING C206 IN LINE 47 OF 4.c: 'Lcd8_init': missing function-prototype
+  48   1      motor1a =0;
+  49   1      motor1b=0;  
+  50   1        while(1)
+  51   1        {   
+  52   2          scanf("%c",&a);
+  53   2          Lcd8_Set_Cursor(1,i++);
+  54   2          Lcd8_Write_Char(a);
+C51 COMPILER V9.52.0.0   4                                                                 05/16/2015 13:35:53 PAGE 2   
+
+  55   2          if(a == 'a')
+  56   2          {
+  57   3            motor1b =1;
+  58   3            motor1a =0;
+  59   3            Delay(3000);
+  60   3            motor1b =1;
+  61   3            motor1a =1;
+  62   3              Delay(1000);
+  63   3          }
+  64   2          else  if(a == 'b')
+  65   2          {
+  66   3                motor1b =0;
+  67   3            motor1a =1;
+  68   3            Delay(3000);
+  69   3            motor1b =1;
+  70   3            motor1a =1;
+  71   3              Delay(1000);
+  72   3          }
+  73   2          
+  74   2          if(i==16)
+  75   2          {
+  76   3            Lcd8_Clear();
+  77   3            i=0;
+  78   3          }
+  79   2          
+  80   2      }
+  81   1      }
+*** WARNING C280 IN LINE 34 OF 4.c: 'str': unreferenced local variable
+  82          
+  83          
+  84          
+  85          
+*** WARNING C290 IN LINE 84 OF 4.c: missing return value
+*** WARNING C290 IN LINE 176 OF 4.c: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    727    ----
+   CONSTANT SIZE    =      3    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      38
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  4 WARNING(S),  0 ERROR(S)
