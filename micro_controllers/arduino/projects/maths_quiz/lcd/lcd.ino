@@ -3,7 +3,7 @@
 
 // initialize the library with the numbers of the interface pins
 //LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2); //  for simulation
+LiquidCrystal lcd(13, 12, 11, 10, 9, 8); //  for simulation
 long randNumber1;
 long randNumber2;
 long ans;
