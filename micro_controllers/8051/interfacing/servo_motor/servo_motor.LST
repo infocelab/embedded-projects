@@ -1,0 +1,76 @@
+C51 COMPILER V9.52.0.0   SERVO_MOTOR                                                       05/19/2015 17:14:44 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SERVO_MOTOR
+OBJECT MODULE PLACED IN servo_motor.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE servo_motor.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include<stdio.h>
+   3          #include <intrins.h>
+   4          
+   5          sbit motor_pin = P2^0;
+   6          void Delay(unsigned int);
+   7          void Delay_servo(unsigned int);
+   8          void main()
+   9          {
+  10   1        motor_pin = 0;
+  11   1      
+  12   1        do
+  13   1        {
+  14   2          //Turn to 0 degree
+  15   2          motor_pin = 1;
+  16   2          Delay_servo(50);
+  17   2          motor_pin = 0;
+  18   2      
+  19   2          Delay(1000);
+  20   2      
+  21   2          //Turn to 90 degree
+  22   2          motor_pin=1;
+  23   2          Delay_servo(82);
+  24   2          motor_pin=0;
+  25   2      
+  26   2          Delay(1000);
+  27   2          //Turn to 180 degree
+  28   2          motor_pin=1;
+  29   2          Delay_servo(110);
+  30   2          motor_pin=0;
+  31   2      
+  32   2          Delay(1000);
+  33   2        }while(1);
+  34   1      }
+  35          
+  36          void Delay(unsigned int ms)
+  37          {
+  38   1        unsigned long int us = ms*1000;
+  39   1        while(us--)
+  40   1        {
+  41   2          _nop_();
+  42   2        }
+  43   1      }
+  44          
+  45          void Delay_servo(unsigned int us)
+  46          {
+  47   1        while(us--)
+  48   1        {
+  49   2          _nop_();
+  50   2        }
+  51   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     93    ----
+C51 COMPILER V9.52.0.0   SERVO_MOTOR                                                       05/19/2015 17:14:44 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
