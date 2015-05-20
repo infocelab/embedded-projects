@@ -1,13 +1,12 @@
-/******************************************************************************
+ /******************************************************************************
+
     Hardware
     --------
-    ATmega16 @ 16MHz external crystal.
+    ATmega32 @ 16MHz external crystal.
     Fuse Byte setting HIGH = C9 and LOW = FF (MOST IMP.)
 
-
     LCD   <->   AVR Connection
-
-       VSS ->GND
+      VSS ->GND
        VDD ->+5V
        VEE -> CENTER PIN OF 10K POT (OTHER TWO PIN OF POT TO +5V AND GND)
              ADJ. THE POT UNTIL YOU HAVE A CLEAR TEXT DISPLAY.
@@ -36,11 +35,13 @@
        COL3 ->  PA4
 
        ROW1 ->  PA3
-       ROW2 ->  PA2
+       ROW2 -> PA2
        ROW3 ->  PA1
-       ROW4 ->  PA0
- 
-                            
+       ROW4 -> PA0
+
+                              
+
+
 
     ******************************************************************************/
 
@@ -72,7 +73,6 @@
 
    Arguments:
       None
-
    Return:
       Any number between 0-11 depending on
       keypressed.
