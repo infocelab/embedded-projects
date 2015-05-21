@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"vehicle_speed_measurement.obj" 
+TO "vehicle_speed_measurement" 
+RAMSIZE(256) 
