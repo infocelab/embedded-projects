@@ -1,0 +1,141 @@
+C51 COMPILER V9.52.0.0   VEHICLE_SPEED_MEASUREMENT                                         05/21/2015 17:53:54 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE VEHICLE_SPEED_MEASUREMENT
+OBJECT MODULE PLACED IN vehicle_speed_measurement.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE vehicle_speed_measurement.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          sfr LCD=0x80;
+   3          sbit RS=P2^6;
+   4          sbit EN=P2^7;
+   5          sbit buzzer=P1^5;
+   6          unsigned int a=0, i=0, v;
+   7          void tm();
+   8          void delay(unsigned char time)
+   9          {
+  10   1      unsigned int a,b;
+  11   1      for(a=0;a<time;a++)
+  12   1      for(b=0;b<1275;b++);
+  13   1      }
+  14          void lcdcmd(unsigned char value)
+  15          {
+  16   1      LCD=value;
+  17   1      RS=0;
+  18   1      EN=1;
+  19   1      delay(10);
+  20   1      EN=0;
+  21   1      }
+  22          void lcddata(unsigned char value)
+  23          {
+  24   1      LCD=value;
+  25   1      RS=1;
+  26   1      EN=1;
+  27   1      delay(10);
+  28   1      EN=0;
+  29   1      }
+  30          void lcd_init()
+  31          {
+  32   1      lcdcmd(0x38);
+  33   1      delay(20);
+  34   1      lcdcmd(0x0c);
+  35   1      delay(20);
+  36   1      lcdcmd(0x01);
+  37   1      delay(20);
+  38   1      lcdcmd(0x06);
+  39   1      delay(20);
+  40   1      }
+  41          void ISR_ex0(void) interrupt 0
+  42          {
+  43   1      while(1)
+  44   1      {
+  45   2      tm();
+  46   2      a++;
+  47   2      }
+  48   1      }
+  49          void ISR_ex1(void) interrupt 2
+  50          {
+  51   1      unsigned char m,n,temp,o,u;
+  52   1      v=100/a;
+  53   1      m=v/100;
+  54   1      temp=v%100;
+  55   1      n=temp/10;
+C51 COMPILER V9.52.0.0   VEHICLE_SPEED_MEASUREMENT                                         05/21/2015 17:53:54 PAGE 2   
+
+  56   1      o=temp%10;
+  57   1      lcdcmd(0xc6);
+  58   1      lcddata(m+48);
+  59   1      lcddata(n+48);
+  60   1      lcddata(o+48);
+  61   1      a=0;
+  62   1      lcddata('k');
+  63   1      lcddata('m');
+  64   1      lcddata('/');
+  65   1      lcddata('h');
+  66   1      lcddata('r');
+  67   1      //lcddata('c');
+  68   1      lcddata(' ');
+  69   1      lcddata(' ');
+  70   1      
+  71   1        if(v>=60)
+  72   1        { 
+  73   2          buzzer=0;
+  74   2      }
+  75   1      else{
+  76   2        
+  77   2        buzzer=1;
+  78   2      }
+  79   1      }
+*** WARNING C280 IN LINE 51 OF vehicle_speed_measurement.c: 'u': unreferenced local variable
+  80          void main()
+  81          {
+  82   1      unsigned char w[]="WELCOMESPEED=WAITING...";
+  83   1      IT0 = 1; // Configure interrupt 0 for falling edge on /INT0 (P3.2)
+  84   1      EX0 = 1; // Enable EX0 Interrupt
+  85   1      IT1 = 1; // Configure interrupt 1 for falling edge on /INT0 (P3.2)
+  86   1      EX1 = 1; // Enable EX1 Interrupt
+  87   1      EA = 1; // Enable Global Interrupt Flag
+  88   1      IP=0x04; // Priority of ex1 high
+  89   1      lcd_init();
+  90   1      lcdcmd(0x84);
+  91   1      for(i=0;i<7;i++)
+  92   1      lcddata(w[i]);
+  93   1      lcdcmd(0xc0);
+  94   1      for(i=7;i<13;i++)
+  95   1      lcddata(w[i]);
+  96   1      for(i=13;i<24;i++)
+  97   1      lcddata(w[i]);
+  98   1      while(1);
+  99   1      }
+ 100          void tm()
+ 101          {
+ 102   1      int y=0;
+ 103   1      for(y=0;y<15;y++)
+ 104   1      {
+ 105   2      TMOD=0x01;
+ 106   2      TL0=0xFD;
+ 107   2      TH0=0x4B;
+ 108   2      TR0=1;
+ 109   2      while(TF0==0);
+ 110   2      TR0=0;
+ 111   2      TF0=0;
+ 112   2      }
+ 113   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.52.0.0   VEHICLE_SPEED_MEASUREMENT                                         05/21/2015 17:53:54 PAGE 3   
+
+   CODE SIZE        =    482    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6      26
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
