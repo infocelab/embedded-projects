@@ -1,0 +1,219 @@
+C51 COMPILER V9.52.0.0   GPS                                                               05/23/2015 13:08:42 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE GPS
+OBJECT MODULE PLACED IN gps.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE gps.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include<string.h>
+   3          sbit rs=P0^0;
+   4          sbit rw=P0^2;
+   5          sbit e=P0^1;
+   6          void gsmcmdsend(unsigned char *cmd);
+   7          
+   8          
+   9          //unsigned char card_id[96];
+  10          unsigned char header[]="GPS";
+  11          
+  12           int count=0;
+  13          void gsmcmdsend(unsigned char *cmd)   
+  14          {
+  15   1        unsigned char i;
+  16   1        for(i=0;*cmd!='\0';i++)
+  17   1        {
+  18   2          SBUF=*cmd;
+  19   2            while(TI==0);
+  20   2          TI=0;
+  21   2          cmd++;
+  22   2          }
+  23   1          SBUF=0x0A;
+  24   1          while(TI==0);
+  25   1          TI=0;
+  26   1          SBUF=0x0D;
+  27   1          while(TI==0);
+  28   1          TI=0;
+  29   1          while(RI==0);
+  30   1          RI=0;
+  31   1      }
+  32          void delay(int count)    //Function to provide delay
+  33          {
+  34   1          int i,j;
+  35   1          for(i=0;i<count;i++)
+  36   1          for(j=0;j<1275;j++);
+  37   1      }
+  38          void cmm(char value)
+  39          {
+  40   1        P2 = value;
+  41   1        rs=0;
+  42   1        rw=0;
+  43   1        e=1;
+  44   1        delay(1);
+  45   1        e=0;
+  46   1        delay(1);
+  47   1        return;
+  48   1      }
+  49          void dat(char value)
+  50          {
+  51   1        P2 =value;
+  52   1        rs=1;
+  53   1        rw=0;
+  54   1        e=1;
+  55   1        delay(1);
+C51 COMPILER V9.52.0.0   GPS                                                               05/23/2015 13:08:42 PAGE 2   
+
+  56   1        e=0;
+  57   1        delay(1);
+  58   1        return;
+  59   1      }
+  60          void lcdin()
+  61          { cmm(0x38);
+  62   1        cmm(0x0e);
+  63   1        cmm(0x01);
+  64   1        cmm(0x06);
+  65   1        cmm(0x85);
+  66   1        return;
+  67   1      }
+  68          void recieve()     //Function to recieve data serialy from RS232 
+  69          {
+  70   1        int flag=0,u=0,l=0;
+  71   1        char temp[5];
+  72   1        char card_id[30];
+  73   1        char lon[20];
+  74   1          unsigned char k;
+  75   1        int i=0;
+  76   1        RI=0;
+  77   1           for(k=0;k<=90;k++)
+  78   1           { 
+  79   2               while(RI==0); 
+  80   2          
+  81   2             if(SBUF == '$')
+  82   2             {
+  83   3               RI=0;     
+  84   3               for(u=0;u<5;u++)
+  85   3               {
+  86   4                 while(RI==0); 
+  87   4                 temp[u]=SBUF;
+  88   4                 RI=0;     
+  89   4               }
+  90   3               
+  91   3               if(strcmp(temp,"GPGGA") == 0)
+  92   3               {
+  93   4                flag=0;
+  94   4                 RI=0;
+  95   4               for(u=0;u<50;u++)
+  96   4               {
+  97   5                 while(RI==0);
+  98   5                 if(SBUF == ',')
+  99   5                    flag++;
+ 100   5                 if(flag  == 2)
+ 101   5                 {
+ 102   6                   // for lat
+ 103   6                   RI=0;
+ 104   6                   u=0;
+ 105   6                   while(1)
+ 106   6                   {               
+ 107   7                    while(RI==0); 
+ 108   7                    if(SBUF == ',')
+ 109   7                      card_id[u++]=' ';
+ 110   7                    else
+ 111   7                     card_id[u++]=SBUF;
+ 112   7                    
+ 113   7                    if(SBUF == 'N')
+ 114   7                     break;               
+ 115   7                    RI=0;
+ 116   7                   }
+ 117   6                   cmm(0x85);
+C51 COMPILER V9.52.0.0   GPS                                                               05/23/2015 13:08:42 PAGE 3   
+
+ 118   6                     for(l=0;l<u;l++)
+ 119   6                    {
+ 120   7                       dat(card_id[l]);
+ 121   7                    }
+ 122   6                  
+ 123   6                    // for lon
+ 124   6                   RI=0;
+ 125   6                   u=0;
+ 126   6                   while(1)
+ 127   6                   {               
+ 128   7                    while(RI==0); 
+ 129   7                    if(SBUF == ',')
+ 130   7                      card_id[u++]=' ';
+ 131   7                    else
+ 132   7                     card_id[u++]=SBUF;
+ 133   7                    
+ 134   7                    if(SBUF == 'E')
+ 135   7                     break;               
+ 136   7                    RI=0;
+ 137   7                   }
+ 138   6                   cmm(0xc0);
+ 139   6                     for(l=0;l<u;l++)
+ 140   6                    {
+ 141   7                       dat(card_id[l]);
+ 142   7                    }             
+ 143   6      
+ 144   6                    
+ 145   6                   RI=0;
+ 146   6                   break;              
+ 147   6                 }
+ 148   5                 RI=0;     
+ 149   5               }
+ 150   4                       
+ 151   4                 
+ 152   4               }
+ 153   3               else
+ 154   3               {
+ 155   4                 for(u=0;u<5;u++)
+ 156   4                {
+ 157   5                 temp[u]='\0';
+ 158   5                }
+ 159   4               }
+ 160   3               break;
+ 161   3             }
+ 162   2            RI=0;
+ 163   2          }
+ 164   1        
+ 165   1      }
+*** WARNING C280 IN LINE 73 OF gps.c: 'lon': unreferenced local variable
+ 166          void main()
+ 167          {
+ 168   1        int l,i;
+ 169   1        P1=0x00;
+ 170   1        lcdin();
+ 171   1        TMOD=0x20;            //Enable Timer 1
+ 172   1          TH1=0XFD;
+ 173   1          SCON=0x50;
+ 174   1          TR1=1;
+ 175   1      
+ 176   1      cmm(0x85);
+ 177   1      for(i=0;i<3;i++)
+ 178   1        {dat(header[i]);}
+C51 COMPILER V9.52.0.0   GPS                                                               05/23/2015 13:08:42 PAGE 4   
+
+ 179   1        cmm(0xc0);
+ 180   1      while(1)
+ 181   1             {
+ 182   2             recieve();
+ 183   2           
+ 184   2          }
+ 185   1      }
+*** WARNING C280 IN LINE 168 OF gps.c: 'l': unreferenced local variable
+ 186          
+ 187          
+ 188          end;            //end of program  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    586    ----
+   CONSTANT SIZE    =      6    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8      66
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)
