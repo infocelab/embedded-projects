@@ -1,0 +1,368 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/23/2015  13:08:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+G:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE STARTUP.obj, gps.obj TO gps RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  gps.obj (GPS)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?STRCMP)
+
+
+LINK MAP OF MODULE:  gps (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0042H     UNIT         _DATA_GROUP_
+            DATA    004AH     0008H     UNIT         ?DT?GPS
+            IDATA   0052H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     01B4H     UNIT         ?C?LIB_CODE
+            CODE    09B4H     0181H     UNIT         ?PR?RECIEVE?GPS
+            CODE    0B35H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0BC1H     0037H     UNIT         ?PR?MAIN?GPS
+            CODE    0BF8H     0033H     UNIT         ?PR?_DELAY?GPS
+            CODE    0C2BH     002EH     UNIT         ?PR?_GSMCMDSEND?GPS
+            CODE    0C59H     001AH     UNIT         ?PR?LCDIN?GPS
+            CODE    0C73H     000FH     UNIT         ?PR?_DAT?GPS
+            CODE    0C82H     000BH     UNIT         ?C_INITSEG
+            CODE    0C8DH     0008H     UNIT         ?PR?_CMM?GPS
+            CODE    0C95H     0006H     UNIT         ?CO?GPS
+
+
+
+OVERLAY MAP OF MODULE:   gps (?C_STARTUP)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?GPS
+  +--> ?C_INITSEG
+
+?PR?MAIN?GPS                   0008H    0002H
+  +--> ?PR?LCDIN?GPS
+  +--> ?PR?_CMM?GPS
+  +--> ?PR?_DAT?GPS
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/23/2015  13:08:42  PAGE 2
+
+
+  +--> ?PR?RECIEVE?GPS
+
+?PR?LCDIN?GPS                  -----    -----
+  +--> ?PR?_CMM?GPS
+
+?PR?_CMM?GPS                   -----    -----
+  +--> ?PR?_DELAY?GPS
+
+?PR?_DAT?GPS                   -----    -----
+  +--> ?PR?_DELAY?GPS
+
+?PR?RECIEVE?GPS                000AH    0040H
+  +--> ?CO?GPS
+  +--> ?PR?_CMM?GPS
+  +--> ?PR?_DAT?GPS
+
+
+
+SYMBOL TABLE OF MODULE:  gps (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0B35H         SEGMENT       ?C_C51STARTUP
+  I:0052H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0B38H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0B35H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0B35H         LINE#         133
+  C:0B37H         LINE#         134
+  C:0B38H         LINE#         135
+  C:0B39H         LINE#         136
+  C:0B3BH         LINE#         185
+  C:0B3EH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/23/2015  13:08:42  PAGE 3
+
+
+  -------         MODULE        GPS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:0C59H         PUBLIC        lcdin
+  C:0C05H         PUBLIC        _delay
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  C:0BC1H         PUBLIC        main
+  D:004AH         PUBLIC        count
+  C:0C2BH         PUBLIC        _gsmcmdsend
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:004CH         PUBLIC        end
+  C:0C7AH         PUBLIC        _dat
+  C:0C8DH         PUBLIC        _cmm
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  B:0080H.1       PUBLIC        e
+  B:0080H.0       PUBLIC        rs
+  C:09B4H         PUBLIC        recieve
+  B:0080H.2       PUBLIC        rw
+  D:004EH         PUBLIC        header
+  -------         PROC          _GSMCMDSEND
+  D:0001H         SYMBOL        cmd
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0C2BH         LINE#         13
+  C:0C2BH         LINE#         14
+  C:0C2BH         LINE#         16
+  C:0C32H         LINE#         17
+  C:0C32H         LINE#         18
+  C:0C34H         LINE#         19
+  C:0C37H         LINE#         20
+  C:0C39H         LINE#         21
+  C:0C40H         LINE#         22
+  C:0C43H         LINE#         23
+  C:0C46H         LINE#         24
+  C:0C49H         LINE#         25
+  C:0C4BH         LINE#         26
+  C:0C4EH         LINE#         27
+  C:0C51H         LINE#         28
+  C:0C53H         LINE#         29
+  C:0C56H         LINE#         30
+  C:0C58H         LINE#         31
+  -------         ENDPROC       _GSMCMDSEND
+  -------         PROC          L?0085
+  -------         ENDPROC       L?0085
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        count
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/23/2015  13:08:42  PAGE 4
+
+
+  C:0C05H         LINE#         32
+  C:0C05H         LINE#         33
+  C:0C05H         LINE#         35
+  C:0C15H         LINE#         36
+  C:0C2AH         LINE#         37
+  -------         ENDPROC       _DELAY
+  -------         PROC          _CMM
+  D:0007H         SYMBOL        value
+  C:0C8DH         LINE#         38
+  C:0C8DH         LINE#         39
+  C:0C8DH         LINE#         40
+  C:0C8FH         LINE#         41
+  C:0C91H         LINE#         42
+  C:0C91H         LINE#         43
+  C:0C91H         LINE#         44
+  C:0C91H         LINE#         45
+  C:0C91H         LINE#         46
+  C:0C94H         LINE#         48
+  -------         ENDPROC       _CMM
+  -------         PROC          L?0086
+  -------         ENDPROC       L?0086
+  -------         PROC          _DAT
+  D:0007H         SYMBOL        value
+  C:0C7AH         LINE#         49
+  C:0C7AH         LINE#         50
+  C:0C7AH         LINE#         51
+  C:0C7CH         LINE#         52
+  C:0C7EH         LINE#         53
+  C:0C7EH         LINE#         54
+  C:0C7EH         LINE#         55
+  C:0C7EH         LINE#         56
+  C:0C7EH         LINE#         57
+  C:0C81H         LINE#         59
+  -------         ENDPROC       _DAT
+  -------         PROC          LCDIN
+  C:0C59H         LINE#         60
+  C:0C59H         LINE#         61
+  C:0C5EH         LINE#         62
+  C:0C63H         LINE#         63
+  C:0C68H         LINE#         64
+  C:0C6DH         LINE#         65
+  C:0C72H         LINE#         67
+  -------         ENDPROC       LCDIN
+  -------         PROC          RECIEVE
+  -------         DO            
+  D:000AH         SYMBOL        flag
+  D:000CH         SYMBOL        u
+  D:000EH         SYMBOL        l
+  D:0010H         SYMBOL        temp
+  D:0015H         SYMBOL        card_id
+  D:0033H         SYMBOL        lon
+  D:0047H         SYMBOL        k
+  D:0048H         SYMBOL        i
+  -------         ENDDO         
+  C:09B4H         LINE#         68
+  C:09B4H         LINE#         69
+  C:09B4H         LINE#         70
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/23/2015  13:08:42  PAGE 5
+
+
+  C:09C1H         LINE#         75
+  C:09C5H         LINE#         76
+  C:09C7H         LINE#         77
+  C:09D3H         LINE#         78
+  C:09D3H         LINE#         79
+  C:09D6H         LINE#         81
+  C:09DFH         LINE#         82
+  C:09DFH         LINE#         83
+  C:09E1H         LINE#         84
+  C:09E5H         LINE#         85
+  C:09E5H         LINE#         86
+  C:09E8H         LINE#         87
+  C:09EFH         LINE#         88
+  C:09F1H         LINE#         89
+  C:09FFH         LINE#         91
+  C:0A14H         LINE#         92
+  C:0A14H         LINE#         93
+  C:0A18H         LINE#         94
+  C:0A1AH         LINE#         95
+  C:0A1EH         LINE#         96
+  C:0A1EH         LINE#         97
+  C:0A21H         LINE#         98
+  C:0A26H         LINE#         99
+  C:0A2EH         LINE#         100
+  C:0A39H         LINE#         101
+  C:0A39H         LINE#         103
+  C:0A3BH         LINE#         104
+  C:0A3FH         LINE#         105
+  C:0A3FH         LINE#         106
+  C:0A3FH         LINE#         107
+  C:0A42H         LINE#         108
+  C:0A47H         LINE#         109
+  C:0A57H         LINE#         111
+  C:0A65H         LINE#         113
+  C:0A6BH         LINE#         114
+  C:0A6BH         LINE#         115
+  C:0A6DH         LINE#         116
+  C:0A6FH         LINE#         117
+  C:0A74H         LINE#         118
+  C:0A8AH         LINE#         119
+  C:0A8AH         LINE#         120
+  C:0A8DH         LINE#         121
+  C:0A97H         LINE#         124
+  C:0A99H         LINE#         125
+  C:0A9EH         LINE#         126
+  C:0A9EH         LINE#         127
+  C:0A9EH         LINE#         128
+  C:0AA1H         LINE#         129
+  C:0AA6H         LINE#         130
+  C:0AB6H         LINE#         132
+  C:0AC4H         LINE#         134
+  C:0ACAH         LINE#         135
+  C:0ACAH         LINE#         136
+  C:0ACCH         LINE#         137
+  C:0ACEH         LINE#         138
+  C:0AD3H         LINE#         139
+  C:0AE9H         LINE#         140
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/23/2015  13:08:42  PAGE 6
+
+
+  C:0AE9H         LINE#         141
+  C:0AECH         LINE#         142
+  C:0AF6H         LINE#         145
+  C:0AF8H         LINE#         146
+  C:0AF9H         LINE#         147
+  C:0AF9H         LINE#         148
+  C:0AFBH         LINE#         149
+  C:0B12H         LINE#         152
+  C:0B12H         LINE#         154
+  C:0B12H         LINE#         155
+  C:0B17H         LINE#         156
+  C:0B17H         LINE#         157
+  C:0B1EH         LINE#         158
+  C:0B2DH         LINE#         159
+  C:0B2DH         LINE#         160
+  C:0B2DH         LINE#         161
+  C:0B2DH         LINE#         162
+  C:0B2FH         LINE#         163
+  C:0B34H         LINE#         165
+  -------         ENDPROC       RECIEVE
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        l
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0BC1H         LINE#         166
+  C:0BC1H         LINE#         167
+  C:0BC1H         LINE#         169
+  C:0BC4H         LINE#         170
+  C:0BC7H         LINE#         171
+  C:0BCAH         LINE#         172
+  C:0BCDH         LINE#         173
+  C:0BD0H         LINE#         174
+  C:0BD2H         LINE#         176
+  C:0BD7H         LINE#         177
+  C:0BDAH         LINE#         178
+  C:0BEEH         LINE#         179
+  C:0BF3H         LINE#         180
+  C:0BF3H         LINE#         181
+  C:0BF3H         LINE#         182
+  C:0BF6H         LINE#         184
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        GPS
+
+  -------         MODULE        ?C?CLDPTR
+  C:0800H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?STRCMP
+  C:0997H         PUBLIC        ?C?STRCMP
+  -------         ENDMOD        ?C?STRCMP
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GSMCMDSEND?GPS
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0269H BYTE (30%) *
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/23/2015  13:08:42  PAGE 7
+
+
+******************************************************************************
+
+Program Size: data=83.0 xdata=0 code=1182
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
