@@ -1,0 +1,159 @@
+C51 COMPILER V9.52.0.0   SMS                                                               05/23/2015 13:08:13 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SMS
+OBJECT MODULE PLACED IN sms.OBJ
+COMPILER INVOKED BY: G:\Program Files\Keil\C51\BIN\C51.EXE sms.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          sbit rs=P0^0;
+   3          sbit rw=P0^2;
+   4          sbit e=P0^1;
+   5          void gsmcmdsend(unsigned char *cmd);
+   6          
+   7          
+   8          unsigned char card_id[96];
+   9          unsigned char header[]="CELAB";
+  10          unsigned char gsm_cmd3[]="AT&W";
+  11          unsigned char gsm_cmd4[]="AT+CMGF";
+  12           int count=0;
+  13          void gsmcmdsend(unsigned char *cmd)   
+  14          {
+  15   1        unsigned char i;
+  16   1        for(i=0;*cmd!='\0';i++)
+  17   1        {
+  18   2          SBUF=*cmd;
+  19   2            while(TI==0);
+  20   2          TI=0;
+  21   2          cmd++;
+  22   2          }
+  23   1          SBUF=0x0A;
+  24   1          while(TI==0);
+  25   1          TI=0;
+  26   1          SBUF=0x0D;
+  27   1          while(TI==0);
+  28   1          TI=0;
+  29   1          while(RI==0);
+  30   1          RI=0;
+  31   1      }
+  32          void delay(int count)    //Function to provide delay
+  33          {
+  34   1          int i,j;
+  35   1          for(i=0;i<count;i++)
+  36   1          for(j=0;j<1275;j++);
+  37   1      }
+  38          void cmm(char value)
+  39          {
+  40   1        P2 = value;
+  41   1        rs=0;
+  42   1        rw=0;
+  43   1        e=1;
+  44   1        delay(1);
+  45   1        e=0;
+  46   1        delay(1);
+  47   1        return;
+  48   1      }
+  49          void dat(char value)
+  50          {
+  51   1        P2 =value;
+  52   1        rs=1;
+  53   1        rw=0;
+  54   1        e=1;
+  55   1        delay(1);
+C51 COMPILER V9.52.0.0   SMS                                                               05/23/2015 13:08:13 PAGE 2   
+
+  56   1        e=0;
+  57   1        delay(1);
+  58   1        return;
+  59   1      }
+  60          void lcdin()
+  61          { cmm(0x38);
+  62   1        cmm(0x0e);
+  63   1        cmm(0x01);
+  64   1        cmm(0x06);
+  65   1        cmm(0x85);
+  66   1        return;
+  67   1      }
+  68          void recieve()     //Function to recieve data serialy from RS232 
+  69          {
+  70   1        int flag=0;
+  71   1          unsigned char k;
+  72   1        int i=0;
+  73   1        RI=0;
+  74   1           for(k=0;k<=90;k++)
+  75   1           { 
+  76   2               while(RI==0); 
+  77   2           
+  78   2           if(SBUF == '#')
+  79   2           {
+  80   3              RI=0;
+  81   3             card_id[i]='\0';
+  82   3             count=i;
+  83   3                break;    
+  84   3           }
+  85   2           if(flag == 1)
+  86   2           card_id[i++]=SBUF;
+  87   2          
+  88   2        
+  89   2             if(SBUF == '*')
+  90   2             {
+  91   3                flag=1;
+  92   3               count=0;
+  93   3             }
+  94   2            RI=0;
+  95   2          }
+  96   1        
+  97   1      }
+  98          void main()
+  99          {
+ 100   1        int l,i;
+ 101   1        P1=0x00;
+ 102   1        lcdin();
+ 103   1        TMOD=0x20;            //Enable Timer 1
+ 104   1          TH1=0XFD;
+ 105   1          SCON=0x50;
+ 106   1          TR1=1;
+ 107   1      gsmcmdsend(gsm_cmd3);
+ 108   1      cmm(0x01);
+ 109   1      gsmcmdsend(gsm_cmd4);
+ 110   1      cmm(0x01);
+ 111   1      cmm(0x85);
+ 112   1      for(i=0;i<5;i++)
+ 113   1        {dat(header[i]);}
+ 114   1        cmm(0xc0);
+ 115   1      while(1)
+ 116   1             {
+ 117   2             recieve();
+C51 COMPILER V9.52.0.0   SMS                                                               05/23/2015 13:08:13 PAGE 3   
+
+ 118   2               l=0;
+ 119   2           
+ 120   2       cmm(0x01);
+ 121   2      for(l=0;l<count;l++)
+ 122   2        {
+ 123   3          
+ 124   3          if(card_id[l] == '\0')
+ 125   3            break;
+ 126   3          dat(card_id[l]);
+ 127   3        }
+ 128   2          }
+ 129   1      }
+ 130          
+ 131          
+ 132          end;            //end of program  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    323    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =    119    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
