@@ -1,0 +1,318 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/24/2015  00:34:57  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+G:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE STARTUP.obj, humidity.obj TO humidity RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  humidity.obj (HUMIDITY)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
+  G:\PROGRAM FILES\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  humidity (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         ?DT?HUMIDITY
+            DATA    000DH     0004H     UNIT         _DATA_GROUP_
+            IDATA   0011H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0094H     UNIT         ?C?LIB_CODE
+            CODE    0894H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0920H     0051H     UNIT         ?PR?_LCD_DISPLAY?HUMIDITY
+            CODE    0971H     0049H     UNIT         ?PR?DISPLAY?HUMIDITY
+            CODE    09BAH     0023H     UNIT         ?PR?_LCD_DATAA?HUMIDITY
+            CODE    09DDH     001EH     UNIT         ?PR?_DELAY?HUMIDITY
+            CODE    09FBH     001BH     UNIT         ?PR?ADC?HUMIDITY
+            CODE    0A16H     0019H     UNIT         ?PR?LCD_INI?HUMIDITY
+            CODE    0A2FH     0011H     UNIT         ?PR?MAIN?HUMIDITY
+            CODE    0A40H     0010H     UNIT         ?PR?_LCD_COMMAND?HUMIDITY
+            CODE    0A50H     0010H     UNIT         ?PR?_LCD_DATA?HUMIDITY
+            CODE    0A60H     000FH     UNIT         ?CO?HUMIDITY
+            CODE    0A6FH     0008H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   humidity (?C_STARTUP)
+
+
+SEGMENT                             DATA_GROUP 
+  +--> CALLED SEGMENT             START    LENGTH
+-------------------------------------------------
+?C_C51STARTUP                     -----    -----
+  +--> ?PR?MAIN?HUMIDITY
+  +--> ?C_INITSEG
+
+?PR?MAIN?HUMIDITY                 -----    -----
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/24/2015  00:34:57  PAGE 2
+
+
+  +--> ?PR?LCD_INI?HUMIDITY
+  +--> ?CO?HUMIDITY
+  +--> ?PR?_LCD_DATAA?HUMIDITY
+  +--> ?PR?ADC?HUMIDITY
+
+?PR?LCD_INI?HUMIDITY              -----    -----
+  +--> ?PR?_DELAY?HUMIDITY
+  +--> ?PR?_LCD_COMMAND?HUMIDITY
+
+?PR?_DELAY?HUMIDITY               -----    -----
+  +--> ?PR?_LCD_COMMAND?HUMIDITY
+
+?PR?_LCD_DATAA?HUMIDITY           000DH    0004H
+  +--> ?PR?_LCD_DATA?HUMIDITY
+
+?PR?_LCD_DATA?HUMIDITY            -----    -----
+  +--> ?PR?_DELAY?HUMIDITY
+
+?PR?ADC?HUMIDITY                  -----    -----
+  +--> ?PR?_DELAY?HUMIDITY
+  +--> ?PR?DISPLAY?HUMIDITY
+
+?PR?DISPLAY?HUMIDITY              -----    -----
+  +--> ?PR?_LCD_DISPLAY?HUMIDITY
+
+?PR?_LCD_DISPLAY?HUMIDITY         000DH    0002H
+  +--> ?PR?_LCD_COMMAND?HUMIDITY
+  +--> ?PR?_LCD_DATA?HUMIDITY
+
+
+
+SYMBOL TABLE OF MODULE:  humidity (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0894H         SEGMENT       ?C_C51STARTUP
+  I:0011H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0897H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0894H         SYMBOL        STARTUP1
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/24/2015  00:34:57  PAGE 3
+
+
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0894H         LINE#         133
+  C:0896H         LINE#         134
+  C:0897H         LINE#         135
+  C:0898H         LINE#         136
+  C:089AH         LINE#         185
+  C:089DH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        HUMIDITY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00B0H         PUBLIC        P3
+  D:0008H         PUBLIC        number
+  C:0920H         PUBLIC        _lcd_display
+  C:09E2H         PUBLIC        _delay
+  C:09BAH         PUBLIC        _lcd_dataa
+  C:0A2FH         PUBLIC        main
+  C:09FBH         PUBLIC        adc
+  C:0A50H         PUBLIC        _lcd_data
+  D:000AH         PUBLIC        lcd
+  B:00B0H.5       PUBLIC        intr
+  D:000BH         PUBLIC        key
+  B:0080H.1       PUBLIC        en
+  C:0A16H         PUBLIC        lcd_ini
+  B:00B0H.4       PUBLIC        rd
+  D:00A0H         PUBLIC        lcd_data_pin
+  D:0090H         PUBLIC        input_port
+  B:0080H.0       PUBLIC        rs
+  B:00B0H.3       PUBLIC        wr
+  B:0080H.2       PUBLIC        rw
+  D:000CH         PUBLIC        humidity
+  C:0A40H         PUBLIC        _lcd_command
+  C:0971H         PUBLIC        display
+  C:09DDH         SYMBOL        L?0029
+  -------         PROC          L?0028
+  -------         ENDPROC       L?0028
+  C:09DDH         SYMBOL        L?0029
+  -------         PROC          _DELAY
+  D:0007H         SYMBOL        count
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:09E2H         LINE#         14
+  C:09E2H         LINE#         15
+  C:09E2H         LINE#         18
+  C:09E9H         LINE#         19
+  C:09FAH         LINE#         20
+  -------         ENDPROC       _DELAY
+  -------         PROC          _LCD_COMMAND
+  D:0007H         SYMBOL        comm
+  C:0A40H         LINE#         22
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/24/2015  00:34:57  PAGE 4
+
+
+  C:0A40H         LINE#         23
+  C:0A40H         LINE#         24
+  C:0A42H         LINE#         25
+  C:0A44H         LINE#         26
+  C:0A46H         LINE#         27
+  C:0A48H         LINE#         28
+  C:0A4DH         LINE#         29
+  C:0A4FH         LINE#         30
+  -------         ENDPROC       _LCD_COMMAND
+  -------         PROC          _LCD_DATA
+  D:0007H         SYMBOL        disp
+  C:0A50H         LINE#         32
+  C:0A50H         LINE#         33
+  C:0A50H         LINE#         34
+  C:0A52H         LINE#         35
+  C:0A54H         LINE#         36
+  C:0A56H         LINE#         37
+  C:0A58H         LINE#         38
+  C:0A5DH         LINE#         39
+  C:0A5FH         LINE#         40
+  -------         ENDPROC       _LCD_DATA
+  -------         PROC          _LCD_DATAA
+  D:000DH         SYMBOL        disp
+  -------         DO            
+  D:0010H         SYMBOL        x
+  -------         ENDDO         
+  C:09BAH         LINE#         42
+  C:09C0H         LINE#         43
+  C:09C0H         LINE#         45
+  C:09D5H         LINE#         46
+  C:09D5H         LINE#         47
+  C:09D8H         LINE#         48
+  C:09DCH         LINE#         49
+  -------         ENDPROC       _LCD_DATAA
+  -------         PROC          LCD_INI
+  C:0A16H         LINE#         51
+  C:0A16H         LINE#         52
+  C:0A16H         LINE#         53
+  C:0A18H         LINE#         54
+  C:0A1BH         LINE#         55
+  C:0A1DH         LINE#         56
+  C:0A20H         LINE#         57
+  C:0A22H         LINE#         58
+  C:0A25H         LINE#         59
+  C:0A2AH         LINE#         60
+  -------         ENDPROC       LCD_INI
+  -------         PROC          _LCD_DISPLAY
+  D:000DH         SYMBOL        val
+  -------         DO            
+  D:0003H         SYMBOL        flg
+  -------         ENDDO         
+  C:0920H         LINE#         63
+  C:0924H         LINE#         64
+  C:0924H         LINE#         65
+  C:0926H         LINE#         66
+  C:092BH         LINE#         67
+  C:0931H         LINE#         68
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/24/2015  00:34:57  PAGE 5
+
+
+  C:0936H         LINE#         69
+  C:0941H         LINE#         70
+  C:0941H         LINE#         71
+  C:094EH         LINE#         72
+  C:095DH         LINE#         73
+  C:0965H         LINE#         74
+  C:096DH         LINE#         75
+  C:096EH         LINE#         76
+  C:0970H         LINE#         78
+  -------         ENDPROC       _LCD_DISPLAY
+  -------         PROC          DISPLAY
+  C:0971H         LINE#         80
+  C:0971H         LINE#         81
+  C:0971H         LINE#         82
+  C:0973H         LINE#         83
+  C:097FH         LINE#         84
+  C:0985H         LINE#         85
+  C:0985H         LINE#         86
+  C:0993H         LINE#         87
+  C:099EH         LINE#         88
+  C:09A7H         LINE#         89
+  C:09ACH         LINE#         90
+  C:09B2H         LINE#         91
+  C:09B5H         LINE#         92
+  C:09B9H         LINE#         93
+  C:09B9H         LINE#         94
+  -------         ENDPROC       DISPLAY
+  -------         PROC          ADC
+  C:09FBH         LINE#         96
+  C:09FBH         LINE#         97
+  C:09FBH         LINE#         98
+  C:09FDH         LINE#         99
+  C:09FFH         LINE#         100
+  C:0A04H         LINE#         101
+  C:0A06H         LINE#         102
+  C:0A09H         LINE#         103
+  C:0A0BH         LINE#         104
+  C:0A0EH         LINE#         105
+  C:0A13H         LINE#         106
+  C:0A15H         LINE#         107
+  -------         ENDPROC       ADC
+  -------         PROC          MAIN
+  C:0A2FH         LINE#         109
+  C:0A2FH         LINE#         110
+  C:0A2FH         LINE#         111
+  C:0A32H         LINE#         112
+  C:0A3BH         LINE#         113
+  C:0A3BH         LINE#         114
+  C:0A3BH         LINE#         115
+  C:0A3EH         LINE#         116
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        HUMIDITY
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0800H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/24/2015  00:34:57  PAGE 6
+
+
+  -------         MODULE        ?C?IMUL
+  C:082DH         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+  -------         MODULE        ?C?UIDIV
+  C:083FH         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0165H BYTE (17%) *
+******************************************************************************
+
+Program Size: data=18.0 xdata=0 code=634
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

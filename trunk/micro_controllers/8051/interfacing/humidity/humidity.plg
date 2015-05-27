@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+G:\Celabcode\embedded-projects\micro_controllers\8051\interfacing\humidity\humidity.uvproj
+Project File Date:  <unknown>
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling humidity.c...
+humidity.c(49): warning C290: missing return value
+linking...
+Program Size: data=18.0 xdata=0 code=634
+"humidity" - 0 Error(s), 1 Warning(s).
