@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"humidity.obj" 
+TO "humidity" 
+RAMSIZE(256) 
