@@ -36,10 +36,10 @@ L_main5:
 	MOVWF      FSR
 	MOVF       INDF+0, 0
 	MOVWF      PORTD+0
-;dot_matrix.c,29 :: 		delay_ms(3);
-	MOVLW      4
+;dot_matrix.c,29 :: 		delay_ms(8);
+	MOVLW      11
 	MOVWF      R12+0
-	MOVLW      228
+	MOVLW      98
 	MOVWF      R13+0
 L_main8:
 	DECFSZ     R13+0, 1
@@ -49,9 +49,9 @@ L_main8:
 	NOP
 ;dot_matrix.c,30 :: 		l++;
 	INCF       R2+0, 1
-;dot_matrix.c,31 :: 		if(l==29){l=0;}
+;dot_matrix.c,31 :: 		if(l==20){l=0;}
 	MOVF       R2+0, 0
-	XORLW      29
+	XORLW      20
 	BTFSS      STATUS+0, 2
 	GOTO       L_main9
 	CLRF       R2+0
@@ -64,9 +64,9 @@ L_main6:
 ;dot_matrix.c,33 :: 		l=m;
 	MOVF       main_m_L0+0, 0
 	MOVWF      R2+0
-;dot_matrix.c,34 :: 		if(m==29){m=0;}
+;dot_matrix.c,34 :: 		if(m==20){m=0;}
 	MOVF       main_m_L0+0, 0
-	XORLW      29
+	XORLW      20
 	BTFSS      STATUS+0, 2
 	GOTO       L_main10
 	CLRF       main_m_L0+0

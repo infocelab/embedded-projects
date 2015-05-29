@@ -26,12 +26,12 @@ while(1)
 portb=b[l];
 portd=ch[k];
 
-delay_ms(3);
+delay_ms(8);
  l++;
-   if(l==29){l=0;}
+   if(l==20){l=0;}
   }
   l=m;
-  if(m==29){m=0;}
+  if(m==20){m=0;}
   }
  m++;
  l=m;
