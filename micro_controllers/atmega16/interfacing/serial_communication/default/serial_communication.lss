@@ -3,25 +3,23 @@ serial_communication.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000f0  00000000  00000000  00000054  2**1
+  0 .text         000000ee  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .debug_aranges 00000020  00000000  00000000  00000144  2**0
+  1 .debug_aranges 00000020  00000000  00000000  00000142  2**0
                   CONTENTS, READONLY, DEBUGGING
-  2 .debug_pubnames 0000004e  00000000  00000000  00000164  2**0
+  2 .debug_pubnames 00000063  00000000  00000000  00000162  2**0
                   CONTENTS, READONLY, DEBUGGING
-  3 .debug_info   000001ad  00000000  00000000  000001b2  2**0
+  3 .debug_info   000001d1  00000000  00000000  000001c5  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 000000fd  00000000  00000000  0000035f  2**0
+  4 .debug_abbrev 00000156  00000000  00000000  00000396  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_line   0000019b  00000000  00000000  0000045c  2**0
+  5 .debug_line   0000018c  00000000  00000000  000004ec  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_frame  00000050  00000000  00000000  000005f8  2**2
+  6 .debug_frame  00000060  00000000  00000000  00000678  2**2
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    00000101  00000000  00000000  00000648  2**0
+  7 .debug_str    00000118  00000000  00000000  000006d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    00000018  00000000  00000000  00000749  2**0
-                  CONTENTS, READONLY, DEBUGGING
-  9 .debug_ranges 00000060  00000000  00000000  00000761  2**0
+  8 .debug_loc    00000018  00000000  00000000  000007f0  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -61,7 +59,7 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	e0 ef       	ldi	r30, 0xF0	; 240
+  66:	ee ee       	ldi	r30, 0xEE	; 238
   68:	f0 e0       	ldi	r31, 0x00	; 0
   6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
@@ -87,8 +85,8 @@ Disassembly of section .text:
   80:	a0 36       	cpi	r26, 0x60	; 96
   82:	b1 07       	cpc	r27, r17
   84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
-  86:	0e 94 58 00 	call	0xb0	; 0xb0 <main>
-  8a:	0c 94 76 00 	jmp	0xec	; 0xec <_exit>
+  86:	0e 94 67 00 	call	0xce	; 0xce <main>
+  8a:	0c 94 75 00 	jmp	0xea	; 0xea <_exit>
 
 0000008e <__bad_interrupt>:
   8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -143,7 +141,7 @@ char USARTReadChar()
   a6:	08 95       	ret
 
 000000a8 <USARTWriteChar>:
-//the USART which then transmit it via TX line
+
 void USARTWriteChar(char data)
 {
    //Wait untill the transmitter is ready
@@ -161,136 +159,113 @@ void USARTWriteChar(char data)
 }
   ae:	08 95       	ret
 
-000000b0 <main>:
+000000b0 <USARTWriteString>:
+
+void USARTWriteString(unsigned char *data)
+{
+  b0:	20 e0       	ldi	r18, 0x00	; 0
+  b2:	30 e0       	ldi	r19, 0x00	; 0
+    int i;
+    for(i=0;i<4;i++)
+	{
+	  USARTWriteChar(data[i]);
+  b4:	fc 01       	movw	r30, r24
+  b6:	e2 0f       	add	r30, r18
+  b8:	f3 1f       	adc	r31, r19
+  ba:	e0 81       	ld	r30, Z
+
+void USARTWriteChar(char data)
+{
+   //Wait untill the transmitter is ready
+
+   while(!(UCSRA & (1<<UDRE)))
+  bc:	5d 9b       	sbis	0x0b, 5	; 11
+  be:	fe cf       	rjmp	.-4      	; 0xbc <USARTWriteString+0xc>
+      //Do nothing
+   }
+
+   //Now write the data to USART buffer
+
+   UDR=data;
+  c0:	ec b9       	out	0x0c, r30	; 12
+}
+
+void USARTWriteString(unsigned char *data)
+{
+    int i;
+    for(i=0;i<4;i++)
+  c2:	2f 5f       	subi	r18, 0xFF	; 255
+  c4:	3f 4f       	sbci	r19, 0xFF	; 255
+  c6:	24 30       	cpi	r18, 0x04	; 4
+  c8:	31 05       	cpc	r19, r1
+  ca:	a1 f7       	brne	.-24     	; 0xb4 <USARTWriteString+0x4>
+	{
+	  USARTWriteChar(data[i]);
+	}
+
+}
+  cc:	08 95       	ret
+
+000000ce <main>:
 void USARTInit(uint16_t ubrr_value)
 {
 
    //Set Baud rate
 
    UBRRL = ubrr_value;
-  b0:	83 e3       	ldi	r24, 0x33	; 51
-  b2:	89 b9       	out	0x09, r24	; 9
+  ce:	83 e3       	ldi	r24, 0x33	; 51
+  d0:	89 b9       	out	0x09, r24	; 9
    UBRRH = (ubrr_value>>8);
-  b4:	10 bc       	out	0x20, r1	; 32
+  d2:	10 bc       	out	0x20, r1	; 32
 
    >> char size 8
 
    */
 
    UCSRC=(1<<URSEL)|(3<<UCSZ0);
-  b6:	86 e8       	ldi	r24, 0x86	; 134
-  b8:	80 bd       	out	0x20, r24	; 32
+  d4:	86 e8       	ldi	r24, 0x86	; 134
+  d6:	80 bd       	out	0x20, r24	; 32
 
 
    //Enable The receiver and transmitter
 
    UCSRB=(1<<RXEN)|(1<<TXEN);
-  ba:	88 e1       	ldi	r24, 0x18	; 24
-  bc:	8a b9       	out	0x0a, r24	; 10
-      //Do nothing
-   }
-
-   //Now write the data to USART buffer
-
-   UDR=data;
-  be:	47 e4       	ldi	r20, 0x47	; 71
+  d8:	88 e1       	ldi	r24, 0x18	; 24
+  da:	8a b9       	out	0x0a, r24	; 10
 //available.
 char USARTReadChar()
 {
    //Wait untill a data is available
 
    while(!(UCSRA & (1<<RXC)))
-  c0:	3f e4       	ldi	r19, 0x4F	; 79
-  c2:	24 e5       	ldi	r18, 0x54	; 84
-  c4:	9e e3       	ldi	r25, 0x3E	; 62
-  c6:	5f 9b       	sbis	0x0b, 7	; 11
-  c8:	fe cf       	rjmp	.-4      	; 0xc6 <main+0x16>
+  dc:	5f 9b       	sbis	0x0b, 7	; 11
+  de:	fe cf       	rjmp	.-4      	; 0xdc <main+0xe>
    }
 
    //Now USART has got data from host
    //and is available is buffer
 
    return UDR;
-  ca:	8c b1       	in	r24, 0x0c	; 12
-//the USART which then transmit it via TX line
+  e0:	8c b1       	in	r24, 0x0c	; 12
+
 void USARTWriteChar(char data)
 {
    //Wait untill the transmitter is ready
 
    while(!(UCSRA & (1<<UDRE)))
-  cc:	5d 9b       	sbis	0x0b, 5	; 11
-  ce:	fe cf       	rjmp	.-4      	; 0xcc <main+0x1c>
+  e2:	5d 9b       	sbis	0x0b, 5	; 11
+  e4:	fe cf       	rjmp	.-4      	; 0xe2 <main+0x14>
       //Do nothing
    }
 
    //Now write the data to USART buffer
 
    UDR=data;
-  d0:	4c b9       	out	0x0c, r20	; 12
-//the USART which then transmit it via TX line
-void USARTWriteChar(char data)
-{
-   //Wait untill the transmitter is ready
+  e6:	8c b9       	out	0x0c, r24	; 12
+  e8:	f9 cf       	rjmp	.-14     	; 0xdc <main+0xe>
 
-   while(!(UCSRA & (1<<UDRE)))
-  d2:	5d 9b       	sbis	0x0b, 5	; 11
-  d4:	fe cf       	rjmp	.-4      	; 0xd2 <main+0x22>
-      //Do nothing
-   }
+000000ea <_exit>:
+  ea:	f8 94       	cli
 
-   //Now write the data to USART buffer
-
-   UDR=data;
-  d6:	3c b9       	out	0x0c, r19	; 12
-//the USART which then transmit it via TX line
-void USARTWriteChar(char data)
-{
-   //Wait untill the transmitter is ready
-
-   while(!(UCSRA & (1<<UDRE)))
-  d8:	5d 9b       	sbis	0x0b, 5	; 11
-  da:	fe cf       	rjmp	.-4      	; 0xd8 <main+0x28>
-      //Do nothing
-   }
-
-   //Now write the data to USART buffer
-
-   UDR=data;
-  dc:	2c b9       	out	0x0c, r18	; 12
-//the USART which then transmit it via TX line
-void USARTWriteChar(char data)
-{
-   //Wait untill the transmitter is ready
-
-   while(!(UCSRA & (1<<UDRE)))
-  de:	5d 9b       	sbis	0x0b, 5	; 11
-  e0:	fe cf       	rjmp	.-4      	; 0xde <main+0x2e>
-      //Do nothing
-   }
-
-   //Now write the data to USART buffer
-
-   UDR=data;
-  e2:	9c b9       	out	0x0c, r25	; 12
-//the USART which then transmit it via TX line
-void USARTWriteChar(char data)
-{
-   //Wait untill the transmitter is ready
-
-   while(!(UCSRA & (1<<UDRE)))
-  e4:	5d 9b       	sbis	0x0b, 5	; 11
-  e6:	fe cf       	rjmp	.-4      	; 0xe4 <main+0x34>
-      //Do nothing
-   }
-
-   //Now write the data to USART buffer
-
-   UDR=data;
-  e8:	8c b9       	out	0x0c, r24	; 12
-  ea:	ed cf       	rjmp	.-38     	; 0xc6 <main+0x16>
-
-000000ec <_exit>:
-  ec:	f8 94       	cli
-
-000000ee <__stop_program>:
-  ee:	ff cf       	rjmp	.-2      	; 0xee <__stop_program>
+000000ec <__stop_program>:
+  ec:	ff cf       	rjmp	.-2      	; 0xec <__stop_program>

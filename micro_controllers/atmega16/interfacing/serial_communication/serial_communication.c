@@ -79,9 +79,18 @@ void USARTWriteChar(char data)
    UDR=data;
 }
 
+void USARTWriteString(unsigned char *data)
+{
+    int i;
+    for(i=0;i<4;i++)
+	{
+	  USARTWriteChar(data[i]);
+	}
+
+}
 void main()
 {
-   
+   char array[]="GOT>";
    char data;
 
    /*First Initialize the USART with baud rate = 19200bps
@@ -98,15 +107,16 @@ void main()
 
    while(1)
    {
-      //Read data
+     //Read data
       data=USARTReadChar();
+	 //USARTWriteString(array);
   
-      USARTWriteChar('G');
-	  USARTWriteChar('O');
-	  USARTWriteChar('T');
-      USARTWriteChar('>');
+     // USARTWriteChar('G');
+	 //USARTWriteChar('O');
+	 //USARTWriteChar('T');
+     //USARTWriteChar('>');
       USARTWriteChar(data);
-      //USARTWriteChar(']');
+      
 
    }
 }
