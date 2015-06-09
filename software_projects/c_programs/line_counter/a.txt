@@ -1,0 +1,4 @@
+ while(!file.eof()){
+    getline(file,line);
+    if(one(line,&b))
+    line_count++; 
