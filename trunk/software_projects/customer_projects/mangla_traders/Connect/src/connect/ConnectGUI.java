@@ -123,6 +123,7 @@ PreparedStatement pst = null;
         rs = pst.executeQuery();
         if(rs.next()){
            JOptionPane.showMessageDialog(null, "Login OK");
+           
         }
         else
         {
