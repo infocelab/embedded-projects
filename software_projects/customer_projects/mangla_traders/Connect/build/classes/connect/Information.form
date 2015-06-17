@@ -865,7 +865,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane16">
+        <Container class="javax.swing.JTabbedPane" name="tabpane_user_account">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="User Account">
@@ -897,9 +897,9 @@
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="btn1_user_account" min="-2" pref="67" max="-2" attributes="0"/>
+                                  <Component id="btn1_user_account_add" min="-2" pref="67" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="btn2_user_account" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn2_user_account_delete" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -909,8 +909,8 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txt1_user_account" min="-2" pref="110" max="-2" attributes="0"/>
-                                      <Component id="txt2_user_account" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="txt1_user_account_user_name" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="txt2_user_account_password" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -924,17 +924,17 @@
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbl1_user_account" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt1_user_account" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt1_user_account_user_name" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbl2_user_account" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt2_user_account" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt2_user_account_password" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btn1_user_account" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn2_user_account" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn1_user_account_add" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn2_user_account_delete" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="271" max="32767" attributes="0"/>
                       </Group>
@@ -952,19 +952,22 @@
                     <Property name="text" type="java.lang.String" value="Password"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txt1_user_account">
+                <Component class="javax.swing.JTextField" name="txt1_user_account_user_name">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt1_user_accountActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt1_user_account_user_nameActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txt2_user_account">
+                <Component class="javax.swing.JTextField" name="txt2_user_account_password">
                 </Component>
-                <Component class="javax.swing.JButton" name="btn1_user_account">
+                <Component class="javax.swing.JButton" name="btn1_user_account_add">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn1_user_account_addActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btn2_user_account">
+                <Component class="javax.swing.JButton" name="btn2_user_account_delete">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                   </Properties>

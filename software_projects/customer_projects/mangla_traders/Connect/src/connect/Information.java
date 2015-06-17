@@ -1,10 +1,16 @@
 
 package connect;
+import java.awt.HeadlessException;
+import java.sql.SQLException;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 //import java.util.Calendar;
 
 /**
@@ -13,6 +19,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Information extends javax.swing.JFrame {
 
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    
+    
     /**
      * Creates new form Information
      */
@@ -79,14 +90,14 @@ public class Information extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txt_search_option_firm_date1 = new javax.swing.JTextField();
         btnl_search_option_enter = new javax.swing.JButton();
-        jTabbedPane16 = new javax.swing.JTabbedPane();
+        tabpane_user_account = new javax.swing.JTabbedPane();
         jDesktopPane2 = new javax.swing.JDesktopPane();
         lbl1_user_account = new javax.swing.JLabel();
         lbl2_user_account = new javax.swing.JLabel();
-        txt1_user_account = new javax.swing.JTextField();
-        txt2_user_account = new javax.swing.JTextField();
-        btn1_user_account = new javax.swing.JButton();
-        btn2_user_account = new javax.swing.JButton();
+        txt1_user_account_user_name = new javax.swing.JTextField();
+        txt2_user_account_password = new javax.swing.JTextField();
+        btn1_user_account_add = new javax.swing.JButton();
+        btn2_user_account_delete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -467,15 +478,20 @@ public class Information extends javax.swing.JFrame {
 
         lbl2_user_account.setText("Password");
 
-        txt1_user_account.addActionListener(new java.awt.event.ActionListener() {
+        txt1_user_account_user_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt1_user_accountActionPerformed(evt);
+                txt1_user_account_user_nameActionPerformed(evt);
             }
         });
 
-        btn1_user_account.setText("Add");
+        btn1_user_account_add.setText("Add");
+        btn1_user_account_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1_user_account_addActionPerformed(evt);
+            }
+        });
 
-        btn2_user_account.setText("Delete");
+        btn2_user_account_delete.setText("Delete");
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
@@ -485,9 +501,9 @@ public class Information extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addComponent(btn1_user_account, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn1_user_account_add, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(btn2_user_account)
+                        .addComponent(btn2_user_account_delete)
                         .addGap(57, 57, 57))
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
                         .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -495,8 +511,8 @@ public class Information extends javax.swing.JFrame {
                             .addComponent(lbl2_user_account))
                         .addGap(117, 117, 117)
                         .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt1_user_account, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt2_user_account, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt1_user_account_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt2_user_account_password, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(360, Short.MAX_VALUE))
         );
         jDesktopPane2Layout.setVerticalGroup(
@@ -505,27 +521,27 @@ public class Information extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl1_user_account)
-                    .addComponent(txt1_user_account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt1_user_account_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl2_user_account)
-                    .addComponent(txt2_user_account, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt2_user_account_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn1_user_account)
-                    .addComponent(btn2_user_account))
+                    .addComponent(btn1_user_account_add)
+                    .addComponent(btn2_user_account_delete))
                 .addContainerGap(271, Short.MAX_VALUE))
         );
         jDesktopPane2.setLayer(lbl1_user_account, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(lbl2_user_account, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane2.setLayer(txt1_user_account, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane2.setLayer(txt2_user_account, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane2.setLayer(btn1_user_account, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane2.setLayer(btn2_user_account, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(txt1_user_account_user_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(txt2_user_account_password, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(btn1_user_account_add, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(btn2_user_account_delete, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTabbedPane16.addTab("Welcome on User Account", jDesktopPane2);
+        tabpane_user_account.addTab("Welcome on User Account", jDesktopPane2);
 
-        jTabbedPane1.addTab("User Account", jTabbedPane16);
+        jTabbedPane1.addTab("User Account", tabpane_user_account);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -544,7 +560,10 @@ public class Information extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
+        conn = Connect.ConnectDB();
+    }
     private void btn_daily_data_entry_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_daily_data_entry_saveActionPerformed
 
         String txt1 = txt_daily_data_entry_s_no.getText();
@@ -577,9 +596,9 @@ public class Information extends javax.swing.JFrame {
         lbl_data_entry_date.setText(date.toString());
     }//GEN-LAST:event_jTabbedPane1FocusGained
 
-    private void txt1_user_accountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt1_user_accountActionPerformed
+    private void txt1_user_account_user_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt1_user_account_user_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt1_user_accountActionPerformed
+    }//GEN-LAST:event_txt1_user_account_user_nameActionPerformed
 
     private void btn_borrowers_add_new_formActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrowers_add_new_formActionPerformed
         // TODO add your handling code here:
@@ -589,6 +608,33 @@ public class Information extends javax.swing.JFrame {
     private void combobox_borrowers_cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_borrowers_cityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combobox_borrowers_cityActionPerformed
+
+    private void btn1_user_account_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1_user_account_addActionPerformed
+        // TODO add your handling code here:
+        
+    
+      String tx1 = txt1_user_account_user_name.getText();
+      String tx2 = txt2_user_account_password.getText();
+      
+      String sql;
+      sql = "Insert into tableUSERPASS (username,password) values ('" +  tx1 + "','" + tx2 + "')";
+      //sql = "Insert into tableUSERPASS (username,password) values (?,?)";
+      try
+      {
+        pst = conn.prepareStatement(sql);
+        pst.setString(1, txt1_user_account_user_name.getText());
+        pst.setString(1, txt2_user_account_password.getText());
+        pst.executeQuery();
+        
+        JOptionPane.showMessageDialog(null, "saved");
+      }
+     catch(SQLException | HeadlessException e)
+     {
+          JOptionPane.showMessageDialog(null, e);          
+     }
+             
+             
+    }//GEN-LAST:event_btn1_user_account_addActionPerformed
 
     /**
      * @param args the command line arguments
@@ -634,8 +680,8 @@ public class Information extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn1_user_account;
-    private javax.swing.JButton btn2_user_account;
+    private javax.swing.JButton btn1_user_account_add;
+    private javax.swing.JButton btn2_user_account_delete;
     private javax.swing.JButton btn_borrowers_add_new_form;
     private javax.swing.JButton btn_creditor_add_new_form;
     private javax.swing.JButton btn_daily_data_entry_save;
@@ -657,7 +703,6 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane10;
     private javax.swing.JTabbedPane jTabbedPane11;
     private javax.swing.JTabbedPane jTabbedPane13;
-    private javax.swing.JTabbedPane jTabbedPane16;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
@@ -684,12 +729,13 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tabpane_borrowers;
     private javax.swing.JTabbedPane tabpane_creditors;
     private javax.swing.JTabbedPane tabpane_search_option;
+    private javax.swing.JTabbedPane tabpane_user_account;
     private javax.swing.JTable tbl1_borrowers;
     private javax.swing.JTable tbl1_creditors;
     private javax.swing.JTable tbl2_borrowers;
     private javax.swing.JTable tbl2_creditors;
-    private javax.swing.JTextField txt1_user_account;
-    private javax.swing.JTextField txt2_user_account;
+    private javax.swing.JTextField txt1_user_account_user_name;
+    private javax.swing.JTextField txt2_user_account_password;
     private javax.swing.JTextField txt_daily_data_entry_credit;
     private javax.swing.JTextField txt_daily_data_entry_debit;
     private javax.swing.JTextField txt_daily_data_entry_firm_name;
