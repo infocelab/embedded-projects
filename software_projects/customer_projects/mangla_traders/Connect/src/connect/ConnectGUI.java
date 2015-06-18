@@ -122,8 +122,10 @@ PreparedStatement pst = null;
         //pst.setString(1, tbx_password.getText());
         rs = pst.executeQuery();
         if(rs.next()){
-           JOptionPane.showMessageDialog(null, "Login OK");
-           new Information().setVisible(true);;
+           JOptionPane.showMessageDialog(null, "Welcome on MANGLA TRADERS");
+           conn.close();
+           this.setVisible(false);
+           new Information().setVisible(true);
            
         }
         else
