@@ -7595,13 +7595,13 @@ Source: www.kingbright.com</description>
 </classes>
 <parts>
 <part name="IC1" library="st-microelectronics" deviceset="NE555" device="" value="358"/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="220E"/>
 <part name="VR" library="resistor" deviceset="R-TRIMM" device="64P" value="50k"/>
 <part name="WHITE" library="led" deviceset="LED" device="5MM" value="5mm"/>
 <part name="SL1" library="con-amp-quick" deviceset="M03" device=""/>
 <part name="BLACK" library="led" deviceset="LED" device="5MM" value="5mm"/>
 <part name="LED3" library="led" deviceset="LED" device="5MM" value="5mm"/>
-<part name="R5" library="rcl" deviceset="R-EU_" device="0204/7" value="1K"/>
+<part name="R5" library="rcl" deviceset="R-EU_" device="0204/7" value="220E"/>
 <part name="R6" library="rcl" deviceset="R-EU_" device="0204/7" value="10K"/>
 <part name="VR1" library="resistor" deviceset="R-TRIMM" device="64P" value="100E"/>
 </parts>
