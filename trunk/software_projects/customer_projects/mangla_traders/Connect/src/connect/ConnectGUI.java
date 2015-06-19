@@ -25,6 +25,7 @@ PreparedStatement pst = null;
      */
     public ConnectGUI() {
         initComponents();
+        
     }
 
     /**
@@ -122,7 +123,7 @@ PreparedStatement pst = null;
         //pst.setString(1, tbx_password.getText());
         rs = pst.executeQuery();
         if(rs.next()){
-           JOptionPane.showMessageDialog(null, "Welcome on MANGLA TRADERS");
+           //JOptionPane.showMessageDialog(null, "Welcome on MANGLA TRADERS");
            conn.close();
            this.setVisible(false);
            new Information().setVisible(true);
