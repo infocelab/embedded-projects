@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JTable;
 
 //import java.util.Calendar;
 
@@ -24,14 +25,13 @@ public class Information extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    static String user_type;
     
     
-    /**
-     * Creates new form Information
-     */
-    public Information() {
+    public Information() 
+    {
         initComponents();
-        lbl_data_entry_welcome.setText("------------- WELCOME ON MANGLA TRADERS -------------");
+        lbl_data_entry_welcome.setText("---------------- MANGLA TRADERS ---------------");
     }
 
     @SuppressWarnings("unchecked")
@@ -66,6 +66,8 @@ public class Information extends javax.swing.JFrame {
         btn_daily_data_entry_save = new javax.swing.JButton();
         lbl_data_entry_date1 = new javax.swing.JLabel();
         lbl_data_entry_welcome = new javax.swing.JLabel();
+        lbl_daily_data_entry_user_name = new javax.swing.JLabel();
+        lbl_daily_data_entry_logged_user = new javax.swing.JLabel();
         tabpane_borrowers = new javax.swing.JTabbedPane();
         jDesktopPane3 = new javax.swing.JDesktopPane();
         lbl_borrowers_city = new javax.swing.JLabel();
@@ -86,17 +88,17 @@ public class Information extends javax.swing.JFrame {
         jList1 = new javax.swing.JList();
         tabpane_search_option = new javax.swing.JTabbedPane();
         lbl_search_option_firm_date1 = new javax.swing.JDesktopPane();
-        txt_search_option_firm_name1 = new javax.swing.JTextField();
+        txt_search_option_firm_name = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txt_search_option_firm_date1 = new javax.swing.JTextField();
         lbl_search_option_firm_date2 = new javax.swing.JDesktopPane();
-        lbl_search_option_firm_name1 = new javax.swing.JLabel();
-        lbl_search_option_firm_date3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        btnl_search_option_enter1 = new javax.swing.JButton();
+        btn_search_option_enter = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
-        tbl2_borrowers2 = new javax.swing.JTable();
-        txt_search_option_firm_date2 = new javax.swing.JTextField();
+        tbl_search_option = new javax.swing.JTable();
+        lbl_search_option_firm_name1 = new javax.swing.JLabel();
+        lbl_search_option_firm_date = new javax.swing.JLabel();
+        txt_search_option_date = new javax.swing.JTextField();
+        lbl_search_option_date = new javax.swing.JLabel();
         tabpane_user_account = new javax.swing.JTabbedPane();
         jDesktopPane2 = new javax.swing.JDesktopPane();
         lbl1_user_account = new javax.swing.JLabel();
@@ -116,6 +118,11 @@ public class Information extends javax.swing.JFrame {
         });
 
         jDesktopPane1.setBackground(java.awt.SystemColor.controlHighlight);
+        jDesktopPane1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jDesktopPane1FocusGained(evt);
+            }
+        });
 
         lbl_daily_data_entry_date.setText("Date:");
 
@@ -158,67 +165,75 @@ public class Information extends javax.swing.JFrame {
 
         lbl_data_entry_welcome.setText("jLabel1");
 
+        lbl_daily_data_entry_logged_user.setText("Logged User :");
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lbl_daily_data_entry_date)
-                .addGap(40, 40, 40)
-                .addComponent(lbl_data_entry_date1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(226, 226, 226))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_daily_data_entry_firm_name)
-                    .addComponent(txt_daily_data_entry_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(btn_daily_data_entry_save, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDesktopPane1Layout.createSequentialGroup()
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(lbl_daily_data_entry_date)
+                                .addGap(40, 40, 40)
+                                .addComponent(lbl_data_entry_date1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_data_entry_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_daily_data_entry_logged_user, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_daily_data_entry_firm_name)
+                            .addComponent(txt_daily_data_entry_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(57, 57, 57)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_daily_data_entry_credit)
-                            .addComponent(txt_daily_data_entry_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(62, 62, 62)
+                            .addComponent(txt_daily_data_entry_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_daily_data_entry_credit))
+                        .addGap(30, 30, 30)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_daily_data_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_daily_data_entry_debit))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_daily_data_entry_comment))
-                .addGap(32, 32, 32))
+                            .addComponent(lbl_daily_data_entry_debit)
+                            .addComponent(txt_daily_data_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_daily_data_entry_comment)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_daily_data_entry_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(lbl_data_entry_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(340, Short.MAX_VALUE)
+                .addComponent(btn_daily_data_entry_save, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(361, 361, 361))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_daily_data_entry_date)
-                    .addComponent(lbl_data_entry_date1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_data_entry_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_daily_data_entry_comment)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_daily_data_entry_date)
+                            .addComponent(lbl_data_entry_date1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_data_entry_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addGap(22, 22, 22)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_daily_data_entry_logged_user, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_daily_data_entry_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_daily_data_entry_firm_name)
                             .addComponent(lbl_daily_data_entry_credit)
@@ -227,12 +242,17 @@ public class Information extends javax.swing.JFrame {
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt_daily_data_entry_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_daily_data_entry_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_daily_data_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_daily_data_entry_save)))
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                            .addComponent(txt_daily_data_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lbl_daily_data_entry_comment)
+                        .addGap(23, 23, 23)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(btn_daily_data_entry_save)
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         jDesktopPane1.setLayer(lbl_daily_data_entry_date, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbl_daily_data_entry_firm_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -247,6 +267,8 @@ public class Information extends javax.swing.JFrame {
         jDesktopPane1.setLayer(btn_daily_data_entry_save, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbl_data_entry_date1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbl_data_entry_welcome, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lbl_daily_data_entry_user_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lbl_daily_data_entry_logged_user, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tabpan_daily_data_entry.addTab("Welcome on Daily Data Entry", jDesktopPane1);
 
@@ -297,7 +319,7 @@ public class Information extends javax.swing.JFrame {
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 98, Short.MAX_VALUE))
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
@@ -386,7 +408,7 @@ public class Information extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(141, 141, 141)
                         .addComponent(btn_creditor_add_new_firm)))
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addContainerGap(351, Short.MAX_VALUE))
             .addGroup(jDesktopPane4Layout.createSequentialGroup()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -424,24 +446,22 @@ public class Information extends javax.swing.JFrame {
 
         lbl_search_option_firm_date2.setBackground(new java.awt.Color(240, 240, 240));
 
-        lbl_search_option_firm_name1.setText("Firm Name");
+        btn_search_option_enter.setText("Search");
+        btn_search_option_enter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_search_option_enterActionPerformed(evt);
+            }
+        });
 
-        lbl_search_option_firm_date3.setText("Date:-");
-
-        btnl_search_option_enter1.setText("Search");
-
-        tbl2_borrowers2.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_search_option.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Date", "Name", "Debit", "Credit", "City", "Mobile Number", "Address"
+                "S_No", "Name", "Credit", "Debit", "Comment"
             }
         ));
-        jScrollPane10.setViewportView(tbl2_borrowers2);
-        if (tbl2_borrowers2.getColumnModel().getColumnCount() > 0) {
-            tbl2_borrowers2.getColumnModel().getColumn(3).setResizable(false);
-        }
+        jScrollPane10.setViewportView(tbl_search_option);
 
         javax.swing.GroupLayout lbl_search_option_firm_date2Layout = new javax.swing.GroupLayout(lbl_search_option_firm_date2);
         lbl_search_option_firm_date2.setLayout(lbl_search_option_firm_date2Layout);
@@ -450,79 +470,86 @@ public class Information extends javax.swing.JFrame {
             .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
                 .addGroup(lbl_search_option_firm_date2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(lbl_search_option_firm_name1)
-                        .addGap(169, 169, 169)
-                        .addComponent(jLabel10)
-                        .addGap(28, 28, 28)
-                        .addComponent(lbl_search_option_firm_date3))
-                    .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
                         .addGap(247, 247, 247)
-                        .addComponent(btnl_search_option_enter1))
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(248, Short.MAX_VALUE))
+                        .addComponent(btn_search_option_enter)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10))
+                    .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(717, Short.MAX_VALUE))
         );
         lbl_search_option_firm_date2Layout.setVerticalGroup(
             lbl_search_option_firm_date2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(lbl_search_option_firm_date2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_search_option_firm_name1)
-                    .addComponent(lbl_search_option_firm_date3)
-                    .addComponent(jLabel10))
-                .addGap(42, 42, 42)
-                .addComponent(btnl_search_option_enter1)
-                .addGap(67, 67, 67)
+                .addGroup(lbl_search_option_firm_date2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jLabel10))
+                    .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(btn_search_option_enter)))
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(304, Short.MAX_VALUE))
         );
-        lbl_search_option_firm_date2.setLayer(lbl_search_option_firm_name1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        lbl_search_option_firm_date2.setLayer(lbl_search_option_firm_date3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lbl_search_option_firm_date2.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        lbl_search_option_firm_date2.setLayer(btnl_search_option_enter1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date2.setLayer(btn_search_option_enter, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lbl_search_option_firm_date2.setLayer(jScrollPane10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lbl_search_option_firm_name1.setText("Firm Name");
+
+        lbl_search_option_firm_date.setText("Date:-");
+
+        lbl_search_option_date.setText("dd-mm-yyyy");
 
         javax.swing.GroupLayout lbl_search_option_firm_date1Layout = new javax.swing.GroupLayout(lbl_search_option_firm_date1);
         lbl_search_option_firm_date1.setLayout(lbl_search_option_firm_date1Layout);
         lbl_search_option_firm_date1Layout.setHorizontalGroup(
             lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(txt_search_option_firm_name1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jLabel9)
-                .addGap(81, 81, 81)
-                .addComponent(txt_search_option_firm_date1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txt_search_option_firm_date2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lbl_search_option_firm_date2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(lbl_search_option_firm_date2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lbl_search_option_firm_name1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_search_option_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(lbl_search_option_firm_date)
+                .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel9))
+                    .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(txt_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         lbl_search_option_firm_date1Layout.setVerticalGroup(
             lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_search_option_firm_name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(txt_search_option_firm_date1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_search_option_firm_date2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(453, Short.MAX_VALUE))
-            .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lbl_search_option_firm_date2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(txt_search_option_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_search_option_firm_name1)
+                    .addComponent(lbl_search_option_firm_date)
+                    .addComponent(lbl_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_search_option_firm_date2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        lbl_search_option_firm_date1.setLayer(txt_search_option_firm_name1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(txt_search_option_firm_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lbl_search_option_firm_date1.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        lbl_search_option_firm_date1.setLayer(txt_search_option_firm_date1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lbl_search_option_firm_date1.setLayer(lbl_search_option_firm_date2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        lbl_search_option_firm_date1.setLayer(txt_search_option_firm_date2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(lbl_search_option_firm_name1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(lbl_search_option_firm_date, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(txt_search_option_date, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(lbl_search_option_date, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tabpane_search_option.addTab("Welcome on Search Option", lbl_search_option_firm_date1);
 
@@ -574,7 +601,7 @@ public class Information extends javax.swing.JFrame {
                         .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt1_user_account_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt2_user_account_password, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(360, Short.MAX_VALUE))
+                .addContainerGap(439, Short.MAX_VALUE))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -608,9 +635,7 @@ public class Information extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 17, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 769, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -635,21 +660,22 @@ public class Information extends javax.swing.JFrame {
         String comment = txtarea_daily_data_entry_comment.getText();
                 
         Object row[]={"1", firm_name, credit, debit, comment};
-        table_daily_data_entry.setAutoResizeMode(table_daily_data_entry.AUTO_RESIZE_OFF);
+        table_daily_data_entry.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table_daily_data_entry.getColumnModel().getColumn(0).setPreferredWidth(20);
         table_daily_data_entry.getColumnModel().getColumn(1).setPreferredWidth(100);
         table_daily_data_entry.getColumnModel().getColumn(2).setPreferredWidth(100);
         table_daily_data_entry.getColumnModel().getColumn(3).setPreferredWidth(100);
-        table_daily_data_entry.getColumnModel().getColumn(4).setPreferredWidth(400);
+        table_daily_data_entry.getColumnModel().getColumn(4).setPreferredWidth(600);
         
         
         Date today = new Date();
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         String date = DATE_FORMAT.format(today);
-        lbl_data_entry_date1.setText(date.toString());
+        lbl_data_entry_date1.setText(date);
+        String log = ConnectGUI.logged_user;
         
         String sql;
-        sql = "Insert into table_daily_data_entry (firm_name,credit,debit,comment,date) values ('" +  firm_name + "','" + credit + "','" + debit + "','" + comment + "','"+ date +"')";
+        sql = "Insert into table_daily_data_entry (firm_name,credit,debit,comment,date,logged_user) values ('" +  firm_name + "','" + credit + "','" + debit + "','" + comment + "','" + date + "','"+ log +"')";
             
       try
       {
@@ -680,24 +706,60 @@ public class Information extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_daily_data_entry_firm_nameActionPerformed
 
     private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
+
         // TODO add your handling code here:
-        
+       
         this.getContentPane().setBackground(Color.gray);
-        
         Date today = new Date();
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         String date = DATE_FORMAT.format(today);
-        lbl_data_entry_date1.setText(date.toString());
+        lbl_data_entry_date1.setText(date);
+        
+        lbl_daily_data_entry_user_name.setText(ConnectGUI.logged_user);
+        
+        String sql;
+      sql = "SELECT * FROM table_daily_data_entry where date ='" +date+ "'";
+            
+      try
+      {
+        conn = Connect.ConnectDB();
+        pst = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        if(rs.next()){
+            do
+            {
+           Object row[]={rs.getString("s_no"),  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+        table_daily_data_entry.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        table_daily_data_entry.getColumnModel().getColumn(0).setPreferredWidth(20);
+        table_daily_data_entry.getColumnModel().getColumn(1).setPreferredWidth(100);
+        table_daily_data_entry.getColumnModel().getColumn(2).setPreferredWidth(100);
+        table_daily_data_entry.getColumnModel().getColumn(3).setPreferredWidth(100);
+        table_daily_data_entry.getColumnModel().getColumn(4).setPreferredWidth(400);
+        DefaultTableModel model = (DefaultTableModel) table_daily_data_entry.getModel();
+        model.addRow(row);
+                
+            }while(rs.next());
+          
+        }
+        
+        conn.close();
+      }
+     catch(SQLException | HeadlessException e)
+     {
+          JOptionPane.showMessageDialog(null, e);          
+     }
        
     }//GEN-LAST:event_jTabbedPane1FocusGained
 
     private void txt1_user_account_user_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt1_user_account_user_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt1_user_account_user_nameActionPerformed
-
+    
     private void btn_borrowers_add_new_firmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrowers_add_new_firmActionPerformed
         // TODO add your handling code here:
-         //this.setVisible(false);
+        //this.setVisible(false);
+        user_type = "b";
+        this.setVisible(false);
          new FirmAccount1().setVisible(true);
          
          //this.setVisible(false);
@@ -765,13 +827,106 @@ public class Information extends javax.swing.JFrame {
       
     }//GEN-LAST:event_btn2_user_account_deleteActionPerformed
 
+    
     private void btn_creditor_add_new_firmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_creditor_add_new_firmActionPerformed
         // TODO add your handling code here:
-        
-       // this.setVisible(false);
-         new FirmAccount1().setVisible(true);
+        user_type="c";
+        this.setVisible(false);
+        new FirmAccount1().setVisible(true);
     }//GEN-LAST:event_btn_creditor_add_new_firmActionPerformed
 
+    String anydate = "";
+    String anyname = "";
+    
+    private void btn_search_option_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_search_option_enterActionPerformed
+       
+          anydate = txt_search_option_date.getText();
+          anyname =  txt_search_option_firm_name.getText();
+                 
+      if( !anydate.equals("") )
+      {
+         String sql;
+         sql = "SELECT * FROM table_daily_data_entry where date ='" +anydate+ "'";
+            
+         try
+         {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {               
+                do
+                {
+                    Object row[]={rs.getString("s_no"),  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                    tbl_search_option.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+                    tbl_search_option.getColumnModel().getColumn(0).setPreferredWidth(20);
+                    tbl_search_option.getColumnModel().getColumn(1).setPreferredWidth(100);
+                    tbl_search_option.getColumnModel().getColumn(2).setPreferredWidth(100);
+                    tbl_search_option.getColumnModel().getColumn(3).setPreferredWidth(100);
+                    tbl_search_option.getColumnModel().getColumn(4).setPreferredWidth(200);
+                    DefaultTableModel model = (DefaultTableModel) tbl_search_option.getModel();
+                    model.addRow(row);
+                 }
+                 while(rs.next());
+                
+            } 
+            txt_search_option_firm_name.setText(" ");
+            txt_search_option_date.setText(" ");
+            conn.close();
+         }
+         catch(SQLException | HeadlessException e)
+         {
+            JOptionPane.showMessageDialog(null, e);          
+         }
+       }
+        else if ( !anyname.equals("") )
+           {      
+               String sql;
+               sql = "SELECT * FROM table_daily_data_entry where firm_name ='" +anyname+ "'";            
+                try
+                {
+                    conn = Connect.ConnectDB();
+                    pst = conn.prepareStatement(sql);
+                    rs = pst.executeQuery();
+                    if(rs.next())
+                    {               
+                       do
+                        {
+                            Object row[]={rs.getString("s_no"),  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                            tbl_search_option.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+                            tbl_search_option.getColumnModel().getColumn(0).setPreferredWidth(20);
+                            tbl_search_option.getColumnModel().getColumn(1).setPreferredWidth(100);
+                            tbl_search_option.getColumnModel().getColumn(2).setPreferredWidth(100);
+                            tbl_search_option.getColumnModel().getColumn(3).setPreferredWidth(100);
+                            tbl_search_option.getColumnModel().getColumn(4).setPreferredWidth(200);
+                            DefaultTableModel model = (DefaultTableModel) tbl_search_option.getModel();
+                            model.addRow(row);
+                        }
+                    while(rs.next());
+                    }    
+                    txt_search_option_firm_name.setText(" ");
+                    txt_search_option_date.setText(" ");
+                    conn.close();
+                    }
+                    catch(SQLException | HeadlessException e)
+                    {
+                        JOptionPane.showMessageDialog(null, e);          
+                    }
+            }
+           else 
+               if( anyname.equals("") && anydate.equals(""))
+           {
+               String sql;
+               sql = "SELECT * FROM table_daily_data_entry where date ='" + anydate + "' AND firm_name='" + anyname + "'";
+          
+              
+           }
+           else
+           {
+               System.out.println("Please enter valid entry");    
+    }//GEN-LAST:event_btn_search_option_enterActionPerformed
+    }
+   
     /**
      * @param args the command line arguments
      */
@@ -821,7 +976,7 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JButton btn_borrowers_add_new_firm;
     private javax.swing.JButton btn_creditor_add_new_firm;
     private javax.swing.JButton btn_daily_data_entry_save;
-    private javax.swing.JButton btnl_search_option_enter1;
+    private javax.swing.JButton btn_search_option_enter;
     private javax.swing.JComboBox combobox_borrowers_city;
     private javax.swing.JComboBox combobox_creditors_city;
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -858,11 +1013,14 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_daily_data_entry_date;
     private javax.swing.JLabel lbl_daily_data_entry_debit;
     private javax.swing.JLabel lbl_daily_data_entry_firm_name;
+    private javax.swing.JLabel lbl_daily_data_entry_logged_user;
+    private javax.swing.JLabel lbl_daily_data_entry_user_name;
     private javax.swing.JLabel lbl_data_entry_date1;
     private javax.swing.JLabel lbl_data_entry_welcome;
+    private javax.swing.JLabel lbl_search_option_date;
+    private javax.swing.JLabel lbl_search_option_firm_date;
     private javax.swing.JDesktopPane lbl_search_option_firm_date1;
     private javax.swing.JDesktopPane lbl_search_option_firm_date2;
-    private javax.swing.JLabel lbl_search_option_firm_date3;
     private javax.swing.JLabel lbl_search_option_firm_name1;
     private javax.swing.JList list_borrowers_firm_name;
     private javax.swing.JTable table_daily_data_entry;
@@ -873,15 +1031,14 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tabpane_user_account;
     private javax.swing.JTable tbl2_borrowers;
     private javax.swing.JTable tbl2_borrowers1;
-    private javax.swing.JTable tbl2_borrowers2;
+    private javax.swing.JTable tbl_search_option;
     private javax.swing.JTextField txt1_user_account_user_name;
     private javax.swing.JTextField txt2_user_account_password;
     private javax.swing.JTextField txt_daily_data_entry_credit;
     private javax.swing.JTextField txt_daily_data_entry_debit;
     private javax.swing.JTextField txt_daily_data_entry_firm_name;
-    private javax.swing.JTextField txt_search_option_firm_date1;
-    private javax.swing.JTextField txt_search_option_firm_date2;
-    private javax.swing.JTextField txt_search_option_firm_name1;
+    private javax.swing.JTextField txt_search_option_date;
+    private javax.swing.JTextField txt_search_option_firm_name;
     private javax.swing.JTextArea txtarea_daily_data_entry_comment;
     // End of variables declaration//GEN-END:variables
 }
