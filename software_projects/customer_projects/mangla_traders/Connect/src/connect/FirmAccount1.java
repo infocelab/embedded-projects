@@ -60,6 +60,7 @@ public class FirmAccount1 extends javax.swing.JFrame {
         txtarea_firm_account_address = new javax.swing.JTextArea();
         txt_firm_account_debit = new javax.swing.JTextField();
         txt_firm_account_credit = new javax.swing.JTextField();
+        btn_firm_acc_close = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(214748, 214748));
@@ -101,6 +102,13 @@ public class FirmAccount1 extends javax.swing.JFrame {
         txtarea_firm_account_address.setColumns(20);
         txtarea_firm_account_address.setRows(5);
         jScrollPane1.setViewportView(txtarea_firm_account_address);
+
+        btn_firm_acc_close.setText("Close");
+        btn_firm_acc_close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_firm_acc_closeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,7 +156,9 @@ public class FirmAccount1 extends javax.swing.JFrame {
                                     .addComponent(txt_firm_account_credit)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(216, 216, 216)
-                        .addComponent(btn_firm_acc_save)))
+                        .addComponent(btn_firm_acc_save)
+                        .addGap(39, 39, 39)
+                        .addComponent(btn_firm_acc_close)))
                 .addGap(142, 142, 142))
         );
         layout.setVerticalGroup(
@@ -187,7 +197,9 @@ public class FirmAccount1 extends javax.swing.JFrame {
                     .addComponent(txt_firm_account_debit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_firm_account_credit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
-                .addComponent(btn_firm_acc_save)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_firm_acc_save)
+                    .addComponent(btn_firm_acc_close))
                 .addContainerGap(155, Short.MAX_VALUE))
         );
 
@@ -207,7 +219,7 @@ public class FirmAccount1 extends javax.swing.JFrame {
        
 
         
-        Object row[]={"1", firm_name, contact_name, address, city, mobile_number};
+        //Object row[]={"1", firm_name, contact_name, address, city, mobile_number};
         //table_daily_data_entry.setAutoResizeMode(table_daily_data_entry.AUTO_RESIZE_OFF);
        // table_daily_data_entry.getColumnModel().getColumn(0).setPreferredWidth(20);
        // table_daily_data_entry.getColumnModel().getColumn(1).setPreferredWidth(100);
@@ -218,11 +230,16 @@ public class FirmAccount1 extends javax.swing.JFrame {
         Date today = new Date();
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         String date = DATE_FORMAT.format(today);
-        
-        
         String sql;
-        sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"')";
-            
+        if( Information.user_type.equals("b"))
+        {         
+        
+        sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"','" + Information.user_type + "')";
+        } 
+        else
+        {
+        sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"','" + Information.user_type + "')";
+        }
       try
       {
            conn = Connect.ConnectDB();
@@ -238,6 +255,8 @@ public class FirmAccount1 extends javax.swing.JFrame {
            txt_firm_account_debit.setText("");
            txt_firm_account_credit.setText("");
            conn.close();
+           
+           
       }
      catch(SQLException | HeadlessException e)
      {
@@ -250,6 +269,13 @@ public class FirmAccount1 extends javax.swing.JFrame {
     private void tbx_firm_acc_firm_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbx_firm_acc_firm_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tbx_firm_acc_firm_nameActionPerformed
+
+    private void btn_firm_acc_closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_firm_acc_closeActionPerformed
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+        new Information().setVisible(true);
+    }//GEN-LAST:event_btn_firm_acc_closeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,6 +315,7 @@ public class FirmAccount1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_firm_acc_close;
     private javax.swing.JButton btn_firm_acc_save;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

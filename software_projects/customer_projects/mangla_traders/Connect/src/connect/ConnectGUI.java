@@ -20,6 +20,7 @@ public class ConnectGUI extends javax.swing.JFrame {
 Connection conn = null;
 ResultSet rs = null;
 PreparedStatement pst = null;
+static String logged_user = null;
     /**
      * Creates new form ConnectGUI
      */
@@ -124,7 +125,8 @@ PreparedStatement pst = null;
         rs = pst.executeQuery();
         if(rs.next()){
            //JOptionPane.showMessageDialog(null, "Welcome on MANGLA TRADERS");
-           conn.close();
+            logged_user = username;
+            conn.close();
            this.setVisible(false);
            new Information().setVisible(true);
            
