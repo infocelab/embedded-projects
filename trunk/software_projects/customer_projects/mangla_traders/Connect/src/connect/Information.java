@@ -77,6 +77,8 @@ public class Information extends javax.swing.JFrame {
         combobox_borrowers_city = new javax.swing.JComboBox();
         jScrollPane6 = new javax.swing.JScrollPane();
         list_borrowers_firm_name = new javax.swing.JList();
+        lbl_borrowers_city1 = new javax.swing.JLabel();
+        lbl_borrowers_borrower_name = new javax.swing.JLabel();
         tabpane_creditors = new javax.swing.JTabbedPane();
         jDesktopPane4 = new javax.swing.JDesktopPane();
         lbl_creditor_city = new javax.swing.JLabel();
@@ -85,7 +87,8 @@ public class Information extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         tbl2_borrowers1 = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        list_creditor_firm_name = new javax.swing.JList();
+        lbl_borrowers_creditor_name = new javax.swing.JLabel();
         tabpane_search_option = new javax.swing.JTabbedPane();
         lbl_search_option_firm_date1 = new javax.swing.JDesktopPane();
         txt_search_option_firm_name = new javax.swing.JTextField();
@@ -270,6 +273,11 @@ public class Information extends javax.swing.JFrame {
         jTabbedPane1.addTab("Daily Data Entry", tabpan_daily_data_entry);
 
         jDesktopPane3.setBackground(new java.awt.Color(240, 240, 240));
+        jDesktopPane3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jDesktopPane3FocusGained(evt);
+            }
+        });
 
         lbl_borrowers_city.setText("City:-");
 
@@ -301,12 +309,16 @@ public class Information extends javax.swing.JFrame {
             }
         });
 
-        list_borrowers_firm_name.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        list_borrowers_firm_name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                list_borrowers_firm_nameFocusGained(evt);
+            }
         });
         jScrollPane6.setViewportView(list_borrowers_firm_name);
+
+        lbl_borrowers_city1.setText("City:-");
+
+        lbl_borrowers_borrower_name.setText("Borrower Name:");
 
         javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
@@ -316,39 +328,56 @@ public class Information extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 98, Short.MAX_VALUE))
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(189, 189, 189)
+                        .addComponent(btn_borrowers_add_new_firm))
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(19, 19, 19)
+                        .addComponent(lbl_borrowers_borrower_name, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
                         .addComponent(lbl_borrowers_city)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(combobox_borrowers_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(179, 179, 179)
-                .addComponent(btn_borrowers_add_new_firm)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                    .addGap(43, 43, 43)
+                    .addComponent(lbl_borrowers_city1)
+                    .addContainerGap(689, Short.MAX_VALUE)))
         );
         jDesktopPane3Layout.setVerticalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addContainerGap()
+                .addComponent(lbl_borrowers_borrower_name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_borrowers_add_new_firm)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_borrowers_city)
                     .addComponent(combobox_borrowers_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
+            .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                    .addGap(216, 216, 216)
+                    .addComponent(lbl_borrowers_city1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(246, Short.MAX_VALUE)))
         );
         jDesktopPane3.setLayer(lbl_borrowers_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(btn_borrowers_add_new_firm, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(combobox_borrowers_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(jScrollPane6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(lbl_borrowers_city1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(lbl_borrowers_borrower_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tabpane_borrowers.addTab("Welcome on Borroers", jDesktopPane3);
 
@@ -381,32 +410,33 @@ public class Information extends javax.swing.JFrame {
             tbl2_borrowers1.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane3.setViewportView(jList1);
+        jScrollPane3.setViewportView(list_creditor_firm_name);
+
+        lbl_borrowers_creditor_name.setText("Creditor Name:");
 
         javax.swing.GroupLayout jDesktopPane4Layout = new javax.swing.GroupLayout(jDesktopPane4);
         jDesktopPane4.setLayout(jDesktopPane4Layout);
         jDesktopPane4Layout.setHorizontalGroup(
             jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane4Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
                 .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane4Layout.createSequentialGroup()
-                        .addComponent(lbl_creditor_city)
-                        .addGap(35, 35, 35)
-                        .addComponent(combobox_creditors_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(63, 63, 63)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(144, 144, 144)
+                        .addComponent(btn_creditor_add_new_firm))
                     .addGroup(jDesktopPane4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(141, 141, 141)
-                        .addComponent(btn_creditor_add_new_firm)))
-                .addContainerGap(351, Short.MAX_VALUE))
-            .addGroup(jDesktopPane4Layout.createSequentialGroup()
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane4Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane4Layout.createSequentialGroup()
+                                .addComponent(lbl_creditor_city)
+                                .addGap(29, 29, 29)
+                                .addComponent(combobox_creditors_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_borrowers_creditor_name, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         jDesktopPane4Layout.setVerticalGroup(
             jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,24 +444,26 @@ public class Information extends javax.swing.JFrame {
                 .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane4Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addComponent(btn_creditor_add_new_firm)
-                        .addGap(96, 96, 96))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane4Layout.createSequentialGroup()
+                        .addComponent(btn_creditor_add_new_firm))
+                    .addGroup(jDesktopPane4Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_creditor_city)
-                    .addComponent(combobox_creditors_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                        .addComponent(lbl_borrowers_creditor_name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(combobox_creditors_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_creditor_city))
+                .addGap(33, 33, 33)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
         jDesktopPane4.setLayer(lbl_creditor_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(btn_creditor_add_new_firm, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(combobox_creditors_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(jScrollPane9, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane4.setLayer(lbl_borrowers_creditor_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tabpane_creditors.addTab("Welcome on Creditors", jDesktopPane4);
 
@@ -485,8 +517,8 @@ public class Information extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addComponent(btn_search_option_enter)))
                 .addGap(29, 29, 29)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         lbl_search_option_firm_date2.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lbl_search_option_firm_date2.setLayer(btn_search_option_enter, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -722,9 +754,10 @@ public class Information extends javax.swing.JFrame {
         pst = conn.prepareStatement(sql);
         rs = pst.executeQuery();
         if(rs.next()){
+            int count=1;
             do
             {
-           Object row[]={rs.getString("s_no"),  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+           Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
         table_daily_data_entry.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table_daily_data_entry.getColumnModel().getColumn(0).setPreferredWidth(20);
         table_daily_data_entry.getColumnModel().getColumn(1).setPreferredWidth(100);
@@ -733,7 +766,7 @@ public class Information extends javax.swing.JFrame {
         table_daily_data_entry.getColumnModel().getColumn(4).setPreferredWidth(400);
         DefaultTableModel model = (DefaultTableModel) table_daily_data_entry.getModel();
         model.addRow(row);
-                
+                count++;
             }while(rs.next());
           
         }
@@ -841,6 +874,12 @@ public class Information extends javax.swing.JFrame {
                  
       if( !anydate.equals("") )
       {
+          DefaultTableModel model = (DefaultTableModel) tbl_search_option.getModel();
+          
+          for(int i=0;i< model.getRowCount() ; i++)
+          {
+              model.removeRow(i);
+          }
          String sql;
          sql = "SELECT * FROM table_daily_data_entry where date ='" +anydate+ "'";
             
@@ -850,24 +889,26 @@ public class Information extends javax.swing.JFrame {
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
-            {               
+            {  
+                int count=1;
                 do
                 {
-                    Object row[]={rs.getString("s_no"),  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                    Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
                     tbl_search_option.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
                     tbl_search_option.getColumnModel().getColumn(0).setPreferredWidth(20);
                     tbl_search_option.getColumnModel().getColumn(1).setPreferredWidth(100);
                     tbl_search_option.getColumnModel().getColumn(2).setPreferredWidth(100);
                     tbl_search_option.getColumnModel().getColumn(3).setPreferredWidth(100);
                     tbl_search_option.getColumnModel().getColumn(4).setPreferredWidth(200);
-                    DefaultTableModel model = (DefaultTableModel) tbl_search_option.getModel();
                     model.addRow(row);
+                    
+                    count++;
                  }
                  while(rs.next());
                 
             } 
-            txt_search_option_firm_name.setText(" ");
-            txt_search_option_date.setText(" ");
+            txt_search_option_firm_name.setText("");
+            txt_search_option_date.setText("");
             conn.close();
          }
          catch(SQLException | HeadlessException e)
@@ -876,7 +917,12 @@ public class Information extends javax.swing.JFrame {
          }
        }
         else if ( !anyname.equals("") )
-           {      
+           {   
+            DefaultTableModel model = (DefaultTableModel) tbl_search_option.getModel();
+          for(int i=0;i< model.getRowCount() ; i++)
+          {
+              model.removeRow(i);
+          }
                String sql;
                sql = "SELECT * FROM table_daily_data_entry where firm_name ='" +anyname+ "'";            
                 try
@@ -885,23 +931,24 @@ public class Information extends javax.swing.JFrame {
                     pst = conn.prepareStatement(sql);
                     rs = pst.executeQuery();
                     if(rs.next())
-                    {               
+                    {       
+                        int count=1;
                        do
                         {
-                            Object row[]={rs.getString("s_no"),  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                            Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
                             tbl_search_option.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-                            tbl_search_option.getColumnModel().getColumn(0).setPreferredWidth(20);
+                            tbl_search_option.getColumnModel().getColumn(0).setPreferredWidth(30);
                             tbl_search_option.getColumnModel().getColumn(1).setPreferredWidth(100);
                             tbl_search_option.getColumnModel().getColumn(2).setPreferredWidth(100);
                             tbl_search_option.getColumnModel().getColumn(3).setPreferredWidth(100);
                             tbl_search_option.getColumnModel().getColumn(4).setPreferredWidth(200);
-                            DefaultTableModel model = (DefaultTableModel) tbl_search_option.getModel();
                             model.addRow(row);
+                            count++;
                         }
                     while(rs.next());
                     }    
-                    txt_search_option_firm_name.setText(" ");
-                    txt_search_option_date.setText(" ");
+                    txt_search_option_firm_name.setText("");
+                    txt_search_option_date.setText("");
                     conn.close();
                     }
                     catch(SQLException | HeadlessException e)
@@ -922,6 +969,50 @@ public class Information extends javax.swing.JFrame {
                System.out.println("Please enter valid entry");    
     }//GEN-LAST:event_btn_search_option_enterActionPerformed
     }
+    private void jDesktopPane3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jDesktopPane3FocusGained
+        // TODO add your handling code here
+ 
+  
+        
+        
+    }//GEN-LAST:event_jDesktopPane3FocusGained
+
+    private void list_borrowers_firm_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_list_borrowers_firm_nameFocusGained
+        // TODO add your handling code here:
+        
+         String user_type = null;
+                 
+         String sql;
+         sql = "SELECT * FROM firm_account where user_type = 'b'";
+           
+         try
+         {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {  
+                
+                do
+                {
+              //  String user = rs.getString("Usre_type");
+            
+                }
+                while(rs.next());
+                
+            } 
+            
+            conn.close();
+         }
+         catch(SQLException | HeadlessException e)
+         {
+            JOptionPane.showMessageDialog(null, e);          
+          
+         }
+        
+        
+    }//GEN-LAST:event_list_borrowers_firm_nameFocusGained
+    
    
     /**
      * @param args the command line arguments
@@ -981,7 +1072,6 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1002,7 +1092,10 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane9;
     private javax.swing.JLabel lbl1_user_account;
     private javax.swing.JLabel lbl2_user_account;
+    private javax.swing.JLabel lbl_borrowers_borrower_name;
     private javax.swing.JLabel lbl_borrowers_city;
+    private javax.swing.JLabel lbl_borrowers_city1;
+    private javax.swing.JLabel lbl_borrowers_creditor_name;
     private javax.swing.JLabel lbl_creditor_city;
     private javax.swing.JLabel lbl_daily_data_entry_comment;
     private javax.swing.JLabel lbl_daily_data_entry_credit;
@@ -1019,6 +1112,7 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JDesktopPane lbl_search_option_firm_date2;
     private javax.swing.JLabel lbl_search_option_firm_name1;
     private javax.swing.JList list_borrowers_firm_name;
+    private javax.swing.JList list_creditor_firm_name;
     private javax.swing.JTable table_daily_data_entry;
     private javax.swing.JTabbedPane tabpan_daily_data_entry;
     private javax.swing.JTabbedPane tabpane_borrowers;
