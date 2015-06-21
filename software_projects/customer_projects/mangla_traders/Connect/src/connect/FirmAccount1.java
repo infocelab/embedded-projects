@@ -5,6 +5,7 @@
  */
 package connect;
 
+import static connect.Information.showFirmAccount;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
@@ -64,6 +65,16 @@ public class FirmAccount1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(214748, 214748));
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                formMouseEntered(evt);
+            }
+        });
 
         lbl_firm_acc_mobile_number.setText("Mobile Number:");
 
@@ -268,6 +279,7 @@ public class FirmAccount1 extends javax.swing.JFrame {
 
     private void tbx_firm_acc_firm_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbx_firm_acc_firm_nameActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_tbx_firm_acc_firm_nameActionPerformed
 
     private void btn_firm_acc_closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_firm_acc_closeActionPerformed
@@ -276,6 +288,40 @@ public class FirmAccount1 extends javax.swing.JFrame {
         this.setVisible(false);
         new Information().setVisible(true);
     }//GEN-LAST:event_btn_firm_acc_closeActionPerformed
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        // TODO add your handling code here:
+    
+    }//GEN-LAST:event_formFocusGained
+
+    private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
+        // TODO add your handling code here:
+          String sql = "SELECT * FROM firm_account WHERE firm_name='" + Information.firm_name_temp + "'";
+            
+      try
+      {
+        conn = Connect.ConnectDB();
+        pst = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        if(rs.next()){
+            
+            tbx_firm_acc_firm_name.setText(rs.getString("firm_name"));
+            tbx_firm_acc_city.setText(rs.getString("city"));
+            txtarea_firm_account_address.setText(rs.getString("address"));
+            tbx_firm_acc_contact_name.setText(rs.getString("contact_name"));
+            tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
+            txt_firm_account_debit.setText(rs.getString("debit"));
+            txt_firm_account_credit.setText(rs.getString("credit"));
+
+             }
+        
+        conn.close();
+      }
+     catch(SQLException | HeadlessException e)
+     {
+          JOptionPane.showMessageDialog(null, e);          
+     }
+    }//GEN-LAST:event_formMouseEntered
 
     /**
      * @param args the command line arguments

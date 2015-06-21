@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.DefaultListModel;
 import javax.swing.JTable;
 
 //import java.util.Calendar;
@@ -71,21 +72,16 @@ public class Information extends javax.swing.JFrame {
         tabpane_borrowers = new javax.swing.JTabbedPane();
         jDesktopPane3 = new javax.swing.JDesktopPane();
         lbl_borrowers_city = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tbl2_borrowers = new javax.swing.JTable();
         btn_borrowers_add_new_firm = new javax.swing.JButton();
         combobox_borrowers_city = new javax.swing.JComboBox();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        list_borrowers_firm_name = new javax.swing.JList();
         lbl_borrowers_city1 = new javax.swing.JLabel();
-        lbl_borrowers_borrower_name = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tbl_borrowers_borrower_name = new javax.swing.JTable();
         tabpane_creditors = new javax.swing.JTabbedPane();
         jDesktopPane4 = new javax.swing.JDesktopPane();
         lbl_creditor_city = new javax.swing.JLabel();
         btn_creditor_add_new_firm = new javax.swing.JButton();
         combobox_creditors_city = new javax.swing.JComboBox();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        tbl2_borrowers1 = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         list_creditor_firm_name = new javax.swing.JList();
         lbl_borrowers_creditor_name = new javax.swing.JLabel();
@@ -281,20 +277,6 @@ public class Information extends javax.swing.JFrame {
 
         lbl_borrowers_city.setText("City:-");
 
-        tbl2_borrowers.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "S. No.", "Name", "Debit", "Credit", "City", "Mobile Number", "Address", "Date"
-            }
-        ));
-        jScrollPane4.setViewportView(tbl2_borrowers);
-        if (tbl2_borrowers.getColumnModel().getColumnCount() > 0) {
-            tbl2_borrowers.getColumnModel().getColumn(0).setHeaderValue("S. No.");
-            tbl2_borrowers.getColumnModel().getColumn(3).setResizable(false);
-        }
-
         btn_borrowers_add_new_firm.setText("Add New Firm");
         btn_borrowers_add_new_firm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,40 +291,40 @@ public class Information extends javax.swing.JFrame {
             }
         });
 
-        list_borrowers_firm_name.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                list_borrowers_firm_nameFocusGained(evt);
-            }
-        });
-        jScrollPane6.setViewportView(list_borrowers_firm_name);
-
         lbl_borrowers_city1.setText("City:-");
 
-        lbl_borrowers_borrower_name.setText("Borrower Name:");
+        tbl_borrowers_borrower_name.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Firm Name"
+            }
+        ));
+        tbl_borrowers_borrower_name.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_borrowers_borrower_nameMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tbl_borrowers_borrower_name);
 
         javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
         jDesktopPane3Layout.setHorizontalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 98, Short.MAX_VALUE))
-            .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(189, 189, 189)
-                        .addComponent(btn_borrowers_add_new_firm))
-                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(lbl_borrowers_borrower_name, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(120, 120, 120)
                         .addComponent(lbl_borrowers_city)
-                        .addGap(18, 18, 18)
-                        .addComponent(combobox_borrowers_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(95, 95, 95)
+                        .addComponent(combobox_borrowers_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(btn_borrowers_add_new_firm)))
+                .addContainerGap(309, Short.MAX_VALUE))
             .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPane3Layout.createSequentialGroup()
                     .addGap(43, 43, 43)
@@ -351,33 +333,31 @@ public class Information extends javax.swing.JFrame {
         );
         jDesktopPane3Layout.setVerticalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_borrowers_borrower_name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_borrowers_add_new_firm)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_borrowers_city)
-                    .addComponent(combobox_borrowers_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(combobox_borrowers_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_borrowers_city))
+                        .addGap(59, 59, 59)
+                        .addComponent(btn_borrowers_add_new_firm))
+                    .addGroup(jDesktopPane3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(99, 99, 99))
             .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPane3Layout.createSequentialGroup()
                     .addGap(216, 216, 216)
                     .addComponent(lbl_borrowers_city1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(246, Short.MAX_VALUE)))
+                    .addContainerGap(248, Short.MAX_VALUE)))
         );
         jDesktopPane3.setLayer(lbl_borrowers_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(btn_borrowers_add_new_firm, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(combobox_borrowers_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(jScrollPane6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(lbl_borrowers_city1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane3.setLayer(lbl_borrowers_borrower_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(jScrollPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tabpane_borrowers.addTab("Welcome on Borroers", jDesktopPane3);
 
@@ -396,20 +376,6 @@ public class Information extends javax.swing.JFrame {
 
         combobox_creditors_city.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "City 1", "City 2", "City 3", "City 4" }));
 
-        tbl2_borrowers1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "S. No.", "Name", "Debit", "Credit", "City", "Mobile Number", "Address", "Date"
-            }
-        ));
-        jScrollPane9.setViewportView(tbl2_borrowers1);
-        if (tbl2_borrowers1.getColumnModel().getColumnCount() > 0) {
-            tbl2_borrowers1.getColumnModel().getColumn(0).setHeaderValue("S. No.");
-            tbl2_borrowers1.getColumnModel().getColumn(3).setResizable(false);
-        }
-
         jScrollPane3.setViewportView(list_creditor_firm_name);
 
         lbl_borrowers_creditor_name.setText("Creditor Name:");
@@ -426,9 +392,6 @@ public class Information extends javax.swing.JFrame {
                         .addGap(144, 144, 144)
                         .addComponent(btn_creditor_add_new_firm))
                     .addGroup(jDesktopPane4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane4Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jDesktopPane4Layout.createSequentialGroup()
@@ -436,7 +399,7 @@ public class Information extends javax.swing.JFrame {
                                 .addGap(29, 29, 29)
                                 .addComponent(combobox_creditors_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbl_borrowers_creditor_name, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(351, Short.MAX_VALUE))
         );
         jDesktopPane4Layout.setVerticalGroup(
             jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -454,14 +417,11 @@ public class Information extends javax.swing.JFrame {
                 .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(combobox_creditors_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_creditor_city))
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(174, 174, 174))
         );
         jDesktopPane4.setLayer(lbl_creditor_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(btn_creditor_add_new_firm, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(combobox_creditors_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane4.setLayer(jScrollPane9, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(lbl_borrowers_creditor_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -777,7 +737,38 @@ public class Information extends javax.swing.JFrame {
      {
           JOptionPane.showMessageDialog(null, e);          
      }
-       
+        /////////////////////////////////////////////////////
+      //Following section for borrowers tab
+      
+       sql = "SELECT * FROM firm_account WHERE user_type='b'";
+            
+      try
+      {
+        conn = Connect.ConnectDB();
+        pst = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        if(rs.next()){
+            int count=1;
+            do
+            {
+           Object row[]={ rs.getString("firm_name")};
+        
+         DefaultTableModel model = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
+         model.addRow(row);
+                count++;
+            }while(rs.next());
+          
+        }
+        
+        conn.close();
+      }
+     catch(SQLException | HeadlessException e)
+     {
+          JOptionPane.showMessageDialog(null, e);          
+     }
+      
+      
+      
     }//GEN-LAST:event_jTabbedPane1FocusGained
 
     private void txt1_user_account_user_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt1_user_account_user_nameActionPerformed
@@ -971,47 +962,41 @@ public class Information extends javax.swing.JFrame {
     }
     private void jDesktopPane3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jDesktopPane3FocusGained
         // TODO add your handling code here
- 
+        
   
         
         
     }//GEN-LAST:event_jDesktopPane3FocusGained
-
-    private void list_borrowers_firm_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_list_borrowers_firm_nameFocusGained
+    static int showFirmAccount=0;
+    static String firm_name_temp= "";
+    private void tbl_borrowers_borrower_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_borrowers_borrower_nameMouseClicked
         // TODO add your handling code here:
         
-         String user_type = null;
-                 
-         String sql;
-         sql = "SELECT * FROM firm_account where user_type = 'b'";
-           
-         try
-         {
-            conn = Connect.ConnectDB();
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            if(rs.next())
-            {  
-                
-                do
-                {
-              //  String user = rs.getString("Usre_type");
+        int row = tbl_borrowers_borrower_name.getSelectedRow();
+        String firm_name =(String) tbl_borrowers_borrower_name.getValueAt(row, 0);
+         String sql = "SELECT * FROM firm_account WHERE firm_name='" + firm_name + "'";
             
-                }
-                while(rs.next());
-                
-            } 
-            
-            conn.close();
-         }
-         catch(SQLException | HeadlessException e)
-         {
-            JOptionPane.showMessageDialog(null, e);          
-          
-         }
+      try
+      {
+        conn = Connect.ConnectDB();
+        pst = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        if(rs.next()){
+            showFirmAccount=1;
+            firm_name_temp = firm_name;
+             this.setVisible(false);
+         new FirmAccount1().setVisible(true);
+             }
         
+        conn.close();
+      }
+     catch(SQLException | HeadlessException e)
+     {
+          JOptionPane.showMessageDialog(null, e);          
+     }
+      
         
-    }//GEN-LAST:event_list_borrowers_firm_nameFocusGained
+    }//GEN-LAST:event_tbl_borrowers_borrower_nameMouseClicked
     
    
     /**
@@ -1054,7 +1039,8 @@ public class Information extends javax.swing.JFrame {
             public void run() {
                 new Information().setVisible(true);
             }
-        });
+ 
+    });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1076,9 +1062,7 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane10;
     private javax.swing.JTabbedPane jTabbedPane11;
@@ -1092,7 +1076,6 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane9;
     private javax.swing.JLabel lbl1_user_account;
     private javax.swing.JLabel lbl2_user_account;
-    private javax.swing.JLabel lbl_borrowers_borrower_name;
     private javax.swing.JLabel lbl_borrowers_city;
     private javax.swing.JLabel lbl_borrowers_city1;
     private javax.swing.JLabel lbl_borrowers_creditor_name;
@@ -1111,7 +1094,6 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JDesktopPane lbl_search_option_firm_date1;
     private javax.swing.JDesktopPane lbl_search_option_firm_date2;
     private javax.swing.JLabel lbl_search_option_firm_name1;
-    private javax.swing.JList list_borrowers_firm_name;
     private javax.swing.JList list_creditor_firm_name;
     private javax.swing.JTable table_daily_data_entry;
     private javax.swing.JTabbedPane tabpan_daily_data_entry;
@@ -1119,8 +1101,7 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tabpane_creditors;
     private javax.swing.JTabbedPane tabpane_search_option;
     private javax.swing.JTabbedPane tabpane_user_account;
-    private javax.swing.JTable tbl2_borrowers;
-    private javax.swing.JTable tbl2_borrowers1;
+    private javax.swing.JTable tbl_borrowers_borrower_name;
     private javax.swing.JTable tbl_search_option;
     private javax.swing.JTextField txt1_user_account_user_name;
     private javax.swing.JTextField txt2_user_account_password;
