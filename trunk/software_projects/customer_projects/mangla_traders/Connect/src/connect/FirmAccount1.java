@@ -314,7 +314,43 @@ public class FirmAccount1 extends javax.swing.JFrame {
             txt_firm_account_credit.setText(rs.getString("credit"));
 
              }
-        
+       
+        conn.close();
+      }
+     catch(SQLException | HeadlessException e)
+     {
+          JOptionPane.showMessageDialog(null, e);          
+     }
+         
+            
+      sql = "SELECT * FROM firm_account WHERE firm_name='" + Information.firm_name_temp_creditor + "'";
+            
+      try
+      {
+        conn = Connect.ConnectDB();
+        pst = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        if(rs.next()){
+            
+            tbx_firm_acc_firm_name.setText(rs.getString("firm_name"));
+            tbx_firm_acc_city.setText(rs.getString("city"));
+            txtarea_firm_account_address.setText(rs.getString("address"));
+            tbx_firm_acc_contact_name.setText(rs.getString("contact_name"));
+            tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
+            txt_firm_account_debit.setText(rs.getString("debit"));
+            txt_firm_account_credit.setText(rs.getString("credit"));
+
+             }
+       // if(rs.next())
+       // {
+       //     tbx_firm_acc_firm_name.setText("");
+       //     tbx_firm_acc_city.setText("");
+      //      txtarea_firm_account_address.setText("");
+       //     tbx_firm_acc_contact_name.setText("");
+       //     tbx_firm_acc_mobile_no.setText("");
+       //     txt_firm_account_debit.setText("");
+       //     txt_firm_account_credit.setText("");
+        //        }
         conn.close();
       }
      catch(SQLException | HeadlessException e)
