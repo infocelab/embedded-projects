@@ -50,10 +50,10 @@ public class FirmAccount1 extends javax.swing.JFrame {
         lbl_firm_acc_firm_name = new javax.swing.JLabel();
         tbx_firm_acc_firm_name = new javax.swing.JTextField();
         lbl_firm_acc_contact_name = new javax.swing.JLabel();
-        tbx_firm_acc_contact_name = new javax.swing.JTextField();
+        tbx_firm_acc_city = new javax.swing.JTextField();
         lbl_firm_acc_address = new javax.swing.JLabel();
         lbl_firm_acc_city = new javax.swing.JLabel();
-        tbx_firm_acc_city = new javax.swing.JTextField();
+        tbx_firm_acc_contact_name = new javax.swing.JTextField();
         btn_firm_acc_save = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -64,6 +64,7 @@ public class FirmAccount1 extends javax.swing.JFrame {
         btn_firm_acc_close = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(154, 201, 178));
         setMaximumSize(new java.awt.Dimension(214748, 214748));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -91,13 +92,13 @@ public class FirmAccount1 extends javax.swing.JFrame {
 
         lbl_firm_acc_contact_name.setText("Contact Name:");
 
-        tbx_firm_acc_contact_name.setPreferredSize(new java.awt.Dimension(120, 30));
+        tbx_firm_acc_city.setPreferredSize(new java.awt.Dimension(120, 30));
 
         lbl_firm_acc_address.setText("Address:");
 
         lbl_firm_acc_city.setText("City:");
 
-        tbx_firm_acc_city.setPreferredSize(new java.awt.Dimension(120, 30));
+        tbx_firm_acc_contact_name.setPreferredSize(new java.awt.Dimension(120, 30));
 
         btn_firm_acc_save.setText("save");
         btn_firm_acc_save.addActionListener(new java.awt.event.ActionListener() {
@@ -162,8 +163,8 @@ public class FirmAccount1 extends javax.swing.JFrame {
                                         .addComponent(jLabel2)))
                                 .addGap(44, 44, 44)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tbx_firm_acc_contact_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(tbx_firm_acc_city, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tbx_firm_acc_contact_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txt_firm_account_credit)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(216, 216, 216)
@@ -178,7 +179,7 @@ public class FirmAccount1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(tbx_firm_acc_city, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tbx_firm_acc_contact_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,7 +194,7 @@ public class FirmAccount1 extends javax.swing.JFrame {
                                     .addComponent(lbl_firm_acc_address)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lbl_firm_acc_city)
-                                        .addComponent(tbx_firm_acc_contact_name, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(tbx_firm_acc_city, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -259,9 +260,9 @@ public class FirmAccount1 extends javax.swing.JFrame {
         
            JOptionPane.showMessageDialog(null, "saved");
            tbx_firm_acc_firm_name.setText("");
-           tbx_firm_acc_contact_name.setText("");
-           txtarea_firm_account_address.setText("");
            tbx_firm_acc_city.setText("");
+           txtarea_firm_account_address.setText("");
+           tbx_firm_acc_contact_name.setText("");
            tbx_firm_acc_mobile_no.setText("");
            txt_firm_account_debit.setText("");
            txt_firm_account_credit.setText("");
@@ -306,9 +307,9 @@ public class FirmAccount1 extends javax.swing.JFrame {
         if(rs.next()){
             
             tbx_firm_acc_firm_name.setText(rs.getString("firm_name"));
-            tbx_firm_acc_city.setText(rs.getString("city"));
+            tbx_firm_acc_contact_name.setText(rs.getString("city"));
             txtarea_firm_account_address.setText(rs.getString("address"));
-            tbx_firm_acc_contact_name.setText(rs.getString("contact_name"));
+            tbx_firm_acc_city.setText(rs.getString("contact_name"));
             tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
             txt_firm_account_debit.setText(rs.getString("debit"));
             txt_firm_account_credit.setText(rs.getString("credit"));
@@ -333,9 +334,9 @@ public class FirmAccount1 extends javax.swing.JFrame {
         if(rs.next()){
             
             tbx_firm_acc_firm_name.setText(rs.getString("firm_name"));
-            tbx_firm_acc_city.setText(rs.getString("city"));
+            tbx_firm_acc_contact_name.setText(rs.getString("city"));
             txtarea_firm_account_address.setText(rs.getString("address"));
-            tbx_firm_acc_contact_name.setText(rs.getString("contact_name"));
+            tbx_firm_acc_city.setText(rs.getString("contact_name"));
             tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
             txt_firm_account_debit.setText(rs.getString("debit"));
             txt_firm_account_credit.setText(rs.getString("credit"));
