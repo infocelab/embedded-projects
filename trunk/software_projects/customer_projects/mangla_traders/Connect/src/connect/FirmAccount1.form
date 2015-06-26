@@ -4,10 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="b2" green="c9" red="9a" type="rgb"/>
-    </Property>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[214748, 214748]"/>
+      <Color blue="37" green="70" red="c4" type="rgb"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -150,7 +147,7 @@
                   <Component id="btn_firm_acc_save" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_firm_acc_close" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="155" max="32767" attributes="0"/>
+              <EmptySpace pref="175" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

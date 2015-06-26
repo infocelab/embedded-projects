@@ -107,7 +107,7 @@
             <Container class="javax.swing.JDesktopPane" name="jDesktopPane1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b2" green="c9" red="9a" type="rgb"/>
+                  <Color blue="cd" green="dc" red="bd" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -146,38 +146,39 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lbl_daily_data_entry_firm_name" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txt_daily_data_entry_firm_name" min="-2" pref="90" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lbl_daily_data_entry_credit" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txt_daily_data_entry_credit" min="-2" pref="86" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="lbl_daily_data_entry_debit" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
-                                          <Component id="lbl_daily_data_entry_comment" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lbl_daily_data_entry_firm_name" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txt_daily_data_entry_firm_name" min="-2" pref="90" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lbl_daily_data_entry_credit" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txt_daily_data_entry_credit" min="-2" pref="86" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lbl_daily_data_entry_debit" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
+                                                  <Component id="lbl_daily_data_entry_comment" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="txt_daily_data_entry_debit" min="-2" pref="86" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                                                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="txt_daily_data_entry_debit" min="-2" pref="86" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="jScrollPane1" min="-2" pref="801" max="-2" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="764" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="454" max="-2" attributes="0"/>
                                   <Component id="btn_daily_data_entry_save" min="-2" pref="83" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="306" max="32767" attributes="0"/>
+                          <EmptySpace pref="254" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -226,9 +227,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           <Component id="btn_daily_data_entry_save" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="185" max="-2" attributes="0"/>
-                          <EmptySpace pref="435" max="32767" attributes="0"/>
+                          <EmptySpace pref="437" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -268,6 +269,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txtarea_daily_data_entry_comment">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="f8" green="a1" red="b7" type="rgb"/>
+                        </Property>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
@@ -275,13 +279,28 @@
                   </SubComponents>
                 </Container>
                 <Component class="javax.swing.JTextField" name="txt_daily_data_entry_firm_name">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f8" green="a1" red="b7" type="rgb"/>
+                    </Property>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_daily_data_entry_firm_nameActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_daily_data_entry_credit">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f8" green="a1" red="b7" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txt_daily_data_entry_debit">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f8" green="a1" red="b7" type="rgb"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                   <AuxValues>
@@ -292,6 +311,14 @@
                   <SubComponents>
                     <Component class="javax.swing.JTable" name="table_daily_data_entry">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="f8" green="a1" red="b7" type="rgb"/>
+                        </Property>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                            <BevelBorder/>
+                          </Border>
+                        </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="0">
                             <Column editable="true" title="S. No." type="java.lang.Object"/>
@@ -329,6 +356,9 @@
                               <Renderer/>
                             </Column>
                           </TableColumnModel>
+                        </Property>
+                        <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="99" red="cc" type="rgb"/>
                         </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -380,7 +410,7 @@
             <Container class="javax.swing.JDesktopPane" name="jDesktopPane3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b2" green="c9" red="9a" type="rgb"/>
+                  <Color blue="cd" green="dc" red="bd" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -478,7 +508,7 @@
                     <Component class="javax.swing.JTable" name="tbl_borrowers_borrower_name">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="af" green="bd" red="af" type="rgb"/>
+                          <Color blue="f8" green="a1" red="b7" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="1" rowCount="0">
@@ -538,7 +568,7 @@
             <Container class="javax.swing.JDesktopPane" name="jDesktopPane4">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b2" green="c9" red="9a" type="rgb"/>
+                  <Color blue="cd" green="dc" red="bd" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -583,10 +613,10 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane4" min="-2" pref="319" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane4" min="-2" pref="443" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="655" max="32767" attributes="0"/>
+                          <EmptySpace pref="531" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -631,7 +661,7 @@
                     <Component class="javax.swing.JTable" name="tbl_creditor_firm_name">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="af" green="bd" red="af" type="rgb"/>
+                          <Color blue="f8" green="a1" red="b7" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="1" rowCount="0">
@@ -676,7 +706,7 @@
             <Container class="javax.swing.JDesktopPane" name="lbl_search_option_firm_date1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b2" green="c9" red="9a" type="rgb"/>
+                  <Color blue="cd" green="dc" red="bd" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -765,16 +795,20 @@
                                       <Component id="jScrollPane10" min="-2" pref="518" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
-                                      <Component id="btn_search_option_enter" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
                                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
-                                      <Component id="cal_search_option" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
+                                      <Component id="cal_search_option_date" min="-2" pref="134" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="361" max="-2" attributes="0"/>
+                                      <Component id="jTextField1" min="-2" pref="113" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
+                                      <Component id="btn_search_option_enter" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="717" max="32767" attributes="0"/>
@@ -784,12 +818,14 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="cal_search_option" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                              <Component id="cal_search_option_date" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               <Component id="btn_search_option_enter" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                               <Component id="jScrollPane10" min="-2" pref="222" max="-2" attributes="0"/>
                               <EmptySpace pref="170" max="32767" attributes="0"/>
                           </Group>
@@ -817,7 +853,7 @@
                         <Component class="javax.swing.JTable" name="tbl_search_option">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="af" green="bd" red="af" type="rgb"/>
+                              <Color blue="f8" green="a1" red="b7" type="rgb"/>
                             </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="5" rowCount="0">
@@ -864,7 +900,25 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="com.toedter.calendar.JDateChooser" name="cal_search_option">
+                    <Component class="com.toedter.calendar.JDateChooser" name="cal_search_option_date">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="f8" green="a1" red="b7" type="rgb"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value=""/>
+                        <Property name="dateFormatString" type="java.lang.String" value="dd/MM/YYYY"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="cal_search_option_dateInputMethodTextChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTextField1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jTextField1"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -908,7 +962,7 @@
             <Container class="javax.swing.JDesktopPane" name="jDesktopPane2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="b2" green="c9" red="9a" type="rgb"/>
+                  <Color blue="cd" green="dc" red="bd" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -984,7 +1038,7 @@
                 <Component class="javax.swing.JTextField" name="txt1_user_account_user_name">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="af" green="bd" red="af" type="rgb"/>
+                      <Color blue="f8" green="a1" red="b7" type="rgb"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -994,7 +1048,7 @@
                 <Component class="javax.swing.JTextField" name="txt2_user_account_password">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="af" green="bd" red="af" type="rgb"/>
+                      <Color blue="f8" green="a1" red="b7" type="rgb"/>
                     </Property>
                   </Properties>
                 </Component>
