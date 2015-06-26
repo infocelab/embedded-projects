@@ -1,33 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package connect;
-
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author celab123
- */
-public class ConnectGUI extends javax.swing.JFrame {
-Connection conn = null;
-ResultSet rs = null;
-PreparedStatement pst = null;
-static String logged_user = null;
-    /**
-     * Creates new form ConnectGUI
-     */
-    public ConnectGUI() {
-        initComponents();
-        
+public class ConnectGUI extends javax.swing.JFrame 
+{
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    static String logged_user = null;
+    public ConnectGUI() 
+    {
+        initComponents();    
     }
 
     /**
@@ -46,7 +36,7 @@ static String logged_user = null;
         btn_login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(154, 201, 178));
+        setBackground(new java.awt.Color(0, 204, 204));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -104,42 +94,34 @@ static String logged_user = null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       getContentPane().setBackground(Color.getHSBColor(189,140,205));
         conn = Connect.ConnectDB();
-        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        // TODO add your handling code here:
-        //JOptionPane.showMessageDialog(null, "Button Pressed");
+        new Information().setVisible(true);
         String username = tbx_username.getText();
+        logged_user="admin";
         String password = tbx_password.getText();
-        System.out.print("User name=");
-        System.out.println(username);
-        System.out.print("Password=");
-        System.out.println(password);
         String sql ;
         sql = "select * from tableUSERPASS where username='" + username +
-                "' and password='" + password + "'";
-        try{
-        pst = conn.prepareStatement(sql);
-        //pst.setString(1, tbx_username.getText());
-        //pst.setString(1, tbx_password.getText());
-        rs = pst.executeQuery();
-        if(rs.next()){
-           //JOptionPane.showMessageDialog(null, "Welcome on MANGLA TRADERS");
-            logged_user = username;
-            conn.close();
-           this.setVisible(false);
-           new Information().setVisible(true);
-           
-        }
-        else
+              "' and password='" + password + "'";
+        try
         {
-          JOptionPane.showMessageDialog(null, "Login ERROR");   
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                logged_user = username;
+                conn.close();
+                this.setVisible(false);
+                new Information().setVisible(true);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Login ERROR");   
+            }
         }
-     
-        }catch(SQLException | HeadlessException e)
+        catch(SQLException | HeadlessException e)
         {
           JOptionPane.showMessageDialog(null, e);          
         }

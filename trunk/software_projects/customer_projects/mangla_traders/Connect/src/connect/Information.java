@@ -1,33 +1,21 @@
-
 package connect;
-import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.Date;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
-import java.util.Locale;
-import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.JComboBox;
 import javax.swing.JTable;
 
-//import java.util.Calendar;
-
-/**
- *
- * @author celab-amit
- */
-public class Information extends javax.swing.JFrame {
-
+public class Information extends javax.swing.JFrame 
+{
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
@@ -37,7 +25,6 @@ public class Information extends javax.swing.JFrame {
     public Information() 
     {
         initComponents();
-        lbl_data_entry_welcome.setText("---------------- MANGLA TRADERS ---------------");
     }
 
     @SuppressWarnings("unchecked")
@@ -71,7 +58,6 @@ public class Information extends javax.swing.JFrame {
         table_daily_data_entry = new javax.swing.JTable();
         btn_daily_data_entry_save = new javax.swing.JButton();
         lbl_data_entry_date1 = new javax.swing.JLabel();
-        lbl_data_entry_welcome = new javax.swing.JLabel();
         lbl_daily_data_entry_user_name = new javax.swing.JLabel();
         lbl_daily_data_entry_logged_user = new javax.swing.JLabel();
         tabpane_borrowers = new javax.swing.JTabbedPane();
@@ -91,19 +77,19 @@ public class Information extends javax.swing.JFrame {
         tbl_creditor_firm_name = new javax.swing.JTable();
         tabpane_search_option = new javax.swing.JTabbedPane();
         lbl_search_option_firm_date1 = new javax.swing.JDesktopPane();
-        txt_search_option_firm_name = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         lbl_search_option_firm_date2 = new javax.swing.JDesktopPane();
         jLabel10 = new javax.swing.JLabel();
-        btn_search_option_enter = new javax.swing.JButton();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        tbl_search_option = new javax.swing.JTable();
-        cal_search_option_date = new com.toedter.calendar.JDateChooser();
-        jTextField1 = new javax.swing.JTextField();
         lbl_search_option_firm_name1 = new javax.swing.JLabel();
         lbl_search_option_firm_date = new javax.swing.JLabel();
-        txt_search_option_date = new javax.swing.JTextField();
         lbl_search_option_date = new javax.swing.JLabel();
+        cmb_search_option_firm_name = new javax.swing.JComboBox();
+        spin_search_dd = new javax.swing.JSpinner();
+        spin_search_mm = new javax.swing.JSpinner();
+        spin_search_yyyy = new javax.swing.JSpinner();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tbl_search_option = new javax.swing.JTable();
+        btn_search_option_enter = new javax.swing.JButton();
         tabpane_user_account = new javax.swing.JTabbedPane();
         jDesktopPane2 = new javax.swing.JDesktopPane();
         lbl1_user_account = new javax.swing.JLabel();
@@ -121,8 +107,13 @@ public class Information extends javax.swing.JFrame {
                 jTabbedPane1FocusGained(evt);
             }
         });
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
-        jDesktopPane1.setBackground(new java.awt.Color(189, 220, 205));
+        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         lbl_daily_data_entry_date.setText("Date:");
 
@@ -134,21 +125,16 @@ public class Information extends javax.swing.JFrame {
 
         lbl_daily_data_entry_comment.setText("Comment");
 
-        txtarea_daily_data_entry_comment.setBackground(new java.awt.Color(183, 161, 248));
         txtarea_daily_data_entry_comment.setColumns(20);
+        txtarea_daily_data_entry_comment.setLineWrap(true);
         txtarea_daily_data_entry_comment.setRows(5);
         jScrollPane2.setViewportView(txtarea_daily_data_entry_comment);
 
-        txt_daily_data_entry_firm_name.setBackground(new java.awt.Color(183, 161, 248));
         txt_daily_data_entry_firm_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_daily_data_entry_firm_nameActionPerformed(evt);
             }
         });
-
-        txt_daily_data_entry_credit.setBackground(new java.awt.Color(183, 161, 248));
-
-        txt_daily_data_entry_debit.setBackground(new java.awt.Color(183, 161, 248));
 
         table_daily_data_entry.setBackground(new java.awt.Color(183, 161, 248));
         table_daily_data_entry.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -172,8 +158,6 @@ public class Information extends javax.swing.JFrame {
 
         lbl_data_entry_date1.setText("jLabel7");
 
-        lbl_data_entry_welcome.setText("jLabel1");
-
         lbl_daily_data_entry_logged_user.setText("Logged User :");
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -181,17 +165,11 @@ public class Information extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lbl_daily_data_entry_date)
-                        .addGap(40, 40, 40)
-                        .addComponent(lbl_data_entry_date1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(201, 201, 201))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_data_entry_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGap(22, 22, 22)
+                .addComponent(lbl_daily_data_entry_date)
+                .addGap(40, 40, 40)
+                .addComponent(lbl_data_entry_date1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(201, 201, 201)
                 .addComponent(lbl_daily_data_entry_logged_user, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_daily_data_entry_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,7 +201,7 @@ public class Information extends javax.swing.JFrame {
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(454, 454, 454)
                         .addComponent(btn_daily_data_entry_save, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,9 +230,7 @@ public class Information extends javax.swing.JFrame {
                             .addComponent(txt_daily_data_entry_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_daily_data_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(lbl_data_entry_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(79, 79, 79)
                         .addComponent(lbl_daily_data_entry_comment)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -262,7 +238,7 @@ public class Information extends javax.swing.JFrame {
                 .addComponent(btn_daily_data_entry_save)
                 .addGap(114, 114, 114)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(437, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         jDesktopPane1.setLayer(lbl_daily_data_entry_date, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbl_daily_data_entry_firm_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -276,7 +252,6 @@ public class Information extends javax.swing.JFrame {
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btn_daily_data_entry_save, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbl_data_entry_date1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(lbl_data_entry_welcome, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbl_daily_data_entry_user_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbl_daily_data_entry_logged_user, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -284,7 +259,7 @@ public class Information extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Daily Data Entry", tabpan_daily_data_entry);
 
-        jDesktopPane3.setBackground(new java.awt.Color(189, 220, 205));
+        jDesktopPane3.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane3.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jDesktopPane3FocusGained(evt);
@@ -307,7 +282,6 @@ public class Information extends javax.swing.JFrame {
 
         lbl_borrowers_city1.setText("City:-");
 
-        tbl_borrowers_borrower_name.setBackground(new java.awt.Color(183, 161, 248));
         tbl_borrowers_borrower_name.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -350,12 +324,12 @@ public class Information extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addComponent(combobox_borrowers_city, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn_borrowers_add_new_firm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(729, Short.MAX_VALUE))
+                .addContainerGap(572, Short.MAX_VALUE))
             .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jDesktopPane3Layout.createSequentialGroup()
                     .addGap(43, 43, 43)
                     .addComponent(lbl_borrowers_city1)
-                    .addContainerGap(1040, Short.MAX_VALUE)))
+                    .addContainerGap(883, Short.MAX_VALUE)))
         );
         jDesktopPane3Layout.setVerticalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,7 +349,7 @@ public class Information extends javax.swing.JFrame {
                 .addGroup(jDesktopPane3Layout.createSequentialGroup()
                     .addGap(216, 216, 216)
                     .addComponent(lbl_borrowers_city1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(798, Short.MAX_VALUE)))
+                    .addContainerGap(548, Short.MAX_VALUE)))
         );
         jDesktopPane3.setLayer(lbl_borrowers_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(btn_borrowers_add_new_firm, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -387,7 +361,7 @@ public class Information extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Borrowers", tabpane_borrowers);
 
-        jDesktopPane4.setBackground(new java.awt.Color(189, 220, 205));
+        jDesktopPane4.setBackground(new java.awt.Color(255, 255, 255));
 
         lbl_creditor_city.setText("City:-");
 
@@ -411,7 +385,6 @@ public class Information extends javax.swing.JFrame {
             }
         });
 
-        tbl_creditor_firm_name.setBackground(new java.awt.Color(183, 161, 248));
         tbl_creditor_firm_name.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -444,7 +417,7 @@ public class Information extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(combobox_creditors_city, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn_creditor_add_new_firm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(729, Short.MAX_VALUE))
+                .addContainerGap(572, Short.MAX_VALUE))
         );
         jDesktopPane4Layout.setVerticalGroup(
             jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -460,7 +433,7 @@ public class Information extends javax.swing.JFrame {
                     .addGroup(jDesktopPane4Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(531, Short.MAX_VALUE))
+                .addContainerGap(281, Short.MAX_VALUE))
         );
         jDesktopPane4.setLayer(lbl_creditor_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(btn_creditor_add_new_firm, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -471,16 +444,44 @@ public class Information extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Creditors", tabpane_creditors);
 
-        lbl_search_option_firm_date1.setBackground(new java.awt.Color(189, 220, 205));
+        tabpane_search_option.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tabpane_search_optionFocusGained(evt);
+            }
+        });
 
-        txt_search_option_firm_name.setBackground(new java.awt.Color(175, 189, 175));
+        lbl_search_option_firm_date1.setBackground(new java.awt.Color(255, 255, 255));
 
-        lbl_search_option_firm_date2.setBackground(new java.awt.Color(154, 201, 178));
+        lbl_search_option_firm_date2.setBackground(new java.awt.Color(255, 255, 255));
 
-        btn_search_option_enter.setText("Search");
-        btn_search_option_enter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_search_option_enterActionPerformed(evt);
+        javax.swing.GroupLayout lbl_search_option_firm_date2Layout = new javax.swing.GroupLayout(lbl_search_option_firm_date2);
+        lbl_search_option_firm_date2.setLayout(lbl_search_option_firm_date2Layout);
+        lbl_search_option_firm_date2Layout.setHorizontalGroup(
+            lbl_search_option_firm_date2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
+                .addGap(543, 543, 543)
+                .addComponent(jLabel10)
+                .addContainerGap(929, Short.MAX_VALUE))
+        );
+        lbl_search_option_firm_date2Layout.setVerticalGroup(
+            lbl_search_option_firm_date2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(jLabel10)
+                .addContainerGap(494, Short.MAX_VALUE))
+        );
+        lbl_search_option_firm_date2.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lbl_search_option_firm_name1.setText("Firm Name");
+
+        lbl_search_option_firm_date.setText("Date:-");
+
+        lbl_search_option_date.setText("dd-mm-yyyy");
+
+        cmb_search_option_firm_name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
+        cmb_search_option_firm_name.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmb_search_option_firm_nameItemStateChanged(evt);
             }
         });
 
@@ -495,98 +496,43 @@ public class Information extends javax.swing.JFrame {
         ));
         jScrollPane10.setViewportView(tbl_search_option);
 
-        cal_search_option_date.setBackground(new java.awt.Color(183, 161, 248));
-        cal_search_option_date.setToolTipText("");
-        cal_search_option_date.setDateFormatString("dd/MM/YYYY");
-        cal_search_option_date.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                cal_search_option_dateInputMethodTextChanged(evt);
-            }
-        });
-
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        btn_search_option_enter.setText("Search");
+        btn_search_option_enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                btn_search_option_enterActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout lbl_search_option_firm_date2Layout = new javax.swing.GroupLayout(lbl_search_option_firm_date2);
-        lbl_search_option_firm_date2.setLayout(lbl_search_option_firm_date2Layout);
-        lbl_search_option_firm_date2Layout.setHorizontalGroup(
-            lbl_search_option_firm_date2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
-                .addGroup(lbl_search_option_firm_date2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
-                        .addGap(316, 316, 316)
-                        .addComponent(jLabel10))
-                    .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(cal_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
-                        .addGap(361, 361, 361)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(btn_search_option_enter)))
-                .addContainerGap(717, Short.MAX_VALUE))
-        );
-        lbl_search_option_firm_date2Layout.setVerticalGroup(
-            lbl_search_option_firm_date2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbl_search_option_firm_date2Layout.createSequentialGroup()
-                .addComponent(cal_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
-                .addComponent(jLabel10)
-                .addGap(11, 11, 11)
-                .addComponent(btn_search_option_enter)
-                .addGap(68, 68, 68)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
-        );
-        lbl_search_option_firm_date2.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        lbl_search_option_firm_date2.setLayer(btn_search_option_enter, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        lbl_search_option_firm_date2.setLayer(jScrollPane10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        lbl_search_option_firm_date2.setLayer(cal_search_option_date, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        lbl_search_option_firm_date2.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        lbl_search_option_firm_name1.setText("Firm Name");
-
-        lbl_search_option_firm_date.setText("Date:-");
-
-        txt_search_option_date.setBackground(new java.awt.Color(175, 189, 175));
-
-        lbl_search_option_date.setText("dd-mm-yyyy");
 
         javax.swing.GroupLayout lbl_search_option_firm_date1Layout = new javax.swing.GroupLayout(lbl_search_option_firm_date1);
         lbl_search_option_firm_date1.setLayout(lbl_search_option_firm_date1Layout);
         lbl_search_option_firm_date1Layout.setHorizontalGroup(
             lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbl_search_option_firm_date1Layout.createSequentialGroup()
+                .addGap(289, 289, 289)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbl_search_option_firm_date2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(lbl_search_option_firm_name1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_search_option_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(lbl_search_option_firm_date)
-                .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane10)
                     .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel9))
-                    .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
+                        .addComponent(lbl_search_option_firm_name1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmb_search_option_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbl_search_option_firm_date)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbl_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(txt_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(spin_search_dd, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(spin_search_mm, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(spin_search_yyyy, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btn_search_option_enter)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         lbl_search_option_firm_date1Layout.setVerticalGroup(
             lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -595,42 +541,49 @@ public class Information extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_search_option_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(spin_search_dd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(spin_search_mm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(spin_search_yyyy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_search_option_enter))
+                    .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbl_search_option_firm_name1)
                         .addComponent(lbl_search_option_firm_date)
-                        .addComponent(txt_search_option_date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmb_search_option_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_search_option_firm_date2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        lbl_search_option_firm_date1.setLayer(txt_search_option_firm_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lbl_search_option_firm_date1.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lbl_search_option_firm_date1.setLayer(lbl_search_option_firm_date2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lbl_search_option_firm_date1.setLayer(lbl_search_option_firm_name1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lbl_search_option_firm_date1.setLayer(lbl_search_option_firm_date, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        lbl_search_option_firm_date1.setLayer(txt_search_option_date, javax.swing.JLayeredPane.DEFAULT_LAYER);
         lbl_search_option_firm_date1.setLayer(lbl_search_option_date, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(cmb_search_option_firm_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(spin_search_dd, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(spin_search_mm, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(spin_search_yyyy, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(jScrollPane10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lbl_search_option_firm_date1.setLayer(btn_search_option_enter, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tabpane_search_option.addTab("Welcome on Search Option", lbl_search_option_firm_date1);
 
         jTabbedPane1.addTab("Search Option", tabpane_search_option);
 
-        jDesktopPane2.setBackground(new java.awt.Color(189, 220, 205));
+        jDesktopPane2.setBackground(new java.awt.Color(255, 255, 255));
 
         lbl1_user_account.setText("UserName");
 
         lbl2_user_account.setText("Password");
 
-        txt1_user_account_user_name.setBackground(new java.awt.Color(183, 161, 248));
         txt1_user_account_user_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt1_user_account_user_nameActionPerformed(evt);
             }
         });
-
-        txt2_user_account_password.setBackground(new java.awt.Color(183, 161, 248));
 
         btn1_user_account_add.setText("Add");
         btn1_user_account_add.addActionListener(new java.awt.event.ActionListener() {
@@ -666,7 +619,7 @@ public class Information extends javax.swing.JFrame {
                         .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt1_user_account_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt2_user_account_password, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(790, Short.MAX_VALUE))
+                .addContainerGap(633, Short.MAX_VALUE))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -683,7 +636,7 @@ public class Information extends javax.swing.JFrame {
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn1_user_account_add)
                     .addComponent(btn2_user_account_delete))
-                .addContainerGap(823, Short.MAX_VALUE))
+                .addContainerGap(573, Short.MAX_VALUE))
         );
         jDesktopPane2.setLayer(lbl1_user_account, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(lbl2_user_account, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -701,33 +654,30 @@ public class Information extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 963, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {
+    private void formWindowOpened(java.awt.event.WindowEvent evt) 
+    {
       
     }
-    public int i=1;
+    int data_entry_count=0;
     private void btn_daily_data_entry_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_daily_data_entry_saveActionPerformed
-        
-        //String txt1 = txt_daily_data_entry_s_no.getText();
         String firm_name = txt_daily_data_entry_firm_name.getText();
         String credit  = txt_daily_data_entry_credit.getText();
         String debit = txt_daily_data_entry_debit.getText();
         String comment = txtarea_daily_data_entry_comment.getText();
-                
-        Object row[]={i, firm_name, credit, debit, comment};
-        i=i+1;
+        
+        Object row[]={data_entry_count, firm_name, credit, debit, comment};
+        data_entry_count = data_entry_count + 1;
         table_daily_data_entry.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table_daily_data_entry.getColumnModel().getColumn(0).setPreferredWidth(20);
         table_daily_data_entry.getColumnModel().getColumn(1).setPreferredWidth(100);
@@ -735,9 +685,8 @@ public class Information extends javax.swing.JFrame {
         table_daily_data_entry.getColumnModel().getColumn(3).setPreferredWidth(100);
         table_daily_data_entry.getColumnModel().getColumn(4).setPreferredWidth(600);
         
-        
         Date today = new Date();
-        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MM-dd-yyyy");
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         String date = DATE_FORMAT.format(today);
         lbl_data_entry_date1.setText(date);
         String log = ConnectGUI.logged_user;
@@ -745,8 +694,8 @@ public class Information extends javax.swing.JFrame {
         String sql;
         sql = "Insert into table_daily_data_entry (firm_name,credit,debit,comment,date,logged_user) values ('" +  firm_name + "','" + credit + "','" + debit + "','" + comment + "','" + date + "','"+ log +"')";
             
-      try
-      {
+        try
+        {
            conn = Connect.ConnectDB();
            pst = conn.prepareStatement(sql);
            pst.executeUpdate();
@@ -757,16 +706,14 @@ public class Information extends javax.swing.JFrame {
            txt_daily_data_entry_debit.setText("");
            txtarea_daily_data_entry_comment.setText("");
            conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
+        }
+        catch(SQLException | HeadlessException e)
+        {
           JOptionPane.showMessageDialog(null, e);          
-     }
+        }
         
-        //table_daily_data_entry.setAutoResizeMode(table_daily_data_entry.AUTO_RESIZE_LAST_COLUMN);
         DefaultTableModel model = (DefaultTableModel) table_daily_data_entry.getModel();
         model.addRow(row);
-
     }//GEN-LAST:event_btn_daily_data_entry_saveActionPerformed
 
     private void txt_daily_data_entry_firm_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_daily_data_entry_firm_nameActionPerformed
@@ -775,10 +722,8 @@ public class Information extends javax.swing.JFrame {
 
     private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
 
-        // TODO add your handling code here:
         tbl_borrowers_borrower_name.removeAll();
-       
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
+
         Date today = new Date();
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         String date = DATE_FORMAT.format(today);
@@ -787,121 +732,144 @@ public class Information extends javax.swing.JFrame {
         lbl_daily_data_entry_user_name.setText(ConnectGUI.logged_user);
         
         String sql;
-      sql = "SELECT * FROM table_daily_data_entry where date ='" +date+ "'";
+        sql = "SELECT * FROM table_daily_data_entry where date ='" +date+ "'";
             
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        if(rs.next()){
-            int count=1;
-            do
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
             {
-           Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
-        table_daily_data_entry.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        table_daily_data_entry.getColumnModel().getColumn(0).setPreferredWidth(20);
-        table_daily_data_entry.getColumnModel().getColumn(1).setPreferredWidth(100);
-        table_daily_data_entry.getColumnModel().getColumn(2).setPreferredWidth(100);
-        table_daily_data_entry.getColumnModel().getColumn(3).setPreferredWidth(100);
-        table_daily_data_entry.getColumnModel().getColumn(4).setPreferredWidth(400);
-        DefaultTableModel model = (DefaultTableModel) table_daily_data_entry.getModel();
-        model.addRow(row);
-                count++;
-            }while(rs.next());
-          
-        }
+                int count=1;
+                do
+                {
+                    Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                    table_daily_data_entry.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+                    table_daily_data_entry.getColumnModel().getColumn(0).setPreferredWidth(20);
+                    table_daily_data_entry.getColumnModel().getColumn(1).setPreferredWidth(100);
+                    table_daily_data_entry.getColumnModel().getColumn(2).setPreferredWidth(100);
+                    table_daily_data_entry.getColumnModel().getColumn(3).setPreferredWidth(100);
+                    table_daily_data_entry.getColumnModel().getColumn(4).setPreferredWidth(400);
+                    DefaultTableModel model = (DefaultTableModel) table_daily_data_entry.getModel();
+                    model.addRow(row);
+                    count++;
+                }while(rs.next());
+            }
         
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
         /////////////////////////////////////////////////////
-      //Following section for borrowers tab
+        //Following section for borrowers tab
       
-       sql = "SELECT * FROM firm_account WHERE user_type='b'";
-         DefaultTableModel tbl = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
-          tbl.setRowCount(0);
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        if(rs.next()){
-            int count=1;
-            do
+        sql = "SELECT * FROM firm_account WHERE user_type='b'";
+        DefaultTableModel tbl = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
+        tbl.setRowCount(0);
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
             {
-           Object row[]={ rs.getString("firm_name")};
-        
-         DefaultTableModel model = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
-         model.addRow(row);
-         Object item[]={ rs.getString("city")};
-         if(((DefaultComboBoxModel)combobox_borrowers_city.getModel()).getIndexOf(item[0].toString()) == -1 ) 
-         {
-             combobox_borrowers_city.addItem(item[0].toString());
-         }
-        
-         
-                count++;
-     
-            }while(rs.next());
-                    
-                    
-            //tbl_borrowers_borrower_name.removeAll();
-          
+                int count=1;
+                do
+                {
+                    Object row[]={ rs.getString("firm_name")};
+                    DefaultTableModel model = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
+                    model.addRow(row);
+                    Object item[]={ rs.getString("city")};
+                    if(((DefaultComboBoxModel)combobox_borrowers_city.getModel()).getIndexOf(item[0].toString()) == -1 ) 
+                    {
+                        combobox_borrowers_city.addItem(item[0].toString());
+                    }
+                    count++;
+              }while(rs.next());
+           }
+           conn.close();
         }
-        
-        conn.close();
-        
-        
-        
-        
-        
-        
-        
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
-     //////////////////////////////////////////////////
-      //This Section for creditor tab      
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
+        //////////////////////////////////////////////////
+        //This Section for creditor tab      
           
-       sql = "SELECT * FROM firm_account WHERE user_type='c'";
-          DefaultTableModel tbl_c = (DefaultTableModel) tbl_creditor_firm_name.getModel();
-          tbl_c.setRowCount(0);
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        if(rs.next()){
-            int count=1;
-            do
+        sql = "SELECT * FROM firm_account WHERE user_type='c'";
+        DefaultTableModel tbl_c = (DefaultTableModel) tbl_creditor_firm_name.getModel();
+        tbl_c.setRowCount(0);
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
             {
-           Object row[]={ rs.getString("firm_name")};
-        
-         DefaultTableModel model = (DefaultTableModel) tbl_creditor_firm_name.getModel();
-         model.addRow(row);
-         Object item[]={ rs.getString("city")};
-         if(((DefaultComboBoxModel)combobox_creditors_city.getModel()).getIndexOf(item[0].toString()) == -1 ) 
-         {
-             combobox_creditors_city.addItem(item[0].toString());
-         }
-            }while(rs.next());
-          
+                int count=1;
+                do
+                {
+                    Object row[]={ rs.getString("firm_name")};
+                    DefaultTableModel model = (DefaultTableModel) tbl_creditor_firm_name.getModel();
+                    model.addRow(row);
+                    Object item[]={ rs.getString("city")};
+                    if(((DefaultComboBoxModel)combobox_creditors_city.getModel()).getIndexOf(item[0].toString()) == -1 ) 
+                    {
+                        combobox_creditors_city.addItem(item[0].toString());
+                    }
+                }while(rs.next());
+            }
+            conn.close();
         }
-        
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
       
+        /////////////////////////////////////////
+        // for Search option firm name
       
+        tbl_search_option.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        tbl_search_option.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tbl_search_option.getColumnModel().getColumn(1).setPreferredWidth(150);
+        tbl_search_option.getColumnModel().getColumn(2).setPreferredWidth(130);
+        tbl_search_option.getColumnModel().getColumn(3).setPreferredWidth(130);
+        tbl_search_option.getColumnModel().getColumn(4).setPreferredWidth(200);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(today);
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH) + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        spin_search_dd.setValue(day);
+        spin_search_mm.setValue(month);
+        spin_search_yyyy.setValue(year);
+        sql = "SELECT * FROM firm_account";
+            
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                do
+                {
+                    Object row[]={ rs.getString("firm_name")};
+                    if(((DefaultComboBoxModel)cmb_search_option_firm_name.getModel()).getIndexOf(row[0].toString()) == -1 ) 
+                    {
+                        cmb_search_option_firm_name.addItem(row[0].toString());
+                    }
+                }while(rs.next());
+            }
+           conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
     }//GEN-LAST:event_jTabbedPane1FocusGained
 
     private void txt1_user_account_user_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt1_user_account_user_nameActionPerformed
@@ -909,233 +877,179 @@ public class Information extends javax.swing.JFrame {
     }//GEN-LAST:event_txt1_user_account_user_nameActionPerformed
     
     private void btn_borrowers_add_new_firmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrowers_add_new_firmActionPerformed
-        // TODO add your handling code here:
-        //this.setVisible(false);
         user_type = "b";
         this.setVisible(false);
-         new FirmAccount1().setVisible(true);
-         
-         //this.setVisible(false);
-        //new Information().setVisible(true);
+        new FirmAccount1().setVisible(true);
     }//GEN-LAST:event_btn_borrowers_add_new_firmActionPerformed
     
     private void btn1_user_account_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1_user_account_addActionPerformed
-        // TODO add your handling code here:
-        
-    
-      String username = txt1_user_account_user_name.getText();
-      String password = txt2_user_account_password.getText();
-      
-      String sql;
-      sql = "Insert into tableUSERPASS (username,password) values ('" +  username + "','" + password + "')";
+        String username = txt1_user_account_user_name.getText();
+        String password = txt2_user_account_password.getText();
+        String sql;
+        sql = "Insert into tableUSERPASS (username,password) values ('" +  username + "','" + password + "')";
             
-      try
-      {
-           conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        pst.executeUpdate();
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            pst.executeUpdate();
         
-        JOptionPane.showMessageDialog(null, "saved");
-        txt1_user_account_user_name.setText("");
-        txt2_user_account_password.setText("");
+            JOptionPane.showMessageDialog(null, "user added successfully");
+            txt1_user_account_user_name.setText("");
+            txt2_user_account_password.setText("");
         
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
-             
-             
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
     }//GEN-LAST:event_btn1_user_account_addActionPerformed
 
     private void btn2_user_account_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2_user_account_deleteActionPerformed
-        // TODO add your handling code here:
-      String username = txt1_user_account_user_name.getText();  
-        
-      String sql;
-      sql = "delete from tableUSERPASS where username='" +  username + "'";
-         
-      try
-      {
+        String username = txt1_user_account_user_name.getText();  
+        if(username.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Please Enter Valid User name to Delete"); 
+            return;
+        }
+        if(username.equals("admin"))
+        {
+            JOptionPane.showMessageDialog(null, "Admin User Cannot be Deleted"); 
+            return;
+        }
+          
+        String sql;
+        sql = "select * from tableUSERPASS where username='" +  username + "'";
         conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        pst.executeUpdate();
-        
-        JOptionPane.showMessageDialog(null, "Delete successful");
-        txt1_user_account_user_name.setText("");
-        txt2_user_account_password.setText("");
-        
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }  
+        try 
+        {
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(!rs.next())
+            {
+                JOptionPane.showMessageDialog(null, "Please Enter Valid User name to Delete");
+                conn.close();
+                return;
+            } 
+            conn.close();
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Information.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
       
-      
+        sql = "delete from tableUSERPASS where username='" +  username + "'";
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            pst.executeUpdate();
+        
+            JOptionPane.showMessageDialog(null, "Delete successful");
+            txt1_user_account_user_name.setText("");
+            txt2_user_account_password.setText("");
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }         
     }//GEN-LAST:event_btn2_user_account_deleteActionPerformed
 
     
     private void btn_creditor_add_new_firmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_creditor_add_new_firmActionPerformed
-        // TODO add your handling code here:
         user_type="c";
         this.setVisible(false);
         new FirmAccount1().setVisible(true);
     }//GEN-LAST:event_btn_creditor_add_new_firmActionPerformed
 
-   // String anydate = "";
     String anyname = "";
  
     private void btn_search_option_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_search_option_enterActionPerformed
-       
-        //  anydate = txt_search_option_date.getText();
-          anyname =  txt_search_option_firm_name.getText();
-           
-        // cal_search_option.setDateFormatString("dd-MM-yyyy");
-        //  Date  anycal= cal_search_option.getDate();
-          
-          
-          cal_search_option_date.setDateFormatString("dd/MM/yyyy");
-          
-          SimpleDateFormat sdf=new SimpleDateFormat ("dd/MM/yyyy", Locale.getDefault());
-          String anycal=sdf.format(cal_search_option_date.getDate());
-
-                  
-       
-        
-        jTextField1.setText(anycal);
-        
-           if( !anycal.equals("") )
+        String dd="";
+        String mon;
+        mon = "";
+        if(Integer.parseInt(spin_search_dd.getValue().toString()) < 10 )
         {
-          DefaultTableModel model = (DefaultTableModel) tbl_search_option.getModel();
-          
-          for(int i=0;i< model.getRowCount() ; i++)
-          {
-              model.removeRow(i);
-          }
-         String sql;
-         sql = "SELECT * FROM table_daily_data_entry where date ='" +anycal+ "'";
-            
-         try
-         {
-            conn = Connect.ConnectDB();
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            if(rs.next())
-            {  
-                int count=1;
-                do
-                {
-                    Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
-                    tbl_search_option.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-                    tbl_search_option.getColumnModel().getColumn(0).setPreferredWidth(20);
-                    tbl_search_option.getColumnModel().getColumn(1).setPreferredWidth(100);
-                    tbl_search_option.getColumnModel().getColumn(2).setPreferredWidth(100);
-                    tbl_search_option.getColumnModel().getColumn(3).setPreferredWidth(100);
-                    tbl_search_option.getColumnModel().getColumn(4).setPreferredWidth(200);
-                    model.addRow(row);
-                    
-                    count++;
-                 }
-                 while(rs.next());
-                
-            } 
-            txt_search_option_firm_name.setText("");
-            txt_search_option_date.setText("");
-            conn.close();
-         }
-         catch(SQLException | HeadlessException e)
-         {
-            JOptionPane.showMessageDialog(null, e);          
-         }
-       }
-        else if ( !anyname.equals("") )
-           {   
+            dd="0";
+        }
+        if(Integer.parseInt(spin_search_mm.getValue().toString()) < 10 )
+        {
+            mon="0";
+        }
+        
+        String anydate= dd + spin_search_dd.getValue().toString() + "-" + mon + spin_search_mm.getValue().toString() + "-" + spin_search_yyyy.getValue().toString();
+
+        if( !anydate.equals("") )
+        {
             DefaultTableModel model = (DefaultTableModel) tbl_search_option.getModel();
-          for(int i=0;i< model.getRowCount() ; i++)
-          {
-              model.removeRow(i);
-          }
-               String sql;
-               sql = "SELECT * FROM table_daily_data_entry where firm_name ='" +anyname+ "'";            
-                try
-                {
-                    conn = Connect.ConnectDB();
-                    pst = conn.prepareStatement(sql);
-                    rs = pst.executeQuery();
-                    if(rs.next())
-                    {       
-                        int count=1;
-                       do
-                        {
-                            Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
-                            tbl_search_option.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-                            tbl_search_option.getColumnModel().getColumn(0).setPreferredWidth(30);
-                            tbl_search_option.getColumnModel().getColumn(1).setPreferredWidth(100);
-                            tbl_search_option.getColumnModel().getColumn(2).setPreferredWidth(100);
-                            tbl_search_option.getColumnModel().getColumn(3).setPreferredWidth(100);
-                            tbl_search_option.getColumnModel().getColumn(4).setPreferredWidth(200);
-                            model.addRow(row);
-                            count++;
-                        }
-                    while(rs.next());
-                    }    
-                    txt_search_option_firm_name.setText("");
-                    txt_search_option_date.setText("");
-                    conn.close();
-                    }
-                    catch(SQLException | HeadlessException e)
-                    {
-                        JOptionPane.showMessageDialog(null, e);          
-                    }
-            }
-           else 
-               if( anyname.equals("") && anycal.equals(""))
-           {
-               String sql;
-           sql = "SELECT * FROM table_daily_data_entry where date ='" + anycal + "' AND firm_name='" + anyname + "'";
           
-              
-           }
-           else
-           {
-               System.out.println("Please enter valid entry");    
+            for(int t=0;t< model.getRowCount() ; t++)
+            {
+                model.removeRow(t);
+            }
+            String sql;
+            sql = "SELECT * FROM table_daily_data_entry where date ='" +anydate+ "'";
+            
+            try
+            {
+                conn = Connect.ConnectDB();
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                if(rs.next())
+                {  
+                    int count=1;
+                    do
+                    {
+                        Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                        model.addRow(row);
+                        count++;
+                    }
+                    while(rs.next());
+                } 
+                conn.close();
+            }
+            catch(SQLException | HeadlessException e)
+            {
+                JOptionPane.showMessageDialog(null, e);          
+            }
+        }
+        else
+        {
+            System.out.println("Please enter valid entry");    
     }//GEN-LAST:event_btn_search_option_enterActionPerformed
     }
     private void jDesktopPane3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jDesktopPane3FocusGained
-        // TODO add your handling code here
-       
+        // TODO add your handling code here 
     }//GEN-LAST:event_jDesktopPane3FocusGained
     static int showFirmAccount=0;
     static String firm_name_temp= "";
 
     private void tbl_borrowers_borrower_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_borrowers_borrower_nameMouseClicked
-        // TODO add your handling code here:
-        
         int row = tbl_borrowers_borrower_name.getSelectedRow();
         String firm_name =(String) tbl_borrowers_borrower_name.getValueAt(row, 0);
-         String sql = "SELECT * FROM firm_account WHERE firm_name='" + firm_name + "'";
+        String sql = "SELECT * FROM firm_account WHERE firm_name='" + firm_name + "'";
             
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        if(rs.next())
+        try
         {
-            showFirmAccount=1;
-            firm_name_temp = firm_name;
-             this.setVisible(false);
-         new FirmAccount1().setVisible(true);
-        }        
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
-        
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                showFirmAccount=1;
+                firm_name_temp = firm_name;
+                this.setVisible(false);
+                new FirmAccount1().setVisible(true);
+            }        
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }       
     }//GEN-LAST:event_tbl_borrowers_borrower_nameMouseClicked
 
     private void jDesktopPane3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDesktopPane3MouseEntered
@@ -1143,39 +1057,33 @@ public class Information extends javax.swing.JFrame {
     }//GEN-LAST:event_jDesktopPane3MouseEntered
    
     private void tbl_creditor_firm_nameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_creditor_firm_nameMouseEntered
-        // TODO add your handling code here:
-        
-       
-        
-        
+        // TODO add your handling code here:      
     }//GEN-LAST:event_tbl_creditor_firm_nameMouseEntered
     static int showFirmAccountCreditor=0;
     static String firm_name_temp_creditor= "";
     private void tbl_creditor_firm_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_creditor_firm_nameMouseClicked
-        // TODO add your handling code here:
-         int row = tbl_creditor_firm_name.getSelectedRow();
-         String firm_name =(String) tbl_creditor_firm_name.getValueAt(row, 0);
-         String sql = "SELECT * FROM firm_account WHERE firm_name='" + firm_name + "'";
+        int row = tbl_creditor_firm_name.getSelectedRow();
+        String firm_name =(String) tbl_creditor_firm_name.getValueAt(row, 0);
+        String sql = "SELECT * FROM firm_account WHERE firm_name='" + firm_name + "'";
             
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        if(rs.next()){
-            showFirmAccountCreditor=1;
-            firm_name_temp_creditor = firm_name;
-             this.setVisible(false);
-         new FirmAccount1().setVisible(true);
-             }
-        
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
-        
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                showFirmAccountCreditor=1;
+                firm_name_temp_creditor = firm_name;
+                this.setVisible(false);
+                new FirmAccount1().setVisible(true);
+            }
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }      
     }//GEN-LAST:event_tbl_creditor_firm_nameMouseClicked
 
     private void combobox_creditors_cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_creditors_cityActionPerformed
@@ -1183,104 +1091,112 @@ public class Information extends javax.swing.JFrame {
     }//GEN-LAST:event_combobox_creditors_cityActionPerformed
 
     private void combobox_borrowers_cityItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combobox_borrowers_cityItemStateChanged
-        // TODO add your handling code here:
-               // TODO add your handling code here:
-         Object city = combobox_borrowers_city.getSelectedItem();
-         String sql = "SELECT * FROM firm_account WHERE city='" + city + "'";
+        Object city = combobox_borrowers_city.getSelectedItem();
+        String sql = "SELECT * FROM firm_account WHERE city='" + city + "'";
             
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-      if(rs.next()){
-      
-          DefaultTableModel tbl = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
-          tbl.setRowCount(0);
-             
-            do
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
             {
-           Object row[]={ rs.getString("firm_name")};
-        
-         DefaultTableModel model = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
-         model.addRow(row);
-         
-            }while(rs.next());
-         // tbl_borrowers_borrower_name.removeAll();
+                DefaultTableModel tbl = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
+                tbl.setRowCount(0); 
+                do
+                {
+                    Object row[]={ rs.getString("firm_name")};
+     
+                    DefaultTableModel model = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
+                    model.addRow(row);
+                }while(rs.next());
+            }
+            conn.close();
         }
-        
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
     }//GEN-LAST:event_combobox_borrowers_cityItemStateChanged
 
     private void combobox_creditors_cityItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combobox_creditors_cityItemStateChanged
-        // TODO add your handling code here:
-         Object city = combobox_creditors_city.getSelectedItem();
-         String sql = "SELECT * FROM firm_account WHERE city='" + city + "'";
+        Object city = combobox_creditors_city.getSelectedItem();
+        String sql = "SELECT * FROM firm_account WHERE city='" + city + "'";
             
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-      if(rs.next()){
-      
-          DefaultTableModel tbl = (DefaultTableModel) tbl_creditor_firm_name.getModel();
-          tbl.setRowCount(0);
-             
-            do
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
             {
-           Object row[]={ rs.getString("firm_name")};
-        
-         DefaultTableModel model = (DefaultTableModel) tbl_creditor_firm_name.getModel();
-         model.addRow(row);
-         
-            }while(rs.next());
-          
+                DefaultTableModel tbl = (DefaultTableModel) tbl_creditor_firm_name.getModel();
+                tbl.setRowCount(0);
+                do
+                {
+                    Object row[]={ rs.getString("firm_name")};
+                    DefaultTableModel model = (DefaultTableModel) tbl_creditor_firm_name.getModel();
+                    model.addRow(row);
+                }while(rs.next());
+            }
+            conn.close();
         }
-        
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
-        
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }       
     }//GEN-LAST:event_combobox_creditors_cityItemStateChanged
 
     private void combobox_borrowers_cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combobox_borrowers_cityActionPerformed
         // TODO add your handling code here:
-       
     }//GEN-LAST:event_combobox_borrowers_cityActionPerformed
 
     private void cal_search_option_dateInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_cal_search_option_dateInputMethodTextChanged
         // TODO add your handling code here:
-      
-        
     }//GEN-LAST:event_cal_search_option_dateInputMethodTextChanged
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-    
-   
-    /**
-     * @param args the command line arguments
-     */
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void tabpane_search_optionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tabpane_search_optionFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabpane_search_optionFocusGained
+
+    private void cmb_search_option_firm_nameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmb_search_option_firm_nameItemStateChanged
+        String   firm_name = cmb_search_option_firm_name.getSelectedItem().toString();
+        if ( !firm_name.equals("") )
+        {   
+            DefaultTableModel model = (DefaultTableModel) tbl_search_option.getModel();
+            model.setRowCount(0);
+            String sql;
+            sql = "SELECT * FROM table_daily_data_entry where firm_name ='" +firm_name+ "'";            
+            try
+            {
+                conn = Connect.ConnectDB();
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                if(rs.next())
+                {       
+                    int count=1;
+                    do
+                    {
+                        Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                        model.addRow(row);
+                        count++;
+                    }while(rs.next());
+                }    
+                conn.close();
+            }
+            catch(SQLException | HeadlessException e)
+            {
+                JOptionPane.showMessageDialog(null, e);          
+            }
+        }
+    }//GEN-LAST:event_cmb_search_option_firm_nameItemStateChanged
+  
     public static void main(String args[]) 
     {
-      //  DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        
-       // System.out.println(dateFormat.format(date));
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -1319,7 +1235,7 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JButton btn_creditor_add_new_firm;
     private javax.swing.JButton btn_daily_data_entry_save;
     private javax.swing.JButton btn_search_option_enter;
-    private com.toedter.calendar.JDateChooser cal_search_option_date;
+    private javax.swing.JComboBox cmb_search_option_firm_name;
     private javax.swing.JComboBox combobox_borrowers_city;
     private javax.swing.JComboBox combobox_creditors_city;
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -1344,7 +1260,6 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTabbedPane jTabbedPane8;
     private javax.swing.JTabbedPane jTabbedPane9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbl1_user_account;
     private javax.swing.JLabel lbl2_user_account;
     private javax.swing.JLabel lbl_borrowers_city;
@@ -1358,12 +1273,14 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_daily_data_entry_logged_user;
     private javax.swing.JLabel lbl_daily_data_entry_user_name;
     private javax.swing.JLabel lbl_data_entry_date1;
-    private javax.swing.JLabel lbl_data_entry_welcome;
     private javax.swing.JLabel lbl_search_option_date;
     private javax.swing.JLabel lbl_search_option_firm_date;
     private javax.swing.JDesktopPane lbl_search_option_firm_date1;
     private javax.swing.JDesktopPane lbl_search_option_firm_date2;
     private javax.swing.JLabel lbl_search_option_firm_name1;
+    private javax.swing.JSpinner spin_search_dd;
+    private javax.swing.JSpinner spin_search_mm;
+    private javax.swing.JSpinner spin_search_yyyy;
     private javax.swing.JTable table_daily_data_entry;
     private javax.swing.JTabbedPane tabpan_daily_data_entry;
     private javax.swing.JTabbedPane tabpane_borrowers;
@@ -1378,8 +1295,6 @@ public class Information extends javax.swing.JFrame {
     private javax.swing.JTextField txt_daily_data_entry_credit;
     private javax.swing.JTextField txt_daily_data_entry_debit;
     private javax.swing.JTextField txt_daily_data_entry_firm_name;
-    private javax.swing.JTextField txt_search_option_date;
-    private javax.swing.JTextField txt_search_option_firm_name;
     private javax.swing.JTextArea txtarea_daily_data_entry_comment;
     // End of variables declaration//GEN-END:variables
 }
