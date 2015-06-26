@@ -1,38 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package connect;
-
-import static connect.Information.showFirmAccount;
-import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.Date;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-/**
- *
- * @author celab-amit
- */
-public class FirmAccount1 extends javax.swing.JFrame {
 
+public class FirmAccount1 extends javax.swing.JFrame 
+{
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
     
-    /**
-     * Creates new form FirmAccount1
-     */
-    public FirmAccount1() {
-        
+    public FirmAccount1() 
+    {    
         initComponents();
     }
 
@@ -219,8 +202,6 @@ public class FirmAccount1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_firm_acc_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_firm_acc_saveActionPerformed
-        // TODO add your handling code here:
-        
         String firm_name = tbx_firm_acc_firm_name.getText();
         String contact_name  = tbx_firm_acc_contact_name.getText();
         String address = txtarea_firm_account_address.getText();
@@ -228,137 +209,102 @@ public class FirmAccount1 extends javax.swing.JFrame {
         String mobile_number = tbx_firm_acc_mobile_no.getText();
         String debit = txt_firm_account_debit.getText();
         String credit = txt_firm_account_credit.getText();
-       
-
-        
-        //Object row[]={"1", firm_name, contact_name, address, city, mobile_number};
-        //table_daily_data_entry.setAutoResizeMode(table_daily_data_entry.AUTO_RESIZE_OFF);
-       // table_daily_data_entry.getColumnModel().getColumn(0).setPreferredWidth(20);
-       // table_daily_data_entry.getColumnModel().getColumn(1).setPreferredWidth(100);
-       // table_daily_data_entry.getColumnModel().getColumn(2).setPreferredWidth(100);
-       // table_daily_data_entry.getColumnModel().getColumn(3).setPreferredWidth(100);
-       // table_daily_data_entry.getColumnModel().getColumn(4).setPreferredWidth(400);
         
         Date today = new Date();
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         String date = DATE_FORMAT.format(today);
         String sql;
         if( Information.user_type.equals("b"))
-        {         
-        
-        sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"','" + Information.user_type + "')";
+        {          
+            sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"','" + Information.user_type + "')";
         } 
         else
         {
-        sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"','" + Information.user_type + "')";
+            sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"','" + Information.user_type + "')";
         }
-      try
-      {
-           conn = Connect.ConnectDB();
-           pst = conn.prepareStatement(sql);
-           pst.executeUpdate();
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            pst.executeUpdate();
         
-           JOptionPane.showMessageDialog(null, "saved");
-           tbx_firm_acc_firm_name.setText("");
-           tbx_firm_acc_city.setText("");
-           txtarea_firm_account_address.setText("");
-           tbx_firm_acc_contact_name.setText("");
-           tbx_firm_acc_mobile_no.setText("");
-           txt_firm_account_debit.setText("");
-           txt_firm_account_credit.setText("");
-           conn.close();
-           
-           
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
-        
-          
+            JOptionPane.showMessageDialog(null, "saved");
+            tbx_firm_acc_firm_name.setText("");
+            tbx_firm_acc_city.setText("");
+            txtarea_firm_account_address.setText("");
+            tbx_firm_acc_contact_name.setText("");
+            tbx_firm_acc_mobile_no.setText("");
+            txt_firm_account_debit.setText("");
+            txt_firm_account_credit.setText("");
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }   
     }//GEN-LAST:event_btn_firm_acc_saveActionPerformed
 
     private void tbx_firm_acc_firm_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbx_firm_acc_firm_nameActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_tbx_firm_acc_firm_nameActionPerformed
 
     private void btn_firm_acc_closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_firm_acc_closeActionPerformed
-        // TODO add your handling code here:
-        
         this.setVisible(false);
         new Information().setVisible(true);
     }//GEN-LAST:event_btn_firm_acc_closeActionPerformed
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
-        // TODO add your handling code here:
-    
+        // TODO add your handling code here: 
     }//GEN-LAST:event_formFocusGained
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-        // TODO add your handling code here:
-        getContentPane().setBackground(Color.getHSBColor(189,140,205));
-          String sql = "SELECT * FROM firm_account WHERE firm_name='" + Information.firm_name_temp + "'";
+        String sql = "SELECT * FROM firm_account WHERE firm_name='" + Information.firm_name_temp + "'";
             
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        if(rs.next()){
-            
-            tbx_firm_acc_firm_name.setText(rs.getString("firm_name"));
-            tbx_firm_acc_contact_name.setText(rs.getString("city"));
-            txtarea_firm_account_address.setText(rs.getString("address"));
-            tbx_firm_acc_city.setText(rs.getString("contact_name"));
-            tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
-            txt_firm_account_debit.setText(rs.getString("debit"));
-            txt_firm_account_credit.setText(rs.getString("credit"));
-
-             }
-       
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                tbx_firm_acc_firm_name.setText(rs.getString("firm_name"));
+                tbx_firm_acc_contact_name.setText(rs.getString("city"));
+                txtarea_firm_account_address.setText(rs.getString("address"));
+                tbx_firm_acc_city.setText(rs.getString("contact_name"));
+                tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
+                txt_firm_account_debit.setText(rs.getString("debit"));
+                txt_firm_account_credit.setText(rs.getString("credit"));
+            }
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
          
+        sql = "SELECT * FROM firm_account WHERE firm_name='" + Information.firm_name_temp_creditor + "'";
             
-      sql = "SELECT * FROM firm_account WHERE firm_name='" + Information.firm_name_temp_creditor + "'";
-            
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        if(rs.next()){
-            
-            tbx_firm_acc_firm_name.setText(rs.getString("firm_name"));
-            tbx_firm_acc_contact_name.setText(rs.getString("city"));
-            txtarea_firm_account_address.setText(rs.getString("address"));
-            tbx_firm_acc_city.setText(rs.getString("contact_name"));
-            tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
-            txt_firm_account_debit.setText(rs.getString("debit"));
-            txt_firm_account_credit.setText(rs.getString("credit"));
-
-             }
-       // if(rs.next())
-       // {
-       //     tbx_firm_acc_firm_name.setText("");
-       //     tbx_firm_acc_city.setText("");
-      //      txtarea_firm_account_address.setText("");
-       //     tbx_firm_acc_contact_name.setText("");
-       //     tbx_firm_acc_mobile_no.setText("");
-       //     txt_firm_account_debit.setText("");
-       //     txt_firm_account_credit.setText("");
-        //        }
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                tbx_firm_acc_firm_name.setText(rs.getString("firm_name"));
+                tbx_firm_acc_contact_name.setText(rs.getString("city"));
+                txtarea_firm_account_address.setText(rs.getString("address"));
+                tbx_firm_acc_city.setText(rs.getString("contact_name"));
+                tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
+                txt_firm_account_debit.setText(rs.getString("debit"));
+                txt_firm_account_credit.setText(rs.getString("credit"));
+            }
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
     }//GEN-LAST:event_formMouseEntered
 
     /**
@@ -388,8 +334,6 @@ public class FirmAccount1 extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        
-        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
