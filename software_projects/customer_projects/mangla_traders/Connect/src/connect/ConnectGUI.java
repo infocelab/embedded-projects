@@ -5,6 +5,7 @@
  */
 package connect;
 
+import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -103,6 +104,7 @@ static String logged_user = null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       getContentPane().setBackground(Color.getHSBColor(189,140,205));
         conn = Connect.ConnectDB();
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened

@@ -64,7 +64,7 @@ public class FirmAccount1 extends javax.swing.JFrame {
         btn_firm_acc_close = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(154, 201, 178));
+        setBackground(new java.awt.Color(196, 112, 55));
         setMaximumSize(new java.awt.Dimension(214748, 214748));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -212,7 +212,7 @@ public class FirmAccount1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_firm_acc_save)
                     .addComponent(btn_firm_acc_close))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
         pack();
@@ -297,6 +297,7 @@ public class FirmAccount1 extends javax.swing.JFrame {
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
         // TODO add your handling code here:
+        getContentPane().setBackground(Color.getHSBColor(189,140,205));
           String sql = "SELECT * FROM firm_account WHERE firm_name='" + Information.firm_name_temp + "'";
             
       try
