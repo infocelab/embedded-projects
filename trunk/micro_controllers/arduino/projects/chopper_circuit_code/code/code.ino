@@ -1,7 +1,6 @@
   #include <math.h>
   int pwm_pin1 = 5;               // set output pwm pin
   int pwm_pin2 = 6;               // set output pwm pin
-  int fraction_time = 0; 
   int reference_value = 512; 
   float t1=0;                    //Time period for switching of first MOSFET
   float t2=0;                       //Time period for switching of second MOSFET
@@ -53,21 +52,26 @@
    
     Serial.println("......................................");
     Serial.println("......................................");
-    
     delay(1000);
     }
    void loop() 
    {
     int voltage = analogRead(A0);
     Serial.println(voltage);
-    Serial.print(t1_on_time,8);
-    if(reference_value-voltage>0)
+    Serial.print("previous value :");
+    Serial.println(t1_on_time,8);
+    if(voltage>reference_value)
     {
-        t1_on_time = (t1_on_time - fraction_time);
+        t1_on_time = t1_on_time - 0.0000005     ;
+        Serial.print("new value      :");
+        Serial.println(t1_on_time,8);  
     }
-    else
+    else if(voltage<reference_value)
     {
-      t1_on_time = (t1_on_time + fraction_time);
+      t1_on_time = (t1_on_time +  0.0000005);
+    }
+    else if(voltage==reference_value)
+    {
     }
     digitalWrite(pwm_pin1,LOW);
     delayMicroseconds(t1_on_time-t2_on_time);
@@ -76,4 +80,5 @@
     digitalWrite(pwm_pin1,HIGH);
     digitalWrite(pwm_pin2,HIGH);
     delayMicroseconds(t1_off_time);
+  
   }
