@@ -675,7 +675,12 @@ public class Information extends javax.swing.JFrame
         String credit  = txt_daily_data_entry_credit.getText();
         String debit = txt_daily_data_entry_debit.getText();
         String comment = txtarea_daily_data_entry_comment.getText();
-        
+        if(firm_name.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Firm Name Cannot be Empty"); 
+            return;
+        }
+
         Object row[]={data_entry_count, firm_name, credit, debit, comment};
         data_entry_count = data_entry_count + 1;
         table_daily_data_entry.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
