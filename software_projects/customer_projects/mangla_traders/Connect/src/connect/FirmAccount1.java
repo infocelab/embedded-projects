@@ -47,8 +47,7 @@ public class FirmAccount1 extends javax.swing.JFrame
         btn_firm_acc_close = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(196, 112, 55));
-        setMaximumSize(new java.awt.Dimension(214748, 214748));
+        setBackground(new java.awt.Color(204, 204, 255));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
@@ -210,18 +209,49 @@ public class FirmAccount1 extends javax.swing.JFrame
         String debit = txt_firm_account_debit.getText();
         String credit = txt_firm_account_credit.getText();
         
+        if(firm_name.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Firm Name Cannot be Empty"); 
+            return;
+        }
+
+        try 
+        {
+            if(!credit.equals(""))
+            {
+                Float.parseFloat(credit);
+            }
+        } 
+        catch (NumberFormatException e) 
+        {
+            JOptionPane.showMessageDialog(null, "Credit Should be Number only"); 
+            return;
+        }
+        
+         try 
+        {
+            if(!debit.equals(""))
+            {
+                Float.parseFloat(debit);
+            }
+        } 
+        catch (NumberFormatException e) 
+        {
+            JOptionPane.showMessageDialog(null, "Debit Should be Number only"); 
+            return;
+        }
+
         Date today = new Date();
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         String date = DATE_FORMAT.format(today);
         String sql;
-        if( Information.user_type.equals("b"))
-        {          
-            sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"','" + Information.user_type + "')";
-        } 
-        else
-        {
-            sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"','" + Information.user_type + "')";
-        }
+        
+        //TBD
+        // check the firm name already exists 
+        // if yes then update else insert
+        
+        sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"','" + Information.user_type + "')";
+        
         try
         {
             conn = Connect.ConnectDB();
