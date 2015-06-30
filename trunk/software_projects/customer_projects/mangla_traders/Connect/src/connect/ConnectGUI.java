@@ -36,7 +36,7 @@ public class ConnectGUI extends javax.swing.JFrame
         btn_login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -47,8 +47,10 @@ public class ConnectGUI extends javax.swing.JFrame
 
         jLabel2.setText("Password");
 
+        tbx_username.setBackground(new java.awt.Color(255, 204, 204));
         tbx_username.setPreferredSize(new java.awt.Dimension(120, 30));
 
+        tbx_password.setBackground(new java.awt.Color(255, 204, 204));
         tbx_password.setPreferredSize(new java.awt.Dimension(120, 30));
 
         btn_login.setText("Login");
