@@ -32,8 +32,8 @@ public class ConnectGUI extends javax.swing.JFrame
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         tbx_username = new javax.swing.JTextField();
-        tbx_password = new javax.swing.JTextField();
         btn_login = new javax.swing.JButton();
+        tbx_password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -50,15 +50,14 @@ public class ConnectGUI extends javax.swing.JFrame
         tbx_username.setBackground(new java.awt.Color(255, 204, 204));
         tbx_username.setPreferredSize(new java.awt.Dimension(120, 30));
 
-        tbx_password.setBackground(new java.awt.Color(255, 204, 204));
-        tbx_password.setPreferredSize(new java.awt.Dimension(120, 30));
-
         btn_login.setText("Login");
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginActionPerformed(evt);
             }
         });
+
+        tbx_password.setBackground(new java.awt.Color(255, 204, 204));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,11 +69,11 @@ public class ConnectGUI extends javax.swing.JFrame
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addGap(105, 105, 105)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_login)
-                    .addComponent(tbx_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tbx_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addComponent(tbx_username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tbx_password))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,13 +82,13 @@ public class ConnectGUI extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tbx_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(tbx_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(tbx_password, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addComponent(btn_login)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();
@@ -100,10 +99,20 @@ public class ConnectGUI extends javax.swing.JFrame
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        new Information().setVisible(true);
+        //new Information().setVisible(true);
         String username = tbx_username.getText();
-        logged_user="admin";
+        logged_user="";
         String password = tbx_password.getText();
+        if(username.equals(""))
+        {
+           JOptionPane.showMessageDialog(null, "Username cannot be Empty"); 
+           return;
+        }
+        if(password.equals(""))
+        {
+           JOptionPane.showMessageDialog(null, "Password cannot be Empty");
+           return;
+        }   
         String sql ;
         sql = "select * from tableUSERPASS where username='" + username +
               "' and password='" + password + "'";
@@ -168,7 +177,7 @@ public class ConnectGUI extends javax.swing.JFrame
     private javax.swing.JButton btn_login;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField tbx_password;
+    private javax.swing.JPasswordField tbx_password;
     private javax.swing.JTextField tbx_username;
     // End of variables declaration//GEN-END:variables
 }

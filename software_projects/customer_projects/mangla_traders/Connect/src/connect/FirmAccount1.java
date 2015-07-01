@@ -298,9 +298,9 @@ public class FirmAccount1 extends javax.swing.JFrame
             if(rs.next())
             {
                 tbx_firm_acc_firm_name.setText(rs.getString("firm_name"));
-                tbx_firm_acc_contact_name.setText(rs.getString("city"));
+                tbx_firm_acc_contact_name.setText(rs.getString("contact_name"));
                 txtarea_firm_account_address.setText(rs.getString("address"));
-                tbx_firm_acc_city.setText(rs.getString("contact_name"));
+                tbx_firm_acc_city.setText(rs.getString("city"));
                 tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
                 txt_firm_account_debit.setText(rs.getString("debit"));
                 txt_firm_account_credit.setText(rs.getString("credit"));
