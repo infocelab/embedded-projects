@@ -153,6 +153,7 @@ public class Information extends javax.swing.JFrame
             }
         ));
         table_daily_data_entry.setGridColor(new java.awt.Color(153, 204, 255));
+        table_daily_data_entry.setRowSelectionAllowed(false);
         table_daily_data_entry.setSelectionBackground(new java.awt.Color(153, 204, 255));
         jScrollPane1.setViewportView(table_daily_data_entry);
 
