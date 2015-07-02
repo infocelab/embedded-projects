@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Action;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -43,35 +44,39 @@ public class online_test extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btngrp_add_question = new javax.swing.ButtonGroup();
+        btngrp_test = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         lbl_add_question_question = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtarea_add_question = new javax.swing.JTextArea();
-        btn_add_question_next = new javax.swing.JButton();
+        btn_add_question_save = new javax.swing.JButton();
         rbtn_add_question_a = new javax.swing.JRadioButton();
         rbtn_add_question_b = new javax.swing.JRadioButton();
         rbtn_add_question_c = new javax.swing.JRadioButton();
         rbtn_add_question_d = new javax.swing.JRadioButton();
+        txt_add_question_b = new javax.swing.JTextField();
+        txt_add_question_a = new javax.swing.JTextField();
+        txt_add_question_c = new javax.swing.JTextField();
+        txt_add_question_d = new javax.swing.JTextField();
         jDesktopPane2 = new javax.swing.JDesktopPane();
         lbl_test_question = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtarea_test = new javax.swing.JTextArea();
-        btn_test_next = new javax.swing.JButton();
+        btn_test_start_test = new javax.swing.JButton();
         rbtn_test_a = new javax.swing.JRadioButton();
         rbtn_test_b = new javax.swing.JRadioButton();
         rbtn_test_c = new javax.swing.JRadioButton();
         rbtn_test_d = new javax.swing.JRadioButton();
+        txt_test_b = new javax.swing.JTextField();
+        txt_test_d = new javax.swing.JTextField();
+        txt_test_c = new javax.swing.JTextField();
+        txt_test_a = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jTabbedPane1MouseEntered(evt);
-            }
-        });
-
-        jDesktopPane1.setBackground(new java.awt.Color(240, 240, 240));
+        jDesktopPane1.setBackground(new java.awt.Color(172, 208, 154));
 
         lbl_add_question_question.setText("Question:");
 
@@ -79,19 +84,23 @@ public class online_test extends javax.swing.JFrame {
         txtarea_add_question.setRows(5);
         jScrollPane1.setViewportView(txtarea_add_question);
 
-        btn_add_question_next.setText("Next");
-        btn_add_question_next.addActionListener(new java.awt.event.ActionListener() {
+        btn_add_question_save.setText("Save");
+        btn_add_question_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_add_question_nextActionPerformed(evt);
+                btn_add_question_saveActionPerformed(evt);
             }
         });
 
+        btngrp_add_question.add(rbtn_add_question_a);
         rbtn_add_question_a.setText("A");
 
+        btngrp_add_question.add(rbtn_add_question_b);
         rbtn_add_question_b.setText("B");
 
+        btngrp_add_question.add(rbtn_add_question_c);
         rbtn_add_question_c.setText("C");
 
+        btngrp_add_question.add(rbtn_add_question_d);
         rbtn_add_question_d.setText("D");
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -99,24 +108,34 @@ public class online_test extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lbl_add_question_question)
+                .addGap(43, 43, 43)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(lbl_add_question_question)
-                        .addGap(39, 39, 39)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbtn_add_question_c)
-                            .addComponent(rbtn_add_question_a)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(rbtn_add_question_c)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_add_question_c))
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                .addComponent(rbtn_add_question_a)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_add_question_a, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rbtn_add_question_b)
-                            .addComponent(rbtn_add_question_d)))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(btn_add_question_next)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(rbtn_add_question_d))
+                        .addGap(18, 18, 18)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_add_question_d, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                            .addComponent(txt_add_question_b)))
+                    .addComponent(jScrollPane1))
+                .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_add_question_save)
+                .addGap(200, 200, 200))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,29 +144,42 @@ public class online_test extends javax.swing.JFrame {
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_add_question_question)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(41, 41, 41)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbtn_add_question_a)
-                    .addComponent(rbtn_add_question_b))
-                .addGap(18, 18, 18)
+                    .addComponent(txt_add_question_a, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbtn_add_question_b)
+                    .addComponent(txt_add_question_b, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbtn_add_question_c)
-                    .addComponent(rbtn_add_question_d))
-                .addGap(18, 18, 18)
-                .addComponent(btn_add_question_next)
-                .addContainerGap(68, Short.MAX_VALUE))
+                    .addComponent(txt_add_question_c, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbtn_add_question_d)
+                    .addComponent(txt_add_question_d, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(btn_add_question_save)
+                .addGap(65, 65, 65))
         );
         jDesktopPane1.setLayer(lbl_add_question_question, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(btn_add_question_next, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(btn_add_question_save, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(rbtn_add_question_a, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(rbtn_add_question_b, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(rbtn_add_question_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(rbtn_add_question_d, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(txt_add_question_b, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(txt_add_question_a, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(txt_add_question_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(txt_add_question_d, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTabbedPane1.addTab("Add Question", jDesktopPane1);
 
-        jDesktopPane2.setBackground(new java.awt.Color(240, 240, 240));
+        jDesktopPane2.setBackground(new java.awt.Color(172, 208, 154));
+        jDesktopPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jDesktopPane2MouseEntered(evt);
+            }
+        });
 
         lbl_test_question.setText("Question:");
 
@@ -155,14 +187,23 @@ public class online_test extends javax.swing.JFrame {
         txtarea_test.setRows(5);
         jScrollPane2.setViewportView(txtarea_test);
 
-        btn_test_next.setText("Next");
+        btn_test_start_test.setText("Start Test");
+        btn_test_start_test.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_test_start_testActionPerformed(evt);
+            }
+        });
 
+        btngrp_test.add(rbtn_test_a);
         rbtn_test_a.setText("A");
 
+        btngrp_test.add(rbtn_test_b);
         rbtn_test_b.setText("B");
 
+        btngrp_test.add(rbtn_test_c);
         rbtn_test_c.setText("C");
 
+        btngrp_test.add(rbtn_test_d);
         rbtn_test_d.setText("D");
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
@@ -170,25 +211,40 @@ public class online_test extends javax.swing.JFrame {
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(34, 34, 34)
+                .addComponent(lbl_test_question)
+                .addGap(37, 37, 37)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(lbl_test_question)
-                        .addGap(37, 37, 37)
-                        .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2)
+                        .addGap(43, 43, 43))
+                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rbtn_test_a)
-                                    .addComponent(rbtn_test_c))
-                                .addGap(64, 64, 64)
-                                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rbtn_test_b)
-                                    .addComponent(rbtn_test_d)))))
-                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(btn_test_next)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                                .addComponent(rbtn_test_a)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_test_a, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                .addComponent(rbtn_test_c)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_test_c, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 12, 12)
+                        .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                .addComponent(rbtn_test_b)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_test_b, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(rbtn_test_d)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_test_d, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(46, 46, 46))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_test_start_test)
+                .addGap(196, 196, 196))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,25 +253,33 @@ public class online_test extends javax.swing.JFrame {
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_test_question))
-                .addGap(30, 30, 30)
+                .addGap(48, 48, 48)
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbtn_test_a)
-                    .addComponent(rbtn_test_b))
-                .addGap(18, 18, 18)
+                    .addComponent(rbtn_test_b)
+                    .addComponent(txt_test_b, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_test_a, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbtn_test_a))
+                .addGap(41, 41, 41)
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_test_d, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_test_c, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rbtn_test_c)
                     .addComponent(rbtn_test_d))
-                .addGap(18, 18, 18)
-                .addComponent(btn_test_next)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(btn_test_start_test)
+                .addGap(64, 64, 64))
         );
         jDesktopPane2.setLayer(lbl_test_question, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane2.setLayer(btn_test_next, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(btn_test_start_test, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(rbtn_test_a, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(rbtn_test_b, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(rbtn_test_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(rbtn_test_d, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(txt_test_b, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(txt_test_d, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(txt_test_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(txt_test_a, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTabbedPane1.addTab("Test", jDesktopPane2);
 
@@ -224,26 +288,33 @@ public class online_test extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-   
-    private void btn_add_question_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_question_nextActionPerformed
+    private void btn_add_question_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_question_saveActionPerformed
         // TODO add your handling code here:
         String sql;
         String question = txtarea_add_question.getText();
+        String opta = txt_add_question_a.getText();
+        String optb = txt_add_question_b.getText();
+        String optc = txt_add_question_c.getText();
+        String optd = txt_add_question_d.getText();
         
-        sql = "Insert into tablequestion (question) values ('" +  question + "')";
+      String rbtna=rbtn_add_question_a.getActionCommand();
+     // String rbtnb=rbtn_add_question_b.getActionCommand();
+    //  String rbtnc=rbtn_add_question_c.getActionCommand();
+    //  String rbtnd=rbtn_add_question_d.getActionCommand();
+        
+        sql = "Insert into tablequestion (question,option_a,option_b,option_c,option_d,answer) values ('" +  question + "','" + opta +"','" + optb + "','" + optc + "','" + optd +"','"+rbtna+ "')";
          try
       {
            conn = Connect.ConnectDB();
@@ -252,53 +323,74 @@ public class online_test extends javax.swing.JFrame {
         
            JOptionPane.showMessageDialog(null, "saved");
            txtarea_add_question.setText("");
-           
+           txt_add_question_a.setText("");
+           txt_add_question_b.setText("");
+           txt_add_question_c.setText("");
+           txt_add_question_d.setText("");
            conn.close();
-           
+       
            
       }
      catch(SQLException | HeadlessException e)
      {
           JOptionPane.showMessageDialog(null, e);          
      }
-        
-    }//GEN-LAST:event_btn_add_question_nextActionPerformed
+           
+    }//GEN-LAST:event_btn_add_question_saveActionPerformed
+int i=2;
+    private void btn_test_start_testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_test_start_testActionPerformed
 
-    private void jTabbedPane1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseEntered
-        // TODO add your handling code here:
         
-         String sql;
-        String question=null;
-      sql = "SELECT * FROM tablequestion where question ='"+question+"'";
-            
+          String sql = "SELECT * FROM tablequestion WHERE s_no='" + i + "'";
       try
       {
-          List result = new ArrayList();
         conn = Connect.ConnectDB();
         pst = conn.prepareStatement(sql);
         rs = pst.executeQuery();
         if(rs.next()){
-            do
-            {
-          // Object row[]={ rs.getString("question")};
-           
-
-                String s = rs.getString("question");
-                txtarea_test.append(s);
-          // txtarea_test.setValue
+            
+            txtarea_test.setText(rs.getString("question"));
+            txt_test_a.setText(rs.getString("option_a"));
+            txt_test_b.setText(rs.getString("option_b"));
+            txt_test_c.setText(rs.getString("option_c"));
+            txt_test_d.setText(rs.getString("option_d"));
+            i=i+1;
+             }
        
-       // DefaultTableModel model = (DefaultTableModel) txtarea_test.getModel();
-        // model.addRow(row);
-                
-            }while(rs.next());
-           }
         conn.close();
       }
      catch(SQLException | HeadlessException e)
      {
           JOptionPane.showMessageDialog(null, e);          
      }
-    }//GEN-LAST:event_jTabbedPane1MouseEntered
+        
+    }//GEN-LAST:event_btn_test_start_testActionPerformed
+static int s_no_temp_test=1;
+    private void jDesktopPane2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDesktopPane2MouseEntered
+        
+         String sql = "SELECT * FROM tablequestion WHERE s_no='" + s_no_temp_test + "'";
+      try
+      {
+        conn = Connect.ConnectDB();
+        pst = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        if(rs.next()){
+            
+            txtarea_test.setText(rs.getString("question"));
+            txt_test_a.setText(rs.getString("option_a"));
+            txt_test_b.setText(rs.getString("option_b"));
+            txt_test_c.setText(rs.getString("option_c"));
+            txt_test_d.setText(rs.getString("option_d"));
+            
+             }
+       
+        conn.close();
+      }
+     catch(SQLException | HeadlessException e)
+     {
+          JOptionPane.showMessageDialog(null, e);          
+     }
+    }//GEN-LAST:event_jDesktopPane2MouseEntered
 
     
     /**
@@ -337,8 +429,10 @@ public class online_test extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_add_question_next;
-    private javax.swing.JButton btn_test_next;
+    private javax.swing.JButton btn_add_question_save;
+    private javax.swing.JButton btn_test_start_test;
+    private javax.swing.ButtonGroup btngrp_add_question;
+    private javax.swing.ButtonGroup btngrp_test;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -354,6 +448,14 @@ public class online_test extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtn_test_b;
     private javax.swing.JRadioButton rbtn_test_c;
     private javax.swing.JRadioButton rbtn_test_d;
+    private javax.swing.JTextField txt_add_question_a;
+    private javax.swing.JTextField txt_add_question_b;
+    private javax.swing.JTextField txt_add_question_c;
+    private javax.swing.JTextField txt_add_question_d;
+    private javax.swing.JTextField txt_test_a;
+    private javax.swing.JTextField txt_test_b;
+    private javax.swing.JTextField txt_test_c;
+    private javax.swing.JTextField txt_test_d;
     private javax.swing.JTextArea txtarea_add_question;
     private javax.swing.JTextArea txtarea_test;
     // End of variables declaration//GEN-END:variables
