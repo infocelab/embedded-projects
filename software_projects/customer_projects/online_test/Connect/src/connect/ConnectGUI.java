@@ -97,6 +97,7 @@ public class ConnectGUI extends javax.swing.JFrame
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         conn = Connect.ConnectDB();
+        getContentPane().setBackground(Color.getHSBColor(150,140,205));
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
