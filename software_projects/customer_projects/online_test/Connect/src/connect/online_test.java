@@ -63,7 +63,7 @@ public class online_test extends javax.swing.JFrame {
         jDesktopPane2 = new javax.swing.JDesktopPane();
         lbl_test_question = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtarea_test = new javax.swing.JTextArea();
+        txt_test_question = new javax.swing.JTextArea();
         btn_test_start_test = new javax.swing.JButton();
         rbtn_test_a = new javax.swing.JRadioButton();
         rbtn_test_b = new javax.swing.JRadioButton();
@@ -73,6 +73,9 @@ public class online_test extends javax.swing.JFrame {
         txt_test_d = new javax.swing.JTextField();
         txt_test_c = new javax.swing.JTextField();
         txt_test_a = new javax.swing.JTextField();
+        btn_test_next = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lbl_test_score = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,9 +186,9 @@ public class online_test extends javax.swing.JFrame {
 
         lbl_test_question.setText("Question:");
 
-        txtarea_test.setColumns(20);
-        txtarea_test.setRows(5);
-        jScrollPane2.setViewportView(txtarea_test);
+        txt_test_question.setColumns(20);
+        txt_test_question.setRows(5);
+        jScrollPane2.setViewportView(txt_test_question);
 
         btn_test_start_test.setText("Start Test");
         btn_test_start_test.addActionListener(new java.awt.event.ActionListener() {
@@ -206,50 +209,75 @@ public class online_test extends javax.swing.JFrame {
         btngrp_test.add(rbtn_test_d);
         rbtn_test_d.setText("D");
 
+        btn_test_next.setText("Next");
+        btn_test_next.setEnabled(false);
+        btn_test_next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_test_nextActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Total Score: ");
+
+        lbl_test_score.setText("jLabel2");
+
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap()
                 .addComponent(lbl_test_question)
-                .addGap(37, 37, 37)
-                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(61, 61, 61)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                        .addComponent(btn_test_start_test)
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_test_score)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
                         .addComponent(jScrollPane2)
                         .addGap(43, 43, 43))
-                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                                .addComponent(rbtn_test_a)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_test_a, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                        .addComponent(rbtn_test_a)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_test_a, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                        .addComponent(rbtn_test_c)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_test_c, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(12, 12, 12)
+                                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                        .addComponent(rbtn_test_b)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_test_b, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(rbtn_test_d)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_test_d, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                                .addComponent(rbtn_test_c)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_test_c, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 12, 12)
-                        .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                                .addComponent(rbtn_test_b)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_test_b, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(rbtn_test_d)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_test_d, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn_test_next)
+                                .addGap(155, 155, 155)))
                         .addGap(46, 46, 46))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_test_start_test)
-                .addGap(196, 196, 196))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane2Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addContainerGap()
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_test_start_test)
+                    .addComponent(jLabel1)
+                    .addComponent(lbl_test_score))
+                .addGap(12, 12, 12)
                 .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_test_question))
@@ -265,9 +293,9 @@ public class online_test extends javax.swing.JFrame {
                     .addComponent(txt_test_c, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rbtn_test_c)
                     .addComponent(rbtn_test_d))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(btn_test_start_test)
-                .addGap(64, 64, 64))
+                .addGap(38, 38, 38)
+                .addComponent(btn_test_next)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jDesktopPane2.setLayer(lbl_test_question, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -280,6 +308,9 @@ public class online_test extends javax.swing.JFrame {
         jDesktopPane2.setLayer(txt_test_d, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(txt_test_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(txt_test_a, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(btn_test_next, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lbl_test_score, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTabbedPane1.addTab("Test", jDesktopPane2);
 
@@ -304,32 +335,70 @@ public class online_test extends javax.swing.JFrame {
         // TODO add your handling code here:
         String sql;
         String question = txtarea_add_question.getText();
+        if(question.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Question cannot be Empty");
+            return;
+        }
         String opta = txt_add_question_a.getText();
+        if(opta.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Option A cannot be Empty");
+            return;
+        }
         String optb = txt_add_question_b.getText();
+        if(optb.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Option B cannot be Empty");
+            return;
+        }
         String optc = txt_add_question_c.getText();
+        if(optc.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Option C cannot be Empty");
+            return;
+        }
         String optd = txt_add_question_d.getText();
-        
-      String rbtna=rbtn_add_question_a.getActionCommand();
-     // String rbtnb=rbtn_add_question_b.getActionCommand();
-    //  String rbtnc=rbtn_add_question_c.getActionCommand();
-    //  String rbtnd=rbtn_add_question_d.getActionCommand();
-        
-        sql = "Insert into tablequestion (question,option_a,option_b,option_c,option_d,answer) values ('" +  question + "','" + opta +"','" + optb + "','" + optc + "','" + optd +"','"+rbtna+ "')";
+        if(optd.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Option D cannot be Empty");
+            return;
+        }
+        String answer="";
+        if(rbtn_add_question_a.isSelected())
+        {
+            answer="A";
+        }
+        if(rbtn_add_question_b.isSelected())
+        {
+            answer="B";
+        }
+        if(rbtn_add_question_c.isSelected())
+        {
+            answer="C";
+        }
+        if(rbtn_add_question_d.isSelected())
+        {
+            answer="D";
+        }
+        if(answer.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Please selct An Answer");
+            return;
+        }
+        sql = "Insert into tablequestion (question,option_a,option_b,option_c,option_d,answer) values ('" +  question + "','" + opta +"','" + optb + "','" + optc + "','" + optd +"','"+answer+ "')";
          try
       {
            conn = Connect.ConnectDB();
            pst = conn.prepareStatement(sql);
            pst.executeUpdate();
         
-           JOptionPane.showMessageDialog(null, "saved");
            txtarea_add_question.setText("");
            txt_add_question_a.setText("");
            txt_add_question_b.setText("");
            txt_add_question_c.setText("");
            txt_add_question_d.setText("");
            conn.close();
-       
-           
       }
      catch(SQLException | HeadlessException e)
      {
@@ -337,60 +406,133 @@ public class online_test extends javax.swing.JFrame {
      }
            
     }//GEN-LAST:event_btn_add_question_saveActionPerformed
-int i=2;
+    static int question_no=1;
+    static String correct_answer = ""; 
+    static int total_score = 0;
     private void btn_test_start_testActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_test_start_testActionPerformed
 
-        
-          String sql = "SELECT * FROM tablequestion WHERE s_no='" + i + "'";
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        if(rs.next()){
-            
-            txtarea_test.setText(rs.getString("question"));
-            txt_test_a.setText(rs.getString("option_a"));
-            txt_test_b.setText(rs.getString("option_b"));
-            txt_test_c.setText(rs.getString("option_c"));
-            txt_test_d.setText(rs.getString("option_d"));
-            i=i+1;
-             }
-       
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
-        
+        question_no=1;
+        lbl_test_question.setText("Question No: " + question_no);
+        String sql = "SELECT * FROM tablequestion WHERE rowid='" + question_no + "'";
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                txt_test_question.setText(rs.getString("question"));
+                txt_test_a.setText(rs.getString("option_a"));
+                txt_test_b.setText(rs.getString("option_b"));
+                txt_test_c.setText(rs.getString("option_c"));
+                txt_test_d.setText(rs.getString("option_d"));
+                correct_answer = rs.getString("answer");
+            }
+            btn_test_next.setEnabled(true);
+            btn_test_start_test.setEnabled(false);
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
     }//GEN-LAST:event_btn_test_start_testActionPerformed
-static int s_no_temp_test=1;
+
     private void jDesktopPane2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDesktopPane2MouseEntered
-        
-         String sql = "SELECT * FROM tablequestion WHERE s_no='" + s_no_temp_test + "'";
-      try
-      {
-        conn = Connect.ConnectDB();
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        if(rs.next()){
-            
-            txtarea_test.setText(rs.getString("question"));
-            txt_test_a.setText(rs.getString("option_a"));
-            txt_test_b.setText(rs.getString("option_b"));
-            txt_test_c.setText(rs.getString("option_c"));
-            txt_test_d.setText(rs.getString("option_d"));
-            
-             }
-       
-        conn.close();
-      }
-     catch(SQLException | HeadlessException e)
-     {
-          JOptionPane.showMessageDialog(null, e);          
-     }
+        lbl_test_score.setText(Integer.toString(total_score));
+ 
     }//GEN-LAST:event_jDesktopPane2MouseEntered
+
+    private void btn_test_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_test_nextActionPerformed
+        String answer="";
+        if(rbtn_test_a.isSelected())
+        {
+            answer="A";
+        }
+        if(rbtn_test_b.isSelected())
+        {
+            answer="B";
+        }
+        if(rbtn_test_c.isSelected())
+        {
+            answer="C";
+        }
+        if(rbtn_test_d.isSelected())
+        {
+            answer="D";
+        }
+        if(answer.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Please selct An Answer");
+            return;
+        }
+        
+        if(correct_answer.equals(answer))
+        {
+            JOptionPane.showMessageDialog(null, "Right Answer");
+            total_score += 10;
+            lbl_test_score.setText(Integer.toString(total_score));
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Wrong Answer");
+            total_score -= 5;
+            lbl_test_score.setText(Integer.toString(total_score));
+        }
+        
+        rbtn_test_a.setSelected(false);
+        rbtn_test_b.setSelected(false);
+        rbtn_test_c.setSelected(false);
+        rbtn_test_d.setSelected(false);
+        
+        if(question_no >= 10)
+        {
+            JOptionPane.showMessageDialog(null, "Test Over : 10 Questions Complete");
+            btn_test_next.setEnabled(false);
+            rbtn_test_a.setSelected(false);
+            rbtn_test_b.setSelected(false);
+            rbtn_test_c.setSelected(false);
+            rbtn_test_d.setSelected(false);
+            btn_test_start_test.setEnabled(true);
+            txt_test_question.setText("");
+            txt_test_a.setText("");
+            txt_test_b.setText("");
+            txt_test_c.setText("");
+            txt_test_d.setText("");
+            total_score = 0;
+            lbl_test_score.setText(Integer.toString(total_score));
+            
+            question_no=1;
+            correct_answer="";
+            return;
+        }
+        
+        // get next question
+        question_no++;
+        lbl_test_question.setText("Question No: " + question_no);
+        String sql = "SELECT * FROM tablequestion WHERE rowid='" + question_no + "'";
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                txt_test_question.setText(rs.getString("question"));
+                txt_test_a.setText(rs.getString("option_a"));
+                txt_test_b.setText(rs.getString("option_b"));
+                txt_test_c.setText(rs.getString("option_c"));
+                txt_test_d.setText(rs.getString("option_d"));
+                correct_answer = rs.getString("answer");
+             }
+
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
+    }//GEN-LAST:event_btn_test_nextActionPerformed
 
     
     /**
@@ -430,16 +572,19 @@ static int s_no_temp_test=1;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_add_question_save;
+    private javax.swing.JButton btn_test_next;
     private javax.swing.JButton btn_test_start_test;
     private javax.swing.ButtonGroup btngrp_add_question;
     private javax.swing.ButtonGroup btngrp_test;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lbl_add_question_question;
     private javax.swing.JLabel lbl_test_question;
+    private javax.swing.JLabel lbl_test_score;
     private javax.swing.JRadioButton rbtn_add_question_a;
     private javax.swing.JRadioButton rbtn_add_question_b;
     private javax.swing.JRadioButton rbtn_add_question_c;
@@ -456,7 +601,7 @@ static int s_no_temp_test=1;
     private javax.swing.JTextField txt_test_b;
     private javax.swing.JTextField txt_test_c;
     private javax.swing.JTextField txt_test_d;
+    private javax.swing.JTextArea txt_test_question;
     private javax.swing.JTextArea txtarea_add_question;
-    private javax.swing.JTextArea txtarea_test;
     // End of variables declaration//GEN-END:variables
 }
