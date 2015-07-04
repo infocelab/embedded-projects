@@ -345,7 +345,7 @@ public class Information extends javax.swing.JFrame
             .addGroup(jDesktopPane3Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addGap(77, 77, 77)
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_search_option_id, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -357,7 +357,7 @@ public class Information extends javax.swing.JFrame
                     .addComponent(btn_search_option_search_name))
                 .addGap(88, 88, 88)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jDesktopPane3.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(btn_search_option_search_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -388,6 +388,11 @@ public class Information extends javax.swing.JFrame
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tbl_view_details.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_view_detailsMouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(tbl_view_details);
@@ -711,6 +716,21 @@ public class Information extends javax.swing.JFrame
             return;
         }
 
+        if(address.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Patient Address cannot be Empty");
+            return;
+        }
+        if(city.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "City cannot be Empty");
+            return;
+        }
+        if(mnum.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Mobile Number cannot be Empty");
+            return;
+        }
         if(email.equals(""))
         {
             JOptionPane.showMessageDialog(null, "E-mail address cannot be Empty");
@@ -743,7 +763,12 @@ public class Information extends javax.swing.JFrame
     private void btn_search_option_search_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_search_option_search_nameActionPerformed
         // TODO add your handling code here:
         String pname = txt_search_option_name.getText();
-
+        if(pname.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Please Enter Patient Name");
+            return;
+        }
+        
         DefaultTableModel model = (DefaultTableModel) tbl_search_option_view_patient.getModel();
         model.setRowCount(0);
         String sql;
@@ -774,7 +799,11 @@ public class Information extends javax.swing.JFrame
     private void btn_search_option_search_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_search_option_search_idActionPerformed
         // TODO add your handling code here:
         String pid = txt_search_option_id.getText();
-
+        if(pid.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Please Enter Patient ID");
+            return;
+        }
         DefaultTableModel model = (DefaultTableModel) tbl_search_option_view_patient.getModel();
         model.setRowCount(0);
         String sql;
@@ -802,6 +831,35 @@ public class Information extends javax.swing.JFrame
         }
         
     }//GEN-LAST:event_btn_search_option_search_idActionPerformed
+
+    static int showFirmAccount=0;
+    static String patient_name_temp= "";
+    private void tbl_view_detailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_view_detailsMouseClicked
+        // TODO add your handling code here:
+        
+         int row = tbl_view_details.getSelectedRow();
+        String patient_name =(String) tbl_view_details.getValueAt(row, 1);
+        String sql = "SELECT * FROM patient WHERE patient_name='" + patient_name + "'";
+            
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                showFirmAccount=1;
+                patient_name_temp = patient_name;
+                this.setVisible(false);
+                new FirmAccount().setVisible(true);
+            }        
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        } 
+    }//GEN-LAST:event_tbl_view_detailsMouseClicked
     static boolean toggle_value=true;  
     public static void main(String args[]) 
     {
