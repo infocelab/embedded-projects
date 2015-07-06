@@ -52,7 +52,7 @@ public class Game implements ActionListener {
         loader.load();
         sLoader = new SpriteLoader();
         sLoader.load();
-        player = new Player(0,0,sLoader.getSprite());
+        player = new Player(10,10,sLoader.getSprite());
         cChecker = new CollisionChecker();
         
         mapTileNumbers = loader.getTiles();
@@ -69,7 +69,8 @@ public class Game implements ActionListener {
     
     public void setUp() {
         
-        frame.setSize(800,600);
+        frame.setSize(800,800);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(BorderLayout.CENTER, panel);
         panel.setFocusable(true);
@@ -155,10 +156,10 @@ public class Game implements ActionListener {
                 g.drawImage(player.sprite[player.getDirection()][2], player.x, player.y, 24, 32, null);
                 animationFrame = 0;
             }
-            g.drawString("COORDS: (" + player.getX() + ", " + player.getY() + ")", 0, 290);
+            g.drawString("COORDS: (" + player.getX() + ", " + player.getY() + ")", 0, 750);
             for(int i = 0; i < collisionBools.length; i++) {
                 if(collisionBools[i]) {
-                    g.drawString("COLLISION!", 0, 300);
+                    g.drawString("COLLISION!", 110, 750);
                 }
             }
         }

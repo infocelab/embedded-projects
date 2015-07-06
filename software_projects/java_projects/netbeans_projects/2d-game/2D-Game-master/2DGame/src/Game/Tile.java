@@ -31,7 +31,8 @@ public class Tile {
         this.b2 = b2;
         this.b3 = b3;
         this.b4 = b4;
-        this.b5 = b5;
+        //this.b5 = b5;
+        this.b5 = 1;  // always collision
         
         tileBytes = new byte[] {b1,b2,b3,b4};
                
