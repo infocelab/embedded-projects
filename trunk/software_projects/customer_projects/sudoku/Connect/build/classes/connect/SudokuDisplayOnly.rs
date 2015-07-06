@@ -1,2 +1,0 @@
-SudokuDisplayOnly
-SudokuDisplayOnly$1
