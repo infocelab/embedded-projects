@@ -1,0 +1,372 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x68368bee, pid=2084, tid=600
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_45-b15) (build 1.8.0_45-b15)
+# Java VM: Java HotSpot(TM) Client VM (25.45-b02 mixed mode windows-x86 )
+# Problematic frame:
+# V  [jvm.dll+0xd8bee]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x14055000):  JavaThread "AWT-EventQueue-0" [_thread_in_vm, id=600, stack(0x14640000,0x14690000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000000
+
+Registers:
+EAX=0x00000000, EBX=0x00000000, ECX=0x00000000, EDX=0x00000000
+ESP=0x1468eaf8, EBP=0x1468eb28, ESI=0x000ea9c8, EDI=0x14055000
+EIP=0x68368bee, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x1468eaf8)
+0x1468eaf8:   14055140 000ea9c8 15145758 fffffffe
+0x1468eb08:   1468eb28 613813c4 000ea9c8 00000000
+0x1468eb18:   14055000 00000000 03c13580 15145758
+0x1468eb28:   1468eb58 61381f65 14055000 00000000
+0x1468eb38:   00000000 6830cf45 03c13580 222c3aa7
+0x1468eb48:   1468eb84 15145758 15145750 14055000
+0x1468eb58:   1468eba4 0181b397 14055140 1468ebb8
+0x1468eb68:   00000000 1468eb8c 154d4cc0 00000000 
+
+Instructions: (pc=0x68368bee)
+0x68368bce:   e8 5d e3 f2 ff 33 db 83 c4 08 89 7d f0 89 5d f4
+0x68368bde:   39 5f 04 74 08 8d 4d f0 e8 85 9c 0c 00 8b 45 0c
+0x68368bee:   8b 30 8b 0d b8 e4 5f 68 39 1c 31 74 45 56 e8 4f
+0x68368bfe:   b3 f6 ff 83 c4 04 6a 00 6a 00 8d 4d dc 8d 78 01 
+
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX=0x00000000 is an unknown value
+ECX=0x00000000 is an unknown value
+EDX=0x00000000 is an unknown value
+ESP=0x1468eaf8 is pointing into the stack for thread: 0x14055000
+EBP=0x1468eb28 is pointing into the stack for thread: 0x14055000
+ESI=0x000ea9c8 is an unknown value
+EDI=0x14055000 is a thread
+
+
+Stack: [0x14640000,0x14690000],  sp=0x1468eaf8,  free space=314k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0xd8bee]
+C  [sqlite-3.7.2-sqlitejdbc.dll+0x1f65]
+j  org.sqlite.NativeDB.prepare(Ljava/lang/String;)J+0
+j  org.sqlite.DB.prepare(Lorg/sqlite/Stmt;)V+21
+j  org.sqlite.PrepStmt.<init>(Lorg/sqlite/Conn;Ljava/lang/String;)V+15
+j  org.sqlite.Conn.prepareStatement(Ljava/lang/String;III)Ljava/sql/PreparedStatement;+14
+j  org.sqlite.Conn.prepareStatement(Ljava/lang/String;II)Ljava/sql/PreparedStatement;+5
+j  org.sqlite.Conn.prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement;+8
+j  connect.online_test.jDesktopPane2FocusGained(Ljava/awt/event/FocusEvent;)V+16
+j  connect.online_test.access$100(Lconnect/online_test;Ljava/awt/event/FocusEvent;)V+2
+j  connect.online_test$2.focusGained(Ljava/awt/event/FocusEvent;)V+5
+j  java.awt.Component.processFocusEvent(Ljava/awt/event/FocusEvent;)V+42
+j  java.awt.Component.processEvent(Ljava/awt/AWTEvent;)V+12
+j  java.awt.Container.processEvent(Ljava/awt/AWTEvent;)V+18
+j  java.awt.Component.dispatchEventImpl(Ljava/awt/AWTEvent;)V+589
+j  java.awt.Container.dispatchEventImpl(Ljava/awt/AWTEvent;)V+42
+j  java.awt.Component.dispatchEvent(Ljava/awt/AWTEvent;)V+2
+j  java.awt.KeyboardFocusManager.redispatchEvent(Ljava/awt/Component;Ljava/awt/AWTEvent;)V+7
+j  java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Ljava/awt/Component;Ljava/awt/AWTEvent;)Z+335
+j  java.awt.DefaultKeyboardFocusManager.dispatchEvent(Ljava/awt/AWTEvent;)Z+1038
+j  java.awt.Component.dispatchEventImpl(Ljava/awt/AWTEvent;)V+151
+j  java.awt.Container.dispatchEventImpl(Ljava/awt/AWTEvent;)V+42
+j  java.awt.Component.dispatchEvent(Ljava/awt/AWTEvent;)V+2
+j  java.awt.KeyboardFocusManager.dispatchAndCatchException(Ljava/lang/Throwable;Ljava/awt/Component;Ljava/awt/event/FocusEvent;)Ljava/lang/Throwable;+4
+j  java.awt.KeyboardFocusManager.processCurrentLightweightRequests()V+258
+j  java.awt.KeyboardFocusManager$4.run()V+0
+j  java.awt.event.InvocationEvent.dispatch()V+47
+j  java.awt.EventQueue.dispatchEventImpl(Ljava/awt/AWTEvent;Ljava/lang/Object;)V+21
+j  java.awt.EventQueue.access$500(Ljava/awt/EventQueue;Ljava/awt/AWTEvent;Ljava/lang/Object;)V+3
+j  java.awt.EventQueue$3.run()Ljava/lang/Void;+32
+j  java.awt.EventQueue$3.run()Ljava/lang/Object;+1
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x155cb5]
+V  [jvm.dll+0x21b12e]
+V  [jvm.dll+0x155d4e]
+V  [jvm.dll+0x106fbf]
+C  [java.dll+0x102f]
+j  java.security.ProtectionDomain$1.doIntersectionPrivilege(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/lang/Object;+28
+j  java.awt.EventQueue.dispatchEvent(Ljava/awt/AWTEvent;)V+46
+j  java.awt.EventDispatchThread.pumpOneEventForFilters(I)V+245
+j  java.awt.EventDispatchThread.pumpEventsForFilter(ILjava/awt/Conditional;Ljava/awt/EventFilter;)V+35
+j  java.awt.EventDispatchThread.pumpEventsForHierarchy(ILjava/awt/Conditional;Ljava/awt/Component;)V+11
+j  java.awt.EventDispatchThread.pumpEvents(ILjava/awt/Conditional;)V+4
+j  java.awt.EventDispatchThread.pumpEvents(Ljava/awt/Conditional;)V+3
+j  java.awt.EventDispatchThread.run()V+9
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x155cb5]
+V  [jvm.dll+0x21b12e]
+V  [jvm.dll+0x155d4e]
+V  [jvm.dll+0x155ed6]
+V  [jvm.dll+0x155f47]
+V  [jvm.dll+0xfb0cf]
+V  [jvm.dll+0x17901c]
+V  [jvm.dll+0x17910a]
+V  [jvm.dll+0x1bd6e6]
+C  [msvcr100.dll+0x5c556]
+C  [msvcr100.dll+0x5c600]
+C  [kernel32.dll+0x51174]
+C  [ntdll.dll+0x5b3f5]
+C  [ntdll.dll+0x5b3c8]
+C  0x00000000
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.sqlite.NativeDB.prepare(Ljava/lang/String;)J+0
+j  org.sqlite.DB.prepare(Lorg/sqlite/Stmt;)V+21
+j  org.sqlite.PrepStmt.<init>(Lorg/sqlite/Conn;Ljava/lang/String;)V+15
+j  org.sqlite.Conn.prepareStatement(Ljava/lang/String;III)Ljava/sql/PreparedStatement;+14
+j  org.sqlite.Conn.prepareStatement(Ljava/lang/String;II)Ljava/sql/PreparedStatement;+5
+j  org.sqlite.Conn.prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement;+8
+j  connect.online_test.jDesktopPane2FocusGained(Ljava/awt/event/FocusEvent;)V+16
+j  connect.online_test.access$100(Lconnect/online_test;Ljava/awt/event/FocusEvent;)V+2
+j  connect.online_test$2.focusGained(Ljava/awt/event/FocusEvent;)V+5
+j  java.awt.Component.processFocusEvent(Ljava/awt/event/FocusEvent;)V+42
+j  java.awt.Component.processEvent(Ljava/awt/AWTEvent;)V+12
+j  java.awt.Container.processEvent(Ljava/awt/AWTEvent;)V+18
+j  java.awt.Component.dispatchEventImpl(Ljava/awt/AWTEvent;)V+589
+j  java.awt.Container.dispatchEventImpl(Ljava/awt/AWTEvent;)V+42
+j  java.awt.Component.dispatchEvent(Ljava/awt/AWTEvent;)V+2
+j  java.awt.KeyboardFocusManager.redispatchEvent(Ljava/awt/Component;Ljava/awt/AWTEvent;)V+7
+j  java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Ljava/awt/Component;Ljava/awt/AWTEvent;)Z+335
+j  java.awt.DefaultKeyboardFocusManager.dispatchEvent(Ljava/awt/AWTEvent;)Z+1038
+j  java.awt.Component.dispatchEventImpl(Ljava/awt/AWTEvent;)V+151
+j  java.awt.Container.dispatchEventImpl(Ljava/awt/AWTEvent;)V+42
+j  java.awt.Component.dispatchEvent(Ljava/awt/AWTEvent;)V+2
+j  java.awt.KeyboardFocusManager.dispatchAndCatchException(Ljava/lang/Throwable;Ljava/awt/Component;Ljava/awt/event/FocusEvent;)Ljava/lang/Throwable;+4
+j  java.awt.KeyboardFocusManager.processCurrentLightweightRequests()V+258
+j  java.awt.KeyboardFocusManager$4.run()V+0
+j  java.awt.event.InvocationEvent.dispatch()V+47
+j  java.awt.EventQueue.dispatchEventImpl(Ljava/awt/AWTEvent;Ljava/lang/Object;)V+21
+j  java.awt.EventQueue.access$500(Ljava/awt/EventQueue;Ljava/awt/AWTEvent;Ljava/lang/Object;)V+3
+j  java.awt.EventQueue$3.run()Ljava/lang/Void;+32
+j  java.awt.EventQueue$3.run()Ljava/lang/Object;+1
+v  ~StubRoutines::call_stub
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;+0
+j  java.security.ProtectionDomain$1.doIntersectionPrivilege(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;Ljava/security/AccessControlContext;)Ljava/lang/Object;+28
+j  java.awt.EventQueue.dispatchEvent(Ljava/awt/AWTEvent;)V+46
+j  java.awt.EventDispatchThread.pumpOneEventForFilters(I)V+245
+j  java.awt.EventDispatchThread.pumpEventsForFilter(ILjava/awt/Conditional;Ljava/awt/EventFilter;)V+35
+j  java.awt.EventDispatchThread.pumpEventsForHierarchy(ILjava/awt/Conditional;Ljava/awt/Component;)V+11
+j  java.awt.EventDispatchThread.pumpEvents(ILjava/awt/Conditional;)V+4
+j  java.awt.EventDispatchThread.pumpEvents(Ljava/awt/Conditional;)V+3
+j  java.awt.EventDispatchThread.run()V+9
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x14c09000 JavaThread "TimerQueue" daemon [_thread_blocked, id=3272, stack(0x156b0000,0x15700000)]
+  0x014bb800 JavaThread "DestroyJavaVM" [_thread_blocked, id=3216, stack(0x014f0000,0x01540000)]
+=>0x14055000 JavaThread "AWT-EventQueue-0" [_thread_in_vm, id=600, stack(0x14640000,0x14690000)]
+  0x1401ac00 JavaThread "AWT-Windows" daemon [_thread_in_native, id=1516, stack(0x145f0000,0x14640000)]
+  0x14018400 JavaThread "AWT-Shutdown" [_thread_blocked, id=3700, stack(0x14540000,0x14590000)]
+  0x14015400 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=4016, stack(0x140c0000,0x14110000)]
+  0x13ecc000 JavaThread "Service Thread" daemon [_thread_blocked, id=2192, stack(0x14270000,0x142c0000)]
+  0x13ea9800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=1616, stack(0x14160000,0x141b0000)]
+  0x13ebac00 JavaThread "Attach Listener" daemon [_thread_blocked, id=2872, stack(0x141c0000,0x14210000)]
+  0x13eb7c00 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1956, stack(0x039b0000,0x03a00000)]
+  0x13e73c00 JavaThread "Finalizer" daemon [_thread_blocked, id=3348, stack(0x14110000,0x14160000)]
+  0x13e6dc00 JavaThread "Reference Handler" daemon [_thread_blocked, id=2820, stack(0x03930000,0x03980000)]
+
+Other Threads:
+  0x13e6b800 VMThread [stack: 0x038d0000,0x03920000] [id=2796]
+  0x13eb1800 WatcherThread [stack: 0x14350000,0x143a0000] [id=2312]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 4928K, used 2674K [0x03a00000, 0x03f50000, 0x08f50000)
+  eden space 4416K,  48% used [0x03a00000, 0x03c1c8a8, 0x03e50000)
+  from space 512K, 100% used [0x03ed0000, 0x03f50000, 0x03f50000)
+  to   space 512K,   0% used [0x03e50000, 0x03e50000, 0x03ed0000)
+ tenured generation   total 10944K, used 1418K [0x08f50000, 0x09a00000, 0x13a00000)
+   the space 10944K,  12% used [0x08f50000, 0x090b2a98, 0x090b2c00, 0x09a00000)
+ Metaspace       used 7264K, capacity 7440K, committed 7552K, reserved 7552K
+
+Card table byte_map: [0x03810000,0x038a0000] byte_map_base: 0x037f3000
+
+Polling page: 0x00250000
+
+CodeCache: size=32768Kb used=994Kb max_used=994Kb free=31773Kb
+ bounds [0x01810000, 0x01910000, 0x03810000]
+ total_blobs=491 nmethods=273 adapters=150
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 9.925 Thread 0x13ea9800  270             javax.swing.GroupLayout$Group::getSpringSize (62 bytes)
+Event: 9.926 Thread 0x13ea9800 nmethod 270 0x01907408 code [0x01907530, 0x019076f4]
+Event: 9.926 Thread 0x13ea9800  271             java.awt.Rectangle::<init> (26 bytes)
+Event: 9.926 Thread 0x13ea9800 nmethod 271 0x01907848 code [0x01907940, 0x019079d0]
+Event: 10.086 Thread 0x13ea9800  272             java.awt.Container::getMouseEventTarget (50 bytes)
+Event: 10.086 Thread 0x13ea9800 nmethod 272 0x01907a08 code [0x01907b10, 0x01907c48]
+Event: 10.142 Thread 0x13ea9800  273             java.awt.EventQueue::eventToCacheIndex (80 bytes)
+Event: 10.142 Thread 0x13ea9800 nmethod 273 0x01907d08 code [0x01907e00, 0x01907f50]
+Event: 10.292 Thread 0x13ea9800  274             javax.swing.GroupLayout$Group::calculateSize (107 bytes)
+Event: 10.293 Thread 0x13ea9800 nmethod 274 0x01907fc8 code [0x01908160, 0x01908484]
+
+GC Heap History (2 events):
+Event: 0.714 GC heap before
+{Heap before GC invocations=0 (full 0):
+ def new generation   total 4928K, used 4416K [0x03a00000, 0x03f50000, 0x08f50000)
+  eden space 4416K, 100% used [0x03a00000, 0x03e50000, 0x03e50000)
+  from space 512K,   0% used [0x03e50000, 0x03e50000, 0x03ed0000)
+  to   space 512K,   0% used [0x03ed0000, 0x03ed0000, 0x03f50000)
+ tenured generation   total 10944K, used 0K [0x08f50000, 0x09a00000, 0x13a00000)
+   the space 10944K,   0% used [0x08f50000, 0x08f50000, 0x08f50200, 0x09a00000)
+ Metaspace       used 6382K, capacity 6542K, committed 6656K, reserved 7552K
+Event: 0.723 GC heap after
+Heap after GC invocations=1 (full 0):
+ def new generation   total 4928K, used 512K [0x03a00000, 0x03f50000, 0x08f50000)
+  eden space 4416K,   0% used [0x03a00000, 0x03a00000, 0x03e50000)
+  from space 512K, 100% used [0x03ed0000, 0x03f50000, 0x03f50000)
+  to   space 512K,   0% used [0x03e50000, 0x03e50000, 0x03ed0000)
+ tenured generation   total 10944K, used 1418K [0x08f50000, 0x09a00000, 0x13a00000)
+   the space 10944K,  12% used [0x08f50000, 0x090b2a98, 0x090b2c00, 0x09a00000)
+ Metaspace       used 6382K, capacity 6542K, committed 6656K, reserved 7552K
+}
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0.067 Thread 0x014bb800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x03a0b598) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u45\3627\hotspot\src\share\vw1æ!±?
+Event: 0.067 Thread 0x014bb800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x03a0b818) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u45\3627\hotspot\src\share\vm\prims\jni.cpp, l„ÞÜæ˜fÊ?
+Event: 0.206 Thread 0x014bb800 Exception <a 'java/security/PrivilegedActionException'> (0x03ad6960) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u45\3627\hotspot\src\share\vm\prims\jvm.cpp, line 1382]
+Event: 0.206 Thread 0x014bb800 Exception <a 'java/security/PrivilegedActionException'> (0x03ad6b10) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u45\3627\hotspot\src\share\vm\prims\jvm.cpp, line 1382]
+Event: 0.207 Thread 0x014bb800 Exception <a 'java/security/PrivilegedActionException'> (0x03ada430) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u45\3627\hotspot\src\share\vm\prims\jvm.cpp, line 1382]
+Event: 0.207 Thread 0x014bb800 Exception <a 'java/security/PrivilegedActionException'> (0x03ada5e0) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u45\3627\hotspot\src\share\vm\prims\jvm.cpp, line 1382]
+Event: 0.214 Thread 0x014bb800 Exception <a 'java/io/FileNotFoundException'> (0x03adc5e8) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u45\3627\hotspot\src\share\vm\prims\jni.cpp, line 709]
+Event: 0.254 Thread 0x014bb800 Exception <a 'java/io/FileNotFoundException'> (0x03af8bc0) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u45\3627\hotspot\src\share\vm\prims\jni.cpp, line 709]
+Event: 0.316 Thread 0x014bb800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x03bb8718) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u45\3627\hotspot\src\share\vm\prims\methodHandles.cpp, line 1125]
+Event: 0.318 Thread 0x014bb800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x03bc5bb8) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u45\3627\hotspot\src\share\vm\prims\methodHandles.cpp, line 1125]
+
+Events (10 events):
+Event: 7.030 loading class javax/swing/GroupLayout$SpringDelta
+Event: 7.030 loading class javax/swing/GroupLayout$SpringDelta done
+Event: 7.047 loading class java/awt/LightweightDispatcher$2
+Event: 7.047 loading class java/awt/LightweightDispatcher$2 done
+Event: 9.102 loading class javax/swing/Autoscroller
+Event: 9.102 loading class javax/swing/Autoscroller done
+Event: 9.902 loading class java/util/LinkedHashSet
+Event: 9.919 loading class java/util/LinkedHashSet done
+Event: 9.921 loading class java/awt/KeyboardFocusManager$4
+Event: 9.921 loading class java/awt/KeyboardFocusManager$4 done
+
+
+Dynamic libraries:
+0x012a0000 - 0x012d3000 	C:\Program Files\Java\jdk1.8.0_45\bin\java.exe
+0x77200000 - 0x7733c000 	C:\Windows\SYSTEM32\ntdll.dll
+0x75d10000 - 0x75de4000 	C:\Windows\system32\kernel32.dll
+0x753f0000 - 0x7543a000 	C:\Windows\system32\KERNELBASE.dll
+0x763f0000 - 0x76490000 	C:\Windows\system32\ADVAPI32.dll
+0x77380000 - 0x7742c000 	C:\Windows\system32\msvcrt.dll
+0x77360000 - 0x77379000 	C:\Windows\SYSTEM32\sechost.dll
+0x757d0000 - 0x75871000 	C:\Windows\system32\RPCRT4.dll
+0x758d0000 - 0x75999000 	C:\Windows\system32\USER32.dll
+0x75a20000 - 0x75a6e000 	C:\Windows\system32\GDI32.dll
+0x759d0000 - 0x759da000 	C:\Windows\system32\LPK.dll
+0x75730000 - 0x757cd000 	C:\Windows\system32\USP10.dll
+0x74210000 - 0x743ae000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7600.16385_none_421189da2b7fabfc\COMCTL32.dll
+0x756d0000 - 0x75727000 	C:\Windows\system32\SHLWAPI.dll
+0x75a70000 - 0x75a8f000 	C:\Windows\system32\IMM32.DLL
+0x75a90000 - 0x75b5c000 	C:\Windows\system32\MSCTF.dll
+0x6beb0000 - 0x6bf6f000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\msvcr100.dll
+0x68290000 - 0x68650000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\client\jvm.dll
+0x6d9c0000 - 0x6d9c7000 	C:\Windows\system32\WSOCK32.dll
+0x759e0000 - 0x75a15000 	C:\Windows\system32\WS2_32.dll
+0x77340000 - 0x77346000 	C:\Windows\system32\NSI.dll
+0x735f0000 - 0x73622000 	C:\Windows\system32\WINMM.dll
+0x74850000 - 0x74859000 	C:\Windows\system32\VERSION.dll
+0x77350000 - 0x77355000 	C:\Windows\system32\PSAPI.DLL
+0x71e60000 - 0x71e6c000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\verify.dll
+0x6d950000 - 0x6d971000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\java.dll
+0x6dd30000 - 0x6dd43000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\zip.dll
+0x765b0000 - 0x771f9000 	C:\Windows\system32\SHELL32.dll
+0x76290000 - 0x763ec000 	C:\Windows\system32\ole32.dll
+0x75350000 - 0x7535b000 	C:\Windows\system32\profapi.dll
+0x6b8a0000 - 0x6b9e5000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\awt.dll
+0x76490000 - 0x7651f000 	C:\Windows\system32\OLEAUT32.dll
+0x736a0000 - 0x736b3000 	C:\Windows\system32\DWMAPI.DLL
+0x74090000 - 0x740d0000 	C:\Windows\system32\uxtheme.dll
+0x752d0000 - 0x752dc000 	C:\Windows\system32\CRYPTBASE.dll
+0x6dd60000 - 0x6dd99000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\fontmanager.dll
+0x76520000 - 0x765a3000 	C:\Windows\system32\CLBCatQ.DLL
+0x734b0000 - 0x735ab000 	C:\Windows\system32\WindowsCodecs.dll
+0x75280000 - 0x752cb000 	C:\Windows\system32\apphelp.dll
+0x71270000 - 0x71282000 	C:\Program Files\Common Files\TortoiseOverlays\TortoiseOverlays.dll
+0x70c10000 - 0x70c24000 	C:\Program Files\TortoiseSVN\bin\TortoiseStub32.dll
+0x6d9d0000 - 0x6da40000 	C:\Program Files\TortoiseSVN\bin\TortoiseSVN32.dll
+0x76190000 - 0x76284000 	C:\Windows\system32\WININET.dll
+0x75b60000 - 0x75b63000 	C:\Windows\system32\Normaliz.dll
+0x75df0000 - 0x75f25000 	C:\Windows\system32\urlmon.dll
+0x75470000 - 0x7558c000 	C:\Windows\system32\CRYPT32.dll
+0x753c0000 - 0x753cc000 	C:\Windows\system32\MSASN1.dll
+0x75f90000 - 0x76189000 	C:\Windows\system32\iertutil.dll
+0x69cc0000 - 0x6a026000 	C:\Program Files\TortoiseSVN\bin\libsvn_tsvn32.dll
+0x6dcc0000 - 0x6dce7000 	C:\Program Files\TortoiseSVN\bin\libapr_tsvn32.dll
+0x74d90000 - 0x74dcc000 	C:\Windows\system32\MSWSOCK.dll
+0x6d860000 - 0x6d936000 	C:\Windows\system32\MSVCR110.dll
+0x6d820000 - 0x6d858000 	C:\Program Files\TortoiseSVN\bin\libaprutil_tsvn32.dll
+0x75880000 - 0x758c5000 	C:\Windows\system32\WLDAP32.dll
+0x70c40000 - 0x70c4d000 	C:\Program Files\TortoiseSVN\bin\intl3_tsvn32.dll
+0x70bf0000 - 0x70c03000 	C:\Program Files\TortoiseSVN\bin\libsasl32.dll
+0x75130000 - 0x75138000 	C:\Windows\system32\Secur32.dll
+0x75260000 - 0x7527a000 	C:\Windows\system32\SSPICLI.DLL
+0x6d790000 - 0x6d815000 	C:\Windows\system32\MSVCP110.dll
+0x6fba0000 - 0x6fbd1000 	C:\Windows\system32\EhStorShell.dll
+0x75b70000 - 0x75d0d000 	C:\Windows\system32\SETUPAPI.dll
+0x75440000 - 0x75467000 	C:\Windows\system32\CFGMGR32.dll
+0x753d0000 - 0x753e2000 	C:\Windows\system32\DEVOBJ.dll
+0x740d0000 - 0x741c5000 	C:\Windows\system32\PROPSYS.dll
+0x6fb90000 - 0x6fb97000 	C:\Program Files\Internet Download Manager\IDMShellExt.dll
+0x6fb20000 - 0x6fb8a000 	C:\Windows\System32\cscui.dll
+0x6fb10000 - 0x6fb19000 	C:\Windows\System32\CSCDLL.dll
+0x6fe60000 - 0x6fe6b000 	C:\Windows\system32\CSCAPI.dll
+0x6fa60000 - 0x6facf000 	C:\Windows\system32\ntshrui.dll
+0x750a0000 - 0x750b9000 	C:\Windows\system32\srvcli.dll
+0x73ae0000 - 0x73aea000 	C:\Windows\system32\slc.dll
+0x6dd10000 - 0x6dd25000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\net.dll
+0x74d80000 - 0x74d86000 	C:\Windows\System32\wship6.dll
+0x71ff0000 - 0x71fff000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\nio.dll
+0x6d760000 - 0x6d790000 	C:\Program Files\Java\jdk1.8.0_45\jre\bin\t2k.dll
+0x61380000 - 0x61409000 	C:\Users\SHARMA\AppData\Local\Temp\sqlite-3.7.2-sqlitejdbc.dll
+0x014e0000 - 0x014e7000 	C:\Program Files\Internet Download Manager\idmmkb.dll
+0x6d000000 - 0x6d0eb000 	C:\Windows\system32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: connect.Connect
+java_class_path (initial): D:\Software\sqlite-jdbc-3.7.2.jar\sqlite-jdbc-3.7.2.jar;D:\Software\jcalendar-1.4.jar;D:\Software\jdatepicker-1.3.4.jar;D:\celab_code\software_projects\customer_projects\online_test\Connect\build\classes
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Program Files\Java\jdk1.8.0_45\bin;C:\Program Files\TortoiseSVN\bin
+USERNAME=SHARMA
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 2, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 Build 7600 (6.1.7600.16385)
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 15 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, tsc
+
+Memory: 4k page, physical 2028792k(679892k free), swap 4057584k(1695080k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.45-b02) for windows-x86 JRE (1.8.0_45-b15), built on Apr 30 2015 12:31:00 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Wed Jul 01 15:08:01 2015
+elapsed time: 10 seconds (0d 0h 0m 10s)
+
