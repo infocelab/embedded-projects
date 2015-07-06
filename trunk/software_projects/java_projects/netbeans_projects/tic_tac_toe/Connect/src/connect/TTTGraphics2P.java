@@ -23,6 +23,18 @@ public class TTTGraphics2P extends JFrame {
    public static final int SYMBOL_SIZE = CELL_SIZE - CELL_PADDING * 2; // width/height
    public static final int SYMBOL_STROKE_WIDTH = 8; // pen's stroke width
  
+   // Named-constants of the various dimensions used for score board drawing
+   public static final int T_ROWS = 4;  // ROWS by COLS cells
+   public static final int T_COLS = 4;
+   public static final int T_CELL_SIZE = 50; // cell width and height (square)
+   public static final int T_GRID_WIDTH = 2;                   // Grid-line's width
+   public static final int T_GRID_WIDHT_HALF = T_GRID_WIDTH / 2; // Grid-line's half-width
+   public static int P1_SCORE = 0;
+   public static int P2_SCORE = 0;
+   public static int T_FONT_SIZE = 18;
+   public static int T_OFFSET_HOR = 400;
+   public static int T_OFFSET_VER = 80;
+   
    // Use an enumeration (inner class) to represent the various states of the game
    public enum GameState {
       PLAYING, DRAW, CROSS_WON, NOUGHT_WON
@@ -42,7 +54,7 @@ public class TTTGraphics2P extends JFrame {
    /** Constructor to setup the game and the GUI components */
    public TTTGraphics2P() {
       canvas = new DrawCanvas();  // Construct a drawing canvas (a JPanel)
-      canvas.setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT));
+      canvas.setPreferredSize(new Dimension(CANVAS_WIDTH + T_OFFSET_HOR, CANVAS_HEIGHT));
  
       // The canvas (JPanel) fires a MouseEvent upon mouse-click
       canvas.addMouseListener(new MouseAdapter() {
@@ -162,6 +174,27 @@ public class TTTGraphics2P extends JFrame {
                   GRID_WIDTH, CANVAS_HEIGHT-1, GRID_WIDTH, GRID_WIDTH);
          }
  
+         // Draw the score board
+         g.setColor(Color.DARK_GRAY);
+         for (int row = 1; row < T_ROWS; ++row) {
+            g.fillRoundRect(T_OFFSET_HOR, T_CELL_SIZE * row - T_GRID_WIDHT_HALF,
+                  CANVAS_WIDTH - T_OFFSET_HOR / 2, T_GRID_WIDTH, T_GRID_WIDTH, T_GRID_WIDTH);
+         }
+     
+         for (int col = 1; col < T_COLS; ++col) {
+            g.fillRoundRect(T_CELL_SIZE * col + T_OFFSET_HOR - T_CELL_SIZE , T_CELL_SIZE,
+                  T_GRID_WIDTH, CANVAS_HEIGHT - T_OFFSET_HOR / 2, T_GRID_WIDTH, T_GRID_WIDTH);
+         }
+         
+         g.setColor(Color.MAGENTA);
+         g.setFont(new Font("TimesRoman", Font.PLAIN, T_FONT_SIZE)); 
+         g.drawString("Score Board", T_OFFSET_HOR , T_OFFSET_VER / 2);
+         g.drawString("P1", T_OFFSET_HOR + 20 , T_OFFSET_VER);
+         g.drawString("P2", T_OFFSET_HOR + T_CELL_SIZE + 20 , T_OFFSET_VER);
+         
+         g.drawString(Integer.toString(P1_SCORE), T_OFFSET_HOR + 20, T_OFFSET_VER + T_CELL_SIZE);
+         g.drawString(Integer.toString(P2_SCORE), T_OFFSET_HOR + T_CELL_SIZE + 20, T_OFFSET_VER + T_CELL_SIZE);
+         
          // Draw the Seeds of all the cells if they are not empty
          // Use Graphics2D which allows us to set the pen's stroke
          Graphics2D g2d = (Graphics2D)g;
@@ -198,9 +231,11 @@ public class TTTGraphics2P extends JFrame {
          } else if (currentState == GameState.CROSS_WON) {
             statusBar.setForeground(Color.RED);
             statusBar.setText("'X' Won! Click to play again.");
+            P1_SCORE++;
          } else if (currentState == GameState.NOUGHT_WON) {
             statusBar.setForeground(Color.RED);
             statusBar.setText("'O' Won! Click to play again.");
+            P2_SCORE++;
          }
       }
    }
