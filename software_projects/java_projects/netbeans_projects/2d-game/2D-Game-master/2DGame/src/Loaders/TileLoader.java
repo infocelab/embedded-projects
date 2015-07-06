@@ -17,7 +17,6 @@ public class TileLoader {
     int tileNumber;
     int i;
     int x;
-    
     public void loadTiles() {
         
         BufferedImage tileSheet = null;
@@ -28,9 +27,7 @@ public class TileLoader {
             
             i = 0;
             x = 0;
-
             for(int y = 0; y < 512; y += 0) {
-
                 if(i < tiles.length) {
 
                     switch(i) {
