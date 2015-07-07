@@ -317,7 +317,7 @@ public class FirmAccount1 extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, e);          
         }
          
-        sql = "SELECT * FROM firm_account WHERE firm_name='" + Information.firm_name_temp_creditor + "'";
+        sql = "SELECT * FROM firm_account WHERE firm_name='" + Information.firm_name_temp + "'";
             
         try
         {
