@@ -4,10 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-/**
- *
- * @author mike
- */
 public class MapLoader {
 
     File map;

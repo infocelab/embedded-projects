@@ -6,10 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-/**
- *
- * @author mike
- */
 public class TileLoader {
     
     public Tile[] tiles = new Tile[256];
