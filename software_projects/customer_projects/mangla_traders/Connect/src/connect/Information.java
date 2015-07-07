@@ -814,7 +814,7 @@ public class Information extends javax.swing.JFrame
     private void txt_daily_data_entry_firm_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_daily_data_entry_firm_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_daily_data_entry_firm_nameActionPerformed
-
+    
     private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
 
         tbl_borrowers_borrower_name.removeAll();
@@ -842,7 +842,8 @@ public class Information extends javax.swing.JFrame
         
         String sql;
         sql = "SELECT * FROM table_daily_data_entry where date ='" +date+ "'";
-            
+        DefaultTableModel model_t = (DefaultTableModel) table_daily_data_entry.getModel();
+        model_t.setRowCount(0);
         try
         {
             conn = Connect.ConnectDB();
@@ -860,8 +861,7 @@ public class Information extends javax.swing.JFrame
                     table_daily_data_entry.getColumnModel().getColumn(2).setPreferredWidth(100);
                     table_daily_data_entry.getColumnModel().getColumn(3).setPreferredWidth(100);
                     table_daily_data_entry.getColumnModel().getColumn(4).setPreferredWidth(600);
-                    DefaultTableModel model = (DefaultTableModel) table_daily_data_entry.getModel();
-                    model.addRow(row);
+                    model_t.addRow(row);
                     count++;
                 }while(rs.next());
                 data_entry_count = count;
@@ -988,6 +988,7 @@ public class Information extends javax.swing.JFrame
     
     private void btn_borrowers_add_new_firmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrowers_add_new_firmActionPerformed
         user_type = "b";
+        firm_name_temp="";
         this.setVisible(false);
         new FirmAccount1().setVisible(true);
     }//GEN-LAST:event_btn_borrowers_add_new_firmActionPerformed
@@ -1083,6 +1084,7 @@ public class Information extends javax.swing.JFrame
     
     private void btn_creditor_add_new_firmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_creditor_add_new_firmActionPerformed
         user_type="c";
+        firm_name_temp="";
         this.setVisible(false);
         new FirmAccount1().setVisible(true);
     }//GEN-LAST:event_btn_creditor_add_new_firmActionPerformed
@@ -1178,8 +1180,7 @@ public class Information extends javax.swing.JFrame
     private void tbl_creditor_firm_nameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_creditor_firm_nameMouseEntered
         // TODO add your handling code here:      
     }//GEN-LAST:event_tbl_creditor_firm_nameMouseEntered
-    static int showFirmAccountCreditor=0;
-    static String firm_name_temp_creditor= "";
+ 
     private void tbl_creditor_firm_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_creditor_firm_nameMouseClicked
         int row = tbl_creditor_firm_name.getSelectedRow();
         String firm_name =(String) tbl_creditor_firm_name.getValueAt(row, 0);
@@ -1192,8 +1193,7 @@ public class Information extends javax.swing.JFrame
             rs = pst.executeQuery();
             if(rs.next())
             {
-                showFirmAccountCreditor=1;
-                firm_name_temp_creditor = firm_name;
+                firm_name_temp = firm_name;
                 this.setVisible(false);
                 new FirmAccount1().setVisible(true);
             }
