@@ -66,14 +66,18 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jTabbedPane1" min="-2" pref="963" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="944" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" min="-2" pref="820" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jTabbedPane1" min="-2" pref="751" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -175,7 +179,7 @@
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="130" max="32767" attributes="0"/>
+                          <EmptySpace pref="111" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -184,7 +188,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" pref="41" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="lbl_daily_data_entry_user_name" min="-2" pref="23" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -193,7 +197,7 @@
                                   <Component id="lbl_daily_data_entry_logged_user" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbl_daily_data_entry_firm_name" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lbl_daily_data_entry_credit" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -213,9 +217,9 @@
                                   <Component id="btn_daily_data_entry_save" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="381" max="-2" attributes="0"/>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" pref="385" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -446,13 +450,13 @@
                               <Component id="combobox_borrowers_city" min="-2" pref="125" max="-2" attributes="0"/>
                               <Component id="btn_borrowers_add_new_firm" min="-2" pref="125" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="447" max="32767" attributes="0"/>
+                          <EmptySpace pref="428" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               <Component id="lbl_borrowers_city1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="883" max="32767" attributes="0"/>
+                              <EmptySpace pref="864" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -474,13 +478,13 @@
                               </Group>
                               <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="244" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
                               <Component id="lbl_borrowers_city1" min="-2" pref="0" max="-2" attributes="0"/>
-                              <EmptySpace pref="548" max="32767" attributes="0"/>
+                              <EmptySpace pref="479" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -624,7 +628,7 @@
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="464" max="32767" attributes="0"/>
+                          <EmptySpace pref="445" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -645,7 +649,7 @@
                               </Group>
                               <Component id="jScrollPane4" min="-2" pref="443" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="233" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -770,38 +774,40 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="353" max="-2" attributes="0"/>
+                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="581" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane10" min="-2" pref="630" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lbl_search_option_firm_name1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="cmb_search_option_firm_name" min="-2" pref="132" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel6" min="-2" pref="261" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Component id="spin_search_dd" min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="lbl_search_option_firm_name1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="cmb_search_option_firm_name" min="-2" pref="132" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lbl_search_option_firm_date" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="spin_search_dd" min="-2" pref="41" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="spin_search_mm" min="-2" pref="44" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="spin_search_yyyy" min="-2" pref="57" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <Component id="btn_search_option_enter" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="jScrollPane10" min="-2" pref="630" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="btn_search_option_enter" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" min="-2" pref="261" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lbl_search_option_firm_date" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="600" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -812,19 +818,19 @@
                           <Component id="jLabel6" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbl_search_option_firm_name1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbl_search_option_firm_date" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cmb_search_option_firm_name" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btn_search_option_enter" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="spin_search_dd" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="spin_search_mm" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="spin_search_yyyy" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_search_option_enter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_search_option_firm_date" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmb_search_option_firm_name" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="lbl_search_option_firm_name1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
-                          <Component id="jScrollPane10" min="-2" pref="604" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="jScrollPane10" min="-2" pref="325" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -993,56 +999,62 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lbl2_user_account" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lbl1_user_account" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                              <Component id="btn1_user_account_add" min="-2" pref="67" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="294" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel7" min="-2" pref="261" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txt1_user_account_user_name" min="-2" pref="110" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                                  <Component id="btn1_user_account_add" min="-2" pref="67" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txt1_user_account_user_name" min="-2" pref="110" max="-2" attributes="0"/>
-                                          <Component id="btn2_user_account_delete" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
                                           <Component id="txt2_user_account_password" min="-2" pref="110" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="jLabel7" alignment="1" min="-2" pref="261" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+                                  <Component id="lbl1_user_account" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btn2_user_account_delete" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl2_user_account" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="658" max="32767" attributes="0"/>
+                          <EmptySpace pref="294" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbl1_user_account" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txt1_user_account_user_name" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbl2_user_account" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txt2_user_account_password" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lbl1_user_account" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btn2_user_account_delete" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn1_user_account_add" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn2_user_account_delete" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="496" max="32767" attributes="0"/>
+                          <EmptySpace pref="418" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
