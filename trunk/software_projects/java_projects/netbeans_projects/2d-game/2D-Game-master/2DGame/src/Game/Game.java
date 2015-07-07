@@ -13,10 +13,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-/**
- *
- * @author mike
- */
 public class Game implements ActionListener {
 
     JFrame frame;
@@ -120,7 +116,7 @@ public class Game implements ActionListener {
                 
                 if(mapTileNumbers[m][n] == j) {
 
-                    tiles[incr] = new Tile(arb.getTile(j));
+                        tiles[incr] = new Tile(arb.getTile(j));
                     tiles[incr].setX(x);
                     tiles[incr].setY(y);
                     incr++;

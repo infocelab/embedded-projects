@@ -7,10 +7,6 @@ package Game;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 
-/**
- *
- * @author mike
- */
 public class Player {
 
     int x, y, dx, dy, key, dir;

@@ -2,10 +2,6 @@ package Game;
 
 import java.awt.Image;
 
-/**
- *
- * @author Mike
- */
 public class Tile {
     
     Image tile;
