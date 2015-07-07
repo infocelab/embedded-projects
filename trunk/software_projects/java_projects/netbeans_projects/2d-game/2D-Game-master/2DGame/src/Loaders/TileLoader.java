@@ -64,7 +64,7 @@ public class TileLoader {
                             tiles[i] = new Tile(tileSheet.getSubimage(x, y, 32, 32),i,(byte)1,(byte)0,(byte)0,(byte)0,(byte)10);
                             break;
                         case 12:
-                            tiles[i] = new Tile(tileSheet.getSubimage(x, y, 32, 32),i,(byte)10,(byte)10,(byte)10,(byte)10,(byte)1);
+                            tiles[i] = new Tile(tileSheet.getSubimage(x, y, 32, 32),i,(byte)10,(byte)10,(byte)10,(byte)0,(byte)1);
                             break;
                         case 13:
                             tiles[i] = new Tile(tileSheet.getSubimage(x, y, 32, 32),i,(byte)10,(byte)10,(byte)10,(byte)10,(byte)1);

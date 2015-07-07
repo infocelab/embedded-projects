@@ -9,6 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -155,7 +159,23 @@ public class Game implements ActionListener {
             g.drawString("COORDS: (" + player.getX() + ", " + player.getY() + ")", 0, 750);
             for(int i = 0; i < collisionBools.length; i++) {
                 if(collisionBools[i]) {
-                    g.drawString("COLLISION!", 110, 750);
+                    g.drawString("COLLISION!", 130, 750);
+                    String tn = Integer.toString(tiles[i].tileNumber);
+                    
+                    if(tiles[i].tileNumber == 3)
+                    {
+                        g.drawString(tn, 200, 750);
+                        BufferedImage tileSheet = null;
+                        try
+                        {
+                            tileSheet = ImageIO.read(new File("build\\classes\\res\\img\\tilesheet2.png"));
+                        }
+                        catch (IOException e) 
+                        {
+                            System.out.println("ERROR: Failed to load the tile sheet.");
+                        }
+                        tiles[i].setTile(tileSheet.getSubimage(0,0, 32, 32));
+                    }
                 }
             }
         }
