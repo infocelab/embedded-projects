@@ -70,6 +70,11 @@ public class Tile {
         
     }
     
+    public void setCollisionType(byte ct) {
+        
+        b5=ct;
+        
+    }
     public Image getTile() {
         
         return tile;
