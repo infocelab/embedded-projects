@@ -5,15 +5,25 @@
  */
 package connect;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author SHARMA
  */
 public class Return extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Return
-     */
+   Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
     public Return() {
         initComponents();
     }
@@ -31,12 +41,11 @@ public class Return extends javax.swing.JFrame {
         lbl_return_books = new javax.swing.JLabel();
         lbl_return_student_id = new javax.swing.JLabel();
         lbl_return_book_id = new javax.swing.JLabel();
-        lbl_return_check = new javax.swing.JLabel();
-        cmbox_return_student_id = new javax.swing.JComboBox();
-        cmbox_return_book_id = new javax.swing.JComboBox();
         btn_return_return = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_return = new javax.swing.JTable();
+        txt_return_std_id = new javax.swing.JTextField();
+        txt_return_book_id = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,20 +66,19 @@ public class Return extends javax.swing.JFrame {
 
         lbl_return_book_id.setText("Book ID :");
 
-        lbl_return_check.setText("Check :");
-
-        cmbox_return_student_id.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---Select---" }));
-
-        cmbox_return_book_id.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---Select---" }));
-
         btn_return_return.setText("Return");
+        btn_return_return.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_return_returnActionPerformed(evt);
+            }
+        });
 
         tbl_return.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Student ID", "Book ID", "Date Time Borrowed", "Date Time Returned", "Returned"
+                "Student ID", "Book ID", "Date "
             }
         ));
         jScrollPane1.setViewportView(tbl_return);
@@ -79,35 +87,34 @@ public class Return extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_return_book_id)
-                            .addComponent(lbl_return_student_id))
-                        .addGap(86, 86, 86)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_return_books, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(cmbox_return_book_id, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cmbox_return_student_id, javax.swing.GroupLayout.Alignment.LEADING, 0, 101, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(303, 303, 303)
-                                .addComponent(btn_return_back)
-                                .addGap(110, 110, 110))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lbl_return_check)
-                                .addGap(49, 49, 49)))
-                        .addComponent(btn_return_return)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 48, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(lbl_return_student_id)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(lbl_return_books, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(txt_return_std_id, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85)
+                        .addComponent(lbl_return_book_id)
+                        .addGap(51, 51, 51)
+                        .addComponent(txt_return_book_id, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(303, 303, 303)
+                        .addComponent(btn_return_back))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(321, 321, 321)
+                        .addComponent(btn_return_return)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,16 +124,12 @@ public class Return extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_return_student_id)
-                    .addComponent(cmbox_return_student_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_return_check)
-                    .addComponent(btn_return_return))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_return_book_id)
-                    .addComponent(cmbox_return_book_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                    .addComponent(txt_return_std_id, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_return_book_id, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(btn_return_return)
+                .addGap(51, 51, 51)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btn_return_back)
@@ -141,6 +144,52 @@ public class Return extends javax.swing.JFrame {
         this.setVisible(false);
                 new Information().setVisible(true);
     }//GEN-LAST:event_btn_return_backActionPerformed
+
+    private void btn_return_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_return_returnActionPerformed
+        // TODO add your handling code here:
+        String student_id = txt_return_std_id.getText();
+        String book_id = txt_return_book_id.getText();
+        if(student_id.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Student ID Cannot be Empty"); 
+            return;
+        }
+        if(book_id.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Book ID Cannot be Empty"); 
+            return;
+        }
+        Date today = new Date();
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+        String date = DATE_FORMAT.format(today);
+        
+        Object row[]={student_id, book_id, date};
+        
+        String sql;
+        sql = "Insert into return (student_id,book_id,date) values ('" +  student_id + "','" + book_id + "','" + date + "')";
+            
+        try
+        {
+           conn = Connect.ConnectDB();
+           pst = conn.prepareStatement(sql);
+           pst.executeUpdate();
+        
+           //JOptionPane.showMessageDialog(null, "saved");
+           txt_return_std_id.setText("");
+           txt_return_book_id.setText("");
+            
+           
+           conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+          JOptionPane.showMessageDialog(null, e);          
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tbl_return.getModel();
+        model.addRow(row);
+        
+    }//GEN-LAST:event_btn_return_returnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,13 +229,12 @@ public class Return extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_return_back;
     private javax.swing.JButton btn_return_return;
-    private javax.swing.JComboBox cmbox_return_book_id;
-    private javax.swing.JComboBox cmbox_return_student_id;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_return_book_id;
     private javax.swing.JLabel lbl_return_books;
-    private javax.swing.JLabel lbl_return_check;
     private javax.swing.JLabel lbl_return_student_id;
     private javax.swing.JTable tbl_return;
+    private javax.swing.JTextField txt_return_book_id;
+    private javax.swing.JTextField txt_return_std_id;
     // End of variables declaration//GEN-END:variables
 }

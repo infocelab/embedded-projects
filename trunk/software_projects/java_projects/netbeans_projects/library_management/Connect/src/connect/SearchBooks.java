@@ -5,15 +5,25 @@
  */
 package connect;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author SHARMA
  */
 public class SearchBooks extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SearchBooks
-     */
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    private Object[] item;
     public SearchBooks() {
         initComponents();
     }
@@ -31,9 +41,10 @@ public class SearchBooks extends javax.swing.JFrame {
         lbl_search_book = new javax.swing.JLabel();
         lbl_search_book_search_by = new javax.swing.JLabel();
         cmbox_search_book = new javax.swing.JComboBox();
-        btn_search_book_search = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbl_search_book = new javax.swing.JTable();
+        tbl_search_author_name = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbl_search_book_name = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,44 +63,58 @@ public class SearchBooks extends javax.swing.JFrame {
 
         lbl_search_book_search_by.setText("Search By :");
 
-        cmbox_search_book.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---Select---", "Author Name", "Book Name", "Book ID", " " }));
+        cmbox_search_book.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "----Select----", "Author Name", "Book Name" }));
+        cmbox_search_book.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbox_search_bookItemStateChanged(evt);
+            }
+        });
 
-        btn_search_book_search.setText("Search");
-
-        tbl_search_book.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_search_author_name.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Book Name", "Author Name", "Category", "Availability"
+                "Author Name"
             }
         ));
-        jScrollPane1.setViewportView(tbl_search_book);
+        jScrollPane1.setViewportView(tbl_search_author_name);
+
+        tbl_search_book_name.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Book Name"
+            }
+        ));
+        jScrollPane2.setViewportView(tbl_search_book_name);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(lbl_search_book_search_by, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(cmbox_search_book, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(lbl_search_book, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addComponent(btn_search_books_back))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(286, 286, 286)
-                        .addComponent(btn_search_book_search)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(211, 211, 211)
+                            .addComponent(lbl_search_book, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(254, 254, 254)
+                            .addComponent(btn_search_books_back))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(192, 192, 192)
+                            .addComponent(lbl_search_book_search_by, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(27, 27, 27)
+                            .addComponent(cmbox_search_book, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(281, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(75, 75, 75)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(537, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,13 +125,16 @@ public class SearchBooks extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_search_book_search_by, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbox_search_book, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(btn_search_book_search)
-                .addGap(75, 75, 75)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(93, 93, 93)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addComponent(btn_search_books_back)
                 .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(258, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(106, 106, 106)))
         );
 
         pack();
@@ -117,6 +145,69 @@ public class SearchBooks extends javax.swing.JFrame {
         this.setVisible(false);
                 new Information().setVisible(true);
     }//GEN-LAST:event_btn_search_books_backActionPerformed
+
+    private void cmbox_search_bookItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbox_search_bookItemStateChanged
+        // TODO add your handling code here:
+        
+         Object search = cmbox_search_book.getSelectedItem();
+        String sql="";
+       
+         if(search.equals("Book Name"))
+        {
+            sql = "SELECT * FROM add_books ";
+            try
+            {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                DefaultTableModel tbl = (DefaultTableModel) tbl_search_book_name.getModel();
+                tbl.setRowCount(0);
+                do
+                {
+                    Object row[]={ rs.getString("book_name")};
+                    tbl.addRow(row);
+                   
+                }while(rs.next());
+            }
+            
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        } 
+        }
+        else if(search.equals("Author Name"))
+        {
+            sql = "SELECT * FROM add_books ";
+            try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                DefaultTableModel tbl = (DefaultTableModel) tbl_search_author_name.getModel();
+                tbl.setRowCount(0);
+                do
+                {
+                    Object row[]={ rs.getString("author_name")};
+                    tbl.addRow(row);
+                   
+                }while(rs.next());
+            }
+            
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        } 
+            
+        }
+    }//GEN-LAST:event_cmbox_search_bookItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -154,12 +245,13 @@ public class SearchBooks extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_search_book_search;
     private javax.swing.JButton btn_search_books_back;
     private javax.swing.JComboBox cmbox_search_book;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_search_book;
     private javax.swing.JLabel lbl_search_book_search_by;
-    private javax.swing.JTable tbl_search_book;
+    private javax.swing.JTable tbl_search_author_name;
+    private javax.swing.JTable tbl_search_book_name;
     // End of variables declaration//GEN-END:variables
 }
