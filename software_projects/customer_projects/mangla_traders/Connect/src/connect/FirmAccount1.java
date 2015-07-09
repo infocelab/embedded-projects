@@ -38,12 +38,8 @@ public class FirmAccount1 extends javax.swing.JFrame
         lbl_firm_acc_city = new javax.swing.JLabel();
         tbx_firm_acc_contact_name = new javax.swing.JTextField();
         btn_firm_acc_save = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtarea_firm_account_address = new javax.swing.JTextArea();
-        txt_firm_account_debit = new javax.swing.JTextField();
-        txt_firm_account_credit = new javax.swing.JTextField();
         btn_firm_acc_close = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -90,10 +86,6 @@ public class FirmAccount1 extends javax.swing.JFrame
             }
         });
 
-        jLabel1.setText("Debit");
-
-        jLabel2.setText("Credit");
-
         txtarea_firm_account_address.setColumns(20);
         txtarea_firm_account_address.setRows(5);
         jScrollPane1.setViewportView(txtarea_firm_account_address);
@@ -124,9 +116,6 @@ public class FirmAccount1 extends javax.swing.JFrame
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbl_firm_acc_firm_name)
                                     .addComponent(lbl_firm_acc_address)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel1))
                             .addComponent(lbl_firm_acc_mobile_number, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,18 +127,12 @@ public class FirmAccount1 extends javax.swing.JFrame
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lbl_firm_acc_city))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txt_firm_account_debit)
-                                        .addGap(72, 72, 72)
-                                        .addComponent(jLabel2)
-                                        .addGap(8, 8, 8))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(tbx_firm_acc_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                                         .addComponent(lbl_firm_acc_contact_name)))
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tbx_firm_acc_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_firm_account_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tbx_firm_acc_contact_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(220, 220, 220)
@@ -189,13 +172,7 @@ public class FirmAccount1 extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbx_firm_acc_mobile_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_firm_acc_mobile_number))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_firm_account_debit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_firm_account_credit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_firm_acc_save)
                     .addComponent(btn_firm_acc_close))
@@ -211,41 +188,43 @@ public class FirmAccount1 extends javax.swing.JFrame
         String address = txtarea_firm_account_address.getText();
         String city = tbx_firm_acc_city.getText();
         String mobile_number = tbx_firm_acc_mobile_no.getText();
-        String debit = txt_firm_account_debit.getText();
-        String credit = txt_firm_account_credit.getText();
         
         if(firm_name.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Firm Name Cannot be Empty"); 
             return;
         }
-
-        try 
+    
+        if(contact_name.equals(""))
         {
-            if(!credit.equals(""))
-            {
-                Float.parseFloat(credit);
-            }
-        } 
-        catch (NumberFormatException e) 
+            JOptionPane.showMessageDialog(null, "Contact Name Cannot be Empty"); 
+            return;
+        }
+         
+        if(address.equals(""))
         {
-            JOptionPane.showMessageDialog(null, "Credit Should be Number only"); 
+            JOptionPane.showMessageDialog(null, "Address Cannot be Empty"); 
             return;
         }
         
-         try 
+        if(city.equals(""))
         {
-            if(!debit.equals(""))
-            {
-                Float.parseFloat(debit);
-            }
-        } 
-        catch (NumberFormatException e) 
-        {
-            JOptionPane.showMessageDialog(null, "Debit Should be Number only"); 
+            JOptionPane.showMessageDialog(null, "City Cannot be Empty"); 
             return;
         }
-
+        
+        if(mobile_number.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Mobile Number Cannot be Empty"); 
+            return;
+        }
+        
+        if(!mobile_number.equals("") && mobile_number.length() != 10)
+        {
+            JOptionPane.showMessageDialog(null, "Moblie Number Must be 10 Digit only"); 
+            return; 
+        }
+        
         Date today = new Date();
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         String date = DATE_FORMAT.format(today);
@@ -255,7 +234,7 @@ public class FirmAccount1 extends javax.swing.JFrame
         // check the firm name already exists 
         // if yes then update else insert
         
-        sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,debit,credit,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + debit + "','" + credit + "','" + date +"','" + Information.user_type + "')";
+        sql = "Insert into firm_account (firm_name,contact_name,address,city,mobile_number,date,user_type) values ('" +  firm_name + "','" + contact_name + "','" + address + "','" + city + "','" + mobile_number + "','" + date +"','" + Information.user_type + "')";
         
         try
         {
@@ -269,8 +248,6 @@ public class FirmAccount1 extends javax.swing.JFrame
             txtarea_firm_account_address.setText("");
             tbx_firm_acc_contact_name.setText("");
             tbx_firm_acc_mobile_no.setText("");
-            txt_firm_account_debit.setText("");
-            txt_firm_account_credit.setText("");
             conn.close();
         }
         catch(SQLException | HeadlessException e)
@@ -307,8 +284,6 @@ public class FirmAccount1 extends javax.swing.JFrame
                 txtarea_firm_account_address.setText(rs.getString("address"));
                 tbx_firm_acc_city.setText(rs.getString("city"));
                 tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
-                txt_firm_account_debit.setText(rs.getString("debit"));
-                txt_firm_account_credit.setText(rs.getString("credit"));
             }
             conn.close();
         }
@@ -327,12 +302,10 @@ public class FirmAccount1 extends javax.swing.JFrame
             if(rs.next())
             {
                 tbx_firm_acc_firm_name.setText(rs.getString("firm_name"));
-                tbx_firm_acc_contact_name.setText(rs.getString("city"));
+                tbx_firm_acc_contact_name.setText(rs.getString("contact_name"));
                 txtarea_firm_account_address.setText(rs.getString("address"));
-                tbx_firm_acc_city.setText(rs.getString("contact_name"));
+                tbx_firm_acc_city.setText(rs.getString("city"));
                 tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
-                txt_firm_account_debit.setText(rs.getString("debit"));
-                txt_firm_account_credit.setText(rs.getString("credit"));
             }
             conn.close();
         }
@@ -380,8 +353,6 @@ public class FirmAccount1 extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_firm_acc_close;
     private javax.swing.JButton btn_firm_acc_save;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_firm_acc_address;
@@ -393,8 +364,6 @@ public class FirmAccount1 extends javax.swing.JFrame
     private javax.swing.JTextField tbx_firm_acc_contact_name;
     private javax.swing.JTextField tbx_firm_acc_firm_name;
     private javax.swing.JTextField tbx_firm_acc_mobile_no;
-    private javax.swing.JTextField txt_firm_account_credit;
-    private javax.swing.JTextField txt_firm_account_debit;
     private javax.swing.JTextArea txtarea_firm_account_address;
     // End of variables declaration//GEN-END:variables
 }

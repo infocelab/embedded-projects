@@ -52,7 +52,6 @@ public class Information extends javax.swing.JFrame
         lbl_daily_data_entry_comment = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtarea_daily_data_entry_comment = new javax.swing.JTextArea();
-        txt_daily_data_entry_firm_name = new javax.swing.JTextField();
         txt_daily_data_entry_credit = new javax.swing.JTextField();
         txt_daily_data_entry_debit = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -62,6 +61,7 @@ public class Information extends javax.swing.JFrame
         lbl_daily_data_entry_user_name = new javax.swing.JLabel();
         lbl_daily_data_entry_logged_user = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        cmb_daily_data_entry_firm_name = new javax.swing.JComboBox();
         tabpane_borrowers = new javax.swing.JTabbedPane();
         jDesktopPane3 = new javax.swing.JDesktopPane();
         lbl_borrowers_city = new javax.swing.JLabel();
@@ -136,13 +136,6 @@ public class Information extends javax.swing.JFrame
         txtarea_daily_data_entry_comment.setNextFocusableComponent(btn_daily_data_entry_save);
         jScrollPane2.setViewportView(txtarea_daily_data_entry_comment);
 
-        txt_daily_data_entry_firm_name.setBackground(new java.awt.Color(255, 204, 204));
-        txt_daily_data_entry_firm_name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_daily_data_entry_firm_nameActionPerformed(evt);
-            }
-        });
-
         txt_daily_data_entry_credit.setBackground(new java.awt.Color(255, 204, 204));
         txt_daily_data_entry_credit.setToolTipText("");
 
@@ -157,7 +150,15 @@ public class Information extends javax.swing.JFrame
             new String [] {
                 "S. No.", "Firm Name", "Credit", "Debit", "Comment"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         table_daily_data_entry.setGridColor(new java.awt.Color(153, 204, 255));
         table_daily_data_entry.setRowSelectionAllowed(false);
         table_daily_data_entry.setSelectionBackground(new java.awt.Color(153, 204, 255));
@@ -190,19 +191,19 @@ public class Information extends javax.swing.JFrame
                         .addGap(22, 22, 22)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(55, 55, 55)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lbl_daily_data_entry_firm_name)
-                                            .addComponent(txt_daily_data_entry_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(60, 60, 60)
+                                            .addComponent(cmb_daily_data_entry_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(25, 25, 25)
                                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txt_daily_data_entry_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbl_daily_data_entry_credit))
-                                        .addGap(76, 76, 76)
+                                            .addComponent(lbl_daily_data_entry_credit)
+                                            .addComponent(txt_daily_data_entry_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(61, 61, 61)
                                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txt_daily_data_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lbl_daily_data_entry_debit)))
@@ -211,8 +212,7 @@ public class Information extends javax.swing.JFrame
                                         .addGap(35, 35, 35)
                                         .addComponent(lbl_data_entry_date1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(62, 62, 62))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                                .addContainerGap()
+                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addComponent(btn_daily_data_entry_save, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(135, 135, 135)))
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,9 +250,9 @@ public class Information extends javax.swing.JFrame
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_daily_data_entry_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_daily_data_entry_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_daily_data_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_daily_data_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmb_daily_data_entry_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btn_daily_data_entry_save)))
                 .addGap(36, 36, 36)
@@ -265,7 +265,6 @@ public class Information extends javax.swing.JFrame
         jDesktopPane1.setLayer(lbl_daily_data_entry_debit, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbl_daily_data_entry_comment, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(txt_daily_data_entry_firm_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(txt_daily_data_entry_credit, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(txt_daily_data_entry_debit, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -274,6 +273,7 @@ public class Information extends javax.swing.JFrame
         jDesktopPane1.setLayer(lbl_daily_data_entry_user_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbl_daily_data_entry_logged_user, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(cmb_daily_data_entry_firm_name, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tabpan_daily_data_entry.addTab("Welcome on Daily Data Entry", jDesktopPane1);
 
@@ -495,13 +495,18 @@ public class Information extends javax.swing.JFrame
 
         lbl_search_option_firm_name1.setText("Firm Name");
 
-        lbl_search_option_firm_date.setText("Date(dd-mm-yyyy):");
+        lbl_search_option_firm_date.setText("Date (dd-mm-yyyy):");
 
         cmb_search_option_firm_name.setBackground(new java.awt.Color(204, 204, 255));
         cmb_search_option_firm_name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None" }));
         cmb_search_option_firm_name.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmb_search_option_firm_nameItemStateChanged(evt);
+            }
+        });
+        cmb_search_option_firm_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_search_option_firm_nameActionPerformed(evt);
             }
         });
 
@@ -517,12 +522,20 @@ public class Information extends javax.swing.JFrame
 
             },
             new String [] {
-                "S_No", "Name", "Credit", "Debit", "Comment"
+                "S_No", "Date", "Name", "Credit", "Debit", "Comment"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane10.setViewportView(tbl_search_option);
 
-        btn_search_option_enter.setText("Search");
+        btn_search_option_enter.setText("Search by date");
         btn_search_option_enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_search_option_enterActionPerformed(evt);
@@ -546,11 +559,15 @@ public class Information extends javax.swing.JFrame
             .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
                 .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
+                        .addGap(242, 242, 242)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(lbl_search_option_firm_date1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 859, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
                                 .addComponent(lbl_search_option_firm_name1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cmb_search_option_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lbl_search_option_firm_date)
@@ -561,12 +578,7 @@ public class Information extends javax.swing.JFrame
                                 .addGap(18, 18, 18)
                                 .addComponent(spin_search_yyyy, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
-                                .addComponent(btn_search_option_enter)
-                                .addGap(12, 12, 12))
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(lbl_search_option_firm_date1Layout.createSequentialGroup()
-                        .addGap(242, 242, 242)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn_search_option_enter)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         lbl_search_option_firm_date1Layout.setVerticalGroup(
@@ -728,7 +740,7 @@ public class Information extends javax.swing.JFrame
     }
     int data_entry_count=1;
     private void btn_daily_data_entry_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_daily_data_entry_saveActionPerformed
-        String firm_name = txt_daily_data_entry_firm_name.getText();
+        String firm_name = cmb_daily_data_entry_firm_name.getSelectedItem().toString();
         String credit  = txt_daily_data_entry_credit.getText();
         String debit = txt_daily_data_entry_debit.getText();
         String comment = txtarea_daily_data_entry_comment.getText();
@@ -768,7 +780,19 @@ public class Information extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "Debit Should be Number only"); 
             return;
         }
-
+        
+        if(!credit.equals("") && !debit.equals("")) 
+        {
+            JOptionPane.showMessageDialog(null, "Both Credit and Debit cannot be Accepted"); 
+            return;
+        }
+        
+        if(credit.equals("") && debit.equals("")) 
+        {
+            JOptionPane.showMessageDialog(null, "Both Credit and Debit cannot be Empty"); 
+            return;
+        }
+        
         Object row[]={data_entry_count, firm_name, credit, debit, comment};
         data_entry_count = data_entry_count + 1;
         table_daily_data_entry.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -793,12 +817,10 @@ public class Information extends javax.swing.JFrame
            pst = conn.prepareStatement(sql);
            pst.executeUpdate();
         
-           //JOptionPane.showMessageDialog(null, "saved");
-           txt_daily_data_entry_firm_name.setText("");
+           cmb_daily_data_entry_firm_name.setSelectedIndex(0);
            txt_daily_data_entry_credit.setText("");
            txt_daily_data_entry_debit.setText("");
            txtarea_daily_data_entry_comment.setText("");
-           
            
            conn.close();
         }
@@ -810,10 +832,6 @@ public class Information extends javax.swing.JFrame
         DefaultTableModel model = (DefaultTableModel) table_daily_data_entry.getModel();
         model.addRow(row);
     }//GEN-LAST:event_btn_daily_data_entry_saveActionPerformed
-
-    private void txt_daily_data_entry_firm_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_daily_data_entry_firm_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_daily_data_entry_firm_nameActionPerformed
     
     private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
 
@@ -841,6 +859,35 @@ public class Information extends javax.swing.JFrame
         }
         
         String sql;
+        
+        //populate daily data entry firm name combo box with existing firm names
+        sql = "SELECT * FROM firm_account";
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                do
+                {
+                    Object row[]={rs.getString("firm_name")};
+                    
+                    if(((DefaultComboBoxModel)cmb_daily_data_entry_firm_name.getModel()).getIndexOf(row[0].toString()) == -1 ) 
+                    {
+                        cmb_daily_data_entry_firm_name.addItem(row[0].toString());
+                    }
+                }while(rs.next());
+            }
+        
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
+        
+        // fill daily data entry table with existing data for today
         sql = "SELECT * FROM table_daily_data_entry where date ='" +date+ "'";
         DefaultTableModel model_t = (DefaultTableModel) table_daily_data_entry.getModel();
         model_t.setRowCount(0);
@@ -944,10 +991,11 @@ public class Information extends javax.swing.JFrame
       
         tbl_search_option.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         tbl_search_option.getColumnModel().getColumn(0).setPreferredWidth(50);
-        tbl_search_option.getColumnModel().getColumn(1).setPreferredWidth(150);
-        tbl_search_option.getColumnModel().getColumn(2).setPreferredWidth(130);
+        tbl_search_option.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tbl_search_option.getColumnModel().getColumn(2).setPreferredWidth(150);
         tbl_search_option.getColumnModel().getColumn(3).setPreferredWidth(130);
-        tbl_search_option.getColumnModel().getColumn(4).setPreferredWidth(200);
+        tbl_search_option.getColumnModel().getColumn(4).setPreferredWidth(130);
+        tbl_search_option.getColumnModel().getColumn(5).setPreferredWidth(300);
         Calendar cal = Calendar.getInstance();
         cal.setTime(today);
         int year = cal.get(Calendar.YEAR);
@@ -1124,7 +1172,7 @@ public class Information extends javax.swing.JFrame
                     int count=1;
                     do
                     {
-                        Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                        Object row[]={count, rs.getString("date"), rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
                         model.addRow(row);
                         count++;
                     }
@@ -1317,7 +1365,7 @@ public class Information extends javax.swing.JFrame
                     int count=1;
                     do
                     {
-                        Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                        Object row[]={count,rs.getString("date"),  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
                         model.addRow(row);
                         count++;
                     }while(rs.next());
@@ -1330,6 +1378,10 @@ public class Information extends javax.swing.JFrame
             }
         }
     }//GEN-LAST:event_cmb_search_option_firm_nameItemStateChanged
+
+    private void cmb_search_option_firm_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_search_option_firm_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_search_option_firm_nameActionPerformed
   
     public static void main(String args[]) 
     {
@@ -1371,6 +1423,7 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JButton btn_creditor_add_new_firm;
     private javax.swing.JButton btn_daily_data_entry_save;
     private javax.swing.JButton btn_search_option_enter;
+    private javax.swing.JComboBox cmb_daily_data_entry_firm_name;
     private javax.swing.JComboBox cmb_search_option_firm_name;
     private javax.swing.JComboBox combobox_borrowers_city;
     private javax.swing.JComboBox combobox_creditors_city;
@@ -1433,7 +1486,6 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JPasswordField txt2_user_account_password;
     private javax.swing.JTextField txt_daily_data_entry_credit;
     private javax.swing.JTextField txt_daily_data_entry_debit;
-    private javax.swing.JTextField txt_daily_data_entry_firm_name;
     private javax.swing.JTextArea txtarea_daily_data_entry_comment;
     // End of variables declaration//GEN-END:variables
 }
