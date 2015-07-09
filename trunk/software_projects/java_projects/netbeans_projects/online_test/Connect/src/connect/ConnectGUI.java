@@ -18,6 +18,7 @@ public class ConnectGUI extends javax.swing.JFrame
     public ConnectGUI() 
     {
         initComponents();    
+        this.getRootPane().setDefaultButton(btn_login);
     }
 
     /**
@@ -105,6 +106,16 @@ public class ConnectGUI extends javax.swing.JFrame
         String username = tbx_username.getText();
         logged_user="admin";
         String password = tbx_password.getText();
+        if(username.equals(""))
+        {
+           JOptionPane.showMessageDialog(null, "Username cannot be Empty"); 
+           return;
+        }
+        if(password.equals(""))
+        {
+           JOptionPane.showMessageDialog(null, "Password cannot be Empty");
+           return;
+        }   
         String sql ;
         sql = "select * from tableUSERPASS where username='" + username +
               "' and password='" + password + "'";
