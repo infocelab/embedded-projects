@@ -130,21 +130,21 @@
                                   <Component id="jScrollPane1" min="-2" pref="801" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="lbl_daily_data_entry_firm_name" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="txt_daily_data_entry_firm_name" min="-2" pref="132" max="-2" attributes="0"/>
+                                                      <Component id="cmb_daily_data_entry_firm_name" min="-2" pref="182" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txt_daily_data_entry_credit" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
-                                                      <Component id="lbl_daily_data_entry_credit" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lbl_daily_data_entry_credit" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txt_daily_data_entry_credit" min="-2" pref="86" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="txt_daily_data_entry_debit" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                                                       <Component id="lbl_daily_data_entry_debit" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -159,7 +159,6 @@
                                           <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btn_daily_data_entry_save" min="-2" pref="83" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                                       </Group>
@@ -209,9 +208,9 @@
                               <Component id="jScrollPane2" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txt_daily_data_entry_firm_name" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                       <Component id="txt_daily_data_entry_credit" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                       <Component id="txt_daily_data_entry_debit" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="cmb_daily_data_entry_firm_name" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btn_daily_data_entry_save" min="-2" max="-2" attributes="0"/>
@@ -272,16 +271,6 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JTextField" name="txt_daily_data_entry_firm_name">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_daily_data_entry_firm_nameActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JTextField" name="txt_daily_data_entry_credit">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -316,11 +305,11 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="0">
-                            <Column editable="true" title="S. No." type="java.lang.Object"/>
-                            <Column editable="true" title="Firm Name" type="java.lang.Object"/>
-                            <Column editable="true" title="Credit" type="java.lang.Object"/>
-                            <Column editable="true" title="Debit" type="java.lang.Object"/>
-                            <Column editable="true" title="Comment" type="java.lang.Object"/>
+                            <Column editable="false" title="S. No." type="java.lang.Object"/>
+                            <Column editable="false" title="Firm Name" type="java.lang.Object"/>
+                            <Column editable="false" title="Credit" type="java.lang.Object"/>
+                            <Column editable="false" title="Debit" type="java.lang.Object"/>
+                            <Column editable="false" title="Comment" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -400,6 +389,13 @@
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder/>
                       </Border>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cmb_daily_data_entry_firm_name">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -780,12 +776,17 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" min="-2" pref="261" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane10" min="-2" pref="859" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="lbl_search_option_firm_name1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" max="-2" attributes="0"/>
                                           <Component id="cmb_search_option_firm_name" min="-2" pref="132" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="lbl_search_option_firm_date" min="-2" max="-2" attributes="0"/>
@@ -797,14 +798,8 @@
                                           <Component id="spin_search_yyyy" min="-2" pref="57" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                           <Component id="btn_search_option_enter" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane10" min="-2" pref="630" max="-2" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" min="-2" pref="261" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -845,7 +840,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbl_search_option_firm_date">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Date(dd-mm-yyyy):"/>
+                    <Property name="text" type="java.lang.String" value="Date (dd-mm-yyyy):"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cmb_search_option_firm_name">
@@ -861,6 +856,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cmb_search_option_firm_nameItemStateChanged"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmb_search_option_firm_nameActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="spin_search_dd">
@@ -897,16 +893,22 @@
                           <Color blue="ff" green="cc" red="cc" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="0">
-                            <Column editable="true" title="S_No" type="java.lang.Object"/>
-                            <Column editable="true" title="Name" type="java.lang.Object"/>
-                            <Column editable="true" title="Credit" type="java.lang.Object"/>
-                            <Column editable="true" title="Debit" type="java.lang.Object"/>
-                            <Column editable="true" title="Comment" type="java.lang.Object"/>
+                          <Table columnCount="6" rowCount="0">
+                            <Column editable="false" title="S_No" type="java.lang.Object"/>
+                            <Column editable="false" title="Date" type="java.lang.Object"/>
+                            <Column editable="false" title="Name" type="java.lang.Object"/>
+                            <Column editable="false" title="Credit" type="java.lang.Object"/>
+                            <Column editable="false" title="Debit" type="java.lang.Object"/>
+                            <Column editable="false" title="Comment" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
@@ -943,7 +945,7 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btn_search_option_enter">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Search"/>
+                    <Property name="text" type="java.lang.String" value="Search by date"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_search_option_enterActionPerformed"/>

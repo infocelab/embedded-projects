@@ -41,10 +41,6 @@
                                   <Component id="lbl_firm_acc_address" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="lbl_firm_acc_mobile_number" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -58,12 +54,6 @@
                                       <Component id="lbl_firm_acc_city" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="txt_firm_account_debit" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
                                       <Component id="tbx_firm_acc_firm_name" min="-2" pref="121" max="-2" attributes="0"/>
                                       <EmptySpace pref="36" max="32767" attributes="0"/>
                                       <Component id="lbl_firm_acc_contact_name" min="-2" max="-2" attributes="0"/>
@@ -72,7 +62,6 @@
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="tbx_firm_acc_city" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_firm_account_credit" min="-2" pref="120" max="-2" attributes="0"/>
                                   <Component id="tbx_firm_acc_contact_name" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -128,14 +117,7 @@
                   <Component id="tbx_firm_acc_mobile_no" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbl_firm_acc_mobile_number" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txt_firm_account_debit" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_firm_account_credit" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_firm_acc_save" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_firm_acc_close" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -210,16 +192,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_firm_acc_saveActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Debit"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Credit"/>
-      </Properties>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -235,10 +207,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="txt_firm_account_debit">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txt_firm_account_credit">
-    </Component>
     <Component class="javax.swing.JButton" name="btn_firm_acc_close">
       <Properties>
         <Property name="text" type="java.lang.String" value="Close"/>
