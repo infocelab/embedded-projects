@@ -5,12 +5,22 @@
 
 int main(void)
 {
-   DDRD = 0b00000001; //set the data direction register to o/p
+   DDRC = 0b00000001; //set the data direction register to o/p
    while(1)
   {
-    DDRD =_BV(PD0);    //led is connected to pin 14(PD0)
+    DDRC =_BV(PC0);    //led is connected to pin 14(PD0)
 	_delay_ms(500);
-	DDRD &= ~_BV(PD0);
+	DDRC &= ~_BV(PC0);
+	_delay_ms(500);
+
+	DDRC =_BV(PC1);    //led is connected to pin 14(PD0)
+	_delay_ms(500);
+	DDRC &= ~_BV(PC1);
+	_delay_ms(500);
+
+	DDRC =_BV(PC2);    //led is connected to pin 14(PD0)
+	_delay_ms(500);
+	DDRC &= ~_BV(PC2);
 	_delay_ms(500);
   }
 }
