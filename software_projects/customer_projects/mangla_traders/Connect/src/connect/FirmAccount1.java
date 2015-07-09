@@ -17,6 +17,7 @@ public class FirmAccount1 extends javax.swing.JFrame
     public FirmAccount1() 
     {    
         initComponents();
+        lbl_copyright_6.setText("Copyright@Computronics Lab");
     }
 
     /**
@@ -42,6 +43,7 @@ public class FirmAccount1 extends javax.swing.JFrame
         txtarea_firm_account_address = new javax.swing.JTextArea();
         btn_firm_acc_close = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        lbl_copyright_6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -103,6 +105,8 @@ public class FirmAccount1 extends javax.swing.JFrame
         jLabel3.setText("Mangla Traders");
         jLabel3.setBorder(new javax.swing.border.MatteBorder(null));
 
+        lbl_copyright_6.setText("Copyright to Computronics Lab");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,6 +147,9 @@ public class FirmAccount1 extends javax.swing.JFrame
                         .addGap(200, 200, 200)
                         .addComponent(jLabel3)))
                 .addContainerGap(178, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lbl_copyright_6))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +183,8 @@ public class FirmAccount1 extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_firm_acc_save)
                     .addComponent(btn_firm_acc_close))
-                .addGap(107, 107, 107))
+                .addGap(93, 93, 93)
+                .addComponent(lbl_copyright_6))
         );
 
         pack();
@@ -355,6 +363,7 @@ public class FirmAccount1 extends javax.swing.JFrame
     private javax.swing.JButton btn_firm_acc_save;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_copyright_6;
     private javax.swing.JLabel lbl_firm_acc_address;
     private javax.swing.JLabel lbl_firm_acc_city;
     private javax.swing.JLabel lbl_firm_acc_contact_name;
