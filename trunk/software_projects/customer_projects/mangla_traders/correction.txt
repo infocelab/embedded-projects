@@ -1,0 +1,20 @@
+1. all name short by name or frequently use.
+2. if user type name of city and firm then suggest.
+3. after close any tab go to same location.
+4. if user click on firm in creditor and borrower list
+ then show in this format
+
+- FIRM ACCOUNT FORMAT :
+
+firm name :- xyz...         contact name :-mohanlal sharma
+address :- pqrs..           city :- gwalior
+mobile no. :- 7047376642
+
+S.NO.  debit        credit     date    
+1      2578          -         (01/06/2015)
+2        -           1528      (01/06/2015)
+3      2546           -        (03/07/2015)
+
+(same format show after search firm name)
+
+5.  same day entry edit right of employee
