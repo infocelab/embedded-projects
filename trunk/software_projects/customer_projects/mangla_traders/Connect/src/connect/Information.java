@@ -15,13 +15,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
+import java.util.Arrays;
 
 public class Information extends javax.swing.JFrame 
 {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
-    static String user_type;
+    static String user_type=null;
     
     
     public Information() 
@@ -33,6 +34,19 @@ public class Information extends javax.swing.JFrame
         lbl_copyright_4.setText("Copyright@Computronics Lab");
         lbl_copyright_5.setText("Copyright@Computronics Lab");
         this.setResizable(false);
+        if(user_type != null)
+        {
+            if(user_type.equals("b"))
+            {
+                this.jTabbedPane1.setSelectedIndex(1);
+                user_type=null;
+            }
+            else if(user_type.equals("c"))
+            {
+                this.jTabbedPane1.setSelectedIndex(2);
+                user_type=null;
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -202,6 +216,25 @@ public class Information extends javax.swing.JFrame
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Mangla Traders");
         jLabel3.setBorder(new javax.swing.border.MatteBorder(null));
+
+        cmb_daily_data_entry_firm_name.setAutoscrolls(true);
+        cmb_daily_data_entry_firm_name.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                cmb_daily_data_entry_firm_nameInputMethodTextChanged(evt);
+            }
+        });
+        cmb_daily_data_entry_firm_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_daily_data_entry_firm_nameActionPerformed(evt);
+            }
+        });
+        cmb_daily_data_entry_firm_name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cmb_daily_data_entry_firm_nameKeyTyped(evt);
+            }
+        });
 
         lbl_copyright_1.setText("Copyright to Computronics Lab");
 
@@ -980,6 +1013,7 @@ public class Information extends javax.swing.JFrame
         String sql;
         
         //populate daily data entry firm name combo box with existing firm names
+        //sql = "SELECT * FROM firm_account ORDER BY LOWER(firm_name)";
         sql = "SELECT * FROM firm_account";
         try
         {
@@ -988,6 +1022,42 @@ public class Information extends javax.swing.JFrame
             rs = pst.executeQuery();
             if(rs.next())
             {
+                boolean added = false;
+                Object obj;
+                String name = "";
+                int count = 0;
+                int compare = 0;
+                do
+                {
+                    added = false;
+                    name = rs.getString("firm_name");
+                    count = cmb_daily_data_entry_firm_name.getItemCount();
+                    for (int i = 0; i < count; i++) 
+                    {
+                        obj = cmb_daily_data_entry_firm_name.getItemAt(i);
+                        compare = name.compareToIgnoreCase(obj.toString());
+                        if (compare <= 0) 
+                        { 
+                            if(((DefaultComboBoxModel)cmb_daily_data_entry_firm_name.getModel()).getIndexOf(name) == -1 ) 
+                            {
+                                cmb_daily_data_entry_firm_name.insertItemAt(name, i);
+                            }
+                            added = true;
+                            break;
+                        }
+                    }
+                    if (!added) 
+                    {
+                        if(((DefaultComboBoxModel)cmb_daily_data_entry_firm_name.getModel()).getIndexOf(name) == -1 ) 
+                        {
+                            cmb_daily_data_entry_firm_name.addItem(name);
+                        }
+                    }
+                }while (rs.next()) ;
+                
+                cmb_daily_data_entry_firm_name.setSelectedIndex(0);
+                /*
+                
                 do
                 {
                     Object row[]={rs.getString("firm_name")};
@@ -997,9 +1067,13 @@ public class Information extends javax.swing.JFrame
                         cmb_daily_data_entry_firm_name.addItem(row[0].toString());
                     }
                 }while(rs.next());
+                */
             }
         
             conn.close();
+            
+            
+            
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1073,7 +1147,7 @@ public class Information extends javax.swing.JFrame
         /////////////////////////////////////////////////////
         //Following section for borrowers tab
       
-        sql = "SELECT * FROM firm_account WHERE user_type='b'";
+        sql = "SELECT * FROM firm_account WHERE user_type='b' ORDER BY LOWER(firm_name)";
         DefaultTableModel tbl = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
         tbl.setRowCount(0);
         try
@@ -1103,10 +1177,35 @@ public class Information extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(null, e);          
         }
+        
+        
+        sql = "SELECT * FROM firm_account WHERE user_type='c' ORDER BY LOWER(city)";
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                do
+                {
+                    Object item[]={ rs.getString("city")};
+                    if(((DefaultComboBoxModel)combobox_borrowers_city.getModel()).getIndexOf(item[0].toString()) == -1 ) 
+                    {
+                        combobox_borrowers_city.addItem(item[0].toString());
+                    }
+                }while(rs.next());
+           }
+           conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
         //////////////////////////////////////////////////
         //This Section for creditor tab      
           
-        sql = "SELECT * FROM firm_account WHERE user_type='c'";
+        sql = "SELECT * FROM firm_account WHERE user_type='c' ORDER BY LOWER(firm_name)";
         DefaultTableModel tbl_c = (DefaultTableModel) tbl_creditor_firm_name.getModel();
         tbl_c.setRowCount(0);
         try
@@ -1136,6 +1235,30 @@ public class Information extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, e);          
         }
       
+        
+        sql = "SELECT * FROM firm_account WHERE user_type='c' ORDER BY LOWER(city)";
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                do
+                {
+                    Object item[]={ rs.getString("city")};
+                    if(((DefaultComboBoxModel)combobox_creditors_city.getModel()).getIndexOf(item[0].toString()) == -1 ) 
+                    {
+                        combobox_creditors_city.addItem(item[0].toString());
+                    }
+                }while(rs.next());
+            }
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
         /////////////////////////////////////////
         // for Search option firm name
       
@@ -1154,7 +1277,7 @@ public class Information extends javax.swing.JFrame
         spin_search_dd.setValue(day);
         spin_search_mm.setValue(month);
         spin_search_yyyy.setValue(year);
-        sql = "SELECT * FROM table_daily_data_entry";
+        sql = "SELECT * FROM table_daily_data_entry ORDER BY LOWER(firm_name)";
             
         try
         {
@@ -1187,8 +1310,9 @@ public class Information extends javax.swing.JFrame
     private void btn_borrowers_add_new_firmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_borrowers_add_new_firmActionPerformed
         user_type = "b";
         firm_name_temp="";
+        showFirmAccount=0;
         this.setVisible(false);
-        new FirmAccount1().setVisible(true);
+        new FirmAccount1_1().setVisible(true);
     }//GEN-LAST:event_btn_borrowers_add_new_firmActionPerformed
     
     private void btn1_user_account_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1_user_account_addActionPerformed
@@ -1283,8 +1407,9 @@ public class Information extends javax.swing.JFrame
     private void btn_creditor_add_new_firmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_creditor_add_new_firmActionPerformed
         user_type="c";
         firm_name_temp="";
+        showFirmAccount=0;
         this.setVisible(false);
-        new FirmAccount1().setVisible(true);
+        new FirmAccount1_1().setVisible(true);
     }//GEN-LAST:event_btn_creditor_add_new_firmActionPerformed
 
     String anyname = "";
@@ -1350,7 +1475,7 @@ public class Information extends javax.swing.JFrame
         int row = tbl_borrowers_borrower_name.getSelectedRow();
         String firm_name =(String) tbl_borrowers_borrower_name.getValueAt(row, 0);
         String sql = "SELECT * FROM firm_account WHERE firm_name='" + firm_name + "'";
-            
+        user_type="b";    
         try
         {
             conn = Connect.ConnectDB();
@@ -1383,7 +1508,7 @@ public class Information extends javax.swing.JFrame
         int row = tbl_creditor_firm_name.getSelectedRow();
         String firm_name =(String) tbl_creditor_firm_name.getValueAt(row, 0);
         String sql = "SELECT * FROM firm_account WHERE firm_name='" + firm_name + "'";
-            
+        user_type="c"; 
         try
         {
             conn = Connect.ConnectDB();
@@ -1391,6 +1516,7 @@ public class Information extends javax.swing.JFrame
             rs = pst.executeQuery();
             if(rs.next())
             {
+                showFirmAccount=1;
                 firm_name_temp = firm_name;
                 this.setVisible(false);
                 new FirmAccount1().setVisible(true);
@@ -1532,6 +1658,22 @@ public class Information extends javax.swing.JFrame
     private void cmb_search_option_firm_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_search_option_firm_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmb_search_option_firm_nameActionPerformed
+
+    private void cmb_daily_data_entry_firm_nameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_cmb_daily_data_entry_firm_nameInputMethodTextChanged
+        // TODO add your handling code here:
+        
+        //cmb_daily_data_entry_firm_name.showPopup();
+    }//GEN-LAST:event_cmb_daily_data_entry_firm_nameInputMethodTextChanged
+
+    private void cmb_daily_data_entry_firm_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_daily_data_entry_firm_nameActionPerformed
+        // TODO add your handling code here:
+         //cmb_daily_data_entry_firm_name.showPopup();
+    }//GEN-LAST:event_cmb_daily_data_entry_firm_nameActionPerformed
+
+    private void cmb_daily_data_entry_firm_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmb_daily_data_entry_firm_nameKeyTyped
+        // TODO add your handling code here:
+        //cmb_daily_data_entry_firm_name.showPopup();
+    }//GEN-LAST:event_cmb_daily_data_entry_firm_nameKeyTyped
   
     public static void main(String args[]) 
     {
