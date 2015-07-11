@@ -3,6 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< .mine
+        <group/>
+=======
         <group>
             <file>file:/D:/PEL/EFY/CELAB/SVN/CelabCode/Embedded-Projects/software_projects/java_projects/netbeans_projects/2d-game/2D-Game-master/2DGame/src/Loaders/TileLoader.java</file>
             <file>file:/D:/PEL/EFY/CELAB/SVN/CelabCode/Embedded-Projects/software_projects/java_projects/netbeans_projects/2d-game/2D-Game-master/2DGame/src/Game/Player.java</file>
@@ -11,5 +14,6 @@
             <file>file:/D:/PEL/EFY/CELAB/SVN/CelabCode/Embedded-Projects/software_projects/java_projects/netbeans_projects/2d-game/2D-Game-master/2DGame/src/Loaders/MapLoader.java</file>
             <file>file:/D:/PEL/EFY/CELAB/SVN/CelabCode/Embedded-Projects/software_projects/java_projects/netbeans_projects/2d-game/2D-Game-master/2DGame/src/Game/CollisionChecker.java</file>
         </group>
+>>>>>>> .r1473
     </open-files>
 </project-private>
