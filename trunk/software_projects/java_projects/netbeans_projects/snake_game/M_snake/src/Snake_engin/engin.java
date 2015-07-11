@@ -32,7 +32,7 @@ public class engin {
             case 1:    if(direction!=3)
                             {
                        my_snake.put_Head_postion(0,-step_to_move);
-                      direction=1;
+                       direction=1;
                             }
                     else move_as_last(direction);
                        break;//UP

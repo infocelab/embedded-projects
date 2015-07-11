@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/celab_code/software_projects/java_projects/netbeans_projects/snake_game/M_snake/src/Snake_engin/engin.java</file>
+            <file>file:/D:/celab_code/software_projects/java_projects/netbeans_projects/snake_game/M_snake/src/m_snake/MainFrame.java</file>
+            <file>file:/D:/celab_code/software_projects/java_projects/netbeans_projects/snake_game/M_snake/src/m_snake/MainPanel/myPanel.java</file>
+            <file>file:/D:/celab_code/software_projects/java_projects/netbeans_projects/snake_game/M_snake/src/m_snake/MainPanel/snakeBody/Food.java</file>
+            <file>file:/D:/celab_code/software_projects/java_projects/netbeans_projects/snake_game/M_snake/src/m_snake/MainPanel/snakeBody/snake.java</file>
+        </group>
     </open-files>
 </project-private>
