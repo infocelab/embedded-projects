@@ -282,7 +282,7 @@ public class FirmAccount1 extends javax.swing.JFrame
 
     private void btn_firm_acc_closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_firm_acc_closeActionPerformed
         this.setVisible(false);
-        new Information().setVisible(true);
+        //new Information().setVisible(true);
     }//GEN-LAST:event_btn_firm_acc_closeActionPerformed
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
