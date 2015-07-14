@@ -50,7 +50,6 @@ public class FirmAccount_edit_entry extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         tbx_edit_entry_comment = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
         setResizable(false);
         addFocusListener(new java.awt.event.FocusAdapter() {
