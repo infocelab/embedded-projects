@@ -116,7 +116,6 @@ public class FirmAccount1 extends javax.swing.JFrame
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl_firm_acc_details = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
         setResizable(false);
         addFocusListener(new java.awt.event.FocusAdapter() {

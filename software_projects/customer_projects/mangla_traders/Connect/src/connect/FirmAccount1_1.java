@@ -50,7 +50,6 @@ public class FirmAccount1_1 extends javax.swing.JFrame
         jLabel3 = new javax.swing.JLabel();
         lbl_copyright_6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
         setResizable(false);
         addFocusListener(new java.awt.event.FocusAdapter() {
