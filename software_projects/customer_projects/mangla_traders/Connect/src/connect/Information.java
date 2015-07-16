@@ -1,5 +1,16 @@
 package connect;
 import java.awt.HeadlessException;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.CopyOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -16,6 +27,8 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
 import java.util.Arrays;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Information extends javax.swing.JFrame 
 {
@@ -23,6 +36,7 @@ public class Information extends javax.swing.JFrame
     ResultSet rs = null;
     PreparedStatement pst = null;
     static String user_type=null;
+    private Object FileChooserDemo2;
     
     
     public Information() 
@@ -103,6 +117,7 @@ public class Information extends javax.swing.JFrame
         combobox_borrowers_city = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         lbl_copyright_2 = new javax.swing.JLabel();
+        tbx_borrowers_city_auto_comp = new javax.swing.JTextField();
         tabpane_creditors = new javax.swing.JTabbedPane();
         jDesktopPane4 = new javax.swing.JDesktopPane();
         lbl_creditor_city = new javax.swing.JLabel();
@@ -112,6 +127,7 @@ public class Information extends javax.swing.JFrame
         tbl_creditor_firm_name = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         lbl_copyright_3 = new javax.swing.JLabel();
+        tbx_creditors_city_auto_comp = new javax.swing.JTextField();
         tabpane_search_option = new javax.swing.JTabbedPane();
         lbl_search_option_firm_date1 = new javax.swing.JDesktopPane();
         jLabel9 = new javax.swing.JLabel();
@@ -137,6 +153,13 @@ public class Information extends javax.swing.JFrame
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lbl_copyright_5 = new javax.swing.JLabel();
+        tabpane_user_account2 = new javax.swing.JTabbedPane();
+        jDesktopPane9 = new javax.swing.JDesktopPane();
+        btn_data_backup = new javax.swing.JButton();
+        btn_data_restore = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        lbl_copyright_11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -439,13 +462,17 @@ public class Information extends javax.swing.JFrame
         jScrollPane5.setViewportView(tbl_borrowers_borrower_name);
 
         combobox_borrowers_city.setBackground(new java.awt.Color(204, 204, 255));
-        combobox_borrowers_city.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ALL" }));
         combobox_borrowers_city.setFocusable(false);
         combobox_borrowers_city.setRequestFocusEnabled(false);
         combobox_borrowers_city.setVerifyInputWhenFocusTarget(false);
         combobox_borrowers_city.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 combobox_borrowers_cityItemStateChanged(evt);
+            }
+        });
+        combobox_borrowers_city.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                combobox_borrowers_cityMouseClicked(evt);
             }
         });
         combobox_borrowers_city.addActionListener(new java.awt.event.ActionListener() {
@@ -462,6 +489,18 @@ public class Information extends javax.swing.JFrame
 
         lbl_copyright_2.setText("Copyright to Computronics Lab");
 
+        tbx_borrowers_city_auto_comp.setBackground(new java.awt.Color(204, 204, 255));
+        tbx_borrowers_city_auto_comp.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tbx_borrowers_city_auto_compFocusLost(evt);
+            }
+        });
+        tbx_borrowers_city_auto_comp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbx_borrowers_city_auto_compKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
         jDesktopPane3Layout.setHorizontalGroup(
@@ -475,7 +514,9 @@ public class Information extends javax.swing.JFrame
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(btn_borrowers_add_new_firm, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(combobox_borrowers_city, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(tbx_borrowers_city_auto_comp, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(combobox_borrowers_city, javax.swing.GroupLayout.Alignment.LEADING, 0, 125, Short.MAX_VALUE)))
                 .addContainerGap(428, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -494,7 +535,9 @@ public class Information extends javax.swing.JFrame
                 .addGap(42, 42, 42)
                 .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane3Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(8, 8, 8)
+                        .addComponent(tbx_borrowers_city_auto_comp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_borrowers_city)
                             .addComponent(combobox_borrowers_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -516,6 +559,7 @@ public class Information extends javax.swing.JFrame
         jDesktopPane3.setLayer(combobox_borrowers_city, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane3.setLayer(lbl_copyright_2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane3.setLayer(tbx_borrowers_city_auto_comp, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tabpane_borrowers.addTab("Welcome on Borrowers", jDesktopPane3);
 
@@ -533,7 +577,6 @@ public class Information extends javax.swing.JFrame
         });
 
         combobox_creditors_city.setBackground(new java.awt.Color(204, 204, 255));
-        combobox_creditors_city.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ALL" }));
         combobox_creditors_city.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 combobox_creditors_cityItemStateChanged(evt);
@@ -572,6 +615,13 @@ public class Information extends javax.swing.JFrame
 
         lbl_copyright_3.setText("Copyright to Computronics Lab");
 
+        tbx_creditors_city_auto_comp.setBackground(new java.awt.Color(204, 204, 255));
+        tbx_creditors_city_auto_comp.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbx_creditors_city_auto_compKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jDesktopPane4Layout = new javax.swing.GroupLayout(jDesktopPane4);
         jDesktopPane4.setLayout(jDesktopPane4Layout);
         jDesktopPane4Layout.setHorizontalGroup(
@@ -586,7 +636,8 @@ public class Information extends javax.swing.JFrame
                         .addGap(18, 18, 18)
                         .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_creditor_add_new_firm, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                            .addComponent(combobox_creditors_city, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(combobox_creditors_city, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tbx_creditors_city_auto_comp)))
                     .addGroup(jDesktopPane4Layout.createSequentialGroup()
                         .addGap(321, 321, 321)
                         .addComponent(jLabel5)))
@@ -600,15 +651,19 @@ public class Information extends javax.swing.JFrame
             .addGroup(jDesktopPane4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
                 .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane4Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane4Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(tbx_creditors_city_auto_comp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jDesktopPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(combobox_creditors_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_creditor_city))
                         .addGap(62, 62, 62)
-                        .addComponent(btn_creditor_add_new_firm))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_creditor_add_new_firm)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(lbl_copyright_3))
         );
@@ -618,6 +673,7 @@ public class Information extends javax.swing.JFrame
         jDesktopPane4.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane4.setLayer(lbl_copyright_3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane4.setLayer(tbx_creditors_city_auto_comp, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tabpane_creditors.addTab("Welcome on Creditors", jDesktopPane4);
 
@@ -660,11 +716,11 @@ public class Information extends javax.swing.JFrame
 
             },
             new String [] {
-                "S_No", "Date", "Name", "Credit", "Debit", "Comment"
+                "S_No", "Date", "Name", "Credit", "Debit", "Comment", "Logged By"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -872,6 +928,78 @@ public class Information extends javax.swing.JFrame
 
         jTabbedPane1.addTab("User Account", tabpane_user_account);
 
+        jDesktopPane9.setBackground(new java.awt.Color(204, 204, 255));
+
+        btn_data_backup.setText("Backup Data");
+        btn_data_backup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_data_backupActionPerformed(evt);
+            }
+        });
+
+        btn_data_restore.setText("Restore Data");
+        btn_data_restore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_data_restoreActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("Take Data Backup or Restore old Data");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Mangla Traders");
+        jLabel16.setBorder(new javax.swing.border.MatteBorder(null));
+
+        lbl_copyright_11.setText("Copyright to Computronics Lab");
+
+        javax.swing.GroupLayout jDesktopPane9Layout = new javax.swing.GroupLayout(jDesktopPane9);
+        jDesktopPane9.setLayout(jDesktopPane9Layout);
+        jDesktopPane9Layout.setHorizontalGroup(
+            jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane9Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lbl_copyright_11))
+            .addGroup(jDesktopPane9Layout.createSequentialGroup()
+                .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane9Layout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(jLabel15))
+                    .addGroup(jDesktopPane9Layout.createSequentialGroup()
+                        .addGap(274, 274, 274)
+                        .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane9Layout.createSequentialGroup()
+                                .addComponent(btn_data_backup, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                                .addComponent(btn_data_restore, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(387, 387, 387))
+        );
+        jDesktopPane9Layout.setVerticalGroup(
+            jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane9Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel15)
+                .addGap(29, 29, 29)
+                .addGroup(jDesktopPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_data_restore)
+                    .addComponent(btn_data_backup))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 505, Short.MAX_VALUE)
+                .addComponent(lbl_copyright_11))
+        );
+        jDesktopPane9.setLayer(btn_data_backup, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(btn_data_restore, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(jLabel16, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane9.setLayer(lbl_copyright_11, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        tabpane_user_account2.addTab("Data Backup", jDesktopPane9);
+
+        jTabbedPane1.addTab("Data Backup/Restore", tabpane_user_account2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -885,7 +1013,7 @@ public class Information extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
@@ -898,7 +1026,7 @@ public class Information extends javax.swing.JFrame
     int data_entry_count=1;
     int credit_total=0;
     int debit_total=0;
-    
+    int detect=1;
     private void btn_daily_data_entry_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_daily_data_entry_saveActionPerformed
         String firm_name = cmb_daily_data_entry_firm_name.getSelectedItem().toString();
         String credit  = txt_daily_data_entry_credit.getText();
@@ -1303,7 +1431,8 @@ public class Information extends javax.swing.JFrame
         tbl_search_option.getColumnModel().getColumn(2).setPreferredWidth(150);
         tbl_search_option.getColumnModel().getColumn(3).setPreferredWidth(130);
         tbl_search_option.getColumnModel().getColumn(4).setPreferredWidth(130);
-        tbl_search_option.getColumnModel().getColumn(5).setPreferredWidth(300);
+        tbl_search_option.getColumnModel().getColumn(5).setPreferredWidth(220);
+        tbl_search_option.getColumnModel().getColumn(6).setPreferredWidth(80);
         Calendar cal = Calendar.getInstance();
         cal.setTime(today);
         int year = cal.get(Calendar.YEAR);
@@ -1482,7 +1611,7 @@ public class Information extends javax.swing.JFrame
                     int count=1;
                     do
                     {
-                        Object row[]={count, rs.getString("date"), rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                        Object row[]={count, rs.getString("date"), rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment"),rs.getString("logged_user")};
                         model.addRow(row);
                         count++;
                     }
@@ -1573,6 +1702,8 @@ public class Information extends javax.swing.JFrame
     }//GEN-LAST:event_combobox_creditors_cityActionPerformed
 
     private void combobox_borrowers_cityItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combobox_borrowers_cityItemStateChanged
+        if(detect == 0)
+            return;
         Object city = combobox_borrowers_city.getSelectedItem();
         String sql="";
         if(city.equals("ALL"))
@@ -1611,6 +1742,8 @@ public class Information extends javax.swing.JFrame
     }//GEN-LAST:event_combobox_borrowers_cityItemStateChanged
 
     private void combobox_creditors_cityItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combobox_creditors_cityItemStateChanged
+        if(detect==0)
+            return;
         Object city = combobox_creditors_city.getSelectedItem();
         String sql="";
         if(city.equals("ALL"))
@@ -1680,7 +1813,7 @@ public class Information extends javax.swing.JFrame
                     int count=1;
                     do
                     {
-                        Object row[]={count,rs.getString("date"),  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                        Object row[]={count,rs.getString("date"),  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment"), rs.getString("logged_user")};
                         model.addRow(row);
                         count++;
                     }while(rs.next());
@@ -1815,6 +1948,202 @@ public class Information extends javax.swing.JFrame
         // TODO add your handling code here:
        // JOptionPane.showMessageDialog(null, "OK");
     }//GEN-LAST:event_cmb_daily_data_entry_firm_nameKeyReleased
+
+    private void btn_data_backupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_data_backupActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        int returnVal = fc.showSaveDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) 
+        {   
+            File dir = new File(".");
+ 
+            String source = null;
+            try {
+                source = dir.getCanonicalPath() + File.separator + "mydatabase.sqlite";
+            } catch (IOException ex) {
+                Logger.getLogger(Information.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String dest = fc.getSelectedFile()+".sqlite"; //dir.getCanonicalPath() + File.separator + "Dest.txt";
+ 
+            Path FROM = Paths.get(source);
+            Path TO = Paths.get(dest);
+            CopyOption[] options = new CopyOption[]{
+            StandardCopyOption.REPLACE_EXISTING,
+            StandardCopyOption.COPY_ATTRIBUTES
+            }; 
+            try {
+                java.nio.file.Files.copy(FROM, TO, options);
+            } catch (IOException ex) {
+                Logger.getLogger(Information.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btn_data_backupActionPerformed
+
+    private void btn_data_restoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_data_restoreActionPerformed
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        int returnVal = fc.showSaveDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) 
+        {   
+            File dir = new File(".");
+ 
+            String dest = null;
+            String source = fc.getSelectedFile().toString(); //dir.getCanonicalPath() + File.separator + "Dest.txt";
+            try {
+                dest = dir.getCanonicalPath() + File.separator + "mydatabase.sqlite";
+            } catch (IOException ex) {
+                Logger.getLogger(Information.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            Path FROM = Paths.get(source);
+            Path TO = Paths.get(dest);
+            CopyOption[] options = new CopyOption[]{
+            StandardCopyOption.REPLACE_EXISTING,
+            StandardCopyOption.COPY_ATTRIBUTES
+            }; 
+            try {
+                java.nio.file.Files.copy(FROM, TO, options);
+            } catch (IOException ex) {
+                Logger.getLogger(Information.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btn_data_restoreActionPerformed
+
+    private void tbx_borrowers_city_auto_compKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbx_borrowers_city_auto_compKeyTyped
+        
+        char city = evt.getKeyChar();// tbx_auto_com.getText();
+        
+        String city_name="";
+        
+        if( city == '\b' && tbx_borrowers_city_auto_comp.getText().equals(""))
+        {
+            city_name="%";
+            detect=0;
+        }
+        else
+        {
+            city_name = tbx_borrowers_city_auto_comp.getText() + city;
+        }
+        String sql = "SELECT * FROM firm_account WHERE city LIKE '" + city_name + "%' and user_type='b' ORDER BY LOWER(city)";
+        //sql = "SELECT * FROM firm_account WHERE city='" + city + "' and user_type='b'";
+        String name="";
+        //tbx_auto_com.setText("");
+        combobox_borrowers_city.removeAllItems();
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            { 
+                do
+                {
+                    name = rs.getString("city");
+                    if(((DefaultComboBoxModel)combobox_borrowers_city.getModel()).getIndexOf(name) == -1 ) 
+                    {
+                        combobox_borrowers_city.addItem(name);
+                    }
+                }while(rs.next());
+                
+            }        
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }   
+         detect=1;
+        
+    }//GEN-LAST:event_tbx_borrowers_city_auto_compKeyTyped
+
+    private void tbx_borrowers_city_auto_compFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tbx_borrowers_city_auto_compFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbx_borrowers_city_auto_compFocusLost
+
+    private void combobox_borrowers_cityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combobox_borrowers_cityMouseClicked
+    if(detect == 0)
+            return;
+        Object city = combobox_borrowers_city.getSelectedItem();
+        String sql="";
+        if(city.equals("ALL"))
+        {
+            sql = "SELECT * FROM firm_account WHERE user_type='b'";
+        }
+        else
+        {
+            sql = "SELECT * FROM firm_account WHERE city='" + city + "' and user_type='b'";
+        }
+        
+            
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                DefaultTableModel tbl = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
+                tbl.setRowCount(0); 
+                do
+                {
+                    Object row[]={ rs.getString("firm_name")};
+     
+                    DefaultTableModel model = (DefaultTableModel) tbl_borrowers_borrower_name.getModel();
+                    model.addRow(row);
+                }while(rs.next());
+            }
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
+    }//GEN-LAST:event_combobox_borrowers_cityMouseClicked
+
+    private void tbx_creditors_city_auto_compKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbx_creditors_city_auto_compKeyTyped
+          char city = evt.getKeyChar();// tbx_auto_com.getText();
+        
+        String city_name="";
+        
+        if( city == '\b' && tbx_creditors_city_auto_comp.getText().equals(""))
+        {
+            city_name="%";
+            detect=0;
+        }
+        else
+        {
+            city_name = tbx_creditors_city_auto_comp.getText() + city;
+        }
+        String sql = "SELECT * FROM firm_account WHERE city LIKE '" + city_name + "%' and user_type='c' ORDER BY LOWER(city)";
+        //sql = "SELECT * FROM firm_account WHERE city='" + city + "' and user_type='b'";
+        String name="";
+        //tbx_auto_com.setText("");
+        combobox_creditors_city.removeAllItems();
+        try
+        {
+            conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            { 
+                do
+                {
+                    name = rs.getString("city");
+                    if(((DefaultComboBoxModel)combobox_creditors_city.getModel()).getIndexOf(name) == -1 ) 
+                    {
+                        combobox_creditors_city.addItem(name);
+                    }
+                }while(rs.next());
+                
+            }        
+            conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }   
+        detect=1;
+    }//GEN-LAST:event_tbx_creditors_city_auto_compKeyTyped
   
     public static void main(String args[]) 
     {
@@ -1855,6 +2184,8 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JButton btn_borrowers_add_new_firm;
     private javax.swing.JButton btn_creditor_add_new_firm;
     private javax.swing.JButton btn_daily_data_entry_save;
+    private javax.swing.JButton btn_data_backup;
+    private javax.swing.JButton btn_data_restore;
     private javax.swing.JButton btn_search_option_enter;
     private javax.swing.JComboBox cmb_daily_data_entry_firm_name;
     private javax.swing.JComboBox cmb_search_option_firm_name;
@@ -1864,7 +2195,10 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JDesktopPane jDesktopPane3;
     private javax.swing.JDesktopPane jDesktopPane4;
+    private javax.swing.JDesktopPane jDesktopPane9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1893,6 +2227,7 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JLabel lbl_borrowers_city;
     private javax.swing.JLabel lbl_borrowers_city1;
     private javax.swing.JLabel lbl_copyright_1;
+    private javax.swing.JLabel lbl_copyright_11;
     private javax.swing.JLabel lbl_copyright_2;
     private javax.swing.JLabel lbl_copyright_3;
     private javax.swing.JLabel lbl_copyright_4;
@@ -1919,9 +2254,12 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JTabbedPane tabpane_creditors;
     private javax.swing.JTabbedPane tabpane_search_option;
     private javax.swing.JTabbedPane tabpane_user_account;
+    private javax.swing.JTabbedPane tabpane_user_account2;
     private javax.swing.JTable tbl_borrowers_borrower_name;
     private javax.swing.JTable tbl_creditor_firm_name;
     private javax.swing.JTable tbl_search_option;
+    private javax.swing.JTextField tbx_borrowers_city_auto_comp;
+    private javax.swing.JTextField tbx_creditors_city_auto_comp;
     private javax.swing.JTextField tbx_firm_name_auto_com;
     private javax.swing.JTextField txt1_user_account_user_name;
     private javax.swing.JPasswordField txt2_user_account_password;
