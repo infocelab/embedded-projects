@@ -143,26 +143,32 @@ public class criminal_eyes extends javax.swing.JFrame {
     private void lbl_criminal_eyes_click_eye1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_eyes_click_eye1MouseClicked
      //Image eye = getIconImage();
         criminal_identification.eye_ImageIcon=lbl_criminal_eyes_click_eye1.getIcon();
+        criminal_identification.eye="eye1";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_eyes_click_eye1MouseClicked
 
     private void lbl_criminal_eyes_click_eye2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_eyes_click_eye2MouseClicked
        criminal_identification.eye_ImageIcon=lbl_criminal_eyes_click_eye2.getIcon();
+       criminal_identification.eye="eye2";
         this.setVisible(false);
+        
     }//GEN-LAST:event_lbl_criminal_eyes_click_eye2MouseClicked
 
     private void lbl_criminal_eyes_click_eye3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_eyes_click_eye3MouseClicked
         criminal_identification.eye_ImageIcon=lbl_criminal_eyes_click_eye3.getIcon();
+        criminal_identification.eye="eye3";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_eyes_click_eye3MouseClicked
 
     private void lbl_criminal_eyes_click_eye4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_eyes_click_eye4MouseClicked
        criminal_identification.eye_ImageIcon=lbl_criminal_eyes_click_eye4.getIcon();
-        this.setVisible(false);
+       criminal_identification.eye="eye4"; 
+       this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_eyes_click_eye4MouseClicked
 
     private void lbl_criminal_eyes_click_eye5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_eyes_click_eye5MouseClicked
        criminal_identification.eye_ImageIcon=lbl_criminal_eyes_click_eye5.getIcon();
+       criminal_identification.eye="eye5";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_eyes_click_eye5MouseClicked
 

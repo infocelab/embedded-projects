@@ -16,7 +16,7 @@ public class criminal_hair extends javax.swing.JFrame {
         list_hair.add("/criminal_identification/newpackage/hair/hair1.jpg");
         list_hair.add("/criminal_identification/newpackage/hair/hair2.jpg");
         list_hair.add("/criminal_identification/newpackage/hair/hair3.jpg");
-        list_hair.add("/criminal_identification/newpackage/hair/hair4.png");
+        list_hair.add("/criminal_identification/newpackage/hair/hair4.jpg");
         list_hair.add("/criminal_identification/newpackage/hair/hair5.jpg");
      
 
@@ -139,26 +139,31 @@ public class criminal_hair extends javax.swing.JFrame {
 
     private void lbl_criminal_hair_choose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_hair_choose1MouseClicked
        criminal_identification.hair_ImageIcon=lbl_criminal_hair_choose1.getIcon();
+       criminal_identification.hair="hair1";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_hair_choose1MouseClicked
 
     private void lbl_criminal_hair_choose2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_hair_choose2MouseClicked
         criminal_identification.hair_ImageIcon=lbl_criminal_hair_choose2.getIcon();
+       criminal_identification.hair="hair2";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_hair_choose2MouseClicked
 
     private void lbl_criminal_hair_choose3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_hair_choose3MouseClicked
         criminal_identification.hair_ImageIcon=lbl_criminal_hair_choose3.getIcon();
+        criminal_identification.hair="hair3";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_hair_choose3MouseClicked
 
     private void lbl_criminal_hair_choose4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_hair_choose4MouseClicked
         criminal_identification.hair_ImageIcon=lbl_criminal_hair_choose4.getIcon();
+        criminal_identification.hair="hair4";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_hair_choose4MouseClicked
 
     private void lbl_criminal_hair_choose5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_hair_choose5MouseClicked
         criminal_identification.hair_ImageIcon=lbl_criminal_hair_choose5.getIcon();
+        criminal_identification.hair="hair5";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_hair_choose5MouseClicked
 
