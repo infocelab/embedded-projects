@@ -138,25 +138,30 @@ public class criminal_mouth extends javax.swing.JFrame {
 
     private void lbl_criminal_mouth_choose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_mouth_choose1MouseClicked
         criminal_identification.mouth_ImageIcon=lbl_criminal_mouth_choose1.getIcon();
+        criminal_identification.mouth="mouth1";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_mouth_choose1MouseClicked
 
     private void lbl_criminal_mouth_choose2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_mouth_choose2MouseClicked
         criminal_identification.mouth_ImageIcon=lbl_criminal_mouth_choose2.getIcon();
+        criminal_identification.mouth="mouth2";
         this.setVisible(false);    }//GEN-LAST:event_lbl_criminal_mouth_choose2MouseClicked
 
     private void lbl_criminal_mouth_choose3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_mouth_choose3MouseClicked
         criminal_identification.mouth_ImageIcon=lbl_criminal_mouth_choose3.getIcon();
+        criminal_identification.mouth="mouth3";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_mouth_choose3MouseClicked
 
     private void lbl_criminal_mouth_choose4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_mouth_choose4MouseClicked
         criminal_identification.mouth_ImageIcon=lbl_criminal_mouth_choose4.getIcon();
+        criminal_identification.mouth="mouth4";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_mouth_choose4MouseClicked
 
     private void lbl_criminal_mouth_choose5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_mouth_choose5MouseClicked
        criminal_identification.mouth_ImageIcon=lbl_criminal_mouth_choose5.getIcon();
+       criminal_identification.mouth="mouth5";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_mouth_choose5MouseClicked
 

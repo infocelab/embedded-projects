@@ -137,26 +137,31 @@ public class criminal_nose extends javax.swing.JFrame {
 
     private void lbl_criminal_nose_choose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_nose_choose1MouseClicked
      criminal_identification.nose_ImageIcon=lbl_criminal_nose_choose1.getIcon();
+     criminal_identification.nose="nose1";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_nose_choose1MouseClicked
 
     private void lbl_criminal_nose_choose2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_nose_choose2MouseClicked
       criminal_identification.nose_ImageIcon=lbl_criminal_nose_choose2.getIcon();
+      criminal_identification.nose="nose2";
         this.setVisible(false); 
     }//GEN-LAST:event_lbl_criminal_nose_choose2MouseClicked
 
     private void lbl_criminal_nose_choose3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_nose_choose3MouseClicked
        criminal_identification.nose_ImageIcon=lbl_criminal_nose_choose3.getIcon();
+       criminal_identification.nose="nose3";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_nose_choose3MouseClicked
 
     private void lbl_criminal_nose_choose4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_nose_choose4MouseClicked
        criminal_identification.nose_ImageIcon=lbl_criminal_nose_choose4.getIcon();
+       criminal_identification.nose="nose4";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_nose_choose4MouseClicked
 
     private void lbl_criminal_nose_choose5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_criminal_nose_choose5MouseClicked
         criminal_identification.nose_ImageIcon=lbl_criminal_nose_choose5.getIcon();
+        criminal_identification.nose="nose5";
         this.setVisible(false);
     }//GEN-LAST:event_lbl_criminal_nose_choose5MouseClicked
 

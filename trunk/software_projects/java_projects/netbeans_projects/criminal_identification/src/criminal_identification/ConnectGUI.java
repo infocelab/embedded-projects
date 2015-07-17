@@ -1,4 +1,6 @@
-package connect;
+
+package criminal_identification;
+
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -9,17 +11,16 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
 
-public class ConnectGUI extends javax.swing.JFrame 
-{
+
+public class ConnectGUI extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
     static String logged_user = null;
-    public ConnectGUI() 
-    {
-        initComponents(); 
-        this.getRootPane().setDefaultButton(btn_login);
-    }
+    public ConnectGUI() {
+       initComponents();
+       this.getRootPane().setDefaultButton(btn_login);
+        
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -33,7 +34,6 @@ public class ConnectGUI extends javax.swing.JFrame
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(204, 204, 255));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -81,7 +81,7 @@ public class ConnectGUI extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(jLabel3)))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,31 +104,24 @@ public class ConnectGUI extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        conn = Connect.ConnectDB();
-        getContentPane().setBackground(Color.getHSBColor(120,130,216));
-       
-    }//GEN-LAST:event_formWindowOpened
-
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        //new Information().setVisible(true);
         
         String username = tbx_username.getText();
         logged_user="";
         String password = tbx_password.getText();
         if(username.equals(""))
         {
-           JOptionPane.showMessageDialog(null, "Username cannot be Empty"); 
-           return;
+            JOptionPane.showMessageDialog(null, "Username cannot be Empty");
+            return;
         }
         if(password.equals(""))
         {
-           JOptionPane.showMessageDialog(null, "Password cannot be Empty");
-           return;
-        }   
+            JOptionPane.showMessageDialog(null, "Password cannot be Empty");
+            return;
+        }
         String sql ;
         sql = "select * from tableUSERPASS where username='" + username +
-              "' and password='" + password + "'";
+        "' and password='" + password + "'";
         try
         {
             pst = conn.prepareStatement(sql);
@@ -138,18 +131,23 @@ public class ConnectGUI extends javax.swing.JFrame
                 logged_user = username;
                 conn.close();
                 this.setVisible(false);
-                new Information().setVisible(true);
+                new criminal_identification().setVisible(true);
             }
             else
             {
-                JOptionPane.showMessageDialog(null, "Login ERROR");   
+                JOptionPane.showMessageDialog(null, "Login ERROR");
             }
         }
         catch(SQLException | HeadlessException e)
         {
-          JOptionPane.showMessageDialog(null, e);          
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btn_loginActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       conn = Connect.ConnectDB();
+        getContentPane().setBackground(Color.getHSBColor(120,130,216));
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -194,4 +192,7 @@ public class ConnectGUI extends javax.swing.JFrame
     private javax.swing.JPasswordField tbx_password;
     private javax.swing.JTextField tbx_username;
     // End of variables declaration//GEN-END:variables
+
+    
+   
 }
