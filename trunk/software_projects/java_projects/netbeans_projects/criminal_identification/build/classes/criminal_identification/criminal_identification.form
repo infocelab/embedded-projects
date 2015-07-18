@@ -44,8 +44,6 @@
                       <Component id="lbl_criminal_iden_set_hair" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                      <Component id="btn_criminal_iden_match" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbl_criminal_iden_set_eye" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -63,8 +61,8 @@
               <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-              <Component id="lbl_criminal_iden_match_result" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
+              <Component id="btn_criminal_iden_match" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -82,19 +80,14 @@
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Component id="lbl_criminal_iden_set_hair" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="lbl_criminal_iden_set_eye" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbl_criminal_iden_set_nose" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="btn_criminal_iden_match" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="lbl_criminal_iden_set_eye" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lbl_criminal_iden_set_nose" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lbl_criminal_iden_set_mouth" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Component id="lbl_criminal_iden_match_result" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="285" max="32767" attributes="0"/>
+              <EmptySpace pref="277" max="32767" attributes="0"/>
+              <Component id="btn_criminal_iden_match" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -148,11 +141,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_criminal_iden_set_hair">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lbl_criminal_iden_match_result">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
