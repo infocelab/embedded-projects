@@ -42,7 +42,7 @@ public class MainFrame extends JApplet implements KeyListener{
         // TODO code application logic here
         MainFrame my_Game=new MainFrame();
         JFrame myFrame=new JFrame(" Simple Snake Game ");
-        myFrame.setSize(300,300);
+        myFrame.setSize(800,500);
         myFrame.getContentPane().add(my_Game);
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myFrame.addKeyListener(my_Game);

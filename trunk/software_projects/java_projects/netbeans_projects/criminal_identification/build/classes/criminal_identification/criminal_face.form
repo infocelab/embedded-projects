@@ -3,6 +3,9 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="a4" green="c9" red="7f" type="rgb"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -36,19 +39,12 @@
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                              <Component id="txt_criminal_face_name" min="-2" pref="91" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txt_criminal_face_age" min="-2" pref="91" max="-2" attributes="0"/>
-                                  <Component id="txt_criminal_face_address" alignment="1" min="-2" pref="91" max="-2" attributes="0"/>
-                                  <Component id="txt_criminal_face_crime" min="-2" pref="91" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="txt_criminal_face_name" min="-2" pref="91" max="-2" attributes="0"/>
+                          <Component id="txt_criminal_face_age" min="-2" pref="91" max="-2" attributes="0"/>
+                          <Component id="txt_criminal_face_address" alignment="1" min="-2" pref="91" max="-2" attributes="0"/>
+                          <Component id="txt_criminal_face_crime" min="-2" pref="91" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="lbl_criminal_iden_match_result" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -82,9 +78,9 @@
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="txt_criminal_face_crime" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btn_criminal_face_ok" min="-2" max="-2" attributes="0"/>
@@ -128,12 +124,32 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_criminal_face_name">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="c5" green="c5" red="8b" type="rgb"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_criminal_face_age">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="c5" green="c5" red="8b" type="rgb"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_criminal_face_address">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="c5" green="c5" red="8b" type="rgb"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_criminal_face_crime">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="c5" green="c5" red="8b" type="rgb"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
