@@ -51,8 +51,8 @@ public class snake {
                 return true;
             }
         }
-        if(headX<0||headX>260||headY<0||headY>260) {
-            
+        if(headX<0||headX>760||headY<0||headY>460) {
+           
             return true;
         }
         

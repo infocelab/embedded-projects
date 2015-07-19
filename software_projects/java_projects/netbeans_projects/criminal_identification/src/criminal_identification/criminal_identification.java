@@ -17,14 +17,14 @@ public static Icon eye_ImageIcon=null;
 public static Icon nose_ImageIcon=null;
 public static Icon mouth_ImageIcon=null;
 public static Icon hair_ImageIcon=null;
-public static Icon face_ImageIcon=null;
-  List list_face = new ArrayList();
- static String criminal_details_temp="";
+List list_face = new ArrayList();
+ 
 
 public static String eye="";
 public static String hair="";
 public static String nose="";
 public static String mouth="";
+public static String face="";
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
@@ -50,6 +50,7 @@ public static String mouth="";
         btn_criminal_iden_match = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(127, 201, 164));
         setPreferredSize(new java.awt.Dimension(735, 502));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -197,7 +198,7 @@ public static String mouth="";
     }//GEN-LAST:event_btn_criminal_iden_search_by_hairActionPerformed
 
     private void btn_criminal_iden_matchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_criminal_iden_matchActionPerformed
-    //criminal_details_temp=list_face.toString();
+    
         new criminal_face().setVisible(true);
         
       
