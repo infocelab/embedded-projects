@@ -225,6 +225,9 @@ public class Information extends javax.swing.JFrame
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 table_daily_data_entryMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                table_daily_data_entryMouseEntered(evt);
+            }
         });
         jScrollPane1.setViewportView(table_daily_data_entry);
         if (table_daily_data_entry.getColumnModel().getColumnCount() > 0) {
@@ -730,6 +733,9 @@ public class Information extends javax.swing.JFrame
         tbl_search_option.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbl_search_optionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tbl_search_optionMouseEntered(evt);
             }
         });
         jScrollPane10.setViewportView(tbl_search_option);
@@ -1980,6 +1986,13 @@ public class Information extends javax.swing.JFrame
     }//GEN-LAST:event_btn_data_backupActionPerformed
 
     private void btn_data_restoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_data_restoreActionPerformed
+
+        if(!ConnectGUI.logged_user.equals("admin"))
+        {
+             JOptionPane.showMessageDialog(null, "Only Admin can restore the Data");
+             return;
+        
+        }
         JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         int returnVal = fc.showSaveDialog(null);
@@ -2144,6 +2157,37 @@ public class Information extends javax.swing.JFrame
         }   
         detect=1;
     }//GEN-LAST:event_tbx_creditors_city_auto_compKeyTyped
+
+    private void table_daily_data_entryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_daily_data_entryMouseEntered
+        String tip = null;
+        java.awt.Point p = evt.getPoint();
+        int rowIndex = table_daily_data_entry.rowAtPoint(p);
+          
+        try {
+            tip = table_daily_data_entry.getValueAt(rowIndex, 4).toString();
+            table_daily_data_entry.setToolTipText(tip);
+                    
+        } 
+        catch (RuntimeException e1) {
+                    //catch null pointer exception if mouse is over an empty line
+                }
+
+    }//GEN-LAST:event_table_daily_data_entryMouseEntered
+
+    private void tbl_search_optionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_search_optionMouseEntered
+         String tip = null;
+        java.awt.Point p = evt.getPoint();
+        int rowIndex = tbl_search_option.rowAtPoint(p);
+          
+        try {
+            tip = tbl_search_option.getValueAt(rowIndex, 5).toString();
+            tbl_search_option.setToolTipText(tip);
+                    
+        } 
+        catch (RuntimeException e1) {
+                    //catch null pointer exception if mouse is over an empty line
+                }
+    }//GEN-LAST:event_tbl_search_optionMouseEntered
   
     public static void main(String args[]) 
     {
