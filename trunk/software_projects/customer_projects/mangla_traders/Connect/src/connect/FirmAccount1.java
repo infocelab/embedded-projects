@@ -20,6 +20,7 @@ public class FirmAccount1 extends javax.swing.JFrame
     public FirmAccount1() 
     {    
         initComponents();
+        conn =  ConnectGUI.conn;
         lbl_copyright_6.setText("Copyright@Computronics Lab");
         
         if(showFirmAccount==1)
@@ -30,7 +31,7 @@ public class FirmAccount1 extends javax.swing.JFrame
             model_t.setRowCount(0);
             try
             {
-                conn = Connect.ConnectDB();
+                //conn = Connect.ConnectDB();
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery();
                 if(rs.next())
@@ -44,7 +45,7 @@ public class FirmAccount1 extends javax.swing.JFrame
                         count++;
                     }while(rs.next());
                 }
-                conn.close();
+                //conn.close();
             }
             catch(SQLException | HeadlessException e)
             {
@@ -56,7 +57,7 @@ public class FirmAccount1 extends javax.swing.JFrame
             
             try
             {
-                conn = Connect.ConnectDB();
+                //conn = Connect.ConnectDB();
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery();
                 if(rs.next())
@@ -67,7 +68,7 @@ public class FirmAccount1 extends javax.swing.JFrame
                     tbx_firm_acc_city.setText(rs.getString("city"));
                     tbx_firm_acc_mobile_no.setText(rs.getString("mobile_number"));
                 }
-                conn.close();
+                //conn.close();
             }
             catch(SQLException | HeadlessException e)
             {

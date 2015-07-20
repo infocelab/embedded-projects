@@ -20,11 +20,13 @@ public class FirmAccount_edit_entry extends javax.swing.JFrame
     public FirmAccount_edit_entry() 
     {    
         initComponents();
+        conn =  ConnectGUI.conn;
         lbl_copyright_6.setText("Copyright@Computronics Lab");
         tbx_edit_entry_firm_name.setText(Information.firm_name_temp);
         tbx_edit_entry_credit.setText(Information.credit_temp);
         tbx_edit_entry_debit.setText(Information.debit_temp);
         tbx_edit_entry_comment.setText(Information.comment_temp);
+        lbl_edit_entry_date.setText(Information.date_temp);
     }
 
     /**
@@ -49,6 +51,7 @@ public class FirmAccount_edit_entry extends javax.swing.JFrame
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbx_edit_entry_comment = new javax.swing.JTextArea();
+        lbl_edit_entry_date = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setResizable(false);
@@ -105,6 +108,8 @@ public class FirmAccount_edit_entry extends javax.swing.JFrame
         tbx_edit_entry_comment.setRows(5);
         jScrollPane1.setViewportView(tbx_edit_entry_comment);
 
+        lbl_edit_entry_date.setText("date");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,37 +126,36 @@ public class FirmAccount_edit_entry extends javax.swing.JFrame
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_edit_entry_update)
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(tbx_edit_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addComponent(btn_firm_acc_close))))
+                                .addComponent(jLabel4)
+                                .addGap(31, 31, 31))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_firm_acc_firm_name)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(31, 31, 31))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(31, 31, 31)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tbx_edit_entry_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tbx_edit_entry_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))))
-                .addContainerGap(240, Short.MAX_VALUE))
+                                    .addComponent(lbl_edit_entry_date)
+                                    .addComponent(jLabel1))
+                                .addGap(30, 30, 30)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tbx_edit_entry_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btn_edit_entry_update)
+                                            .addGap(42, 42, 42)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabel2)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(tbx_edit_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(9, 9, 9)
+                                                    .addComponent(btn_firm_acc_close))))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lbl_firm_acc_firm_name)
+                                            .addGap(140, 140, 140)))
+                                    .addComponent(tbx_edit_entry_firm_name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,8 +165,9 @@ public class FirmAccount_edit_entry extends javax.swing.JFrame
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_firm_acc_firm_name)
-                    .addComponent(tbx_edit_entry_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(tbx_edit_entry_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_edit_entry_date))
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tbx_edit_entry_credit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,7 +177,7 @@ public class FirmAccount_edit_entry extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_edit_entry_update)
                     .addComponent(btn_firm_acc_close))
@@ -236,17 +241,18 @@ public class FirmAccount_edit_entry extends javax.swing.JFrame
         sql = "Update table_daily_data_entry set credit='" + credit + "',debit='" + debit + "', comment='" + comment + "'where rowid="+ Information.edit_rowid;
         try
         {
-           conn = Connect.ConnectDB();
+          // conn = Connect.ConnectDB();
            pst = conn.prepareStatement(sql);
            pst.executeUpdate();
-           //JOptionPane.showMessageDialog(null, "Update Success");
+           JOptionPane.showMessageDialog(null, "Update Success");
            
-           conn.close();
+           //conn.close();
            this.setVisible(false);
            new Information().setVisible(true);
         }
         catch(SQLException | HeadlessException e)
         {
+            
           JOptionPane.showMessageDialog(null, e);          
         }
         
@@ -315,6 +321,7 @@ public class FirmAccount_edit_entry extends javax.swing.JFrame
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_copyright_6;
+    private javax.swing.JLabel lbl_edit_entry_date;
     private javax.swing.JLabel lbl_firm_acc_firm_name;
     private javax.swing.JTextArea tbx_edit_entry_comment;
     private javax.swing.JTextField tbx_edit_entry_credit;

@@ -20,6 +20,7 @@ public class FirmAccount1_1 extends javax.swing.JFrame
     public FirmAccount1_1() 
     {    
         initComponents();
+        conn =  ConnectGUI.conn;
         lbl_copyright_6.setText("Copyright@Computronics Lab");
         
      
@@ -246,7 +247,7 @@ public class FirmAccount1_1 extends javax.swing.JFrame
         
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             pst.executeUpdate();
         
@@ -256,7 +257,7 @@ public class FirmAccount1_1 extends javax.swing.JFrame
             txtarea_firm_account_address.setText("");
             tbx_firm_acc_contact_name.setText("");
             tbx_firm_acc_mobile_no.setText("");
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {

@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class ConnectGUI extends javax.swing.JFrame 
 {
-    Connection conn = null;
+    public static Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
     static String logged_user = null;
@@ -139,7 +139,7 @@ public class ConnectGUI extends javax.swing.JFrame
             if(rs.next())
             {
                 logged_user = username;
-                conn.close();
+                //conn.close();
                 this.setVisible(false);
                 new Information().setVisible(true);
             }
