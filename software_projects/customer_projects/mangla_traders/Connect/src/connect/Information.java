@@ -1,12 +1,7 @@
 package connect;
 import java.awt.HeadlessException;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.CopyOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,15 +15,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
-import java.util.Arrays;
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Information extends javax.swing.JFrame 
 {
@@ -36,8 +27,6 @@ public class Information extends javax.swing.JFrame
     ResultSet rs = null;
     PreparedStatement pst = null;
     static String user_type=null;
-    private Object FileChooserDemo2;
-    
     
     public Information() 
     {
@@ -48,25 +37,8 @@ public class Information extends javax.swing.JFrame
         lbl_copyright_4.setText("Copyright@Computronics Lab");
         lbl_copyright_5.setText("Copyright@Computronics Lab");
         this.setResizable(false);
-        /*if(user_type != null)
-        {
-            if(user_type.equals("b"))
-            {
-                this.jTabbedPane1.setSelectedIndex(1);
-                user_type=null;
-            }
-            else if(user_type.equals("c"))
-            {
-                this.jTabbedPane1.setSelectedIndex(2);
-                user_type=null;
-            }
-            else if(user_type.equals("s")) // come back to search option tab
-            {
-                this.jTabbedPane1.setSelectedIndex(3);
-                user_type=null;
-            }
-        }
-        */
+        conn =  ConnectGUI.conn;
+    
     }
 
     @SuppressWarnings("unchecked")
@@ -107,6 +79,8 @@ public class Information extends javax.swing.JFrame
         jScrollPane3 = new javax.swing.JScrollPane();
         table_daily_data_entry_total = new javax.swing.JTable();
         tbx_firm_name_auto_com = new javax.swing.JTextField();
+        btn_data_entry_back_date_bw = new javax.swing.JButton();
+        btn_data_entry_today = new javax.swing.JButton();
         tabpane_borrowers = new javax.swing.JTabbedPane();
         jDesktopPane3 = new javax.swing.JDesktopPane();
         lbl_borrowers_city = new javax.swing.JLabel();
@@ -312,6 +286,20 @@ public class Information extends javax.swing.JFrame
             }
         });
 
+        btn_data_entry_back_date_bw.setText("<");
+        btn_data_entry_back_date_bw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_data_entry_back_date_bwActionPerformed(evt);
+            }
+        });
+
+        btn_data_entry_today.setText("Today");
+        btn_data_entry_today.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_data_entry_todayActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
@@ -341,9 +329,13 @@ public class Information extends javax.swing.JFrame
                                                 .addComponent(txt_daily_data_entry_debit, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(lbl_daily_data_entry_debit)))
                                         .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                            .addComponent(btn_data_entry_back_date_bw)
+                                            .addGap(28, 28, 28)
                                             .addComponent(lbl_daily_data_entry_date)
-                                            .addGap(35, 35, 35)
-                                            .addComponent(lbl_data_entry_date1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(lbl_data_entry_date1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btn_data_entry_today)))
                                     .addGap(62, 62, 62))
                                 .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                     .addComponent(btn_daily_data_entry_save, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -376,7 +368,9 @@ public class Information extends javax.swing.JFrame
                     .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbl_daily_data_entry_date)
                         .addComponent(lbl_data_entry_date1)
-                        .addComponent(lbl_daily_data_entry_logged_user, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbl_daily_data_entry_logged_user, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_data_entry_back_date_bw)
+                        .addComponent(btn_data_entry_today)))
                 .addGap(43, 43, 43)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_daily_data_entry_firm_name)
@@ -420,6 +414,8 @@ public class Information extends javax.swing.JFrame
         jDesktopPane1.setLayer(lbl_copyright_1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(tbx_firm_name_auto_com, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(btn_data_entry_back_date_bw, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(btn_data_entry_today, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tabpan_daily_data_entry.addTab("Welcome on Daily Data Entry", jDesktopPane1);
 
@@ -1090,10 +1086,7 @@ public class Information extends javax.swing.JFrame
         Object row[]={data_entry_count, firm_name, credit, debit, comment};
         data_entry_count = data_entry_count + 1;
 
-        Date today = new Date();
-        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
-        String date = DATE_FORMAT.format(today);
-        lbl_data_entry_date1.setText(date);
+        String date = lbl_data_entry_date1.getText();
         String log = ConnectGUI.logged_user;
         
         String sql;
@@ -1101,20 +1094,21 @@ public class Information extends javax.swing.JFrame
             
         try
         {
-           conn = Connect.ConnectDB();
+           //conn = Connect.ConnectDB();
            pst = conn.prepareStatement(sql);
            pst.executeUpdate();
         
            //cmb_daily_data_entry_firm_name.setSelectedIndex(0);
 
            
-           conn.close();
+           //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
           JOptionPane.showMessageDialog(null, e);          
         }
         
+       
         DefaultTableModel model = (DefaultTableModel) table_daily_data_entry.getModel();
         model.addRow(row);
         
@@ -1186,7 +1180,7 @@ public class Information extends javax.swing.JFrame
         sql = "SELECT * FROM firm_account";
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1239,7 +1233,7 @@ public class Information extends javax.swing.JFrame
                 */
             }
         
-            conn.close();
+            //conn.close();
             
             
             
@@ -1269,7 +1263,7 @@ public class Information extends javax.swing.JFrame
         model_t.setRowCount(0);
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1307,7 +1301,7 @@ public class Information extends javax.swing.JFrame
                 data_entry_count = count;
             }
         
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1321,7 +1315,7 @@ public class Information extends javax.swing.JFrame
         tbl.setRowCount(0);
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1340,7 +1334,7 @@ public class Information extends javax.swing.JFrame
                     count++;
                 }while(rs.next());
            }
-           conn.close();
+           //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1351,7 +1345,7 @@ public class Information extends javax.swing.JFrame
         sql = "SELECT * FROM firm_account WHERE user_type='c' ORDER BY LOWER(city)";
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1365,7 +1359,7 @@ public class Information extends javax.swing.JFrame
                     }
                 }while(rs.next());
            }
-           conn.close();
+           //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1379,7 +1373,7 @@ public class Information extends javax.swing.JFrame
         tbl_c.setRowCount(0);
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1397,7 +1391,7 @@ public class Information extends javax.swing.JFrame
                     }
                 }while(rs.next());
             }
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1408,7 +1402,7 @@ public class Information extends javax.swing.JFrame
         sql = "SELECT * FROM firm_account WHERE user_type='c' ORDER BY LOWER(city)";
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1422,7 +1416,7 @@ public class Information extends javax.swing.JFrame
                     }
                 }while(rs.next());
             }
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1451,7 +1445,7 @@ public class Information extends javax.swing.JFrame
             
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1465,7 +1459,7 @@ public class Information extends javax.swing.JFrame
                     }
                 }while(rs.next());
             }
-           conn.close();
+           //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1505,7 +1499,7 @@ public class Information extends javax.swing.JFrame
             
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             pst.executeUpdate();
         
@@ -1513,7 +1507,7 @@ public class Information extends javax.swing.JFrame
             txt1_user_account_user_name.setText("");
             txt2_user_account_password.setText("");
         
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1536,7 +1530,7 @@ public class Information extends javax.swing.JFrame
           
         String sql;
         sql = "select * from tableUSERPASS where username='" +  username + "'";
-        conn = Connect.ConnectDB();
+        //conn = Connect.ConnectDB();
         try 
         {
             pst = conn.prepareStatement(sql);
@@ -1544,10 +1538,10 @@ public class Information extends javax.swing.JFrame
             if(!rs.next())
             {
                 JOptionPane.showMessageDialog(null, "Please Enter Valid User name to Delete");
-                conn.close();
+                //conn.close();
                 return;
             } 
-            conn.close();
+            //conn.close();
         } 
         catch (SQLException ex) 
         {
@@ -1558,14 +1552,14 @@ public class Information extends javax.swing.JFrame
         sql = "delete from tableUSERPASS where username='" +  username + "'";
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             pst.executeUpdate();
         
             JOptionPane.showMessageDialog(null, "Delete successful");
             txt1_user_account_user_name.setText("");
             txt2_user_account_password.setText("");
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1609,7 +1603,7 @@ public class Information extends javax.swing.JFrame
             
             try
             {
-                conn = Connect.ConnectDB();
+                //conn = Connect.ConnectDB();
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery();
                 if(rs.next())
@@ -1623,7 +1617,7 @@ public class Information extends javax.swing.JFrame
                     }
                     while(rs.next());
                 } 
-                conn.close();
+                //conn.close();
             }
             catch(SQLException | HeadlessException e)
             {
@@ -1643,6 +1637,7 @@ public class Information extends javax.swing.JFrame
     static String credit_temp= "";
     static String debit_temp= "";
     static String comment_temp= "";
+    static String date_temp= "";
     static String edit_rowid= "";
 
     private void tbl_borrowers_borrower_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_borrowers_borrower_nameMouseClicked
@@ -1652,7 +1647,7 @@ public class Information extends javax.swing.JFrame
         user_type="b";    
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1662,7 +1657,7 @@ public class Information extends javax.swing.JFrame
                 //this.setVisible(false);
                 new FirmAccount1().setVisible(true);
             }        
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1685,7 +1680,7 @@ public class Information extends javax.swing.JFrame
         user_type="c"; 
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1695,7 +1690,7 @@ public class Information extends javax.swing.JFrame
                 //this.setVisible(false);
                 new FirmAccount1().setVisible(true);
             }
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1724,7 +1719,7 @@ public class Information extends javax.swing.JFrame
             
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1739,7 +1734,7 @@ public class Information extends javax.swing.JFrame
                     model.addRow(row);
                 }while(rs.next());
             }
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1763,7 +1758,7 @@ public class Information extends javax.swing.JFrame
     
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1777,7 +1772,7 @@ public class Information extends javax.swing.JFrame
                     model.addRow(row);
                 }while(rs.next());
             }
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1811,7 +1806,7 @@ public class Information extends javax.swing.JFrame
             sql = "SELECT * FROM table_daily_data_entry where firm_name ='" +firm_name+ "'";            
             try
             {
-                conn = Connect.ConnectDB();
+                //conn = Connect.ConnectDB();
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery();
                 if(rs.next())
@@ -1824,7 +1819,7 @@ public class Information extends javax.swing.JFrame
                         count++;
                     }while(rs.next());
                 }    
-                conn.close();
+                //conn.close();
             }
             catch(SQLException | HeadlessException e)
             {
@@ -1860,7 +1855,7 @@ public class Information extends javax.swing.JFrame
         user_type="s";    
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1870,7 +1865,7 @@ public class Information extends javax.swing.JFrame
                 //this.setVisible(false);
                 new FirmAccount1().setVisible(true);
             }        
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1884,11 +1879,12 @@ public class Information extends javax.swing.JFrame
         credit_temp =(String) table_daily_data_entry.getValueAt(row, 2);
         debit_temp =(String) table_daily_data_entry.getValueAt(row, 3);
         comment_temp =(String) table_daily_data_entry.getValueAt(row, 4);
-      
-        String sql = "SELECT * FROM table_daily_data_entry WHERE firm_name='" + firm_name + "' and credit='" + credit_temp + "' and debit='" + debit_temp + "'";
+        date_temp = lbl_data_entry_date1.getText();
+        
+        String sql = "SELECT * FROM table_daily_data_entry WHERE firm_name='" + firm_name + "' and credit='" + credit_temp + "' and debit='" + debit_temp + "' and date='" + date_temp + "'";
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1897,10 +1893,11 @@ public class Information extends javax.swing.JFrame
                 firm_name_temp = firm_name;
                 edit_rowid = rs.getString("s_no");
                 //JOptionPane.showMessageDialog(null, edit_rowid); 
+                //conn.close();
                 this.setVisible(false);
                 new FirmAccount_edit_entry().setVisible(true);
             }        
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -1928,7 +1925,7 @@ public class Information extends javax.swing.JFrame
         cmb_daily_data_entry_firm_name.removeAllItems();
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -1942,7 +1939,7 @@ public class Information extends javax.swing.JFrame
                     }
                 }while(rs.next());
             }        
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -2044,7 +2041,7 @@ public class Information extends javax.swing.JFrame
         combobox_borrowers_city.removeAllItems();
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -2059,7 +2056,7 @@ public class Information extends javax.swing.JFrame
                 }while(rs.next());
                 
             }        
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -2090,7 +2087,7 @@ public class Information extends javax.swing.JFrame
             
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -2105,7 +2102,7 @@ public class Information extends javax.swing.JFrame
                     model.addRow(row);
                 }while(rs.next());
             }
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -2134,7 +2131,7 @@ public class Information extends javax.swing.JFrame
         combobox_creditors_city.removeAllItems();
         try
         {
-            conn = Connect.ConnectDB();
+            //conn = Connect.ConnectDB();
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if(rs.next())
@@ -2149,7 +2146,7 @@ public class Information extends javax.swing.JFrame
                 }while(rs.next());
                 
             }        
-            conn.close();
+            //conn.close();
         }
         catch(SQLException | HeadlessException e)
         {
@@ -2188,6 +2185,150 @@ public class Information extends javax.swing.JFrame
                     //catch null pointer exception if mouse is over an empty line
                 }
     }//GEN-LAST:event_tbl_search_optionMouseEntered
+    public static int back_day=0;
+    public static int back_month=0;
+    public static int back_year=0;
+    private void btn_data_entry_back_date_bwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_data_entry_back_date_bwActionPerformed
+        back_day++;
+     
+        Date today = new Date();
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+        
+        Calendar cal1 = Calendar.getInstance();
+        cal1.setTime(today);
+        int year = cal1.get(Calendar.YEAR);
+        int month = cal1.get(Calendar.MONTH) + 1;
+        int day = cal1.get(Calendar.DAY_OF_MONTH) - back_day;
+        if(day <= 0)
+            return;
+        
+        String dd="";
+        String mon;
+        mon = "";
+        if( day < 10 )
+        {
+            dd="0";
+        }
+        
+        if( month < 10 )
+        {
+            mon="0";
+        }
+        String anydate= dd + day + "-" + mon + month + "-" + year;
+        lbl_data_entry_date1.setText(anydate);
+        
+        
+        String sql = "SELECT * FROM table_daily_data_entry where date ='" +anydate+ "'";
+        DefaultTableModel model_t = (DefaultTableModel) table_daily_data_entry.getModel();
+        model_t.setRowCount(0);
+        try
+        {
+            //conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                credit_total=0;
+                debit_total=0;
+                int count=1;
+                do
+                {
+                    Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                    
+                
+                    if(!rs.getString("credit").equals(""))
+                    {
+                        credit_total += Integer.parseInt(rs.getString("credit"));
+                    }
+                    if(!rs.getString("debit").equals(""))
+                    {
+                        debit_total += Integer.parseInt(rs.getString("debit"));
+                    }
+                   
+                    model_t.addRow(row);
+                             
+                    count++;
+                    
+                    DefaultTableModel model_total = (DefaultTableModel) table_daily_data_entry_total.getModel();
+                    model_total.setRowCount(0);
+                    Object row_t[]={"","" , String.valueOf(credit_total),String.valueOf(debit_total),String.valueOf(credit_total - debit_total)};
+                    
+                    model_total.addRow(row_t);
+                 
+                }while(rs.next());
+                
+                
+                data_entry_count = count;
+            }
+        
+            //conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
+   
+        
+    }//GEN-LAST:event_btn_data_entry_back_date_bwActionPerformed
+
+    private void btn_data_entry_todayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_data_entry_todayActionPerformed
+        // TODO add your handling code here:
+        Date today = new Date();
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+        String date = DATE_FORMAT.format(today);
+        lbl_data_entry_date1.setText(date);
+        back_day=0;
+        
+          String sql = "SELECT * FROM table_daily_data_entry where date ='" +date+ "'";
+        DefaultTableModel model_t = (DefaultTableModel) table_daily_data_entry.getModel();
+        model_t.setRowCount(0);
+        try
+        {
+            //conn = Connect.ConnectDB();
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                credit_total=0;
+                debit_total=0;
+                int count=1;
+                do
+                {
+                    Object row[]={count,  rs.getString("firm_name"), rs.getString("credit"), rs.getString("debit"), rs.getString("comment")};
+                    
+                
+                    if(!rs.getString("credit").equals(""))
+                    {
+                        credit_total += Integer.parseInt(rs.getString("credit"));
+                    }
+                    if(!rs.getString("debit").equals(""))
+                    {
+                        debit_total += Integer.parseInt(rs.getString("debit"));
+                    }
+                   
+                    model_t.addRow(row);
+                             
+                    count++;
+                    
+                    DefaultTableModel model_total = (DefaultTableModel) table_daily_data_entry_total.getModel();
+                    model_total.setRowCount(0);
+                    Object row_t[]={"","" , String.valueOf(credit_total),String.valueOf(debit_total),String.valueOf(credit_total - debit_total)};
+                    
+                    model_total.addRow(row_t);
+                 
+                }while(rs.next());
+                
+                
+                data_entry_count = count;
+            }
+        
+            //conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
+    }//GEN-LAST:event_btn_data_entry_todayActionPerformed
   
     public static void main(String args[]) 
     {
@@ -2229,6 +2370,8 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JButton btn_creditor_add_new_firm;
     private javax.swing.JButton btn_daily_data_entry_save;
     private javax.swing.JButton btn_data_backup;
+    private javax.swing.JButton btn_data_entry_back_date_bw;
+    private javax.swing.JButton btn_data_entry_today;
     private javax.swing.JButton btn_data_restore;
     private javax.swing.JButton btn_search_option_enter;
     private javax.swing.JComboBox cmb_daily_data_entry_firm_name;

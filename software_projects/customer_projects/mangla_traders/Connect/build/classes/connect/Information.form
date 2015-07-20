@@ -153,9 +153,13 @@
                                                       </Group>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="btn_data_entry_back_date_bw" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                                       <Component id="lbl_daily_data_entry_date" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                                      <Component id="lbl_data_entry_date1" min="-2" pref="142" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="lbl_data_entry_date1" min="-2" pref="101" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="btn_data_entry_today" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
@@ -204,6 +208,8 @@
                                   <Component id="lbl_daily_data_entry_date" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lbl_data_entry_date1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lbl_daily_data_entry_logged_user" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Component id="btn_data_entry_back_date_bw" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_data_entry_today" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -492,6 +498,22 @@
                   </Properties>
                   <Events>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbx_firm_name_auto_comKeyTyped"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btn_data_entry_back_date_bw">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&lt;"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_data_entry_back_date_bwActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btn_data_entry_today">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Today"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_data_entry_todayActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

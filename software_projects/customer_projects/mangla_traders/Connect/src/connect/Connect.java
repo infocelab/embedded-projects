@@ -8,8 +8,7 @@ public class Connect
 {
     public static void main(String[] args) 
     {
-        // TODO code application logic here
-        new ConnectGUI().setVisible(true);
+         new ConnectGUI().setVisible(true);
     }
     
     public static Connection  ConnectDB()
