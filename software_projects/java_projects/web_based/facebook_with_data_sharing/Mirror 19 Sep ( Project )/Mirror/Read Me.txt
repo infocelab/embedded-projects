@@ -1,0 +1,53 @@
+		Mirror
+			-Pravin H. Rane
+			 2/7/2010
+
+
+******************************************
+Syetm Requirment 
+******************************************
+Minimum =>
+1. 64MB Ram
+2. 400 Mhz Processor
+3. Windows 98/Nt/Xp/Vista/Seven
+4. JDK 1.6 Version
+5  JMf 2.1 (Java media Framework)
+6. 80 GB HDD. 
+7. Opera Mini Browser(Not Internet Explorer or Mozilla FireFox)
+   for Displaying Mirror on 'Web Browser'.	
+*****************************************
+
+About Project:
+
+Total Lines in the Source code: 8000 Lines
+Total Main .java Extension Files: 18 File's
+Total .class Extension File: 138 File's
+Total Size of Project:21 MB
+
+Total User that join the Mirror:
+		as per Hard Disk
+		if Hars Disk is 80 Gb then nearby
+		6000 user with his 5599 Scraps
+		and 100 Photos.
+
+@## Important note:
+
+To Display Image on Internet, Plaese Inastall 
+Opera Mini and then open the file
+
+"Mirror2.html"
+
+If Some Problem will be Occurs in my project than Please contact me
+1.pravin.rane38gmail.com (0)
+2.msn@pravin.rane38.com   (x)
+3.pravin.rane007@yahoo.com (0)
+
+******************************************
+
+All Rights Reserved:
+			pravin.rane38@gmail.com
+			shreeram Poly.
+			sectoir no-3, Airoli
+			Navi Mumbai.400708.
+
+Day required for this project construction: 122-130 Day's
