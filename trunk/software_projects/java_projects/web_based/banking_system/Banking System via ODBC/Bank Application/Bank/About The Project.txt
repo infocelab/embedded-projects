@@ -1,0 +1,16 @@
+
+Implementation of a Bank Application has the following details for a current account customer:
+?	User Name
+?	Account Number
+
+The system should also be able to provide the following services to a customer:
+?	Opening an account 
+?	Depositing money in an account 
+?	Withdraw money from an account with the condition that         the customer cannot withdraw more money than the amount         that is present in the account
+?	Ask for a balance of the account
+?	Provide a transactions statement showing a maximum of         the last  transactions
+?	Clear the text fields
+?	Close an account
+
+Extend the program so that additional services are provided by the system for long standing customers.
+
