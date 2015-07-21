@@ -1,0 +1,106 @@
+/*
+ * increase1.java
+ *
+ * Created on April 18, 2007, 4:01 PM
+ *
+ * To change this template, choose Tools | Template Manager
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Friends
+ */
+package imageprocessor;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.MediaTracker;
+import java.awt.Toolkit;
+import java.awt.image.PixelGrabber;
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+public class increase1 extends JFrame
+{
+    Image img;
+    int iw,ih;
+    int pixels[];
+    int w,h;
+    int his[]=new int[256];
+    int max_his=0;
+
+    public increase1(String name,String title)
+    {
+                   super(title);
+        try
+        {
+            //SSURL u=new URL(name);
+ Scrollbar s,s1;
+s=new Scrollbar(Scrollbar.VERTICAL);
+s1=new Scrollbar(Scrollbar.HORIZONTAL);
+            img=Toolkit.getDefaultToolkit().getImage(name);         
+            MediaTracker t=new MediaTracker(this);
+            t.addImage(img,0);
+            setResizable(true);
+            t.waitForID(0);
+            h=500;
+            w=500;
+            //            pixels=new int[iw*ih];
+            //PixelGrabber pg=new PixelGrabber(img,0,0,iw,ih,pixels,0,iw);
+            //pg.grabPixels();
+add(s);
+add(s1);
+repaint();
+setLayout(new FlowLayout());
+        }
+        catch(Exception e)
+        {
+        };
+
+/*        for(int i=0;i<iw*ih;i++)
+        {
+            int p=pixels[i];
+            int r=0xff & (p>>16);
+            int g=0xff & (p>>8);
+            int b=0xff & (p);
+            int y=(int) (.33*r+.56*g+.11*b);
+            his[y]++;
+        }
+
+        for(int i=0;i<256;i++)
+        {
+            if (his[i]>max_his)
+            max_his=his[i];
+        }*/
+    }
+public void paint(Graphics g)
+{
+            iw=img.getWidth(null);
+            ih=img.getHeight(null);
+//img.setWidth();
+//img.setHeight((int)ih);
+    g.drawImage(img,iw,ih,null);
+  /*  int x=(w-256)/2;
+    int lasty=h-h*his[0]/max_his;
+    for(int i=0;i<256;i++,x++)
+    {
+        int y=h-h*his[i]/max_his;
+        g.setColor(new Color(i,i,i));
+        g.fillRect(x,y,1,h);
+        g.setColor(Color.red);
+        g.drawLine(x-1,lasty,x,y);
+        lasty=y;
+    }*/
+}
+  public void update() {
+    }
+public static void main(String[] args) {
+    increase1 in=new increase1("D:/E(Others)/InterFace/course 180.jpg","Image Sizer");
+    in.setBounds(0,0,500,500);
+    in.setVisible(true);
+}
+
+}
