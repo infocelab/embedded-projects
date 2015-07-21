@@ -1,0 +1,17 @@
+! ** JCreator Workspace File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.00"
+LABEL := "FruitChat"
+
+! Start Project Structure
+#[BeginProject]SOURCE := "\\FruitChat.jcp" #[EndProject]
+
+! Start Last Document Structure
+#[BeginFile]SOURCE := "\\chatserver\\ChatServer.java" #[EndFile]
+#[BeginFile]SOURCE := "\\chatserver\\ServerInterface.java" #[EndFile]
+#[BeginFile]SOURCE := "\\chatclient\\ClientInterface.java" #[EndFile]
+#[BeginFile]SOURCE := "\\chatclient\\ChatClient.java" #[EndFile]
+
+! Start Breakpoint Structure
+

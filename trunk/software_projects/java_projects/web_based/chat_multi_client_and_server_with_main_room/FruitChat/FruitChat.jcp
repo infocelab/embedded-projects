@@ -1,0 +1,32 @@
+! ** JCreator Project File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.10"
+LABEL := "FruitChat"
+JDKPROFILE := "j2sdk1.4.2_01"
+ACTIVE := "1"
+OUTPUTPATH := "..\\\\FruitChat"
+COMPILER := ""
+
+! Start RunTime Configuration Structure
+#[BeginRunTime]LABEL := "<Default>" RUNAPPLIC := "<Default>" RUNAPPLET := "<Default>" RUNDEBUG := "<Default>" PARAM := "" RUN := "chatserver.ChatServer" CHECK := "10" #[EndRunTime]
+! Start Required Libraries Structure
+
+! Start Project Folder Structure
+#[BeginFolder]
+LABEL := "Root"
+FILTER := ""
+
+#[BeginFile]SOURCE := "\\protocols\\ServerShutDown.java" #[EndFile]
+#[BeginFile]SOURCE := "\\protocols\\LogOut.java" #[EndFile]
+#[BeginFile]SOURCE := "\\protocols\\KickedOutNotice.java" #[EndFile]
+#[BeginFile]SOURCE := "\\protocols\\UpdateList.java" #[EndFile]
+#[BeginFile]SOURCE := "\\protocols\\ClientInfo.java" #[EndFile]
+#[BeginFile]SOURCE := "\\protocols\\Message.java" #[EndFile]
+#[BeginFile]SOURCE := "\\chatserver\\ChatServer.java" #[EndFile]
+#[BeginFile]SOURCE := "\\chatclient\\ChatClient.java" #[EndFile]
+#[BeginFile]SOURCE := "\\chatclient\\ClientInterface.java" #[EndFile]
+#[BeginFile]SOURCE := "\\protocols\\ChatRequest.java" #[EndFile]
+#[BeginFile]SOURCE := "\\chatserver\\ServerInterface.java" #[EndFile]
+#[BeginFile]SOURCE := "\\protocols\\ConnectionNotice.java" #[EndFile]
+#[EndFolder]
