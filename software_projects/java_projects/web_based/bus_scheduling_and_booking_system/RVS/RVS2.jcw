@@ -1,0 +1,16 @@
+<?xml?>
+<workspace>
+	<settings>
+		<label>RVS</label>
+	</settings>
+	<users>
+		<user>
+			<path>RVS2.jcu</path>
+		</user>
+	</users>
+	<projects>
+		<project>
+			<path>RVS.jcp</path>
+		</project>
+	</projects>
+</workspace>
