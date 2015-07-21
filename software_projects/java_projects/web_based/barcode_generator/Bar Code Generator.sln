@@ -1,0 +1,13 @@
+Microsoft Visual Studio Solution File, Format Version 1.00
+Project("{66355F20-A65B-11D0-BFB5-00A0C91EBFA0}") = "Bar Code Generator", "Bar Code Generator.vjp", "{352FAC40-4FA2-11D4-9090-444553540001}"
+EndProject
+Global
+	GlobalSection(LocalDeployment) = postSolution
+		StartupProject = {352FAC40-4FA2-11D4-9090-444553540001}
+	EndGlobalSection
+	GlobalSection(BuildOrder) = postSolution
+		0 = {352FAC40-4FA2-11D4-9090-444553540001}
+	EndGlobalSection
+	GlobalSection(DeploymentRoot) = postSolution
+	EndGlobalSection
+EndGlobal
