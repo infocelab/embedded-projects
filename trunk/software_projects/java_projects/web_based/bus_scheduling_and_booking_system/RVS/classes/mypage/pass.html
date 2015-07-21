@@ -1,0 +1,76 @@
+
+<!-- TWO STEPS TO INSTALL VALIDATION (PASSWORD):
+
+  1.  Copy the coding into the HEAD of your HTML document
+  2.  Add the last code into the BODY of your HTML document  -->
+
+<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
+
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Original:  Russ Swift (rswift220@yahoo.com) -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+function validatePwd() {
+var invalid = " "; // Invalid character is a space
+var minLength = 6; // Minimum length
+var pw1 = document.myForm.password.value;
+var pw2 = document.myForm.password2.value;
+// check for a value in both fields.
+if (pw1 == '' || pw2 == '') {
+alert('Please enter your password twice.');
+return false;
+}
+// check for minimum length
+if (document.myForm.password.value.length < minLength) {
+alert('Your password must be at least ' + minLength + ' characters long. Try again.');
+return false;
+}
+// check for spaces
+if (document.myForm.password.value.indexOf(invalid) > -1) {
+alert("Sorry, spaces are not allowed.");
+return false;
+}
+else {
+if (pw1 != pw2) {
+alert ("You did not enter the same new password twice. Please re-enter your password.");
+return false;
+}
+else {
+alert('Nice job.');
+return true;
+      }
+   }
+}
+//  End -->
+</script>
+</HEAD>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<BODY>
+
+<center>
+<form name=myForm onSubmit="return validatePwd()">
+Enter your password twice.
+<br>
+(At least 6 characters, 12 characters max, and spaces are not allowed.)
+<p>
+Password: <input type=password name=password maxlength=12>
+<br>
+Verify password: <input type=password name=password2 maxlength=12>
+<p>
+<input type=submit value="Submit">
+</form>
+</center>
+
+<p><center>
+<font face="arial, helvetica" size"-2">Free JavaScripts provided<br>
+by <a href="http://javascriptsource.com">The JavaScript Source</a></font>
+</center><p>
+
+<!-- Script Size:  1.98 KB -->
