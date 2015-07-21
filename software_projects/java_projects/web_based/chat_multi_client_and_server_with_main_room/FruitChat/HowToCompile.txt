@@ -1,0 +1,17 @@
+Project Name : Fruit Cha(a)t
+
+Project Team : 
+
+	Mohammad Ali Akbani
+	ali_akbani@yahoo.com
+	http://akbani.20m.com
+
+	Faraz Younus Bandukda
+	farazoftine@yahoo.com
+
+Create a environment variable named CLASSPATH. Set its value to the folder 
+where Compile.bat is placed
+
+USING THE WORKSPACE AND PROJECT FILE
+The project was made using JCreator LE 2.50 and its workspace and project 
+files are included. Go to www.jcreator.com

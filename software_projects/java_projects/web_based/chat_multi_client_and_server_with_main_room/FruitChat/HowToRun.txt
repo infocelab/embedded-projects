@@ -1,0 +1,26 @@
+Project Name : Fruit Cha(a)t
+
+Project Team : 
+
+	Mohammad Ali Akbani
+	ali_akbani@yahoo.com
+	http://akbani.20m.com
+
+	Faraz Younus Bandukda
+	farazoftine@yahoo.com
+
+FIRST WAY
+
+Compile the application first using Compile.bat. See how to compile for 
+details.
+
+To start server run StartServer.bat
+To start client run StartClient.bat
+
+SECOND WAY
+To start server double click on Server.jar
+To start client double clieck on Client.jar
+
+THIRD WAY
+To start server run RunServerJar.bat
+To start client run RunClientJar.bat
