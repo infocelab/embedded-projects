@@ -1,0 +1,76 @@
+%% Excelsior JET v2.51 project file
+
+
+-ignorememberabsence-
+-ignoreclassabsence+
+-ignoreclassduplication-
+-genasserts-
+-gui+
+-compilerheap=40000000
+-stacklimit=900000
+-genstackalloc+
+-inline+
+-inlinelimit=100
+-inlinetolimit=1000
+
+
+-jetvmprop=-Djet.gc.heaplimit:0 
+-main=main
+
+
+%!resource "E:\my projects\AI Project"
+!push
+-resourceonly+
+-bindresources+
+!module "E:\my projects\AI Project\kunststoff.jar"
+!pop
+!push
+-resourceonly+
+-bindresources+
+!module "E:\my projects\AI Project\oalnf.jar"
+!pop
+
+
+-lookup=*.class=E:\my projects\AI Project
+-lookup=*.class=E:\my projects\AI Project\kunststoff.jar
+-lookup=*.class=E:\my projects\AI Project\oalnf.jar
+
+
+!batch *.class "amzi"
+!batch *.class "com/microstar"
+!batch *.class "com/oyoaha"
+!module "aboutUs.class"
+!module "addRule$1.class"
+!module "addRule$2.class"
+!module "addRule.class"
+!module "AskFieldDialog$1.class"
+!module "AskFieldDialog$2.class"
+!module "AskMenuDialog$1.class"
+!module "AskMenuDialog$2.class"
+!module "AskMenuDialog.class"
+!module "main$1.class"
+!module "main$2.class"
+!module "main$3.class"
+!module "main$4.class"
+!module "main$5.class"
+!module "main.class"
+!module "MyActionListener.class"
+!module "patients$1.class"
+!module "patients$2.class"
+!module "patients$3.class"
+!module "patients$4.class"
+!module "patients$5.class"
+!module "patients.class"
+!module "patientSQL.class"
+!module "risk_factors$1.class"
+!module "risk_factors$2.class"
+!module "risk_factors.class"
+!module "Utils.class"
+!module "addRule$3.class"
+!module "addRule$4.class"
+!module "patients$6.class"
+!module "patients$7.class"
+!module "patients$8.class"
+!module "patients$9.class"
+
+

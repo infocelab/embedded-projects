@@ -1,0 +1,6 @@
+#These are database configuration 
+#Default value for conntecting MSAccess via JdbcOdbcBridge
+#You can change it if you use another brand ! 
+jdbc.server=jdbc:odbc:myDB
+jdbc.driver=sun.jdbc.odbc.JdbcOdbcDriver
+#SiberHus@yahoo.com

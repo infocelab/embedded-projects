@@ -1,0 +1,1536 @@
+knowledgewright_jig(basic, 10).
+
+knowledgewright_license(academic_personal, '[]').
+
+
+
+% folder
+
+:- indexed folder(1,0,0).
+
+
+
+% knowledgebase
+
+:- indexed knowledgebase(1,0,0).
+
+knowledgebase(main, /, [
+   description = "",
+   goals = [finalresult],
+   date_format = 'm/d/y',
+   odbc = "",
+   charset = "",
+   question_separator = "<P>",
+   menu_separator = "<BR>",
+   value_separator = "<P>",
+   question_top = text("<HTML><HEAD></HEAD><BODY><FORM METHOD=""POST"" ACTION=""/cgi-bin/kwcgibasic.exe" + system(cgi_parameters) + """>"),
+   question_bottom = text("<P><INPUT NAME=""Submit"" TYPE=""Submit"" VALUE=""Submit""></INPUT> <INPUT TYPE=""Reset"" VALUE=""Reset""></INPUT></FORM></BODY></HTML>"),
+   output_top = text("<HTML><HEAD></HEAD><BODY>"),
+   output_continue = text("<FORM METHOD=""POST"" ACTION=""/cgi-bin/kwcgibasic.exe" + system(cgi_parameters) + """><INPUT NAME=""Submit"" TYPE=""Submit"" VALUE=""Continue""></INPUT></FORM>"),
+   output_bottom = text("</BODY></HTML>")
+   ]).
+
+
+
+% fact
+
+:- indexed fact(1,0,0).
+
+fact(calcfact, /, [
+   description = "",
+   value = f1 + f2 + f3 + f4 + f5 + f6
+   ]).
+
+fact(asrar, /, [
+   description = "",
+   value = ""
+   ]).
+
+
+
+% question
+
+:- indexed question(1,0,0).
+
+question(localize, /, [
+   prompt = text("Can you Localize your Pain While Pressing with your finger?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Yes", "No"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(plocation, /, [
+   prompt = text("Location of Chest Pain?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Anterior Chest", "Other Parts"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(radiation, /, [
+   prompt = text("does ur Body radiates?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Neck and Shoulder", "Neck, shoulder, lower or upper jaw"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(severity, /, [
+   prompt = text("How Severe the pain is?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Mild to moderate", "Very Severe"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(palpitation, /, [
+   prompt = text("Do you have palpitation?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Yes", "No"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(sob, /, [
+   prompt = text("Do you have shortness of breath?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Yes", "No"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(gender, /, [
+   prompt = text("What is your gender?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Male", "Female"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(history, /, [
+   prompt = text("Do you have family history of heart disease?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Yes", "No"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(smoke, /, [
+   prompt = text("Do You Smoke?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Yes", "No"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(diabetes, /, [
+   prompt = text("Do you have Diabetes?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Yes", "No"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(bp, /, [
+   prompt = text("Do you have high blood pressure?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Yes", "No"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(HC, /, [
+   prompt = text("Do you have high colestrol?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Yes", "No"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(CP, /, [
+   prompt = text("Do You Have Chest Pain?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Yes", "No"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(age, /, [
+   prompt = text("What is your Age range?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["> 40", "< 40"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+question(giddiness, /, [
+   prompt = text("Do you feel giddiness while chest pain?"),
+   question_type = menu_single_choice,
+   question_style = listbox,
+   choices = ["Yes", "No"],
+   'rule-display_choices' = [["rule_text", "display_text"]],
+   answer_type = text,
+   length = 20,
+   default = "",
+   ask_also = '[]'
+   ]).
+
+
+
+% sql
+
+:- indexed sql(1,0,0).
+
+
+
+% rule_set
+
+:- indexed rule_set(1,0,0).
+
+rule_set(f3, /, [
+   description = "",
+   type = single_value,
+   rules = [[conditions, value], [bp = "Yes", 1], [bp = "No", 0]]
+   ]).
+
+rule_set(f4, /, [
+   description = "",
+   type = single_value,
+   rules = [[conditions, value], [history = "Yes", 1], [history = "No", 0]]
+   ]).
+
+rule_set(f5, /, [
+   description = "",
+   type = single_value,
+   rules = [[conditions, value], [diabetes = "Yes", 1], [diabetes = "No", 0]]
+   ]).
+
+rule_set(f1, /, [
+   description = "",
+   type = single_value,
+   rules = [[conditions, value], [gender = "Male" and age = "> 40", 1], [gender = "Male" and age = "< 40", 0], [gender = "Female" and age = "> 40", 1], [gender = "Female" and age = "< 40", 0]]
+   ]).
+
+rule_set(f6, /, [
+   description = "",
+   type = single_value,
+   rules = [[conditions, value], [HC = "Yes", 1], [HC = "No", 0]]
+   ]).
+
+rule_set(fact7, /, [
+   description = "",
+   type = single_value,
+   rules = [[conditions, value], [CP = "Yes", 1], [CP = "No", 0]]
+   ]).
+
+rule_set(f2, /, [
+   description = "",
+   type = single_value,
+   rules = [[conditions, value], [smoke = "Yes", 1], [smoke = "No", 0]]
+   ]).
+
+
+
+% rules_table
+
+:- indexed rules_table(1,0,0).
+
+rules_table(palpisymp, /, [
+   description = "",
+   type = single_value,
+   rules = [[palpitation, sob, palpisymp], [text("Yes"), text("Yes"), 0], [text("No"), text("Yes"), 1], [text("Yes"), text("No"), 2], [text("No"), text("No"), 3]]
+   ]).
+
+rules_table(giddisymp, /, [
+   description = "",
+   type = single_value,
+   rules = [[giddiness, giddisymp], [text("Yes"), 0], [text("No"), 1]]
+   ]).
+
+rules_table(rsymptom1, /, [
+   description = "",
+   type = single_value,
+   rules = [[localize, plocation, rsymptom1], [text("Yes"), text("Anterior Chest"), 1], [text("Yes"), text("Other Parts"), 2], [text("No"), text("Anterior Chest"), 3], [text("No"), text("Other Parts"), 4]]
+   ]).
+
+rules_table(rule01, /, [
+   description = "",
+   type = single_value,
+   rules = [[fact7, calcfact, rule01], [1, 1, 1], [1, 2, 2], [1, 3, 3], [1, 4, 4], [1, 5, 5], [1, 6, 6], [1, 0, 0], [0, 0, 7], [0, 1, 8], [0, 2, 9], [0, 3, 10], [0, 4, 11], [0, 5, 12], [0, 6, 13]]
+   ]).
+
+rules_table(combine1, /, [
+   description = "",
+   type = single_value,
+   rules = [[radiationsymp, severitysymp, combine1], [0, 0, 0], [0, 1, 1], [1, 0, 2], [1, 1, 3]]
+   ]).
+
+rules_table(radiationsymp, /, [
+   description = "",
+   type = single_value,
+   rules = [[radiation, radiationsymp], [text("Neck and Shoulder"), 0], [text("Neck, shoulder, lower or upper jaw"), 1]]
+   ]).
+
+rules_table(combine2, /, [
+   description = "",
+   type = single_value,
+   rules = [[palpisymp, giddisymp, combine2], [0, 0, 0], [1, 0, 1], [2, 0, 2], [3, 0, 3], [0, 1, 4], [1, 1, 5], [2, 1, 6], [3, 1, 7]]
+   ]).
+
+rules_table(severitysymp, /, [
+   description = "",
+   type = single_value,
+   rules = [[severity, severitysymp], [text("Mild to moderate"), 0], [text("Very Severe"), 1]]
+   ]).
+
+rules_table(finalcombine, /, [
+   description = "",
+   type = single_value,
+   rules = [[combine1, combine2, finalcombine], [0, 0, 0], [1, 0, 1], [2, 0, 2], [3, 0, 3], [0, 1, 4], [1, 1, 5], [2, 1, 6], [3, 1, 7], [0, 2, 8], [1, 2, 9], [2, 2, 10], [3, 2, 11], [0, 3, 12], [1, 3, 13], [2, 3, 14], [3, 3, 15], [0, 4, 16], [1, 4, 17], [2, 4, 18], [3, 4, 19], [0, 5, 20], [1, 5, 21], [2, 5, 22], [3, 5, 23], [0, 6, 24], [1, 6, 25], [2, 6, 26], [3, 6, 27], [0, 7, 28], [1, 7, 29], [2, 7, 30], [3, 7, 31]]
+   ]).
+
+rules_table(ruless, /, [
+   description = "",
+   type = single_value,
+   rules = [[rule01, rsymptom1, ruless], [0, 1, 0], [1, 1, 1], [2, 1, 2], [3, 1, 3], [4, 1, 4], [5, 1, 5], [6, 1, 6], [0, 2, 7], [1, 2, 8], [2, 2, 9], [3, 2, 10], [4, 2, 11], [5, 2, 12], [6, 2, 13], [0, 3, 14], [1, 3, 15], [2, 3, 16], [3, 3, 17], [4, 3, 18], [5, 3, 19], [6, 3, 20], [0, 4, 21], [1, 4, 22], [2, 4, 23], [3, 4, 24], [4, 4, 25], [5, 4, 26], [6, 4, 27], [>= 7, *, 28]]
+   ]).
+
+rules_table(finalresult, /, [
+   description = "",
+   type = single_value,
+   rules = [[ruless, ruless, finalcombine, finalresult], [>= 0, <= 7, 0, highRAngina], [>= 7, <= 14, 0, highRAa], [>= 14, <= 21, 0, highRAngina], [>= 21, *, 0, onlyhighR], [>= 0, <= 7, 1, highRAngina], [>= 7, <= 14, 1, onlyhighR], [>= 14, <= 21, 1, highRAngina], [>= 21, *, 1, highRAngina], [>= 0, <= 7, 2, highRAngina], [>= 7, <= 14, 2, highRAa], [>= 14, <= 21, 2, highRAngina], [>= 21, *, 2, highRAa], [>= 0, < 7, 3, highRAa], [>= 7, <= 14, 3, highRAa], [>= 14, <= 21, 3, highRAngina], [>= 21, *, 3, onlyLowR], [>= 0, < 7, 4, highRAngina], [>= 0, < 7, 5, highRAngina], [>= 0, < 7, 6, highRAngina], [>= 0, < 7, 7, highRAngina], [>= 0, < 7, 8, highRAngina], [>= 0, < 7, 9, highRAngina], [>= 0, < 7, 10, highRAngina], [>= 0, < 7, 11, highRAngina], [>= 0, < 7, 12, highRAngina], [>= 0, < 7, 13, highRAngina], [>= 0, < 7, 14, highRAngina], [>= 0, < 7, 15, highRAngina], [>= 0, < 7, 16, highRAngina], [>= 0, < 7, 17, lowRAngina], [>= 0, < 7, 18, lowRAngina], [>= 0, < 7, 19, lowRAngina], [>= 0, < 7, 20, lowRAngina], [>= 0, < 7, 21, lowRAngina], [>= 0, < 7, 22, lowRAngina], [>= 0, < 7, 23, lowRAngina], [>= 0, < 7, 24, lowRAngina], [>= 0, < 7, 25, lowRAngina], [>= 0, < 7, 26, lowRAngina], [>= 0, < 7, 27, lowRAngina], [>= 0, < 7, 28, lowRAngina], [>= 0, < 7, 29, lowRAngina], [>= 0, < 7, 30, lowRAngina], [>= 0, < 7, 31, lowRAngina], [>= 7, <= 14, 4, highRAa], [>= 7, <= 14, 5, highRAa], [>= 7, <= 14, 6, highRAa], [>= 7, <= 14, 7, highRAa], [>= 7, <= 14, 8, highRAa], [>= 7, <= 14, 9, highRAngina], [>= 7, <= 14, 10, highRAa], [>= 7, <= 14, 11, highRAa], [>= 7, <= 14, 12, highRAa], [>= 7, <= 14, 13, highRAa], [>= 7, <= 14, 14, highRAa], [>= 7, <= 14, 15, highRAa], [>= 7, <= 14, 16, highRAa], [>= 7, <= 14, 17, highRAa], [>= 7, <= 14, 18, highRAa], [>= 7, <= 14, 19, highRAa], [>= 7, <= 14, 20, highRAa], [>= 7, <= 14, 21, highRAa], [>= 7, <= 14, 22, lowRAa], [>= 7, <= 14, 23, lowRAa], [>= 7, <= 14, 24, lowRAa], [>= 7, <= 14, 25, lowRAa], [>= 7, <= 14, 26, lowRAa], [>= 7, <= 14, 27, lowRAa], [>= 7, <= 14, 28, lowRAngina], [>= 7, <= 14, 29, lowRAa], [>= 7, <= 14, 30, lowRAa], [>= 7, <= 14, 31, lowRAa], [>= 14, <= 21, 4, lowRAa], [>= 14, <= 21, 5, lowRAa], [>= 14, <= 21, 6, lowRAa], [>= 14, <= 21, 7, lowRAa], [>= 14, <= 21, 8, lowRAa], [>= 14, <= 21, 9, lowRAa], [>= 14, <= 21, 10, lowRAa], [>= 14, <= 21, 11, onlyLowR], [>= 14, <= 21, 12, onlyhighR], [>= 14, <= 21, 13, onlyLowR], [>= 14, <= 21, 14, onlyLowR], [>= 14, <= 21, 15, onlyLowR], [>= 14, <= 21, 16, onlyLowR], [>= 14, <= 21, 17, onlyLowR], [>= 14, <= 21, 18, onlyLowR], [>= 14, <= 21, 19, onlyLowR], [>= 14, <= 21, 20, onlyLowR], [>= 14, <= 21, 21, onlyLowR], [>= 14, <= 21, 22, onlyLowR], [>= 14, <= 21, 23, onlyLowR], [>= 14, <= 21, 24, onlyLowR], [>= 14, <= 21, 25, onlyLowR], [>= 14, <= 21, 26, onlyLowR], [>= 14, <= 21, 27, onlyLowR], [>= 14, <= 21, 28, lowRAngina], [>= 14, <= 21, 29, onlyhighR], [>= 14, <= 21, 30, onlyhighR], [>= 14, <= 21, 31, onlyhighR], [>= 21, *, 4, onlyhighR], [>= 21, *, 5, onlyLowR], [>= 21, *, 6, onlyLowR], [>= 21, *, 7, onlyLowR], [>= 21, *, 8, onlyLowR], [>= 21, *, 9, onlyLowR], [>= 21, *, 10, onlyLowR], [>= 21, *, 11, onlyLowR], [>= 21, *, 12, onlyLowR], [>= 21, *, 13, onlyLowR], [>= 21, *, 14, onlyLowR], [>= 21, *, 15, notatall], [>= 21, *, 16, notatall], [>= 21, *, 17, lowRAa], [>= 21, *, 18, notatall], [>= 21, *, 19, notatall], [>= 21, *, 20, notatall], [>= 21, *, 21, notatall], [>= 21, *, 22, notatall], [>= 21, *, 23, notatall], [>= 21, *, 24, notatall], [>= 21, *, 25, notatall], [>= 21, *, 26, notatall], [>= 21, *, 27, notatall], [>= 21, *, 28, notatall], [>= 21, *, 29, notatall], [>= 21, *, 30, notatall], [>= 21, *, 31, notatall], [*, *, *, notatall]]
+   ]).
+
+
+
+% data_table
+
+:- indexed data_table(1,0,0).
+
+
+
+% text
+
+:- indexed text(1,0,0).
+
+text(highRAa, /, [
+   description = "",
+   type = text,
+   file = "AorticHighDiag.htm",
+   text = text("
+<p style=""line-height: 100%"">
+<div align=""left"">
+  <table border=""1"" width=""276"" height=""16"">
+    <tr>
+      <td width=""120"" height=""16""><b>Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + CP + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""50""><b>Localization of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + localize + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""50""><b>Location of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + plocation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Radiation</b></td>
+      <td width=""140"" height=""16"">" + radiation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""50""><b>Severity of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + severity + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Age Range</b></td>
+      <td width=""140"" height=""16"">" + age + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Gender</b></td>
+      <td width=""140"" height=""16"">" + gender + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Family History</b></td>
+      <td width=""140"" height=""16"">" + history + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Smoking</b></td>
+      <td width=""140"" height=""16"">" + smoke + "</td>
+    </tr>
+    <tr>
+      <td width=""120"" height=""16""><b>Diabetes</b></td>
+      <td width=""140"" height=""16"">" + diabetes + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""50""><b>High Bloop Bressure</b></td>
+      <td width=""140"" height=""16"">" + bp + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""50""><b>High Colestrol Level</b></td>
+      <td width=""140"" height=""16"">" + HC + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Palpitation</b></td>
+      <td width=""140"" height=""16"">" + palpitation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""50""><b>Shortness of Breath</b></td>
+      <td width=""140"" height=""16"">" + sob + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Giddiness</b></td>
+      <td width=""140"" height=""16"">" + giddiness + "</td>
+    </tr>
+
+  </table>
+</div>
+
+       <p align=""center""><img border=""0"" src=""result.gif"" width=""180"" height=""70""></p>
+    <p align=""left"">You are suffering from <b><font color=""#000080"">Aortic 
+    Aneurysm</font> </b>and your stage is a <font color=""#000080""><b>late stage</b></font><font color=""#FF0000"">.</font> 
+    Please follow a strict and selected 
+diet to prevent the increase of the risk level. Your risk level increases with 
+    every wrong step you take. Below is some information on a proposed diet:</p>
+    <p align=""left"">&nbsp;</p>
+    <div align=""center"" style=""width: 360; height: 482"">
+      <center>
+      <table border=""1"" cellpadding=""0"" cellspacing=""0"" style=""border-collapse: collapse"" bordercolor=""#111111"" width=""360"" id=""AutoNumber1"" height=""452"" align=""left"">
+        <tr>
+          <td width=""79"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Food Group</b> </font>
+            </td>
+          <td width=""131"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Daily Servings (except as noted)</b> </font>
+            </td>
+          <td width=""146"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Serving Sizes </b>
+            </font>
+            </td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Grains &amp; grain products</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">7–8</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1 slice bread<br>
+            1 cup dry cereal*<br>
+            1/2 cup cooked rice, pasta, or cereal</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Vegetables</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1 cup raw leafy vegetable<br>
+            1/2 cup cooked vegetable<br>
+            6 oz vegetable juice</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Fruits</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">6 oz fruit juice<br>
+            1 medium fruit<br>
+            1/4 cup dried fruit <br>
+            1/2 cup fresh, frozen, or canned fruit </font> </b> </td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Low fat or fat free dairy foods</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2–3</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">8 oz milk<br>
+            1 cup yogurt<br>
+            1 1/2 oz cheese</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Meats, poultry, and fish</font></b></td>
+          <td width=""131"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2 or less</font></b></td>
+          <td width=""146"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">3 oz cooked meats, poultry, or fish</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Nuts, seeds, and dry beans</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5 per week </font> 
+            </b> </td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1/3 cup or 1 1/2 oz nuts<br>
+            2 Tbsp or 1/2 oz seeds<br>
+            1/2 cup cooked dry beans</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Fats &amp; oils**</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2–3</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">&nbsp;tsp soft margarine<br>
+            1Tbsp low fat mayonnaise<br>
+            2 Tbsp light salad dressing <br>
+            1 tsp vegetable oil</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Sweets</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">5 per week</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">&nbsp;Tbsp sugar<br>
+            1 Tbsp jelly or jam<br>
+            1/2 oz jelly beans<br>
+            8 oz lemonade</font></b></td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p align=""left"">
+    <font face=""Times New Roman"">
+    *Serving sizes vary between 1/2-1 1/4 cups. Check the product's nutrition label.</font></p>
+<p align=""left"">
+    <font face=""Times New Roman"">
+    *Fat content changes serving counts for fats and oils: For example, 1 Tbsp of regular salad dressing equals 1 serving; 1 Tbsp of a lowfat dressing equals 1/2 serving; 1 Tbsp of a fat free dressing equals 0 servings.</font></p>
+")
+   ]).
+
+text(highRAngina, /, [
+   description = "",
+   type = text,
+   file = "",
+   text = text("<div align=""left"">
+  <table border=""1"" width=""276"" height=""16"">
+    <tr>
+      <td width=""120"" height=""16""><b>Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + CP + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Localization of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + localize + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""50""><b>Location of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + plocation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Radiation</b></td>
+      <td width=""140"" height=""16"">" + radiation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Severity of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + severity + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Age Range</b></td>
+      <td width=""140"" height=""16"">" + age + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Gender</b></td>
+      <td width=""140"" height=""16"">" + gender + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Family History</b></td>
+      <td width=""140"" height=""16"">" + history + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Smoking</b></td>
+      <td width=""140"" height=""16"">" + smoke + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Diabetes</b></td>
+      <td width=""140"" height=""16"">" + diabetes + "</td>
+    </tr>
+ width=""120"" height=""16""><b>High Bloop Bressure</b></td>
+      <td width=""140"" height=""16"">" + bp + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Colestrol Level</b></td>
+      <td width=""140"" height=""16"">" + HC + "</td>
+    </tr>
+
+<p align=""center""><img border=""0"" src=""result.gif"" width=""180"" height=""70""></p>
+    <p align=""left"">You are suffering from <b><font color=""#000080"">Angina</font> </b>and your stage is a <font color=""#000080""><b>late stage</b></font><font color=""#FF0000"">.</font> 
+    Please follow a strict and selected 
+diet to prevent the increase of the risk level. Your risk level increases with 
+    every wrong step you take. Below is some information on a proposed diet:</p>
+    <p align=""left"">&nbsp;</p>
+    <div align=""center"" style=""width: 360; height: 482"">
+      <center>
+      <table border=""1"" cellpadding=""0"" cellspacing=""0"" style=""border-collapse: collapse"" bordercolor=""#111111"" width=""360"" id=""AutoNumber1"" height=""452"" align=""left"">
+        <tr>
+          <td width=""79"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Food Group</b> </font>
+            </td>
+          <td width=""131"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Daily Servings (except as noted)</b> </font>
+            </td>
+          <td width=""146"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Serving Sizes </b>
+            </font>
+            </td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Grains &amp; grain products</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">7–8</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1 slice bread<br>
+            1 cup dry cereal*<br>
+            1/2 cup cooked rice, pasta, or cereal</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Vegetables</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1 cup raw leafy vegetable<br>
+            1/2 cup cooked vegetable<br>
+            6 oz vegetable juice</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Fruits</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">6 oz fruit juice<br>
+            1 medium fruit<br>
+            1/4 cup dried fruit <br>
+            1/2 cup fresh, frozen, or canned fruit </font> </b> </td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Low fat or fat free dairy foods</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2–3</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">8 oz milk<br>
+            1 cup yogurt<br>
+            1 1/2 oz cheese</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Meats, poultry, and fish</font></b></td>
+          <td width=""131"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2 or less</font></b></td>
+          <td width=""146"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">3 oz cooked meats, poultry, or fish</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Nuts, seeds, and dry beans</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5 per week </font> 
+            </b> </td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1/3 cup or 1 1/2 oz nuts<br>
+            2 Tbsp or 1/2 oz seeds<br>
+            1/2 cup cooked dry beans</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Fats &amp; oils**</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2–3</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">&nbsp;tsp soft margarine<br>
+            1Tbsp low fat mayonnaise<br>
+            2 Tbsp light salad dressing <br>
+            1 tsp vegetable oil</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Sweets</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">5 per week</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">&nbsp;Tbsp sugar<br>
+            1 Tbsp jelly or jam<br>
+            1/2 oz jelly beans<br>
+            8 oz lemonade</font></b></td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p align=""left"">
+    <font face=""Times New Roman"">
+    *Serving sizes vary between 1/2-1 1/4 cups. Check the product's nutrition label.</font></p>
+<p align=""left"">
+    <font face=""Times New Roman"">
+    *Fat content changes serving counts for fats and oils: For example, 1 Tbsp of regular salad dressing equals 1 serving; 1 Tbsp of a lowfat dressing equals 1/2 serving; 1 Tbsp of a fat free dressing equals 0 servings.</font></p>")
+   ]).
+
+text(lowRAa, /, [
+   description = "",
+   type = text,
+   file = "",
+   text = text("<div align=""left"">
+  <table border=""1"" width=""276"" height=""16"">
+    <tr>
+      <td width=""120"" height=""16""><b>Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + CP + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Localization of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + localize + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Location of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + plocation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Radiation</b></td>
+      <td width=""140"" height=""16"">" + radiation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Severity of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + severity + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Age Range</b></td>
+      <td width=""140"" height=""16"">" + age + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Gender</b></td>
+      <td width=""140"" height=""16"">" + gender + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Family History</b></td>
+      <td width=""140"" height=""16"">" + history + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Smoking</b></td>
+      <td width=""140"" height=""16"">" + smoke + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Diabetes</b></td>
+      <td width=""140"" height=""16"">" + diabetes + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Bloop Bressure</b></td>
+      <td width=""140"" height=""16"">" + bp + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Colestrol Level</b></td>
+      <td width=""140"" height=""16"">" + HC + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Palpitation</b></td>
+      <td width=""140"" height=""16"">" + palpitation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Shortness of Breath</b></td>
+      <td width=""140"" height=""16"">" + sob + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Giddiness</b></td>
+      <td width=""140"" height=""16"">" + giddiness + "</td>
+    </tr>
+
+  </table>
+</div>
+
+<p align=""center""><img border=""0"" src=""result.gif"" width=""180"" height=""70""></p>
+    <p align=""left"">You are suffering from <b><font color=""#000080"">Aortic 
+    Aneurysm</font> </b>and your stage is a <font color=""#000080""><b>early stage</b></font><font color=""#FF0000"">.</font> 
+    Please follow a strict and selected 
+diet to prevent the increase of the risk level. Your risk level increases with 
+    every wrong step you take. Below is some information on a proposed diet:</p>
+    <p align=""left"">&nbsp;</p>
+    <div align=""center"" style=""width: 360; height: 482"">
+      <center>
+      <table border=""1"" cellpadding=""0"" cellspacing=""0"" style=""border-collapse: collapse"" bordercolor=""#111111"" width=""360"" id=""AutoNumber1"" height=""452"" align=""left"">
+        <tr>
+          <td width=""79"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Food Group</b> </font>
+            </td>
+          <td width=""131"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Daily Servings (except as noted)</b> </font>
+            </td>
+          <td width=""146"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Serving Sizes </b>
+            </font>
+            </td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Grains &amp; grain products</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">7–8</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1 slice bread<br>
+            1 cup dry cereal*<br>
+            1/2 cup cooked rice, pasta, or cereal</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Vegetables</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1 cup raw leafy vegetable<br>
+            1/2 cup cooked vegetable<br>
+            6 oz vegetable juice</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Fruits</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">6 oz fruit juice<br>
+            1 medium fruit<br>
+            1/4 cup dried fruit <br>
+            1/2 cup fresh, frozen, or canned fruit </font> </b> </td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Low fat or fat free dairy foods</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2–3</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">8 oz milk<br>
+            1 cup yogurt<br>
+            1 1/2 oz cheese</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Meats, poultry, and fish</font></b></td>
+          <td width=""131"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2 or less</font></b></td>
+          <td width=""146"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">3 oz cooked meats, poultry, or fish</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Nuts, seeds, and dry beans</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5 per week </font> 
+            </b> </td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1/3 cup or 1 1/2 oz nuts<br>
+            2 Tbsp or 1/2 oz seeds<br>
+            1/2 cup cooked dry beans</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Fats &amp; oils**</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2–3</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">&nbsp;tsp soft margarine<br>
+            1Tbsp low fat mayonnaise<br>
+            2 Tbsp light salad dressing <br>
+            1 tsp vegetable oil</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Sweets</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">5 per week</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">&nbsp;Tbsp sugar<br>
+            1 Tbsp jelly or jam<br>
+            1/2 oz jelly beans<br>
+            8 oz lemonade</font></b></td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p align=""left"">
+    <font face=""Times New Roman"">
+    *Serving sizes vary between 1/2-1 1/4 cups. Check the product's nutrition label.</font></p>
+<p align=""left"">
+    <font face=""Times New Roman"">
+    *Fat content changes serving counts for fats and oils: For example, 1 Tbsp of regular salad dressing equals 1 serving; 1 Tbsp of a lowfat dressing equals 1/2 serving; 1 Tbsp of a fat free dressing equals 0 servings.</font></p>")
+   ]).
+
+text(lowRAngina, /, [
+   description = "",
+   type = text,
+   file = "",
+   text = text("<div align=""left"">
+  <table border=""1"" width=""276"" height=""16"">
+    <tr>
+      <td width=""120"" height=""16""><b>Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + CP + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Localization of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + localize + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Location of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + plocation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Radiation</b></td>
+      <td width=""140"" height=""16"">" + radiation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Severity of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + severity + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Age Range</b></td>
+      <td width=""140"" height=""16"">" + age + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Gender</b></td>
+      <td width=""140"" height=""16"">" + gender + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Family History</b></td>
+      <td width=""140"" height=""16"">" + history + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Smoking</b></td>
+      <td width=""140"" height=""16"">" + smoke + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Diabetes</b></td>
+      <td width=""140"" height=""16"">" + diabetes + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Bloop Bressure</b></td>
+      <td width=""140"" height=""16"">" + bp + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Colestrol Level</b></td>
+      <td width=""140"" height=""16"">" + HC + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Palpitation</b></td>
+      <td width=""140"" height=""16"">" + palpitation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Shortness of Breath</b></td>
+      <td width=""140"" height=""16"">" + sob + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Giddiness</b></td>
+      <td width=""140"" height=""16"">" + giddiness + "</td>
+    </tr>
+
+  </table>
+</div>
+
+<p align=""center""><img border=""0"" src=""result.gif"" width=""180"" height=""70""></p>
+    <p align=""left"">You are suffering from <b><font color=""#000080"">Angina</font> </b>and your stage is a <font color=""#000080""><b>early stage</b></font><font color=""#FF0000"">.</font> 
+    Please follow a strict and selected 
+diet to prevent the increase of the risk level. Your risk level increases with 
+    every wrong step you take. Below is some information on a proposed diet:</p>
+    <p align=""left"">&nbsp;</p>
+    <div align=""center"" style=""width: 360; height: 482"">
+      <center>
+      <table border=""1"" cellpadding=""0"" cellspacing=""0"" style=""border-collapse: collapse"" bordercolor=""#111111"" width=""360"" id=""AutoNumber1"" height=""452"" align=""left"">
+        <tr>
+          <td width=""79"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Food Group</b> </font>
+            </td>
+          <td width=""131"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Daily Servings (except as noted)</b> </font>
+            </td>
+          <td width=""146"" bgcolor=""#FFFF00"" height=""38"" align=""center"">
+            <p align=""center"">
+            <b>Serving Sizes </b>
+            </font>
+            </td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Grains &amp; grain products</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">7–8</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1 slice bread<br>
+            1 cup dry cereal*<br>
+            1/2 cup cooked rice, pasta, or cereal</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Vegetables</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1 cup raw leafy vegetable<br>
+            1/2 cup cooked vegetable<br>
+            6 oz vegetable juice</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Fruits</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">6 oz fruit juice<br>
+            1 medium fruit<br>
+            1/4 cup dried fruit <br>
+            1/2 cup fresh, frozen, or canned fruit </font> </b> </td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Low fat or fat free dairy foods</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2–3</font></b></td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">8 oz milk<br>
+            1 cup yogurt<br>
+            1 1/2 oz cheese</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Meats, poultry, and fish</font></b></td>
+          <td width=""131"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2 or less</font></b></td>
+          <td width=""146"" height=""46"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">3 oz cooked meats, poultry, or fish</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Nuts, seeds, and dry beans</font></b></td>
+          <td width=""131"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">4–5 per week </font> 
+            </b> </td>
+          <td width=""146"" height=""45"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">1/3 cup or 1 1/2 oz nuts<br>
+            2 Tbsp or 1/2 oz seeds<br>
+            1/2 cup cooked dry beans</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Fats &amp; oils**</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">2–3</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">&nbsp;tsp soft margarine<br>
+            1Tbsp low fat mayonnaise<br>
+            2 Tbsp light salad dressing <br>
+            1 tsp vegetable oil</font></b></td>
+        </tr>
+        <tr>
+          <td width=""79"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">Sweets</font></b></td>
+          <td width=""131"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">5 per week</font></b></td>
+          <td width=""146"" height=""60"" bgcolor=""#800000"" align=""center"">
+            <p align=""center""><b>
+            <font face=""Times New Roman"" size=""2"" color=""#FFFFFF"">&nbsp;Tbsp sugar<br>
+            1 Tbsp jelly or jam<br>
+            1/2 oz jelly beans<br>
+            8 oz lemonade</font></b></td>
+        </tr>
+      </table>
+      </center>
+    </div>
+<p align=""left"">
+    <font face=""Times New Roman"">
+    *Serving sizes vary between 1/2-1 1/4 cups. Check the product's nutrition label.</font></p>
+<p align=""left"">
+    <font face=""Times New Roman"">
+    *Fat content changes serving counts for fats and oils: For example, 1 Tbsp of regular salad dressing equals 1 serving; 1 Tbsp of a lowfat dressing equals 1/2 serving; 1 Tbsp of a fat free dressing equals 0 servings.</font></p>")
+   ]).
+
+text(notatall, /, [
+   description = "",
+   type = text,
+   file = "",
+   text = text("<div align=""left"">
+  <table border=""1"" width=""276"" height=""16"">
+    <tr>
+      <td width=""120"" height=""16""><b>Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + CP + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Localization of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + localize + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Location of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + plocation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Radiation</b></td>
+      <td width=""140"" height=""16"">" + radiation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Severity of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + severity + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Age Range</b></td>
+      <td width=""140"" height=""16"">" + age + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Gender</b></td>
+      <td width=""140"" height=""16"">" + gender + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Family History</b></td>
+      <td width=""140"" height=""16"">" + history + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Smoking</b></td>
+      <td width=""140"" height=""16"">" + smoke + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Diabetes</b></td>
+      <td width=""140"" height=""16"">" + diabetes + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Bloop Bressure</b></td>
+      <td width=""140"" height=""16"">" + bp + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Colestrol Level</b></td>
+      <td width=""140"" height=""16"">" + HC + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Palpitation</b></td>
+      <td width=""140"" height=""16"">" + palpitation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Shortness of Breath</b></td>
+      <td width=""140"" height=""16"">" + sob + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Giddiness</b></td>
+      <td width=""140"" height=""16"">" + giddiness + "</td>
+    </tr>
+
+  </table>
+</div>
+
+<p style=""line-height: 100%"">
+<i><b>
+
+<p align=""center""><img border=""0"" src=""result.gif"" width=""180"" height=""70""></p>
+    <p align=""left"">You are not suffering from any heart disease. Please consult your doctor.</p>")
+   ]).
+
+text(onlyLowR, /, [
+   description = "",
+   type = text,
+   file = "",
+   text = text("<div align=""left"">
+  <table border=""1"" width=""276"" height=""16"">
+    <tr>
+      <td width=""120"" height=""16""><b>Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + CP + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Localization of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + localize + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Location of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + plocation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Radiation</b></td>
+      <td width=""140"" height=""16"">" + radiation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Severity of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + severity + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Age Range</b></td>
+      <td width=""140"" height=""16"">" + age + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Gender</b></td>
+      <td width=""140"" height=""16"">" + gender + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Family History</b></td>
+      <td width=""140"" height=""16"">" + history + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Smoking</b></td>
+      <td width=""140"" height=""16"">" + smoke + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Diabetes</b></td>
+      <td width=""140"" height=""16"">" + diabetes + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Bloop Bressure</b></td>
+      <td width=""140"" height=""16"">" + bp + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Colestrol Level</b></td>
+      <td width=""140"" height=""16"">" + HC + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Palpitation</b></td>
+      <td width=""140"" height=""16"">" + palpitation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Shortness of Breath</b></td>
+      <td width=""140"" height=""16"">" + sob + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Giddiness</b></td>
+      <td width=""140"" height=""16"">" + giddiness + "</td>
+    </tr>
+
+  </table>
+</div>
+
+<p style=""line-height: 100%"">
+<i><b>
+
+
+<font face=""Times New Roman"" size=""4"" color=""#003366"">After Diagnosing your Disease,You Are not suffering from Heart Disease but after diagnosing there is risk for u to get the disease. It is sugested that You carry out some practical test or consult your heart specialist or contact our Center.  </font></b></i> 
+
+<p style=""line-height: 100%""><font face=""Times New Roman""><font color=""#FF2F2F""><b>Low</b></font><b> Risk
+Level </b>of developing heart disease or having a heart attack within 10 years.</font>
+")
+   ]).
+
+text(onlyhighR, /, [
+   description = "",
+   type = text,
+   file = "",
+   text = text("<div align=""left"">
+  <table border=""1"" width=""276"" height=""16"">
+    <tr>
+      <td width=""120"" height=""16""><b>Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + CP + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Localization of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + localize + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Location of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + plocation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Radiation</b></td>
+      <td width=""140"" height=""16"">" + radiation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Severity of Chest Pain</b></td>
+      <td width=""140"" height=""16"">" + severity + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Age Range</b></td>
+      <td width=""140"" height=""16"">" + age + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Gender</b></td>
+      <td width=""140"" height=""16"">" + gender + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Family History</b></td>
+      <td width=""140"" height=""16"">" + history + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Smoking</b></td>
+      <td width=""140"" height=""16"">" + smoke + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Diabetes</b></td>
+      <td width=""140"" height=""16"">" + diabetes + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Bloop Bressure</b></td>
+      <td width=""140"" height=""16"">" + bp + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>High Colestrol Level</b></td>
+      <td width=""140"" height=""16"">" + HC + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Palpitation</b></td>
+      <td width=""140"" height=""16"">" + palpitation + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Shortness of Breath</b></td>
+      <td width=""140"" height=""16"">" + sob + "</td>
+    </tr>
+
+    <tr>
+      <td width=""120"" height=""16""><b>Giddiness</b></td>
+      <td width=""140"" height=""16"">" + giddiness + "</td>
+    </tr>
+
+  </table>
+</div>
+
+<p style=""line-height: 100%"">
+<i><b>
+
+
+<font face=""Times New Roman"" size=""4"" color=""#003366"">After Diagnosing your Disease,You Are not suffering from Heart Disease but after diagnosing there is high risk for u to get the disease. It is sugested that You carry out some practical test or consult your heart specialist or contact our Center.  </font></b></i> 
+
+<p style=""line-height: 100%""><font face=""Times New Roman""><font color=""#FF2F2F""><b>Highest</b></font><b> Risk
+Level </b>of developing heart disease or having a heart attack within 10 years.</font>")
+   ]).
+
