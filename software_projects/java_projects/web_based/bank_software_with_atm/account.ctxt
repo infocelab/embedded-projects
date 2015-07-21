@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=class\ account
+comment1.target=name
+comment10.target=PIN
+comment11.target=ATMcard
+comment12.params=
+comment12.target=void\ show()
+comment13.target=acn
+comment14.target=bal
+comment15.params=
+comment15.target=void\ del()
+comment2.params=
+comment2.target=long\ getATM()
+comment3.params=
+comment3.target=int\ getPIN()
+comment4.params=
+comment4.target=String\ getDate()
+comment5.target=rec
+comment6.params=
+comment6.target=void\ toFile()
+comment7.params=an
+comment7.target=account(String)
+comment8.params=n\ b
+comment8.target=account(String,float)
+comment9.target=tot
+numComments=16
