@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=class\ FactoryTransaction
+comment1.params=MemberID\ BookID\ BDate\ RDate\ Cost
+comment1.target=void\ CreateBookTrans(String,int,int,int,double)
+comment2.target=j
+comment3.target=i
+comment4.params=ID
+comment4.target=void\ getIDDetails(String)
+comment5.params=
+comment5.target=FactoryTransaction()
+comment6.params=BookID\ DateReturned
+comment6.target=String\ UpdateBookTransaction(int,int)
+comment7.target=df
+comment8.target=t
+comment9.params=
+comment9.target=int\ getTransIDSize()
+numComments=10

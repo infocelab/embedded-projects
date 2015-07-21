@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=class\ Books
+comment1.params=
+comment1.target=void\ setBorrowStatus()
+comment10.target=BookAuthor
+comment11.target=BookStatus
+comment12.params=
+comment12.target=String\ getStatus()
+comment13.params=
+comment13.target=String\ getAuthor()
+comment2.params=
+comment2.target=String\ getName()
+comment3.params=BName\ BAuthor\ BPublisher\ BID\ BStatus
+comment3.target=Books(String,String,String,int,String)
+comment4.target=BookID
+comment5.params=
+comment5.target=void\ setReturnStatus()
+comment6.target=BookName
+comment7.params=
+comment7.target=int\ getID()
+comment8.params=
+comment8.target=String\ getPublisher()
+comment9.target=BookPublisher
+numComments=14

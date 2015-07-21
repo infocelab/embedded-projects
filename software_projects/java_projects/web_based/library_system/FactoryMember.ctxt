@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=class\ FactoryMember
+comment1.params=
+comment1.target=int\ getMemberSize()
+comment10.target=y
+comment11.params=Name
+comment11.target=void\ getStatsUsingName(String)
+comment12.params=MemberID
+comment12.target=int\ getMemberBookCount(String)
+comment2.params=IC
+comment2.target=void\ getStatsUsingIC(String)
+comment3.params=
+comment3.target=FactoryMember()
+comment4.target=m
+comment5.params=MemberID
+comment5.target=void\ ReturnBookCount(String)
+comment6.target=i
+comment7.params=MemberID
+comment7.target=void\ UpdateBookCount(String)
+comment8.target=z
+comment9.params=Name\ Age\ IC\ Address\ Telephone
+comment9.target=void\ addMember(String,int,String,String,int)
+numComments=13

@@ -1,0 +1,941 @@
+************************  JET v2.51 EVALUATION *********************
+*  This program cannot be used in a business, commercial, government,  *
+*  or  institutional  environment  except  for  evaluation  purposes.  *
+************************************************************************
+Excelsior JET v2.51 Evaluation Version (c) Excelsior 1997,2002
+Make project "E:\my projects\AI Project\main.prj"
+                                                                                
+------------------------  Parsing Stage  ---------------------------------------
+
+   1: E:\my projects\AI Project/amzi/ls/LSException.class
+   2: E:\my projects\AI Project/amzi/ls/LogicServer.class
+   3: E:\my projects\AI Project\oalnf.jar:/com/microstar/xml/HandlerBase.class
+   4: E:\my projects\AI Project\oalnf.jar:/com/microstar/xml/XmlException.class
+   5: E:\my projects\AI Project\oalnf.jar:/com/microstar/xml/XmlHandler.class
+   6: E:\my projects\AI Project\oalnf.jar:/com/microstar/xml/XmlParser.class
+   7: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/jar/OyoahaJarEntry.class
+   8: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/jar/OyoahaJarFileStreamWarper.class
+   9: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/jar/OyoahaJarInputStreamWarper.class
+  10: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/jar/OyoahaJarReader.class
+  11: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/jar/OyoahaJarStreamWarper.class
+  12: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/jar/OyoahaJarURLStreamWarper.class
+  13: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/background/OyoahaAGradientBackground.class
+  14: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/background/OyoahaAlphaBackground.class
+  15: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/background/OyoahaColorPoolBackground.class
+  16: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/background/OyoahaGradientBackground.class
+  17: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/background/OyoahaImageBackground.class
+  18: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/background/OyoahaLayerBackground.class
+  19: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/background/OyoahaTextureBackground.class
+  20: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaAlphaBorder.class
+  21: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaButtonBorder.class
+  22: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaCompoundBorder.class
+  23: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaContainerBorder.class
+  24: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaEmptyBorder.class
+  25: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaImageBorder.class
+  26: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaInternalFrameBorder.class
+  27: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaMenuBarBorder.class
+  28: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaMenuBorder.class
+  29: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaTableHeaderBorder.class
+  30: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaTextFieldBorder.class
+  31: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaToolBarBorder.class
+  32: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/border/OyoahaTreeListRendererBorder.class
+  33: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/DemoPanel$ImageFileFilter.class
+  34: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/DemoPanel$LoadDemoPanel.class
+  35: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/DemoPanel.class
+  36: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/editor/OyoahaCompactor.class
+  37: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/editor/OyoahaCompactorFrame$1.class
+  38: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/editor/OyoahaCompactorFrame$JarFileFilter.class
+  39: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/editor/OyoahaCompactorFrame.class
+  40: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDefaultFileSystemAdaptor.class
+  41: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDefaultFileSystemAdaptor2.class
+  42: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryComboBoxModel.class
+  43: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryComboBoxModel2.class
+  44: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryComboBoxNode.class
+  45: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryComboBoxRenderer.class
+  46: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel$DoChangeContents.class
+  47: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel$ListFiles.class
+  48: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel$OyoahaLoadFilesByExtentionThread.class
+  49: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel$OyoahaLoadFilesByTypeThread.class
+  50: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel$OyoahaLoadFilesThread.class
+  51: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel.class
+  52: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaFileSystemAdaptor.class
+  53: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaFileView.class
+  54: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaSortFileArray.class
+  55: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaVectorFolder.class
+  56: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/flash/OyoahaFlashImageBackground.class
+  57: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/flash/OyoahaFlashTextureBackground.class
+  58: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/FileRendererIcon.class
+  59: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaAlphaIcon.class
+  60: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaCheckBoxIcon.class
+  61: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaIcon.class
+  62: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaIndentIcon.class
+  63: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaRadioButtonIcon.class
+  64: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaSliderThumbIcon.class
+  65: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/IDATEnumeration.class
+  66: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/LazyIconLoader.class
+  67: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$1.class
+  68: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$2.class
+  69: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$3.class
+  70: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$4.class
+  71: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$5.class
+  72: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$HelpFrame.class
+  73: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$MetalThemeMenu.class
+  74: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$PreviewFrame.class
+  75: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$ThemeFileFilter.class
+  76: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main.class
+  77: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/MeteredInputStream.class
+  78: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaBackgroundObject.class
+  79: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaBumpObject.class
+  80: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaButtonBorderLike.class
+  81: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaButtonBorderLikeComponent.class
+  82: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaButtonLikeComponent.class
+  83: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaFlash.class
+  84: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaImageIcon.class
+  85: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaImageLoader.class
+  86: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJarThemeLoader$NullTag.class
+  87: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJarThemeLoader$ObjectLoader.class
+  88: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJarThemeLoader$OyoahaThemeHandler.class
+  89: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJarThemeLoader.class
+  90: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJava1PaintUtilities.class
+  91: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJava1SoundUtilities.class
+  92: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJava2PaintUtilities.class
+  93: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJava2SoundUtilities.class
+  94: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaLookAndFeel$1.class
+  95: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaLookAndFeel.class
+  96: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaMetalTheme.class
+  97: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaPaintUtilities.class
+  98: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaProperties.class
+  99: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaRolloverListener.class
+ 100: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaSafeJarThemeLoader$NullTag.class
+ 101: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaSafeJarThemeLoader$ObjectLoader.class
+ 102: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaSafeJarThemeLoader$OyoahaThemeHandler.class
+ 103: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaSafeJarThemeLoader.class
+ 104: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaSoundUtilities.class
+ 105: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaStateRule.class
+ 106: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaTheme.class
+ 107: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaThemeLoader.class
+ 108: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaThemeLoaderUtilities.class
+ 109: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaThemeScheme.class
+ 110: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaThemeSchemeChanged.class
+ 111: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaThemeSchemeListener.class
+ 112: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaUpdater.class
+ 113: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaUtilities.class
+ 114: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/PNGImageProducer.class
+ 115: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaBumpPool.class
+ 116: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaButtonBorderPool.class
+ 117: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaButtonColorPool.class
+ 118: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaButtonTexturePool.class
+ 119: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaColorPool.class
+ 120: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaDefaultColorPool.class
+ 121: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaDefaultImagePool.class
+ 122: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaIconPool.class
+ 123: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaImageSiliced.class
+ 124: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaPool.class
+ 125: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaPoolUtilities.class
+ 126: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaSlicePool.class
+ 127: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaTexturePool.class
+ 128: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaButtonUI.class
+ 129: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaCheckBoxMenuItemUI.class
+ 130: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaCheckBoxUI.class
+ 131: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaColorChooserUI$PreviewListener.class
+ 132: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaColorChooserUI.class
+ 133: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaColorPreviewPanel.class
+ 134: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaComboBoxEditor$TextFieldComboBoxEditor.class
+ 135: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaComboBoxEditor.class
+ 136: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaComboBoxUI$OyoahaPropertyChangeListener.class
+ 137: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaComboBoxUI.class
+ 138: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaDesktopIconUI$1.class
+ 139: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaDesktopIconUI$TitleListener.class
+ 140: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaDesktopIconUI.class
+ 141: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaDesktopPaneJava2UI.class
+ 142: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaDesktopPaneUI.class
+ 143: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$1.class
+ 144: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$2.class
+ 145: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$3.class
+ 146: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$4.class
+ 147: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$5.class
+ 148: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$6.class
+ 149: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$7.class
+ 150: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$8.class
+ 151: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$9.class
+ 152: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$DirectoryComboBoxAction.class
+ 153: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$EditActionListener.class
+ 154: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$FileRenderer.class
+ 155: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$FileRendererJava2.class
+ 156: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$FileRendererJava2Icon.class
+ 157: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$FilterComboBoxModel.class
+ 158: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$FilterComboBoxRenderer.class
+ 159: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$OyoahaChangeToParentDirectoryAction.class
+ 160: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$OyoahaDoubleClickListener.class
+ 161: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$OyoahaEditCell.class
+ 162: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$OyoahaNewFolderAction.class
+ 163: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$OyoahaSelectionListener.class
+ 164: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI.class
+ 165: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$1.class
+ 166: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$2.class
+ 167: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$3.class
+ 168: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$4.class
+ 169: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$5.class
+ 170: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$6.class
+ 171: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$7.class
+ 172: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$8.class
+ 173: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$9.class
+ 174: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$DirectoryComboBoxAction.class
+ 175: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$DirectoryComboBoxRenderer.class
+ 176: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$EditActionListener.class
+ 177: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$FileRenderer.class
+ 178: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$FilterComboBoxModel.class
+ 179: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$FilterComboBoxRenderer.class
+ 180: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$IndentIcon.class
+ 181: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$OyoahaChangeToParentDirectoryAction.class
+ 182: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$OyoahaDoubleClickListener.class
+ 183: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$OyoahaEditCell.class
+ 184: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$OyoahaNewFolderAction.class
+ 185: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$OyoahaSelectionListener.class
+ 186: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI.class
+ 187: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaInternalFrameTitlePane$OyoahaPropertyChangeHandler.class
+ 188: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaInternalFrameTitlePane$OyoahaTitlePaneLayout.class
+ 189: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaInternalFrameTitlePane.class
+ 190: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaInternalFrameUI.class
+ 191: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaListCellRenderer.class
+ 192: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaListCellRendererUI.class
+ 193: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaListUI.class
+ 194: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaMainSwatchPanel.class
+ 195: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaMenuBarUI.class
+ 196: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaMenuItemUI.class
+ 197: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaMenuUI.class
+ 198: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaOptionPaneUI.class
+ 199: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaPaintMenu.class
+ 200: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaPanelUI.class
+ 201: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaRadioButtonMenuItemUI.class
+ 202: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaRadioButtonUI.class
+ 203: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaRecentSwatchPanel.class
+ 204: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaScrollBarUI.class
+ 205: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaScrollButton.class
+ 206: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaScrollPaneUI.class
+ 207: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSliderUI.class
+ 208: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSpinnerUI$OyoahaArrowButtonHandler.class
+ 209: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSpinnerUI.class
+ 210: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSplitPaneDivider$OyoahaButtonSplitPaneDivider.class
+ 211: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSplitPaneDivider$OyoahaDividerLayout.class
+ 212: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSplitPaneDivider.class
+ 213: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSplitPaneUI.class
+ 214: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSwatchChooserPanel$MainSwatchListener.class
+ 215: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSwatchChooserPanel$RecentSwatchListener.class
+ 216: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSwatchChooserPanel.class
+ 217: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSwatchPanel.class
+ 218: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaTabbedPaneUI.class
+ 219: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaTableHeaderUI.class
+ 220: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaTableUI.class
+ 221: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaToggleButtonUI.class
+ 222: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaToolBarUI$OyoahaDockingListener.class
+ 223: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaToolBarUI.class
+ 224: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaTreeCellRenderer.class
+ 225: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaTreeUI.class
+ 226: E:\my projects\AI Project/aboutUs.class
+ 227: E:\my projects\AI Project/addRule$1.class
+ 228: E:\my projects\AI Project/addRule$2.class
+ 229: E:\my projects\AI Project/addRule.class
+ 230: E:\my projects\AI Project/AskFieldDialog$1.class
+ 231: E:\my projects\AI Project/AskFieldDialog$2.class
+ 232: E:\my projects\AI Project/AskMenuDialog$1.class
+ 233: E:\my projects\AI Project/AskMenuDialog$2.class
+ 234: E:\my projects\AI Project/AskMenuDialog.class
+ 235: E:\my projects\AI Project/main$1.class
+ 236: E:\my projects\AI Project/main$2.class
+ 237: E:\my projects\AI Project/main$3.class
+ 238: E:\my projects\AI Project/main$4.class
+ 239: E:\my projects\AI Project/main$5.class
+ 240: E:\my projects\AI Project/main.class
+ 241: E:\my projects\AI Project/MyActionListener.class
+ 242: E:\my projects\AI Project/patients$1.class
+ 243: E:\my projects\AI Project/patients$2.class
+ 244: E:\my projects\AI Project/patients$3.class
+ 245: E:\my projects\AI Project/patients$4.class
+ 246: E:\my projects\AI Project/patients$5.class
+ 247: E:\my projects\AI Project/patients.class
+ 248: E:\my projects\AI Project/patientSQL.class
+ 249: E:\my projects\AI Project/risk_factors$1.class
+ 250: E:\my projects\AI Project/risk_factors$2.class
+ 251: E:\my projects\AI Project/risk_factors.class
+ 252: E:\my projects\AI Project/Utils.class
+* [ Utils.java 190.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: SearchPath will be thrown here
+* [ Utils.java 190.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: com/borland/jb/util/SearchPath will be thrown here
+* [ Utils.java 191.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: com/borland/jb/util/SearchPath will be thrown here
+* [ Utils.java 192.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: com/borland/jb/util/SearchPath will be thrown here
+* [ Utils.java 194.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: SearchPath will be thrown here
+* [ Utils.java 194.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: com/borland/jb/util/SearchPath will be thrown here
+* [ Utils.java 195.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: com/borland/jb/util/SearchPath will be thrown here
+ 253: E:\my projects\AI Project/addRule$3.class
+ 254: E:\my projects\AI Project/addRule$4.class
+ 255: E:\my projects\AI Project/patients$6.class
+ 256: E:\my projects\AI Project/patients$7.class
+ 257: E:\my projects\AI Project/patients$8.class
+ 258: E:\my projects\AI Project/patients$9.class
+ 259: E:\my projects\AI Project/AskFieldDialog.class
+* [ AskFieldDialog.java 20.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: ColumnLayout will be thrown here
+* [ AskFieldDialog.java 20.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: com/borland/dbswing/ColumnLayout will be thrown here
+* [ AskFieldDialog.java 27.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: ColumnLayout will be thrown here
+* [ AskFieldDialog.java 27.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: com/borland/dbswing/ColumnLayout will be thrown here
+* [ AskFieldDialog.java 66.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: com/borland/dbswing/ColumnLayout will be thrown here
+* [ AskFieldDialog.java 91.01 W917 ]                                                 
+*  java.lang.NoClassDefFoundError: com/borland/dbswing/ColumnLayout will be thrown here
+-------------------------------------------------------------------
+files: 259  errors: 0/13/0  bytes 703985  time: 0:15.62  speed 45069 bps
+
+List of absent classes:
+  com/borland/dbswing/ColumnLayout
+  com/borland/jb/util/SearchPath
+
+------------------------  Codegen Stage  ---------------------------------------
+
+  0% total, 259/259 to go: E:\my projects\AI Project/AskFieldDialog.class
+* [ AskFieldDialog.java 20.01 W900 ]                                                 
+*  redundant code eliminated
+* [ AskFieldDialog.java 20.01 W311 ]                                                 
+*  unreachable code
+* [ AskFieldDialog.java 22.01 W311 ]                                                 
+*  unreachable code
+* [ AskFieldDialog.java 66.01 W900 ]                                                 
+*  redundant code eliminated
+* [ java\awt\KeyboardFocusManager.java 321.01 N334 ]                                                 
+*  for statement versioned
+errors(0), warnings(4), notes(1); bytes(87820), time  1.73
+  0% total, 258/259 to go: E:\my projects\AI Project/patients$9.class
+errors(0), warnings(0), notes(0); bytes(17906), time  0.80
+  0% total, 257/259 to go: E:\my projects\AI Project/patients$8.class
+errors(0), warnings(0), notes(0); bytes(4760), time  0.07
+  1% total, 256/259 to go: E:\my projects\AI Project/patients$7.class
+errors(0), warnings(0), notes(0); bytes(17772), time  0.58
+  1% total, 255/259 to go: E:\my projects\AI Project/patients$6.class
+errors(0), warnings(0), notes(0); bytes(4760), time  0.07
+  1% total, 254/259 to go: E:\my projects\AI Project/addRule$4.class
+errors(0), warnings(0), notes(0); bytes(3879), time  0.05
+  2% total, 253/259 to go: E:\my projects\AI Project/addRule$3.class
+errors(0), warnings(0), notes(0); bytes(4736), time  0.06
+  2% total, 252/259 to go: E:\my projects\AI Project/Utils.class
+* [ Utils.java 22.01 W900 ]                                                 
+*  redundant code eliminated
+* [ Utils.java 48.01 W900 ]                                                 
+*  redundant code eliminated
+* [ Utils.java 84.01 W900 ]                                                 
+*  redundant code eliminated
+* [ Utils.java 114.01 W900 ]                                                 
+*  redundant code eliminated
+* [ Utils.java 135.01 W900 ]                                                 
+*  redundant code eliminated
+* [ Utils.java 162.01 W900 ]                                                 
+*  redundant code eliminated
+* [ Utils.java 175.01 W900 ]                                                 
+*  redundant code eliminated
+* [ Utils.java 190.01 W311 ]                                                 
+*  unreachable code
+errors(0), warnings(8), notes(0); bytes(29557), time  2.25
+  3% total, 251/259 to go: E:\my projects\AI Project/risk_factors.class
+errors(0), warnings(0), notes(0); bytes(100585), time  2.42
+  3% total, 250/259 to go: E:\my projects\AI Project/risk_factors$2.class
+errors(0), warnings(0), notes(0); bytes(3484), time  0.04
+  3% total, 249/259 to go: E:\my projects\AI Project/risk_factors$1.class
+errors(0), warnings(0), notes(0); bytes(8184), time  0.28
+  4% total, 248/259 to go: E:\my projects\AI Project/patientSQL.class
+errors(0), warnings(0), notes(0); bytes(38831), time  2.03
+  4% total, 247/259 to go: E:\my projects\AI Project/patients.class
+errors(0), warnings(0), notes(0); bytes(88998), time  1.80
+  5% total, 246/259 to go: E:\my projects\AI Project/patients$5.class
+errors(0), warnings(0), notes(0); bytes(18528), time  1.49
+  5% total, 245/259 to go: E:\my projects\AI Project/patients$4.class
+errors(0), warnings(0), notes(0); bytes(4760), time  0.15
+  5% total, 244/259 to go: E:\my projects\AI Project/patients$3.class
+errors(0), warnings(0), notes(0); bytes(4018), time  0.05
+  6% total, 243/259 to go: E:\my projects\AI Project/patients$2.class
+errors(0), warnings(0), notes(0); bytes(4760), time  0.06
+  6% total, 242/259 to go: E:\my projects\AI Project/patients$1.class
+errors(0), warnings(0), notes(0); bytes(5978), time  0.06
+  6% total, 241/259 to go: E:\my projects\AI Project/MyActionListener.class
+errors(0), warnings(0), notes(0); bytes(3212), time  0.04
+  7% total, 240/259 to go: E:\my projects\AI Project/main.class
+* [ main.java 975.01 W900 ]                                                 
+*  redundant code eliminated
+#               if (responseFunctor.equals("ask") && responseType.equals...
+errors(0), warnings(1), notes(0); bytes(170754), time  7.85
+  7% total, 239/259 to go: E:\my projects\AI Project/main$5.class
+errors(0), warnings(0), notes(0); bytes(3516), time  0.05
+  8% total, 238/259 to go: E:\my projects\AI Project/main$4.class
+errors(0), warnings(0), notes(0); bytes(3560), time  0.05
+  8% total, 237/259 to go: E:\my projects\AI Project/main$3.class
+errors(0), warnings(0), notes(0); bytes(3001), time  0.04
+  8% total, 236/259 to go: E:\my projects\AI Project/main$2.class
+errors(0), warnings(0), notes(0); bytes(15298), time  1.61
+  9% total, 235/259 to go: E:\my projects\AI Project/main$1.class
+errors(0), warnings(0), notes(0); bytes(6443), time  0.14
+  9% total, 234/259 to go: E:\my projects\AI Project/AskMenuDialog.class
+errors(0), warnings(0), notes(0); bytes(78681), time  0.62
+ 10% total, 233/259 to go: E:\my projects\AI Project/AskMenuDialog$2.class
+errors(0), warnings(0), notes(0); bytes(3192), time  0.04
+ 10% total, 232/259 to go: E:\my projects\AI Project/AskMenuDialog$1.class
+errors(0), warnings(0), notes(0); bytes(3192), time  0.05
+ 10% total, 231/259 to go: E:\my projects\AI Project/AskFieldDialog$2.class
+errors(0), warnings(0), notes(0); bytes(3208), time  0.04
+ 11% total, 230/259 to go: E:\my projects\AI Project/AskFieldDialog$1.class
+errors(0), warnings(0), notes(0); bytes(3208), time  0.04
+ 11% total, 229/259 to go: E:\my projects\AI Project/addRule.class
+errors(0), warnings(0), notes(0); bytes(99580), time  2.26
+ 11% total, 228/259 to go: E:\my projects\AI Project/addRule$2.class
+errors(0), warnings(0), notes(0); bytes(3080), time  0.04
+ 12% total, 227/259 to go: E:\my projects\AI Project/addRule$1.class
+errors(0), warnings(0), notes(0); bytes(4736), time  0.07
+ 12% total, 226/259 to go: E:\my projects\AI Project/aboutUs.class
+errors(0), warnings(0), notes(0); bytes(82676), time  1.48
+ 13% total, 225/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaTreeUI.class
+errors(0), warnings(0), notes(0); bytes(30104), time  0.24
+ 13% total, 224/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaTreeCellRenderer.class
+errors(0), warnings(0), notes(0); bytes(151482), time  6.11
+ 13% total, 223/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaToolBarUI.class
+errors(0), warnings(0), notes(0); bytes(45954), time  2.18
+ 14% total, 222/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaToolBarUI$OyoahaDockingListener.class
+errors(0), warnings(0), notes(0); bytes(23212), time  0.74
+ 14% total, 221/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaToggleButtonUI.class
+errors(0), warnings(0), notes(0); bytes(46113), time  2.75
+ 15% total, 220/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaTableUI.class
+errors(0), warnings(0), notes(0); bytes(26614), time  1.58
+ 15% total, 219/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaTableHeaderUI.class
+errors(0), warnings(0), notes(0); bytes(24249), time  0.57
+ 15% total, 218/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaTabbedPaneUI.class
+errors(0), warnings(0), notes(0); bytes(43430), time  1.72
+ 16% total, 217/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSwatchPanel.class
+errors(0), warnings(0), notes(0); bytes(71082), time  0.17
+ 16% total, 216/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSwatchChooserPanel.class
+errors(0), warnings(0), notes(0); bytes(105238), time  2.33
+ 16% total, 215/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSwatchChooserPanel$RecentSwatchListener.class
+errors(0), warnings(0), notes(0); bytes(6340), time  0.14
+ 17% total, 214/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSwatchChooserPanel$MainSwatchListener.class
+errors(0), warnings(0), notes(0); bytes(6388), time  0.05
+ 17% total, 213/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSplitPaneUI.class
+errors(0), warnings(0), notes(0); bytes(36462), time  0.95
+ 18% total, 212/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSplitPaneDivider.class
+errors(0), warnings(0), notes(0); bytes(90701), time  2.39
+ 18% total, 211/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSplitPaneDivider$OyoahaDividerLayout.class
+errors(0), warnings(0), notes(0); bytes(7396), time  0.08
+ 18% total, 210/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSplitPaneDivider$OyoahaButtonSplitPaneDivider.class
+errors(0), warnings(0), notes(0); bytes(93752), time  1.55
+ 19% total, 209/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSpinnerUI.class
+errors(0), warnings(0), notes(0); bytes(32749), time  1.31
+ 19% total, 208/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSpinnerUI$OyoahaArrowButtonHandler.class
+errors(0), warnings(0), notes(0); bytes(13037), time  0.10
+ 20% total, 207/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaSliderUI.class
+errors(0), warnings(0), notes(0); bytes(53471), time  1.74
+ 20% total, 206/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaScrollPaneUI.class
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaScrollPaneUI.java 37.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaScrollPaneUI.java 39.01 W311 ]                                                 
+*  unreachable code
+errors(0), warnings(2), notes(0); bytes(23788), time  1.41
+ 20% total, 205/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaScrollButton.class
+* [ javax\swing\AbstractButton.java 1753.01 N334 ]                                                 
+*  for statement versioned
+errors(0), warnings(0), notes(1); bytes(119908), time  2.13
+ 21% total, 204/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaScrollBarUI.class
+errors(0), warnings(0), notes(0); bytes(59588), time  4.32
+ 21% total, 203/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaRecentSwatchPanel.class
+errors(0), warnings(0), notes(0); bytes(82591), time  1.31
+ 22% total, 202/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaRadioButtonUI.class
+errors(0), warnings(0), notes(0); bytes(46179), time  2.65
+ 22% total, 201/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaRadioButtonMenuItemUI.class
+errors(0), warnings(0), notes(0); bytes(38446), time  2.37
+ 22% total, 200/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaPanelUI.class
+errors(0), warnings(0), notes(0); bytes(7552), time  0.09
+ 23% total, 199/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaPaintMenu.class
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaPaintMenu.java 395.01 W900 ]                                                 
+*  redundant code eliminated
+errors(0), warnings(1), notes(0); bytes(34638), time  2.08
+ 23% total, 198/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaOptionPaneUI.class
+errors(0), warnings(0), notes(0); bytes(13931), time  0.07
+ 23% total, 197/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaMenuUI.class
+errors(0), warnings(0), notes(0); bytes(38728), time  1.39
+ 24% total, 196/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaMenuItemUI.class
+errors(0), warnings(0), notes(0); bytes(37450), time  2.54
+ 24% total, 195/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaMenuBarUI.class
+errors(0), warnings(0), notes(0); bytes(9200), time  0.07
+ 25% total, 194/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaMainSwatchPanel.class
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaSwatchChooserPanel.java 267.01 N334 ]                                                 
+*  for statement versioned
+errors(0), warnings(0), notes(1); bytes(81922), time  1.61
+ 25% total, 193/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaListUI.class
+errors(0), warnings(0), notes(0); bytes(27105), time  0.75
+ 25% total, 192/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaListCellRendererUI.class
+errors(0), warnings(0), notes(0); bytes(78025), time  0.71
+ 26% total, 191/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaListCellRenderer.class
+errors(0), warnings(0), notes(0); bytes(100079), time  2.44
+ 26% total, 190/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaInternalFrameUI.class
+errors(0), warnings(0), notes(0); bytes(71483), time  4.48
+ 27% total, 189/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaInternalFrameTitlePane.class
+errors(0), warnings(0), notes(0); bytes(127150), time  3.92
+ 27% total, 188/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaInternalFrameTitlePane$OyoahaTitlePaneLayout.class
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaInternalFrameTitlePane.java 311.01 W314 ]                                                 
+*  variable "l_i1" has compile time defined value here
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaInternalFrameTitlePane.java 452.01 W314 ]                                                 
+*  variable "l_i3" has compile time defined value here
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaInternalFrameTitlePane.java 453.01 W314 ]                                                 
+*  variable "l_b" has compile time defined value here
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaInternalFrameTitlePane.java 459.01 W314 ]                                                 
+*  variable "l_i3" has compile time defined value here
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaInternalFrameTitlePane.java 460.01 W314 ]                                                 
+*  variable "l_b" has compile time defined value here
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaInternalFrameTitlePane.java 470.01 W314 ]                                                 
+*  variable "l_i3" has compile time defined value here
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaInternalFrameTitlePane.java 471.01 W314 ]                                                 
+*  variable "l_b" has compile time defined value here
+* [ com\oyoaha\swing\plaf\oyoaha\ui\OyoahaInternalFrameTitlePane.java 480.01 W314 ]                                                 
+*  variable "l_b" has compile time defined value here
+errors(0), warnings(8), notes(0); bytes(23039), time  1.70
+ 27% total, 187/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaInternalFrameTitlePane$OyoahaPropertyChangeHandler.class
+errors(0), warnings(0), notes(0); bytes(11536), time  0.25
+ 28% total, 186/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI.class
+errors(0), warnings(0), notes(0); bytes(163358), time 10.57
+ 28% total, 185/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$OyoahaSelectionListener.class
+errors(0), warnings(0), notes(0); bytes(5557), time  0.06
+ 28% total, 184/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$OyoahaNewFolderAction.class
+errors(0), warnings(0), notes(0); bytes(8954), time  0.15
+ 29% total, 183/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$OyoahaEditCell.class
+errors(0), warnings(0), notes(0); bytes(7212), time  0.07
+ 29% total, 182/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$OyoahaDoubleClickListener.class
+errors(0), warnings(0), notes(0); bytes(8752), time  0.13
+ 30% total, 181/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$OyoahaChangeToParentDirectoryAction.class
+errors(0), warnings(0), notes(0); bytes(7976), time  0.06
+ 30% total, 180/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$IndentIcon.class
+errors(0), warnings(0), notes(0); bytes(4852), time  0.06
+ 30% total, 179/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$FilterComboBoxRenderer.class
+errors(0), warnings(0), notes(0); bytes(80934), time  1.77
+ 31% total, 178/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$FilterComboBoxModel.class
+errors(0), warnings(0), notes(0); bytes(10612), time  0.17
+ 31% total, 177/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$FileRenderer.class
+errors(0), warnings(0), notes(0); bytes(107950), time  2.90
+ 32% total, 176/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$EditActionListener.class
+errors(0), warnings(0), notes(0); bytes(4326), time  0.05
+ 32% total, 175/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$DirectoryComboBoxRenderer.class
+errors(0), warnings(0), notes(0); bytes(82113), time  1.76
+ 32% total, 174/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$DirectoryComboBoxAction.class
+errors(0), warnings(0), notes(0); bytes(8471), time  0.14
+ 33% total, 173/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$9.class
+errors(0), warnings(0), notes(0); bytes(6492), time  0.12
+ 33% total, 172/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$8.class
+errors(0), warnings(0), notes(0); bytes(6285), time  0.11
+ 33% total, 171/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$7.class
+errors(0), warnings(0), notes(0); bytes(5018), time  0.05
+ 34% total, 170/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$6.class
+* [ javax\swing\DefaultButtonModel.java 356.01 N334 ]                                                 
+*  for statement versioned
+errors(0), warnings(0), notes(1); bytes(81725), time  0.14
+ 34% total, 169/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$5.class
+* [ javax\swing\DefaultButtonModel.java 356.01 N334 ]                                                 
+*  for statement versioned
+errors(0), warnings(0), notes(1); bytes(81725), time  1.15
+ 35% total, 168/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$4.class
+errors(0), warnings(0), notes(0); bytes(4373), time  0.14
+ 35% total, 167/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$3.class
+errors(0), warnings(0), notes(0); bytes(83449), time  0.14
+ 35% total, 166/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$2.class
+errors(0), warnings(0), notes(0); bytes(91778), time  0.51
+ 36% total, 165/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserUI$1.class
+errors(0), warnings(0), notes(0); bytes(5146), time  0.06
+ 36% total, 164/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI.class
+errors(0), warnings(0), notes(0); bytes(54244), time  3.48
+ 37% total, 163/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$OyoahaSelectionListener.class
+errors(0), warnings(0), notes(0); bytes(5637), time  0.07
+ 37% total, 162/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$OyoahaNewFolderAction.class
+errors(0), warnings(0), notes(0); bytes(9132), time  0.06
+ 37% total, 161/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$OyoahaEditCell.class
+errors(0), warnings(0), notes(0); bytes(7364), time  0.08
+ 38% total, 160/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$OyoahaDoubleClickListener.class
+errors(0), warnings(0), notes(0); bytes(8970), time  0.12
+ 38% total, 159/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$OyoahaChangeToParentDirectoryAction.class
+errors(0), warnings(0), notes(0); bytes(8066), time  0.06
+ 38% total, 158/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$FilterComboBoxRenderer.class
+errors(0), warnings(0), notes(0); bytes(81014), time  0.72
+ 39% total, 157/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$FilterComboBoxModel.class
+errors(0), warnings(0), notes(0); bytes(10742), time  0.17
+ 39% total, 156/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$FileRendererJava2Icon.class
+errors(0), warnings(0), notes(0); bytes(5609), time  0.08
+ 40% total, 155/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$FileRendererJava2.class
+errors(0), warnings(0), notes(0); bytes(109200), time  2.87
+ 40% total, 154/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$FileRenderer.class
+errors(0), warnings(0), notes(0); bytes(109150), time  4.04
+ 40% total, 153/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$EditActionListener.class
+errors(0), warnings(0), notes(0); bytes(4478), time  0.06
+ 41% total, 152/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$DirectoryComboBoxAction.class
+errors(0), warnings(0), notes(0); bytes(8649), time  0.06
+ 41% total, 151/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$9.class
+errors(0), warnings(0), notes(0); bytes(6670), time  0.11
+ 42% total, 150/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$8.class
+errors(0), warnings(0), notes(0); bytes(7603), time  0.06
+ 42% total, 149/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$7.class
+errors(0), warnings(0), notes(0); bytes(5206), time  0.06
+ 42% total, 148/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$6.class
+* [ javax\swing\DefaultButtonModel.java 356.01 N334 ]                                                 
+*  for statement versioned
+errors(0), warnings(0), notes(1); bytes(81877), time  0.13
+ 43% total, 147/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$5.class
+* [ javax\swing\DefaultButtonModel.java 356.01 N334 ]                                                 
+*  for statement versioned
+errors(0), warnings(0), notes(1); bytes(81877), time  0.13
+ 43% total, 146/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$4.class
+errors(0), warnings(0), notes(0); bytes(4525), time  0.05
+ 44% total, 145/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$3.class
+errors(0), warnings(0), notes(0); bytes(6670), time  1.16
+ 44% total, 144/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$2.class
+errors(0), warnings(0), notes(0); bytes(7603), time  0.15
+ 44% total, 143/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaFileChooserJava2UI$1.class
+errors(0), warnings(0), notes(0); bytes(5206), time  0.06
+ 45% total, 142/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaDesktopPaneUI.class
+errors(0), warnings(0), notes(0); bytes(9802), time  0.07
+ 45% total, 141/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaDesktopPaneJava2UI.class
+errors(0), warnings(0), notes(0); bytes(10956), time  0.08
+ 45% total, 140/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaDesktopIconUI.class
+errors(0), warnings(0), notes(0); bytes(39307), time  2.06
+ 46% total, 139/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaDesktopIconUI$TitleListener.class
+errors(0), warnings(0), notes(0); bytes(5905), time  0.06
+ 46% total, 138/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaDesktopIconUI$1.class
+errors(0), warnings(0), notes(0); bytes(3973), time  0.04
+ 47% total, 137/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaComboBoxUI.class
+errors(0), warnings(0), notes(0); bytes(103656), time  8.09
+ 47% total, 136/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaComboBoxUI$OyoahaPropertyChangeListener.class
+errors(0), warnings(0), notes(0); bytes(5691), time  0.15
+ 47% total, 135/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaComboBoxEditor.class
+errors(0), warnings(0), notes(0); bytes(27143), time  0.41
+ 48% total, 134/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaComboBoxEditor$TextFieldComboBoxEditor.class
+errors(0), warnings(0), notes(0); bytes(95436), time  1.68
+ 48% total, 133/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaColorPreviewPanel.class
+errors(0), warnings(0), notes(0); bytes(97299), time  3.01
+ 49% total, 132/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaColorChooserUI.class
+errors(0), warnings(0), notes(0); bytes(45506), time  2.35
+ 49% total, 131/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaColorChooserUI$PreviewListener.class
+errors(0), warnings(0), notes(0); bytes(5072), time  0.05
+ 49% total, 130/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaCheckBoxUI.class
+errors(0), warnings(0), notes(0); bytes(46025), time  3.70
+ 50% total, 129/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaCheckBoxMenuItemUI.class
+errors(0), warnings(0), notes(0); bytes(38326), time  2.41
+ 50% total, 128/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/ui/OyoahaButtonUI.class
+errors(0), warnings(0), notes(0); bytes(46694), time  2.81
+ 50% total, 127/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaTexturePool.class
+errors(0), warnings(0), notes(0); bytes(16918), time  1.48
+ 51% total, 126/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaSlicePool.class
+errors(0), warnings(0), notes(0); bytes(2349), time  0.03
+ 51% total, 125/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaPoolUtilities.class
+* [ com\oyoaha\swing\plaf\oyoaha\pool\OyoahaPoolUtilities.java 304.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\pool\OyoahaPoolUtilities.java 361.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\pool\OyoahaPoolUtilities.java 386.01 N334 ]                                                 
+*  for statement versioned
+errors(0), warnings(0), notes(3); bytes(56946), time  3.72
+ 52% total, 124/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaPool.class
+errors(0), warnings(0), notes(0); bytes(2035), time  0.04
+ 52% total, 123/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaImageSiliced.class
+errors(0), warnings(0), notes(0); bytes(3257), time  0.04
+ 52% total, 122/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaIconPool.class
+errors(0), warnings(0), notes(0); bytes(5391), time  0.06
+ 53% total, 121/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaDefaultImagePool.class
+errors(0), warnings(0), notes(0); bytes(16686), time  1.63
+ 53% total, 120/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaDefaultColorPool.class
+errors(0), warnings(0), notes(0); bytes(16757), time  0.34
+ 54% total, 119/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaColorPool.class
+errors(0), warnings(0), notes(0); bytes(1783), time  0.03
+ 54% total, 118/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaButtonTexturePool.class
+errors(0), warnings(0), notes(0); bytes(20211), time  0.64
+ 54% total, 117/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaButtonColorPool.class
+errors(0), warnings(0), notes(0); bytes(9410), time  1.22
+ 55% total, 116/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaButtonBorderPool.class
+* [ com\oyoaha\swing\plaf\oyoaha\pool\OyoahaButtonBorderPool.java 111.01 W900 ]                                                 
+*  redundant code eliminated
+errors(0), warnings(1), notes(0); bytes(41910), time  2.66
+ 55% total, 115/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/pool/OyoahaBumpPool.class
+errors(0), warnings(0), notes(0); bytes(19369), time  0.67
+ 55% total, 114/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/PNGImageProducer.class
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 247.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 254.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 269.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 276.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 287.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 301.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 317.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 347.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 553.01 N334 ]                                                 
+*  for statement versioned
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 779.01 W900 ]                                                 
+*  redundant code eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\PNGImageProducer.java 799.01 W900 ]                                                 
+*  redundant code eliminated
+errors(0), warnings(2), notes(9); bytes(60488), time  4.54
+ 56% total, 113/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaUtilities.class
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaUtilities.java 1273.01 W902 ]                                                 
+*  constant condition eliminated
+errors(0), warnings(1), notes(0); bytes(106384), time 10.58
+ 56% total, 112/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaUpdater.class
+errors(0), warnings(0), notes(0); bytes(11768), time  1.41
+ 57% total, 111/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaThemeSchemeListener.class
+errors(0), warnings(0), notes(0); bytes(1888), time  0.03
+ 57% total, 110/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaThemeSchemeChanged.class
+errors(0), warnings(0), notes(0); bytes(3117), time  0.04
+ 57% total, 109/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaThemeScheme.class
+errors(0), warnings(0), notes(0); bytes(40215), time  3.25
+ 58% total, 108/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaThemeLoaderUtilities.class
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaThemeLoaderUtilities.java 32.01 N337 ]                                                 
+*  Object **String[] "l_arrString" in function "com/oyoaha/swing/plaf/oyoaha/OyoahaThemeLoaderUtilities.readInsets" is allocated on the stack
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaThemeLoaderUtilities.java 57.01 N337 ]                                                 
+*  Object **String[] "l_arrString" in function "com/oyoaha/swing/plaf/oyoaha/OyoahaThemeLoaderUtilities.readRectangle" is allocated on the stack
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaThemeLoaderUtilities.java 82.01 N337 ]                                                 
+*  Object **String[] "l_arrString" in function "com/oyoaha/swing/plaf/oyoaha/OyoahaThemeLoaderUtilities.readDimension" is allocated on the stack
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaThemeLoaderUtilities.java 105.01 N337 ]                                                 
+*  Object **String[] "l_arrString" in function "com/oyoaha/swing/plaf/oyoaha/OyoahaThemeLoaderUtilities.readPoint" is allocated on the stack
+errors(0), warnings(0), notes(4); bytes(36428), time  3.90
+ 58% total, 107/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaThemeLoader.class
+errors(0), warnings(0), notes(0); bytes(4363), time  0.04
+ 59% total, 106/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaTheme.class
+errors(0), warnings(0), notes(0); bytes(45113), time  3.57
+ 59% total, 105/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaStateRule.class
+errors(0), warnings(0), notes(0); bytes(6980), time  0.21
+ 59% total, 104/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaSoundUtilities.class
+errors(0), warnings(0), notes(0); bytes(1911), time  0.04
+ 60% total, 103/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaSafeJarThemeLoader.class
+errors(0), warnings(0), notes(0); bytes(66319), time  7.14
+ 60% total, 102/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaSafeJarThemeLoader$OyoahaThemeHandler.class
+errors(0), warnings(0), notes(0); bytes(15872), time  0.28
+ 61% total, 101/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaSafeJarThemeLoader$ObjectLoader.class
+errors(0), warnings(0), notes(0); bytes(14126), time  1.44
+ 61% total, 100/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaSafeJarThemeLoader$NullTag.class
+errors(0), warnings(0), notes(0); bytes(2844), time  0.04
+ 61% total, 99/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaRolloverListener.class
+errors(0), warnings(0), notes(0); bytes(6971), time  0.09
+ 62% total, 98/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaProperties.class
+errors(0), warnings(0), notes(0); bytes(40681), time  2.79
+ 62% total, 97/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaPaintUtilities.class
+errors(0), warnings(0), notes(0); bytes(5519), time  1.14
+ 62% total, 96/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaMetalTheme.class
+errors(0), warnings(0), notes(0); bytes(40207), time  1.95
+ 63% total, 95/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaLookAndFeel.class
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaLookAndFeel.java 166.01 W315 ]                                                 
+*  java.lang.NullPointerException will be thrown here
+errors(0), warnings(1), notes(0); bytes(103686), time 12.73
+ 63% total, 94/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaLookAndFeel$1.class
+errors(0), warnings(0), notes(0); bytes(16819), time  1.91
+ 64% total, 93/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJava2SoundUtilities.class
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava2SoundUtilities.java 27.01 W902 ]                                                 
+*  constant condition eliminated
+errors(0), warnings(1), notes(0); bytes(33453), time  2.31
+ 64% total, 92/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJava2PaintUtilities.class
+errors(0), warnings(0), notes(0); bytes(27655), time  2.27
+ 64% total, 91/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJava1SoundUtilities.class
+errors(0), warnings(0), notes(0); bytes(4032), time  0.07
+ 65% total, 90/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJava1PaintUtilities.class
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W311 ]                                                 
+*  unreachable code
+* [ com\oyoaha\swing\plaf\oyoaha\OyoahaJava1PaintUtilities.java 196.01 W902 ]                                                 
+*  constant condition eliminated
+errors(0), warnings(30), notes(0); bytes(47315), time  5.60
+ 65% total, 89/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJarThemeLoader.class
+errors(0), warnings(0), notes(0); bytes(75337), time 10.10
+ 66% total, 88/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJarThemeLoader$OyoahaThemeHandler.class
+errors(0), warnings(0), notes(0); bytes(15728), time  1.50
+ 66% total, 87/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJarThemeLoader$ObjectLoader.class
+errors(0), warnings(0), notes(0); bytes(13998), time  0.34
+ 66% total, 86/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaJarThemeLoader$NullTag.class
+errors(0), warnings(0), notes(0); bytes(2788), time  0.04
+ 67% total, 85/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaImageLoader.class
+errors(0), warnings(0), notes(0); bytes(40018), time  0.07
+ 67% total, 84/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaImageIcon.class
+errors(0), warnings(0), notes(0); bytes(10561), time  0.13
+ 67% total, 83/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaFlash.class
+errors(0), warnings(0), notes(0); bytes(1457), time  0.03
+ 68% total, 82/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaButtonLikeComponent.class
+errors(0), warnings(0), notes(0); bytes(1798), time  0.04
+ 68% total, 81/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaButtonBorderLikeComponent.class
+errors(0), warnings(0), notes(0); bytes(1896), time  0.03
+ 69% total, 80/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaButtonBorderLike.class
+errors(0), warnings(0), notes(0); bytes(1806), time  1.23
+ 69% total, 79/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaBumpObject.class
+errors(0), warnings(0), notes(0); bytes(5156), time  0.07
+ 69% total, 78/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/OyoahaBackgroundObject.class
+errors(0), warnings(0), notes(0); bytes(2365), time  0.04
+ 70% total, 77/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/MeteredInputStream.class
+errors(0), warnings(0), notes(0); bytes(6500), time  0.11
+ 70% total, 76/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main.class
+errors(0), warnings(0), notes(0); bytes(116233), time  6.61
+ 71% total, 75/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$ThemeFileFilter.class
+errors(0), warnings(0), notes(0); bytes(4501), time  0.15
+ 71% total, 74/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$PreviewFrame.class
+* [ com\oyoaha\swing\plaf\oyoaha\Main.java 532.01 N337 ]                                                 
+*  Object *File "arg 0 in <init>(...)" in function "com/oyoaha/swing/plaf/oyoaha/Main$PreviewFrame.<init>" is allocated on the stack
+errors(0), warnings(0), notes(1); bytes(101923), time  4.74
+ 71% total, 73/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$MetalThemeMenu.class
+errors(0), warnings(0), notes(0); bytes(117912), time  3.26
+ 72% total, 72/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$HelpFrame.class
+* [ com\oyoaha\swing\plaf\oyoaha\Main.java 467.01 N337 ]                                                 
+*  Object *Dimension "arg 0 in <init>(...)" in function "com/oyoaha/swing/plaf/oyoaha/Main$HelpFrame.<init>" is allocated on the stack
+errors(0), warnings(0), notes(1); bytes(75043), time  2.88
+ 72% total, 71/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$5.class
+errors(0), warnings(0), notes(0); bytes(3522), time  0.05
+ 72% total, 70/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$4.class
+errors(0), warnings(0), notes(0); bytes(6207), time  0.15
+ 73% total, 69/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$3.class
+errors(0), warnings(0), notes(0); bytes(3602), time  0.05
+ 73% total, 68/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$2.class
+errors(0), warnings(0), notes(0); bytes(6287), time  0.06
+ 74% total, 67/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/Main$1.class
+errors(0), warnings(0), notes(0); bytes(6907), time  0.05
+ 74% total, 66/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/LazyIconLoader.class
+* [ sun\misc\URLClassPath.java 269.01 N334 ]                                                 
+*  for statement versioned
+errors(0), warnings(0), notes(1); bytes(15625), time  1.38
+ 74% total, 65/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/IDATEnumeration.class
+errors(0), warnings(0), notes(0); bytes(6166), time  0.20
+ 75% total, 64/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaSliderThumbIcon.class
+errors(0), warnings(0), notes(0); bytes(16640), time  0.48
+ 75% total, 63/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaRadioButtonIcon.class
+* [ com\oyoaha\swing\plaf\oyoaha\icon\OyoahaRadioButtonIcon.java 23.01 W900 ]                                                 
+*  redundant code eliminated
+errors(0), warnings(1), notes(0); bytes(5057), time  0.06
+ 76% total, 62/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaIndentIcon.class
+errors(0), warnings(0), notes(0); bytes(5117), time  1.23
+ 76% total, 61/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaIcon.class
+errors(0), warnings(0), notes(0); bytes(5363), time  0.04
+ 76% total, 60/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaCheckBoxIcon.class
+errors(0), warnings(0), notes(0); bytes(16925), time  0.48
+ 77% total, 59/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/OyoahaAlphaIcon.class
+errors(0), warnings(0), notes(0); bytes(6312), time  0.05
+ 77% total, 58/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/icon/FileRendererIcon.class
+errors(0), warnings(0), notes(0); bytes(5154), time  0.05
+ 77% total, 57/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/flash/OyoahaFlashTextureBackground.class
+errors(0), warnings(0), notes(0); bytes(7010), time  0.08
+ 78% total, 56/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/flash/OyoahaFlashImageBackground.class
+errors(0), warnings(0), notes(0); bytes(7488), time  1.27
+ 78% total, 55/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaVectorFolder.class
+errors(0), warnings(0), notes(0); bytes(48303), time  4.18
+ 79% total, 54/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaSortFileArray.class
+* [ com\oyoaha\swing\plaf\oyoaha\filechooser\OyoahaSortFileArray.java 129.01 W902 ]                                                 
+*  constant condition eliminated
+errors(0), warnings(1), notes(0); bytes(13643), time  1.65
+ 79% total, 53/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaFileView.class
+errors(0), warnings(0), notes(0); bytes(86947), time 13.57
+ 79% total, 52/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaFileSystemAdaptor.class
+errors(0), warnings(0), notes(0); bytes(3723), time  1.17
+ 80% total, 51/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel.class
+* [ com\oyoaha\swing\plaf\oyoaha\filechooser\OyoahaDirectoryModel.java 278.01 W902 ]                                                 
+*  constant condition eliminated
+errors(0), warnings(1), notes(0); bytes(30481), time  2.03
+ 80% total, 50/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel$OyoahaLoadFilesThread.class
+errors(0), warnings(0), notes(0); bytes(6492), time  0.16
+ 81% total, 49/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel$OyoahaLoadFilesByTypeThread.class
+errors(0), warnings(0), notes(0); bytes(6682), time  0.07
+ 81% total, 48/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel$OyoahaLoadFilesByExtentionThread.class
+* [ com\oyoaha\swing\plaf\oyoaha\filechooser\OyoahaDirectoryModel.java 421.01 W902 ]                                                 
+*  constant condition eliminated
+errors(0), warnings(1), notes(0); bytes(26593), time  0.82
+ 81% total, 47/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel$ListFiles.class
+errors(0), warnings(0), notes(0); bytes(7398), time  0.07
+ 82% total, 46/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryModel$DoChangeContents.class
+errors(0), warnings(0), notes(0); bytes(7660), time  0.09
+ 82% total, 45/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryComboBoxRenderer.class
+errors(0), warnings(0), notes(0); bytes(82750), time  0.86
+ 83% total, 44/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryComboBoxNode.class
+errors(0), warnings(0), notes(0); bytes(6411), time  1.29
+ 83% total, 43/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryComboBoxModel2.class
+errors(0), warnings(0), notes(0); bytes(18676), time  0.30
+ 83% total, 42/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDirectoryComboBoxModel.class
+errors(0), warnings(0), notes(0); bytes(16384), time  1.35
+ 84% total, 41/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDefaultFileSystemAdaptor2.class
+errors(0), warnings(0), notes(0); bytes(23854), time  1.64
+ 84% total, 40/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/filechooser/OyoahaDefaultFileSystemAdaptor.class
+errors(0), warnings(0), notes(0); bytes(75326), time 10.26
+ 84% total, 39/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/editor/OyoahaCompactorFrame.class
+errors(0), warnings(0), notes(0); bytes(94594), time  4.58
+ 85% total, 38/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/editor/OyoahaCompactorFrame$JarFileFilter.class
+errors(0), warnings(0), notes(0); bytes(5036), time  1.30
+ 85% total, 37/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/editor/OyoahaCompactorFrame$1.class
+errors(0), warnings(0), notes(0); bytes(7275), time  0.15
+ 86% total, 36/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/editor/OyoahaCompactor.class
+* [ com\oyoaha\swing\plaf\oyoaha\editor\OyoahaCompactor.java 416.01 N307 ]                                                 
+*  type cast eliminated
+* [ com\oyoaha\swing\plaf\oyoaha\editor\OyoahaCompactor.java 527.01 W900 ]                                                 
+*  redundant code eliminated
+errors(0), warnings(1), notes(1); bytes(79550), time 10.66
+ 86% total, 35/259 to go: E:\my projects\AI Project\oalnf.jar:/com/oyoaha/swing/plaf/oyoaha/DemoPanel.class
+* [ com\oyoaha\swing\plaf\oyoaha\DemoPanel.java 195.01 N337 ]                                                 
+*  Object **Object[] "l_arrObject" in function "com/oyoaha/swing/plaf/oyoaha/DemoPanel.createTableDemoPanel" is allocated on the stack
+$$Finish - OutOfMem
+

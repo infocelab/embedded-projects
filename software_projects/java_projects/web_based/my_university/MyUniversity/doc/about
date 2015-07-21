@@ -1,0 +1,38 @@
+<<My University 1.0>>
+Our team proudly present the first program that we
+do together! 
+While we've done this application,we studying at KMITL
+in Junier year,(Information Engineering)
+We'll introduce ourself first person is Me  
+Hussachai   Puripunpinyo as Java Programmer and Graphic design,
+Sirimon   Sangkittipiboon as Database designer,
+Suvida Rajchatasomboon as Database implementer,
+Supaporn Suvittayanurak as SQL programmer
+Thank for interresting in our work!
+If I've recieved a good feedback enough we'll develop this application
+in the future for real use.
+For license see next tab"license"
+Language :	This application bulid on jdk1.4 & jdk 1.5
+Database :	Database that included in distro is MS-Access2000(You can change it later)
+IDE:	I use JCreator 3.0 (Lean and fast)
+Icon:	I'm sorry I can't rememer all distributer website
+Some Icon from: http://www.IheartNY.com/xicons/
+Feature in this version(1.0)
+==========================
+1.Can use many DBMS vendors just improve config file without recompile
+2.Pure java so can use in every jre installed platform
+3.Separate view for difference account
+4.Embeded Encryption thechnology
+5.Vast amount of function,than your expection!
+6.Check constrain carefully
+7.Automatic disconnect after 30 minute for reserve bandwith
+8.MDI design easy to use and understand
+==========================
+new Feature in Next version(2.0)
+1. Improve code(now is very dirty)
+2. Fix some bug that I can't do it now
+3. Client/Server model
+4. More secure Encryption
+5. Multithread
+==========================
+Send feedback: SiberHus@yahoo.com
