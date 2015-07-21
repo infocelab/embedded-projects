@@ -1,0 +1,46 @@
+
+Steps to Run the Application
+----------------------------
+
+I.
+
+	> javac ChatClientInter.java
+	> javac ChatServerInter.java
+	> javac ChatServer.java
+	> javac ChatClient.java
+	> rmic ChatServer
+	> rmic ChatClient
+
+II.
+
+	At Server
+	---------
+	>java ChatServer
+
+III.
+	At Client
+	---------
+	>java ChatClient <server IP Address or Host Name>
+
+
+Class Files required
+--------------------
+
+At Server
+---------
+
+	1.ChatServerInter.class
+	2.ChatServer.class         
+	3.ChatServer_Skel.class
+	4.ChatClientInter.class
+	5.ChatClient_Stub.class
+
+
+At Client
+---------
+	1.ChatClientInter.class
+	2.ChatClient.class
+	3.ChatClient_Skel.class
+	4.ChatClient_Stub.class
+	5.ChatServerInter.class
+	6.ChatServer_Stub.class
