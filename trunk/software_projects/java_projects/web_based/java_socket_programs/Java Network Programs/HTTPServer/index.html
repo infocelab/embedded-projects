@@ -1,0 +1,820 @@
+<html>
+<head>
+<title>iNet Factory Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="main.css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<table width="100%" border="0">
+  <tr> 
+    <td> 
+      <p><a name="top"></a> <span class="pageheader">JSCAPE iNet Factory 5.0</span><br>
+      </p>
+      <p> <span class="textheader">Getting Started</span><br>
+      </p>
+      <p><a href="#intro">Introduction</a><br>
+        <a href="#setup">Setup</a><br>
+        <a href="#jdk">JDK Requirements and Supported Platforms</a> <br>
+        <a href="#features">Component Highlights and Features</a> <br>
+        <a href="#support">Technical Support</a> <br>
+        <a href="#history">Version History</a></p>
+      <p class="textheader">API Documentation</p>
+      <p><a href="javadoc/index.html">iNet Factory API (JavaDoc)</a><br>
+      </p>
+      <p class="textheader">User Manuals</p>
+      <p>The following manuals are located in the <i><b>manuals</b></i> directory 
+        of your installation.</p>
+      <p><a href="manuals/ftp.pdf">FTP Users Guide (PDF)</a> <br>
+        <a href="manuals/http.pdf">HTTP Users Guide (PDF)</a><br>
+        <a href="manuals/imap4.pdf">IMAP4 Users Guide (PDF)</a><br>
+        <a href="manuals/pop3.pdf">POP3 Users Guide (PDF)</a><br>
+        <a href="manuals/smtp.pdf">SMTP Users Guide (PDF)</a><br>
+        <a href="manuals/telnet.pdf">Telnet Users Guide PDF</a></p>
+      <p class="textheader">Examples</p>
+      <p>Source code examples are located in the <b><i>examples</i></b> directory 
+        of your installation.</p>
+      <p><a href="#examples">Example Console Applications</a></p>
+      <p><span class="textheader">Registration Information</span><br>
+      </p>
+      <p> <a href="#licensing">Evaluation and Registration Information</a> <br>
+      </p>
+      <table width="100%" border="0">
+        <tr bgcolor="#DDDDDD"> 
+          <td><a name="intro"></a><span class="textheader">Introduction</span> 
+            <a href="#top">[top]</a></td>
+        </tr>
+      </table>
+      <p>iNet Factory is a robust suite of TCP/IP networking components for the 
+        Java platform. The components included in iNet Factory provide all the 
+        tools necessary to quickly develop network capable Java applications with 
+        minimum coding effort. Included are components for FTP, HTTP, SMTP, POP3, 
+        MIME, REXEC, RSH, RLOGIN, Telnet, WHOIS and other frequently used protocols. 
+      </p>
+      <p>This document describes how to install and use the iNet Factory component 
+        suite. The reader is assumed to be familiar with the Java programming 
+        language. A basic understanding of networking and various TCP/IP protocols 
+        is desirable. </p>
+      <table width="100%" border="0">
+        <tr bgcolor="#DDDDDD"> 
+          <td><a name="setup"></a><span class="textheader">Setup</span> <a href="#top">[top]</a></td>
+        </tr>
+      </table>
+      <p>All package runtime code is included in the <b>inetfactory.jar</b> file 
+        which should be made available when running or compiling programs which 
+        make use of iNet Factory components. The <b>inetfactory.jar</b> file is 
+        located in the <i><b>lib</b></i> directory of your installation.</p>
+      <p>For use in applets the <b>inetfactory.jar</b> file may be specified in 
+        the archive parameter of the &lt;applet&gt; tag. For use in a development 
+        environment, applications or Java servlets the <b>inetfactory.jar</b> 
+        file should be added to the <b>CLASSPATH</b> environment variable. </p>
+      <table width="100%" border="0">
+        <tr bgcolor="#DDDDDD"> 
+          <td><a name="jdk"></a><span class="textheader">JDK Requirements and 
+            Supported Platforms</span> <a href="#top">[top]</a></td>
+        </tr>
+      </table>
+      <p>Below are the minimum system requirements needed to develop software 
+        using the iNet Factory components. </p>
+      <p><span class="textheader">JDK Requirements</span><br>
+        JDK 1.2 or greater</p>
+      <p>If you do not currently have JDK 1.2 or greater installed, please visit 
+        JavaSoft <a href="http://java.sun.com">http://java.sun.com</a> to download 
+        a compatible JDK.<br>
+      </p>
+      <p><span class="textheader">Tested Platforms</span><br>
+        MS Windows NT/95/98/2000/XP<br>
+        Macintosh<br>
+        Sun Solaris 2.6, 7, 8<br>
+        Linux RedHat<br>
+        HP-UX<br>
+      </p>
+      <p>Although the above platforms have been tested iNet Factory will work 
+        on virtually any platform with JDK 1.2 or greater.<br>
+      </p>
+      <table width="100%" border="0">
+        <tr bgcolor="#DDDDDD"> 
+          <td><a name="features"></a><span class="textheader">Component Features 
+            and Highlights</span> <a href="#top">[top]</a></td>
+        </tr>
+      </table>
+      <p> Below is a summary of the major components included with iNet Factory 
+        and their featured highlights. </p>
+      <p><span class="textheader">FINGER</span><br>
+        The Finger component provides a simple interface for performing Finger 
+        queries based upon standards defined in RFC 1288. </p>
+      <p><span class="textheader">FTP</span><br>
+        The FTP (File Transfer Protocol) component provides a simple interface 
+        for transmitting data to/from a FTP server. The FTP component implements 
+        standards defined in RFC 959 and RFC 1579.</p>
+      <ul>
+        <li>Binary and ASCII file transfer - Transfer files to/from a FTP server 
+          in either binary or ASCII format.</li>
+        <li> PASV (passive) connection support - Enables FTP data transfer from 
+          behind a firewall where firewall.</li>
+        <li>Support for both UNIX and MS-DOS style directory listings</li>
+        <li>File filter support for uploading / downloading multiple files simultaneously</li>
+        <li>Ability to upload and download directories recursively.</li>
+      </ul>
+      <p><br>
+        <span class="textheader">HTTP/S</span><br>
+        The HTTP (Hypertext Transport Protocol) component provides a simple interface 
+        for developing customized web client applications. Implementing the standard 
+        HTTP 1.0 specification allows the user to use the HTTP component to retrieve 
+        documents from a HTTP server as well as submit form data for further processing 
+        by a CGI application or Java servlet.</p>
+      <ul>
+        <li>GET, POST and PUT support - Full support for GET, POST and PUT operations 
+          emulating all the core functionality of a typical web browser.</li>
+        <li>SSL support - Access secure web pages using built-in SSL support. 
+          SSL support requires JDK 1.4 or above</li>
+        <li>File upload support - Easily upload files to a web server for processing 
+          by a CGI or servlet.</li>
+        <li> Parameter management - Simple API allows easy addition or removal 
+          of CGI name/value parameters from a HTTP request.</li>
+        <li> Basic authentication - Provides methods for retrieving HTTP documents 
+          which require a user supplied username and password.</li>
+        <li> Cookie management - Add cookie values to a HTTP request, as well 
+          as retrieve cookie data from a HTTP response.</li>
+        <li> Header management - Easily define HTTP request header values for 
+          submission with a HTTP request or retrieve header values from a HTTP 
+          response.</li>
+        <li> Proxy support - Provides methods for retrieving HTTP documents from 
+          behind a firewall.</li>
+      </ul>
+      <p><span class="textheader">IMAP4</span><br>
+        The IMAP4 (Internet Mail Access Protocol) component provides a simple 
+        interface for retrieving electronic mail messages from a IMAP4 server. 
+        The IMAP4 component implements standards in RFC 1730.</p>
+      <ul>
+        <li>File attachment retrieval - A streamlined API provides easy to use 
+          methods for retrieving file attachments from a IMAP4 message.</li>
+        <li>CRAM-MD5 authenication - Login securely to IMAP4 server using optional 
+          CRAM-MD5 authentication.</li>
+        <li> Automatic message delete support - A convenient method to optionally 
+          delete messages automatically after download from IMAP4 server.</li>
+      </ul>
+      <p></p>
+      <p> <span class="textheader">MIME</span><br>
+        The MimeMessage (Multipurpose Internet Mail Extensions) component provides 
+        a simple interface for reading and composing MIME 1.0 compliant messages. 
+        Based upon standards defined in RFC 1521, the MimeMessage component is 
+        typically used for sending and receiving e-mail and news messages which 
+        may optionally contain non-ASCII data such as a file attachment.</p>
+      <ul>
+        <li>Multipart-Mime support - Simple API allows a user to easily create 
+          complex multi-part mime messages.</li>
+        <li> QuickMime helper class - The QuickMime helper class provides a simplified 
+          interface to mime messages by exposing the most commonly used features 
+          of MimeMessage such as textual messages and attachments. Access to most 
+          common e-mail and news headers is also provided.<br>
+          <br>
+        </li>
+      </ul>
+      <p><span class="textheader">NNTP</span><br>
+        The Nntp (Network News Transport Protocol) component provides a simple 
+        interface for communicating with Usenet, a public discussion forum consisting 
+        of various newsgroups. Implementing the standards defined in RFC 977, 
+        the Nntp component can be used to easily navigate available newsgroups 
+        as well as post and retrieve news articles.</p>
+      <ul>
+        <li>Article post and retrieval - Simple API makes it easy to connect to 
+          a Nntp server and post or retrieve articles to/from Nntp server. </li>
+        <li> MIME message support - Nntp component has a built in support for 
+          decoding MIME messages which makes it very easy to download and automatically 
+          decode Nntp articles with one or more attachments.</li>
+        <li> User authorization support - Methods for username/password authentication 
+          are included for connecting to Nntp servers which require authentication. 
+        </li>
+        <li> Progress monitor - Part of the event handling capabilities of the 
+          Nntp component includes a progress monitor which provides a real-time 
+          status of lengthy requests such as retrieving a list of newsgroups or 
+          articles. </li>
+      </ul>
+      <p><br>
+        <span class="textheader">DNS</span> <br>
+        The Nslookup component provides a simple interface for retrieving information 
+        about a specific hostname. For example using the Nslookup component a 
+        user could easily determine the mail exchanger (MX) resource responsible 
+        for handling hostname mail delivery. Nslookup component is based upon 
+        standards defined in RFC 1035. </p>
+      <ul>
+        <li><a href="index.html"></a>Support for all major DNS resource records 
+          - With built-in support for 16 types of resource records a user can 
+          easily lookup any type of information for a domain.</li>
+      </ul>
+      <p><br>
+        <span class="textheader">POP3</span><br>
+        The POP3 (Post Office Protocol) component provides a simple interface for 
+        retrieving electronic mail messages from a POP3 server. The POP3 component 
+        implements standards in RFC 1725 and RFC 1939.</p>
+      <ul>
+        <li>APOP and plain-text authentication - With built in support for both 
+          APOP (RFC 1939) and plain text authentication modes, the POP3 component 
+          provides authentication support for the most popular POP3 servers.</li>
+        <li> File attachment retrieval - A streamlined API provides easy to use 
+          methods for retrieving attachments from a POP3 message.</li>
+        <li> Automatic message delete support - A convenient method to optionally 
+          delete messages automatically after download from POP3 server.</li>
+        <li> TOP support - Per RFC 1939 the TOP command allows preview of the 
+          first X lines without downloading the entire message body.</li>
+      </ul>
+      <p><br>
+        <span class="textheader">REXEC</span><br>
+        The Rexec component provides a simple interface for executing commands 
+        on UNIX machines. Implementing the BSD rexec standard, the Rexec component 
+        allows for remote execution of commands on UNIX hosts or other machines 
+        implementing the BSD rexec standard. </p>
+      <p><span class="textheader">RLOGIN</span><br>
+        The Rlogin component provides a simple interface for executing commands 
+        on UNIX machines. Implementing the standards defined in RFC 1282 the Rlogin 
+        component provides a virtual terminal for communicating with UNIX hosts 
+        or other machines implementing the Rlogin standard. </p>
+      <p><span class="textheader">RSH</span><br>
+        The Rsh component provides a simple interface for executing commands on 
+        UNIX machines. Implementing the BSD rsh standard, the Rsh component allows 
+        for remote execution of commands on UNIX hosts or other machines implementing 
+        the BSD rsh standard. </p>
+      <p><span class="textheader">SMTP</span><br>
+        The SMTP (Simple Mail Transfer Protocol) component provides a simple interface 
+        for sending electronic mail messages. Implementing standards defined in 
+        RFC 821, RFC 822 and RFC 1521 the SMTP component is capable of sending 
+        both simple and rich-text e-mail messages as well as one or more file 
+        attachments.</p>
+      <ul>
+        <li><a href="index.html"></a>File attachment support - The SMTP component 
+          provides a simple API for adding one or more attachments to a e-mail 
+          message. </li>
+        <li> Bulk mail support - For targeted mail campaigns built in Bcc: (blind 
+          carbon copy) support and the ability to define recipients from the contents 
+          of a file provide an easy API for delivering bulk e-mail </li>
+        <li> HTML message support - For e-mail clients capable of rendering HTML, 
+          this feature allows one to send rich-text e-mail to recipients in the 
+          form of a web page.</li>
+        <li> E-mail address validation - The SMTP component supports all valid 
+          e-mail address formats specified in RFC 822. SMTP and EmailAddress components 
+          offer syntax validation of address, prior to sending e-mail message. 
+          This capability reduces network traffic from bounced e-mail messages 
+          and provides a way of systematically identifying invalid e-mail addresses.</li>
+        <li> User authentication - Methods to support username/password authentication 
+          for SMTP servers which require authentication to prevent unauthorized 
+          SMTP relay.</li>
+        <li> Message priority support - For e-mail clients which support message 
+          priorities, the SMTP component allows prioritization of an e-mail message. 
+          A message with &quot;highest&quot; priority would potentially give the 
+          message higher visibility in a recipients mailbox. </li>
+        <li> Header management - Easily define SMTP e-mail header values for submission 
+          with a e-mail message. An example might be to set the X-Mailer header 
+          typically used to define the client software responsible for generating 
+          the mail message.</li>
+      </ul>
+      <p><br>
+        <span class="textheader">Telnet</span><br>
+        The Telnet component provides framework for development of Telnet terminal 
+        applications in Java as well as performing simple client tasks. The Telnet 
+        API implements: RFC 854, 855, 856, 857, 858, 859, 860, 1091, 1073, 1079, 
+        1372 and provides TelnetOption component for implementing additional options. 
+      </p>
+      <ul>
+        <li><a href="index.html"></a>Telnet scripting - Using the provided TelnetScript 
+          and TelnetTask classes you can automate Telnet tasks. </li>
+        <li>Open Option development API - An Open Telnet Option API allows one 
+          to easily modify the Telnet component to meet ones needs. Easily implement 
+          additional Telnet Options using this for supporting additional options. 
+        </li>
+        <li> Several Options bundled with API - BINARY, ECHO, LOGOUT, NAWS (window 
+          size), SUPPRESS-GO-AHEAD, STATUS, TERMINAL-SPEED, TERMINAL-TYPE, TIMING-MARK, 
+          TOGGLE-FLOW-CONTROL</li>
+      </ul>
+      <p><span class="textheader">WHOIS</span><br>
+        The Whois component provides a simple interface for performing Whois queries 
+        based upon standards defined in RFC 954. </p>
+      <table width="100%" border="0">
+        <tr bgcolor="#DDDDDD"> 
+          <td><a name="examples"></a><span class="textheader">Example Console 
+            Applications</span> <a href="#top">[top]</a></td>
+        </tr>
+      </table>
+      <p>The following console applications are some basic examples designed to 
+        demonstrate the capabilities and ease of use of iNet Factory. These examples 
+        are by no means full applications as they are intended only to give a 
+        feel for the features offered in the API. For a look at all iNet Factory 
+        has to offer please consult the <a href="javadoc/index.html">iNet Factory 
+        JavaDoc API</a></p>
+      <p>Example applications are located in the &quot;examples&quot; directory 
+        of your installation. For your convenience each example has a pre-built 
+        corresponding shell script for UNIX and Windows platforms. See the README.TXT 
+        included with each example for additional information.</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="textheader">Source File</td>
+          <td class="textheader">Description</td>
+          <td class="textheader">UNIX Script</td>
+          <td class="textheader">Windows Script</td>
+        </tr>
+        <tr> 
+          <td>Base64Example.java</td>
+          <td>Demonstrates encoding data using the Base64 encoding algorithm.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>EmailAddressExample.java</td>
+          <td>Demonstrates parsing and validation of a user defined email address.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>FingerExample.java</td>
+          <td>Demonstrates performing a query against a FINGER server.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>FtpExample.java</td>
+          <td>Demonstrates connecting to a FTP server and printing a directory 
+            listing to console.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>FtpMuploadExample.java</td>
+          <td>Demonstrates uploading multiple files to a FTP server using a filename 
+            filter.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>FtpMdownloadExample.java</td>
+          <td>Demonstrates downloading multiple files from a FTP server using 
+            a filename filter.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>FtpDownloadDirExample.java</td>
+          <td>Demonstrates downloading a remote directory recursively.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>FtpUploadDirExample.java</td>
+          <td>Demonstrates uploading a local directory recursively.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>HttpExample.java</td>
+          <td>Demonstrates connecting to a web server, retrieving a URL and displaying 
+            contents to console.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>HttpToFileExample.java</td>
+          <td>Demonstrates connecting to a web server, retrieving a URL and writing 
+            contents to a file.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>HttpsExample.java</td>
+          <td>Demonstrates connecting to a web server, retrieving a secure URL 
+            and displaying contents to console.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>ImapExample.java</td>
+          <td>Demonstrates connecting to a IMAP4 server and retrieving email messages 
+            for user defined account.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>MD5Example.java</td>
+          <td>Demonstrates encrypting a text string using the MD5 hashing mechanism.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>MimeExample.java</td>
+          <td>Demonstrates ease of generating a MIME compliant message based upon 
+            user provided data.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>NntpExample.java</td>
+          <td>Demonstrates connecting to a news (NNTP) server and retrieving articles 
+            for user specified newsgroup.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>NntpPostExample.java</td>
+          <td>Demonstrates connecting to a news (NNTP) server and posting an article 
+            to a user defined newsgroup.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>NslookupExample.java</td>
+          <td>Demonstrates connecting to a DNS server and retrieving all domain 
+            records for user specified domain.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>PopExample.java</td>
+          <td>Demonstrates connecting to a POP3 server and retrieving email messages 
+            for user defined account.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>PopAttachmentsExample.java</td>
+          <td>Demonstrates connecting to a POP3 server, retrieving available email 
+            messages and storing messages and any attachments found to disk. </td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>QuotedPrintableExample.java</td>
+          <td>Demonstrates encoding data using the Quoted-Printable encoding algorithm.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>RexecExample.java</td>
+          <td>Demonstrates connecting to a machine using Rexec and remotely executing 
+            a user defined command.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>RloginExample.java</td>
+          <td>Demonstrates connecting to a machine using Rlogin and sending commands 
+            from the console.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>RshExample.java</td>
+          <td>Demonstrates connecting to a machine using Rsh and remotely executing 
+            a user defined command.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>SmtpExample.java</td>
+          <td>Demonstrates sending a basic email message using SMTP.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>SmtpAttachmentExample.java</td>
+          <td>Demonstrates sending an email message containing a user defined 
+            file attachment.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>SmtpHtmlExample.java</td>
+          <td>Demonstrates sending an HTML based email message, the body containing 
+            the contents of a user defined URL.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>TelnetExample.java</td>
+          <td>Demonstrates establishing a Telnet connection and interactively 
+            issuing commands from the console.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr>
+          <td>TelnetScriptExample.java</td>
+          <td>Demonstrates establishing a Telnet connection and issuing scripted 
+            commands. </td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr> 
+          <td>TimedSocketExample.java</td>
+          <td>Demonstrates establishing a socket connection within a user defined 
+            time-out period.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>TimedURLConnectionExample.java</td>
+          <td>Demonstrates establishing a URL connection within a user defined 
+            time-out period.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>UuencodeExample.java</td>
+          <td>Demonstrates encoding data using the Uuencode encoding algorithm.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+        <tr> 
+          <td>WhoisExample.java</td>
+          <td>Demonstrates connecting to a domain registry and obtaining information 
+            about a user defined domain.</td>
+          <td>run.sh</td>
+          <td>run.bat</td>
+        </tr>
+      </table>
+      <p>&nbsp;</p><table width="100%" border="0">
+        <tr bgcolor="#DDDDDD"> 
+          <td><a name="support"></a><span class="textheader">Technical Support</span> 
+            <a href="#top">[top]</a></td>
+        </tr>
+      </table>
+      <p> At JSCAPE we strive to provide useful and timely technical support. 
+        If you have any technical support issues regarding iNet Factory please 
+        e-mail your support questions to <a href="mailto:support@jscape.com">support@jscape.com</a> 
+      </p>
+      <p>When requesting e-mail support please be sure to include any source code 
+        which may help us in answering your question. JSCAPE will make every effort 
+        to answer your technical support questions in a timely manner. Most technical 
+        support questions can be resolved within 12-24 hours. </p>
+      <table width="100%" border="0">
+        <tr bgcolor="#DDDDDD"> 
+          <td><a name="history"></a><span class="textheader">Version History</span> 
+            <a href="#top">[top]</a></td>
+        </tr>
+      </table>
+      <p><span class="textheader">Version 5.0</span><br>
+        Date: June 16, 2003</p>
+      <p>Enhancement: Major rewrite of the MIME components. Added ability to send 
+        and retrieve email with non US-ASCII data in message headers. For example 
+        you can now send and read email message that contain non US-ASCII characters 
+        (Japanese, German, French, Russian etc.) in the message Subject, To and 
+        From headers.<br>
+        Enhancement: Added ability to set the body of an email message from the 
+        contents of a file.<br>
+        Enhancement: HTTP classes rewritten to be fully MIME compliant.<br>
+        Enhancement: NNTP classes rewritten to be fully MIME compliant.<br>
+        Documentation: Added PDF documentation for Telnet components.<br>
+        Bug Fix: Fixed issue with sending of large email attachments through MS 
+        Exchange. <br>
+        Bug Fix: Fixed issue with reading multi-line FTP responses.</p>
+      <p><span class="textheader">Version 4.3</span><br>
+        Date: March 4, 2003<br>
+        <br>
+        Enhancement: Added optional append (APPE) cabability to FTP component 
+        when invoking any of the upload methods.<br>
+        Enhancement: Added send method to SMTP component allowing user to specify 
+        a To and From address to be used by SMTP server that differs from To and 
+        From address in email message headers<br>
+        Enhancement: Added overloaded send method to SMTP component allowing for 
+        sending of basic email without constructing an EmailMessage instance.<br>
+        Enhancement: Added overloaded getResponse method to HTTP component allowing 
+        for retrieval of a web page without constructing a HttpRequest instance.<br>
+        Enhancement: Added TelnetScript and TelnetTask classes to provide automated 
+        scripting capabilities in the Telnet component. <br>
+        Enhancement: Added getMessageSize method to POP3 component allowing user 
+        to retrieve size of message without downloading message from POP3 server.<br>
+        Enhancement: Added downloadDir method to FTP component for downloading 
+        remote directories recursively. <br>
+        Enhancement: Added uploadDir method to FTP component for uploading local 
+        directories recursively.<br>
+        Bug Fix: Fixed file filter bug in the FTP component mdownload method.<br>
+        Bug Fix: Fixed bug in MimeMessage class for dealing with MIME messages 
+        that do not contain a Content-Type header.<br>
+        Bug Fix: Fixed HttpFileUpload class to properly handle binary uploads 
+        and and potential compatibility issues with IIS server. <br>
+        Bug Fix: Fixed cookie parsing issue in HttpCookie class.<br>
+        Change: QuickTelnet class removed. No longer supported in favor of TelnetScript 
+        class. <br>
+        Change: Telnet package refactored with changes made to Telnet class, event 
+        classes and event listeners.<br>
+        Change: Changed logic in mdownload and mupload methods to transfer files 
+        matching filter not directories. Ability to upload / download directories 
+        recursively is now in uploadDir and downloadDir methods.<br>
+        Change: Changed getMessage and getMessageBytes methods in MimeMessage 
+        class to throw a MimeException.</p>
+      <p><span class="textheader">Version 4.2.5</span><br>
+        Date: January 30, 2003</p>
+      <p>Enhancement: Added issueCommandMultiLine method to POP3 component allowing 
+        user to read multi-line responses to POP3 commands.<br>
+        Bug Fix: Fixed issue with getTop command in POP3 component<br>
+        Bug Fix: Fixed issue with improperly handled exception in FTP component</p>
+      <p><span class="textheader">Version 4.2</span><br>
+        Date: January 10, 2003</p>
+      <p>Enhancement: Added setDebugStream method to FTP, IMAP4, POP3 and SMTP 
+        components allowing user to write debugging statements to a specified 
+        java.io.PrintWriter.<br>
+        Enhancement: Added download method to FTP component allowing user to specify 
+        output stream for download.<br>
+        Enhancement: Added setCharacterEncoding method to FTP component providing 
+        ability to control character encoding when transferring files.<br>
+        Bug Fix: Fixed issue with cookies not being transmitted properly when 
+        adding a cookie to an HTTP request.</p>
+      <p><span class="textheader">Version 4.1</span><br>
+        Date: December 26, 2002</p>
+      <p>Enhancement: Added CRAM-MD5 authentication support to IMAP4 component.<br>
+        Enhancement: Added PDF documentation for IMAP4 component.<br>
+        Enhancement: Added KEYED-MD5 support to MD5 component per RFC 2104.<br>
+        Enhancement: Updated getBody method in EmailMessage class to handle messages 
+        with content type of multipart/mixed or multipart/alternative.<br>
+      </p>
+      <p><span class="textheader">Version 4.0.17</span><br>
+        Date: December 12, 2002</p>
+      <p>Enhancement: Added expunge method to IMAP4 component and removed automatic 
+        expunge from deleteMessage method.<br>
+        Bug Fix: Fixed issue with trailing periods in email messages retrieved 
+        using POP3 component.<br>
+        Bug Fix: Fixed issue with getMessages method not returning all messages 
+        in IMAP4 component.<br>
+      </p>
+      <p></p>
+      <p><span class="textheader">Version 4.0.15</span><br>
+        Date: December 10, 2002</p>
+      <p>Enhancement: Added new static method to TimedSocket class for constructing 
+        sockets with defined source hostname and port.<br>
+        Bug Fix: Fixed setTimeout problem found in Rsh class.</p>
+      <p><span class="textheader">Version 4.0.11</span> <br>
+        Date: November 30, 2002</p>
+      <p>Enhancement: Added ability to specify email addresses in EmailMessage 
+        setTo and setFrom methods using long email address format. For example: 
+        John Smith &lt;jsmith@domain.com&gt;<br>
+        Enhancement: Added robustness to isConnected method in Smtp class. isConnected 
+        method now sends a NOOP (No Operation) command to SMTP server to check 
+        for connection.<br>
+        Enhancement: Updated issueCommand method in Smtp class. No longer required 
+        to send terminating CRLF (carriage return line feed) with command.<br>
+        Bug Fix: Minor bug fix in QuotedPrintable encoding method.</p>
+      <p><span class="textheader">Version 4.0</span><br>
+        Date: October 14, 2002</p>
+      <p>Enhancement: Added HTTPS component for accessing secure web pages.<br>
+        Enhancement: Added IMAP4 component for retrieving email from IMAP4 compliant 
+        servers.<br>
+        Enhancement: Added upload(java.io.File) method to FTP component providing 
+        for easier upload of files.<br>
+        Bug Fix: Changed default transfer mode to BINARY. </p>
+      <p><span class="textheader">Version 3.2</span><br>
+        Date: September 14, 2002</p>
+      <p>Enhancement: Added PDF documentation for POP3 component.<br>
+        Bug Fix: Fixed CRLF issue with ASCII uploads in FTP component <br>
+        Bug Fix: Fixed disconnect issue in POP3 component<br>
+        Bug Fix: Fixed disconnect issue in SMTP component<br>
+      </p>
+      <p><span class="textheader">Version 3.1</span><br>
+        Date: July 29, 2002</p>
+      <p>Enhancement: Improved performance of FTP upload and downloads <br>
+        Enhancement: All classes now bundled in a single .jar file<br>
+      </p>
+      <p><span class="textheader">Version 3.0</span><br>
+        Date: July 16, 2002</p>
+      <p>Enhancement: Dedicated user manuals for HTTP, SMTP, FTP and POP3 components.<br>
+        Enhancement: Rewrite of SMTP component added thread-safety.<br>
+        Enhancement: Rewrite of HTTP component added thread-safety.<br>
+        Enhancement: Rewrite of DNS component added thread-safety, previously 
+        known as NSLOOKUP component.<br>
+        Enhancement: Added FtpCommandEvent and FtpResponseEvent to FTP component 
+        to capture commands sent to FTP server and their response.<br>
+        Enhancement: Added PopCommandEvent and PopResponseEvent to POP3 component 
+        to capture commands sent to POP3 server and their response.<br>
+        Enhancement: Added SmtpCommandEvent and SmtpResponseEvent to SMTP component 
+        to capture commands sent to SMTP server and their response.</p>
+      <p><span class="textheader">Version 2.3.1</span><br>
+        Date: May 9, 2002</p>
+      <p></p>
+      <p>Enhancement: Set default transfer mode for Ftp component to automatically 
+        detect whether to use ASCII or BINARY based upon content-type of file<br>
+        Bug Fix: Fixed bugs in mupload and mdownload methods when uploading a 
+        directory </p>
+      <p><span class="textheader">Version 2.3</span><br>
+        Date: May 4, 2002</p>
+      <p>Enhancement: Added getDirListingAsString methods to FTP component providing 
+        for ability to read non UNIX and non MS-DOS directory style listings.<br>
+        Enhancement: Added setAuto method to FTP component providing support for 
+        automatic transfer mode detection based upon content-type of file.</p>
+      <p> </p>
+      <p><span class="textheader">Version 2.2</span><br>
+        Date: April 16, 2002</p>
+      <p>Enhancement: Added setLocalDirectory method to FTP component providing 
+        for ability to define local directory to use when performing uploads / 
+        downloads.<br>
+        Enhancement: Updated mupload and mdownload methods to support upload / 
+        download of file directories recursively.<br>
+        Enhancement: Added getResponseCode method to retrieve last response code 
+        sent by FTP server.<br>
+        Deprecated: Deprecation of some mupload and mdownload methods as new setLocalDirectory 
+        method makes these no longer needed<br>
+      </p>
+      <p></p>
+      <p><span class="textheader"><br>
+        Version 2.1.2</span><br>
+        Date: April 11, 2002</p>
+      <p>Bug Fix: Fixed issue with SMTP Date: header not displayed properly in 
+        some locales</p>
+      <p></p>
+      <p><span class="textheader">Version 2.1.1</span><br>
+        Date: April 8, 2002</p>
+      <p>Bug Fix: Fixed issue with FTP component not properly parsing MS-DOS style 
+        directories in a directory listing.</p>
+      <p><span class="textheader">Version 2.1</span><br>
+        Date: April 6, 2002</p>
+      <p>Enhancement: Added support to FTP component to handle MS-DOS style directory 
+        listings as found on many IIS FTP server<br>
+        Enhancement: Added FtpProgressEvent class to monitor FTP upload and download 
+        progress.<br>
+        Enhancement: Added support for SIZE and MDTM command to FTP component 
+        using getFilesize and getFileTimestamp methods<br>
+        Enhancement: Made TelnetInputStream and TelnetOutputStream classes public 
+        providing for easier implementation of custom Telnet functionality<br>
+        Enhancement: Added addParameter(HttpParameter) method to HTTP component<br>
+        Enhancement: Whois component now thread-safe<br>
+        Enhancement: Finger component now thread-safe<br>
+        Enhancement: POP3 component now thread-safe</p>
+      <p><span class="textheader">Version 2.0</span><br>
+        Date: February 5, 2002</p>
+      <p>Enhancement: Added BSD Rexec component<br>
+        Enhancement: Added BSD Rsh component<br>
+        Enhancement: Added BSD Rlogin component<br>
+        Enhancement: Simplified installation process for all platforms<br>
+        Bug Fix: Various minor bug fixes.</p>
+      <p><span class="textheader">Version 1.3.3</span><br>
+        Date: December 30, 2001</p>
+      <p>Bug Fix: Fixed error in Base64 component causing possible decoding error</p>
+      <p><span class="textheader">Version 1.3.2</span><br>
+        Date: December 20, 2001</p>
+      <p>Bug Fix: Fixed error in QuotedPrintable component causing possible MIME 
+        decoding errors</p>
+      <p><span class="textheader">Version 1.3.1</span><br>
+        Date: December 13, 2001</p>
+      <p>Enhancement: Added file upload capabilities to HTTP component. See setPostData 
+        method in HTTP component for additional detail.<br>
+        Enhancement: Added addAttachment(byte[] data, String filename) method 
+        to SMTP component as another method for adding file attachment to mail 
+        messages.<br>
+        Enhancement: Added support for downloading inline attachments in POP3 
+        component<br>
+        Bux Fix: Several errors fixed in FTP component which caused problems when 
+        communicating with some FTP servers.</p>
+      <p><span class="textheader">Version 1.2.1</span><b><br>
+        </b>Date: November 21, 2001</p>
+      <p>Bug Fix: Fixed problem with archive missing TelnetException class<br>
+        Bug Fix: Fixed problem in MimeMessage class with setContentType method</p>
+      <p></p>
+      <p><span class="textheader">Version 1.2</span><b><br>
+        </b>Date: November 12, 2001</p>
+      <p>Enhancement: Added mupload methods to FTP component providing MPUT functionality<br>
+        Enhancement: Added mdownload methods to FTP component providing MGET type 
+        functionality<br>
+        Enhancement: Updated HTTP component replacing use of URLConnection with 
+        Socket<br>
+        Enhancement: Added HTTP 1.1 PUT support to HTTP component class. See the 
+        setMethod and setPutData methods in HTTP component for information.<br>
+        Bux Fix: Fixed error in FTP component which caused problems when uploading 
+        from absolute paths.</p>
+      <p><span class="textheader">Version 1.1</span><br>
+        Date: October 15, 2001</p>
+      <p>Enhancement: Updated download method signature in FTP component to return 
+        a java.io.File object. <br>
+        Enhancement: Added setLocalHost method to FTP component addressing issues 
+        with some Windows clients who use dial-up networking or multiple NIC interfaces.<br>
+        Enhancement: Added getFirst and getLast methods to NntpNewsgroup class 
+        allowing for retrieval of first and last article id from a newsgroup.<br>
+        Enhancement: Added setDisconnect and disconnect methods to<code> </code>SMTP 
+        component providing for the ability to maintain an open connection to 
+        SMTP server for sending multiple email messages.<br>
+        Enhancement: Added setBody(MimeMessage) method to SMTP component providing 
+        the ability to send multi-part MIME messages as body of an email message.<br>
+        Bug Fix: Fixed minor parsing bug in MimeMessage class which caused problems 
+        when reading improperly formatted multi-part messages. <br>
+        Bug Fix: Fixed bug in FTP component which prevented user from downloading 
+        files to a directory other than current working directory.<br>
+        Documentation: Added Frequently Asked Questions (FAQ) to install set.</p>
+      <p><span class="textheader">Version 1.0</span><b> </b><br>
+        Date: August 28, 2001</p>
+      <p>iNet Factory Released</p>
+      <table width="100%" border="0">
+        <tr bgcolor="#DDDDDD"> 
+          <td><a name="licensing"></a><span class="textheader">Evaluation and 
+            Registration Information</span> <a href="#top">[top]</a></td>
+        </tr>
+      </table>
+      <p>After installation, iNet factory has a FREE 30 day evaluation. After 
+        the evaluation period has expired iNet Factory components will cease to 
+        function. To continue using iNet Factory beyond the evaluation period 
+        you must register with JSCAPE or an authorized reseller. To register the 
+        full version of iNet Factory and experience the <a href="#benefits">many 
+        benefits</a> offered with product registration please go to <a href="http://www.jscape.com">http://www.jscape.com</a>.</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
