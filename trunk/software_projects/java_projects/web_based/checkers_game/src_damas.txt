@@ -1,0 +1,3 @@
+C:\Aula\Java\Trab2\damas\Tabuleiro.java
+C:\Aula\Java\Trab2\damas\Damas.java
+C:\Aula\Java\Trab2\damas\Casa.java
