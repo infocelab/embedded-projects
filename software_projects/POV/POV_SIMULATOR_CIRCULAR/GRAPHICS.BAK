@@ -1,0 +1,175 @@
+#include<stdio.h>
+#include<process.h>
+#include<conio.h>
+#include<dos.h>
+#include<graphics.h>
+
+#define ROWS 9
+#define COLS 90
+#define CELL_SIZE 20
+
+union REGS in,out;
+int INITX=0;
+int INITY=200;
+int data_arr[ROWS][COLS];
+
+int callmouse()                   // To initialise the MOUSE
+{
+ in.x.ax=1;
+ int86(51,&in,&out);
+ return 1;
+}
+
+void board()
+{
+ int i,j;
+ int selected_row,selected_col,top_x,top_y,bottom_x,bottom_y;
+
+ for(i=0;i<=ROWS;i++)
+ {
+  line(INITX,INITY+(i*CELL_SIZE),INITX+(COLS*CELL_SIZE),INITY+(i*CELL_SIZE));
+ }
+ for(i=0;i<=COLS;i++)
+ {
+  if(i%2==0)
+   outtextxy(INITX+(i*CELL_SIZE)+2,INITY+1,".");
+  else
+   outtextxy(INITX+(i*CELL_SIZE)+2,INITY+1,"-");
+  line(INITX+(i*CELL_SIZE),INITY,INITX+(i*CELL_SIZE),INITY+(ROWS*CELL_SIZE));
+ }
+ for(i=0;i<ROWS;i++)
+ {
+  for(j=0;j<COLS;j++)
+  {
+   if(data_arr[i][j]==1)
+   {
+    selected_row=i;
+    selected_col=j;
+ // printf("\n\tSelected row:%d\t col:%d\t",selected_row,selected_col);
+  top_x=INITX+(selected_col*CELL_SIZE);
+  top_y=INITY+(selected_row*CELL_SIZE);
+  bottom_x=INITX+((selected_col+1)*CELL_SIZE);
+  bottom_y=INITY+((selected_row+1)*CELL_SIZE);
+  bar(top_x,top_y,bottom_x,bottom_y);
+  data_arr[selected_row][selected_col]=1;
+   }
+  }
+  }
+
+
+}
+
+void pos(int &x,int &y,int &cl)
+{
+      in.x.ax=3;
+      int86(51,&in,&out);
+      cl=out.x.bx;
+      x=out.x.cx;
+      y=out.x.dx;
+}
+
+
+void make(int x, int y, int click)
+{
+ int selected_row,selected_col;
+ int top_x,top_y,bottom_x,bottom_y;
+ if(click==1)
+ {
+  selected_row=((y-INITY)/CELL_SIZE);
+  selected_col=((x-INITX)/CELL_SIZE);
+ // printf("\n\tSelected row:%d\t col:%d\t",selected_row,selected_col);
+  if(x<INITX||y<INITY)
+   return;
+  if(selected_row<0||selected_col<0)
+   return;
+  if(selected_row>=ROWS||selected_col>=COLS)
+   return;
+  top_x=INITX+(selected_col*CELL_SIZE);
+  top_y=INITY+(selected_row*CELL_SIZE);
+  bottom_x=INITX+((selected_col+1)*CELL_SIZE);
+  bottom_y=INITY+((selected_row+1)*CELL_SIZE);
+  bar(top_x,top_y,bottom_x,bottom_y);
+  data_arr[selected_row][selected_col]=1;
+//  clearviewport();
+  board();
+  //click=0;
+ }
+
+ if(click==2)
+ {
+  int i,j;
+  printf("\n\n\n\n\n");
+  for(i=0;i<ROWS;i++)
+  {
+   for(j=0;j<COLS;j++)
+   {
+    printf("%d",data_arr[i][j]);
+   }
+   printf("\n");
+  }
+ }
+}
+
+void main()
+{
+ int xpos,ypos,click;
+ int driver=DETECT,mode;
+ int i,j;
+ int key;
+ initgraph(&driver,&mode,"\\tc\\bgi");
+ setfillstyle(SOLID_FILL,YELLOW);
+ board();
+ callmouse();
+ for(i=0;i<ROWS;i++)
+ {
+  for(j=0;j<COLS;j++)
+  {
+   data_arr[i][j]=0;
+  }
+ }
+ while(1)
+ {
+
+  pos(xpos,ypos,click);
+  if(kbhit())
+  {
+   key=getch();
+   if(key==13||key==27)
+   exit(1);
+   if(key==77)
+   {
+    INITX-=CELL_SIZE;
+    clearviewport();
+    board();
+   }
+   if(key==75)
+   {
+    INITX+=CELL_SIZE;
+    clearviewport();
+    board();
+   }
+   if(key==72)
+   {
+    INITY-=CELL_SIZE;
+    clearviewport();
+    board();
+   }
+   if(key==80)
+   {
+    INITY+=CELL_SIZE;
+    clearviewport();
+    board();
+   }
+  }
+  gotoxy(10,9);
+  printf("Mouse Position: %d,%d",xpos,ypos);
+  printf("\n\t Click:%d",click);
+  printf("\n\t%d\t",key);
+  make(xpos,ypos,click);
+ // board();
+  //INITX-=CELL_SIZE;
+  //cleardevice();
+ }
+
+ closegraph();
+}
