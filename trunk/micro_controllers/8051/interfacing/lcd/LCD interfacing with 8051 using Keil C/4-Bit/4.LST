@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   4                                                                 02/28/2015 01:56:33 PAGE 1   
+C51 COMPILER V9.53.0.0   4                                                                 08/02/2015 00:16:49 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE 4
@@ -37,38 +37,40 @@ line level    source
   27   1        while(1)
   28   1        {                                   
   29   2          Lcd4_Set_Cursor(1,1);
-  30   2                Lcd4_Write_String("Celab LCD Example");
-  31   2                      for(i=0;i<15;i++)
-  32   2                      {
-  33   3                        Delay(1000);
-  34   3                              Lcd4_Shift_Left();
-  35   3                      }
-  36   2                      
-  37   2                      for(i=0;i<15;i++)
-  38   2                      {
-  39   3                              Delay(1000);
-  40   3                              Lcd4_Shift_Right();
-  41   3                      }
-  42   2                      Lcd4_Clear();
-  43   2                      Lcd4_Set_Cursor(2,1);
-  44   2                      Lcd4_Write_Char('H');
-  45   2                      Lcd4_Write_Char('I');
-  46   2                      Delay(2000);
-  47   2        }
-  48   1      }
-  49          
-  50          
+  30   2                Lcd4_Write_String("Computronics Lab LCD Example");
+  31   2                        Delay(5000);
+  32   2              
+  33   2                      for(i=0;i<18;i++)
+  34   2                      {
+  35   3                        Delay(1000);
+  36   3                              Lcd4_Shift_Left();
+  37   3                      }
+  38   2                      
+  39   2                      for(i=0;i<18;i++)
+  40   2                      {
+  41   3                              Delay(1000);
+  42   3                              Lcd4_Shift_Right();
+  43   3                      }
+  44   2                      //Lcd4_Clear();
+  45   2                      //Lcd4_Set_Cursor(2,1);
+  46   2                      //Lcd4_Write_Char('H');
+  47   2                      //Lcd4_Write_Char('I');
+  48   2                      //Delay(2000);
+  49   2        }
+  50   1      }
   51          
   52          
+  53          
+  54          
+C51 COMPILER V9.53.0.0   4                                                                 08/02/2015 00:16:49 PAGE 2   
+
 *** WARNING C290 IN LINE 83 OF 4.c: missing return value
 *** WARNING C290 IN LINE 175 OF 4.c: missing return value
-C51 COMPILER V9.53.0.0   4                                                                 02/28/2015 01:56:33 PAGE 2   
-
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    702    ----
-   CONSTANT SIZE    =     18    ----
+   CODE SIZE        =    687    ----
+   CONSTANT SIZE    =     29    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----      15
