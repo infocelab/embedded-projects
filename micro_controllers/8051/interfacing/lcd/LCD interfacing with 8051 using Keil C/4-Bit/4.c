@@ -27,23 +27,25 @@ void main()
   while(1)
   {                                   
     Lcd4_Set_Cursor(1,1);
-	  Lcd4_Write_String("Celab LCD Example");
-		for(i=0;i<15;i++)
+	  Lcd4_Write_String("Computronics Lab LCD Example");
+	  	  Delay(5000);
+	
+		for(i=0;i<18;i++)
 		{
 		  Delay(1000);
 			Lcd4_Shift_Left();
 		}
 		
-		for(i=0;i<15;i++)
+		for(i=0;i<18;i++)
 		{
 			Delay(1000);
 			Lcd4_Shift_Right();
 		}
-		Lcd4_Clear();
-		Lcd4_Set_Cursor(2,1);
-		Lcd4_Write_Char('H');
-		Lcd4_Write_Char('I');
-		Delay(2000);
+		//Lcd4_Clear();
+		//Lcd4_Set_Cursor(2,1);
+		//Lcd4_Write_Char('H');
+		//Lcd4_Write_Char('I');
+		//Delay(2000);
   }
 }
 

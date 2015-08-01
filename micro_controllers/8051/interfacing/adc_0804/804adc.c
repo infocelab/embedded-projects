@@ -73,21 +73,21 @@ P2=0x00;
 P3=0x00;										 //Command for choosing 16x2 Lcd
 cmd(0x38);										//Command for choosing Right shift
 cmd(0x06);										//Command for display without cursor(Means cursor OFF)
-cmd(0x0c);										//Message to display to LCD
-message("Welcome to");					//Command to goto next line. Choosing second coloumn of lcd
+cmd(0x0c);		//Message to display to LCD
+message(" Welcome to");					//Command to goto next line. Choosing second coloumn of lcd
 cmd(0xc0);
-message("CELab");
-delay(2000);
+message("Computronics Lab");
+delay(5000);
 cmd(0x80);
 message("Temp Display");					//Command to goto next line. Choosing second coloumn of lcd
 cmd(0xc0);
-message("Using ADC0804");
+message("Using ADC0804   ");
 delay(2000);
 cmd(0x01);
 while(1)										//infinite loop
 {
 cmd(0x80);
-message("CELab");
+message("Computronics Lab");
 cmd(0xc0);
 message("Temp:");
 adc();								//ADC function call
