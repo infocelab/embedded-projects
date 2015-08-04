@@ -47,34 +47,34 @@ char Read_Keypad()
   R2=1;
   R3=1;
   R4=1;
-  if(C1==0){Delay(100);while(C1==0);return '7';}
-  if(C2==0){Delay(100);while(C2==0);return '8';}
-  if(C3==0){Delay(100);while(C3==0);return '9';}
+  if(C1==0){Delay(100);while(C1==0);return '+';}
+  if(C2==0){Delay(100);while(C2==0);return '-';}
+  if(C3==0){Delay(100);while(C3==0);return '*';}
   if(C4==0){Delay(100);while(C4==0);return '/';}
   R1=1;
   R2=0;
   R3=1;
   R4=1;
-  if(C1==0){Delay(100);while(C1==0);return '4';}
-  if(C2==0){Delay(100);while(C2==0);return '5';}
+  if(C1==0){Delay(100);while(C1==0);return '=';}
+  if(C2==0){Delay(100);while(C2==0);return '3';}
   if(C3==0){Delay(100);while(C3==0);return '6';}
-  if(C4==0){Delay(100);while(C4==0);return 'X';}
+  if(C4==0){Delay(100);while(C4==0);return '9';}
   R1=1;
   R2=1;
   R3=0;
   R4=1;
-  if(C1==0){Delay(100);while(C1==0);return '1';}
+  if(C1==0){Delay(100);while(C1==0);return '0';}
   if(C2==0){Delay(100);while(C2==0);return '2';}
-  if(C3==0){Delay(100);while(C3==0);return '3';}
-  if(C4==0){Delay(100);while(C4==0);return '-';}
+  if(C3==0){Delay(100);while(C3==0);return '5';}
+  if(C4==0){Delay(100);while(C4==0);return '8';}
   R1=1;
   R2=1;
   R3=1;
   R4=0;
   if(C1==0){Delay(100);while(C1==0);return 'C';}
-  if(C2==0){Delay(100);while(C2==0);return '0';}
-  if(C3==0){Delay(100);while(C3==0);return '=';}
-  if(C4==0){Delay(100);while(C4==0);return '+';}
+  if(C2==0){Delay(100);while(C2==0);return '1';}
+  if(C3==0){Delay(100);while(C3==0);return '4';}
+  if(C4==0){Delay(100);while(C4==0);return '7';}
   return 0;
 }
 
