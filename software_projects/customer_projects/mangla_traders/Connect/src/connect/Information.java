@@ -36,6 +36,7 @@ public class Information extends javax.swing.JFrame
         lbl_copyright_3.setText("Copyright@Computronics Lab");
         lbl_copyright_4.setText("Copyright@Computronics Lab");
         lbl_copyright_5.setText("Copyright@Computronics Lab");
+        lbl_copyright_11.setText("Copyright@Computronics Lab");
         this.setResizable(false);
         conn =  ConnectGUI.conn;
     
@@ -1150,12 +1151,12 @@ public class Information extends javax.swing.JFrame
         int month1 = cal1.get(Calendar.MONTH) + 1;
         int day1 = cal1.get(Calendar.DAY_OF_MONTH);
         
-        if(month1 > 7 || day1 > 25)
+        /*if(year1 > 2018)
         {
-            JOptionPane.showMessageDialog(null, "Software Expired Please call ComputronicLab and make Payment");    
+            JOptionPane.showMessageDialog(null, "Software Expired Please call ComputronicsLab");    
             this.setVisible(false);
             return;
-        }
+        }*/
         
         lbl_daily_data_entry_user_name.setText(ConnectGUI.logged_user);
         if(ConnectGUI.logged_user.equals("admin"))
