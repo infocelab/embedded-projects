@@ -3,12 +3,21 @@ package connect;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 public class ConnectGUI extends javax.swing.JFrame 
 {
    public static int T_FONT_SIZE = 220;
@@ -23,16 +32,17 @@ public static int disp = 0;
 
    Timer timer ; 
    JFrame frame=null;
+   BufferedImage img=null;
+   ImageIcon imageIcon = null;
+   Image image = null;
     class RemindTask extends TimerTask {
     public void run() {
-        //frame.setVisible(false);
         if(disp == 0)
         {
         d1 = rand.nextInt((int) Math.pow(10,range));
     
         d2 = rand.nextInt((int) Math.pow(10,range));
         }
-        //frame.setVisible(true);
         frame.repaint();
     }
   }
@@ -44,14 +54,37 @@ public static int disp = 0;
     int width = getWidth();
     int height = getHeight();
     g.setColor(Color.black);
-    //g.drawOval(0, 0, width, height);
-    g.setColor(Color.MAGENTA);
+    String color = cmb_color.getSelectedItem().toString();
+    
+    g.drawImage(image, 0, 0, null);
+    g.setColor(Color.BLACK);
+    if(color.equals("MAGENTA"))
+    {
+        g.setColor(Color.MAGENTA);
+    }
+    else if(color.equals("BLUE"))
+    {
+        g.setColor(Color.BLUE);
+    }
+    else if(color.equals("RED"))
+    {
+        g.setColor(Color.RED);
+    }
+    else if(color.equals("GREEN"))
+    {
+        g.setColor(Color.GREEN);
+    }
+    else if(color.equals("BLACK"))
+    {
+        g.setColor(Color.black);
+    }
+    
+    
     g.setFont(new Font("TimesRoman", Font.PLAIN, T_FONT_SIZE)); 
     int w=50;
      
-         g.drawString( String.valueOf(d1), w , height/2);
-         w = w+ T_FONT_SIZE;
-         String opr = "";
+        g.drawString( String.valueOf(d1), w , height/2);
+        String opr = "";
          if(oper == 1)
          {
              opr = "+";
@@ -64,7 +97,7 @@ public static int disp = 0;
          }
          else if(oper == 3)
          {
-             opr = "*";
+             opr = "X";
              ans = d1 * d2;
          }
          else if(oper == 4)
@@ -72,11 +105,15 @@ public static int disp = 0;
              opr = "/";
              ans = d1 / d2;
          }
+         if(d1 > 0)
+        w +=  T_FONT_SIZE * (int)(Math.log10(d1)+1);
+             else
+        w +=  T_FONT_SIZE ;
          
-         g.drawString(opr, w , height/2);
-         w = w+ T_FONT_SIZE;
-         g.drawString(String.valueOf(d2), w , height/2);
-         w = w+ T_FONT_SIZE;
+        g.drawString(opr, w , height/2);
+        w = w+ T_FONT_SIZE;
+        g.drawString(String.valueOf(d2), w , height/2);
+        w = w+ T_FONT_SIZE;
         if(disp == 0)
         {
             disp = 1;
@@ -98,7 +135,17 @@ public static int disp = 0;
     {
         initComponents(); 
         rand = new Random(System.currentTimeMillis());
-        
+        cmb_color.addItem("BLUE");
+        cmb_color.addItem("MAGENTA");
+        cmb_color.addItem("RED");
+        cmb_color.addItem("GREEN");
+        cmb_color.addItem("BLACK");
+         try {
+                img = ImageIO.read(new File("m3.jpg"));
+                
+            } catch (IOException ex) {
+                Logger.getLogger(ConnectGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         this.getRootPane().setDefaultButton(btn_start);
         
     }
@@ -120,6 +167,8 @@ public static int disp = 0;
         btn_start = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         spn_range = new javax.swing.JSpinner();
+        jLabel2 = new javax.swing.JLabel();
+        cmb_color = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -132,7 +181,7 @@ public static int disp = 0;
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Kids Math Quiz");
+        jLabel3.setText("Math Quiz");
         jLabel3.setBorder(new javax.swing.border.MatteBorder(null));
 
         jLabel5.setText("Select Operation");
@@ -153,7 +202,15 @@ public static int disp = 0;
 
         jLabel1.setText("Select Range");
 
-        spn_range.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        spn_range.setModel(new javax.swing.SpinnerNumberModel(1, 1, 3, 1));
+
+        jLabel2.setText("Select Color");
+
+        cmb_color.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_colorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,16 +228,18 @@ public static int disp = 0;
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel1))
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cmb_operation, 0, 117, Short.MAX_VALUE)
                                     .addComponent(cmb_time, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(spn_range)))))
+                                    .addComponent(spn_range)
+                                    .addComponent(cmb_color, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addComponent(btn_start)))
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,9 +258,13 @@ public static int disp = 0;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cmb_time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(cmb_color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
                 .addComponent(btn_start)
-                .addGap(83, 83, 83))
+                .addGap(38, 38, 38))
         );
 
         pack();
@@ -233,27 +296,22 @@ public static int disp = 0;
         {
             oper=4;
         }
-      if(frame == null)
-      {
-        frame = new JFrame("Kids Math Quiz");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame = new JFrame("Math Quiz");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.add(new OvalPanelCanvas());
-        frame.setSize(1200, 800);
-         frame.setVisible(true);
-      } 
-       // if(frame !=  null)
-         //   frame.setVisible(false);
-        
-       
-     
+        image = img.getScaledInstance(1500,800, Image.SCALE_SMOOTH);
+        frame.setVisible(true);
         
         timer = new Timer();
         
         timer.scheduleAtFixedRate(new RemindTask(),10, Integer.valueOf(time) * 1000);
         
-      
-        
     }//GEN-LAST:event_btn_startActionPerformed
+
+    private void cmb_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_colorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_colorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,9 +350,11 @@ public static int disp = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_start;
+    private javax.swing.JComboBox cmb_color;
     private javax.swing.JComboBox cmb_operation;
     private javax.swing.JComboBox cmb_time;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
