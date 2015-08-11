@@ -1,19 +1,12 @@
 package connect;
 
-import java.awt.BasicStroke;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import javax.swing.BorderFactory;
+import java.util.Random;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import java.awt.Toolkit;
 import java.util.Timer;
 import java.util.TimerTask;
 public class ConnectGUI extends javax.swing.JFrame 
@@ -21,18 +14,29 @@ public class ConnectGUI extends javax.swing.JFrame
    public static int T_FONT_SIZE = 220;
   public static int d1 = 5;
   public static int d2 = 5;
+   public static int ans = 5;
+  public static int oper = 1;
+    public static int range = 1;
+     public static int time = 5;
+public static int disp = 0;
+  Random rand; // = new Random(System.currentTimeMillis());
+
    Timer timer ; 
-   JFrame frame;
+   JFrame frame=null;
     class RemindTask extends TimerTask {
     public void run() {
-        frame.setVisible(false);
-        d1++;
-        d2++;
-        frame.setVisible(true);
+        //frame.setVisible(false);
+        if(disp == 0)
+        {
+        d1 = rand.nextInt((int) Math.pow(10,range));
+    
+        d2 = rand.nextInt((int) Math.pow(10,range));
+        }
+        //frame.setVisible(true);
+        frame.repaint();
     }
   }
 
-    
    public class OvalPanelCanvas extends JPanel {
   public OvalPanelCanvas() {
   }
@@ -44,20 +48,56 @@ public class ConnectGUI extends javax.swing.JFrame
     g.setColor(Color.MAGENTA);
     g.setFont(new Font("TimesRoman", Font.PLAIN, T_FONT_SIZE)); 
     int w=50;
+     
          g.drawString( String.valueOf(d1), w , height/2);
          w = w+ T_FONT_SIZE;
-         g.drawString("*", w , height/2);
-         w = w+ T_FONT_SIZE;
-         g.drawString(String.valueOf(d1), w , height/2);
-         w = w+ T_FONT_SIZE;
-         g.drawString("=", w , height/2);
+         String opr = "";
+         if(oper == 1)
+         {
+             opr = "+";
+             ans = d1 + d2;
+         }
+         else if(oper == 2)
+         {
+             opr = "-";
+             ans = d1 - d2;
+         }
+         else if(oper == 3)
+         {
+             opr = "*";
+             ans = d1 * d2;
+         }
+         else if(oper == 4)
+         {
+             opr = "/";
+             ans = d1 / d2;
+         }
          
-  }
-  
+         g.drawString(opr, w , height/2);
+         w = w+ T_FONT_SIZE;
+         g.drawString(String.valueOf(d2), w , height/2);
+         w = w+ T_FONT_SIZE;
+        if(disp == 0)
+        {
+            disp = 1;
+        }
+        else if(disp == 1)
+        {
+            w=50;
+            g.drawString("=", w , height/2 + 200);
+         w = w+ T_FONT_SIZE;
+          g.drawString(String.valueOf(ans), w , height/2 + 200);
+          disp=0;
+        }
+         
+        
+        }
+    
 }
     public ConnectGUI() 
     {
         initComponents(); 
+        rand = new Random(System.currentTimeMillis());
         
         this.getRootPane().setDefaultButton(btn_start);
         
@@ -174,13 +214,37 @@ public class ConnectGUI extends javax.swing.JFrame
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         
         String operation = cmb_operation.getSelectedItem().toString();
-        String range = spn_range.getValue().toString();
-        String time= cmb_time.getSelectedItem().toString();
+        range = Integer.valueOf(spn_range.getValue().toString());
+        time= Integer.valueOf(cmb_time.getSelectedItem().toString());
+        
+        if(operation.equals("Adition"))
+        {
+            oper=1;
+        }
+        else if(operation.equals("Subtraction"))
+        {
+            oper=2;
+        }
+        else if(operation.equals("Multiplication"))
+        {
+            oper=3;
+        }
+        else if(operation.equals("Division"))
+        {
+            oper=4;
+        }
+      if(frame == null)
+      {
         frame = new JFrame("Kids Math Quiz");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new OvalPanelCanvas());
-        frame.setSize(900, 600);
-        frame.setVisible(true);
+        frame.setSize(1200, 800);
+         frame.setVisible(true);
+      } 
+       // if(frame !=  null)
+         //   frame.setVisible(false);
+        
+       
      
         
         timer = new Timer();
