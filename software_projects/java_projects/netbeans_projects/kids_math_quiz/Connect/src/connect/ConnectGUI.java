@@ -2,6 +2,7 @@ package connect;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -50,6 +51,24 @@ public static int disp = 0;
    public class OvalPanelCanvas extends JPanel {
   public OvalPanelCanvas() {
   }
+  
+  public void drawText(String text ,int w, int height, Graphics g, Color c)
+  {
+       int x = w, y = height/3;
+        int ovalWidth = T_FONT_SIZE, ovalHeight = T_FONT_SIZE;
+
+        // Draw circle
+        g.setColor(Color.PINK);
+        g.fillOval(x-ovalWidth/2, y-ovalHeight/2,ovalWidth, ovalHeight);
+        // I don't understand why x-ovalwidth/2 and y-ovalheight/2
+
+        // Put text into circle
+        FontMetrics fm = g.getFontMetrics();
+        double textWidth = fm.getStringBounds(text, g).getWidth();
+        // What is the job of getstringbounds 
+        g.setColor(c);
+        g.drawString(text, (int) (x - textWidth/2),(int) (y + fm.getMaxAscent() / 3));
+  }
   public void paintComponent(Graphics g) {
     int width = getWidth();
     int height = getHeight();
@@ -79,12 +98,15 @@ public static int disp = 0;
         g.setColor(Color.black);
     }
     
+    Color c = g.getColor();
     
     g.setFont(new Font("TimesRoman", Font.PLAIN, T_FONT_SIZE)); 
-    int w=50;
-     
-        g.drawString( String.valueOf(d1), w , height/2);
-        String opr = "";
+    int w=150;
+    
+      drawText(String.valueOf(d1),w,height,g, c);
+        //g.drawString( String.valueOf(d1), w , height/2);
+        //g.drawOval(w, height/4, T_FONT_SIZE, T_FONT_SIZE);
+       String opr = "";
          if(oper == 1)
          {
              opr = "+";
@@ -110,9 +132,11 @@ public static int disp = 0;
              else
         w +=  T_FONT_SIZE ;
          
-        g.drawString(opr, w , height/2);
-        w = w+ T_FONT_SIZE;
-        g.drawString(String.valueOf(d2), w , height/2);
+        g.drawString(opr, w , height/3);
+        w = w+ T_FONT_SIZE * 2;
+        
+          drawText(String.valueOf(d2),w,height,g, c);
+        //g.drawString(String.valueOf(d2), w , height/2);
         w = w+ T_FONT_SIZE;
         if(disp == 0)
         {
