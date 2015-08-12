@@ -28,6 +28,7 @@ public class ConnectGUI extends javax.swing.JFrame
   public static int oper = 1;
     public static int range = 1;
      public static int time = 5;
+     public static int img_count = 0;
 public static int disp = 0;
   Random rand; // = new Random(System.currentTimeMillis());
 
@@ -44,6 +45,30 @@ public static int disp = 0;
     
         d2 = rand.nextInt((int) Math.pow(10,range));
         }
+        try {
+              if(img_count++ <=  10)
+              {
+            img = ImageIO.read(new File("m1.jpg"));
+            image = img.getScaledInstance(1500,800, Image.SCALE_SMOOTH);
+              }
+              else if(img_count++ <= 20)
+              {
+            img = ImageIO.read(new File("m2.jpg"));
+              image = img.getScaledInstance(1500,800, Image.SCALE_SMOOTH);
+              }
+              else if(img_count++ <= 30)
+              {
+                  img = ImageIO.read(new File("m3.jpg"));
+              image = img.getScaledInstance(1500,800, Image.SCALE_SMOOTH);
+              }
+              else if(img_count++ > 30)
+                        {
+                            img_count=0;
+                        }
+               
+        } catch (IOException ex) {
+            Logger.getLogger(ConnectGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         frame.repaint();
     }
   }
@@ -52,23 +77,33 @@ public static int disp = 0;
   public OvalPanelCanvas() {
   }
   
-  public void drawText(String text ,int w, int height, Graphics g, Color c)
+  public void drawTextOval(String text ,int w, int height, Graphics g, Color c)
   {
-       int x = w, y = height/3;
+       int x = w, y = height;
         int ovalWidth = T_FONT_SIZE, ovalHeight = T_FONT_SIZE;
 
-        // Draw circle
         g.setColor(Color.PINK);
         g.fillOval(x-ovalWidth/2, y-ovalHeight/2,ovalWidth, ovalHeight);
-        // I don't understand why x-ovalwidth/2 and y-ovalheight/2
-
-        // Put text into circle
         FontMetrics fm = g.getFontMetrics();
         double textWidth = fm.getStringBounds(text, g).getWidth();
-        // What is the job of getstringbounds 
         g.setColor(c);
         g.drawString(text, (int) (x - textWidth/2),(int) (y + fm.getMaxAscent() / 3));
   }
+  
+  public void drawTextPoly(String text ,int w, int height, Graphics g, Color c)
+  {
+       int x = w, y = height;
+        int ovalWidth = T_FONT_SIZE + 50, ovalHeight = T_FONT_SIZE;
+
+        g.setColor(Color.PINK);
+        //g.fillOval(x-ovalWidth/2, y-ovalHeight/2,ovalWidth, ovalHeight);
+        g.fill3DRect(x-ovalWidth/2, y-ovalHeight/2,ovalWidth, ovalHeight, rootPaneCheckingEnabled);
+        FontMetrics fm = g.getFontMetrics();
+        double textWidth = fm.getStringBounds(text, g).getWidth();
+        g.setColor(c);
+        g.drawString(text, (int) (x - textWidth/2),(int) (y + fm.getMaxAscent() / 3));
+  }
+  
   public void paintComponent(Graphics g) {
     int width = getWidth();
     int height = getHeight();
@@ -103,7 +138,7 @@ public static int disp = 0;
     g.setFont(new Font("TimesRoman", Font.PLAIN, T_FONT_SIZE)); 
     int w=150;
     
-      drawText(String.valueOf(d1),w,height,g, c);
+      drawTextOval(String.valueOf(d1),w,height/3,g, c);
         //g.drawString( String.valueOf(d1), w , height/2);
         //g.drawOval(w, height/4, T_FONT_SIZE, T_FONT_SIZE);
        String opr = "";
@@ -135,7 +170,7 @@ public static int disp = 0;
         g.drawString(opr, w , height/3);
         w = w+ T_FONT_SIZE * 2;
         
-          drawText(String.valueOf(d2),w,height,g, c);
+          drawTextOval(String.valueOf(d2),w,height/3,g, c);
         //g.drawString(String.valueOf(d2), w , height/2);
         w = w+ T_FONT_SIZE;
         if(disp == 0)
@@ -144,10 +179,12 @@ public static int disp = 0;
         }
         else if(disp == 1)
         {
-            w=50;
+            w=200;
             g.drawString("=", w , height/2 + 200);
          w = w+ T_FONT_SIZE;
-          g.drawString(String.valueOf(ans), w , height/2 + 200);
+        drawTextPoly(String.valueOf(ans), w+ 50 , height/2 + 150,g, c);
+        
+         //g.drawString(String.valueOf(ans), w , height/2 + 200);
           disp=0;
         }
          
@@ -165,7 +202,7 @@ public static int disp = 0;
         cmb_color.addItem("GREEN");
         cmb_color.addItem("BLACK");
          try {
-                img = ImageIO.read(new File("m3.jpg"));
+                img = ImageIO.read(new File("m1.jpg"));
                 
             } catch (IOException ex) {
                 Logger.getLogger(ConnectGUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -320,13 +357,16 @@ public static int disp = 0;
         {
             oper=4;
         }
+        if(frame != null)
+            frame.setVisible(false);
         frame = new JFrame("Math Quiz");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.add(new OvalPanelCanvas());
         image = img.getScaledInstance(1500,800, Image.SCALE_SMOOTH);
         frame.setVisible(true);
-        
+        if(timer != null)
+        timer.cancel();
         timer = new Timer();
         
         timer.scheduleAtFixedRate(new RemindTask(),10, Integer.valueOf(time) * 1000);
