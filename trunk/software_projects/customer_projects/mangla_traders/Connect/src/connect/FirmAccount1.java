@@ -16,13 +16,22 @@ public class FirmAccount1 extends javax.swing.JFrame
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    public static int edit = 0;
     
     public FirmAccount1() 
     {    
         initComponents();
+        edit =0;
         conn =  ConnectGUI.conn;
         lbl_copyright_6.setText("Copyright@Computronics Lab");
-        
+        if(ConnectGUI.logged_user.equals("admin"))
+        {
+            btn_firm_acc_edit_info.setEnabled(true);
+        }
+        else
+        {
+            btn_firm_acc_edit_info.setEnabled(false);
+        }
         if(showFirmAccount==1)
         {
             tbl_firm_acc_details.setVisible(true);
@@ -116,6 +125,7 @@ public class FirmAccount1 extends javax.swing.JFrame
         lbl_copyright_6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl_firm_acc_details = new javax.swing.JTable();
+        btn_firm_acc_edit_info = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setResizable(false);
@@ -146,6 +156,11 @@ public class FirmAccount1 extends javax.swing.JFrame
         lbl_firm_acc_contact_name.setText("Contact Name:");
 
         tbx_firm_acc_city.setPreferredSize(new java.awt.Dimension(120, 30));
+        tbx_firm_acc_city.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbx_firm_acc_cityActionPerformed(evt);
+            }
+        });
 
         lbl_firm_acc_address.setText("Address:");
 
@@ -195,6 +210,13 @@ public class FirmAccount1 extends javax.swing.JFrame
             tbl_firm_acc_details.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        btn_firm_acc_edit_info.setText("Edit Firm Info");
+        btn_firm_acc_edit_info.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_firm_acc_edit_infoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -214,16 +236,18 @@ public class FirmAccount1 extends javax.swing.JFrame
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_firm_acc_city)
-                                    .addComponent(lbl_firm_acc_firm_name))
+                                    .addComponent(lbl_firm_acc_firm_name)
+                                    .addComponent(lbl_firm_acc_city))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tbx_firm_acc_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tbx_firm_acc_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbl_firm_acc_contact_name)
-                                    .addComponent(lbl_firm_acc_mobile_number))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(tbx_firm_acc_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(lbl_firm_acc_mobile_number))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(tbx_firm_acc_firm_name, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(38, 38, 38)
+                                        .addComponent(lbl_firm_acc_contact_name)))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -231,8 +255,12 @@ public class FirmAccount1 extends javax.swing.JFrame
                                         .addGap(18, 18, 18)
                                         .addComponent(lbl_firm_acc_address))
                                     .addComponent(tbx_firm_acc_mobile_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btn_firm_acc_edit_info)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane1))))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(273, 273, 273)
@@ -245,7 +273,7 @@ public class FirmAccount1 extends javax.swing.JFrame
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_firm_acc_firm_name)
@@ -253,20 +281,22 @@ public class FirmAccount1 extends javax.swing.JFrame
                             .addComponent(lbl_firm_acc_contact_name)
                             .addComponent(tbx_firm_acc_contact_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_firm_acc_address))
+                        .addGap(58, 58, 58))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_firm_acc_city)
+                            .addComponent(tbx_firm_acc_city, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_firm_acc_mobile_number))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tbx_firm_acc_city, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_firm_acc_city)
-                                    .addComponent(lbl_firm_acc_mobile_number)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(tbx_firm_acc_mobile_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_firm_acc_edit_info)
+                            .addComponent(tbx_firm_acc_mobile_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_firm_acc_close)
                 .addGap(8, 8, 8)
@@ -292,6 +322,83 @@ public class FirmAccount1 extends javax.swing.JFrame
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
       
     }//GEN-LAST:event_formMouseEntered
+
+    private void tbx_firm_acc_cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbx_firm_acc_cityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbx_firm_acc_cityActionPerformed
+
+    private void btn_firm_acc_edit_infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_firm_acc_edit_infoActionPerformed
+        // TODO add your handling code here:
+        if(edit == 0)
+        {
+            tbx_firm_acc_contact_name.setEditable(true);
+            txtarea_firm_account_address.setEditable(true);
+            tbx_firm_acc_city.setEditable(true);
+            tbx_firm_acc_mobile_no.setEditable(true);
+            btn_firm_acc_edit_info.setText("Save");
+            edit =1;
+        }
+        else
+        {
+            String contact_name = tbx_firm_acc_contact_name.getText();            
+            String address = txtarea_firm_account_address.getText();
+            String city = tbx_firm_acc_city.getText();
+            String mobile_number = tbx_firm_acc_mobile_no.getText();
+            String firm_name = tbx_firm_acc_firm_name.getText();
+            
+            if(contact_name.equals(""))
+            {
+                JOptionPane.showMessageDialog(null, "Contact Name Cannot be Empty"); 
+                return;
+            }
+         
+            if(address.equals(""))
+            {
+                JOptionPane.showMessageDialog(null, "Address Cannot be Empty"); 
+                return;
+            }
+        
+            if(city.equals(""))
+            {
+                JOptionPane.showMessageDialog(null, "City Cannot be Empty"); 
+                return;
+            }
+        
+            /*if(mobile_number.equals(""))
+            {
+                JOptionPane.showMessageDialog(null, "Mobile Number Cannot be Empty"); 
+                return;
+            }
+            */
+        
+            if(!mobile_number.equals("") && mobile_number.length() != 10)
+            {
+                JOptionPane.showMessageDialog(null, "Moblie Number Must be 10 Digit only"); 
+                return; 
+            }
+
+            tbx_firm_acc_contact_name.setEditable(false);
+            txtarea_firm_account_address.setEditable(false);
+            tbx_firm_acc_city.setEditable(false);
+            tbx_firm_acc_mobile_no.setEditable(false);
+            btn_firm_acc_edit_info.setText("Edit Firm Info");
+            edit =0;
+             
+            
+            String sql="";
+            sql = "Update firm_account set contact_name='" + contact_name + "',address='" + address + "', city='" + city + "', mobile_number='" + mobile_number + "'where firm_name='"+ firm_name + "'";
+            try
+            {
+                pst = conn.prepareStatement(sql);
+                pst.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Update Success");    
+            }
+            catch(SQLException | HeadlessException e)
+            {
+                JOptionPane.showMessageDialog(null, e);          
+            }   
+        }
+    }//GEN-LAST:event_btn_firm_acc_edit_infoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,6 +437,7 @@ public class FirmAccount1 extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_firm_acc_close;
+    private javax.swing.JButton btn_firm_acc_edit_info;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
