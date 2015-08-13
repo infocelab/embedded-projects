@@ -222,11 +222,11 @@ public class FirmAccount1_1 extends javax.swing.JFrame
             return;
         }
         
-        if(mobile_number.equals(""))
+        /*if(mobile_number.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Mobile Number Cannot be Empty"); 
             return;
-        }
+        }*/
         
         if(!mobile_number.equals("") && mobile_number.length() != 10)
         {
