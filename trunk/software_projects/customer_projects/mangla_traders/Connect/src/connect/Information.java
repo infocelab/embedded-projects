@@ -2196,13 +2196,17 @@ public class Information extends javax.swing.JFrame
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         
         Calendar cal1 = Calendar.getInstance();
-        cal1.setTime(today);
+        cal1.add(Calendar.DAY_OF_MONTH, -back_day);
+        //cal1.setTime(today);
         int year = cal1.get(Calendar.YEAR);
         int month = cal1.get(Calendar.MONTH) + 1;
-        int day = cal1.get(Calendar.DAY_OF_MONTH) - back_day;
-        if(day <= 0)
-            return;
-        
+        int day = cal1.get(Calendar.DAY_OF_MONTH); // - back_day;
+        /*if(day <= 0)
+        {
+            
+            month = cal1.get(Calendar.MONTH) + 1 - back_month;
+            //return;
+        }*/
         String dd="";
         String mon;
         mon = "";
