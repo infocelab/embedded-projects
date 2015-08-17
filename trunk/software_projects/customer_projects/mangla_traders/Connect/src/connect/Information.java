@@ -135,6 +135,15 @@ public class Information extends javax.swing.JFrame
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         lbl_copyright_11 = new javax.swing.JLabel();
+        tabpane_borrowers1 = new javax.swing.JTabbedPane();
+        jDesktopPane5 = new javax.swing.JDesktopPane();
+        lbl_borrowers_city3 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tbl_firm_status = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        lbl_copyright_6 = new javax.swing.JLabel();
+        btn_firm_status_all_firms = new javax.swing.JButton();
+        btn_firm_status_all_save = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -460,6 +469,9 @@ public class Information extends javax.swing.JFrame
             }
         });
         jScrollPane5.setViewportView(tbl_borrowers_borrower_name);
+        if (tbl_borrowers_borrower_name.getColumnModel().getColumnCount() > 0) {
+            tbl_borrowers_borrower_name.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         combobox_borrowers_city.setBackground(new java.awt.Color(204, 204, 255));
         combobox_borrowers_city.setFocusable(false);
@@ -1002,6 +1014,136 @@ public class Information extends javax.swing.JFrame
         tabpane_user_account2.addTab("Data Backup", jDesktopPane9);
 
         jTabbedPane1.addTab("Data Backup/Restore", tabpane_user_account2);
+
+        jDesktopPane5.setBackground(new java.awt.Color(204, 204, 255));
+        jDesktopPane5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jDesktopPane5FocusGained(evt);
+            }
+        });
+        jDesktopPane5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jDesktopPane5MouseEntered(evt);
+            }
+        });
+
+        lbl_borrowers_city3.setText("City:-");
+
+        tbl_firm_status.setBackground(new java.awt.Color(204, 204, 255));
+        tbl_firm_status.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Firm Name", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbl_firm_status.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_firm_statusMouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(tbl_firm_status);
+        if (tbl_firm_status.getColumnModel().getColumnCount() > 0) {
+            tbl_firm_status.getColumnModel().getColumn(0).setResizable(false);
+            tbl_firm_status.getColumnModel().getColumn(1).setResizable(false);
+        }
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Mangla Traders");
+        jLabel8.setBorder(new javax.swing.border.MatteBorder(null));
+
+        lbl_copyright_6.setText("Copyright to Computronics Lab");
+
+        btn_firm_status_all_firms.setText("Get All Firms");
+        btn_firm_status_all_firms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_firm_status_all_firmsActionPerformed(evt);
+            }
+        });
+
+        btn_firm_status_all_save.setText("Save");
+        btn_firm_status_all_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_firm_status_all_saveActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDesktopPane5Layout = new javax.swing.GroupLayout(jDesktopPane5);
+        jDesktopPane5.setLayout(jDesktopPane5Layout);
+        jDesktopPane5Layout.setHorizontalGroup(
+            jDesktopPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lbl_copyright_6))
+            .addGroup(jDesktopPane5Layout.createSequentialGroup()
+                .addGroup(jDesktopPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane5Layout.createSequentialGroup()
+                        .addGap(338, 338, 338)
+                        .addComponent(jLabel8))
+                    .addGroup(jDesktopPane5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addGroup(jDesktopPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_firm_status_all_firms)
+                            .addComponent(btn_firm_status_all_save))))
+                .addContainerGap(428, Short.MAX_VALUE))
+            .addGroup(jDesktopPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDesktopPane5Layout.createSequentialGroup()
+                    .addGap(43, 43, 43)
+                    .addComponent(lbl_borrowers_city3)
+                    .addContainerGap(864, Short.MAX_VALUE)))
+        );
+        jDesktopPane5Layout.setVerticalGroup(
+            jDesktopPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane5Layout.createSequentialGroup()
+                .addGroup(jDesktopPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane5Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(btn_firm_status_all_firms)
+                        .addGap(34, 34, 34)
+                        .addComponent(btn_firm_status_all_save)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addComponent(lbl_copyright_6))
+            .addGroup(jDesktopPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDesktopPane5Layout.createSequentialGroup()
+                    .addGap(216, 216, 216)
+                    .addComponent(lbl_borrowers_city3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(479, Short.MAX_VALUE)))
+        );
+        jDesktopPane5.setLayer(lbl_borrowers_city3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane5.setLayer(jScrollPane6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane5.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane5.setLayer(lbl_copyright_6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane5.setLayer(btn_firm_status_all_firms, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane5.setLayer(btn_firm_status_all_save, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        tabpane_borrowers1.addTab("Set Firm Status", jDesktopPane5);
+
+        jTabbedPane1.addTab("Firm Status", tabpane_borrowers1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2334,6 +2476,59 @@ public class Information extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, e);          
         }
     }//GEN-LAST:event_btn_data_entry_todayActionPerformed
+
+    private void tbl_firm_statusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_firm_statusMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_firm_statusMouseClicked
+
+    private void jDesktopPane5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jDesktopPane5FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDesktopPane5FocusGained
+
+    private void jDesktopPane5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDesktopPane5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDesktopPane5MouseEntered
+
+    private void btn_firm_status_all_firmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_firm_status_all_firmsActionPerformed
+        String sql="";
+        sql = "SELECT * FROM firm_account"; // WHERE city='" + city + "' and user_type='b'";
+        
+        try
+        {
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if(rs.next())
+            {
+                DefaultTableModel tbl = (DefaultTableModel) tbl_firm_status.getModel();
+                tbl.setRowCount(0); 
+                do
+                {
+                    boolean status=false;
+                    if(rs.getString("status").equals("Active"))
+                    {
+                        status=true;
+                    }
+                    else if(rs.getString("status").equals("Inactive"))
+                    {
+                        status=false;
+                    }
+                    Object row[]={ rs.getString("firm_name"), status};
+     
+                    DefaultTableModel model = (DefaultTableModel) tbl_firm_status.getModel();
+                    model.addRow(row);
+                }while(rs.next());
+            }
+            //conn.close();
+        }
+        catch(SQLException | HeadlessException e)
+        {
+            JOptionPane.showMessageDialog(null, e);          
+        }
+    }//GEN-LAST:event_btn_firm_status_all_firmsActionPerformed
+
+    private void btn_firm_status_all_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_firm_status_all_saveActionPerformed
+           
+    }//GEN-LAST:event_btn_firm_status_all_saveActionPerformed
   
     public static void main(String args[]) 
     {
@@ -2378,6 +2573,8 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JButton btn_data_entry_back_date_bw;
     private javax.swing.JButton btn_data_entry_today;
     private javax.swing.JButton btn_data_restore;
+    private javax.swing.JButton btn_firm_status_all_firms;
+    private javax.swing.JButton btn_firm_status_all_save;
     private javax.swing.JButton btn_search_option_enter;
     private javax.swing.JComboBox cmb_daily_data_entry_firm_name;
     private javax.swing.JComboBox cmb_search_option_firm_name;
@@ -2387,6 +2584,7 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JDesktopPane jDesktopPane3;
     private javax.swing.JDesktopPane jDesktopPane4;
+    private javax.swing.JDesktopPane jDesktopPane5;
     private javax.swing.JDesktopPane jDesktopPane9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
@@ -2396,6 +2594,7 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
@@ -2403,6 +2602,7 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane10;
     private javax.swing.JTabbedPane jTabbedPane11;
@@ -2418,12 +2618,14 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JLabel lbl2_user_account;
     private javax.swing.JLabel lbl_borrowers_city;
     private javax.swing.JLabel lbl_borrowers_city1;
+    private javax.swing.JLabel lbl_borrowers_city3;
     private javax.swing.JLabel lbl_copyright_1;
     private javax.swing.JLabel lbl_copyright_11;
     private javax.swing.JLabel lbl_copyright_2;
     private javax.swing.JLabel lbl_copyright_3;
     private javax.swing.JLabel lbl_copyright_4;
     private javax.swing.JLabel lbl_copyright_5;
+    private javax.swing.JLabel lbl_copyright_6;
     private javax.swing.JLabel lbl_creditor_city;
     private javax.swing.JLabel lbl_daily_data_entry_comment;
     private javax.swing.JLabel lbl_daily_data_entry_credit;
@@ -2443,12 +2645,14 @@ public class Information extends javax.swing.JFrame
     private javax.swing.JTable table_daily_data_entry_total;
     private javax.swing.JTabbedPane tabpan_daily_data_entry;
     private javax.swing.JTabbedPane tabpane_borrowers;
+    private javax.swing.JTabbedPane tabpane_borrowers1;
     private javax.swing.JTabbedPane tabpane_creditors;
     private javax.swing.JTabbedPane tabpane_search_option;
     private javax.swing.JTabbedPane tabpane_user_account;
     private javax.swing.JTabbedPane tabpane_user_account2;
     private javax.swing.JTable tbl_borrowers_borrower_name;
     private javax.swing.JTable tbl_creditor_firm_name;
+    private javax.swing.JTable tbl_firm_status;
     private javax.swing.JTable tbl_search_option;
     private javax.swing.JTextField tbx_borrowers_city_auto_comp;
     private javax.swing.JTextField tbx_creditors_city_auto_comp;
