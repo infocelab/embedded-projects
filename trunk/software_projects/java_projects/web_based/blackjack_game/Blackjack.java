@@ -654,5 +654,12 @@ public void init(){
          buts[4].setEnabled(false);
       }
    repaint();
+   
    }
+   
+   public static void main(String[] args) {
+        //BomberMain bomberMain1 = new BomberMain();
+       Blackjack b= new Blackjack();
+       b.setVisible(true);
+    }
 }

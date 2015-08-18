@@ -58,7 +58,7 @@ public class fontSelector extends JDialog
 		getContentPane().add(previewLabel);
 		getContentPane().add(preview);
 		
-		//SETS THE PREVIEW
+		//SETS PREVIEW
 		fontSelector.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)

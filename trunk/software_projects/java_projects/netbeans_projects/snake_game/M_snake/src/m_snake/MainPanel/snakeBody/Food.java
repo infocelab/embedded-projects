@@ -1,20 +1,9 @@
-/*
- *   *       Please Visit us at www.codemiles.com     *
- *  This Program was Developed by www.codemiles.com forums Team
- *  *           Please Don't Remove This Comment       *
- */
-
 package m_snake.MainPanel.snakeBody;
 
 import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Float;
 import java.util.Random;
 
-
-/**
- *
- * @author SQLStudent
- */
 public class Food {
     
     /** Creates a new instance of Food */
@@ -57,8 +46,3 @@ public class Food {
     
     
 }
-/*
- *   *       Please Visit us at www.codemiles.com     *
- *  This Program was Developed by www.codemiles.com forums Team
- *  *           Please Don't Remove This Comment       *
- */

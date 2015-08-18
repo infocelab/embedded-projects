@@ -1,11 +1,4 @@
-/*
- * editor.java
- *
- * Use for anyone as long as it is acknowldedged to me
- * Please dont reuse this code without prior notice.
- * If you have any enquiries please do not hesitate to email me
- * dh002211@ex.apiit.edu.my
- */
+
  
 //THE IMPORTED LIBRARIES
 import javax.swing.*;
@@ -19,13 +12,7 @@ import javax.swing.undo.*;
 import javax.swing.event.*;
 import java.net.*;
 
-/**
- * Sample application using the simple text editor component that
- * supports multiple fonts.
- *
- * @author  Asrar A Makrani
- * @version 18/10/2002
- */
+
 
 public class editor extends JFrame
 {
