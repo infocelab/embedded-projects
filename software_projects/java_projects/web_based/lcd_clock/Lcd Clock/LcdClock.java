@@ -9,4 +9,10 @@ public class LcdClock extends JApplet{
     lcdClockPanel = new LcdClockPanel(getParameter("paramFormat"),getParameter("paramColor"),getParameter("paramBlinking"));
     container.add(lcdClockPanel,BorderLayout.CENTER);
   }
+  
+  public static void main (String[] args)
+	{
+		
+	}
+  
 }

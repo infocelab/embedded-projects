@@ -1,8 +1,3 @@
-/*
- *   *       Please Visit us at www.codemiles.com     *
- *  This Program was Developed by www.codemiles.com forums Team
- *  *           Please Don't Remove This Comment       *
- */
 
 package m_snake.MainPanel;
 
@@ -20,16 +15,11 @@ import javax.swing.border.LineBorder;
 import m_snake.MainPanel.snakeBody.Food;
 import m_snake.MainPanel.snakeBody.snake;
 
-/**
- *
- * @author SQLStudent
- */
+
 public class myPanel extends JPanel  {
     
     /** Creates a new instance of myPanel */
     public myPanel() {
-        
-        
         
         setBorder(my_border);
         
@@ -50,8 +40,6 @@ public class myPanel extends JPanel  {
         Parts_Y=my_engin.return_Snake_postionsY();
         
         for(int i=0;i<my_engin.get_my_snake_lenght();i++) {
-            
-            
             
             g2D.fillRect(Parts_X[i],Parts_Y[i],my_Oval_size,my_Oval_size);
             
@@ -102,11 +90,4 @@ public class myPanel extends JPanel  {
     private final int UP = 38;
     private final int DOWN = 40;
     private LineBorder my_border=new LineBorder(Color.green.darker(),3);
-    
-    
 }
-/*
- *   *       Please Visit us at www.codemiles.com     *
- *  This Program was Developed by www.codemiles.com forums Team
- *  *           Please Don't Remove This Comment       *
- */

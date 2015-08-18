@@ -1,14 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package model;
 
-/**
- *
- * @author ahza
- */
+
 public class CalculatorModel {
     int operator=0;
     double operand1;

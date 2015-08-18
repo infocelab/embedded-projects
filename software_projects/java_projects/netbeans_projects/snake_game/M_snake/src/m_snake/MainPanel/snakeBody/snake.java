@@ -1,16 +1,8 @@
-/*
- *   *       Please Visit us at www.codemiles.com     *
- *  This Program was Developed by www.codemiles.com forums Team
- *  *           Please Don't Remove This Comment       *
- */
 package m_snake.MainPanel.snakeBody;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author SQLStudent
- */
+
 
 public class snake {
     
@@ -27,7 +19,6 @@ public class snake {
         for(int i=0;i<snake_length;i++) {
             PostionsX[snake_length-i]=PostionsX[snake_length-(i+1)];
             PostionsY[snake_length-i]=PostionsY[snake_length-(i+1)];
-            
             
         }
         
@@ -46,16 +37,13 @@ public class snake {
             
         {
             if((PostionsX[i]==headX)&&(PostionsY[i]==headY)) {
-                
-                
                 return true;
             }
         }
-        if(headX<0||headX>760||headY<0||headY>460) {
+        if(headX<0||headX>750||headY<0||headY>435) {
            
             return true;
         }
-        
         return false;
     }
     
@@ -66,7 +54,6 @@ public class snake {
                 return true;
             }
         }
-        
         return false;
     }
     
@@ -81,9 +68,6 @@ public class snake {
     public int getOval_Size() {
         return Oval_size;
     }
-    
-    
-    
     public int[] get_All_postionsX() {
         return PostionsX;
     }
@@ -106,8 +90,4 @@ public class snake {
     private int snake_length=5;
     private final int Oval_size=20;
     
-}/*
- *   *       Please Visit us at www.codemiles.com     *
- *  This Program was Developed by www.codemiles.com forums Team
- *  *           Please Don't Remove This Comment       *
- */
+}

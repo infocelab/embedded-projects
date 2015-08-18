@@ -1,17 +1,9 @@
-/*
- *   *       Please Visit us at www.codemiles.com     *
- *  This Program was Developed by www.codemiles.com forums Team
- *  *           Please Don't Remove This Comment       *
- */
 package Snake_engin;
 
 import javax.swing.JOptionPane;
 import m_snake.MainPanel.snakeBody.Food;
 import m_snake.MainPanel.snakeBody.snake;
-/**
- *
- * @author SQLStudent
- */
+
 public class engin {
     
     /** Creates a new instance of engin */
@@ -182,8 +174,3 @@ public class engin {
    private int Score;
    
 }
-/*
- *   *       Please Visit us at www.codemiles.com     *
- *  This Program was Developed by www.codemiles.com forums Team
- *  *           Please Don't Remove This Comment       *
- */
